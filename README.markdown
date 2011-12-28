@@ -17,15 +17,19 @@ If the help is not available after installation, you can try to issue this comma
 
 ## Use
 
-There's no configuration required for this plugin. So after you installed it,
-you can press `<C-k>` on any keyword to bring up the Yii manual page.
-
-You can also manually ask for help, e.g. like
+There's no real configuration required for this plugin. After installing it, you can
+ask for help on Yii classes like this:
 
 ```vim
 :help CWebUser
 ```
 
+If you want to use keyword search (which allows to press `<S-k>` over any keyword)
+then you should add this line to your `.vimrc`:
+
+```vim
+autocmd BufNewFile,Bufread *.php set keywordprg="help"
+```
 
 ## Create custom version
 
