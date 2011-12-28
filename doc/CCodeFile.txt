@@ -1,0 +1,72 @@
+
+*CCodeFile*   >> |CComponent|
+===========
+
+ CCodeFile represents a code file being generated.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<content>				*CCodeFile::content*
+ (mixed) the newly generated code. If this is null, it means |CCodeFile::path|
+ should be treated as a directory.
+
+<error> 				*CCodeFile::error*
+ (string) the error occurred when saving the code into a file
+
+<operation>				*CCodeFile::operation*
+ (string) the operation to be performed
+
+<path>					*CCodeFile::path*
+ (string) the file path that the new code should be saved to.
+
+<relativePath>				*CCodeFile::relativePath*
+ (string) the code file path relative to the application base path.
+
+<type>					*CCodeFile::type*
+ (string) the code file extension (e.g. php, txt)
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CCodeFile::__construct*					 public
+>
+ __construct($path, $content)
+<
+(void)
+
+ Constructor.
+    [path] (string) the file path that the new code should be saved to.
+    [content] (string) the newly generated code
+
+
+*CCodeFile::getRelativePath*					 public
+>
+ getRelativePath()
+<
+(string) the code file path relative to the application base path.
+
+
+
+*CCodeFile::getType*						 public
+>
+ getType()
+<
+(string) the code file extension (e.g. php, txt)
+
+
+
+*CCodeFile::save*						 public
+>
+ save()
+<
+(void)
+
+ Saves the code into the file |CCodeFile::path|.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

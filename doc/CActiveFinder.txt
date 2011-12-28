@@ -1,0 +1,98 @@
+
+*CActiveFinder*   >> |CComponent|
+===============
+
+ CActiveFinder implements eager loading and lazy loading of related active
+ records.
+
+ When used in eager loading, this class provides the same set of find methods
+ as |CActiveRecord|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<baseLimited>				*CActiveFinder::baseLimited*
+ (boolean) whether the base model has limit or offset. This property is
+ internally used.
+
+<joinAll>				*CActiveFinder::joinAll*
+ (boolean) join all tables all at once. Defaults to false. This property is
+ internally used.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CActiveFinder::__construct*					 public
+>
+ __construct($model, $with)
+<
+(void)
+
+ Constructor. A join tree is built up based on the declared relationships
+ between active record classes.
+    [model] (CActiveRecord) the model that initiates the active finding
+    process
+    [with] (mixed) the relation names to be actively looked for
+
+
+*CActiveFinder::count*						 public
+>
+ count($criteria)
+<
+(void)
+
+ This method is internally called.
+    [criteria] (CDbCriteria) the query criteria
+
+
+*CActiveFinder::findAllBySql*					 public
+>
+ findAllBySql($sql, $params=array())
+<
+(void)
+
+ This method is internally called.
+    [sql] (string) the SQL statement
+    [params] (array) parameters to be bound to the SQL statement
+
+
+*CActiveFinder::findBySql*					 public
+>
+ findBySql($sql, $params=array())
+<
+(void)
+
+ This method is internally called.
+    [sql] (string) the SQL statement
+    [params] (array) parameters to be bound to the SQL statement
+
+
+*CActiveFinder::lazyFind*					 public
+>
+ lazyFind($baseRecord)
+<
+(void)
+
+ Finds the related objects for the specified active record. This method is
+ internally invoked by |CActiveRecord| to support lazy loading.
+    [baseRecord] (CActiveRecord) the base record whose related objects are to
+    be loaded
+
+
+*CActiveFinder::query*						 public
+>
+ query($criteria, $all=false)
+<
+(mixed) the query result
+
+ Performs the relational query based on the given DB criteria. Do not call
+ this method. This method is used internally.
+    [criteria] (CDbCriteria) the DB criteria
+    [all] (boolean) whether to bring back all records
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

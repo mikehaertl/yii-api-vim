@@ -1,0 +1,35 @@
+
+*CPgsqlColumnSchema*   >> |CDbColumnSchema| >> |CComponent|
+====================
+
+ CPgsqlColumnSchema class describes the column meta data of a PostgreSQL
+ table.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CPgsqlColumnSchema::extractDefault*				 protected
+>
+ extractDefault($defaultValue)
+<
+(void)
+
+ Extracts the default value for the column. The value is typecasted to correct
+ PHP type.
+    [defaultValue] (mixed) the default value obtained from metadata
+
+
+*CPgsqlColumnSchema::extractType*				 protected
+>
+ extractType($dbType)
+<
+(void)
+
+ Extracts the PHP type from DB type.
+    [dbType] (string) DB type
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,61 @@
+
+*CModelBehavior*   >> |CBehavior| >> |CComponent|
+================
+
+ CModelBehavior is a base class for behaviors that are attached to a model
+ component. The model should extend from |CModel| or its child classes.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CModelBehavior::afterConstruct*				 public
+>
+ afterConstruct($event)
+<
+(void)
+
+ Responds to |CModel::onAfterConstruct| event. Overrides this method if you
+ want to handle the corresponding event of the |CBehavior::owner|.
+    [event] (CEvent) event parameter
+
+
+*CModelBehavior::afterValidate* 				 public
+>
+ afterValidate($event)
+<
+(void)
+
+ Responds to |CModel::onAfterValidate| event. Overrides this method if you
+ want to handle the corresponding event of the |CModelBehavior::owner|.
+    [event] (CEvent) event parameter
+
+
+*CModelBehavior::beforeValidate*				 public
+>
+ beforeValidate($event)
+<
+(void)
+
+ Responds to |CModel::onBeforeValidate| event. Overrides this method if you
+ want to handle the corresponding event of the |CModelBehavior::owner|. You
+ may set |CModelEvent::isValid| to be false to quit the validation process.
+    [event] (CModelEvent) event parameter
+
+
+*CModelBehavior::events*					 public
+>
+ events()
+<
+(array) events (array keys) and the corresponding event handler methods (array
+values).
+
+ Declares events and the corresponding event handler methods. The default
+ implementation returns 'onBeforeValidate' and 'onAfterValidate' events and
+ handlers. If you override this method, make sure you merge the parent result
+ to the return value.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

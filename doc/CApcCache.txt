@@ -1,0 +1,101 @@
+
+*CApcCache*   >> |CCache| >> |CApplicationComponent| >> |CComponent|
+===========
+
+ CApcCache provides APC caching in terms of an application component.
+
+ The caching is based on 'APC'. To use this application component, the APC PHP
+ extension must be loaded.
+
+ See |CCache| manual for common cache operations that are supported by
+ CApcCache.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CApcCache::addValue*						 protected
+>
+ addValue($key, $value, $expire)
+<
+(boolean) true if the value is successfully stored into cache, false otherwise
+
+ Stores a value identified by a key into cache if the cache does not contain
+ this key. This is the implementation of the method declared in the parent
+ class.
+    [key] (string) the key identifying the value to be cached
+    [value] (string) the value to be cached
+    [expire] (integer) the number of seconds in which the cached value will
+    expire. 0 means never expire.
+
+
+*CApcCache::deleteValue*					 protected
+>
+ deleteValue($key)
+<
+(boolean) if no error happens during deletion
+
+ Deletes a value with the specified key from cache This is the implementation
+ of the method declared in the parent class.
+    [key] (string) the key of the value to be deleted
+
+
+*CApcCache::flushValues*					 protected
+>
+ flushValues()
+<
+(boolean) whether the flush operation was successful.
+
+ Deletes all values from cache. This is the implementation of the method
+ declared in the parent class.
+
+
+*CApcCache::getValue*						 protected
+>
+ getValue($key)
+<
+(string) the value stored in cache, false if the value is not in the cache or
+expired.
+
+ Retrieves a value from cache with a specified key. This is the implementation
+ of the method declared in the parent class.
+    [key] (string) a unique key identifying the cached value
+
+
+*CApcCache::getValues*						 protected
+>
+ getValues($keys)
+<
+(array) a list of cached values indexed by the keys
+
+ Retrieves multiple values from cache with the specified keys.
+    [keys] (array) a list of keys identifying the cached values
+
+
+*CApcCache::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes this application component. This method is required by the
+ |IApplicationComponent| interface. It checks the availability of memcache.
+
+
+*CApcCache::setValue*						 protected
+>
+ setValue($key, $value, $expire)
+<
+(boolean) true if the value is successfully stored into cache, false otherwise
+
+ Stores a value identified by a key in cache. This is the implementation of
+ the method declared in the parent class.
+    [key] (string) the key identifying the value to be cached
+    [value] (string) the value to be cached
+    [expire] (integer) the number of seconds in which the cached value will
+    expire. 0 means never expire.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

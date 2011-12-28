@@ -1,0 +1,167 @@
+
+*CAuthManager*   >> |CApplicationComponent| >> |CComponent|
+==============
+
+ CAuthManager is the base class for authorization manager classes.
+
+ CAuthManager extends |CApplicationComponent| and implements some methods that
+ are common among authorization manager classes.
+
+ CAuthManager together with its concrete child classes implement the
+ Role-Based Access Control (RBAC).
+
+ The main idea is that permissions are organized as a hierarchy of
+ |CAuthItem|. Items on higer level inherit the permissions represented by
+ items on lower level. And roles are simply top-level authorization items that
+ may be assigned to individual users. A user is said to have a permission to
+ do something if the corresponding authorization item is inherited by one of
+ his roles.
+
+ Using authorization manager consists of two aspects. First, the authorization
+ hierarchy and assignments have to be established. CAuthManager and its child
+ classes provides APIs to accomplish this task. Developers may need to develop
+ some GUI so that it is more intuitive to end-users. Second, developers call
+ |IAuthManager::checkAccess| at appropriate places in the application code to
+ check if the current user has the needed permission for an operation.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<defaultRoles>				*CAuthManager::defaultRoles*
+ (array) list of role names that are assigned to all users implicitly. These
+ roles do not need to be explicitly assigned to any user. When calling
+ |CAuthManager::checkAccess|, these roles will be checked first. For
+ performance reason, you should minimize the number of such roles. A typical
+ usage of such roles is to define an 'authenticated' role and associate it
+ with a biz rule which checks if the current user is authenticated. And then
+ declare 'authenticated' in this property so that it can be applied to every
+ authenticated user.
+
+<operations>				*CAuthManager::operations*
+ (array) Returns operations. This is a shortcut method to
+ |IAuthManager::getAuthItems|.
+
+<roles> 				*CAuthManager::roles*
+ (array) Returns roles. This is a shortcut method to
+ |IAuthManager::getAuthItems|.
+
+<showErrors>				*CAuthManager::showErrors*
+ (boolean) Enable error reporting for bizRules.
+
+<tasks> 				*CAuthManager::tasks*
+ (array) Returns tasks. This is a shortcut method to
+ |IAuthManager::getAuthItems|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CAuthManager::checkItemChildType*				 protected
+>
+ checkItemChildType($parentType, $childType)
+<
+(void)
+
+ Checks the item types to make sure a child can be added to a parent.
+    [parentType] (integer) parent item type
+    [childType] (integer) child item type
+
+
+*CAuthManager::createOperation* 				 public
+>
+ createOperation($name, $description='', $bizRule='', $data=NULL)
+<
+(CAuthItem) the authorization item
+
+ Creates an operation. This is a shortcut method to
+ |IAuthManager::createAuthItem|.
+    [name] (string) the item name
+    [description] (string) the item description.
+    [bizRule] (string) the business rule associated with this item
+    [data] (mixed) additional data to be passed when evaluating the business
+    rule
+
+
+*CAuthManager::createRole*					 public
+>
+ createRole($name, $description='', $bizRule='', $data=NULL)
+<
+(CAuthItem) the authorization item
+
+ Creates a role. This is a shortcut method to |IAuthManager::createAuthItem|.
+    [name] (string) the item name
+    [description] (string) the item description.
+    [bizRule] (string) the business rule associated with this item
+    [data] (mixed) additional data to be passed when evaluating the business
+    rule
+
+
+*CAuthManager::createTask*					 public
+>
+ createTask($name, $description='', $bizRule='', $data=NULL)
+<
+(CAuthItem) the authorization item
+
+ Creates a task. This is a shortcut method to |IAuthManager::createAuthItem|.
+    [name] (string) the item name
+    [description] (string) the item description.
+    [bizRule] (string) the business rule associated with this item
+    [data] (mixed) additional data to be passed when evaluating the business
+    rule
+
+
+*CAuthManager::executeBizRule*					 public
+>
+ executeBizRule($bizRule, $params, $data)
+<
+(boolean) whether the business rule returns true. If the business rule is
+empty, it will still return true.
+
+ Executes the specified business rule.
+    [bizRule] (string) the business rule to be executed.
+    [params] (array) parameters passed to |IAuthManager::checkAccess|.
+    [data] (mixed) additional data associated with the authorization item or
+    assignment.
+
+
+*CAuthManager::getOperations*					 public
+>
+ getOperations($userId=NULL)
+<
+(array) operations (name=>CAuthItem)
+
+ Returns operations. This is a shortcut method to
+ |IAuthManager::getAuthItems|.
+    [userId] (mixed) the user ID. If not null, only the operations directly
+    assigned to the user will be returned. Otherwise, all operations will be
+    returned.
+
+
+*CAuthManager::getRoles*					 public
+>
+ getRoles($userId=NULL)
+<
+(array) roles (name=>CAuthItem)
+
+ Returns roles. This is a shortcut method to |IAuthManager::getAuthItems|.
+    [userId] (mixed) the user ID. If not null, only the roles directly
+    assigned to the user will be returned. Otherwise, all roles will be
+    returned.
+
+
+*CAuthManager::getTasks*					 public
+>
+ getTasks($userId=NULL)
+<
+(array) tasks (name=>CAuthItem)
+
+ Returns tasks. This is a shortcut method to |IAuthManager::getAuthItems|.
+    [userId] (mixed) the user ID. If not null, only the tasks directly
+    assigned to the user will be returned. Otherwise, all tasks will be
+    returned.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

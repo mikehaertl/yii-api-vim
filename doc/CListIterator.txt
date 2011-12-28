@@ -1,0 +1,76 @@
+
+*CListIterator*  
+===============
+
+ CListIterator implements an interator for |CList|.
+
+ It allows CList to return a new iterator for traversing the items in the
+ list.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CListIterator::__construct*					 public
+>
+ __construct($data)
+<
+(void)
+
+ Constructor.
+    [data] (array) the data to be iterated through
+
+
+*CListIterator::current*					 public
+>
+ current()
+<
+(mixed) the current array item
+
+ Returns the current array item. This method is required by the interface
+ Iterator.
+
+
+*CListIterator::key*						 public
+>
+ key()
+<
+(integer) the key of the current array item
+
+ Returns the key of the current array item. This method is required by the
+ interface Iterator.
+
+
+*CListIterator::next*						 public
+>
+ next()
+<
+(void)
+
+ Moves the internal pointer to the next array item. This method is required by
+ the interface Iterator.
+
+
+*CListIterator::rewind* 					 public
+>
+ rewind()
+<
+(void)
+
+ Rewinds internal array pointer. This method is required by the interface
+ Iterator.
+
+
+*CListIterator::valid*						 public
+>
+ valid()
+<
+(boolean) 
+
+ Returns whether there is an item at current position. This method is required
+ by the interface Iterator.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

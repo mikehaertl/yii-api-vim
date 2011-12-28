@@ -1,0 +1,107 @@
+
+*CDbColumnSchema*   >> |CComponent|
+=================
+
+ CDbColumnSchema class describes the column meta data of a database table.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowNull>				*CDbColumnSchema::allowNull*
+ (boolean) whether this column can be null.
+
+<autoIncrement> 			*CDbColumnSchema::autoIncrement*
+ (boolean) whether this column is auto-incremental
+
+<dbType>				*CDbColumnSchema::dbType*
+ (string) the DB type of this column.
+
+<defaultValue>				*CDbColumnSchema::defaultValue*
+ (mixed) default value of this column
+
+<isForeignKey>				*CDbColumnSchema::isForeignKey*
+ (boolean) whether this column is a foreign key
+
+<isPrimaryKey>				*CDbColumnSchema::isPrimaryKey*
+ (boolean) whether this column is a primary key
+
+<name>					*CDbColumnSchema::name*
+ (string) name of this column (without quotes).
+
+<precision>				*CDbColumnSchema::precision*
+ (integer) precision of the column data, if it is numeric.
+
+<rawName>				*CDbColumnSchema::rawName*
+ (string) raw name of this column. This is the quoted name that can be used in
+ SQL queries.
+
+<scale> 				*CDbColumnSchema::scale*
+ (integer) scale of the column data, if it is numeric.
+
+<size>					*CDbColumnSchema::size*
+ (integer) size of the column.
+
+<type>					*CDbColumnSchema::type*
+ (string) the PHP type of this column.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbColumnSchema::extractDefault*				 protected
+>
+ extractDefault($defaultValue)
+<
+(void)
+
+ Extracts the default value for the column. The value is typecasted to correct
+ PHP type.
+    [defaultValue] (mixed) the default value obtained from metadata
+
+
+*CDbColumnSchema::extractLimit* 				 protected
+>
+ extractLimit($dbType)
+<
+(void)
+
+ Extracts size, precision and scale information from column's DB type.
+    [dbType] (string) the column's DB type
+
+
+*CDbColumnSchema::extractType*					 protected
+>
+ extractType($dbType)
+<
+(void)
+
+ Extracts the PHP type from DB type.
+    [dbType] (string) DB type
+
+
+*CDbColumnSchema::init* 					 public
+>
+ init($dbType, $defaultValue)
+<
+(void)
+
+ Initializes the column with its DB type and default value. This sets up the
+ column's PHP type, size, precision, scale as well as default value.
+    [dbType] (string) the column's DB type
+    [defaultValue] (mixed) the default value
+
+
+*CDbColumnSchema::typecast*					 public
+>
+ typecast($value)
+<
+(mixed) converted value
+
+ Converts the input value to the type that this column is of.
+    [value] (mixed) input value
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

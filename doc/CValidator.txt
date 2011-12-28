@@ -1,0 +1,182 @@
+
+*CValidator*   >> |CComponent|
+============
+
+ CValidator is the base class for all validators.
+
+ Child classes must implement the |CValidator::validateAttribute| method.
+
+ The following properties are defined in CValidator:
+   |CValidator::attributes|: array, list of attributes to be
+   validated;
+   |CValidator::message|: string, the customized error message. The
+   message   may contain placeholders that will be replaced with the
+   actual content.   For example, the "{attribute}" placeholder will
+   be replaced with the label   of the problematic attribute.
+   Different validators may define additional   placeholders.
+   |CValidator::on|: string, in which scenario should the validator
+   be in effect.   This is used to match the 'on' parameter supplied
+   when calling |CModel::validate|.When using |CValidator::createValidator| to
+ create a validator, the following aliases are recognized as the corresponding
+ built-in validator classes:
+   {required} |CRequiredValidator|
+   {filter} |CFilterValidator|
+   {match} |CRegularExpressionValidator|
+   {email} |CEmailValidator|
+   {url} |CUrlValidator|
+   {unique} |CUniqueValidator|
+   {compare} |CCompareValidator|
+   {length} |CStringValidator|
+   {in} |CRangeValidator|
+   {numerical} |CNumberValidator|
+   {captcha} |CCaptchaValidator|
+   {type} |CTypeValidator|
+   {file} |CFileValidator|
+   {default} |CDefaultValueValidator|
+   {exist} |CExistValidator|
+   {boolean} |CBooleanValidator|
+   {date} |CDateValidator|
+   {safe} |CSafeValidator|
+   {unsafe} |CUnsafeValidator|
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<attributes>				*CValidator::attributes*
+ (array) list of attributes to be validated.
+
+<builtInValidators>			*CValidator::builtInValidators*
+ (array) list of built-in validators (name=>class)
+
+<enableClientValidation>		*CValidator::enableClientValidation*
+ (boolean) whether to perform client-side validation. Defaults to true. Please
+ refer to |CActiveForm::enableClientValidation| for more details about
+ client-side validation.
+
+<message>				*CValidator::message*
+ (string) the user-defined error message. Different validators may define
+ various placeholders in the message that are to be replaced with actual
+ values. All validators recognize "{attribute}" placeholder, which will be
+ replaced with the label of the attribute.
+
+<on>					*CValidator::on*
+ (array) list of scenarios that the validator should be applied. Each array
+ value refers to a scenario name with the same name as its array key.
+
+<safe>					*CValidator::safe*
+ (boolean) whether attributes listed with this validator should be considered
+ safe for massive assignment. Defaults to true.
+
+<skipOnError>				*CValidator::skipOnError*
+ (boolean) whether this validation rule should be skipped if when there is
+ already a validation error for the current attribute. Defaults to false.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CValidator::addError*						 protected
+>
+ addError($object, $attribute, $message, $params=array())
+<
+(void)
+
+ Adds an error about the specified attribute to the active record. This is a
+ helper method that performs message selection and internationalization.
+    [object] (CModel) the data object being validated
+    [attribute] (string) the attribute being validated
+    [message] (string) the error message
+    [params] (array) values for the placeholders in the error message
+
+
+*CValidator::applyTo*						 public
+>
+ applyTo($scenario)
+<
+(boolean) whether the validator applies to the specified scenario.
+
+ Returns a value indicating whether the validator applies to the specified
+ scenario. A validator applies to a scenario as long as any of the following
+ conditions is met:
+   the validator's "on" property is empty
+   the validator's "on" property contains the specified scenario
+    [scenario] (string) scenario name
+
+
+*CValidator::clientValidateAttribute*				 public
+>
+ clientValidateAttribute($object, $attribute)
+<
+(string) the client-side validation script. Null if the validator does not
+support client-side validation.
+
+ Returns the JavaScript needed for performing client-side validation. Do not
+ override this method if the validator does not support client-side
+ validation. Two predefined JavaScript variables can be used:
+   {value} the value to be validated
+   {messages} an array used to hold the validation error messages for
+   the value
+    [object] (CModel) the data object being validated
+    [attribute] (string) the name of the attribute to be validated.
+
+
+*CValidator::createValidator*					 public
+>
+ createValidator($name, $object, $attributes, $params=array())
+<
+(CValidator) the validator
+
+ Creates a validator object.
+    [name] (string) the name or class of the validator
+    [object] (CModel) the data object being validated that may contain the
+    inline validation method
+    [attributes] (mixed) list of attributes to be validated. This can be
+    either an array of the attribute names or a string of comma-separated
+    attribute names.
+    [params] (array) initial values to be applied to the validator properties
+
+
+*CValidator::isEmpty*						 protected
+>
+ isEmpty($value, $trim=false)
+<
+(boolean) whether the value is empty
+
+ Checks if the given value is empty. A value is considered empty if it is
+ null, an empty array, or the trimmed result is an empty string. Note that
+ this method is different from PHP empty(). It will return false when the
+ value is 0.
+    [value] (mixed) the value to be checked
+    [trim] (boolean) whether to perform trimming before checking if the string
+    is empty. Defaults to false.
+
+
+*CValidator::validate*						 public
+>
+ validate($object, $attributes=NULL)
+<
+(void)
+
+ Validates the specified object.
+    [object] (CModel) the data object being validated
+    [attributes] (array) the list of attributes to be validated. Defaults to
+    null, meaning every attribute listed in |CValidator::attributes| will be
+    validated.
+
+
+*CValidator::validateAttribute* 				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates a single attribute. This method should be overridden by child
+ classes.
+    [object] (CModel) the data object being validated
+    [attribute] (string) the name of the attribute to be validated.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,55 @@
+
+*CChoiceFormat*  
+===============
+
+ CChoiceFormat is a helper that chooses an appropriate message based on the
+ specified number value. The candidate messages are given as a string in the
+ following format:
+>
+ 'expr1#message1|expr2#message2|expr3#message3'
+<
+ where each expression should be a valid PHP expression with 'n' as the only
+ variable. For example, 'n==1' and 'n%10==2 && n>10' are both valid
+ expressions. The variable 'n' will take the given number value, and if an
+ expression evaluates true, the corresponding message will be returned.
+
+ For example, given the candidate messages 'n==1#one|n==2#two|n>2#others' and
+ the number value 2, the resulting message will be 'two'.
+
+ For expressions like 'n==1', we can also use a shortcut '1'. So the above
+ example candidate messages can be simplified as '1#one|2#two|n>2#others'.
+
+ In case the given number doesn't select any message, the last candidate
+ message will be returned.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CChoiceFormat::evaluate*					 protected
+>
+ evaluate($expression, $n)
+<
+(boolean) the expression result
+
+ Evaluates a PHP expression with the given number value.
+    [expression] (string) the PHP expression
+    [n] (mixed) the number value
+
+
+*CChoiceFormat::format* 					 public
+>
+ format($messages, $number)
+<
+(string) the selected message
+
+ Formats a message according to the specified number value.
+    [messages] (string) the candidate messages in the format of
+    'expr1#message1|expr2#message2|expr3#message3'. See |CChoiceFormat| for
+    more details.
+    [number] (mixed) the number value
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

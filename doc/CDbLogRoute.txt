@@ -1,0 +1,92 @@
+
+*CDbLogRoute*   >> |CLogRoute| >> |CComponent|
+=============
+
+ CDbLogRoute stores log messages in a database table.
+
+ To specify the database table for storing log messages, set
+ |CDbLogRoute::logTableName| as the name of the table and specify
+ |CDbLogRoute::connectionID| to be the ID of a |CDbConnection| application
+ component. If they are not set, a SQLite3 database named 'log-YiiVersion.db'
+ will be created and used under the application runtime directory.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<autoCreateLogTable>			*CDbLogRoute::autoCreateLogTable*
+ (boolean) whether the log DB table should be automatically created if not
+ exists. Defaults to true.
+
+<connectionID>				*CDbLogRoute::connectionID*
+ (string) the ID of CDbConnection application component. If not set, a SQLite
+ database will be automatically created and used. The SQLite database file is
+ 'protected/runtime/log-YiiVersion.db'.
+
+<dbConnection>				*CDbLogRoute::dbConnection*
+ (CDbConnection) the DB connection instance
+
+<logTableName>				*CDbLogRoute::logTableName*
+ (string) the name of the DB table that stores log content. Defaults to
+ 'YiiLog'. If |CDbLogRoute::autoCreateLogTable| is false and you want to
+ create the DB table manually by yourself, you need to make sure the DB table
+ is of the following structure:
+>
+  (
+ 	id       INTEGER NOT NULL PRIMARY KEY,
+ 	level    VARCHAR(128),
+ 	category VARCHAR(128),
+ 	logtime  INTEGER,
+ 	message  TEXT
+   )
+<
+ Note, the 'id' column must be created as an auto-incremental column. In
+ MySQL, this means it should be 'id INTEGER NOT NULL AUTO_INCREMENT PRIMARY
+ KEY'; In PostgreSQL, it is 'id SERIAL PRIMARY KEY'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbLogRoute::createLogTable*					 protected
+>
+ createLogTable($db, $tableName)
+<
+(void)
+
+ Creates the DB table for storing log messages.
+    [db] (CDbConnection) the database connection
+    [tableName] (string) the name of the table to be created
+
+
+*CDbLogRoute::getDbConnection*					 protected
+>
+ getDbConnection()
+<
+(CDbConnection) the DB connection instance
+
+
+
+*CDbLogRoute::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the route. This method is invoked after the route is created by
+ the route manager.
+
+
+*CDbLogRoute::processLogs*					 protected
+>
+ processLogs($logs)
+<
+(void)
+
+ Stores log messages into database.
+    [logs] (array) list of log messages
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

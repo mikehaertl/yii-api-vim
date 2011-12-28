@@ -1,0 +1,92 @@
+
+*CFlexWidget*   >> |CWidget| >> |CBaseController| >> |CComponent|
+=============
+
+ CFlexWidget embeds a Flex 3.x application into a page.
+
+ To use CFlexWidget, set |CFlexWidget::name| to be the Flex application name
+ (without the .swf suffix), and set |CFlexWidget::baseUrl| to be URL (without
+ the ending slash) of the directory containing the SWF file of the Flex
+ application.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<align> 				*CFlexWidget::align*
+ (string) align of the application region. Defaults to 'middle'.
+
+<allowFullScreen>			*CFlexWidget::allowFullScreen*
+ (boolean) whether to allow running the Flash in full screen mode. Defaults to
+ false.
+
+<allowScriptAccess>			*CFlexWidget::allowScriptAccess*
+ (string) the access method of the script. Defaults to 'sameDomain'.
+
+<altHtmlContent>			*CFlexWidget::altHtmlContent*
+ (string) the HTML content to be displayed if Flash player is not installed.
+
+<baseUrl>				*CFlexWidget::baseUrl*
+ (string) the base URL of the Flex application. This refers to the URL of the
+ directory containing the SWF file.
+
+<bgColor>				*CFlexWidget::bgColor*
+ (string) background color of the application region. Defaults to '#FFFFFF',
+ meaning white.
+
+<enableHistory> 			*CFlexWidget::enableHistory*
+ (boolean) whether history should be enabled. Defaults to true.
+
+<flashVars>				*CFlexWidget::flashVars*
+ (array) parameters to be passed to the Flex application.
+
+<flashVarsAsString>			*CFlexWidget::flashVarsAsString*
+ (string) Generates the properly quoted flash parameter string.
+
+<height>				*CFlexWidget::height*
+ (string) height of the application region. Defaults to 300.
+
+<name>					*CFlexWidget::name*
+ (string) name of the Flex application. This should be the SWF file name
+ without the ".swf" suffix.
+
+<quality>				*CFlexWidget::quality*
+ (string) quality of the animation. Defaults to 'high'.
+
+<width> 				*CFlexWidget::width*
+ (string) width of the application region. Defaults to 450.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CFlexWidget::getFlashVarsAsString*				 public
+>
+ getFlashVarsAsString()
+<
+(string) the flash parameter string.
+
+ Generates the properly quoted flash parameter string.
+
+
+*CFlexWidget::registerClientScript*				 public
+>
+ registerClientScript()
+<
+(void)
+
+ Registers the needed CSS and JavaScript.
+
+
+*CFlexWidget::run*						 public
+>
+ run()
+<
+(void)
+
+ Renders the widget.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

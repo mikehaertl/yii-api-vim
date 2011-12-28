@@ -1,0 +1,47 @@
+
+*CFileCacheDependency*   >> |CCacheDependency| >> |CComponent|
+======================
+
+ CFileCacheDependency represents a dependency based on a file's last
+ modification time.
+
+ CFileCacheDependency performs dependency checking based on the last
+ modification time of the file specified via |CFileCacheDependency::fileName|.
+ The dependency is reported as unchanged if and only if the file's last
+ modification time remains unchanged.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<fileName>				*CFileCacheDependency::fileName*
+ (string) the name of the file whose last modification time is used to check
+ if the dependency has been changed.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CFileCacheDependency::__construct*				 public
+>
+ __construct($fileName='')
+<
+(void)
+
+ Constructor.
+    [fileName] (string) name of the file whose change is to be checked.
+
+
+*CFileCacheDependency::generateDependentData*			 protected
+>
+ generateDependentData()
+<
+(mixed) the data needed to determine if dependency has been changed.
+
+ Generates the data needed to determine if dependency has been changed. This
+ method returns the file's last modification time.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

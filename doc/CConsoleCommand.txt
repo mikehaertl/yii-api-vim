@@ -1,0 +1,252 @@
+
+*CConsoleCommand*   >> |CComponent|
+=================
+
+ CConsoleCommand represents an executable console command.
+
+ It works like |CController| by parsing command line options and dispatching
+ the request to a specific action with appropriate option values.
+
+ Users call a console command via the following command format:
+>
+ yiic CommandName ActionName --Option1=Value1 --Option2=Value2 ...
+<
+ Child classes mainly needs to implement various action methods whose name
+ must be prefixed with "action". The parameters to an action method are
+ considered as options for that specific action. The action specified as
+ |CConsoleCommand::defaultAction| will be invoked when a user does not specify
+ the action name in his command.
+
+ Options are bound to action parameters via parameter names. For example, the
+ following action method will allow us to run a command with 'yiic sitemap
+ --type=News':
+>
+ class SitemapCommand {
+     public function actionIndex($type) {
+         ....
+     }
+ }
+<
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<commandRunner> 			*CConsoleCommand::commandRunner*
+ (CConsoleCommandRunner) the command runner instance
+
+<defaultAction> 			*CConsoleCommand::defaultAction*
+ (string) the name of the default action. Defaults to 'index'.
+
+<help>					*CConsoleCommand::help*
+ (string) Provides the command description. This method may be overridden to
+ return the actual command description.
+
+<name>					*CConsoleCommand::name*
+ (string) the command name.
+
+<optionHelp>				*CConsoleCommand::optionHelp*
+ (array) Provides the command option help information. The default
+ implementation will return all available actions together with their
+ corresponding option information.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CConsoleCommand::__construct*					 public
+>
+ __construct($name, $runner)
+<
+(void)
+
+ Constructor.
+    [name] (string) name of the command
+    [runner] (CConsoleCommandRunner) the command runner
+
+
+*CConsoleCommand::afterAction*					 protected
+>
+ afterAction($action, $params)
+<
+(void)
+
+ This method is invoked right after an action finishes execution. You may
+ override this method to do some postprocessing for the action.
+    [action] (string) the action name
+    [params] (array) the parameters to be passed to the action method.
+
+
+*CConsoleCommand::beforeAction* 				 protected
+>
+ beforeAction($action, $params)
+<
+(boolean) whether the action should be executed.
+
+ This method is invoked right before an action is to be executed. You may
+ override this method to do last-minute preparation for the action.
+    [action] (string) the action name
+    [params] (array) the parameters to be passed to the action method.
+
+
+*CConsoleCommand::buildFileList*				 public
+>
+ buildFileList($sourceDir, $targetDir, $baseDir='')
+<
+(array) the file list (see |CConsoleCommand::copyFiles|)
+
+ Builds the file list of a directory. This method traverses through the
+ specified directory and builds a list of files and subdirectories that the
+ directory contains. The result of this function can be passed to
+ |CConsoleCommand::copyFiles|.
+    [sourceDir] (string) the source directory
+    [targetDir] (string) the target directory
+    [baseDir] (string) base directory
+
+
+*CConsoleCommand::copyFiles*					 public
+>
+ copyFiles($fileList)
+<
+(void)
+
+ Copies a list of files from one place to another.
+    [fileList] (array) the list of files to be copied (name=>spec). The array
+    keys are names displayed during the copy process, and array values are
+    specifications for files to be copied. Each array value must be an array
+    of the following structure:
+      {source} required, the full path of the file/directory to be
+      copied from
+      {target} required, the full path of the file/directory to be
+      copied to
+      {callback} optional, the callback to be invoked when copying a
+      file. The callback function   should be declared as
+      follows:
+>
+      function foo($source,$params)
+<
+    where $source parameter is the source file path,
+      and the content returned   by the function will be saved into the
+      target file.
+      {params} optional, the parameters to be passed to the callback
+
+
+*CConsoleCommand::ensureDirectory*				 public
+>
+ ensureDirectory($directory)
+<
+(void)
+
+ Creates all parent directories if they do not exist.
+    [directory] (string) the directory to be checked
+
+
+*CConsoleCommand::getCommandRunner*				 public
+>
+ getCommandRunner()
+<
+(CConsoleCommandRunner) the command runner instance
+
+
+
+*CConsoleCommand::getHelp*					 public
+>
+ getHelp()
+<
+(string) the command description. Defaults to 'Usage: php entry-script.php
+command-name'.
+
+ Provides the command description. This method may be overridden to return the
+ actual command description.
+
+
+*CConsoleCommand::getName*					 public
+>
+ getName()
+<
+(string) the command name.
+
+
+
+*CConsoleCommand::getOptionHelp*				 public
+>
+ getOptionHelp()
+<
+(array) the command option help information. Each array element describes the
+help information for a single action.
+
+ Provides the command option help information. The default implementation will
+ return all available actions together with their corresponding option
+ information.
+
+
+*CConsoleCommand::init* 					 public
+>
+ init()
+<
+(void)
+
+ Initializes the command object. This method is invoked after a command object
+ is created and initialized with configurations. You may override this method
+ to further customize the command before it executes.
+
+
+*CConsoleCommand::pluralize*					 public
+>
+ pluralize($name)
+<
+(string) the pluralized word
+
+ Converts a word to its plural form.
+    [name] (string) the word to be pluralized
+
+
+*CConsoleCommand::renderFile*					 public
+>
+ renderFile($_viewFile_, $_data_=NULL, $_return_=false)
+<
+(mixed) the rendering result if required. Null otherwise.
+
+ Renders a view file.
+    [_viewFile_] (string) view file path
+    [_data_] (array) optional data to be extracted as local view variables
+    [_return_] (boolean) whether to return the rendering result instead of
+    displaying it
+
+
+*CConsoleCommand::resolveRequest*				 protected
+>
+ resolveRequest($args)
+<
+(array) the action name, named options (name=>value), and unnamed options
+
+ Parses the command line arguments and determines which action to perform.
+    [args] (array) command line arguments
+
+
+*CConsoleCommand::run*						 public
+>
+ run($args)
+<
+(void)
+
+ Executes the command. The default implementation will parse the input
+ parameters and dispatch the command request to an appropriate action with the
+ corresponding option values
+    [args] (array) command line parameters for this command.
+
+
+*CConsoleCommand::usageError*					 public
+>
+ usageError($message)
+<
+(void)
+
+ Displays a usage error. This method will then terminate the execution of the
+ current application.
+    [message] (string) the error message
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

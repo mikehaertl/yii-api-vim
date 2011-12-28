@@ -1,0 +1,10 @@
+
+*CBelongsToRelation*   >> |CActiveRelation| >> |CBaseActiveRelation| >> |CComponent|
+====================
+
+ CBelongsToRelation represents the parameters specifying a BELONGS_TO
+ relation.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

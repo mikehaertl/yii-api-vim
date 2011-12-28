@@ -1,0 +1,104 @@
+
+*CLogRouter*   >> |CApplicationComponent| >> |CComponent|
+============
+
+ CLogRouter manages log routes that record log messages in different media.
+
+ For example, a file log route |CFileLogRoute| records log messages in log
+ files. An email log route |CEmailLogRoute| sends log messages to specific
+ email addresses. See |CLogRoute| for more details about different log routes.
+
+ Log routes may be configured in application configuration like following:
+>
+ array(
+     'preload'=>array('log'), // preload log component when app starts
+     'components'=>array(
+         'log'=>array(
+             'class'=>'CLogRouter',
+             'routes'=>array(
+                 array(
+                     'class'=>'CFileLogRoute',
+                     'levels'=>'trace, info',
+                     'categories'=>'system.*',
+                 ),
+                 array(
+                     'class'=>'CEmailLogRoute',
+                     'levels'=>'error, warning',
+                     'email'=>'admin@example.com',
+                 ),
+             ),
+         ),
+     ),
+ )
+<
+ You can specify multiple routes with different filtering conditions and
+ different targets, even if the routes are of the same type.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<routes>				*CLogRouter::routes*
+ (array) the currently initialized routes
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CLogRouter::collectLogs*					 public
+>
+ collectLogs($event)
+<
+(void)
+
+ Collects log messages from a logger. This method is an event handler to the
+ |CLogger::onFlush| event.
+    [event] (CEvent) event parameter
+
+
+*CLogRouter::getRoutes* 					 public
+>
+ getRoutes()
+<
+(array) the currently initialized routes
+
+
+
+*CLogRouter::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes this application component. This method is required by the
+ IApplicationComponent interface.
+
+
+*CLogRouter::processLogs*					 public
+>
+ processLogs($event)
+<
+(void)
+
+ Collects and processes log messages from a logger. This method is an event
+ handler to the |CApplication::onEndRequest| event.
+    [event] (CEvent) event parameter
+
+
+*CLogRouter::setRoutes* 					 public
+>
+ setRoutes($config)
+<
+(void)
+
+    [config] (array) list of route configurations. Each array element
+    represents the configuration for a single route and has the following
+    array structure:
+      {class} specifies the class name or alias for the route class.
+      name-value pairs: configure the initial property values of the
+      route.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

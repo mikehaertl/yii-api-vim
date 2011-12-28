@@ -1,0 +1,129 @@
+
+*CBaseUserIdentity*   >> |CComponent|
+===================
+
+ CBaseUserIdentity is a base class implementing |IUserIdentity|.
+
+ CBaseUserIdentity implements the scheme for representing identity information
+ that needs to be persisted. It also provides the way to represent the
+ authentication errors.
+
+ Derived classes should implement |IUserIdentity::authenticate| and
+ |IUserIdentity::getId| that are required by the |IUserIdentity| interface.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<errorCode>				*CBaseUserIdentity::errorCode*
+ (integer) the authentication error code. If there is an error, the error code
+ will be non-zero. Defaults to 100, meaning unknown identity. Calling
+ |CBaseUserIdentity::authenticate| will change this value.
+
+<errorMessage>				*CBaseUserIdentity::errorMessage*
+ (string) the authentication error message. Defaults to empty.
+
+<id>					*CBaseUserIdentity::id*
+ (mixed) Returns a value that uniquely represents the identity.
+
+<isAuthenticated>			*CBaseUserIdentity::isAuthenticated*
+ (whether) Returns a value indicating whether the identity is authenticated.
+ This method is required by |IUserIdentity|.
+
+<name>					*CBaseUserIdentity::name*
+ (string) Returns the display name for the identity (e.g. username).
+
+<persistentStates>			*CBaseUserIdentity::persistentStates*
+ (array) Returns the identity states that should be persisted. This method is
+ required by |IUserIdentity|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CBaseUserIdentity::clearState* 				 public
+>
+ clearState($name)
+<
+(void)
+
+ Removes the specified state.
+    [name] (string) the name of the state
+
+
+*CBaseUserIdentity::getId*					 public
+>
+ getId()
+<
+(mixed) a value that uniquely represents the identity (e.g. primary key
+value). The default implementation simply returns |CBaseUserIdentity::name|.
+
+ Returns a value that uniquely represents the identity.
+
+
+*CBaseUserIdentity::getIsAuthenticated* 			 public
+>
+ getIsAuthenticated()
+<
+(whether) the authentication is successful.
+
+ Returns a value indicating whether the identity is authenticated. This method
+ is required by |IUserIdentity|.
+
+
+*CBaseUserIdentity::getName*					 public
+>
+ getName()
+<
+(string) the display name for the identity. The default implementation simply
+returns empty string.
+
+ Returns the display name for the identity (e.g. username).
+
+
+*CBaseUserIdentity::getPersistentStates*			 public
+>
+ getPersistentStates()
+<
+(array) the identity states that should be persisted.
+
+ Returns the identity states that should be persisted. This method is required
+ by |IUserIdentity|.
+
+
+*CBaseUserIdentity::getState*					 public
+>
+ getState($name, $defaultValue=NULL)
+<
+(mixed) the value of the named state
+
+ Gets the persisted state by the specified name.
+    [name] (string) the name of the state
+    [defaultValue] (mixed) the default value to be returned if the named state
+    does not exist
+
+
+*CBaseUserIdentity::setPersistentStates*			 public
+>
+ setPersistentStates($states)
+<
+(void)
+
+ Sets an array of presistent states.
+    [states] (array) the identity states that should be persisted.
+
+
+*CBaseUserIdentity::setState*					 public
+>
+ setState($name, $value)
+<
+(void)
+
+ Sets the named state with a given value.
+    [name] (string) the name of the state
+    [value] (mixed) the value of the named state
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

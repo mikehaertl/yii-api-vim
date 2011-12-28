@@ -1,0 +1,206 @@
+
+*CSecurityManager*   >> |CApplicationComponent| >> |CComponent|
+==================
+
+ CSecurityManager provides private keys, hashing and encryption functions.
+
+ CSecurityManager is used by Yii components and applications for
+ security-related purpose. For example, it is used in cookie validation
+ feature to prevent cookie data from being tampered.
+
+ CSecurityManager is mainly used to protect data from being tampered and
+ viewed. It can generate HMAC and encrypt the data. The private key used to
+ generate HMAC is set by |CSecurityManager::setValidationKey|. The key used to
+ encrypt data is specified by |CSecurityManager::setEncryptionKey|. If the
+ above keys are not explicitly set, random keys will be generated and used.
+
+ To protected data with HMAC, call |CSecurityManager::hashData|; and to check
+ if the data is tampered, call |CSecurityManager::validateData|, which will
+ return the real data if it is not tampered. The algorithm used to generated
+ HMAC is specified by |CSecurityManager::validation|.
+
+ To encrypt and decrypt data, call |CSecurityManager::encrypt| and
+ |CSecurityManager::decrypt| respectively, which uses 3DES encryption
+ algorithm.  Note, the PHP Mcrypt extension must be installed and loaded.
+
+ CSecurityManager is a core application component that can be accessed via
+ |CApplication::getSecurityManager|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<cryptAlgorithm>			*CSecurityManager::cryptAlgorithm*
+ (mixed) the name of the crypt algorithm to be used by
+ |CSecurityManager::encrypt| and |CSecurityManager::decrypt|. This will be
+ passed as the first parameter to 'mcrypt_module_open'.
+
+ This property can also be configured as an array. In this case, the array
+ elements will be passed in order as parameters to mcrypt_module_open. For
+ example, 'array('rijndael-256', '', 'ofb', '')'.
+
+ Defaults to 'des', meaning using DES crypt algorithm.
+
+<encryptionKey> 			*CSecurityManager::encryptionKey*
+ (string) the private key used to encrypt/decrypt data. If the key is not
+ explicitly set, a random one is generated and returned.
+
+<hashAlgorithm> 			*CSecurityManager::hashAlgorithm*
+ (string) the name of the hashing algorithm to be used by
+ |CSecurityManager::computeHMAC|. See 'hash-algos' for the list of possible
+ hash algorithms. Note that if you are using PHP 5.1.1 or below, you can only
+ use 'sha1' or 'md5'.
+
+ Defaults to 'sha1', meaning using SHA1 hash algorithm.
+
+<validation>				*CSecurityManager::validation*
+ () This method has been deprecated since version 1.1.3. Please use
+ |CSecurityManager::hashAlgorithm| instead.
+
+<validationKey> 			*CSecurityManager::validationKey*
+ (string) the private key used to generate HMAC. If the key is not explicitly
+ set, a random one is generated and returned.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CSecurityManager::computeHMAC* 				 protected
+>
+ computeHMAC($data, $key='')
+<
+(string) the HMAC for the data
+
+ Computes the HMAC for the data with |CSecurityManager::getValidationKey|.
+    [data] (string) data to be generated HMAC
+    [key] (string) the private key to be used for generating HMAC. Defaults to
+    null, meaning using |CSecurityManager::validationKey|.
+
+
+*CSecurityManager::decrypt*					 public
+>
+ decrypt($data, $key='')
+<
+(string) the decrypted data
+
+ Decrypts data
+    [data] (string) data to be decrypted.
+    [key] (string) the decryption key. This defaults to null, meaning using
+    |CSecurityManager::getEncryptionKey|.
+
+
+*CSecurityManager::encrypt*					 public
+>
+ encrypt($data, $key='')
+<
+(string) the encrypted data
+
+ Encrypts data.
+    [data] (string) data to be encrypted.
+    [key] (string) the decryption key. This defaults to null, meaning using
+    |CSecurityManager::getEncryptionKey|.
+
+
+*CSecurityManager::generateRandomKey*				 protected
+>
+ generateRandomKey()
+<
+(string) a randomly generated private key
+
+
+
+*CSecurityManager::getEncryptionKey*				 public
+>
+ getEncryptionKey()
+<
+(string) the private key used to encrypt/decrypt data. If the key is not
+explicitly set, a random one is generated and returned.
+
+
+
+*CSecurityManager::getValidation*				 public
+>
+ getValidation()
+<
+(void)
+
+ This method has been deprecated since version 1.1.3. Please use
+ |CSecurityManager::hashAlgorithm| instead.
+
+
+*CSecurityManager::getValidationKey*				 public
+>
+ getValidationKey()
+<
+(string) the private key used to generate HMAC. If the key is not explicitly
+set, a random one is generated and returned.
+
+
+
+*CSecurityManager::hashData*					 public
+>
+ hashData($data, $key='')
+<
+(string) data prefixed with HMAC
+
+ Prefixes data with an HMAC.
+    [data] (string) data to be hashed.
+    [key] (string) the private key to be used for generating HMAC. Defaults to
+    null, meaning using |CSecurityManager::validationKey|.
+
+
+*CSecurityManager::openCryptModule*				 protected
+>
+ openCryptModule()
+<
+(resource) the mycrypt module handle.
+
+ Opens the mcrypt module with the configuration specified in
+ |CSecurityManager::cryptAlgorithm|.
+
+
+*CSecurityManager::setEncryptionKey*				 public
+>
+ setEncryptionKey($value)
+<
+(void)
+
+    [value] (string) the key used to encrypt/decrypt data.
+
+
+*CSecurityManager::setValidation*				 public
+>
+ setValidation($value)
+<
+(void)
+
+ This method has been deprecated since version 1.1.3. Please use
+ |CSecurityManager::hashAlgorithm| instead.
+    [value] (string) -
+
+
+*CSecurityManager::setValidationKey*				 public
+>
+ setValidationKey($value)
+<
+(void)
+
+    [value] (string) the key used to generate HMAC
+
+
+*CSecurityManager::validateData*				 public
+>
+ validateData($data, $key='')
+<
+(string) the real data with HMAC stripped off. False if the data is tampered.
+
+ Validates if data is tampered.
+    [data] (string) data to be validated. The data must be previously
+    generated using |CSecurityManager::hashData|.
+    [key] (string) the private key to be used for generating HMAC. Defaults to
+    null, meaning using |CSecurityManager::validationKey|.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,38 @@
+
+*CCodeForm*   >> |CActiveForm| >> |CWidget| >> |CBaseController| >> |CComponent|
+===========
+
+ CCodeForm represents the form for collecting code generation parameters.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<model> 				*CCodeForm::model*
+ (CCodeModel) the code model associated with the form
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CCodeForm::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the widget. This renders the form open tag.
+
+
+*CCodeForm::run*						 public
+>
+ run()
+<
+(void)
+
+ Runs the widget.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

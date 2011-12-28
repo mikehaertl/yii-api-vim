@@ -1,0 +1,46 @@
+
+*CClipWidget*   >> |CWidget| >> |CBaseController| >> |CComponent|
+=============
+
+ CClipWidget records its content and makes it available elsewhere.
+
+ Content rendered between its |CClipWidget::init| and |CClipWidget::run| calls
+ are saved as a clip in the controller. The clip is named after the widget ID.
+
+ See |CBaseController::beginClip| and |CBaseController::endClip| for a
+ shortcut usage of CClipWidget.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<renderClip>				*CClipWidget::renderClip*
+ (boolean) whether to render the clip content in place. Defaults to false,
+ meaning the captured clip will not be displayed.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CClipWidget::init*						 public
+>
+ init()
+<
+(void)
+
+ Starts recording a clip.
+
+
+*CClipWidget::run*						 public
+>
+ run()
+<
+(void)
+
+ Ends recording a clip. This method stops output buffering and saves the
+ rendering result as a named clip in the controller.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

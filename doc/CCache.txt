@@ -1,0 +1,275 @@
+
+*CCache*   >> |CApplicationComponent| >> |CComponent|
+========
+
+ CCache is the base class for cache classes with different cache storage
+ implementation.
+
+ A data item can be stored in cache by calling |CCache::set| and be retrieved
+ back later by |CCache::get|. In both operations, a key identifying the data
+ item is required. An expiration time and/or a dependency can also be
+ specified when calling |CCache::set|. If the data item expires or the
+ dependency changes, calling |CCache::get| will not return back the data item.
+
+ Note, by definition, cache does not ensure the existence of a value even if
+ it does not expire. Cache is not meant to be a persistent storage.
+
+ CCache implements the interface |ICache| with the following methods:
+   |CCache::get| : retrieve the value with a key (if any) from cache
+   |CCache::set| : store the value with a key into cache
+   |CCache::add| : store the value only if cache does not have this
+   key
+   |CCache::delete| : delete the value with the specified key from
+   cache
+   |CCache::flush| : delete all values from cacheChild classes must implement
+ the following methods:
+   |CCache::getValue|
+   |CCache::setValue|
+   |CCache::addValue|
+   |CCache::deleteValue|
+   |CCache::flush| (optional)CCache also implements ArrayAccess so that it can
+ be used like an array.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<keyPrefix>				*CCache::keyPrefix*
+ (string) a string prefixed to every cache key so that it is unique. Defaults
+ to |CApplication::getId|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CCache::add*							 public
+>
+ add($id, $value, $expire=0, $dependency=NULL)
+<
+(boolean) true if the value is successfully stored into cache, false otherwise
+
+ Stores a value identified by a key into cache if the cache does not contain
+ this key. Nothing will be done if the cache already contains the key.
+    [id] (string) the key identifying the value to be cached
+    [value] (mixed) the value to be cached
+    [expire] (integer) the number of seconds in which the cached value will
+    expire. 0 means never expire.
+    [dependency] (ICacheDependency) dependency of the cached item. If the
+    dependency changes, the item is labeled invalid.
+
+
+*CCache::addValue*						 protected
+>
+ addValue($key, $value, $expire)
+<
+(boolean) true if the value is successfully stored into cache, false otherwise
+
+ Stores a value identified by a key into cache if the cache does not contain
+ this key. This method should be implemented by child classes to store the
+ data in specific cache storage. The uniqueness and dependency are handled in
+ |CCache::add| already. So only the implementation of data storage is needed.
+    [key] (string) the key identifying the value to be cached
+    [value] (string) the value to be cached
+    [expire] (integer) the number of seconds in which the cached value will
+    expire. 0 means never expire.
+
+
+*CCache::delete*						 public
+>
+ delete($id)
+<
+(boolean) if no error happens during deletion
+
+ Deletes a value with the specified key from cache
+    [id] (string) the key of the value to be deleted
+
+
+*CCache::deleteValue*						 protected
+>
+ deleteValue($key)
+<
+(boolean) if no error happens during deletion
+
+ Deletes a value with the specified key from cache This method should be
+ implemented by child classes to delete the data from actual cache storage.
+    [key] (string) the key of the value to be deleted
+
+
+*CCache::flush* 						 public
+>
+ flush()
+<
+(boolean) whether the flush operation was successful.
+
+ Deletes all values from cache. Be careful of performing this operation if the
+ cache is shared by multiple applications.
+
+
+*CCache::flushValues*						 protected
+>
+ flushValues()
+<
+(boolean) whether the flush operation was successful.
+
+ Deletes all values from cache. Child classes may implement this method to
+ realize the flush operation.
+
+
+*CCache::generateUniqueKey*					 protected
+>
+ generateUniqueKey($key)
+<
+(sring) a key generated from the provided key which ensures the uniqueness
+across applications
+
+    [key] (string) a key identifying a value to be cached
+
+
+*CCache::get*							 public
+>
+ get($id)
+<
+(mixed) the value stored in cache, false if the value is not in the cache,
+expired or the dependency has changed.
+
+ Retrieves a value from cache with a specified key.
+    [id] (string) a key identifying the cached value
+
+
+*CCache::getValue*						 protected
+>
+ getValue($key)
+<
+(string) the value stored in cache, false if the value is not in the cache or
+expired.
+
+ Retrieves a value from cache with a specified key. This method should be
+ implemented by child classes to retrieve the data from specific cache
+ storage. The uniqueness and dependency are handled in |CCache::get| already.
+ So only the implementation of data retrieval is needed.
+    [key] (string) a unique key identifying the cached value
+
+
+*CCache::getValues*						 protected
+>
+ getValues($keys)
+<
+(array) a list of cached values indexed by the keys
+
+ Retrieves multiple values from cache with the specified keys. The default
+ implementation simply calls |CCache::getValue| multiple times to retrieve the
+ cached values one by one. If the underlying cache storage supports multiget,
+ this method should be overridden to exploit that feature.
+    [keys] (array) a list of keys identifying the cached values
+
+
+*CCache::init*							 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component. This method overrides the parent
+ implementation by setting default cache key prefix.
+
+
+*CCache::mget*							 public
+>
+ mget($ids)
+<
+(array) list of cached values corresponding to the specified keys. The array
+is returned in terms of (key,value) pairs. If a value is not cached or
+expired, the corresponding array value will be false.
+
+ Retrieves multiple values from cache with the specified keys. Some caches
+ (such as memcache, apc) allow retrieving multiple cached values at one time,
+ which may improve the performance since it reduces the communication cost. In
+ case a cache doesn't support this feature natively, it will be simulated by
+ this method.
+    [ids] (array) list of keys identifying the cached values
+
+
+*CCache::offsetExists*						 public
+>
+ offsetExists($id)
+<
+(boolean) 
+
+ Returns whether there is a cache entry with a specified key. This method is
+ required by the interface ArrayAccess.
+    [id] (string) a key identifying the cached value
+
+
+*CCache::offsetGet*						 public
+>
+ offsetGet($id)
+<
+(mixed) the value stored in cache, false if the value is not in the cache or
+expired.
+
+ Retrieves the value from cache with a specified key. This method is required
+ by the interface ArrayAccess.
+    [id] (string) a key identifying the cached value
+
+
+*CCache::offsetSet*						 public
+>
+ offsetSet($id, $value)
+<
+(void)
+
+ Stores the value identified by a key into cache. If the cache already
+ contains such a key, the existing value will be replaced with the new ones.
+ To add expiration and dependencies, use the set() method. This method is
+ required by the interface ArrayAccess.
+    [id] (string) the key identifying the value to be cached
+    [value] (mixed) the value to be cached
+
+
+*CCache::offsetUnset*						 public
+>
+ offsetUnset($id)
+<
+(boolean) if no error happens during deletion
+
+ Deletes the value with the specified key from cache This method is required
+ by the interface ArrayAccess.
+    [id] (string) the key of the value to be deleted
+
+
+*CCache::set*							 public
+>
+ set($id, $value, $expire=0, $dependency=NULL)
+<
+(boolean) true if the value is successfully stored into cache, false otherwise
+
+ Stores a value identified by a key into cache. If the cache already contains
+ such a key, the existing value and expiration time will be replaced with the
+ new ones.
+    [id] (string) the key identifying the value to be cached
+    [value] (mixed) the value to be cached
+    [expire] (integer) the number of seconds in which the cached value will
+    expire. 0 means never expire.
+    [dependency] (ICacheDependency) dependency of the cached item. If the
+    dependency changes, the item is labeled invalid.
+
+
+*CCache::setValue*						 protected
+>
+ setValue($key, $value, $expire)
+<
+(boolean) true if the value is successfully stored into cache, false otherwise
+
+ Stores a value identified by a key in cache. This method should be
+ implemented by child classes to store the data in specific cache storage. The
+ uniqueness and dependency are handled in |CCache::set| already. So only the
+ implementation of data storage is needed.
+    [key] (string) the key identifying the value to be cached
+    [value] (string) the value to be cached
+    [expire] (integer) the number of seconds in which the cached value will
+    expire. 0 means never expire.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

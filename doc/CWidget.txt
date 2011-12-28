@@ -1,0 +1,187 @@
+
+*CWidget*   >> |CBaseController| >> |CComponent|
+=========
+
+ CWidget is the base class for widgets.
+
+ A widget is a self-contained component that may generate presentation based
+ on model data.  It can be viewed as a micro-controller that embeds into the
+ controller-managed views.
+
+ Compared with |CController|, a widget has neither actions nor filters.
+
+ Usage is described at |CBaseController| and |CBaseController::widget|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<actionPrefix>				*CWidget::actionPrefix*
+ (string) the prefix to the IDs of the |CWidget::actions|. When a widget is
+ declared an action provider in |CController::actions|, a prefix can be
+ specified to differentiate its action IDs from others. The same prefix should
+ then also be used to configure this property when the widget is used in a
+ view of the controller.
+
+<controller>				*CWidget::controller*
+ (CController) Returns the controller that this widget belongs to.
+
+<id>					*CWidget::id*
+ (string) Returns the ID of the widget or generates a new one if requested.
+
+<owner> 				*CWidget::owner*
+ (CBaseController) Returns the owner/creator of this widget.
+
+<skin>					*CWidget::skin*
+ (mixed) the name of the skin to be used by this widget. Defaults to
+ 'default'. If this is set as false, no skin will be applied to this widget.
+
+<viewPath>				*CWidget::viewPath*
+ (string) Returns the directory containing the view files for this widget. The
+ default implementation returns the 'views' subdirectory of the directory
+ containing the widget class file. If $checkTheme is set true, the directory
+ "ThemeID/views/ClassName" will be returned when it exists.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CWidget::__construct*						 public
+>
+ __construct($owner=NULL)
+<
+(void)
+
+ Constructor.
+    [owner] (CBaseController) owner/creator of this widget. It could be either
+    a widget or a controller.
+
+
+*CWidget::actions*						 public
+>
+ actions()
+<
+(void)
+
+ Returns a list of actions that are used by this widget. The structure of this
+ method's return value is similar to that returned by |CController::actions|.
+
+ When a widget uses several actions, you can declare these actions using this
+ method. The widget will then become an action provider, and the actions can
+ be easily imported into a controller.
+
+ Note, when creating URLs referring to the actions listed in this method, make
+ sure the action IDs are prefixed with |CWidget::actionPrefix|.
+
+
+*CWidget::getController*					 public
+>
+ getController()
+<
+(CController) the controller that this widget belongs to.
+
+ Returns the controller that this widget belongs to.
+
+
+*CWidget::getId*						 public
+>
+ getId($autoGenerate=true)
+<
+(string) id of the widget.
+
+ Returns the ID of the widget or generates a new one if requested.
+    [autoGenerate] (boolean) whether to generate an ID if it is not set
+    previously
+
+
+*CWidget::getOwner*						 public
+>
+ getOwner()
+<
+(CBaseController) owner/creator of this widget. It could be either a widget or
+a controller.
+
+ Returns the owner/creator of this widget.
+
+
+*CWidget::getViewFile*						 public
+>
+ getViewFile($viewName)
+<
+(string) the view file path. False if the view file does not exist
+
+ Looks for the view script file according to the view name. This method will
+ look for the view under the widget's |CWidget::getViewPath|. The view script
+ file is named as "ViewName.php". A localized view file may be returned if
+ internationalization is needed. See |CApplication::findLocalizedFile| for
+ more details. Since version 1.0.2, the view name can also refer to a path
+ alias if it contains dot characters.
+    [viewName] (string) name of the view (without file extension)
+
+
+*CWidget::getViewPath*						 public
+>
+ getViewPath($checkTheme=false)
+<
+(string) the directory containing the view files for this widget.
+
+ Returns the directory containing the view files for this widget. The default
+ implementation returns the 'views' subdirectory of the directory containing
+ the widget class file. If $checkTheme is set true, the directory
+ "ThemeID/views/ClassName" will be returned when it exists.
+    [checkTheme] (boolean) whether to check if the theme contains a view path
+    for the widget.
+
+
+*CWidget::init* 						 public
+>
+ init()
+<
+(void)
+
+ Initializes the widget. This method is called by
+ |CBaseController::createWidget| and |CBaseController::beginWidget| after the
+ widget's properties have been initialized.
+
+
+*CWidget::render*						 public
+>
+ render($view, $data=NULL, $return=false)
+<
+(string) the rendering result. Null if the rendering result is not required.
+
+ Renders a view.
+
+ The named view refers to a PHP script (resolved via |CWidget::getViewFile|)
+ that is included by this method. If $data is an associative array, it will be
+ extracted as PHP variables and made available to the script.
+    [view] (string) name of the view to be rendered. See
+    |CWidget::getViewFile| for details about how the view script is resolved.
+    [data] (array) data to be extracted into PHP variables and made available
+    to the view script
+    [return] (boolean) whether the rendering result should be returned instead
+    of being displayed to end users
+
+
+*CWidget::run*							 public
+>
+ run()
+<
+(void)
+
+ Executes the widget. This method is called by |CBaseController::endWidget|.
+
+
+*CWidget::setId*						 public
+>
+ setId($value)
+<
+(void)
+
+ Sets the ID of the widget.
+    [value] (string) id of the widget.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,99 @@
+
+*CWebServiceAction*   >> |CAction| >> |CComponent|
+===================
+
+ CWebServiceAction implements an action that provides Web services.
+
+ CWebServiceAction serves for two purposes. On the one hand, it displays the
+ WSDL content specifying the Web service APIs. On the other hand, it invokes
+ the requested Web service API. A GET parameter named 'ws' is used to
+ differentiate these two aspects: the existence of the GET parameter indicates
+ performing the latter action.
+
+ By default, CWebServiceAction will use the current controller as the Web
+ service provider. See |CWsdlGenerator| on how to declare methods that can be
+ remotely invoked.
+
+ Note, PHP SOAP extension is required for this action.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<classMap>				*CWebServiceAction::classMap*
+ (array) a list of PHP classes that are declared as complex types in WSDL.
+ This should be an array with WSDL types as keys and names of PHP classes as
+ values. A PHP class can also be specified as a path alias.
+
+<provider>				*CWebServiceAction::provider*
+ (mixed) the Web service provider object or class name. If specified as a
+ class name, it can be a path alias. Defaults to null, meaning the current
+ controller is used as the service provider. If the provider implements the
+ interface |IWebServiceProvider|, it will be able to intercept the remote
+ method invocation and perform additional tasks (e.g. authentication,
+ logging).
+
+<service>				*CWebServiceAction::service*
+ (CWebService) Returns the Web service instance currently being used.
+
+<serviceOptions>			*CWebServiceAction::serviceOptions*
+ (array) the initial property values for the |CWebService| object. The array
+ keys are property names of |CWebService| and the array values are the
+ corresponding property initial values.
+
+<serviceUrl>				*CWebServiceAction::serviceUrl*
+ (string) the URL for the Web service. Defaults to null, meaning the URL for
+ this action is used to provide Web services. In this case, a GET parameter
+ named |CWebServiceAction::serviceVar| will be used to deteremine whether the
+ current request is for WSDL or Web service.
+
+<serviceVar>				*CWebServiceAction::serviceVar*
+ (string) the name of the GET parameter that differentiates a WSDL request
+ from a Web service request. If this GET parameter exists, the request is
+ considered as a Web service request; otherwise, it is a WSDL request. 
+ Defaults to 'ws'.
+
+<wsdlUrl>				*CWebServiceAction::wsdlUrl*
+ (string) the URL for WSDL. Defaults to null, meaning the URL for this action
+ is used to serve WSDL document.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CWebServiceAction::createWebService*				 protected
+>
+ createWebService($provider, $wsdlUrl, $serviceUrl)
+<
+(CWebService) the Web service instance
+
+ Creates a |CWebService| instance. You may override this method to customize
+ the created instance.
+    [provider] (mixed) the web service provider class name or object
+    [wsdlUrl] (string) the URL for WSDL.
+    [serviceUrl] (string) the URL for the Web service.
+
+
+*CWebServiceAction::getService* 				 public
+>
+ getService()
+<
+(CWebService) the Web service instance
+
+ Returns the Web service instance currently being used.
+
+
+*CWebServiceAction::run*					 public
+>
+ run()
+<
+(void)
+
+ Runs the action. If the GET parameter |CWebServiceAction::serviceVar| exists,
+ the action handle the remote method invocation. If not, the action will serve
+ WSDL content;
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

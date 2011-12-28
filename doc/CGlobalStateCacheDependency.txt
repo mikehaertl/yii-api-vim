@@ -1,0 +1,47 @@
+
+*CGlobalStateCacheDependency*   >> |CCacheDependency| >> |CComponent|
+=============================
+
+ CGlobalStateCacheDependency represents a dependency based on a global state
+ value.
+
+ CGlobalStateCacheDependency checks if a global state is changed or not. If
+ the global state is changed, the dependency is reported as changed. To
+ specify which global state this dependency should check with, set
+ |CGlobalStateCacheDependency::stateName| to the name of the global state.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<stateName>				*CGlobalStateCacheDependency::stateName*
+ (string) the name of the global state whose value is to check if the
+ dependency has changed.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CGlobalStateCacheDependency::__construct*			 public
+>
+ __construct($name='')
+<
+(void)
+
+ Constructor.
+    [name] (string) the name of the global state
+
+
+*CGlobalStateCacheDependency::generateDependentData*		 protected
+>
+ generateDependentData()
+<
+(mixed) the data needed to determine if dependency has been changed.
+
+ Generates the data needed to determine if dependency has been changed. This
+ method returns the value of the global state.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

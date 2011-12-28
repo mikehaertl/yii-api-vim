@@ -1,0 +1,81 @@
+
+*CJoinQuery*  
+============
+
+ CJoinQuery represents a JOIN SQL statement.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<conditions>				*CJoinQuery::conditions*
+ (array) list of WHERE clauses
+
+<distinct>				*CJoinQuery::distinct*
+ (boolean) whether to select distinct result set
+
+<elements>				*CJoinQuery::elements*
+ (array) list of join element IDs (id=>true)
+
+<groups>				*CJoinQuery::groups*
+ (array) list of GROUP BY clauses
+
+<havings>				*CJoinQuery::havings*
+ (array) list of HAVING clauses
+
+<joins> 				*CJoinQuery::joins*
+ (array) list of join statement
+
+<limit> 				*CJoinQuery::limit*
+ (integer) row limit
+
+<offset>				*CJoinQuery::offset*
+ (integer) row offset
+
+<orders>				*CJoinQuery::orders*
+ (array) list of ORDER BY clauses
+
+<params>				*CJoinQuery::params*
+ (array) list of query parameters
+
+<selects>				*CJoinQuery::selects*
+ (array) list of column selections
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CJoinQuery::__construct*					 public
+>
+ __construct($joinElement, $criteria=NULL)
+<
+(void)
+
+ Constructor.
+    [joinElement] (CJoinElement) The root join tree.
+    [criteria] (CDbCriteria) the query criteria
+
+
+*CJoinQuery::createCommand*					 public
+>
+ createCommand($builder)
+<
+(string) the SQL statement
+
+ Creates the SQL statement.
+    [builder] (CDbCommandBuilder) the command builder
+
+
+*CJoinQuery::join*						 public
+>
+ join($element)
+<
+(void)
+
+ Joins with another join element
+    [element] (CJoinElement) the element to be joined
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

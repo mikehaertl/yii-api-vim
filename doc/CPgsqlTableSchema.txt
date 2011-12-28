@@ -1,0 +1,16 @@
+
+*CPgsqlTableSchema*   >> |CDbTableSchema| >> |CComponent|
+===================
+
+ CPgsqlTable represents the metadata for a PostgreSQL table.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<schemaName>				*CPgsqlTableSchema::schemaName*
+ (string) name of the schema that this table belongs to.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

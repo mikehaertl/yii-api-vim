@@ -1,0 +1,74 @@
+
+*CPradoViewRenderer*   >> |CViewRenderer| >> |CApplicationComponent| >> |CComponent|
+====================
+
+ CPradoViewRenderer implements a view renderer that allows users to use a
+ template syntax similar to PRADO templates.
+
+ To use CPradoViewRenderer, configure it as an application component named
+ "viewRenderer" in the application configuration:
+>
+ array(
+     'components'=>array(
+         ......
+         'viewRenderer'=>array(
+             'class'=>'CPradoViewRenderer',
+         ),
+     ),
+ )
+<
+ CPradoViewRenderer allows you to write view files with the following syntax:
+>
+ // PHP tags:
+ <%= expression %>
+ // <?php echo expression ?>
+ <% statement %>
+ // <?php statement ?></li>
+
+ // component tags:
+ <com:WigetClass name1="value1" name2='value2' name3={value3} >
+ // <?php $this->beginWidget('WigetClass',
+ // array('name1'=>"value1", 'name2'=>'value2', 'name3'=>value3)); ?>
+ </com:WigetClass >
+ // <?php $this->endWidget('WigetClass'); ?>
+ <com:WigetClass name1="value1" name2='value2' name3={value3} />
+ // <?php $this->widget('WigetClass',
+ // array('name1'=>"value1", 'name2'=>'value2', 'name3'=>value3)); ?>
+
+ // cache tags:
+ <cache:fragmentID name1="value1" name2='value2' name3={value3} >
+ // <?php if($this->beginCache('fragmentID',
+ // array('name1'=>"value1", 'name2'=>'value2', 'name3'=>value3))): ?>
+ </cache:fragmentID >
+ // <?php $this->endCache('fragmentID'); endif; ?>
+
+ // clip tags:
+ <clip:clipID >
+ // <?php $this->beginClip('clipID'); ?>
+ </clip:clipID >
+ // <?php $this->endClip('clipID'); ?>
+
+ // comment tags:
+ <!--- comments --->
+ // the whole tag will be stripped off
+<
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CPradoViewRenderer::generateViewFile*				 protected
+>
+ generateViewFile($sourceFile, $viewFile)
+<
+(void)
+
+ Parses the source view file and saves the results as another file. This
+ method is required by the parent class.
+    [sourceFile] (string) the source view file path
+    [viewFile] (string) the resulting view file path
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

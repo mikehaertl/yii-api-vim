@@ -1,0 +1,37 @@
+
+*CGettextFile*   >> |CComponent|
+==============
+
+ CGettextFile is the base class for representing a Gettext message file.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CGettextFile::load*						 public
+>
+ load($file, $context)
+<
+(array) message translations (source message => translated message)
+
+ Loads messages from a file.
+    [file] (string) file path
+    [context] (string) message context
+
+
+*CGettextFile::save*						 public
+>
+ save($file, $messages)
+<
+(void)
+
+ Saves messages to a file.
+    [file] (string) file path
+    [messages] (array) message translations (message id => translated
+    message). Note if the message has a context, the message id must be
+    prefixed with the context with chr(4) as the separator.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

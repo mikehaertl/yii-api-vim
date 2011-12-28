@@ -1,0 +1,51 @@
+
+*CExpressionDependency*   >> |CCacheDependency| >> |CComponent|
+=======================
+
+ CExpressionDependency represents a dependency based on the result of a PHP
+ expression.
+
+ CExpressionDependency performs dependency checking based on the result of a
+ PHP |CExpressionDependency::expression|. The dependency is reported as
+ unchanged if and only if the result is the same as the one evaluated when
+ storing the data to cache.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<expression>				*CExpressionDependency::expression*
+ (string) the PHP expression whose result is used to determine the dependency.
+ Starting from version 1.0.11, the expression can also be a valid PHP
+ callback, including class method name (array(ClassName/Object, MethodName)),
+ or anonymous function (PHP 5.3.0+). The function/method will be passed with a
+ parameter which is the dependency object itself.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CExpressionDependency::__construct*				 public
+>
+ __construct($expression='true')
+<
+(void)
+
+ Constructor.
+    [expression] (string) the PHP expression whose result is used to determine
+    the dependency.
+
+
+*CExpressionDependency::generateDependentData*			 protected
+>
+ generateDependentData()
+<
+(mixed) the data needed to determine if dependency has been changed.
+
+ Generates the data needed to determine if dependency has been changed. This
+ method returns the result of the PHP expression.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

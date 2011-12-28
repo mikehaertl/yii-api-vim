@@ -1,0 +1,76 @@
+
+*CStackIterator*  
+================
+
+ CStackIterator implements an interator for |CStack|.
+
+ It allows CStack to return a new iterator for traversing the items in the
+ stack.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CStackIterator::__construct*					 public
+>
+ __construct($data)
+<
+(void)
+
+ Constructor.
+    [data] (array) the data to be iterated through
+
+
+*CStackIterator::current*					 public
+>
+ current()
+<
+(mixed) the current array item
+
+ Returns the current array item. This method is required by the interface
+ Iterator.
+
+
+*CStackIterator::key*						 public
+>
+ key()
+<
+(integer) the key of the current array item
+
+ Returns the key of the current array item. This method is required by the
+ interface Iterator.
+
+
+*CStackIterator::next*						 public
+>
+ next()
+<
+(void)
+
+ Moves the internal pointer to the next array item. This method is required by
+ the interface Iterator.
+
+
+*CStackIterator::rewind*					 public
+>
+ rewind()
+<
+(void)
+
+ Rewinds internal array pointer. This method is required by the interface
+ Iterator.
+
+
+*CStackIterator::valid* 					 public
+>
+ valid()
+<
+(boolean) 
+
+ Returns whether there is an item at current position. This method is required
+ by the interface Iterator.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

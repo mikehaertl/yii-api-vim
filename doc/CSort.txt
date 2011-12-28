@@ -1,0 +1,316 @@
+
+*CSort*   >> |CComponent|
+=======
+
+ CSort represents information relevant to sorting.
+
+ When data needs to be sorted according to one or several attributes, we can
+ use CSort to represent the sorting information and generate appropriate
+ hyperlinks that can lead to sort actions.
+
+ CSort is designed to be used together with |CActiveRecord|. When creating a
+ CSort instance, you need to specify |CSort::modelClass|. You can use CSort to
+ generate hyperlinks by calling |CSort::link|. You can also use CSort to
+ modify a |CDbCriteria| instance by calling |CSort::applyOrder| so that it can
+ cause the query results to be sorted according to the specified attributes.
+
+ In order to prevent SQL injection attacks, CSort ensures that only valid
+ model attributes can be sorted. This is determined based on
+ |CSort::modelClass| and |CSort::attributes|. When |CSort::attributes| is not
+ set, all attributes belonging to |CSort::modelClass| can be sorted. When
+ |CSort::attributes| is set, only those attributes declared in the property
+ can be sorted.
+
+ By configuring |CSort::attributes|, one can perform more complex sorts that
+ may consist of things like compound attributes (e.g. sort based on the
+ combination of first name and last name of users).
+
+ The property |CSort::attributes| should be an array of key-value pairs, where
+ the keys represent the attribute names, while the values represent the
+ virtual attribute definitions. For more details, please check the
+ documentation about |CSort::attributes|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<attributes>				*CSort::attributes*
+ (array) list of attributes that are allowed to be sorted. For example,
+ array('user_id','create_time') would specify that only 'user_id' and
+ 'create_time' of the model |CSort::modelClass| can be sorted. By default,
+ this property is an empty array, which means all attributes in
+ |CSort::modelClass| are allowed to be sorted.
+
+ This property can also be used to specify complex sorting. To do so, a
+ virtual attribute can be declared in terms of a key-value pair in the array.
+ The key refers to the name of the virtual attribute that may appear in the
+ sort request, while the value specifies the definition of the virtual
+ attribute.
+
+ In the simple case, a key-value pair can be like ''user'=>'user_id'' where
+ 'user' is the name of the virtual attribute while 'user_id' means the virtual
+ attribute is the 'user_id' attribute in the |CSort::modelClass|.
+
+ A more flexible way is to specify the key-value pair as
+>
+ 'user'=>array(
+     'asc'=>'first_name, last_name',
+     'desc'=>'first_name DESC, last_name DESC',
+     'label'=>'Name'
+ )
+<
+ where 'user' is the name of the virtual attribute that specifies the full
+ name of user (a compound attribute consisting of first name and last name of
+ user). In this case, we have to use an array to define the virtual attribute
+ with three elements: 'asc', 'desc' and 'label'.
+
+ The above approach can also be used to declare virtual attributes that
+ consist of relational attributes. For example,
+>
+ 'price'=>array(
+     'asc'=>'item.price',
+     'desc'=>'item.price DESC',
+     'label'=>'Item Price'
+ )
+<
+ Note, the attribute name should not contain '-' or '.' characters because
+ they are used as |CSort::separators|.
+
+ Starting from version 1.1.3, an additional option named 'default' can be used
+ in the virtual attribute declaration. This option specifies whether an
+ attribute should be sorted in ascending or descending order upon user
+ clicking the corresponding sort hyperlink if it is not currently sorted. The
+ valid option values include 'asc' (default) and 'desc'. For example,
+>
+ 'price'=>array(
+     'asc'=>'item.price',
+     'desc'=>'item.price DESC',
+     'label'=>'Item Price',
+     'default'=>'desc',
+ )
+<
+ Also starting from version 1.1.3, you can include a star ('*') element in
+ this property so that all model attributes are available for sorting, in
+ addition to those virtual attributes. For example,
+>
+ 'attributes'=>array(
+     'price'=>array(
+         'asc'=>'item.price',
+         'desc'=>'item.price DESC',
+         'label'=>'Item Price',
+         'default'=>'desc',
+     ),
+     '*',
+ )
+<
+ Note that when a name appears as both a model attribute and a virtual
+ attribute, the position of the star element in the array determines which one
+ takes precedence. In particular, if the star element is the first element in
+ the array, the model attribute takes precedence; and if the star element is
+ the last one, the virtual attribute takes precedence.
+
+<defaultOrder>				*CSort::defaultOrder*
+ (mixed) the default order that should be applied to the query criteria when
+ the current request does not specify any sort. For example, 'name,
+ create_time DESC' or 'UPPER(name)'.
+
+ Starting from version 1.1.3, you can also specify the default order using an
+ array. The array keys could be attribute names or virtual attribute names as
+ declared in |CSort::attributes|, and the array values indicate whether the
+ sorting of the corresponding attributes should be in descending order. For
+ example,
+>
+ 'defaultOrder'=>array(
+     'price'=>true,
+ )
+<
+ Please note when using array to specify the default order, the corresponding
+ attributes will be put into |CSort::directions| and thus affect how the sort
+ links are rendered (e.g. an arrow may be displayed next to the currently
+ active sort link).
+
+<descTag>				*CSort::descTag*
+ (string) the tag appeared in the GET parameter that indicates the attribute
+ should be sorted in descending order. Defaults to 'desc'.
+
+<directions>				*CSort::directions*
+ (array) Returns the currently requested sort information.
+
+<modelClass>				*CSort::modelClass*
+ (string) the name of the model class whose attributes can be sorted. The
+ model class must be a child class of |CActiveRecord|.
+
+<multiSort>				*CSort::multiSort*
+ (boolean) whether the sorting can be applied to multiple attributes
+ simultaneously. Defaults to false, which means each time the data can only be
+ sorted by one attribute.
+
+<orderBy>				*CSort::orderBy*
+ (string) the order-by columns represented by this sort object. This can be
+ put in the ORDER BY clause of a SQL statement.
+
+<params>				*CSort::params*
+ (array) the additional GET parameters (name=>value) that should be used when
+ generating sort URLs. Defaults to null, meaning using the currently available
+ GET parameters.
+
+<route> 				*CSort::route*
+ (string) the route (controller ID and action ID) for generating the sorted
+ contents. Defaults to empty string, meaning using the currently requested
+ route.
+
+<separators>				*CSort::separators*
+ (array) separators used in the generated URL. This must be an array
+ consisting of two elements. The first element specifies the character
+ separating different attributes, while the second element specifies the
+ character separating attribute name and the corresponding sort direction.
+ Defaults to array('-','.').
+
+<sortVar>				*CSort::sortVar*
+ (string) the name of the GET parameter that specifies which attributes to be
+ sorted in which direction. Defaults to 'sort'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CSort::__construct*						 public
+>
+ __construct($modelClass='')
+<
+(void)
+
+ Constructor.
+    [modelClass] (string) the class name of data models that need to be
+    sorted. This should be a child class of |CActiveRecord|.
+
+
+*CSort::applyOrder*						 public
+>
+ applyOrder($criteria)
+<
+(void)
+
+ Modifies the query criteria by changing its |CDbCriteria::order| property.
+ This method will use |CSort::directions| to determine which columns need to
+ be sorted. They will be put in the ORDER BY clause. If the criteria already
+ has non-empty |CDbCriteria::order| value, the new value will be appended to
+ it.
+    [criteria] (CDbCriteria) the query criteria
+
+
+*CSort::createLink*						 protected
+>
+ createLink($attribute, $label, $url, $htmlOptions)
+<
+(string) the generated hyperlink
+
+ Creates a hyperlink based on the given label and URL. You may override this
+ method to customize the link generation.
+    [attribute] (string) the name of the attribute that this link is for
+    [label] (string) the label of the hyperlink
+    [url] (string) the URL
+    [htmlOptions] (array) additional HTML options
+
+
+*CSort::createUrl*						 public
+>
+ createUrl($controller, $directions)
+<
+(string) the URL for sorting
+
+ Creates a URL that can lead to generating sorted data.
+    [controller] (CController) the controller that will be used to create the
+    URL.
+    [directions] (array) the sort directions indexed by attribute names. The
+    sort direction is true if the corresponding attribute should be sorted in
+    descending order.
+
+
+*CSort::getDirection*						 public
+>
+ getDirection($attribute)
+<
+(mixed) the sort direction of the attribut. True if the attribute should be
+sorted in descending order, false if in ascending order, and null if the
+attribute doesn't need to be sorted.
+
+ Returns the sort direction of the specified attribute in the current request.
+    [attribute] (string) the attribute name
+
+
+*CSort::getDirections*						 public
+>
+ getDirections()
+<
+(array) sort directions indexed by attribute names. The sort direction is true
+if the corresponding attribute should be sorted in descending order.
+
+ Returns the currently requested sort information.
+
+
+*CSort::getOrderBy*						 public
+>
+ getOrderBy()
+<
+(string) the order-by columns represented by this sort object. This can be put
+in the ORDER BY clause of a SQL statement.
+
+
+
+*CSort::link*							 public
+>
+ link($attribute, $label='', $htmlOptions=array())
+<
+(string) the generated hyperlink
+
+ Generates a hyperlink that can be clicked to cause sorting.
+    [attribute] (string) the attribute name. This must be the actual attribute
+    name, not alias. If it is an attribute of a related AR object, the name
+    should be prefixed with the relation name (e.g. 'author.name', where
+    'author' is the relation name).
+    [label] (string) the link label. If null, the label will be determined
+    according to the attribute (see |CSort::resolveLabel|).
+    [htmlOptions] (array) additional HTML attributes for the hyperlink tag
+
+
+*CSort::resolveAttribute*					 public
+>
+ resolveAttribute($attribute)
+<
+(mixed) the attribute name or the virtual attribute definition. False if the
+attribute cannot be sorted.
+
+ Returns the real definition of an attribute given its name.
+
+ The resolution is based on |CSort::attributes| and
+ |CActiveRecord::attributeNames|.
+   When |CSort::attributes| is an empty array, if the name refers to
+   an attribute of |CSort::modelClass|, then the name is returned
+   back.
+   When |CSort::attributes| is not empty, if the name refers to an
+   attribute declared in |CSort::attributes|, then the corresponding
+   virtual attribute definition is returned. Starting from version
+   1.1.3, if |CSort::attributes| contains a star ('*') element, the
+   name will also be used to match against all model attributes.
+   In all other cases, false is returned, meaning the name does not
+   refer to a valid attribute.
+    [attribute] (string) the attribute name that the user requests to sort on
+
+
+*CSort::resolveLabel*						 public
+>
+ resolveLabel($attribute)
+<
+(string) the attribute label
+
+ Resolves the attribute label for the specified attribute. This will invoke
+ |CActiveRecord::getAttributeLabel| to determine what label to use. If the
+ attribute refers to a virtual attribute declared in |CSort::attributes|, then
+ the label given in the |CSort::attributes| will be returned instead.
+    [attribute] (string) the attribute name.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

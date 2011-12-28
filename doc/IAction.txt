@@ -1,0 +1,29 @@
+
+*IAction*  
+=========
+
+ IAction is the interface that must be implemented by controller actions.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*IAction::getController*					 public
+>
+ getController()
+<
+(CController) the controller instance
+
+
+
+*IAction::getId*						 public
+>
+ getId()
+<
+(string) id of the action
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

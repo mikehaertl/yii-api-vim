@@ -1,0 +1,210 @@
+
+*CJoinElement*  
+==============
+
+ CJoinElement represents a tree node in the join tree created by
+ |CActiveFinder|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<children>				*CJoinElement::children*
+ (array) list of child join elements
+
+<id>					*CJoinElement::id*
+ (integer) the unique ID of this tree node
+
+<master>				*CJoinElement::master*
+ (CActiveRelation) the master relation
+
+<model> 				*CJoinElement::model*
+ (CActiveRecord) the model associated with this tree node
+
+<rawTableAlias> 			*CJoinElement::rawTableAlias*
+ (string) the quoted table alias for this element
+
+<records>				*CJoinElement::records*
+ (array) list of active records found by the queries. They are indexed by
+ primary key values.
+
+<relation>				*CJoinElement::relation*
+ (CActiveRelation) the relation represented by this tree node
+
+<slave> 				*CJoinElement::slave*
+ (CActiveRelation) the slave relation
+
+<stats> 				*CJoinElement::stats*
+ (array) list of stat elements
+
+<tableAlias>				*CJoinElement::tableAlias*
+ (string) table alias for this join element
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CJoinElement::__construct*					 public
+>
+ __construct($finder, $relation, $parent=NULL, $id=0)
+<
+(void)
+
+ Constructor.
+    [finder] (CActiveFinder) the finder
+    [relation] (mixed) the relation (if the third parameter is not null) or
+    the model (if the third parameter is null) associated with this tree node.
+    [parent] (CJoinElement) the parent tree node
+    [id] (integer) the ID of this tree node that is unique among all the tree
+    nodes
+
+
+*CJoinElement::afterFind*					 public
+>
+ afterFind()
+<
+(void)
+
+ Calls |CActiveRecord::afterFind| of all the records.
+
+
+*CJoinElement::beforeFind*					 public
+>
+ beforeFind($isChild=true)
+<
+(void)
+
+ Calls |CActiveRecord::beforeFind|.
+    [isChild] (boolean) whether is called for a child
+
+
+*CJoinElement::buildQuery*					 public
+>
+ buildQuery($query)
+<
+(void)
+
+ Builds the join query with all descendant HAS_ONE and BELONGS_TO nodes.
+    [query] (CJoinQuery) the query being built up
+
+
+*CJoinElement::count*						 public
+>
+ count($criteria=NULL)
+<
+(string) number of primary records. Note: type is string to keep max.
+precision.
+
+ Count the number of primary records returned by the join statement.
+    [criteria] (CDbCriteria) the query criteria
+
+
+*CJoinElement::destroy* 					 public
+>
+ destroy()
+<
+(void)
+
+ Removes references to child elements and finder to avoid circular references.
+ This is internally used.
+
+
+*CJoinElement::find*						 public
+>
+ find($criteria=NULL)
+<
+(void)
+
+ Performs the recursive finding with the criteria.
+    [criteria] (CDbCriteria) the query criteria
+
+
+*CJoinElement::findWithBase*					 public
+>
+ findWithBase($baseRecords)
+<
+(void)
+
+ Performs the eager loading with the base records ready.
+    [baseRecords] (mixed) the available base record(s).
+
+
+*CJoinElement::getColumnPrefix* 				 public
+>
+ getColumnPrefix()
+<
+(string) the column prefix for column reference disambiguation
+
+
+
+*CJoinElement::getColumnSelect* 				 public
+>
+ getColumnSelect($select='*')
+<
+(string) the column selection
+
+ Generates the list of columns to be selected. Columns will be properly
+ aliased and primary keys will be added to selection if they are not
+ specified.
+    [select] (mixed) columns to be selected. Defaults to '*', indicating all
+    columns.
+
+
+*CJoinElement::getJoinCondition*				 public
+>
+ getJoinCondition()
+<
+(string) the join statement (this node joins with its parent)
+
+
+
+*CJoinElement::getPrimaryKeyRange*				 public
+>
+ getPrimaryKeyRange()
+<
+(string) the condition that specifies only the rows with the selected primary
+key values.
+
+
+
+*CJoinElement::getPrimaryKeySelect*				 public
+>
+ getPrimaryKeySelect()
+<
+(string) the primary key selection
+
+
+
+*CJoinElement::getTableNameWithAlias*				 public
+>
+ getTableNameWithAlias()
+<
+(string) the table name and the table alias (if any). This can be used
+directly in SQL query without escaping.
+
+
+
+*CJoinElement::lazyFind*					 public
+>
+ lazyFind($baseRecord)
+<
+(void)
+
+ Performs lazy find with the specified base record.
+    [baseRecord] (CActiveRecord) the active record whose related object is to
+    be fetched.
+
+
+*CJoinElement::runQuery*					 public
+>
+ runQuery($query)
+<
+(void)
+
+ Executes the join query and populates the query results.
+    [query] (CJoinQuery) the query to be executed.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

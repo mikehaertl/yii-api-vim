@@ -1,0 +1,92 @@
+
+*CWebTestCase*   >> |PHPUnit_Extensions_SeleniumTestCase| >> |PHPUnit_Framework_TestCase| >> |PHPUnit_Framework_Assert|
+==============
+
+ CWebTestCase is the base class for Web-based functional test case classes.
+
+ It extends PHPUnit_Extensions_SeleniumTestCase and provides the database
+ fixture management feature like |CDbTestCase|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<fixtures>				*CWebTestCase::fixtures*
+ (array) a list of fixtures that should be loaded before each test method
+ executes. The array keys are fixture names, and the array values are either
+ AR class names or table names. If table names, they must begin with a colon
+ character (e.g. 'Post' means an AR class, while ':Post' means a table name).
+ Defaults to false, meaning fixtures will not be used at all.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CWebTestCase::__call*						 public
+>
+ __call($name, $params)
+<
+(mixed) the property value
+
+ PHP magic method. This method is overridden so that named fixture
+ ActiveRecord instances can be accessed in terms of a method call.
+    [name] (string) method name
+    [params] (string) method parameters
+
+
+*CWebTestCase::__get*						 public
+>
+ __get($name)
+<
+(mixed) the property value
+
+ PHP magic method. This method is overridden so that named fixture data can be
+ accessed like a normal property.
+    [name] (string) the property name
+
+
+*CWebTestCase::getFixtureData*					 public
+>
+ getFixtureData($name)
+<
+(array) the named fixture data
+
+    [name] (string) the fixture name (the key value in
+    |CWebTestCase::fixtures|).
+
+
+*CWebTestCase::getFixtureManager*				 public
+>
+ getFixtureManager()
+<
+(CDbFixtureManager) the database fixture manager
+
+
+
+*CWebTestCase::getFixtureRecord*				 public
+>
+ getFixtureRecord($name, $alias)
+<
+(CActiveRecord) the ActiveRecord instance corresponding to the specified alias
+in the named fixture. False is returned if there is no such fixture or the
+record cannot be found.
+
+    [name] (string) the fixture name (the key value in
+    |CWebTestCase::fixtures|).
+    [alias] (string) the alias of the fixture data row
+
+
+*CWebTestCase::setUp*						 protected
+>
+ setUp()
+<
+(void)
+
+ Sets up the fixture before executing a test method. If you override this
+ method, make sure the parent implementation is invoked. Otherwise, the
+ database fixtures will not be managed properly.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

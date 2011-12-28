@@ -1,0 +1,998 @@
+
+*CController*   >> |CBaseController| >> |CComponent|
+=============
+
+ CController manages a set of actions which deal with the corresponding user
+ requests.
+
+ Through the actions, CController coordinates the data flow between models and
+ views.
+
+ When a user requests an action 'XYZ', CController will do one of the
+ following: 1. Method-based action: call method 'actionXYZ' if it exists; 2.
+ Class-based action: create an instance of class 'XYZ' if the class is found
+ in the action class map    (specified via |CController::actions|, and execute
+ the action; 3. Call |CController::missingAction|, which by default will raise
+ a 404 HTTP exception.
+
+ If the user does not specify an action, CController will run the action
+ specified by |CController::defaultAction|, instead.
+
+ CController may be configured to execute filters before and after running
+ actions. Filters preprocess/postprocess the user request/response and may
+ quit executing actions if needed. They are executed in the order they are
+ specified. If during the execution, any of the filters returns true, the rest
+ filters and the action will no longer get executed.
+
+ Filters can be individual objects, or methods defined in the controller
+ class. They are specified by overriding |CController::filters| method. The
+ following is an example of the filter specification:
+>
+ array(
+     'accessControl - login',
+     'ajaxOnly + search',
+     array(
+         'COutputCache + list',
+         'duration'=>300,
+     ),
+ )
+<
+ The above example declares three filters: accessControl, ajaxOnly,
+ COutputCache. The first two are method-based filters (defined in
+ CController), which refer to filtering methods in the controller class; while
+ the last refers to a object-based filter whose class is
+ 'system.web.widgets.COutputCache' and the 'duration' property is initialized
+ as 300 (s).
+
+ For method-based filters, a method named 'filterXYZ($filterChain)' in the
+ controller class will be executed, where 'XYZ' stands for the filter name as
+ specified in |CController::filters|. Note, inside the filter method, you must
+ call '$filterChain->run()' if the action should be executed. Otherwise, the
+ filtering process would stop at this filter.
+
+ Filters can be specified so that they are executed only when running certain
+ actions. For method-based filters, this is done by using '+' and '-'
+ operators in the filter specification. The '+' operator means the filter runs
+ only when the specified actions are requested; while the '-' operator means
+ the filter runs only when the requested action is not among those actions.
+ For object-based filters, the '+' and '-' operators are following the class
+ name.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<action>				*CController::action*
+ (CAction) the action currently being executed, null if no active action.
+
+<actionParams>				*CController::actionParams*
+ (array) Returns the request parameters that will be used for action parameter
+ binding. By default, this method will return $_GET. You may override this
+ method if you want to use other request parameters (e.g. $_GET+$_POST).
+
+<cachingStack>				*CController::cachingStack*
+ (CStack) stack of |COutputCache| objects
+
+<clips> 				*CController::clips*
+ (CMap) Returns the list of clips. A clip is a named piece of rendering result
+ that can be inserted at different places.
+
+<defaultAction> 			*CController::defaultAction*
+ (string) the name of the default action. Defaults to 'index'.
+
+<id>					*CController::id*
+ (string) ID of the controller
+
+<layout>				*CController::layout*
+ (mixed) the name of the layout to be applied to this controller's views.
+ Defaults to null, meaning the |CWebApplication::layout| is used. If it is
+ false, no layout will be applied. Since version 1.0.3, the
+ |CWebModule::layout| will be used if the controller belongs to a module and
+ this layout property is null.
+
+<module>				*CController::module*
+ (CWebModule) the module that this controller belongs to. It returns null if
+ the controller does not belong to any module
+
+<pageTitle>				*CController::pageTitle*
+ (string) the page title. Defaults to the controller name and the action name.
+
+<route> 				*CController::route*
+ (string) the route (module ID, controller ID and action ID) of the current
+ request.
+
+<uniqueId>				*CController::uniqueId*
+ (string) the controller ID that is prefixed with the module ID (if any).
+
+<viewPath>				*CController::viewPath*
+ (string) Returns the directory containing view files for this controller. The
+ default implementation returns 'protected/views/ControllerID'. Child classes
+ may override this method to use customized view path. If the controller
+ belongs to a module (since version 1.0.3), the default view path is the
+ |CWebModule::getViewPath| appended with the controller ID.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CController::__construct*					 public
+>
+ __construct($id, $module=NULL)
+<
+(void)
+
+    [id] (string) id of this controller
+    [module] (CWebModule) the module that this controller belongs to. This
+    parameter has been available since version 1.0.3.
+
+
+*CController::accessRules*					 public
+>
+ accessRules()
+<
+(array) list of access rules. See |CAccessControlFilter| for details about
+rule specification.
+
+ Returns the access rules for this controller. Override this method if you use
+ the |CController::filterAccessControl| filter.
+
+
+*CController::actions*						 public
+>
+ actions()
+<
+(array) list of external action classes
+
+ Returns a list of external action classes. Array keys are action IDs, and
+ array values are the corresponding action class in dot syntax (e.g.
+ 'edit'=>'application.controllers.article.EditArticle') or arrays representing
+ the configuration of the actions, such as the following,
+>
+ return array(
+     'action1'=>'path.to.Action1Class',
+     'action2'=>array(
+         'class'=>'path.to.Action2Class',
+         'property1'=>'value1',
+         'property2'=>'value2',
+     ),
+ );
+<
+ Derived classes may override this method to declare external actions.
+
+ Note, in order to inherit actions defined in the parent class, a child class
+ needs to merge the parent actions with child actions using functions like
+ array_merge().
+
+ Since version 1.0.1, you may import actions from an action provider (such as
+ a widget, see |CWidget::actions|), like the following:
+>
+ return array(
+     ...other actions...
+     // import actions declared in ProviderClass::actions()
+     // the action IDs will be prefixed with 'pro.'
+     'pro.'=>'path.to.ProviderClass',
+     // similar as above except that the imported actions are
+     // configured with the specified initial property values
+     'pro2.'=>array(
+         'class'=>'path.to.ProviderClass',
+         'action1'=>array(
+             'property1'=>'value1',
+         ),
+         'action2'=>array(
+             'property2'=>'value2',
+         ),
+     ),
+ )
+<
+ In the above, we differentiate action providers from other action
+ declarations by the array keys. For action providers, the array keys must
+ contain a dot. As a result, an action ID 'pro2.action1' will be resolved as
+ the 'action1' action declared in the 'ProviderClass'.
+
+
+*CController::afterAction*					 protected
+>
+ afterAction($action)
+<
+(void)
+
+ This method is invoked right after an action is executed. You may override
+ this method to do some postprocessing for the action.
+    [action] (CAction) the action just executed.
+
+
+*CController::afterRender*					 protected
+>
+ afterRender($view, $output)
+<
+(void)
+
+ This method is invoked after the specified is rendered by calling
+ |CController::render|. Note that this method is invoked BEFORE
+ |CController::processOutput|. You may override this method to do some
+ postprocessing for the view rendering.
+    [view] (string) the view that has been rendered
+    [output] (string) the rendering result of the view. Note that this
+    parameter is passed as a reference. That means you can modify it within
+    this method.
+
+
+*CController::beforeAction*					 protected
+>
+ beforeAction($action)
+<
+(boolean) whether the action should be executed.
+
+ This method is invoked right before an action is to be executed (after all
+ possible filters.) You may override this method to do last-minute preparation
+ for the action.
+    [action] (CAction) the action to be executed.
+
+
+*CController::beforeRender*					 protected
+>
+ beforeRender($view)
+<
+(boolean) whether the view should be rendered.
+
+ This method is invoked at the beginning of |CController::render|. You may
+ override this method to do some preprocessing when rendering a view.
+    [view] (string) the view to be rendered
+
+
+*CController::behaviors*					 public
+>
+ behaviors()
+<
+(array) the behavior configurations (behavior name=>behavior configuration)
+
+ Returns a list of behaviors that this controller should behave as. The return
+ value should be an array of behavior configurations indexed by behavior
+ names. Each behavior configuration can be either a string specifying the
+ behavior class or an array of the following structure:
+>
+ 'behaviorName'=>array(
+     'class'=>'path.to.BehaviorClass',
+     'property1'=>'value1',
+     'property2'=>'value2',
+ )
+<
+ Note, the behavior classes must implement |IBehavior| or extend from
+ |CBehavior|. Behaviors declared in this method will be attached to the
+ controller when it is instantiated.
+
+ For more details about behaviors, see |CComponent|.
+
+
+*CController::clearPageStates*					 public
+>
+ clearPageStates()
+<
+(void)
+
+ Removes all page states.
+
+
+*CController::createAbsoluteUrl*				 public
+>
+ createAbsoluteUrl($route, $params=array(), $schema='', $ampersand='&')
+<
+(string) the constructed URL
+
+ Creates an absolute URL for the specified action defined in this controller.
+    [route] (string) the URL route. This should be in the format of
+    'ControllerID/ActionID'. If the ControllerPath is not present, the current
+    controller ID will be prefixed to the route. If the route is empty, it is
+    assumed to be the current action.
+    [params] (array) additional GET parameters (name=>value). Both the name
+    and value will be URL-encoded.
+    [schema] (string) schema to use (e.g. http, https). If empty, the schema
+    used for the current request will be used.
+    [ampersand] (string) the token separating name-value pairs in the URL.
+
+
+*CController::createAction*					 public
+>
+ createAction($actionID)
+<
+(CAction) the action instance, null if the action does not exist.
+
+ Creates the action instance based on the action name. The action can be
+ either an inline action or an object. The latter is created by looking up the
+ action map specified in |CController::actions|.
+    [actionID] (string) ID of the action. If empty, the
+    |CController::defaultAction| will be used.
+
+
+*CController::createActionFromMap*				 protected
+>
+ createActionFromMap($actionMap, $actionID, $requestActionID, $config=array())
+<
+(CAction) the action instance, null if the action does not exist.
+
+ Creates the action instance based on the action map. This method will check
+ to see if the action ID appears in the given action map. If so, the
+ corresponding configuration will be used to create the action instance.
+    [actionMap] (array) the action map
+    [actionID] (string) the action ID that has its prefix stripped off
+    [requestActionID] (string) the originally requested action ID
+    [config] (array) the action configuration that should be applied on top of
+    the configuration specified in the map
+
+
+*CController::createUrl*					 public
+>
+ createUrl($route, $params=array(), $ampersand='&')
+<
+(string) the constructed URL
+
+ Creates a relative URL for the specified action defined in this controller.
+    [route] (string) the URL route. This should be in the format of
+    'ControllerID/ActionID'. If the ControllerID is not present, the current
+    controller ID will be prefixed to the route. If the route is empty, it is
+    assumed to be the current action. Since version 1.0.3, if the controller
+    belongs to a module, the |CWebModule::getId| will be prefixed to the
+    route. (If you do not want the module ID prefix, the route should start
+    with a slash '/'.)
+    [params] (array) additional GET parameters (name=>value). Both the name
+    and value will be URL-encoded. If the name is '#', the corresponding value
+    will be treated as an anchor and will be appended at the end of the URL.
+    This anchor feature has been available since version 1.0.1.
+    [ampersand] (string) the token separating name-value pairs in the URL.
+
+
+*CController::filterAccessControl*				 public
+>
+ filterAccessControl($filterChain)
+<
+(void)
+
+ The filter method for 'accessControl' filter. This filter is a wrapper of
+ |CAccessControlFilter|. To use this filter, you must override
+ |CController::accessRules| method.
+    [filterChain] (CFilterChain) the filter chain that the filter is on.
+
+
+*CController::filterAjaxOnly*					 public
+>
+ filterAjaxOnly($filterChain)
+<
+(void)
+
+ The filter method for 'ajaxOnly' filter. This filter reports an error if the
+ applied action is receiving a non-AJAX request.
+    [filterChain] (CFilterChain) the filter chain that the filter is on.
+
+
+*CController::filterPostOnly*					 public
+>
+ filterPostOnly($filterChain)
+<
+(void)
+
+ The filter method for 'postOnly' filter. This filter reports an error if the
+ applied action is receiving a non-POST request.
+    [filterChain] (CFilterChain) the filter chain that the filter is on.
+
+
+*CController::filters*						 public
+>
+ filters()
+<
+(array) a list of filter configurations.
+
+ Returns the filter configurations.
+
+ By overriding this method, child classes can specify filters to be applied to
+ actions.
+
+ This method returns an array of filter specifications. Each array element
+ specify a single filter.
+
+ For a method-based filter (called inline filter), it is specified as
+ 'FilterName[ +|- Action1, Action2, ...]', where the '+' ('-') operators
+ describe which actions should be (should not be) applied with the filter.
+
+ For a class-based filter, it is specified as an array like the following:
+>
+ array(
+     'FilterClass[ +|- Action1, Action2, ...]',
+     'name1'=>'value1',
+     'name2'=>'value2',
+     ...
+ )
+<
+ where the name-value pairs will be used to initialize the properties of the
+ filter.
+
+ Note, in order to inherit filters defined in the parent class, a child class
+ needs to merge the parent filters with child filters using functions like
+ array_merge().
+
+
+*CController::forward*						 public
+>
+ forward($route, $exit=true)
+<
+(void)
+
+ Processes the request using another controller action. This is like
+ |CController::redirect|, but the user browser's URL remains unchanged. In
+ most cases, you should call |CController::redirect| instead of this method.
+    [route] (string) the route of the new controller action. This can be an
+    action ID, or a complete route with module ID (optional in the current
+    module), controller ID and action ID. If the former, the action is assumed
+    to be located within the current controller.
+    [exit] (boolean) whether to end the application after this call. Defaults
+    to true.
+
+
+*CController::getAction*					 public
+>
+ getAction()
+<
+(CAction) the action currently being executed, null if no active action.
+
+
+
+*CController::getActionParams*					 public
+>
+ getActionParams()
+<
+(array) the request parameters to be used for action parameter binding
+
+ Returns the request parameters that will be used for action parameter
+ binding. By default, this method will return $_GET. You may override this
+ method if you want to use other request parameters (e.g. $_GET+$_POST).
+
+
+*CController::getCachingStack*					 public
+>
+ getCachingStack($createIfNull=true)
+<
+(CStack) stack of |COutputCache| objects
+
+    [createIfNull] (boolean) whether to create a stack if it does not exist
+    yet. Defaults to true.
+
+
+*CController::getClips* 					 public
+>
+ getClips()
+<
+(CMap) the list of clips
+
+ Returns the list of clips. A clip is a named piece of rendering result that
+ can be inserted at different places.
+
+
+*CController::getId*						 public
+>
+ getId()
+<
+(string) ID of the controller
+
+
+
+*CController::getLayoutFile*					 public
+>
+ getLayoutFile($layoutName)
+<
+(string) the view file for the layout. False if the view file cannot be found
+
+ Looks for the layout view script based on the layout name.
+
+ The layout name can be specified in one of the following ways:
+   layout is false: returns false, meaning no layout.
+   layout is null: the currently active module's layout will be used.
+   If there is no active module, the application's layout will be
+   used.
+   a regular view name.The resolution of the view file based on the layout
+ view is similar to that in |CController::getViewFile|. In particular, the
+ following rules are followed:
+
+ Otherwise, this method will return the corresponding view file based on the
+ following criteria:
+   When a theme is currently active, this method will call
+   |CTheme::getLayoutFile| to determine which view file should be
+   returned.
+   absolute view within a module: the view name starts with a single
+   slash '/'. In this case, the view will be searched for under the
+   currently active module's view path. If there is no active module,
+   the view will be searched for under the application's view path.
+   absolute view within the application: the view name starts with
+   double slashes '//'. In this case, the view will be searched for
+   under the application's view path. This syntax has been available
+   since version 1.1.3.
+   aliased view: the view name contains dots and refers to a path
+   alias. The view file is determined by calling
+   |YiiBase::getPathOfAlias|. Note that aliased views cannot be
+   themed because they can refer to a view file located at arbitrary
+   places.
+   relative view: otherwise. Relative views will be searched for
+   under the currently active module's layout path. In case when
+   there is no active module, the view will be searched for under the
+   application's layout path.After the view file is identified, this method
+ may further call |CApplication::findLocalizedFile| to find its localized
+ version if internationalization is needed.
+    [layoutName] (mixed) layout name
+
+
+*CController::getModule*					 public
+>
+ getModule()
+<
+(CWebModule) the module that this controller belongs to. It returns null if
+the controller does not belong to any module
+
+
+
+*CController::getPageState*					 public
+>
+ getPageState($name, $defaultValue=NULL)
+<
+(mixed) the page state value
+
+ Returns a persistent page state value. A page state is a variable that is
+ persistent across POST requests of the same page. In order to use persistent
+ page states, the form(s) must be stateful which are generated using
+ |CHtml::statefulForm|.
+    [name] (string) the state name
+    [defaultValue] (mixed) the value to be returned if the named state is not
+    found
+
+
+*CController::getPageTitle*					 public
+>
+ getPageTitle()
+<
+(string) the page title. Defaults to the controller name and the action name.
+
+
+
+*CController::getRoute* 					 public
+>
+ getRoute()
+<
+(string) the route (module ID, controller ID and action ID) of the current
+request.
+
+
+
+*CController::getUniqueId*					 public
+>
+ getUniqueId()
+<
+(string) the controller ID that is prefixed with the module ID (if any).
+
+
+
+*CController::getViewFile*					 public
+>
+ getViewFile($viewName)
+<
+(string) the view file path, false if the view file does not exist
+
+ Looks for the view file according to the given view name.
+
+ When a theme is currently active, this method will call |CTheme::getViewFile|
+ to determine which view file should be returned.
+
+ Otherwise, this method will return the corresponding view file based on the
+ following criteria:
+   absolute view within a module: the view name starts with a single
+   slash '/'. In this case, the view will be searched for under the
+   currently active module's view path. If there is no active module,
+   the view will be searched for under the application's view path.
+   absolute view within the application: the view name starts with
+   double slashes '//'. In this case, the view will be searched for
+   under the application's view path. This syntax has been available
+   since version 1.1.3.
+   aliased view: the view name contains dots and refers to a path
+   alias. The view file is determined by calling
+   |YiiBase::getPathOfAlias|. Note that aliased views cannot be
+   themed because they can refer to a view file located at arbitrary
+   places.
+   relative view: otherwise. Relative views will be searched for
+   under the currently active controller's view path.After the view file is
+ identified, this method may further call |CApplication::findLocalizedFile| to
+ find its localized version if internationalization is needed.
+    [viewName] (string) view name
+
+
+*CController::getViewPath*					 public
+>
+ getViewPath()
+<
+(string) the directory containing the view files for this controller. Defaults
+to 'protected/views/ControllerID'.
+
+ Returns the directory containing view files for this controller. The default
+ implementation returns 'protected/views/ControllerID'. Child classes may
+ override this method to use customized view path. If the controller belongs
+ to a module (since version 1.0.3), the default view path is the
+ |CWebModule::getViewPath| appended with the controller ID.
+
+
+*CController::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the controller. This method is called by the application before
+ the controller starts to execute. You may override this method to perform the
+ needed initialization for the controller.
+
+
+*CController::invalidActionParams*				 public
+>
+ invalidActionParams($action)
+<
+(void)
+
+ This method is invoked when the request parameters do not satisfy the
+ requirement of the specified action. The default implementation will throw a
+ 400 HTTP exception.
+    [action] () 
+
+
+*CController::isCachingStackEmpty*				 public
+>
+ isCachingStackEmpty()
+<
+(boolean) whether the caching stack is empty. If not empty, it means currently
+there are some output cache in effect. Note, the return result of this method
+may change when it is called in different output regions, depending on the
+partition of output caches.
+
+ Returns whether the caching stack is empty.
+
+
+*CController::loadPageStates*					 protected
+>
+ loadPageStates()
+<
+(array) the loaded page states
+
+ Loads page states from a hidden input.
+
+
+*CController::missingAction*					 public
+>
+ missingAction($actionID)
+<
+(void)
+
+ Handles the request whose action is not recognized. This method is invoked
+ when the controller cannot find the requested action. The default
+ implementation simply throws an exception.
+    [actionID] (string) the missing action name
+
+
+*CController::paginate* 					 public
+>
+ paginate($itemCount, $pageSize=, $pageVar='')
+<
+(CPagination) the pagination information
+
+ Generates pagination information. This method can be used to generate
+ pagination information given item count and page size. The pagination
+ information can then be passed to |CBasePager| for corresponding rendering.
+
+ Note: this method has been deprecated since version 1.0.1. You should
+ directly use "new CPagination" to create a pagination object.
+    [itemCount] (integer) the total item count
+    [pageSize] (integer) the page size. See |CPagination| for default value.
+    [pageVar] (string) the name of the GET variable storing the current page
+    index. See |CPagination| for default value.
+
+
+*CController::processDynamicOutput*				 public
+>
+ processDynamicOutput($output)
+<
+(string) the processed output
+
+ Postprocesses the dynamic output. This method is internally used. Do not call
+ this method directly.
+    [output] (string) output to be processed
+
+
+*CController::processOutput*					 public
+>
+ processOutput($output)
+<
+(string) the output that has been processed.
+
+ Postprocesses the output generated by |CController::render|. This method is
+ invoked at the end of |CController::render| and |CController::renderText|. If
+ there are registered client scripts, this method will insert them into the
+ output at appropriate places. If there are dynamic contents, they will also
+ be inserted. This method may also save the persistent page states in hidden
+ fields of stateful forms in the page.
+    [output] (string) the output generated by the current action
+
+
+*CController::recordCachingAction*				 public
+>
+ recordCachingAction($context, $method, $params)
+<
+(void)
+
+ Records a method call when an output cache is in effect. When the content is
+ served from the output cache, the recorded method will be re-invoked.
+    [context] (string) a property name of the controller. It refers to an
+    object whose method is being called. If empty it means the controller
+    itself.
+    [method] (string) the method name
+    [params] (array) parameters passed to the method
+
+
+*CController::redirect* 					 public
+>
+ redirect($url, $terminate=true, $statusCode=302)
+<
+(void)
+
+ Redirects the browser to the specified URL or route (controller/action).
+    [url] (mixed) the URL to be redirected to. If the parameter is an array,
+    the first element must be a route to a controller action and the rest are
+    GET parameters in name-value pairs.
+    [terminate] (boolean) whether to terminate the current application after
+    calling this method
+    [statusCode] (integer) the HTTP status code. Defaults to 302. See
+    'http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html' for details about
+    HTTP status code. This parameter has been available since version 1.0.4.
+
+
+*CController::refresh*						 public
+>
+ refresh($terminate=true, $anchor='')
+<
+(void)
+
+ Refreshes the current page. The effect of this method call is the same as
+ user pressing the refresh button on the browser (without post data).
+    [terminate] (boolean) whether to terminate the current application after
+    calling this method
+    [anchor] (string) the anchor that should be appended to the redirection
+    URL. Defaults to empty. Make sure the anchor starts with '#' if you want
+    to specify it. The parameter has been available since version 1.0.7.
+
+
+*CController::render*						 public
+>
+ render($view, $data=NULL, $return=false)
+<
+(string) the rendering result. Null if the rendering result is not required.
+
+ Renders a view with a layout.
+
+ This method first calls |CController::renderPartial| to render the view
+ (called content view). It then renders the layout view which may embed the
+ content view at appropriate place. In the layout view, the content view
+ rendering result can be accessed via variable '$content'. At the end, it
+ calls |CController::processOutput| to insert scripts and dynamic contents if
+ they are available.
+
+ By default, the layout view script is "protected/views/layouts/main.php".
+ This may be customized by changing |CController::layout|.
+    [view] (string) name of the view to be rendered. See
+    |CController::getViewFile| for details about how the view script is
+    resolved.
+    [data] (array) data to be extracted into PHP variables and made available
+    to the view script
+    [return] (boolean) whether the rendering result should be returned instead
+    of being displayed to end users.
+
+
+*CController::renderDynamic*					 public
+>
+ renderDynamic($callback)
+<
+(void)
+
+ Renders dynamic content returned by the specified callback. This method is
+ used together with |COutputCache|. Dynamic contents will always show as their
+ latest state even if the content surrounding them is being cached. This is
+ especially useful when caching pages that are mostly static but contain some
+ small dynamic regions, such as username or current time. We can use this
+ method to render these dynamic regions to ensure they are always up-to-date.
+
+ The first parameter to this method should be a valid PHP callback, while the
+ rest parameters will be passed to the callback.
+
+ Note, the callback and its parameter values will be serialized and saved in
+ cache. Make sure they are serializable.
+    [callback] (callback) a PHP callback which returns the needed dynamic
+    content. When the callback is specified as a string, it will be first
+    assumed to be a method of the current controller class. If the method does
+    not exist, it is assumed to be a global PHP function. Note, the callback
+    should return the dynamic content instead of echoing it.
+
+
+*CController::renderDynamicInternal*				 public
+>
+ renderDynamicInternal($callback, $params)
+<
+(void)
+
+ This method is internally used.
+    [callback] (callback) a PHP callback which returns the needed dynamic
+    content.
+    [params] (array) parameters passed to the PHP callback
+
+
+*CController::renderPartial*					 public
+>
+ renderPartial($view, $data=NULL, $return=false, $processOutput=false)
+<
+(string) the rendering result. Null if the rendering result is not required.
+
+ Renders a view.
+
+ The named view refers to a PHP script (resolved via
+ |CController::getViewFile|) that is included by this method. If $data is an
+ associative array, it will be extracted as PHP variables and made available
+ to the script.
+
+ This method differs from |CController::render| in that it does not apply a
+ layout to the rendered result. It is thus mostly used in rendering a partial
+ view, or an AJAX response.
+    [view] (string) name of the view to be rendered. See
+    |CController::getViewFile| for details about how the view script is
+    resolved.
+    [data] (array) data to be extracted into PHP variables and made available
+    to the view script
+    [return] (boolean) whether the rendering result should be returned instead
+    of being displayed to end users
+    [processOutput] (boolean) whether the rendering result should be
+    postprocessed using |CController::processOutput|.
+
+
+*CController::renderText*					 public
+>
+ renderText($text, $return=false)
+<
+(string) the rendering result. Null if the rendering result is not required.
+
+ Renders a static text string. The string will be inserted in the current
+ controller layout and returned back.
+    [text] (string) the static text string
+    [return] (boolean) whether the rendering result should be returned instead
+    of being displayed to end users.
+
+
+*CController::replaceDynamicOutput*				 protected
+>
+ replaceDynamicOutput($matches)
+<
+(string) the replacement
+
+ Replaces the dynamic content placeholders with actual content. This is a
+ callback function used internally.
+    [matches] (array) matches
+
+
+*CController::resolveViewFile*					 public
+>
+ resolveViewFile($viewName, $viewPath, $basePath, $moduleViewPath='')
+<
+(mixed) the view file path. False if the view file does not exist.
+
+ Finds a view file based on its name. The view name can be in one of the
+ following formats:
+   absolute view within a module: the view name starts with a single
+   slash '/'. In this case, the view will be searched for under the
+   currently active module's view path. If there is no active module,
+   the view will be searched for under the application's view path.
+   absolute view within the application: the view name starts with
+   double slashes '//'. In this case, the view will be searched for
+   under the application's view path. This syntax has been available
+   since version 1.1.3.
+   aliased view: the view name contains dots and refers to a path
+   alias. The view file is determined by calling
+   |YiiBase::getPathOfAlias|. Note that aliased views cannot be
+   themed because they can refer to a view file located at arbitrary
+   places.
+   relative view: otherwise. Relative views will be searched for
+   under the currently active controller's view path.For absolute view and
+ relative view, the corresponding view file is a PHP file whose name is the
+ same as the view name. The file is located under a specified directory. This
+ method will call |CApplication::findLocalizedFile| to search for a localized
+ file, if any.
+    [viewName] (string) the view name
+    [viewPath] (string) the directory that is used to search for a relative
+    view name
+    [basePath] (string) the directory that is used to search for an absolute
+    view name under the application
+    [moduleViewPath] (string) the directory that is used to search for an
+    absolute view name under the current module. If this is not set, the
+    application base view path will be used.
+
+
+*CController::run*						 public
+>
+ run($actionID)
+<
+(void)
+
+ Runs the named action. Filters specified via |CController::filters| will be
+ applied.
+    [actionID] (string) action ID
+
+
+*CController::runAction*					 public
+>
+ runAction($action)
+<
+(void)
+
+ Runs the action after passing through all filters. This method is invoked by
+ |CController::runActionWithFilters| after all possible filters have been
+ executed and the action starts to run.
+    [action] (CAction) action to run
+
+
+*CController::runActionWithFilters*				 public
+>
+ runActionWithFilters($action, $filters)
+<
+(void)
+
+ Runs an action with the specified filters. A filter chain will be created
+ based on the specified filters and the action will be executed then.
+    [action] (CAction) the action to be executed.
+    [filters] (array) list of filters to be applied to the action.
+
+
+*CController::savePageStates*					 protected
+>
+ savePageStates($states, $output)
+<
+(void)
+
+ Saves page states as a base64 string.
+    [states] (array) the states to be saved.
+    [output] (string) the output to be modified. Note, this is passed by
+    reference.
+
+
+*CController::setAction*					 public
+>
+ setAction($value)
+<
+(void)
+
+    [value] (CAction) the action currently being executed.
+
+
+*CController::setPageState*					 public
+>
+ setPageState($name, $value, $defaultValue=NULL)
+<
+(void)
+
+ Saves a persistent page state value. A page state is a variable that is
+ persistent across POST requests of the same page. In order to use persistent
+ page states, the form(s) must be stateful which are generated using
+ |CHtml::statefulForm|.
+    [name] (string) the state name
+    [value] (mixed) the page state value
+    [defaultValue] (mixed) the default page state value. If this is the same
+    as the given value, the state will be removed from persistent storage.
+
+
+*CController::setPageTitle*					 public
+>
+ setPageTitle($value)
+<
+(void)
+
+    [value] (string) the page title.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

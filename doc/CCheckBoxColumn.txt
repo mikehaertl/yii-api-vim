@@ -1,0 +1,107 @@
+
+*CCheckBoxColumn*   >> |CGridColumn| >> |CComponent|
+=================
+
+ CCheckBoxColumn represents a grid view column of checkboxes.
+
+ CCheckBoxColumn supports no selection (read-only), single selection and
+ multiple selection. The mode is determined according to
+ |CCheckBoxColumn::selectableRows|. When in multiple selection mode, the
+ header cell will display an additional checkbox, clicking on which will check
+ or uncheck all of the checkboxes in the data cells.
+
+ Additionally selecting a checkbox can select a grid view row (depending on
+ |CGridView::selectableRows| value) if |CCheckBoxColumn::selectableRows| is
+ null (default).
+
+ By default, the checkboxes rendered in data cells will have the values that
+ are the same as the key values of the data model. One may change this by
+ setting either |CCheckBoxColumn::name| or |CCheckBoxColumn::value|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<checkBoxHtmlOptions>			*CCheckBoxColumn::checkBoxHtmlOptions*
+ (array) the HTML options for the checkboxes.
+
+<checked>				*CCheckBoxColumn::checked*
+ (string) a PHP expression that will be evaluated for every data cell and
+ whose result will determine if checkbox for each data cell is checked. In
+ this expression, the variable '$row' the row number (zero-based); '$data' the
+ data model for the row; and '$this' the column object.
+
+<footerHtmlOptions>			*CCheckBoxColumn::footerHtmlOptions*
+ (array) the HTML options for the footer cell tag.
+
+<headerHtmlOptions>			*CCheckBoxColumn::headerHtmlOptions*
+ (array) the HTML options for the header cell tag.
+
+<htmlOptions>				*CCheckBoxColumn::htmlOptions*
+ (array) the HTML options for the data cell tags.
+
+<name>					*CCheckBoxColumn::name*
+ (string) the attribute name of the data model. The corresponding attribute
+ value will be rendered in each data cell as the checkbox value. Note that if
+ |CCheckBoxColumn::value| is specified, this property will be ignored.
+
+<selectableRows>			*CCheckBoxColumn::selectableRows*
+ (integer) the number of rows that can be checked. Possible values:
+   0 - the state of the checkbox cannot be changed (read-only mode)
+   1 - only one row can be checked. Checking a checkbox has nothing
+   to do with selecting the row
+   2 or more - multiple checkboxes can be checked. Checking a
+   checkbox has nothing to do with selecting the row
+   null - |CGridView::selectableRows| is used to control how many
+   checkboxes can be checked. Cheking a checkbox will also select the
+   row.You may also call the JavaScript function
+ '$.fn.yiiGridView.getChecked(containerID,columnID)' to retrieve the key
+ values of the checked rows.
+
+<value> 				*CCheckBoxColumn::value*
+ (string) a PHP expression that will be evaluated for every data cell and
+ whose result will be rendered in each data cell as the checkbox value. In
+ this expression, the variable '$row' the row number (zero-based); '$data' the
+ data model for the row; and '$this' the column object.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CCheckBoxColumn::init* 					 public
+>
+ init()
+<
+(void)
+
+ Initializes the column. This method registers necessary client script for the
+ checkbox column.
+
+
+*CCheckBoxColumn::renderDataCellContent*			 protected
+>
+ renderDataCellContent($row, $data)
+<
+(void)
+
+ Renders the data cell content. This method renders a checkbox in the data
+ cell.
+    [row] (integer) the row number (zero-based)
+    [data] (mixed) the data associated with the row
+
+
+*CCheckBoxColumn::renderHeaderCellContent*			 protected
+>
+ renderHeaderCellContent()
+<
+(void)
+
+ Renders the header cell content. This method will render a checkbox in the
+ header when |CCheckBoxColumn::selectableRows| is greater than 1 or in case
+ |CCheckBoxColumn::selectableRows| is null when |CGridView::selectableRows| is
+ greater than 1.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

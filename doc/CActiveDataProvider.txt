@@ -1,0 +1,129 @@
+
+*CActiveDataProvider*   >> |CDataProvider| >> |CComponent|
+=====================
+
+ CActiveDataProvider implements a data provider based on ActiveRecord.
+
+ CActiveDataProvider provides data in terms of ActiveRecord objects which are
+ of class |CActiveDataProvider::modelClass|. It uses the AR
+ |CActiveRecord::findAll| method to retrieve the data from database. The
+ |CActiveDataProvider::criteria| property can be used to specify various query
+ options.
+
+ CActiveDataProvider may be used in the following way:
+>
+ $dataProvider=new CActiveDataProvider('Post', array(
+     'criteria'=>array(
+         'condition'=>'status=1',
+         'order'=>'create_time DESC',
+         'with'=>array('author'),
+     ),
+     'pagination'=>array(
+         'pageSize'=>20,
+     ),
+ ));
+ // $dataProvider->getData() will return a list of Post objects
+<
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<criteria>				*CActiveDataProvider::criteria*
+ (CDbCriteria) Returns the query criteria.
+
+<keyAttribute>				*CActiveDataProvider::keyAttribute*
+ (string) the name of key attribute for |CActiveDataProvider::modelClass|. If
+ not set, it means the primary key of the corresponding database table will be
+ used.
+
+<model> 				*CActiveDataProvider::model*
+ (CActiveRecord) the AR finder instance (eg 'Post::model()'). This property
+ can be set by passing the finder instance as the first parameter to the
+ constructor. For example, 'Post::model()->published()'.
+
+<modelClass>				*CActiveDataProvider::modelClass*
+ (string) the primary ActiveRecord class name. The
+ |CActiveDataProvider::getData| method will return a list of objects of this
+ class.
+
+<sort>					*CActiveDataProvider::sort*
+ (CSort) Returns the sorting object.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CActiveDataProvider::__construct*				 public
+>
+ __construct($modelClass, $config=array())
+<
+(void)
+
+ Constructor.
+    [modelClass] (mixed) the model class (e.g. 'Post') or the model finder
+    instance (e.g. 'Post::model()', 'Post::model()->published()').
+    [config] (array) configuration (name=>value) to be applied as the initial
+    property values of this class.
+
+
+*CActiveDataProvider::calculateTotalItemCount*			 protected
+>
+ calculateTotalItemCount()
+<
+(integer) the total number of data items.
+
+ Calculates the total number of data items.
+
+
+*CActiveDataProvider::fetchData*				 protected
+>
+ fetchData()
+<
+(array) list of data items
+
+ Fetches the data from the persistent data storage.
+
+
+*CActiveDataProvider::fetchKeys*				 protected
+>
+ fetchKeys()
+<
+(array) list of data item keys.
+
+ Fetches the data item keys from the persistent data storage.
+
+
+*CActiveDataProvider::getCriteria*				 public
+>
+ getCriteria()
+<
+(CDbCriteria) the query criteria
+
+ Returns the query criteria.
+
+
+*CActiveDataProvider::getSort*					 public
+>
+ getSort()
+<
+(CSort) the sorting object. If this is false, it means the sorting is
+disabled.
+
+ Returns the sorting object.
+
+
+*CActiveDataProvider::setCriteria*				 public
+>
+ setCriteria($value)
+<
+(void)
+
+ Sets the query criteria.
+    [value] (mixed) the query criteria. This can be either a CDbCriteria
+    object or an array representing the query criteria.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

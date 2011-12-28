@@ -1,0 +1,115 @@
+
+*CViewAction*   >> |CAction| >> |CComponent|
+=============
+
+ CViewAction represents an action that displays a view according to a
+ user-specified parameter.
+
+ By default, the view being displayed is specified via the 'view' GET
+ parameter. The name of the GET parameter can be customized via
+ |CViewAction::viewParam|. If the user doesn't provide the GET parameter, the
+ default view specified by |CViewAction::defaultView| will be displayed.
+
+ Users specify a view in the format of 'path.to.view', which translates to the
+ view name 'BasePath/path/to/view' where 'BasePath' is given by
+ |CViewAction::basePath|.
+
+ Note, the user specified view can only contain word characters, dots and
+ dashes and the first letter must be a word letter.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<basePath>				*CViewAction::basePath*
+ (string) the base path for the views. Defaults to 'pages'. The base path will
+ be prefixed to any user-specified page view. For example, if a user requests
+ for 'tutorial.chap1', the corresponding view name will be
+ 'pages/tutorial/chap1', assuming the base path is 'pages'. The actual view
+ file is determined by |CController::getViewFile|.
+
+<defaultView>				*CViewAction::defaultView*
+ (string) the name of the default view when |CViewAction::viewParam| GET
+ parameter is not provided by user. Defaults to 'index'. This should be in the
+ format of 'path.to.view', similar to that given in the GET parameter.
+
+<layout>				*CViewAction::layout*
+ (mixed) the name of the layout to be applied to the views. This will be
+ assigned to |CController::layout| before the view is rendered. Defaults to
+ null, meaning the controller's layout will be used. If false, no layout will
+ be applied.
+
+<renderAsText>				*CViewAction::renderAsText*
+ (boolean) whether the view should be rendered as PHP script or static text.
+ Defaults to false.
+
+<requestedView> 			*CViewAction::requestedView*
+ (string) Returns the name of the view requested by the user. If the user
+ doesn't specify any view, the |CViewAction::defaultView| will be returned.
+
+<view>					*CViewAction::view*
+ (string) the name of the view to be rendered. This property will be set once
+ the user requested view is resolved.
+
+<viewParam>				*CViewAction::viewParam*
+ (string) the name of the GET parameter that contains the requested view name.
+ Defaults to 'view'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CViewAction::getRequestedView* 				 public
+>
+ getRequestedView()
+<
+(string) the name of the view requested by the user. This is in the format of
+'path.to.view'.
+
+ Returns the name of the view requested by the user. If the user doesn't
+ specify any view, the |CViewAction::defaultView| will be returned.
+
+
+*CViewAction::onAfterRender*					 public
+>
+ onAfterRender($event)
+<
+(void)
+
+ Raised right after the action invokes the render method.
+    [event] (CEvent) event parameter
+
+
+*CViewAction::onBeforeRender*					 public
+>
+ onBeforeRender($event)
+<
+(void)
+
+ Raised right before the action invokes the render method. Event handlers can
+ set the |CEvent::handled| property to be true to stop further view rendering.
+    [event] (CEvent) event parameter
+
+
+*CViewAction::resolveView*					 protected
+>
+ resolveView($viewPath)
+<
+(string) fully resolved view in the format of 'path/to/view'.
+
+ Resolves the user-specified view into a valid view name.
+    [viewPath] (string) user-specified view in the format of 'path.to.view'.
+
+
+*CViewAction::run*						 public
+>
+ run()
+<
+(void)
+
+ Runs the action. This method displays the view requested by the user.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

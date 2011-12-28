@@ -1,0 +1,122 @@
+
+*CAccessControlFilter*   >> |CFilter| >> |CComponent|
+======================
+
+ CAccessControlFilter performs authorization checks for the specified actions.
+
+ By enabling this filter, controller actions can be checked for access
+ permissions. When the user is not denied by one of the security rules or
+ allowed by a rule explicitly, he will be able to access the action.
+
+ For maximum security consider adding
+>
+ array('deny')
+<
+ as a last rule in a list so all actions will be denied by default.
+
+ To specify the access rules, set the |CAccessControlFilter::setRules|
+ property, which should be an array of the rules. Each rule is specified as an
+ array of the following structure:
+>
+ array(
+   'allow',  // or 'deny'
+   // optional, list of action IDs (case insensitive) that this rule applies
+ to
+   'actions'=>array('edit', 'delete'),
+   // optional, list of controller IDs (case insensitive) that this rule
+ applies to
+   // This option is available since version 1.0.3.
+   'controllers'=>array('post', 'admin/user'),
+   // optional, list of usernames (case insensitive) that this rule applies to
+   // Use * to represent all users, ? guest users, and @ authenticated users
+   'users'=>array('thomas', 'kevin'),
+   // optional, list of roles (case sensitive!) that this rule applies to.
+   'roles'=>array('admin', 'editor'),
+   // optional, list of IP address/patterns that this rule applies to
+   // e.g. 127.0.0.1, 127.0.0.*
+   'ips'=>array('127.0.0.1'),
+   // optional, list of request types (case insensitive) that this rule
+ applies to
+   'verbs'=>array('GET', 'POST'),
+   // optional, a PHP expression whose value indicates whether this rule
+ applies
+   // This option is available since version 1.0.3.
+   'expression'=>'!$user->isGuest && $user->level==2',
+   // optional, the customized error message to be displayed
+   // This option is available since version 1.1.1.
+   'message'=>'Access Denied.',
+ )
+<
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<message>				*CAccessControlFilter::message*
+ (string) the error message to be displayed when authorization fails. This
+ property can be overridden by individual access rule via
+ |CAccessRule::message|. If this property is not set, a default error message
+ will be displayed.
+
+<rules> 				*CAccessControlFilter::rules*
+ (array) list of access rules.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CAccessControlFilter::accessDenied*				 protected
+>
+ accessDenied($user, $message)
+<
+(void)
+
+ Denies the access of the user. This method is invoked when access check
+ fails.
+    [user] (IWebUser) the current user
+    [message] (string) the error message to be displayed
+
+
+*CAccessControlFilter::getRules*				 public
+>
+ getRules()
+<
+(array) list of access rules.
+
+
+
+*CAccessControlFilter::preFilter*				 protected
+>
+ preFilter($filterChain)
+<
+(boolean) whether the filtering process should continue and the action should
+be executed.
+
+ Performs the pre-action filtering.
+    [filterChain] (CFilterChain) the filter chain that the filter is on.
+
+
+*CAccessControlFilter::resolveErrorMessage*			 protected
+>
+ resolveErrorMessage($rule)
+<
+(string) the error message
+
+ Resolves the error message to be displayed. This method will check
+ |CAccessControlFilter::message| and |CAccessRule::message| to see what error
+ message should be displayed.
+    [rule] (CAccessRule) the access rule
+
+
+*CAccessControlFilter::setRules*				 public
+>
+ setRules($rules)
+<
+(void)
+
+    [rules] (array) list of access rules.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

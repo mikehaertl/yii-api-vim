@@ -1,0 +1,44 @@
+
+*CHasManyRelation*   >> |CActiveRelation| >> |CBaseActiveRelation| >> |CComponent|
+==================
+
+ CHasManyRelation represents the parameters specifying a HAS_MANY relation.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<index> 				*CHasManyRelation::index*
+ (string) the name of the column that should be used as the key for storing
+ related objects. Defaults to null, meaning using zero-based integer IDs.
+
+<limit> 				*CHasManyRelation::limit*
+ (integer) limit of the rows to be selected. It is effective only for lazy
+ loading this related object. Defaults to -1, meaning no limit.
+
+<offset>				*CHasManyRelation::offset*
+ (integer) offset of the rows to be selected. It is effective only for lazy
+ loading this related object. Defaults to -1, meaning no offset.
+
+<through>				*CHasManyRelation::through*
+ (string) the name of the relation that should be used as the bridge to this
+ relation. Deafults to null, meaning don't use any bridge.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CHasManyRelation::mergeWith*					 public
+>
+ mergeWith($criteria, $fromScope=false)
+<
+(void)
+
+ Merges this relation with a criteria specified dynamically.
+    [criteria] (array) the dynamically specified criteria
+    [fromScope] (boolean) whether the criteria to be merged is from scopes
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

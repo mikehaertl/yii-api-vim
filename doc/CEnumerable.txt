@@ -1,0 +1,22 @@
+
+*CEnumerable*  
+=============
+
+ CEnumerable is the base class for all enumerable types.
+
+ To define an enumerable type, extend CEnumberable and define string
+ constants. Each constant represents an enumerable value. The constant name
+ must be the same as the constant value. For example,
+>
+ class TextAlign extends CEnumerable
+ {
+     const Left='Left';
+     const Right='Right';
+ }
+<
+ Then, one can use the enumerable values such as TextAlign::Left and
+ TextAlign::Right.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

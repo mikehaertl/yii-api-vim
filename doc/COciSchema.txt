@@ -1,0 +1,191 @@
+
+*COciSchema*   >> |CDbSchema| >> |CComponent|
+============
+
+ COciSchema is the class for retrieving metadata information from an Oracle
+ database.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<columnTypes>				*COciSchema::columnTypes*
+ (array) the abstract column types mapped to physical column types.
+
+<defaultSchema> 			*COciSchema::defaultSchema*
+ (string) default schema.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*COciSchema::alterColumn*					 public
+>
+ alterColumn($table, $column, $type)
+<
+(string) the SQL statement for changing the definition of a column.
+
+ Builds a SQL statement for changing the definition of a column.
+    [table] (string) the table whose column is to be changed. The table name
+    will be properly quoted by the method.
+    [column] (string) the name of the column to be changed. The name will be
+    properly quoted by the method.
+    [type] (string) the new column type. The |COciSchema::getColumnType|
+    method will be invoked to convert abstract column type (if any) into the
+    physical one. Anything that is not recognized as abstract type will be
+    kept in the generated SQL. For example, 'string' will be turned into
+    'varchar(255)', while 'string not null' will become 'varchar(255) not
+    null'.
+
+
+*COciSchema::createColumn*					 protected
+>
+ createColumn($column)
+<
+(CDbColumnSchema) normalized column metadata
+
+ Creates a table column.
+    [column] (array) column metadata
+
+
+*COciSchema::createCommandBuilder*				 protected
+>
+ createCommandBuilder()
+<
+(CDbCommandBuilder) command builder instance
+
+ Creates a command builder for the database. This method may be overridden by
+ child classes to create a DBMS-specific command builder.
+
+
+*COciSchema::dropIndex* 					 public
+>
+ dropIndex($name, $table)
+<
+(string) the SQL statement for dropping an index.
+
+ Builds a SQL statement for dropping an index.
+    [name] (string) the name of the index to be dropped. The name will be
+    properly quoted by the method.
+    [table] (string) the table whose index is to be dropped. The name will be
+    properly quoted by the method.
+
+
+*COciSchema::findColumns*					 protected
+>
+ findColumns($table)
+<
+(boolean) whether the table exists in the database
+
+ Collects the table column metadata.
+    [table] (COciTableSchema) the table metadata
+
+
+*COciSchema::findConstraints*					 protected
+>
+ findConstraints($table)
+<
+(void)
+
+ Collects the primary and foreign key column details for the given table.
+    [table] (COciTableSchema) the table metadata
+
+
+*COciSchema::findTableNames*					 protected
+>
+ findTableNames($schema='')
+<
+(array) all table names in the database.
+
+ Returns all table names in the database.
+    [schema] (string) the schema of the tables. Defaults to empty string,
+    meaning the current or default schema. If not empty, the returned table
+    names will be prefixed with the schema name.
+
+
+*COciSchema::getDefaultSchema*					 public
+>
+ getDefaultSchema()
+<
+(string) default schema.
+
+
+
+*COciSchema::getSchemaTableName*				 protected
+>
+ getSchemaTableName($table)
+<
+(array) tuple as ($schemaName,$tableName)
+
+    [table] (string) table name with optional schema name prefix, uses default
+    schema name prefix is not provided.
+
+
+*COciSchema::loadTable* 					 protected
+>
+ loadTable($name)
+<
+(CDbTableSchema) driver dependent table metadata.
+
+ Loads the metadata for the specified table.
+    [name] (string) table name
+
+
+*COciSchema::quoteSimpleColumnName*				 public
+>
+ quoteSimpleColumnName($name)
+<
+(string) the properly quoted column name
+
+ Quotes a column name for use in a query. A simple column name does not
+ contain prefix.
+    [name] (string) column name
+
+
+*COciSchema::quoteSimpleTableName*				 public
+>
+ quoteSimpleTableName($name)
+<
+(string) the properly quoted table name
+
+ Quotes a table name for use in a query. A simple table name does not schema
+ prefix.
+    [name] (string) table name
+
+
+*COciSchema::renameTable*					 public
+>
+ renameTable($table, $newName)
+<
+(string) the SQL statement for renaming a DB table.
+
+ Builds a SQL statement for renaming a DB table.
+    [table] (string) the table to be renamed. The name will be properly quoted
+    by the method.
+    [newName] (string) the new table name. The name will be properly quoted by
+    the method.
+
+
+*COciSchema::resolveTableNames* 				 protected
+>
+ resolveTableNames($table, $name)
+<
+(void)
+
+ Generates various kinds of table names.
+    [table] (COciTableSchema) the table instance
+    [name] (string) the unquoted table name
+
+
+*COciSchema::setDefaultSchema*					 public
+>
+ setDefaultSchema($schema)
+<
+(void)
+
+    [schema] (string) default schema.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

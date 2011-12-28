@@ -1,0 +1,31 @@
+
+*IViewRenderer*  
+===============
+
+ IViewRenderer interface is implemented by a view renderer class.
+
+ A view renderer is |CWebApplication::viewRenderer| application component
+ whose wants to replace the default view rendering logic implemented in
+ |CBaseController|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*IViewRenderer::renderFile*					 public
+>
+ renderFile($context, $file, $data, $return)
+<
+(mixed) the rendering result, or null if the rendering result is not needed.
+
+ Renders a view file.
+    [context] (CBaseController) the controller or widget who is rendering the
+    view file.
+    [file] (string) the view file path
+    [data] (mixed) the data to be passed to the view
+    [return] (boolean) whether the rendering result should be returned
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

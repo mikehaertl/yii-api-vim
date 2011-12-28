@@ -1,0 +1,100 @@
+
+*CConfiguration*   >> |CMap| >> |CComponent|
+================
+
+ CConfiguration represents an array-based configuration.
+
+ It can be used to initialize an object's properties.
+
+ The configuration data may be obtained from a PHP script. For example,
+>
+ return array(
+     'name'=>'My Application',
+     'defaultController'=>'index',
+ );
+<
+ Use the following code to load the above configuration data:
+>
+ $config=new CConfiguration('path/to/config.php');
+<
+ To apply the configuration to an object, call |CConfiguration::applyTo|. Each
+ (key,value) pair in the configuration data is applied to the object like:
+ $object->$key=$value.
+
+ Since CConfiguration extends from |CMap|, it can be used like an associative
+ array. See |CMap| for more details.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CConfiguration::__construct*					 public
+>
+ __construct($data=NULL)
+<
+(void)
+
+ Constructor.
+    [data] (mixed) if string, it represents a config file (a PHP script
+    returning the configuration as an array); If array, it is config data.
+
+
+*CConfiguration::applyTo*					 public
+>
+ applyTo($object)
+<
+(void)
+
+ Applies the configuration to an object. Each (key,value) pair in the
+ configuration data is applied to the object like: $object->$key=$value.
+    [object] (object) object to be applied with this configuration
+
+
+*CConfiguration::createObject*					 public
+>
+ createObject($config)
+<
+(mixed) the created object
+
+ Creates an object and initializes it based on the given configuration.
+
+ NOTE: this method has been deprecated since version 1.0.1. Please use
+ |YiiBase::createComponent|, instead.
+    [config] (mixed) the configuration. It can be either a string or an array.
+
+
+*CConfiguration::loadFromFile*					 public
+>
+ loadFromFile($configFile)
+<
+(void)
+
+ Loads configuration data from a file and merges it with the existing
+ configuration.
+
+ A config file must be a PHP script returning a configuration array (like the
+ following)
+>
+ return array
+ (
+     'name'=>'My Application',
+     'defaultController'=>'index',
+ );
+<
+    [configFile] (string) configuration file path (if using relative path, be
+    aware of what is the current path)
+
+
+*CConfiguration::saveAsString*					 public
+>
+ saveAsString()
+<
+(string) the string representation of the configuration
+
+ Saves the configuration into a string. The string is a valid PHP expression
+ representing the configuration data as an array.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

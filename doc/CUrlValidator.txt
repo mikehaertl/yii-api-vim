@@ -1,0 +1,73 @@
+
+*CUrlValidator*   >> |CValidator| >> |CComponent|
+===============
+
+ CUrlValidator validates that the attribute value is a valid http or https
+ URL.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowEmpty>				*CUrlValidator::allowEmpty*
+ (boolean) whether the attribute value can be null or empty. Defaults to true,
+ meaning that if the attribute is empty, it is considered valid.
+
+<defaultScheme> 			*CUrlValidator::defaultScheme*
+ (string) the default URI scheme. If the input doesn't contain the scheme
+ part, the default scheme will be prepended to it (thus changing the input).
+ Defaults to null, meaning a URL must contain the scheme part.
+
+<pattern>				*CUrlValidator::pattern*
+ (string) the regular expression used to validate the attribute value. Since
+ version 1.1.7 the pattern may contain a {schemes} token that will be replaced
+ by a regular expression which represents the {@see validSchemes}.
+
+<validSchemes>				*CUrlValidator::validSchemes*
+ (array) list of URI schemes which should be considered valid. By default,
+ http and https are considered to be valid schemes.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CUrlValidator::clientValidateAttribute*			 public
+>
+ clientValidateAttribute($object, $attribute)
+<
+(string) the client-side validation script.
+
+ Returns the JavaScript needed for performing client-side validation.
+    [object] (CModel) the data object being validated
+    [attribute] (string) the name of the attribute to be validated.
+
+
+*CUrlValidator::validateAttribute*				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+*CUrlValidator::validateValue*					 public
+>
+ validateValue($value)
+<
+(mixed) false if the the value is not a valid URL, otherwise the possibly
+modified value ({@see defaultScheme})
+
+ Validates a static value to see if it is a valid URL. Note that this method
+ does not respect |CUrlValidator::allowEmpty| property. This method is
+ provided so that you can call it directly without going through the model
+ validation rule mechanism.
+    [value] (mixed) the value to be validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,157 @@
+
+*GiiModule*   >> |CWebModule| >> |CModule| >> |CComponent|
+===========
+
+ GiiModule is a module that provides Web-based code generation capabilities.
+
+ To use GiiModule, you must include it as a module in the application
+ configuration like the following:
+>
+ return array(
+     ......
+     'modules'=>array(
+         'gii'=>array(
+             'class'=>'system.gii.GiiModule',
+             'password'=>***choose a password***
+         ),
+     ),
+ )
+<
+ Because GiiModule generates new code files on the server, you should only use
+ it on your own development machine. To prevent other people from using this
+ module, it is required that you specify a secret password in the
+ configuration. Later when you access the module via browser, you will be
+ prompted to enter the correct password.
+
+ By default, GiiModule can only be accessed by localhost. You may configure
+ its |GiiModule::ipFilters| property if you want to make it accessible on
+ other machines.
+
+ With the above configuration, you will be able to access GiiModule in your
+ browser using the following URL:
+
+ http://localhost/path/to/index.php?r=gii
+
+ If your application is using path-format URLs with some customized URL rules,
+ you may need to add the following URLs in your application configuration in
+ order to access GiiModule:
+>
+ 'components'=>array(
+     'urlManager'=>array(
+         'urlFormat'=>'path',
+         'rules'=>array(
+             'gii'=>'gii',
+             'gii/<controller:\w+>'=>'gii/<controller>',
+             'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
+             ...other rules...
+         ),
+     )
+ )
+<
+ You can then access GiiModule via:
+
+ http://localhost/path/to/index.php/gii
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<assetsUrl>				*GiiModule::assetsUrl*
+ (string) the base URL that contains all published asset files of gii.
+
+<generatorPaths>			*GiiModule::generatorPaths*
+ (array) a list of path aliases that refer to the directories containing code
+ generators. The directory referred by a single path alias may contain
+ multiple code generators, each stored under a sub-directory whose name is the
+ generator name. Defaults to array('application.gii').
+
+<ipFilters>				*GiiModule::ipFilters*
+ (array) the IP filters that specify which IP addresses are allowed to access
+ GiiModule. Each array element represents a single filter. A filter can be
+ either an IP address or an address with wildcard (e.g. 192.168.0.*) to
+ represent a network segment. If you want to allow all IPs to access gii, you
+ may set this property to be false (DO NOT DO THIS UNLESS YOU KNOW THE
+ CONSEQUENCE!!!) The default value is array('127.0.0.1', '::1'), which means
+ GiiModule can only be accessed on the localhost.
+
+<newDirMode>				*GiiModule::newDirMode*
+ (integer) the permssion to be set for newly generated directories. This value
+ will be used by PHP chmod function. Defaults to 0777, meaning the directory
+ can be read, written and executed by all users.
+
+<newFileMode>				*GiiModule::newFileMode*
+ (integer) the permssion to be set for newly generated code files. This value
+ will be used by PHP chmod function. Defaults to 0666, meaning the file is
+ read-writable by all users.
+
+<password>				*GiiModule::password*
+ (string) the password that can be used to access GiiModule. If this property
+ is set false, then GiiModule can be accessed without password (DO NOT DO THIS
+ UNLESS YOU KNOW THE CONSEQUENCE!!!)
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*GiiModule::allowIp*						 protected
+>
+ allowIp($ip)
+<
+(boolean) whether the user IP is allowed by |GiiModule::ipFilters|.
+
+ Checks to see if the user IP is allowed by |GiiModule::ipFilters|.
+    [ip] (string) the user IP
+
+
+*GiiModule::beforeControllerAction*				 public
+>
+ beforeControllerAction($controller, $action)
+<
+(boolean) whether the action should be executed.
+
+ Performs access check to gii. This method will check to see if user IP and
+ password are correct if they attempt to access actions other than
+ "default/login" and "default/error".
+    [controller] (CController) the controller to be accessed.
+    [action] (CAction) the action to be accessed.
+
+
+*GiiModule::findGenerators*					 protected
+>
+ findGenerators()
+<
+(void)
+
+ Finds all available code generators and their code templates.
+
+
+*GiiModule::getAssetsUrl*					 public
+>
+ getAssetsUrl()
+<
+(string) the base URL that contains all published asset files of gii.
+
+
+
+*GiiModule::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the gii module.
+
+
+*GiiModule::setAssetsUrl*					 public
+>
+ setAssetsUrl($value)
+<
+(void)
+
+    [value] (string) the base URL that contains all published asset files of
+    gii.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

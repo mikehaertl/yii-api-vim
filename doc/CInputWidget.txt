@@ -1,0 +1,56 @@
+
+*CInputWidget*   >> |CWidget| >> |CBaseController| >> |CComponent|
+==============
+
+ CInputWidget is the base class for widgets that collect user inputs.
+
+ CInputWidget declares properties common among input widgets. An input widget
+ can be associated with a data model and an attribute, or a name and a value.
+ If the former, the name and the value will be generated automatically. Child
+ classes may use |CInputWidget::resolveNameID| and |CInputWidget::hasModel|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<attribute>				*CInputWidget::attribute*
+ (string) the attribute associated with this widget. Starting from version
+ 1.0.9, the name can contain square brackets (e.g. 'name[1]') which is used to
+ collect tabular data input.
+
+<htmlOptions>				*CInputWidget::htmlOptions*
+ (array) additional HTML options to be rendered in the input tag
+
+<model> 				*CInputWidget::model*
+ (CModel) the data model associated with this widget.
+
+<name>					*CInputWidget::name*
+ (string) the input name. This must be set if |CInputWidget::model| is not
+ set.
+
+<value> 				*CInputWidget::value*
+ (string) the input value
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CInputWidget::hasModel*					 protected
+>
+ hasModel()
+<
+(boolean) whether this widget is associated with a data model.
+
+
+
+*CInputWidget::resolveNameID*					 protected
+>
+ resolveNameID()
+<
+(array) the name and the ID of the input.
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

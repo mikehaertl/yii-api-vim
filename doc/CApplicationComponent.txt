@@ -1,0 +1,56 @@
+
+*CApplicationComponent*   >> |CComponent|
+=======================
+
+ CApplicationComponent is the base class for application component classes.
+
+ CApplicationComponent implements the basic methods required by
+ |IApplicationComponent|.
+
+ When developing an application component, try to put application component
+ initialization code in the |CApplicationComponent::init| method instead of
+ the constructor. This has the advantage that the application component can be
+ customized through application configuration.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<behaviors>				*CApplicationComponent::behaviors*
+ (array) the behaviors that should be attached to this component. The
+ behaviors will be attached to the component when
+ |CApplicationComponent::init| is called. Please refer to |CModel::behaviors|
+ on how to specify the value of this property.
+
+<isInitialized> 			*CApplicationComponent::isInitialized*
+ (boolean) Checks if this application component bas been initialized.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CApplicationComponent::getIsInitialized*			 public
+>
+ getIsInitialized()
+<
+(boolean) whether this application component has been initialized (ie,
+|CApplicationComponent::init| is invoked).
+
+ Checks if this application component bas been initialized.
+
+
+*CApplicationComponent::init*					 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component. This method is required by
+ |IApplicationComponent| and is invoked by application. If you override this
+ method, make sure to call the parent implementation so that the application
+ component can be marked as initialized.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

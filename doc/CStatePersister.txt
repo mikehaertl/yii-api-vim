@@ -1,0 +1,80 @@
+
+*CStatePersister*   >> |CApplicationComponent| >> |CComponent|
+=================
+
+ CStatePersister implements a file-based persistent data storage.
+
+ It can be used to keep data available through multiple requests and sessions.
+
+ By default, CStatePersister stores data in a file named 'state.bin' that is
+ located under the application |CApplication::getRuntimePath|. You may change
+ the location by setting the |CStatePersister::stateFile| property.
+
+ To retrieve the data from CStatePersister, call |CStatePersister::load|. To
+ save the data, call |CStatePersister::save|.
+
+ Comparison among state persister, session and cache is as follows:
+   {session} data persisting within a single user session.
+   state persister: data persisting through all requests/sessions
+   (e.g. hit counter).
+   {cache} volatile and fast storage. It may be used as storage
+   medium for session or state persister.Since server resource is often
+ limited, be cautious if you plan to use CStatePersister to store large amount
+ of data. You should also consider using database-based persister to improve
+ the throughput.
+
+ CStatePersister is a core application component used to store global
+ application state. It may be accessed via |CApplication::getStatePersister|.
+ page state persistent method based on cache.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<cacheID>				*CStatePersister::cacheID*
+ (string) the ID of the cache application component that is used to cache the
+ state values. Defaults to 'cache' which refers to the primary cache
+ application component. Set this property to false if you want to disable
+ caching state values.
+
+<stateFile>				*CStatePersister::stateFile*
+ (string) the file path storing the state data. Make sure the directory
+ containing the file exists and is writable by the Web server process. If
+ using relative path, also make sure the path is correct.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CStatePersister::init* 					 public
+>
+ init()
+<
+(void)
+
+ Initializes the component. This method overrides the parent implementation by
+ making sure |CStatePersister::stateFile| contains valid value.
+
+
+*CStatePersister::load* 					 public
+>
+ load()
+<
+(mixed) state data. Null if no state data available.
+
+ Loads state data from persistent storage.
+
+
+*CStatePersister::save* 					 public
+>
+ save($state)
+<
+(void)
+
+ Saves application state in persistent storage.
+    [state] (mixed) state data (must be serializable).
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

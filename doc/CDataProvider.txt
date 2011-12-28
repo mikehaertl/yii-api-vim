@@ -1,0 +1,219 @@
+
+*CDataProvider*   >> |CComponent|
+===============
+
+ CDataProvider is a base class that implements the |IDataProvider| interface.
+
+ Derived classes mainly need to implement three methods:
+ |CDataProvider::fetchData|, |CDataProvider::fetchKeys| and
+ |CDataProvider::calculateTotalItemCount|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<data>					*CDataProvider::data*
+ (array) Returns the data items currently available.
+
+<id>					*CDataProvider::id*
+ (string) Returns the ID that uniquely identifies the data provider.
+
+<itemCount>				*CDataProvider::itemCount*
+ (integer) Returns the number of data items in the current page. This is
+ equivalent to 'count($provider->getData())'. When |CDataProvider::pagination|
+ is set false, this returns the same value as |CDataProvider::totalItemCount|.
+
+<keys>					*CDataProvider::keys*
+ (array) Returns the key values associated with the data items.
+
+<pagination>				*CDataProvider::pagination*
+ (CPagination) Returns the pagination object.
+
+<sort>					*CDataProvider::sort*
+ (CSort) Returns the sort object.
+
+<totalItemCount>			*CDataProvider::totalItemCount*
+ (integer) Returns the total number of data items. When
+ |CDataProvider::pagination| is set false, this returns the same value as
+ |CDataProvider::itemCount|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDataProvider::calculateTotalItemCount*			 protected
+>
+ calculateTotalItemCount()
+<
+(integer) the total number of data items.
+
+ Calculates the total number of data items.
+
+
+*CDataProvider::fetchData*					 protected
+>
+ fetchData()
+<
+(array) list of data items
+
+ Fetches the data from the persistent data storage.
+
+
+*CDataProvider::fetchKeys*					 protected
+>
+ fetchKeys()
+<
+(array) list of data item keys.
+
+ Fetches the data item keys from the persistent data storage.
+
+
+*CDataProvider::getData*					 public
+>
+ getData($refresh=false)
+<
+(array) the list of data items currently available in this data provider.
+
+ Returns the data items currently available.
+    [refresh] (boolean) whether the data should be re-fetched from persistent
+    storage.
+
+
+*CDataProvider::getId*						 public
+>
+ getId()
+<
+(string) the unique ID that uniquely identifies the data provider among all
+data providers.
+
+ Returns the ID that uniquely identifies the data provider.
+
+
+*CDataProvider::getItemCount*					 public
+>
+ getItemCount($refresh=false)
+<
+(integer) the number of data items in the current page.
+
+ Returns the number of data items in the current page. This is equivalent to
+ 'count($provider->getData())'. When |CDataProvider::pagination| is set false,
+ this returns the same value as |CDataProvider::totalItemCount|.
+    [refresh] (boolean) whether the number of data items should be
+    re-calculated.
+
+
+*CDataProvider::getKeys*					 public
+>
+ getKeys($refresh=false)
+<
+(array) the list of key values corresponding to |CDataProvider::data|. Each
+data item in |CDataProvider::data| is uniquely identified by the corresponding
+key value in this array.
+
+ Returns the key values associated with the data items.
+    [refresh] (boolean) whether the keys should be re-calculated.
+
+
+*CDataProvider::getPagination*					 public
+>
+ getPagination()
+<
+(CPagination) the pagination object. If this is false, it means the pagination
+is disabled.
+
+ Returns the pagination object.
+
+
+*CDataProvider::getSort*					 public
+>
+ getSort()
+<
+(CSort) the sorting object. If this is false, it means the sorting is
+disabled.
+
+ Returns the sort object.
+
+
+*CDataProvider::getTotalItemCount*				 public
+>
+ getTotalItemCount($refresh=false)
+<
+(integer) total number of possible data items.
+
+ Returns the total number of data items. When |CDataProvider::pagination| is
+ set false, this returns the same value as |CDataProvider::itemCount|.
+    [refresh] (boolean) whether the total number of data items should be
+    re-calculated.
+
+
+*CDataProvider::setData*					 public
+>
+ setData($value)
+<
+(void)
+
+ Sets the data items for this provider.
+    [value] (array) put the data items into this provider.
+
+
+*CDataProvider::setId*						 public
+>
+ setId($value)
+<
+(void)
+
+ Sets the provider ID.
+    [value] (string) the unique ID that uniquely identifies the data provider
+    among all data providers.
+
+
+*CDataProvider::setKeys*					 public
+>
+ setKeys($value)
+<
+(void)
+
+ Sets the data item keys for this provider.
+    [value] (array) put the data item keys into this provider.
+
+
+*CDataProvider::setPagination*					 public
+>
+ setPagination($value)
+<
+(void)
+
+ Sets the pagination for this data provider.
+    [value] (mixed) the pagination to be used by this data provider. This
+    could be a |CPagination| object or an array used to configure the
+    pagination object. If this is false, it means the pagination should be
+    disabled.
+
+
+*CDataProvider::setSort*					 public
+>
+ setSort($value)
+<
+(void)
+
+ Sets the sorting for this data provider.
+    [value] (mixed) the sorting to be used by this data provider. This could
+    be a |CSort| object or an array used to configure the sorting object. If
+    this is false, it means the sorting should be disabled.
+
+
+*CDataProvider::setTotalItemCount*				 public
+>
+ setTotalItemCount($value)
+<
+(void)
+
+ Sets the total number of data items. This method is provided in case when the
+ total number cannot be determined by
+ |CDataProvider::calculateTotalItemCount|.
+    [value] (integer) the total number of data items.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

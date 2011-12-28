@@ -1,0 +1,105 @@
+
+*CMultiFileUpload*   >> |CInputWidget| >> |CWidget| >> |CBaseController| >> |CComponent|
+==================
+
+ CMultiFileUpload generates a file input that can allow uploading multiple
+ files at a time.
+
+ This is based on the 'jQuery Multi File Upload plugin'. The uploaded file
+ information can be accessed via $_FILES[widget-name], which gives an array of
+ the uploaded files. Note, you have to set the enclosing form's 'enctype'
+ attribute to be 'multipart/form-data'.
+
+ Example:
+>
+ <?php
+   $this->widget('CMultiFileUpload', array(
+      'model'=>$model,
+      'attribute'=>'files',
+      'accept'=>'jpg|gif',
+      'options'=>array(
+         'onFileSelect'=>'function(element, value, master){
+ alert("onFileSelect - "+value) }',
+         'afterFileSelect'=>'function(element, value, master){
+ alert("afterFileSelect - "+value) }'
+         'onFileAppend'=>'function(element, value, master){
+ alert("onFileAppend - "+value) }',
+         'afterFileAppend'=>'function(element, value, master){
+ alert("afterFileAppend - "+value) }',
+         'onFileRemove'=>'function(element, value, master){
+ alert("onFileRemove - "+value) }',
+         'afterFileRemove'=>'function(element, value, master){
+ alert("afterFileRemove - "+value) }',
+      ),
+   ));
+ ?>
+<
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<accept>				*CMultiFileUpload::accept*
+ (string) the file types that are allowed (eg "gif|jpg"). Note, the server
+ side still needs to check if the uploaded files have allowed types.
+
+<clientOptions> 			*CMultiFileUpload::clientOptions*
+ (array) the javascript options
+
+<denied>				*CMultiFileUpload::denied*
+ (string) message that is displayed when a file type is not allowed.
+
+<duplicate>				*CMultiFileUpload::duplicate*
+ (string) message that is displayed when a file appears twice.
+
+<file>					*CMultiFileUpload::file*
+ (string) the message template for displaying the uploaded file name
+
+<max>					*CMultiFileUpload::max*
+ (integer) the maximum number of files that can be uploaded. If -1, it means
+ no limits. Defaults to -1.
+
+<options>				*CMultiFileUpload::options*
+ (array) additional options that can be passed to the constructor of the
+ multifile js object.
+
+<remove>				*CMultiFileUpload::remove*
+ (string) the label for the remove button. Defaults to "Remove".
+
+<selected>				*CMultiFileUpload::selected*
+ (string) message that is displayed when a file is selected.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CMultiFileUpload::getClientOptions*				 protected
+>
+ getClientOptions()
+<
+(array) the javascript options
+
+
+
+*CMultiFileUpload::registerClientScript*			 public
+>
+ registerClientScript()
+<
+(void)
+
+ Registers the needed CSS and JavaScript.
+
+
+*CMultiFileUpload::run* 					 public
+>
+ run()
+<
+(void)
+
+ Runs the widget. This method registers all needed client scripts and renders
+ the multiple file uploader.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

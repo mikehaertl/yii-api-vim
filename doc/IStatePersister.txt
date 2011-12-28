@@ -1,0 +1,36 @@
+
+*IStatePersister*  
+=================
+
+ IStatePersister is the interface that must be implemented by state persister
+ calsses.
+
+ This interface must be implemented by all state persister classes (such as
+ |CStatePersister|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*IStatePersister::load* 					 public
+>
+ load()
+<
+(mixed) the state
+
+ Loads state data from a persistent storage.
+
+
+*IStatePersister::save* 					 public
+>
+ save($state)
+<
+(void)
+
+ Saves state data into a persistent storage.
+    [state] (mixed) the state to be saved
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

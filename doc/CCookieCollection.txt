@@ -1,0 +1,104 @@
+
+*CCookieCollection*   >> |CMap| >> |CComponent|
+===================
+
+ CCookieCollection implements a collection class to store cookies.
+
+ You normally access it via |CHttpRequest::getCookies|.
+
+ Since CCookieCollection extends from |CMap|, it can be used like an
+ associative array as follows:
+>
+ $cookies[$name]=new CHttpCookie($name,$value); // sends a cookie
+ $value=$cookies[$name]->value; // reads a cookie value
+ unset($cookies[$name]);  // removes a cookie
+<
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<cookies>				*CCookieCollection::cookies*
+ (array) list of validated cookies
+
+<request>				*CCookieCollection::request*
+ (CHttpRequest) the request instance
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CCookieCollection::__construct*				 public
+>
+ __construct($request)
+<
+(void)
+
+ Constructor.
+    [request] (CHttpRequest) owner of this collection.
+
+
+*CCookieCollection::add*					 public
+>
+ add($name, $cookie)
+<
+(void)
+
+ Adds a cookie with the specified name. This overrides the parent
+ implementation by performing additional operations for each newly added
+ CHttpCookie object.
+    [name] (mixed) Cookie name.
+    [cookie] (CHttpCookie) Cookie object.
+
+
+*CCookieCollection::addCookie*					 protected
+>
+ addCookie($cookie)
+<
+(void)
+
+ Sends a cookie.
+    [cookie] (CHttpCookie) cook to be sent
+
+
+*CCookieCollection::getCookies* 				 protected
+>
+ getCookies()
+<
+(array) list of validated cookies
+
+
+
+*CCookieCollection::getRequest* 				 public
+>
+ getRequest()
+<
+(CHttpRequest) the request instance
+
+
+
+*CCookieCollection::remove*					 public
+>
+ remove($name)
+<
+(CHttpCookie) The removed cookie object.
+
+ Removes a cookie with the specified name. This overrides the parent
+ implementation by performing additional cleanup work when removing a
+ CHttpCookie object.
+    [name] (mixed) Cookie name.
+
+
+*CCookieCollection::removeCookie*				 protected
+>
+ removeCookie($cookie)
+<
+(void)
+
+ Deletes a cookie.
+    [cookie] (CHttpCookie) cook to be deleted
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

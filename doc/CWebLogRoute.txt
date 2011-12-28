@@ -1,0 +1,52 @@
+
+*CWebLogRoute*   >> |CLogRoute| >> |CComponent|
+==============
+
+ CWebLogRoute shows the log content in Web page.
+
+ The log content can appear either at the end of the current Web page or in
+ FireBug console window (if |CWebLogRoute::showInFireBug| is set true).
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<ignoreAjaxInFireBug>			*CWebLogRoute::ignoreAjaxInFireBug*
+ (boolean) whether the log should be ignored in FireBug for ajax calls.
+ Defaults to true. This option should be used carefully, because an ajax call
+ returns all output as a result data. For example if the ajax call expects a
+ json type result any output from the logger will cause ajax call to fail.
+
+<showInFireBug> 			*CWebLogRoute::showInFireBug*
+ (boolean) whether the log should be displayed in FireBug instead of browser
+ window. Defaults to false.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CWebLogRoute::processLogs*					 public
+>
+ processLogs($logs)
+<
+(void)
+
+ Displays the log messages.
+    [logs] (array) list of log messages
+
+
+*CWebLogRoute::render*						 protected
+>
+ render($view, $data)
+<
+(void)
+
+ Renders the view.
+    [view] (string) the view name (file name without extension). The file is
+    assumed to be located under framework/data/views.
+    [data] (array) data to be passed to the view
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

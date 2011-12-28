@@ -1,0 +1,173 @@
+
+*CGridColumn*   >> |CComponent|
+=============
+
+ CGridColumn is the base class for all grid view column classes.
+
+ A CGridColumn object represents the specification for rendering the cells in
+ a particular grid view column.
+
+ In a column, there is one header cell, multiple data cells, and an optional
+ footer cell. Child classes may override
+ |CGridColumn::renderHeaderCellContent|, |CGridColumn::renderDataCellContent|
+ and |CGridColumn::renderFooterCellContent| to customize how these cells are
+ rendered.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<cssClassExpression>			*CGridColumn::cssClassExpression*
+ (string) a PHP expression that is evaluated for every data cell and whose
+ result is used as the CSS class name for the data cell. In this expression,
+ the variable '$row' the row number (zero-based); '$data' the data model for
+ the row; and '$this' the column object.
+
+<footer>				*CGridColumn::footer*
+ (string) the footer cell text. Note that it will not be HTML-encoded.
+
+<footerHtmlOptions>			*CGridColumn::footerHtmlOptions*
+ (array) the HTML options for the footer cell tag.
+
+<grid>					*CGridColumn::grid*
+ (CGridView) the grid view object that owns this column.
+
+<hasFooter>				*CGridColumn::hasFooter*
+ (boolean) whether this column has a footer cell. This is determined based on
+ whether |CGridColumn::footer| is set.
+
+<header>				*CGridColumn::header*
+ (string) the header cell text. Note that it will not be HTML-encoded.
+
+<headerHtmlOptions>			*CGridColumn::headerHtmlOptions*
+ (array) the HTML options for the header cell tag.
+
+<htmlOptions>				*CGridColumn::htmlOptions*
+ (array) the HTML options for the data cell tags.
+
+<id>					*CGridColumn::id*
+ (string) the ID of this column. This value should be unique among all grid
+ view columns. If this is set, it will be assigned one automatically.
+
+<visible>				*CGridColumn::visible*
+ (boolean) whether this column is visible. Defaults to true.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CGridColumn::__construct*					 public
+>
+ __construct($grid)
+<
+(void)
+
+ Constructor.
+    [grid] (CGridView) the grid view that owns this column.
+
+
+*CGridColumn::getHasFooter*					 public
+>
+ getHasFooter()
+<
+(boolean) whether this column has a footer cell. This is determined based on
+whether |CGridColumn::footer| is set.
+
+
+
+*CGridColumn::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the column. This method is invoked by the grid view when it
+ initializes itself before rendering. You may override this method to prepare
+ the column for rendering.
+
+
+*CGridColumn::renderDataCell*					 public
+>
+ renderDataCell($row)
+<
+(void)
+
+ Renders a data cell.
+    [row] (integer) the row number (zero-based)
+
+
+*CGridColumn::renderDataCellContent*				 protected
+>
+ renderDataCellContent($row, $data)
+<
+(void)
+
+ Renders the data cell content. This method SHOULD be overridden to customize
+ the rendering of the data cell.
+    [row] (integer) the row number (zero-based)
+    [data] (mixed) the data associated with the row
+
+
+*CGridColumn::renderFilterCell* 				 public
+>
+ renderFilterCell()
+<
+(void)
+
+ Renders the filter cell.
+
+
+*CGridColumn::renderFilterCellContent*				 protected
+>
+ renderFilterCellContent()
+<
+(void)
+
+ Renders the filter cell content. The default implementation simply renders a
+ space. This method may be overridden to customize the rendering of the filter
+ cell (if any).
+
+
+*CGridColumn::renderFooterCell* 				 public
+>
+ renderFooterCell()
+<
+(void)
+
+ Renders the footer cell.
+
+
+*CGridColumn::renderFooterCellContent*				 protected
+>
+ renderFooterCellContent()
+<
+(void)
+
+ Renders the footer cell content. The default implementation simply renders
+ |CGridColumn::footer|. This method may be overridden to customize the
+ rendering of the footer cell.
+
+
+*CGridColumn::renderHeaderCell* 				 public
+>
+ renderHeaderCell()
+<
+(void)
+
+ Renders the header cell.
+
+
+*CGridColumn::renderHeaderCellContent*				 protected
+>
+ renderHeaderCellContent()
+<
+(void)
+
+ Renders the header cell content. The default implementation simply renders
+ |CGridColumn::header|. This method may be overridden to customize the
+ rendering of the header cell.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

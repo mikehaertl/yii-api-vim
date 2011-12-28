@@ -1,0 +1,49 @@
+
+*CExtController*   >> |CController| >> |CBaseController| >> |CComponent|
+================
+
+ CExtController is the base class for controllers distributed as extension.
+
+ The main purpose of CExtController is to redefine the
+ |CExtController::viewPath| property so that it points to the "views"
+ subdirectory under the directory containing the controller class file.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<viewPath>				*CExtController::viewPath*
+ (string) Returns the directory containing view files for this controller.
+ This method overrides the parent implementation by specifying the view path
+ to be the "views" subdirectory under the directory containing the controller
+ class file.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CExtController::getViewPath*					 public
+>
+ getViewPath()
+<
+(string) the directory containing the view files for this controller.
+
+ Returns the directory containing view files for this controller. This method
+ overrides the parent implementation by specifying the view path to be the
+ "views" subdirectory under the directory containing the controller class
+ file.
+
+
+*CExtController::setViewPath*					 public
+>
+ setViewPath($value)
+<
+(void)
+
+    [value] (string) the directory containing the view files for this
+    controller.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

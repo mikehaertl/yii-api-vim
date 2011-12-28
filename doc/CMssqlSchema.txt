@@ -1,0 +1,217 @@
+
+*CMssqlSchema*   >> |CDbSchema| >> |CComponent|
+==============
+
+ CMssqlSchema is the class for retrieving metadata information from a MS SQL
+ Server database.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<columnTypes>				*CMssqlSchema::columnTypes*
+ (array) the abstract column types mapped to physical column types.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CMssqlSchema::alterColumn*					 public
+>
+ alterColumn($table, $column, $type)
+<
+(string) the SQL statement for changing the definition of a column.
+
+ Builds a SQL statement for changing the definition of a column.
+    [table] (string) the table whose column is to be changed. The table name
+    will be properly quoted by the method.
+    [column] (string) the name of the column to be changed. The name will be
+    properly quoted by the method.
+    [type] (string) the new column type. The |CMssqlSchema::getColumnType|
+    method will be invoked to convert abstract column type (if any) into the
+    physical one. Anything that is not recognized as abstract type will be
+    kept in the generated SQL. For example, 'string' will be turned into
+    'varchar(255)', while 'string not null' will become 'varchar(255) not
+    null'.
+
+
+*CMssqlSchema::checkIntegrity*					 public
+>
+ checkIntegrity($check=true, $schema='')
+<
+(void)
+
+ Enables or disables integrity check.
+    [check] (boolean) whether to turn on or off the integrity check.
+    [schema] (string) the schema of the tables. Defaults to empty string,
+    meaning the current or default schema.
+
+
+*CMssqlSchema::compareTableNames*				 public
+>
+ compareTableNames($name1, $name2)
+<
+(boolean) whether the two table names refer to the same table.
+
+ Compares two table names. The table names can be either quoted or unquoted.
+ This method will consider both cases.
+    [name1] (string) table name 1
+    [name2] (string) table name 2
+
+
+*CMssqlSchema::createColumn*					 protected
+>
+ createColumn($column)
+<
+(CDbColumnSchema) normalized column metadata
+
+ Creates a table column.
+    [column] (array) column metadata
+
+
+*CMssqlSchema::createCommandBuilder*				 protected
+>
+ createCommandBuilder()
+<
+(CDbCommandBuilder) command builder instance
+
+ Creates a command builder for the database. This method overrides parent
+ implementation in order to create a MSSQL specific command builder
+
+
+*CMssqlSchema::findColumns*					 protected
+>
+ findColumns($table)
+<
+(boolean) whether the table exists in the database
+
+ Collects the table column metadata.
+    [table] (CMssqlTableSchema) the table metadata
+
+
+*CMssqlSchema::findForeignKeys* 				 protected
+>
+ findForeignKeys($table)
+<
+(array) foreign relationship table name and keys.
+
+ Gets foreign relationship constraint keys and table name
+    [table] (CMssqlTableSchema) table
+
+
+*CMssqlSchema::findPrimaryKey*					 protected
+>
+ findPrimaryKey($table)
+<
+(mixed) primary keys (null if no pk, string if only 1 column pk, or array if
+composite pk)
+
+ Gets the primary key column(s) details for the given table.
+    [table] (CMssqlTableSchema) table
+
+
+*CMssqlSchema::findTableNames*					 protected
+>
+ findTableNames($schema='', $includeViews=true)
+<
+(array) all table names in the database.
+
+ Returns all table names in the database.
+    [schema] (string) the schema of the tables. Defaults to empty string,
+    meaning the current or default schema. If not empty, the returned table
+    names will be prefixed with the schema name.
+    [includeViews] (boolean) whether to include views in the result. Defaults
+    to true.
+
+
+*CMssqlSchema::loadTable*					 protected
+>
+ loadTable($name)
+<
+(CMssqlTableSchema) driver dependent table metadata. Null if the table does
+not exist.
+
+ Loads the metadata for the specified table.
+    [name] (string) table name
+
+
+*CMssqlSchema::quoteSimpleColumnName*				 public
+>
+ quoteSimpleColumnName($name)
+<
+(string) the properly quoted column name
+
+ Quotes a column name for use in a query. A simple column name does not
+ contain prefix.
+    [name] (string) column name
+
+
+*CMssqlSchema::quoteSimpleTableName*				 public
+>
+ quoteSimpleTableName($name)
+<
+(string) the properly quoted table name
+
+ Quotes a table name for use in a query. A simple table name does not schema
+ prefix.
+    [name] (string) table name
+
+
+*CMssqlSchema::renameColumn*					 public
+>
+ renameColumn($table, $name, $newName)
+<
+(string) the SQL statement for renaming a DB column.
+
+ Builds a SQL statement for renaming a column.
+    [table] (string) the table whose column is to be renamed. The name will be
+    properly quoted by the method.
+    [name] (string) the old name of the column. The name will be properly
+    quoted by the method.
+    [newName] (string) the new name of the column. The name will be properly
+    quoted by the method.
+
+
+*CMssqlSchema::renameTable*					 public
+>
+ renameTable($table, $newName)
+<
+(string) the SQL statement for renaming a DB table.
+
+ Builds a SQL statement for renaming a DB table.
+    [table] (string) the table to be renamed. The name will be properly quoted
+    by the method.
+    [newName] (string) the new table name. The name will be properly quoted by
+    the method.
+
+
+*CMssqlSchema::resetSequence*					 public
+>
+ resetSequence($table, $value=NULL)
+<
+(void)
+
+ Resets the sequence value of a table's primary key. The sequence will be
+ reset such that the primary key of the next new row inserted will have the
+ specified value or 1.
+    [table] (CDbTableSchema) the table schema whose primary key sequence will
+    be reset
+    [value] (mixed) the value for the primary key of the next new row
+    inserted. If this is not set, the next new row's primary key will have a
+    value 1.
+
+
+*CMssqlSchema::resolveTableNames*				 protected
+>
+ resolveTableNames($table, $name)
+<
+(void)
+
+ Generates various kinds of table names.
+    [table] (CMssqlTableSchema) the table instance
+    [name] (string) the unquoted table name
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

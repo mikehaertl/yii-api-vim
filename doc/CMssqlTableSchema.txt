@@ -1,0 +1,21 @@
+
+*CMssqlTableSchema*   >> |CDbTableSchema| >> |CComponent|
+===================
+
+ CMssqlTableSchema represents the metadata for a MSSQL table.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<catalogName>				*CMssqlTableSchema::catalogName*
+ (string) name of the catalog (database) that this table belongs to. Defaults
+ to null, meaning no schema (or the current database).
+
+<schemaName>				*CMssqlTableSchema::schemaName*
+ (string) name of the schema that this table belongs to. Defaults to null,
+ meaning no schema (or the current database owner).
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

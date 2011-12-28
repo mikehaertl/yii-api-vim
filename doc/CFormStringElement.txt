@@ -1,0 +1,70 @@
+
+*CFormStringElement*   >> |CFormElement| >> |CComponent|
+====================
+
+ CFormStringElement represents a string in a form.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<content>				*CFormStringElement::content*
+ (string) the string content
+
+<on>					*CFormStringElement::on*
+ (string) Returns a value indicating under which scenarios this string is
+ visible. If the value is empty, it means the string is visible under all
+ scenarios. Otherwise, only when the model is in the scenario whose name can
+ be found in this value, will the string be visible. See |CModel::scenario|
+ for more information about model scenarios.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CFormStringElement::evaluateVisible*				 protected
+>
+ evaluateVisible()
+<
+(boolean) whether this element is visible.
+
+ Evaluates the visibility of this element. This method will check the
+ |CFormStringElement::on| property to see if the model is in a scenario that
+ should have this string displayed.
+
+
+*CFormStringElement::getOn*					 public
+>
+ getOn()
+<
+(string) scenario names separated by commas. Defaults to null.
+
+ Returns a value indicating under which scenarios this string is visible. If
+ the value is empty, it means the string is visible under all scenarios.
+ Otherwise, only when the model is in the scenario whose name can be found in
+ this value, will the string be visible. See |CModel::scenario| for more
+ information about model scenarios.
+
+
+*CFormStringElement::render*					 public
+>
+ render()
+<
+(string) the string content
+
+ Renders this element. The default implementation simply returns
+ |CFormStringElement::content|.
+
+
+*CFormStringElement::setOn*					 public
+>
+ setOn($value)
+<
+(void)
+
+    [value] (string) scenario names separated by commas.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

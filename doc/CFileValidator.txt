@@ -1,0 +1,139 @@
+
+*CFileValidator*   >> |CValidator| >> |CComponent|
+================
+
+ CFileValidator verifies if an attribute is receiving a valid uploaded file.
+
+ It uses the model class and attribute name to retrieve the information about
+ the uploaded file. It then checks if a file is uploaded successfully, if the
+ file size is within the limit and if the file type is allowed.
+
+ This validator will attempt to fetch uploaded data if attribute is not
+ previously set. Please note that this cannot be done if input is tabular:
+>
+  foreach($models as $i=>$model)
+     $model->attribute = CUploadedFile::getInstance($model, "[$i]attribute");
+<
+ Please note that you must use |CUploadedFile::getInstances| for multiple file
+ uploads.
+
+ When using CFileValidator with an active record, the following code is often
+ used:
+>
+  if($model->save())
+  {
+     // single upload
+     $model->attribute->saveAs($path);
+     // multiple upload
+     foreach($model->attribute as $file)
+        $file->saveAs($path);
+  }
+<
+ You can use |CFileValidator| to validate the file attribute.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowEmpty>				*CFileValidator::allowEmpty*
+ (boolean) whether the attribute requires a file to be uploaded or not.
+ Defaults to false, meaning a file is required to be uploaded.
+
+<maxFiles>				*CFileValidator::maxFiles*
+ (integer) the maximum file count the given attribute can hold. It defaults to
+ 1, meaning single file upload. By defining a higher number, multiple uploads
+ become possible.
+
+<maxSize>				*CFileValidator::maxSize*
+ (integer) the maximum number of bytes required for the uploaded file.
+ Defaults to null, meaning no limit. Note, the size limit is also affected by
+ 'upload_max_filesize' INI setting and the 'MAX_FILE_SIZE' hidden field value.
+
+<minSize>				*CFileValidator::minSize*
+ (integer) the minimum number of bytes required for the uploaded file.
+ Defaults to null, meaning no limit.
+
+<sizeLimit>				*CFileValidator::sizeLimit*
+ (integer) Returns the maximum size allowed for uploaded files. This is
+ determined based on three factors:
+   'upload_max_filesize' in php.ini
+   'MAX_FILE_SIZE' hidden field
+   |CFileValidator::maxSize|
+
+<tooLarge>				*CFileValidator::tooLarge*
+ (string) the error message used when the uploaded file is too large.
+
+<tooMany>				*CFileValidator::tooMany*
+ (string) the error message used if the count of multiple uploads exceeds
+ limit.
+
+<tooSmall>				*CFileValidator::tooSmall*
+ (string) the error message used when the uploaded file is too small.
+
+<types> 				*CFileValidator::types*
+ (mixed) a list of file name extensions that are allowed to be uploaded. This
+ can be either an array or a string consisting of file extension names
+ separated by space or comma (e.g. "gif, jpg"). Extension names are
+ case-insensitive. Defaults to null, meaning all file name extensions are
+ allowed.
+
+<wrongType>				*CFileValidator::wrongType*
+ (string) the error message used when the uploaded file has an extension name
+ that is not listed among extensions.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CFileValidator::emptyAttribute*				 protected
+>
+ emptyAttribute($object, $attribute)
+<
+(void)
+
+ Raises an error to inform end user about blank attribute.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+*CFileValidator::getSizeLimit*					 protected
+>
+ getSizeLimit()
+<
+(integer) the size limit for uploaded files.
+
+ Returns the maximum size allowed for uploaded files. This is determined based
+ on three factors:
+   'upload_max_filesize' in php.ini
+   'MAX_FILE_SIZE' hidden field
+   |CFileValidator::maxSize|
+
+
+*CFileValidator::validateAttribute*				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Set the attribute and then validates using |CFileValidator::validateFile|. If
+ there is any error, the error message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+*CFileValidator::validateFile*					 protected
+>
+ validateFile($object, $attribute, $file)
+<
+(void)
+
+ Internally validates a file object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+    [file] (CUploadedFile) uploaded file passed to check against a set of
+    rules
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

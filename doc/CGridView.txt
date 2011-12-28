@@ -1,0 +1,359 @@
+
+*CGridView*   >> |CBaseListView| >> |CWidget| >> |CBaseController| >> |CComponent|
+===========
+
+ CGridView displays a list of data items in terms of a table.
+
+ Each row of the table represents the data of a single data item, and a column
+ usually represents an attribute of the item (some columns may correspond to
+ complex expression of attributes or static text).
+
+ CGridView supports both sorting and pagination of the data items. The sorting
+ and pagination can be done in AJAX mode or normal page request. A benefit of
+ using CGridView is that when the user browser disables JavaScript, the
+ sorting and pagination automatically degenerate to normal page requests and
+ are still functioning as expected.
+
+ CGridView should be used together with a |IDataProvider|, preferrably a
+ |CActiveDataProvider|.
+
+ The minimal code needed to use CGridView is as follows:
+>
+ $dataProvider=new CActiveDataProvider('Post');
+
+ $this->widget('zii.widgets.grid.CGridView', array(
+     'dataProvider'=>$dataProvider,
+ ));
+<
+ The above code first creates a data provider for the 'Post' ActiveRecord
+ class. It then uses CGridView to display every attribute in every 'Post'
+ instance. The displayed table is equiped with sorting and pagination
+ functionality.
+
+ In order to selectively display attributes with different formats, we may
+ configure the |CGridView::columns| property. For example, we may specify only
+ the 'title' and 'create_time' attributes to be displayed, and the
+ 'create_time' should be properly formatted to show as a time. We may also
+ display the attributes of the related objects using the dot-syntax as shown
+ below:
+>
+ $this->widget('zii.widgets.grid.CGridView', array(
+     'dataProvider'=>$dataProvider,
+     'columns'=>array(
+         'title',          // display the 'title' attribute
+         'category.name',  // display the 'name' attribute of the 'category'
+ relation
+         'content:html',   // display the 'content' attribute as purified HTML
+         array(            // display 'create_time' using an expression
+             'name'=>'create_time',
+             'value'=>'date("M j, Y", $data->create_time)',
+         ),
+         array(            // display 'author.username' using an expression
+             'name'=>'authorName',
+             'value'=>'$data->author->username',
+         ),
+         array(            // display a column with "view", "update" and
+ "delete" buttons
+             'class'=>'CButtonColumn',
+         ),
+     ),
+ ));
+<
+ Please refer to |CGridView::columns| for more details about how to configure
+ this property.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<afterAjaxUpdate>			*CGridView::afterAjaxUpdate*
+ (string) a javascript function that will be invoked after a successful AJAX
+ response is received. The function signature is 'function(id, data)' where
+ 'id' refers to the ID of the grid view, 'data' the received ajax response
+ data.
+
+<ajaxUpdate>				*CGridView::ajaxUpdate*
+ (mixed) the ID of the container whose content may be updated with an AJAX
+ response. Defaults to null, meaning the container for this grid view
+ instance. If it is set false, it means sorting and pagination will be
+ performed in normal page requests instead of AJAX requests. If the sorting
+ and pagination should trigger the update of multiple containers' content in
+ AJAX fashion, these container IDs may be listed here (separated with comma).
+
+<ajaxUpdateError>			*CGridView::ajaxUpdateError*
+ (string) a javascript function that will be invoked if an AJAX update error
+ occurs.
+
+ The function signature is 'function(xhr, textStatus, errorThrown,
+ errorMessage)'
+   'xhr' is the XMLHttpRequest object.
+   'textStatus' is a string describing the type of error that
+   occurred. Possible values (besides null) are "timeout", "error",
+   "notmodified" and "parsererror"
+   'errorThrown' is an optional exception object, if one occurred.
+   'errorMessage' is the CGridView default error message derived from
+   xhr and errorThrown. Usefull if you just want to display this
+   error differently. CGridView by default displays this error with
+   an javascript.alert()Note: This handler is not called for JSONP requests,
+ because they do not use an XMLHttpRequest.
+
+ Example (add in a call to CGridView):
+>
+  ...
+  'ajaxUpdateError'=>'function(xhr,ts,et,err){ $("#myerrordiv").text(err); }',
+  ...
+<
+
+<ajaxVar>				*CGridView::ajaxVar*
+ (string) the name of the GET variable that indicates the request is an AJAX
+ request triggered by this widget. Defaults to 'ajax'. This is effective only
+ when |CGridView::ajaxUpdate| is not false.
+
+<baseScriptUrl> 			*CGridView::baseScriptUrl*
+ (string) the base script URL for all grid view resources (e.g. javascript,
+ CSS file, images). Defaults to null, meaning using the integrated grid view
+ resources (which are published as assets).
+
+<beforeAjaxUpdate>			*CGridView::beforeAjaxUpdate*
+ (string) a javascript function that will be invoked before an AJAX update
+ occurs. The function signature is 'function(id,options)' where 'id' refers to
+ the ID of the grid view, 'options' the AJAX request options  (see jQuery.ajax
+ api manual).
+
+<blankDisplay>				*CGridView::blankDisplay*
+ (string) the text to be displayed in an empty grid cell. This property will
+ NOT be HTML-encoded when rendering. Defaults to an HTML blank. This differs
+ from |CGridView::nullDisplay| in that |CGridView::nullDisplay| is only used
+ by |CDataColumn| to render null data values.
+
+<columns>				*CGridView::columns*
+ (array) grid column configuration. Each array element represents the
+ configuration for one particular grid column which can be either a string or
+ an array.
+
+ When a column is specified as a string, it should be in the format of
+ "name:type:header", where "type" and "header" are optional. A |CDataColumn|
+ instance will be created in this case, whose |CDataColumn::name|,
+ |CDataColumn::type| and |CDataColumn::header| properties will be initialized
+ accordingly.
+
+ When a column is specified as an array, it will be used to create a grid
+ column instance, where the 'class' element specifies the column class name
+ (defaults to |CDataColumn| if absent). Currently, these official column
+ classes are provided: |CDataColumn|, |CLinkColumn|, |CButtonColumn| and
+ |CCheckBoxColumn|.
+
+<cssFile>				*CGridView::cssFile*
+ (string) the URL of the CSS file used by this grid view. Defaults to null,
+ meaning using the integrated CSS file. If this is set false, you are
+ responsible to explicitly include the necessary CSS file in your page.
+
+<filter>				*CGridView::filter*
+ (CModel) the model instance that keeps the user-entered filter data. When
+ this property is set, the grid view will enable column-based filtering. Each
+ data column by default will display a text field at the top that users can
+ fill in to filter the data. Note that in order to show an input field for
+ filtering, a column must have its |CDataColumn::name| property set or have
+ |CDataColumn::filter| as the HTML code for the input field.
+
+<filterCssClass>			*CGridView::filterCssClass*
+ (string) the CSS class name for the table row element containing all filter
+ input fields. Defaults to 'filters'.
+
+<filterPosition>			*CGridView::filterPosition*
+ (string) whether the filters should be displayed in the grid view. Valid
+ values include:
+   {header} the filters will be displayed on top of each column's
+   header cell.
+   {body} the filters will be displayed right below each column's
+   header cell.
+   {footer} the filters will be displayed below each column's footer
+   cell.
+
+<formatter>				*CGridView::formatter*
+ (CFormatter) the formatter instance. Defaults to the 'format' application
+ component.
+
+<hasFooter>				*CGridView::hasFooter*
+ (boolean) whether the table should render a footer. This is true if any of
+ the |CGridView::columns| has a true |CGridColumn::hasFooter| value.
+
+<hideHeader>				*CGridView::hideHeader*
+ (boolean) whether to hide the header cells of the grid. When this is true,
+ header cells will not be rendered, which means the grid cannot be sorted
+ anymore since the sort links are located in the header. Defaults to false.
+
+<loadingCssClass>			*CGridView::loadingCssClass*
+ (string) the CSS class name that will be assigned to the widget container
+ element when the widget is updating its content via AJAX. Defaults to
+ 'grid-view-loading'.
+
+<nullDisplay>				*CGridView::nullDisplay*
+ (string) the text to be displayed in a data cell when a data value is null.
+ This property will NOT be HTML-encoded when rendering. Defaults to an HTML
+ blank.
+
+<rowCssClass>				*CGridView::rowCssClass*
+ (array) the CSS class names for the table body rows. If multiple CSS class
+ names are given, they will be assigned to the rows sequentially and
+ repeatedly. This property is ignored if |CGridView::rowCssClassExpression| is
+ set. Defaults to 'array('odd', 'even')'.
+
+<rowCssClassExpression> 		*CGridView::rowCssClassExpression*
+ (string) a PHP expression that is evaluated for every table body row and
+ whose result is used as the CSS class name for the row. In this expression,
+ the variable '$row' stands for the row number (zero-based), '$data' is the
+ data model associated with the row, and '$this' is the grid object.
+
+<selectableRows>			*CGridView::selectableRows*
+ (integer) the number of table body rows that can be selected. If 0, it means
+ rows cannot be selected. If 1, only one row can be selected. If 2 or any
+ other number, it means multiple rows can be selected. A selected row will
+ have a CSS class named 'selected'. You may also call the JavaScript function
+ '$.fn.yiiGridView.getSelection(containerID)' to retrieve the key values of
+ the selected rows.
+
+<selectionChanged>			*CGridView::selectionChanged*
+ (string) a javascript function that will be invoked after the row selection
+ is changed. The function signature is 'function(id)' where 'id' refers to the
+ ID of the grid view. In this function, you may use
+ '$.fn.yiiGridView.getSelection(id)' to get the key values of the currently
+ selected rows.
+
+<showTableOnEmpty>			*CGridView::showTableOnEmpty*
+ (boolean) whether to display the table even when there is no data. Defaults
+ to true. The |CGridView::emptyText| will be displayed to indicate there is no
+ data.
+
+<updateSelector>			*CGridView::updateSelector*
+ (string) the jQuery selector of the HTML elements that may trigger AJAX
+ updates when they are clicked. If not set, the pagination links and the
+ sorting links will trigger AJAX updates.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CGridView::createDataColumn*					 protected
+>
+ createDataColumn($text)
+<
+(CDataColumn) the column instance
+
+ Creates a |CDataColumn| based on a shortcut column specification string.
+    [text] (string) the column specification string
+
+
+*CGridView::getFormatter*					 public
+>
+ getFormatter()
+<
+(CFormatter) the formatter instance. Defaults to the 'format' application
+component.
+
+
+
+*CGridView::getHasFooter*					 public
+>
+ getHasFooter()
+<
+(boolean) whether the table should render a footer. This is true if any of the
+|CGridView::columns| has a true |CGridColumn::hasFooter| value.
+
+
+
+*CGridView::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the grid view. This method will initialize required property
+ values and instantiate |CGridView::columns| objects.
+
+
+*CGridView::initColumns*					 protected
+>
+ initColumns()
+<
+(void)
+
+ Creates column objects and initializes them.
+
+
+*CGridView::registerClientScript*				 public
+>
+ registerClientScript()
+<
+(void)
+
+ Registers necessary client scripts.
+
+
+*CGridView::renderFilter*					 public
+>
+ renderFilter()
+<
+(void)
+
+ Renders the filter.
+
+
+*CGridView::renderItems*					 public
+>
+ renderItems()
+<
+(void)
+
+ Renders the data items for the grid view.
+
+
+*CGridView::renderTableBody*					 public
+>
+ renderTableBody()
+<
+(void)
+
+ Renders the table body.
+
+
+*CGridView::renderTableFooter*					 public
+>
+ renderTableFooter()
+<
+(void)
+
+ Renders the table footer.
+
+
+*CGridView::renderTableHeader*					 public
+>
+ renderTableHeader()
+<
+(void)
+
+ Renders the table header.
+
+
+*CGridView::renderTableRow*					 public
+>
+ renderTableRow($row)
+<
+(void)
+
+ Renders a table body row.
+    [row] (integer) the row number (zero-based).
+
+
+*CGridView::setFormatter*					 public
+>
+ setFormatter($value)
+<
+(void)
+
+    [value] (CFormatter) the formatter instance
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

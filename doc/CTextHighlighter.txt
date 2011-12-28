@@ -1,0 +1,93 @@
+
+*CTextHighlighter*   >> |COutputProcessor| >> |CFilterWidget| >> |CWidget| >> |CBaseController| >> |CComponent|
+==================
+
+ CTextHighlighter does syntax highlighting for its body content.
+
+ The language of the syntax to be applied is specified via
+ |CTextHighlighter::language| property. Currently, CTextHighlighter supports
+ the following languages: ABAP, CPP, CSS, DIFF, DTD, HTML, JAVA, JAVASCRIPT,
+ MYSQL, PERL, PHP, PYTHON, RUBY, SQL, XML. By setting
+ |CTextHighlighter::showLineNumbers| to true, the highlighted result may be
+ shown with line numbers.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<containerOptions>			*CTextHighlighter::containerOptions*
+ (array) the HTML attributes to be applied to the container element. The
+ highlighted content is contained in a DIV element.
+
+<cssFile>				*CTextHighlighter::cssFile*
+ (mixed) the CSS file used for the widget. Defaults to null, meaning using the
+ default CSS file included together with the widget. If false, no CSS file
+ will be used. Otherwise, the specified CSS file will be included when using
+ this widget.
+
+<language>				*CTextHighlighter::language*
+ (string) the language whose syntax is to be used for highlighting. Valid
+ values are those file names (without suffix) that are contained in
+ 'vendors/TextHighlighter/Text/Highlighter'. Currently, the following
+ languages are supported: ABAP, CPP, CSS, DIFF, DTD, HTML, JAVA, JAVASCRIPT,
+ MYSQL, PERL, PHP, PYTHON, RUBY, SQL, XML If a language is not supported, it
+ will be displayed as plain text. Language names are case-insensitive.
+
+<lineNumberStyle>			*CTextHighlighter::lineNumberStyle*
+ (string) the style of line number display. It can be either 'list' or
+ 'table'. Defaults to 'list'.
+
+<showLineNumbers>			*CTextHighlighter::showLineNumbers*
+ (boolean) whether to show line numbers in the highlighted result. Defaults to
+ false.
+
+<tabSize>				*CTextHighlighter::tabSize*
+ (integer) tab size. Defaults to 4.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CTextHighlighter::highlight*					 public
+>
+ highlight($content)
+<
+(string) the highlighted content
+
+ Highlights the content by the syntax of the specified language.
+    [content] (string) the content to be highlighted.
+
+
+*CTextHighlighter::processOutput*				 public
+>
+ processOutput($output)
+<
+(void)
+
+ Processes the captured output. This method highlights the output according to
+ the syntax of the specified |CTextHighlighter::language|.
+    [output] (string) the captured output to be processed
+
+
+*CTextHighlighter::registerClientScript*			 public
+>
+ registerClientScript()
+<
+(void)
+
+ Registers the needed CSS and JavaScript.
+
+
+*CTextHighlighter::registerCssFile*				 public
+>
+ registerCssFile($url='')
+<
+(void)
+
+ Registers the needed CSS file.
+    [url] (string) the CSS URL. If null, a default CSS URL will be used.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

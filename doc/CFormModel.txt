@@ -1,0 +1,56 @@
+
+*CFormModel*   >> |CModel| >> |CComponent|
+============
+
+ CFormModel represents a data model that collects HTML form inputs.
+
+ Unlike |CActiveRecord|, the data collected by CFormModel are stored in memory
+ only, instead of database.
+
+ To collect user inputs, you may extend CFormModel and define the attributes
+ whose values are to be collected from user inputs. You may override
+ |CFormModel::rules| to declare validation rules that should be applied to the
+ attributes.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CFormModel::__construct*					 public
+>
+ __construct($scenario='')
+<
+(void)
+
+ Constructor.
+    [scenario] (string) name of the scenario that this model is used in. See
+    |CModel::scenario| on how scenario is used by models.
+
+
+*CFormModel::attributeNames*					 public
+>
+ attributeNames()
+<
+(array) list of attribute names. Defaults to all public properties of the
+class.
+
+ Returns the list of attribute names. By default, this method returns all
+ public properties of the class. You may override this method to change the
+ default.
+
+
+*CFormModel::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes this model. This method is invoked in the constructor right after
+ |CFormModel::scenario| is set. You may override this method to provide code
+ that is needed to initialize the model (e.g. setting initial property
+ values.)
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

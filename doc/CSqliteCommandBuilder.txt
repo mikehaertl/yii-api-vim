@@ -1,0 +1,28 @@
+
+*CSqliteCommandBuilder*   >> |CDbCommandBuilder| >> |CComponent|
+=======================
+
+ CSqliteCommandBuilder provides basic methods to create query commands for
+ SQLite tables.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CSqliteCommandBuilder::createCompositeInCondition*		 protected
+>
+ createCompositeInCondition($table, $values, $prefix)
+<
+(string) the expression for selection
+
+ Generates the expression for selecting rows with specified composite key
+ values. This method is overridden because SQLite does not support the default
+ IN expression with composite columns.
+    [table] (CDbTableSchema) the table schema
+    [values] (array) list of primary key values to be selected within
+    [prefix] (string) column prefix (ended with dot)
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

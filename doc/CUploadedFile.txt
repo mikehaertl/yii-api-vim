@@ -1,0 +1,248 @@
+
+*CUploadedFile*   >> |CComponent|
+===============
+
+ CUploadedFile represents the information for an uploaded file.
+
+ Call |CUploadedFile::getInstance| to retrieve the instance of an uploaded
+ file, and then use |CUploadedFile::saveAs| to save it on the server. You may
+ also query other information about the file, including |CUploadedFile::name|,
+ |CUploadedFile::tempName|, |CUploadedFile::type|, |CUploadedFile::size| and
+ |CUploadedFile::error|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<error> 				*CUploadedFile::error*
+ (integer) Returns an error code describing the status of this file uploading.
+
+<extensionName> 			*CUploadedFile::extensionName*
+ (string) the file extension name for |CUploadedFile::name|. The extension
+ name does not include the dot character. An empty string is returned if
+ |CUploadedFile::name| does not have an extension name.
+
+<hasError>				*CUploadedFile::hasError*
+ (boolean) whether there is an error with the uploaded file. Check
+ |CUploadedFile::error| for detailed error code information.
+
+<name>					*CUploadedFile::name*
+ (string) the original name of the file being uploaded
+
+<size>					*CUploadedFile::size*
+ (integer) the actual size of the uploaded file in bytes
+
+<tempName>				*CUploadedFile::tempName*
+ (string) the path of the uploaded file on the server. Note, this is a
+ temporary file which will be automatically deleted by PHP after the current
+ request is processed.
+
+<type>					*CUploadedFile::type*
+ (string) the MIME-type of the uploaded file (such as "image/gif"). Since this
+ MIME type is not checked on the server side, do not take this value for
+ granted. Instead, use |CFileHelper::getMimeType| to determine the exact MIME
+ type.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CUploadedFile::__construct*					 protected
+>
+ __construct($name, $tempName, $type, $size, $error)
+<
+(void)
+
+ Constructor. Use |CUploadedFile::getInstance| to get an instance of an
+ uploaded file.
+    [name] (string) the original name of the file being uploaded
+    [tempName] (string) the path of the uploaded file on the server.
+    [type] (string) the MIME-type of the uploaded file (such as "image/gif").
+    [size] (integer) the actual size of the uploaded file in bytes
+    [error] (integer) the error code
+
+
+*CUploadedFile::__toString*					 public
+>
+ __toString()
+<
+(string) the string representation of the object
+
+ String output. This is PHP magic method that returns string representation of
+ an object. The implementation here returns the uploaded file's name.
+
+
+*CUploadedFile::collectFilesRecursive*				 protected
+>
+ collectFilesRecursive($key, $names, $tmp_names, $types, $sizes, $errors)
+<
+(void)
+
+ Processes incoming files for |CUploadedFile::getInstanceByName|.
+    [key] (string) key for identifiing uploaded file: class name and subarray
+    indexes
+    [names] (mixed) file names provided by PHP
+    [tmp_names] (mixed) temporary file names provided by PHP
+    [types] (mixed) filetypes provided by PHP
+    [sizes] (mixed) file sizes provided by PHP
+    [errors] (mixed) uploading issues provided by PHP
+
+
+*CUploadedFile::getError*					 public
+>
+ getError()
+<
+(integer) the error code
+
+ Returns an error code describing the status of this file uploading.
+
+
+*CUploadedFile::getExtensionName*				 public
+>
+ getExtensionName()
+<
+(string) the file extension name for |CUploadedFile::name|. The extension name
+does not include the dot character. An empty string is returned if
+|CUploadedFile::name| does not have an extension name.
+
+
+
+*CUploadedFile::getHasError*					 public
+>
+ getHasError()
+<
+(boolean) whether there is an error with the uploaded file. Check
+|CUploadedFile::error| for detailed error code information.
+
+
+
+*CUploadedFile::getInstance*					 public
+>
+ getInstance($model, $attribute)
+<
+(CUploadedFile) the instance of the uploaded file. Null is returned if no file
+is uploaded for the specified model attribute.
+
+ Returns an instance of the specified uploaded file. The file should be
+ uploaded using |CHtml::activeFileField|.
+    [model] (CModel) the model instance
+    [attribute] (string) the attribute name. For tabular file uploading, this
+    can be in the format of "[$i]attributeName", where $i stands for an
+    integer index.
+
+
+*CUploadedFile::getInstanceByName*				 public
+>
+ getInstanceByName($name)
+<
+(CUploadedFile) the instance of the uploaded file. Null is returned if no file
+is uploaded for the specified name.
+
+ Returns an instance of the specified uploaded file. The name can be a plain
+ string or a string like an array element (e.g. 'Post[imageFile]', or
+ 'Post[0][imageFile]').
+    [name] (string) the name of the file input field.
+
+
+*CUploadedFile::getInstances*					 public
+>
+ getInstances($model, $attribute)
+<
+(array) array of CUploadedFile objects. Empty array is returned if no
+available file was found for the given attribute.
+
+ Returns all uploaded files for the given model attribute.
+    [model] (CModel) the model instance
+    [attribute] (string) the attribute name. For tabular file uploading, this
+    can be in the format of "[$i]attributeName", where $i stands for an
+    integer index.
+
+
+*CUploadedFile::getInstancesByName*				 public
+>
+ getInstancesByName($name)
+<
+(array) the array of CUploadedFile objects. Empty array is returned if no
+adequate upload was found. Please note that this array will contain all files
+from all subarrays regardless how deeply nested they are.
+
+ Returns an array of instances for the specified array name.
+
+ If multiple files were uploaded and saved as 'Files[0]', 'Files[1]',
+ 'Files[n]'..., you can have them all by passing 'Files' as array name.
+    [name] (string) the name of the array of files
+
+
+*CUploadedFile::getName*					 public
+>
+ getName()
+<
+(string) the original name of the file being uploaded
+
+
+
+*CUploadedFile::getSize*					 public
+>
+ getSize()
+<
+(integer) the actual size of the uploaded file in bytes
+
+
+
+*CUploadedFile::getTempName*					 public
+>
+ getTempName()
+<
+(string) the path of the uploaded file on the server. Note, this is a
+temporary file which will be automatically deleted by PHP after the current
+request is processed.
+
+
+
+*CUploadedFile::getType*					 public
+>
+ getType()
+<
+(string) the MIME-type of the uploaded file (such as "image/gif"). Since this
+MIME type is not checked on the server side, do not take this value for
+granted. Instead, use |CFileHelper::getMimeType| to determine the exact MIME
+type.
+
+
+
+*CUploadedFile::prefetchFiles*					 protected
+>
+ prefetchFiles()
+<
+(void)
+
+ Initially processes $_FILES superglobal for easier use. Only for internal
+ usage.
+
+
+*CUploadedFile::reset*						 public
+>
+ reset()
+<
+(void)
+
+ Cleans up the loaded CUploadedFile instances. This method is mainly used by
+ test scripts to set up a fixture.
+
+
+*CUploadedFile::saveAs* 					 public
+>
+ saveAs($file, $deleteTempFile=true)
+<
+(boolean) true whether the file is saved successfully
+
+ Saves the uploaded file.
+    [file] (string) the file path used to save the uploaded file
+    [deleteTempFile] (boolean) whether to delete the temporary file after
+    saving. If true, you will not be able to save the uploaded file again in
+    the current request.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

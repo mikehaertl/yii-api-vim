@@ -1,0 +1,165 @@
+
+*CNumberFormatter*   >> |CComponent|
+==================
+
+ CNumberFormatter provides number localization functionalities.
+
+ CNumberFormatter formats a number (integer or float) and outputs a string
+ based on the specified format. A CNumberFormatter instance is associated with
+ a locale, and thus generates the string representation of the number in a
+ locale-dependent fashion.
+
+ CNumberFormatter currently supports currency format, percentage format,
+ decimal format, and custom format. The first three formats are specified in
+ the locale data, while the custom format allows you to enter an arbitrary
+ format string.
+
+ A format string may consist of the following special characters:
+   dot (.): the decimal point. It will be replaced with the localized
+   decimal point.
+   comma (,): the grouping separator. It will be replaced with the
+   localized grouping separator.
+   zero (0): required digit. This specifies the places where a digit
+   must appear (will pad 0 if not).
+   hash (#): optional digit. This is mainly used to specify the
+   location of decimal point and grouping separators.
+   currency (¤): the currency placeholder. It will be replaced with
+   the localized currency symbol.
+   percentage (%): the percetage mark. If appearing, the number will
+   be multiplied by 100 before being formatted.
+   permillage (‰): the permillage mark. If appearing, the number
+   will be multiplied by 1000 before being formatted.
+   semicolon (;): the character separating positive and negative
+   number sub-patterns.Anything surrounding the pattern (or sub-patterns) will
+ be kept.
+
+ The followings are some examples:
+>
+ Pattern "#,##0.00" will format 12345.678 as "12,345.68".
+ Pattern "#,#,#0.00" will format 12345.6 as "1,2,3,45.60".
+<
+ Note, in the first example, the number is rounded first before applying the
+ formatting. And in the second example, the pattern specifies two grouping
+ sizes.
+
+ CNumberFormatter attempts to implement number formatting according to the
+ 'Unicode Technical Standard #35'. The following features are NOT implemented:
+   significant digit
+   scientific format
+   arbitrary literal characters
+   arbitrary padding
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CNumberFormatter::__construct* 				 public
+>
+ __construct($locale)
+<
+(void)
+
+ Constructor.
+    [locale] (mixed) locale ID (string) or CLocale instance
+
+
+*CNumberFormatter::format*					 public
+>
+ format($pattern, $value, $currency='')
+<
+(string) the formatting result.
+
+ Formats a number based on the specified pattern. Note, if the format contains
+ '%', the number will be multiplied by 100 first. If the format contains
+ '‰', the number will be multiplied by 1000. If the format contains currency
+ placeholder, it will be replaced by the specified localized currency symbol.
+    [pattern] (string) format pattern
+    [value] (mixed) the number to be formatted
+    [currency] (string) 3-letter ISO 4217 code. For example, the code "USD"
+    represents the US Dollar and "EUR" represents the Euro currency. The
+    currency placeholder in the pattern will be replaced with the currency
+    symbol. If null, no replacement will be done.
+
+
+*CNumberFormatter::formatCurrency*				 public
+>
+ formatCurrency($value, $currency)
+<
+(string) the formatting result.
+
+ Formats a number using the currency format defined in the locale.
+    [value] (mixed) the number to be formatted
+    [currency] (string) 3-letter ISO 4217 code. For example, the code "USD"
+    represents the US Dollar and "EUR" represents the Euro currency. The
+    currency placeholder in the pattern will be replaced with the currency
+    symbol.
+
+
+*CNumberFormatter::formatDecimal*				 public
+>
+ formatDecimal($value)
+<
+(string) the formatting result.
+
+ Formats a number using the decimal format defined in the locale.
+    [value] (mixed) the number to be formatted
+
+
+*CNumberFormatter::formatNumber*				 protected
+>
+ formatNumber($format, $value)
+<
+(string) the formatted result
+
+ Formats a number based on a format. This is the method that does actual
+ number formatting.
+    [format] (array) format with the following structure:
+>
+    array(
+    	'decimalDigits'=>2,     // number of required digits after decimal point;
+    0s will be padded if not enough digits; if -1, it means we should drop
+    decimal point
+     'maxDecimalDigits'=>3,  // maximum number of digits after decimal point.
+    Additional digits will be truncated.
+    	'integerDigits'=>1,     // number of required digits before decimal
+    point; 0s will be padded if not enough digits
+    	'groupSize1'=>3,        // the primary grouping size; if 0, it means no
+    grouping
+    	'groupSize2'=>0,        // the secondary grouping size; if 0, it means no
+    secondary grouping
+    	'positivePrefix'=>'+',  // prefix to positive number
+    	'positiveSuffix'=>'',   // suffix to positive number
+    	'negativePrefix'=>'(',  // prefix to negative number
+    	'negativeSuffix'=>')',  // suffix to negative number
+    	'multiplier'=>1,        // 100 for percent, 1000 for per mille
+    );
+<
+    [value] (mixed) the number to be formatted
+
+
+*CNumberFormatter::formatPercentage*				 public
+>
+ formatPercentage($value)
+<
+(string) the formatting result.
+
+ Formats a number using the percentage format defined in the locale. Note, if
+ the percentage format contains '%', the number will be multiplied by 100
+ first. If the percentage format contains '‰', the number will be multiplied
+ by 1000.
+    [value] (mixed) the number to be formatted
+
+
+*CNumberFormatter::parseFormat* 				 protected
+>
+ parseFormat($pattern)
+<
+(array) the parsed pattern
+
+ Parses a given string pattern.
+    [pattern] (string) the pattern to be parsed
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,63 @@
+
+*CUniqueValidator*   >> |CValidator| >> |CComponent|
+==================
+
+ CUniqueValidator validates that the attribute value is unique in the
+ corresponding database table.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowEmpty>				*CUniqueValidator::allowEmpty*
+ (boolean) whether the attribute value can be null or empty. Defaults to true,
+ meaning that if the attribute is empty, it is considered valid.
+
+<attributeName> 			*CUniqueValidator::attributeName*
+ (string) the ActiveRecord class attribute name that should be used to look
+ for the attribute value being validated. Defaults to null, meaning using the
+ name of the attribute being validated.
+
+<caseSensitive> 			*CUniqueValidator::caseSensitive*
+ (boolean) whether the comparison is case sensitive. Defaults to true. Note,
+ by setting it to false, you are assuming the attribute type is string.
+
+<className>				*CUniqueValidator::className*
+ (string) the ActiveRecord class name that should be used to look for the
+ attribute value being validated. Defaults to null, meaning using the class of
+ the object currently being validated. You may use path alias to reference a
+ class name here.
+
+<criteria>				*CUniqueValidator::criteria*
+ (array) additional query criteria. This will be combined with the condition
+ that checks if the attribute value exists in the corresponding table column.
+ This array will be used to instantiate a |CDbCriteria| object.
+
+<message>				*CUniqueValidator::message*
+ (string) the user-defined error message. The placeholders "{attribute}" and
+ "{value}" are recognized, which will be replaced with the actual attribute
+ name and value, respectively.
+
+<skipOnError>				*CUniqueValidator::skipOnError*
+ (boolean) whether this validation rule should be skipped if when there is
+ already a validation error for the current attribute. Defaults to true.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CUniqueValidator::validateAttribute*				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,95 @@
+
+*CDbTransaction*   >> |CComponent|
+================
+
+ CDbTransaction represents a DB transaction.
+
+ It is usually created by calling |CDbConnection::beginTransaction|.
+
+ The following code is a common scenario of using transactions:
+>
+ $transaction=$connection->beginTransaction();
+ try
+ {
+    $connection->createCommand($sql1)->execute();
+    $connection->createCommand($sql2)->execute();
+    //.... other SQL executions
+    $transaction->commit();
+ }
+ catch(Exception $e)
+ {
+    $transaction->rollBack();
+ }
+<
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<active>				*CDbTransaction::active*
+ (boolean) whether this transaction is active
+
+<connection>				*CDbTransaction::connection*
+ (CDbConnection) the DB connection for this transaction
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbTransaction::__construct*					 public
+>
+ __construct($connection)
+<
+(void)
+
+ Constructor.
+    [connection] (CDbConnection) the connection associated with this
+    transaction
+
+
+*CDbTransaction::commit*					 public
+>
+ commit()
+<
+(void)
+
+ Commits a transaction.
+
+
+*CDbTransaction::getActive*					 public
+>
+ getActive()
+<
+(boolean) whether this transaction is active
+
+
+
+*CDbTransaction::getConnection* 				 public
+>
+ getConnection()
+<
+(CDbConnection) the DB connection for this transaction
+
+
+
+*CDbTransaction::rollback*					 public
+>
+ rollback()
+<
+(void)
+
+ Rolls back a transaction.
+
+
+*CDbTransaction::setActive*					 protected
+>
+ setActive($value)
+<
+(void)
+
+    [value] (boolean) whether this transaction is active
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

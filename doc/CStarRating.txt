@@ -1,0 +1,138 @@
+
+*CStarRating*   >> |CInputWidget| >> |CWidget| >> |CBaseController| >> |CComponent|
+=============
+
+ CStarRating displays a star rating control that can collect user rating
+ input.
+
+ CStarRating is based on 'jQuery Star Rating Plugin'. It displays a list of
+ stars indicating the rating values. Users can toggle these stars to indicate
+ their rating input. On the server side, when the rating input is submitted,
+ the value can be retrieved in the same way as working with a normal HTML
+ input. For example, using
+>
+ $this->widget('CStarRating',array('name'=>'rating'));
+<
+ we can retrieve the rating value via '$_POST['rating']'.
+
+ CStarRating allows customization of its appearance. It also supports empty
+ rating as well as read-only rating.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowEmpty>				*CStarRating::allowEmpty*
+ (boolean) whether the rating value can be empty (not set). Defaults to true.
+ When this is true, a reset button will be displayed in front of stars.
+
+<blur>					*CStarRating::blur*
+ (string) Callback when the stars are not focused.
+
+<callback>				*CStarRating::callback*
+ (string) Callback when the stars are clicked.
+
+<clientOptions> 			*CStarRating::clientOptions*
+ (array) the javascript options for the star rating
+
+<cssFile>				*CStarRating::cssFile*
+ (mixed) the CSS file used for the widget. Defaults to null, meaning using the
+ default CSS file included together with the widget. If false, no CSS file
+ will be used. Otherwise, the specified CSS file will be included when using
+ this widget.
+
+<focus> 				*CStarRating::focus*
+ (string) Callback when the stars are focused.
+
+<maxRating>				*CStarRating::maxRating*
+ (mixed) the maximum rating allowed. This can be either an integer or a float
+ value. Defaults to 1.
+
+<minRating>				*CStarRating::minRating*
+ (mixed) the minimum rating allowed. This can be either an integer or a float
+ value. Defaults to 1.
+
+<ratingStepSize>			*CStarRating::ratingStepSize*
+ (mixed) the step size of rating. This is the minimum difference between two
+ rating values. Defaults to 1.
+
+<readOnly>				*CStarRating::readOnly*
+ (boolean) whether the rating value is read-only or not. Defaults to false.
+ When this is true, the rating cannot be changed.
+
+<resetText>				*CStarRating::resetText*
+ (string) the hint text for the reset button. Defaults to null, meaning using
+ the system-defined text (which is 'Cancel Rating').
+
+<resetValue>				*CStarRating::resetValue*
+ (string) the value taken when the rating is cleared. Defaults to null,
+ meaning using the system-defined value (which is '').
+
+<starCount>				*CStarRating::starCount*
+ (integer) the number of stars. Defaults to 5.
+
+<starWidth>				*CStarRating::starWidth*
+ (integer) the width of star image. Defaults to null, meaning using the
+ system-defined value (which is 16).
+
+<titles>				*CStarRating::titles*
+ (array) the titles associated with the rating options. The keys are ratings
+ and the values are the corresponding titles. Defaults to null, meaning using
+ the rating value as the title.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CStarRating::getClientOptions* 				 protected
+>
+ getClientOptions()
+<
+(array) the javascript options for the star rating
+
+
+
+*CStarRating::registerClientScript*				 public
+>
+ registerClientScript($id)
+<
+(void)
+
+ Registers the necessary javascript and css scripts.
+    [id] (string) the ID of the container
+
+
+*CStarRating::registerCssFile*					 public
+>
+ registerCssFile($url='')
+<
+(void)
+
+ Registers the needed CSS file.
+    [url] (string) the CSS URL. If null, a default CSS URL will be used.
+
+
+*CStarRating::renderStars*					 protected
+>
+ renderStars($id, $name)
+<
+(void)
+
+ Renders the stars.
+    [id] (string) the ID of the container
+    [name] (string) the name of the input
+
+
+*CStarRating::run*						 public
+>
+ run()
+<
+(void)
+
+ Executes the widget. This method registers all needed client scripts and
+ renders the text field.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

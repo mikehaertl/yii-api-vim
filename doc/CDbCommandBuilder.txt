@@ -1,0 +1,369 @@
+
+*CDbCommandBuilder*   >> |CComponent|
+===================
+
+ CDbCommandBuilder provides basic methods to create query commands for tables.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<dbConnection>				*CDbCommandBuilder::dbConnection*
+ (CDbConnection) database connection.
+
+<schema>				*CDbCommandBuilder::schema*
+ (CDbSchema) the schema for this command builder.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbCommandBuilder::__construct*				 public
+>
+ __construct($schema)
+<
+(void)
+
+    [schema] (CDbSchema) the schema for this command builder
+
+
+*CDbCommandBuilder::applyCondition*				 public
+>
+ applyCondition($sql, $condition)
+<
+(string) the altered SQL statement
+
+ Alters the SQL to apply WHERE clause.
+    [sql] (string) the SQL statement without WHERE clause
+    [condition] (string) the WHERE clause (without WHERE keyword)
+
+
+*CDbCommandBuilder::applyGroup* 				 public
+>
+ applyGroup($sql, $group)
+<
+(string) SQL with GROUP BY.
+
+ Alters the SQL to apply GROUP BY.
+    [sql] (string) SQL query string without GROUP BY.
+    [group] (string) GROUP BY
+
+
+*CDbCommandBuilder::applyHaving*				 public
+>
+ applyHaving($sql, $having)
+<
+(string) SQL with HAVING
+
+ Alters the SQL to apply HAVING.
+    [sql] (string) SQL query string without HAVING
+    [having] (string) HAVING
+
+
+*CDbCommandBuilder::applyJoin*					 public
+>
+ applyJoin($sql, $join)
+<
+(string) the altered SQL statement
+
+ Alters the SQL to apply JOIN clause.
+    [sql] (string) the SQL statement to be altered
+    [join] (string) the JOIN clause (starting with join type, such as INNER
+    JOIN)
+
+
+*CDbCommandBuilder::applyLimit* 				 public
+>
+ applyLimit($sql, $limit, $offset)
+<
+(string) SQL with LIMIT and OFFSET
+
+ Alters the SQL to apply LIMIT and OFFSET. Default implementation is
+ applicable for PostgreSQL, MySQL and SQLite.
+    [sql] (string) SQL query string without LIMIT and OFFSET.
+    [limit] (integer) maximum number of rows, -1 to ignore limit.
+    [offset] (integer) row offset, -1 to ignore offset.
+
+
+*CDbCommandBuilder::applyOrder* 				 public
+>
+ applyOrder($sql, $orderBy)
+<
+(string) modified SQL applied with ORDER BY.
+
+ Alters the SQL to apply ORDER BY.
+    [sql] (string) SQL statement without ORDER BY.
+    [orderBy] (string) column ordering
+
+
+*CDbCommandBuilder::bindValues* 				 public
+>
+ bindValues($command, $values)
+<
+(void)
+
+ Binds parameter values for an SQL command.
+    [command] (CDbCommand) database command
+    [values] (array) values for binding (integer-indexed array for question
+    mark placeholders, string-indexed array for named placeholders)
+
+
+*CDbCommandBuilder::createColumnCriteria*			 public
+>
+ createColumnCriteria($table, $columns, $condition='', $params=array(), $prefix='')
+<
+(CDbCriteria) the created query criteria
+
+ Creates a query criteria with the specified column values.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [columns] (array) column values that should be matched in the query
+    (name=>value)
+    [condition] (mixed) query condition or criteria. If a string, it is
+    treated as query condition; If an array, it is treated as the initial
+    values for constructing a |CDbCriteria|; Otherwise, it should be an
+    instance of |CDbCriteria|.
+    [params] (array) parameters to be bound to an SQL statement. This is only
+    used when the third parameter is a string (query condition). In other
+    cases, please use |CDbCriteria::params| to set parameters.
+    [prefix] (string) column prefix (ended with dot). If null, it will be the
+    table name
+
+
+*CDbCommandBuilder::createCompositeInCondition* 		 protected
+>
+ createCompositeInCondition($table, $values, $prefix)
+<
+(string) the expression for selection
+
+ Generates the expression for selecting rows with specified composite key
+ values.
+    [table] (CDbTableSchema) the table schema
+    [values] (array) list of primary key values to be selected within
+    [prefix] (string) column prefix (ended with dot)
+
+
+*CDbCommandBuilder::createCountCommand* 			 public
+>
+ createCountCommand($table, $criteria, $alias='t')
+<
+(CDbCommand) query command.
+
+ Creates a COUNT(*) command for a single table.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [criteria] (CDbCriteria) the query criteria
+    [alias] (string) the alias name of the primary table. Defaults to 't'.
+
+
+*CDbCommandBuilder::createCriteria*				 public
+>
+ createCriteria($condition='', $params=array())
+<
+(CDbCriteria) the created query criteria
+
+ Creates a query criteria.
+    [condition] (mixed) query condition or criteria. If a string, it is
+    treated as query condition (the WHERE clause); If an array, it is treated
+    as the initial values for constructing a |CDbCriteria| object; Otherwise,
+    it should be an instance of |CDbCriteria|.
+    [params] (array) parameters to be bound to an SQL statement. This is only
+    used when the first parameter is a string (query condition). In other
+    cases, please use |CDbCriteria::params| to set parameters.
+
+
+*CDbCommandBuilder::createDeleteCommand*			 public
+>
+ createDeleteCommand($table, $criteria)
+<
+(CDbCommand) delete command.
+
+ Creates a DELETE command.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [criteria] (CDbCriteria) the query criteria
+
+
+*CDbCommandBuilder::createFindCommand*				 public
+>
+ createFindCommand($table, $criteria, $alias='t')
+<
+(CDbCommand) query command.
+
+ Creates a SELECT command for a single table.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [criteria] (CDbCriteria) the query criteria
+    [alias] (string) the alias name of the primary table. Defaults to 't'.
+
+
+*CDbCommandBuilder::createInCondition*				 public
+>
+ createInCondition($table, $columnName, $values, $prefix='')
+<
+(string) the expression for selection
+
+ Generates the expression for selecting rows of specified primary key values.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [columnName] (mixed) the column name(s). It can be either a string
+    indicating a single column or an array of column names. If the latter, it
+    stands for a composite key.
+    [values] (array) list of key values to be selected within
+    [prefix] (string) column prefix (ended with dot). If null, it will be the
+    table name
+
+
+*CDbCommandBuilder::createInsertCommand*			 public
+>
+ createInsertCommand($table, $data)
+<
+(CDbCommand) insert command
+
+ Creates an INSERT command.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [data] (array) data to be inserted (column name=>column value). If a key
+    is not a valid column name, the corresponding value will be ignored.
+
+
+*CDbCommandBuilder::createPkCondition*				 public
+>
+ createPkCondition($table, $values, $prefix='')
+<
+(string) the expression for selection
+
+ Generates the expression for selecting rows of specified primary key values.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [values] (array) list of primary key values to be selected within
+    [prefix] (string) column prefix (ended with dot). If null, it will be the
+    table name
+
+
+*CDbCommandBuilder::createPkCriteria*				 public
+>
+ createPkCriteria($table, $pk, $condition='', $params=array(), $prefix='')
+<
+(CDbCriteria) the created query criteria
+
+ Creates a query criteria with the specified primary key.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [pk] (mixed) primary key value(s). Use array for multiple primary keys.
+    For composite key, each key value must be an array (column name=>column
+    value).
+    [condition] (mixed) query condition or criteria. If a string, it is
+    treated as query condition; If an array, it is treated as the initial
+    values for constructing a |CDbCriteria|; Otherwise, it should be an
+    instance of |CDbCriteria|.
+    [params] (array) parameters to be bound to an SQL statement. This is only
+    used when the second parameter is a string (query condition). In other
+    cases, please use |CDbCriteria::params| to set parameters.
+    [prefix] (string) column prefix (ended with dot). If null, it will be the
+    table name
+
+
+*CDbCommandBuilder::createSearchCondition*			 public
+>
+ createSearchCondition($table, $columns, $keywords, $prefix='', $caseSensitive=true)
+<
+(string) SQL search condition matching on a set of columns. An empty string is
+returned if either the column array or the keywords are empty.
+
+ Generates the expression for searching the specified keywords within a list
+ of columns. The search expression is generated using the 'LIKE' SQL syntax.
+ Every word in the keywords must be present and appear in at least one of the
+ columns.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [columns] (array) list of column names for potential search condition.
+    [keywords] (mixed) search keywords. This can be either a string with
+    space-separated keywords or an array of keywords.
+    [prefix] (string) optional column prefix (with dot at the end). If null,
+    the table name will be used as the prefix.
+    [caseSensitive] (boolean) whether the search is case-sensitive. Defaults
+    to true. This parameter has been available since version 1.0.4.
+
+
+*CDbCommandBuilder::createSqlCommand*				 public
+>
+ createSqlCommand($sql, $params=array())
+<
+(CDbCommand) the created command
+
+ Creates a command based on a given SQL statement.
+    [sql] (string) the explicitly specified SQL statement
+    [params] (array) parameters that will be bound to the SQL statement
+
+
+*CDbCommandBuilder::createUpdateCommand*			 public
+>
+ createUpdateCommand($table, $data, $criteria)
+<
+(CDbCommand) update command.
+
+ Creates an UPDATE command.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [data] (array) list of columns to be updated (name=>value)
+    [criteria] (CDbCriteria) the query criteria
+
+
+*CDbCommandBuilder::createUpdateCounterCommand* 		 public
+>
+ createUpdateCounterCommand($table, $counters, $criteria)
+<
+(CDbCommand) the created command
+
+ Creates an UPDATE command that increments/decrements certain columns.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [counters] (array) counters to be updated (counter increments/decrements
+    indexed by column names.)
+    [criteria] (CDbCriteria) the query criteria
+
+
+*CDbCommandBuilder::ensureTable*				 protected
+>
+ ensureTable($table)
+<
+(void)
+
+ Checks if the parameter is a valid table schema. If it is a string, the
+ corresponding table schema will be retrieved.
+    [table] (mixed) table schema (|CDbTableSchema|) or table name (string). If
+    this refers to a valid table name, this parameter will be returned with
+    the corresponding table schema.
+
+
+*CDbCommandBuilder::getDbConnection*				 public
+>
+ getDbConnection()
+<
+(CDbConnection) database connection.
+
+
+
+*CDbCommandBuilder::getLastInsertID*				 public
+>
+ getLastInsertID($table)
+<
+(mixed) last insertion id. Null is returned if no sequence name.
+
+ Returns the last insertion ID for the specified table.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+
+
+*CDbCommandBuilder::getSchema*					 public
+>
+ getSchema()
+<
+(CDbSchema) the schema for this command builder.
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

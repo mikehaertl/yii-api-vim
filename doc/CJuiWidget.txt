@@ -1,0 +1,121 @@
+
+*CJuiWidget*   >> |CWidget| >> |CBaseController| >> |CComponent|
+============
+
+ This is the base class for all JUI widget classes.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<cssFile>				*CJuiWidget::cssFile*
+ (mixed) the theme CSS file name. Defaults to 'jquery-ui.css'. Note the file
+ must exist under the URL specified by
+ |CJuiWidget::themeUrl|/|CJuiWidget::theme|. If you need to include multiple
+ theme CSS files (e.g. during development, you want to include individual
+ plugin CSS files), you may set this property as an array of the CSS file
+ names. This property can also be set as false, which means the widget will
+ not include any theme CSS file, and it is your responsibility to explicitly
+ include it somewhere else.
+
+<htmlOptions>				*CJuiWidget::htmlOptions*
+ (array) the HTML attributes that should be rendered in the HTML tag
+ representing the JUI widget.
+
+<options>				*CJuiWidget::options*
+ (array) the initial JavaScript options that should be passed to the JUI
+ plugin.
+
+<scriptFile>				*CJuiWidget::scriptFile*
+ (mixed) the main JUI JavaScript file. Defaults to 'jquery-ui.min.js'. Note
+ the file must exist under the URL specified by |CJuiWidget::scriptUrl|. If
+ you need to include multiple script files (e.g. during development, you want
+ to include individual plugin script files rather than the minized JUI script
+ file), you may set this property as an array of the script file names. This
+ property can also be set as false, which means the widget will not include
+ any script file, and it is your responsibility to explicitly include it
+ somewhere else.
+
+<scriptUrl>				*CJuiWidget::scriptUrl*
+ (string) the root URL that contains all JUI JavaScript files. If this
+ property is not set (default), Yii will publish the JUI package included in
+ the zii release and use that to infer the root script URL. You should set
+ this property if you intend to use a JUI package whose version is different
+ from the one included in zii. Note that under this URL, there must be a file
+ whose name is specified by |CJuiWidget::scriptFile|. Do not append any slash
+ character to the URL.
+
+<theme> 				*CJuiWidget::theme*
+ (string) the JUI theme name. Defaults to 'base'. Make sure that under
+ |CJuiWidget::themeUrl| there is a directory whose name is the same as this
+ property value (case-sensitive).
+
+<themeUrl>				*CJuiWidget::themeUrl*
+ (string) the root URL that contains all JUI theme folders. If this property
+ is not set (default), Yii will publish the JUI package included in the zii
+ release and use that to infer the root theme URL. You should set this
+ property if you intend to use a theme that is not found in the JUI package
+ included in zii. Note that under this URL, there must be a directory whose
+ name is specified by |CJuiWidget::theme|. Do not append any slash character
+ to the URL.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CJuiWidget::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the widget. This method will publish JUI assets if necessary. It
+ will also register jquery and JUI JavaScript files and the theme CSS file. If
+ you override this method, make sure you call the parent implementation first.
+
+
+*CJuiWidget::registerCoreScripts*				 protected
+>
+ registerCoreScripts()
+<
+(void)
+
+ Registers the core script files. This method registers jquery and JUI
+ JavaScript files and the theme CSS file.
+
+
+*CJuiWidget::registerScriptFile*				 protected
+>
+ registerScriptFile($fileName, $position=2)
+<
+(void)
+
+ Registers a JavaScript file under |CJuiWidget::scriptUrl|. Note that by
+ default, the script file will be rendered at the end of a page to improve
+ page loading speed.
+    [fileName] (string) JavaScript file name
+    [position] (integer) the position of the JavaScript file. Valid values
+    include the following:
+      {CClientScript}:POS_HEAD : the script is inserted in the head
+      section right before the title element.
+      {CClientScript}:POS_BEGIN : the script is inserted at the
+      beginning of the body section.
+      {CClientScript}:POS_END : the script is inserted at the end of the
+      body section.
+
+
+*CJuiWidget::resolvePackagePath*				 protected
+>
+ resolvePackagePath()
+<
+(void)
+
+ Determine the JUI package installation path. This method will identify the
+ JavaScript root URL and theme root URL. If they are not explicitly specified,
+ it will publish the included JUI package and use that to resolve the needed
+ paths.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

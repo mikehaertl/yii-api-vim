@@ -1,0 +1,126 @@
+
+*CLinkPager*   >> |CBasePager| >> |CWidget| >> |CBaseController| >> |CComponent|
+============
+
+ CLinkPager displays a list of hyperlinks that lead to different pages of
+ target.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<cssFile>				*CLinkPager::cssFile*
+ (mixed) the CSS file used for the widget. Defaults to null, meaning using the
+ default CSS file included together with the widget. If false, no CSS file
+ will be used. Otherwise, the specified CSS file will be included when using
+ this widget.
+
+<firstPageLabel>			*CLinkPager::firstPageLabel*
+ (string) the text label for the first page button. Defaults to '&lt;&lt;
+ First'.
+
+<footer>				*CLinkPager::footer*
+ (string) the text shown after page buttons.
+
+<header>				*CLinkPager::header*
+ (string) the text shown before page buttons. Defaults to 'Go to page: '.
+
+<htmlOptions>				*CLinkPager::htmlOptions*
+ (array) HTML attributes for the pager container tag.
+
+<lastPageLabel> 			*CLinkPager::lastPageLabel*
+ (string) the text label for the last page button. Defaults to 'Last
+ &gt;&gt;'.
+
+<maxButtonCount>			*CLinkPager::maxButtonCount*
+ (integer) maximum number of page buttons that can be displayed. Defaults to
+ 10.
+
+<nextPageLabel> 			*CLinkPager::nextPageLabel*
+ (string) the text label for the next page button. Defaults to 'Next &gt;'.
+
+<pageRange>				*CLinkPager::pageRange*
+ (array) the begin and end pages that need to be displayed.
+
+<prevPageLabel> 			*CLinkPager::prevPageLabel*
+ (string) the text label for the previous page button. Defaults to '&lt;
+ Previous'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CLinkPager::createPageButton*					 protected
+>
+ createPageButton($label, $page, $class, $hidden, $selected)
+<
+(string) the generated button
+
+ Creates a page button. You may override this method to customize the page
+ buttons.
+    [label] (string) the text label for the button
+    [page] (integer) the page number
+    [class] (string) the CSS class for the page button. This could be 'page',
+    'first', 'last', 'next' or 'previous'.
+    [hidden] (boolean) whether this page button is visible
+    [selected] (boolean) whether this page button is selected
+
+
+*CLinkPager::createPageButtons* 				 protected
+>
+ createPageButtons()
+<
+(array) a list of page buttons (in HTML code).
+
+ Creates the page buttons.
+
+
+*CLinkPager::getPageRange*					 protected
+>
+ getPageRange()
+<
+(array) the begin and end pages that need to be displayed.
+
+
+
+*CLinkPager::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the pager by setting some default property values.
+
+
+*CLinkPager::registerClientScript*				 public
+>
+ registerClientScript()
+<
+(void)
+
+ Registers the needed client scripts (mainly CSS file).
+
+
+*CLinkPager::registerCssFile*					 public
+>
+ registerCssFile($url='')
+<
+(void)
+
+ Registers the needed CSS file.
+    [url] (string) the CSS URL. If null, a default CSS URL will be used.
+
+
+*CLinkPager::run*						 public
+>
+ run()
+<
+(void)
+
+ Executes the widget. This overrides the parent implementation by displaying
+ the generated page buttons.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

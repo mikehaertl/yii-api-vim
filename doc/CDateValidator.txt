@@ -1,0 +1,48 @@
+
+*CDateValidator*   >> |CValidator| >> |CComponent|
+================
+
+ CDateValidator verifies if the attribute represents a date, time or datetime.
+
+ By setting the |CDateValidator::format| property, one can specify what format
+ the date value must be in. If the given date value doesn't follow the format,
+ the attribute is considered as invalid.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowEmpty>				*CDateValidator::allowEmpty*
+ (boolean) whether the attribute value can be null or empty. Defaults to true,
+ meaning that if the attribute is empty, it is considered valid.
+
+<format>				*CDateValidator::format*
+ (mixed) the format pattern that the date value should follow. This can be
+ either a string or an array representing multiple formats. Defaults to
+ 'MM/dd/yyyy'. Please see |CDateTimeParser| for details about how to specify a
+ date format.
+
+<timestampAttribute>			*CDateValidator::timestampAttribute*
+ (string) the name of the attribute to receive the parsing result. When this
+ property is not null and the validation is successful, the named attribute
+ will receive the parsing result.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDateValidator::validateAttribute*				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

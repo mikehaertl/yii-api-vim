@@ -1,0 +1,141 @@
+
+*CWebService*   >> |CComponent|
+=============
+
+ CWebService encapsulates SoapServer and provides a WSDL-based web service.
+
+ PHP SOAP extension is required.
+
+ CWebService makes use of |CWsdlGenerator| and can generate the WSDL
+ on-the-fly without requiring you to write complex WSDL.
+
+ To generate the WSDL based on doc comment blocks in the service provider
+ class, call |CWebService::generateWsdl| or |CWebService::renderWsdl|. To
+ process the web service requests, call |CWebService::run|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<actor> 				*CWebService::actor*
+ (string) actor of the SOAP service. Defaults to null, meaning not set.
+
+<cacheID>				*CWebService::cacheID*
+ (string) the ID of the cache application component that is used to cache the
+ generated WSDL. Defaults to 'cache' which refers to the primary cache
+ application component. Set this property to false if you want to disable
+ caching WSDL.
+
+<classMap>				*CWebService::classMap*
+ (array) a list of classes that are declared as complex types in WSDL. This
+ should be an array with WSDL types as keys and names of PHP classes as
+ values. A PHP class can also be specified as a path alias.
+
+<encoding>				*CWebService::encoding*
+ (string) encoding of the Web service. Defaults to 'UTF-8'.
+
+<methodName>				*CWebService::methodName*
+ (string) the currently requested method name. Empty if no method is being
+ requested.
+
+<options>				*CWebService::options*
+ (array) options for creating SoapServer instance
+
+<persistence>				*CWebService::persistence*
+ (integer) the persistence mode of the SOAP server.
+
+<provider>				*CWebService::provider*
+ (string|object) the web service provider class or object. If specified as a
+ class name, it can be a path alias.
+
+<serviceUrl>				*CWebService::serviceUrl*
+ (string) the URL for the Web service. This is required by
+ |CWebService::generateWsdl| and |CWebService::renderWsdl|.
+
+<soapVersion>				*CWebService::soapVersion*
+ (string) SOAP version (e.g. '1.1' or '1.2'). Defaults to null, meaning not
+ set.
+
+<wsdlCacheDuration>			*CWebService::wsdlCacheDuration*
+ (integer) number of seconds that the generated WSDL can remain valid in
+ cache. Defaults to 0, meaning no caching.
+
+<wsdlUrl>				*CWebService::wsdlUrl*
+ (string) the URL for WSDL. This is required by |CWebService::run|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CWebService::__construct*					 public
+>
+ __construct($provider, $wsdlUrl, $serviceUrl)
+<
+(void)
+
+ Constructor.
+    [provider] (mixed) the web service provider class name or object
+    [wsdlUrl] (string) the URL for WSDL. This is required by
+    |CWebService::run|.
+    [serviceUrl] (string) the URL for the Web service. This is required by
+    |CWebService::generateWsdl| and |CWebService::renderWsdl|.
+
+
+*CWebService::generateWsdl*					 public
+>
+ generateWsdl()
+<
+(string) the generated WSDL
+
+ Generates the WSDL as defined by the provider. The cached version may be used
+ if the WSDL is found valid in cache.
+
+
+*CWebService::getMethodName*					 public
+>
+ getMethodName()
+<
+(string) the currently requested method name. Empty if no method is being
+requested.
+
+
+
+*CWebService::getOptions*					 protected
+>
+ getOptions()
+<
+(array) options for creating SoapServer instance
+
+
+
+*CWebService::handleError*					 public
+>
+ handleError($event)
+<
+(void)
+
+ The PHP error handler.
+    [event] (CErrorEvent) the PHP error event
+
+
+*CWebService::renderWsdl*					 public
+>
+ renderWsdl()
+<
+(void)
+
+ Generates and displays the WSDL as defined by the provider.
+
+
+*CWebService::run*						 public
+>
+ run()
+<
+(void)
+
+ Handles the web service request.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

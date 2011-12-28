@@ -1,0 +1,108 @@
+
+*CCodeGenerator*   >> |CController| >> |CBaseController| >> |CComponent|
+================
+
+ CCodeGenerator is the base class for code generator classes.
+
+ CCodeGenerator is a controller that predefines several actions for code
+ generation purpose. Derived classes mainly need to configure the
+ |CCodeGenerator::codeModel| property override the getSuccessMessage method.
+ The former specifies which code model (extending |CCodeModel|) that this
+ generator should use, while the latter should return a success message to be
+ displayed when code files are successfully generated.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<codeModel>				*CCodeGenerator::codeModel*
+ (string) the code model class. This can be either a class name (if it can be
+ autoloaded) or a path alias referring to the class file. Child classes must
+ configure this property with a concrete value.
+
+<layout>				*CCodeGenerator::layout*
+ (string) the layout to be used by the generator. Defaults to 'generator'.
+
+<pageTitle>				*CCodeGenerator::pageTitle*
+ (string) the page title
+
+<templates>				*CCodeGenerator::templates*
+ (array) a list of available code templates (name=>path)
+
+<viewPath>				*CCodeGenerator::viewPath*
+ (string) Returns the view path of the generator. The "views" directory under
+ the directory containing the generator class file will be returned.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CCodeGenerator::actionCode*					 public
+>
+ actionCode()
+<
+(void)
+
+ The code preview action. This action shows up the specified generated code.
+
+
+*CCodeGenerator::actionDiff*					 public
+>
+ actionDiff()
+<
+(void)
+
+ The code diff action. This action shows up the difference between the newly
+ generated code and the corresponding existing code.
+
+
+*CCodeGenerator::actionIndex*					 public
+>
+ actionIndex()
+<
+(void)
+
+ The code generation action. This is the action that displays the code
+ generation interface. Child classes mainly need to provide the 'index' view
+ for collecting user parameters for code generation.
+
+
+*CCodeGenerator::getPageTitle*					 public
+>
+ getPageTitle()
+<
+(string) the page title
+
+
+
+*CCodeGenerator::getViewPath*					 public
+>
+ getViewPath()
+<
+(string) the view path of the generator
+
+ Returns the view path of the generator. The "views" directory under the
+ directory containing the generator class file will be returned.
+
+
+*CCodeGenerator::prepare*					 protected
+>
+ prepare()
+<
+(void)
+
+ Prepares the code model.
+
+
+*CCodeGenerator::setViewPath*					 public
+>
+ setViewPath($value)
+<
+(void)
+
+    [value] (string) the view path of the generator.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

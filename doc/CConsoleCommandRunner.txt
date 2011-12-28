@@ -1,0 +1,88 @@
+
+*CConsoleCommandRunner*   >> |CComponent|
+=======================
+
+ CConsoleCommandRunner manages commands and executes the requested command.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<commands>				*CConsoleCommandRunner::commands*
+ (array) list of all available commands (command name=>command configuration).
+ Each command configuration can be either a string or an array. If the former,
+ the string should be the class name or |YiiBase::getPathOfAlias| of the
+ command. If the latter, the array must contain a 'class' element which
+ specifies the command's class name or |YiiBase::getPathOfAlias|. The rest
+ name-value pairs in the array are used to initialize the corresponding
+ command properties. For example,
+>
+ array(
+   'email'=>array(
+      'class'=>'path.to.Mailer',
+      'interval'=>3600,
+   ),
+   'log'=>'path.to.LoggerCommand',
+ )
+<
+
+<scriptName>				*CConsoleCommandRunner::scriptName*
+ (string) the entry script name
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CConsoleCommandRunner::addCommands*				 public
+>
+ addCommands($path)
+<
+(void)
+
+ Adds commands from the specified command path. If a command already exists,
+ the new one will be ignored.
+    [path] (string) the alias of the directory containing the command class
+    files.
+
+
+*CConsoleCommandRunner::createCommand*				 public
+>
+ createCommand($name)
+<
+(CConsoleCommand) the command object. Null if the name is invalid.
+
+    [name] (string) command name (case-insensitive)
+
+
+*CConsoleCommandRunner::findCommands*				 public
+>
+ findCommands($path)
+<
+(array) list of commands (command name=>command class file)
+
+ Searches for commands under the specified directory.
+    [path] (string) the directory containing the command class files.
+
+
+*CConsoleCommandRunner::getScriptName*				 public
+>
+ getScriptName()
+<
+(string) the entry script name
+
+
+
+*CConsoleCommandRunner::run*					 public
+>
+ run($args)
+<
+(void)
+
+ Executes the requested command.
+    [args] (array) list of user supplied parameters (including the entry
+    script name and the command name).
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

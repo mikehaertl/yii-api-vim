@@ -1,0 +1,56 @@
+
+*IWebUser*  
+==========
+
+ IWebUser interface is implemented by a |CWebApplication::user|.
+
+ A user application component represents the identity information for the
+ current user.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*IWebUser::checkAccess* 					 public
+>
+ checkAccess($operation, $params=array())
+<
+(boolean) whether the operations can be performed by this user.
+
+ Performs access check for this user.
+    [operation] (string) the name of the operation that need access check.
+    [params] (array) name-value pairs that would be passed to business rules
+    associated with the tasks and roles assigned to the user.
+
+
+*IWebUser::getId*						 public
+>
+ getId()
+<
+(mixed) a value that uniquely represents the identity (e.g. primary key
+value).
+
+ Returns a value that uniquely represents the identity.
+
+
+*IWebUser::getIsGuest*						 public
+>
+ getIsGuest()
+<
+(boolean) whether the user is a guest (not authenticated)
+
+ Returns a value indicating whether the user is a guest (not authenticated).
+
+
+*IWebUser::getName*						 public
+>
+ getName()
+<
+(string) the display name for the identity.
+
+ Returns the display name for the identity (e.g. username).
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,119 @@
+
+*CArrayDataProvider*   >> |CDataProvider| >> |CComponent|
+====================
+
+ CArrayDataProvider implements a data provider based on a raw data array.
+
+ The |CArrayDataProvider::rawData| property contains all data that may be
+ sorted and/or paginated. CArrayDataProvider will supply the data after
+ sorting and/or pagination. You may configure the |CArrayDataProvider::sort|
+ and |CArrayDataProvider::pagination| properties to customize sorting and
+ pagination behaviors.
+
+ Elements in the raw data array may be either objects (e.g. model objects) or
+ associative arrays (e.g. query results of DAO).
+
+ CArrayDataProvider may be used in the following way:
+>
+ $rawData=Yii::app()->db->createCommand('SELECT * FROM tbl_user')->queryAll();
+ // or using: $rawData=User::model()->findAll();
+ $dataProvider=new CArrayDataProvider($rawData, array(
+     'id'=>'user',
+     'sort'=>array(
+         'attributes'=>array(
+              'id', 'username', 'email',
+         ),
+     ),
+     'pagination'=>array(
+         'pageSize'=>10,
+     ),
+ ));
+ // $dataProvider->getData() will return a list of arrays.
+<
+ Note: if you want to use the sorting feature, you must configure
+ |CArrayDataProvider::sort| property so that the provider knows which columns
+ can be sorted.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<keyField>				*CArrayDataProvider::keyField*
+ (string) the name of key field. Defaults to 'id'.
+
+<rawData>				*CArrayDataProvider::rawData*
+ (array) the data that is not paginated or sorted. When pagination is enabled,
+ this property usually contains more elements than |CArrayDataProvider::data|.
+ The array elements must use zero-based integer keys.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CArrayDataProvider::__construct*				 public
+>
+ __construct($rawData, $config=array())
+<
+(void)
+
+ Constructor.
+    [rawData] (array) the data that is not paginated or sorted. The array
+    elements must use zero-based integer keys.
+    [config] (array) configuration (name=>value) to be applied as the initial
+    property values of this class.
+
+
+*CArrayDataProvider::calculateTotalItemCount*			 protected
+>
+ calculateTotalItemCount()
+<
+(integer) the total number of data items.
+
+ Calculates the total number of data items. This method simply returns the
+ number of elements in |CArrayDataProvider::rawData|.
+
+
+*CArrayDataProvider::fetchData* 				 protected
+>
+ fetchData()
+<
+(array) list of data items
+
+ Fetches the data from the persistent data storage.
+
+
+*CArrayDataProvider::fetchKeys* 				 protected
+>
+ fetchKeys()
+<
+(array) list of data item keys.
+
+ Fetches the data item keys from the persistent data storage.
+
+
+*CArrayDataProvider::getSortDirections* 			 protected
+>
+ getSortDirections($order)
+<
+(array) the sorting directions (field name => whether it is descending sort)
+
+ Converts the "ORDER BY" clause into an array representing the sorting
+ directions.
+    [order] (string) the "ORDER BY" clause.
+
+
+*CArrayDataProvider::sortData*					 protected
+>
+ sortData($directions)
+<
+(void)
+
+ Sorts the raw data according to the specified sorting instructions. After
+ calling this method, |CArrayDataProvider::rawData| will be modified.
+    [directions] (array) the sorting directions (field name => whether it is
+    descending sort)
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

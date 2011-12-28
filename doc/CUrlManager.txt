@@ -1,0 +1,320 @@
+
+*CUrlManager*   >> |CApplicationComponent| >> |CComponent|
+=============
+
+ CUrlManager manages the URLs of Yii Web applications.
+
+ It provides URL construction (|CUrlManager::createUrl|) as well as parsing
+ (|CUrlManager::parseUrl|) functionality.
+
+ URLs managed via CUrlManager can be in one of the following two formats, by
+ setting |CUrlManager::setUrlFormat| property:
+   'path' format:
+   /path/to/EntryScript.php/name1/value1/name2/value2...
+   'get' format: 
+   /path/to/EntryScript.php?name1=value1&name2=value2...When using 'path'
+ format, CUrlManager uses a set of rules to:
+   parse the requested URL into a route ('ControllerID/ActionID') and
+   GET parameters;
+   create URLs based on the given route and GET parameters.A rule consists of
+ a route and a pattern. The latter is used by CUrlManager to determine which
+ rule is used for parsing/creating URLs. A pattern is meant to match the path
+ info part of a URL. It may contain named parameters using the syntax
+ '&lt;ParamName:RegExp&gt;'.
+
+ When parsing a URL, a matching rule will extract the named parameters from
+ the path info and put them into the $_GET variable; when creating a URL, a
+ matching rule will extract the named parameters from $_GET and put them into
+ the path info part of the created URL.
+
+ If a pattern ends with '/*', it means additional GET parameters may be
+ appended to the path info part of the URL; otherwise, the GET parameters can
+ only appear in the query string part.
+
+ To specify URL rules, set the rules property as an array of rules
+ (pattern=>route). For example,
+>
+ array(
+     'articles'=>'article/list',
+     'article/<id:\d+>/*'=>'article/read',
+ )
+<
+ Two rules are specified in the above:
+   The first rule says that if the user requests the URL
+   '/path/to/index.php/articles',   it should be treated as
+   '/path/to/index.php/article/list'; and vice versa applies   when
+   constructing such a URL.
+   The second rule contains a named parameter 'id' which is specified
+   using   the &lt;ParamName:RegExp&gt; syntax. It says that if the
+   user requests the URL   '/path/to/index.php/article/13', it should
+   be treated as '/path/to/index.php/article/read?id=13';   and vice
+   versa applies when constructing such a URL.Starting from version 1.0.5, the
+ route part may contain references to named parameters defined in the pattern
+ part. This allows a rule to be applied to different routes based on matching
+ criteria. For example,
+>
+ array(
+      '<_c:(post|comment)>/<id:\d+>/<_a:(create|update|delete)>'=>'<_c>/<_a>',
+      '<_c:(post|comment)>/<id:\d+>'=>'<_c>/view',
+      '<_c:(post|comment)>s/*'=>'<_c>/list',
+ )
+<
+ In the above, we use two named parameters '<_c>' and '<_a>' in the route
+ part. The '<_c>' parameter matches either 'post' or 'comment', while the
+ '<_a>' parameter matches an action ID.
+
+ Like normal rules, these rules can be used for both parsing and creating
+ URLs. For example, using the rules above, the URL
+ '/index.php/post/123/create' would be parsed as the route 'post/create' with
+ GET parameter 'id' being 123. And given the route 'post/list' and GET
+ parameter 'page' being 2, we should get a URL '/index.php/posts/page/2'.
+
+ Starting from version 1.0.11, it is also possible to include hostname into
+ the rules for parsing and creating URLs. One may extract part of the hostname
+ to be a GET parameter. For example, the URL
+ 'http://admin.example.com/en/profile' may be parsed into GET parameters
+ 'user=admin' and 'lang=en'. On the other hand, rules with hostname may also
+ be used to create URLs with paratermized hostnames.
+
+ In order to use parameterized hostnames, simply declare URL rules with host
+ info, e.g.:
+>
+ array(
+     'http://<user:\w+>.example.com/<lang:\w+>/profile' => 'user/profile',
+ )
+<
+ CUrlManager is a default application component that may be accessed via
+ |CWebApplication::getUrlManager|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<appendParams>				*CUrlManager::appendParams*
+ (boolean) whether to append GET parameters to the path info part. Defaults to
+ true. This property is only effective when |CUrlManager::urlFormat| is 'path'
+ and is mainly used when creating URLs. When it is true, GET parameters will
+ be appended to the path info and separate from each other using slashes. If
+ this is false, GET parameters will be in query part.
+
+<baseUrl>				*CUrlManager::baseUrl*
+ (string) Returns the base URL of the application.
+
+<cacheID>				*CUrlManager::cacheID*
+ (string) the ID of the cache application component that is used to cache the
+ parsed URL rules. Defaults to 'cache' which refers to the primary cache
+ application component. Set this property to false if you want to disable
+ caching URL rules.
+
+<caseSensitive> 			*CUrlManager::caseSensitive*
+ (boolean) whether routes are case-sensitive. Defaults to true. By setting
+ this to false, the route in the incoming request will be turned to lower case
+ first before further processing. As a result, you should follow the
+ convention that you use lower case when specifying controller mapping
+ (|CWebApplication::controllerMap|) and action mapping
+ (|CController::actions|). Also, the directory names for organizing
+ controllers should be in lower case.
+
+<matchValue>				*CUrlManager::matchValue*
+ (boolean) whether the GET parameter values should match the corresponding
+ sub-patterns in a rule before using it to create a URL. Defaults to false,
+ meaning a rule will be used for creating a URL only if its route and
+ parameter names match the given ones. If this property is set true, then the
+ given parameter values must also match the corresponding parameter
+ sub-patterns. Note that setting this property to true will degrade
+ performance.
+
+<routeVar>				*CUrlManager::routeVar*
+ (string) the GET variable name for route. Defaults to 'r'.
+
+<rules> 				*CUrlManager::rules*
+ (array) the URL rules (pattern=>route).
+
+<showScriptName>			*CUrlManager::showScriptName*
+ (boolean) whether to show entry script name in the constructed URL. Defaults
+ to true.
+
+<urlFormat>				*CUrlManager::urlFormat*
+ (string) Returns the URL format.
+
+<urlSuffix>				*CUrlManager::urlSuffix*
+ (string) the URL suffix used when in 'path' format. For example, ".html" can
+ be used so that the URL looks like pointing to a static HTML page. Defaults
+ to empty.
+
+<useStrictParsing>			*CUrlManager::useStrictParsing*
+ (boolean) whether to enable strict URL parsing. This property is only
+ effective when |CUrlManager::urlFormat| is 'path'. If it is set true, then an
+ incoming URL must match one of the |CUrlManager::rules|. Otherwise, it will
+ be treated as an invalid request and trigger a 404 HTTP exception. Defaults
+ to false.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CUrlManager::addRules* 					 public
+>
+ addRules($rules)
+<
+(void)
+
+ Adds new URL rules. In order to make the new rules effective, this method
+ must be called BEFORE |CWebApplication::processRequest|.
+    [rules] (array) new URL rules (pattern=>route).
+
+
+*CUrlManager::createPathInfo*					 public
+>
+ createPathInfo($params, $equal, $ampersand, $key='')
+<
+(string) the created path info
+
+ Creates a path info based on the given parameters.
+    [params] (array) list of GET parameters
+    [equal] (string) the separator between name and value
+    [ampersand] (string) the separator between name-value pairs
+    [key] (string) this is used internally.
+
+
+*CUrlManager::createUrl*					 public
+>
+ createUrl($route, $params=array(), $ampersand='&')
+<
+(string) the constructed URL
+
+ Constructs a URL.
+    [route] (string) the controller and the action (e.g. article/read)
+    [params] (array) list of GET parameters (name=>value). Both the name and
+    value will be URL-encoded. If the name is '#', the corresponding value
+    will be treated as an anchor and will be appended at the end of the URL.
+    This anchor feature has been available since version 1.0.1.
+    [ampersand] (string) the token separating name-value pairs in the URL.
+    Defaults to '&'.
+
+
+*CUrlManager::createUrlDefault* 				 protected
+>
+ createUrlDefault($route, $params, $ampersand)
+<
+(string) the constructed URL
+
+ Contructs a URL based on default settings.
+    [route] (string) the controller and the action (e.g. article/read)
+    [params] (array) list of GET parameters
+    [ampersand] (string) the token separating name-value pairs in the URL.
+
+
+*CUrlManager::createUrlRule*					 protected
+>
+ createUrlRule($route, $pattern)
+<
+(CUrlRule) the URL rule instance
+
+ Creates a URL rule instance. The default implementation returns a CUrlRule
+ object.
+    [route] (mixed) the route part of the rule. This could be a string or an
+    array
+    [pattern] (string) the pattern part of the rule
+
+
+*CUrlManager::getBaseUrl*					 public
+>
+ getBaseUrl()
+<
+(string) the base URL of the application (the part after host name and before
+query string). If |CUrlManager::showScriptName| is true, it will include the
+script name part. Otherwise, it will not, and the ending slashes are stripped
+off.
+
+ Returns the base URL of the application.
+
+
+*CUrlManager::getUrlFormat*					 public
+>
+ getUrlFormat()
+<
+(string) the URL format. Defaults to 'path'. Valid values include 'path' and
+'get'. Please refer to the guide for more details about the difference between
+these two formats.
+
+ Returns the URL format.
+
+
+*CUrlManager::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component.
+
+
+*CUrlManager::parsePathInfo*					 public
+>
+ parsePathInfo($pathInfo)
+<
+(void)
+
+ Parses a path info into URL segments and saves them to $_GET and $_REQUEST.
+    [pathInfo] (string) path info
+
+
+*CUrlManager::parseUrl* 					 public
+>
+ parseUrl($request)
+<
+(string) the route (controllerID/actionID) and perhaps GET parameters in path
+format.
+
+ Parses the user request.
+    [request] (CHttpRequest) the request application component
+
+
+*CUrlManager::processRules*					 protected
+>
+ processRules()
+<
+(void)
+
+ Processes the URL rules.
+
+
+*CUrlManager::removeUrlSuffix*					 public
+>
+ removeUrlSuffix($pathInfo, $urlSuffix)
+<
+(string) path info with URL suffix removed.
+
+ Removes the URL suffix from path info.
+    [pathInfo] (string) path info part in the URL
+    [urlSuffix] (string) the URL suffix to be removed
+
+
+*CUrlManager::setBaseUrl*					 public
+>
+ setBaseUrl($value)
+<
+(void)
+
+ Sets the base URL of the application (the part after host name and before
+ query string). This method is provided in case the |CUrlManager::baseUrl|
+ cannot be determined automatically. The ending slashes should be stripped
+ off. And you are also responsible to remove the script name if you set
+ |CUrlManager::showScriptName| to be false.
+    [value] (string) the base URL of the application
+
+
+*CUrlManager::setUrlFormat*					 public
+>
+ setUrlFormat($value)
+<
+(void)
+
+ Sets the URL format.
+    [value] (string) the URL format. It must be either 'path' or 'get'.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

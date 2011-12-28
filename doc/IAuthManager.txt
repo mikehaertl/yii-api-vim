@@ -1,0 +1,257 @@
+
+*IAuthManager*  
+==============
+
+ IAuthManager interface is implemented by an auth manager application
+ component.
+
+ An auth manager is mainly responsible for providing role-based access control
+ (RBAC) service.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*IAuthManager::addItemChild*					 public
+>
+ addItemChild($itemName, $childName)
+<
+(void)
+
+ Adds an item as a child of another item.
+    [itemName] (string) the parent item name
+    [childName] (string) the child item name
+
+
+*IAuthManager::assign*						 public
+>
+ assign($itemName, $userId, $bizRule='', $data=NULL)
+<
+(CAuthAssignment) the authorization assignment information.
+
+ Assigns an authorization item to a user.
+    [itemName] (string) the item name
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+    [bizRule] (string) the business rule to be executed when
+    |IAuthManager::checkAccess| is called for this particular authorization
+    item.
+    [data] (mixed) additional data associated with this assignment
+
+
+*IAuthManager::checkAccess*					 public
+>
+ checkAccess($itemName, $userId, $params=array())
+<
+(boolean) whether the operations can be performed by the user.
+
+ Performs access check for the specified user.
+    [itemName] (string) the name of the operation that need access check
+    [userId] (mixed) the user ID. This should can be either an integer and a
+    string representing the unique identifier of a user. See
+    |IWebUser::getId|.
+    [params] (array) name-value pairs that would be passed to biz rules
+    associated with the tasks and roles assigned to the user.
+
+
+*IAuthManager::clearAll*					 public
+>
+ clearAll()
+<
+(void)
+
+ Removes all authorization data.
+
+
+*IAuthManager::clearAuthAssignments*				 public
+>
+ clearAuthAssignments()
+<
+(void)
+
+ Removes all authorization assignments.
+
+
+*IAuthManager::createAuthItem*					 public
+>
+ createAuthItem($name, $type, $description='', $bizRule='', $data=NULL)
+<
+(CAuthItem) the authorization item
+
+ Creates an authorization item. An authorization item represents an action
+ permission (e.g. creating a post). It has three types: operation, task and
+ role. Authorization items form a hierarchy. Higher level items inheirt
+ permissions representing by lower level items.
+    [name] (string) the item name. This must be a unique identifier.
+    [type] (integer) the item type (0: operation, 1: task, 2: role).
+    [description] (string) description of the item
+    [bizRule] (string) business rule associated with the item. This is a piece
+    of PHP code that will be executed when |IAuthManager::checkAccess| is
+    called for the item.
+    [data] (mixed) additional data associated with the item.
+
+
+*IAuthManager::executeBizRule*					 public
+>
+ executeBizRule($bizRule, $params, $data)
+<
+(whether) the execution returns a true value. If the business rule is empty,
+it will also return true.
+
+ Executes a business rule. A business rule is a piece of PHP code that will be
+ executed when |IAuthManager::checkAccess| is called.
+    [bizRule] (string) the business rule to be executed.
+    [params] (array) additional parameters to be passed to the business rule
+    when being executed.
+    [data] (mixed) additional data that is associated with the corresponding
+    authorization item or assignment
+
+
+*IAuthManager::getAuthAssignment*				 public
+>
+ getAuthAssignment($itemName, $userId)
+<
+(CAuthAssignment) the item assignment information. Null is returned if the
+item is not assigned to the user.
+
+ Returns the item assignment information.
+    [itemName] (string) the item name
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*IAuthManager::getAuthAssignments*				 public
+>
+ getAuthAssignments($userId)
+<
+(array) the item assignment information for the user. An empty array will be
+returned if there is no item assigned to the user.
+
+ Returns the item assignments for the specified user.
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*IAuthManager::getAuthItem*					 public
+>
+ getAuthItem($name)
+<
+(CAuthItem) the authorization item. Null if the item cannot be found.
+
+ Returns the authorization item with the specified name.
+    [name] (string) the name of the item
+
+
+*IAuthManager::getAuthItems*					 public
+>
+ getAuthItems($type=, $userId=NULL)
+<
+(array) the authorization items of the specific type.
+
+ Returns the authorization items of the specific type and user.
+    [type] (integer) the item type (0: operation, 1: task, 2: role). Defaults
+    to null, meaning returning all items regardless of their type.
+    [userId] (mixed) the user ID. Defaults to null, meaning returning all
+    items even if they are not assigned to a user.
+
+
+*IAuthManager::getItemChildren* 				 public
+>
+ getItemChildren($itemName)
+<
+(array) all child items of the parent
+
+ Returns the children of the specified item.
+    [itemName] (mixed) the parent item name. This can be either a string or an
+    array. The latter represents a list of item names (available since version
+    1.0.5).
+
+
+*IAuthManager::hasItemChild*					 public
+>
+ hasItemChild($itemName, $childName)
+<
+(boolean) whether the child exists
+
+ Returns a value indicating whether a child exists within a parent.
+    [itemName] (string) the parent item name
+    [childName] (string) the child item name
+
+
+*IAuthManager::isAssigned*					 public
+>
+ isAssigned($itemName, $userId)
+<
+(boolean) whether the item has been assigned to the user.
+
+ Returns a value indicating whether the item has been assigned to the user.
+    [itemName] (string) the item name
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*IAuthManager::removeAuthItem*					 public
+>
+ removeAuthItem($name)
+<
+(boolean) whether the item exists in the storage and has been removed
+
+ Removes the specified authorization item.
+    [name] (string) the name of the item to be removed
+
+
+*IAuthManager::removeItemChild* 				 public
+>
+ removeItemChild($itemName, $childName)
+<
+(boolean) whether the removal is successful
+
+ Removes a child from its parent. Note, the child item is not deleted. Only
+ the parent-child relationship is removed.
+    [itemName] (string) the parent item name
+    [childName] (string) the child item name
+
+
+*IAuthManager::revoke*						 public
+>
+ revoke($itemName, $userId)
+<
+(boolean) whether removal is successful
+
+ Revokes an authorization assignment from a user.
+    [itemName] (string) the item name
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*IAuthManager::save*						 public
+>
+ save()
+<
+(void)
+
+ Saves authorization data into persistent storage. If any change is made to
+ the authorization data, please make sure you call this method to save the
+ changed data into persistent storage.
+
+
+*IAuthManager::saveAuthAssignment*				 public
+>
+ saveAuthAssignment($assignment)
+<
+(void)
+
+ Saves the changes to an authorization assignment.
+    [assignment] (CAuthAssignment) the assignment that has been changed.
+
+
+*IAuthManager::saveAuthItem*					 public
+>
+ saveAuthItem($item, $oldName='')
+<
+(void)
+
+ Saves an authorization item to persistent storage.
+    [item] (CAuthItem) the item to be saved.
+    [oldName] (string) the old item name. If null, it means the item name is
+    not changed.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

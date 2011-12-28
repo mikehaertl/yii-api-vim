@@ -1,0 +1,111 @@
+
+*CMessageSource*   >> |CApplicationComponent| >> |CComponent|
+================
+
+ CMessageSource is the base class for message translation repository classes.
+
+ A message source is an application component that provides message
+ internationalization (i18n). It stores messages translated in different
+ languages and provides these translated versions when requested.
+
+ A concrete class must implement |CMessageSource::loadMessages| or override
+ |CMessageSource::translateMessage|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<forceTranslation>			*CMessageSource::forceTranslation*
+ (boolean) whether to force message translation when the source and target
+ languages are the same. Defaults to false, meaning translation is only
+ performed when source and target languages are different.
+
+<language>				*CMessageSource::language*
+ (string) the language that the source messages are written in. Defaults to
+ |CApplication::language|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CMessageSource::getLanguage*					 public
+>
+ getLanguage()
+<
+(string) the language that the source messages are written in. Defaults to
+|CApplication::language|.
+
+
+
+*CMessageSource::loadMessages*					 protected
+>
+ loadMessages($category, $language)
+<
+(array) the loaded messages
+
+ Loads the message translation for the specified language and category.
+    [category] (string) the message category
+    [language] (string) the target language
+
+
+*CMessageSource::onMissingTranslation*				 public
+>
+ onMissingTranslation($event)
+<
+(void)
+
+ Raised when a message cannot be translated. Handlers may log this message or
+ do some default handling. The |CMissingTranslationEvent::message| property
+ will be returned by |CMessageSource::translateMessage|.
+    [event] (CMissingTranslationEvent) the event parameter
+
+
+*CMessageSource::setLanguage*					 public
+>
+ setLanguage($language)
+<
+(void)
+
+    [language] (string) the language that the source messages are written in.
+
+
+*CMessageSource::translate*					 public
+>
+ translate($category, $message, $language='')
+<
+(string) the translated message (or the original message if translation is not
+needed)
+
+ Translates a message to the specified language.
+
+ Note, if the specified language is the same as the
+ |CMessageSource::getLanguage|, messages will NOT be translated.
+
+ If the message is not found in the translations, an
+ |CMessageSource::onMissingTranslation| event will be raised. Handlers can
+ mark this message or do some default handling. The
+ |CMissingTranslationEvent::message| property of the event parameter will be
+ returned.
+    [category] (string) the message category
+    [message] (string) the message to be translated
+    [language] (string) the target language. If null (default), the
+    |CApplication::getLanguage| will be used. This parameter has been
+    available since version 1.0.3.
+
+
+*CMessageSource::translateMessage*				 protected
+>
+ translateMessage($category, $message, $language)
+<
+(string) the translated message
+
+ Translates the specified message. If the message is not found, an
+ |CMessageSource::onMissingTranslation| event will be raised.
+    [category] (string) the category that the message belongs to
+    [message] (string) the message to be translated
+    [language] (string) the target language
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

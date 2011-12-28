@@ -1,0 +1,310 @@
+
+*CPhpAuthManager*   >> |CAuthManager| >> |CApplicationComponent| >> |CComponent|
+=================
+
+ CPhpAuthManager represents an authorization manager that stores authorization
+ information in terms of a PHP script file.
+
+ The authorization data will be saved to and loaded from a file specified by
+ |CPhpAuthManager::authFile|, which defaults to 'protected/data/auth.php'.
+
+ CPhpAuthManager is mainly suitable for authorization data that is not too big
+ (for example, the authorization data for a personal blog system). Use
+ |CDbAuthManager| for more complex authorization data.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<authFile>				*CPhpAuthManager::authFile*
+ (string) the path of the PHP script that contains the authorization data. If
+ not set, it will be using 'protected/data/auth.php' as the data file. Make
+ sure this file is writable by the Web server process if the authorization
+ needs to be changed.
+
+<authItems>				*CPhpAuthManager::authItems*
+ (array) Returns the authorization items of the specific type and user.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CPhpAuthManager::addItemChild* 				 public
+>
+ addItemChild($itemName, $childName)
+<
+(void)
+
+ Adds an item as a child of another item.
+    [itemName] (string) the parent item name
+    [childName] (string) the child item name
+
+
+*CPhpAuthManager::assign*					 public
+>
+ assign($itemName, $userId, $bizRule='', $data=NULL)
+<
+(CAuthAssignment) the authorization assignment information.
+
+ Assigns an authorization item to a user.
+    [itemName] (string) the item name
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+    [bizRule] (string) the business rule to be executed when
+    |CPhpAuthManager::checkAccess| is called for this particular authorization
+    item.
+    [data] (mixed) additional data associated with this assignment
+
+
+*CPhpAuthManager::checkAccess*					 public
+>
+ checkAccess($itemName, $userId, $params=array())
+<
+(boolean) whether the operations can be performed by the user.
+
+ Performs access check for the specified user.
+    [itemName] (string) the name of the operation that need access check
+    [userId] (mixed) the user ID. This should can be either an integer and a
+    string representing the unique identifier of a user. See
+    |IWebUser::getId|.
+    [params] (array) name-value pairs that would be passed to biz rules
+    associated with the tasks and roles assigned to the user.
+
+
+*CPhpAuthManager::clearAll*					 public
+>
+ clearAll()
+<
+(void)
+
+ Removes all authorization data.
+
+
+*CPhpAuthManager::clearAuthAssignments* 			 public
+>
+ clearAuthAssignments()
+<
+(void)
+
+ Removes all authorization assignments.
+
+
+*CPhpAuthManager::createAuthItem*				 public
+>
+ createAuthItem($name, $type, $description='', $bizRule='', $data=NULL)
+<
+(CAuthItem) the authorization item
+
+ Creates an authorization item. An authorization item represents an action
+ permission (e.g. creating a post). It has three types: operation, task and
+ role. Authorization items form a hierarchy. Higher level items inheirt
+ permissions representing by lower level items.
+    [name] (string) the item name. This must be a unique identifier.
+    [type] (integer) the item type (0: operation, 1: task, 2: role).
+    [description] (string) description of the item
+    [bizRule] (string) business rule associated with the item. This is a piece
+    of PHP code that will be executed when |CPhpAuthManager::checkAccess| is
+    called for the item.
+    [data] (mixed) additional data associated with the item.
+
+
+*CPhpAuthManager::detectLoop*					 protected
+>
+ detectLoop($itemName, $childName)
+<
+(boolean) whether a loop exists
+
+ Checks whether there is a loop in the authorization item hierarchy.
+    [itemName] (string) parent item name
+    [childName] (string) the name of the child item that is to be added to the
+    hierarchy
+
+
+*CPhpAuthManager::getAuthAssignment*				 public
+>
+ getAuthAssignment($itemName, $userId)
+<
+(CAuthAssignment) the item assignment information. Null is returned if the
+item is not assigned to the user.
+
+ Returns the item assignment information.
+    [itemName] (string) the item name
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CPhpAuthManager::getAuthAssignments*				 public
+>
+ getAuthAssignments($userId)
+<
+(array) the item assignment information for the user. An empty array will be
+returned if there is no item assigned to the user.
+
+ Returns the item assignments for the specified user.
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CPhpAuthManager::getAuthItem*					 public
+>
+ getAuthItem($name)
+<
+(CAuthItem) the authorization item. Null if the item cannot be found.
+
+ Returns the authorization item with the specified name.
+    [name] (string) the name of the item
+
+
+*CPhpAuthManager::getAuthItems* 				 public
+>
+ getAuthItems($type=, $userId=NULL)
+<
+(array) the authorization items of the specific type.
+
+ Returns the authorization items of the specific type and user.
+    [type] (integer) the item type (0: operation, 1: task, 2: role). Defaults
+    to null, meaning returning all items regardless of their type.
+    [userId] (mixed) the user ID. Defaults to null, meaning returning all
+    items even if they are not assigned to a user.
+
+
+*CPhpAuthManager::getItemChildren*				 public
+>
+ getItemChildren($names)
+<
+(array) all child items of the parent
+
+ Returns the children of the specified item.
+    [names] (mixed) the parent item name. This can be either a string or an
+    array. The latter represents a list of item names (available since version
+    1.0.5).
+
+
+*CPhpAuthManager::hasItemChild* 				 public
+>
+ hasItemChild($itemName, $childName)
+<
+(boolean) whether the child exists
+
+ Returns a value indicating whether a child exists within a parent.
+    [itemName] (string) the parent item name
+    [childName] (string) the child item name
+
+
+*CPhpAuthManager::init* 					 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component. This method overrides parent
+ implementation by loading the authorization data from PHP script.
+
+
+*CPhpAuthManager::isAssigned*					 public
+>
+ isAssigned($itemName, $userId)
+<
+(boolean) whether the item has been assigned to the user.
+
+ Returns a value indicating whether the item has been assigned to the user.
+    [itemName] (string) the item name
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CPhpAuthManager::load* 					 public
+>
+ load()
+<
+(void)
+
+ Loads authorization data.
+
+
+*CPhpAuthManager::loadFromFile* 				 protected
+>
+ loadFromFile($file)
+<
+(array) the authorization data
+
+ Loads the authorization data from a PHP script file.
+    [file] (string) the file path.
+
+
+*CPhpAuthManager::removeAuthItem*				 public
+>
+ removeAuthItem($name)
+<
+(boolean) whether the item exists in the storage and has been removed
+
+ Removes the specified authorization item.
+    [name] (string) the name of the item to be removed
+
+
+*CPhpAuthManager::removeItemChild*				 public
+>
+ removeItemChild($itemName, $childName)
+<
+(boolean) whether the removal is successful
+
+ Removes a child from its parent. Note, the child item is not deleted. Only
+ the parent-child relationship is removed.
+    [itemName] (string) the parent item name
+    [childName] (string) the child item name
+
+
+*CPhpAuthManager::revoke*					 public
+>
+ revoke($itemName, $userId)
+<
+(boolean) whether removal is successful
+
+ Revokes an authorization assignment from a user.
+    [itemName] (string) the item name
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CPhpAuthManager::save* 					 public
+>
+ save()
+<
+(void)
+
+ Saves authorization data into persistent storage. If any change is made to
+ the authorization data, please make sure you call this method to save the
+ changed data into persistent storage.
+
+
+*CPhpAuthManager::saveAuthAssignment*				 public
+>
+ saveAuthAssignment($assignment)
+<
+(void)
+
+ Saves the changes to an authorization assignment.
+    [assignment] (CAuthAssignment) the assignment that has been changed.
+
+
+*CPhpAuthManager::saveAuthItem* 				 public
+>
+ saveAuthItem($item, $oldName='')
+<
+(void)
+
+ Saves an authorization item to persistent storage.
+    [item] (CAuthItem) the item to be saved.
+    [oldName] (string) the old item name. If null, it means the item name is
+    not changed.
+
+
+*CPhpAuthManager::saveToFile*					 protected
+>
+ saveToFile($data, $file)
+<
+(void)
+
+ Saves the authorization data to a PHP script file.
+    [data] (array) the authorization data
+    [file] (string) the file path.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

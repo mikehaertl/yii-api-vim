@@ -1,0 +1,99 @@
+
+*CDbMessageSource*   >> |CMessageSource| >> |CApplicationComponent| >> |CComponent|
+==================
+
+ CDbMessageSource represents a message source that stores translated messages
+ in database.
+
+ The database must contain the following two tables:
+>
+ CREATE TABLE SourceMessage
+ (
+     id INTEGER PRIMARY KEY,
+     category VARCHAR(32),
+     message TEXT
+ );
+ CREATE TABLE Message
+ (
+     id INTEGER,
+     language VARCHAR(16),
+     translation TEXT,
+     PRIMARY KEY (id, language),
+     CONSTRAINT FK_Message_SourceMessage FOREIGN KEY (id)
+          REFERENCES SourceMessage (id) ON DELETE CASCADE ON UPDATE RESTRICT
+ );
+<
+ The 'SourceMessage' table stores the messages to be translated, and the
+ 'Message' table stores the translated messages. The name of these two tables
+ can be customized by setting |CDbMessageSource::sourceMessageTable| and
+ |CDbMessageSource::translatedMessageTable|, respectively.
+
+ When |CDbMessageSource::cachingDuration| is set as a positive number, message
+ translations will be cached.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<cacheID>				*CDbMessageSource::cacheID*
+ (string) the ID of the cache application component that is used to cache the
+ messages. Defaults to 'cache' which refers to the primary cache application
+ component. Set this property to false if you want to disable caching the
+ messages.
+
+<cachingDuration>			*CDbMessageSource::cachingDuration*
+ (integer) the time in seconds that the messages can remain valid in cache.
+ Defaults to 0, meaning the caching is disabled.
+
+<connectionID>				*CDbMessageSource::connectionID*
+ (string) the ID of the database connection application component. Defaults to
+ 'db'.
+
+<dbConnection>				*CDbMessageSource::dbConnection*
+ (CDbConnection) Returns the DB connection used for the message source.
+
+<sourceMessageTable>			*CDbMessageSource::sourceMessageTable*
+ (string) the name of the source message table. Defaults to 'SourceMessage'.
+
+<translatedMessageTable>		*CDbMessageSource::translatedMessageTable*
+ (string) the name of the translated message table. Defaults to 'Message'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbMessageSource::getDbConnection*				 public
+>
+ getDbConnection()
+<
+(CDbConnection) the DB connection used for the message source.
+
+ Returns the DB connection used for the message source.
+
+
+*CDbMessageSource::loadMessages*				 protected
+>
+ loadMessages($category, $language)
+<
+(array) the loaded messages
+
+ Loads the message translation for the specified language and category.
+    [category] (string) the message category
+    [language] (string) the target language
+
+
+*CDbMessageSource::loadMessagesFromDb*				 protected
+>
+ loadMessagesFromDb($category, $language)
+<
+(array) the messages loaded from database
+
+ Loads the messages from database. You may override this method to customize
+ the message storage in the database.
+    [category] (string) the message category
+    [language] (string) the target language
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

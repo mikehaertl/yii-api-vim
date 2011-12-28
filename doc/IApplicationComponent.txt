@@ -1,0 +1,35 @@
+
+*IApplicationComponent*  
+=======================
+
+ IApplicationComponent is the interface that all application components must
+ implement.
+
+ After the application completes configuration, it will invoke the
+ |IApplicationComponent::init| method of every loaded application component.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*IApplicationComponent::getIsInitialized*			 public
+>
+ getIsInitialized()
+<
+(boolean) whether the |IApplicationComponent::init| method has been invoked.
+
+
+
+*IApplicationComponent::init*					 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component. This method is invoked after the
+ application completes configuration.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,63 @@
+
+*CJuiSortable*   >> |CJuiWidget| >> |CWidget| >> |CBaseController| >> |CComponent|
+==============
+
+ CJuiSortable displays an accordion widget.
+
+ CJuiSortable encapsulates the 'JUI Sortable' plugin.
+
+ To use this widget, you may insert the following code in a view:
+>
+ $this->widget('zii.widgets.jui.CJuiSortable', array(
+     'items'=>array(
+         'id1'=>'Item 1',
+         'id2'=>'Item 2',
+         'id3'=>'Item 3',
+     ),
+     // additional javascript options for the accordion plugin
+     'options'=>array(
+         'delay'=>'300',
+     ),
+ ));
+<
+ By configuring the |CJuiSortable::options| property, you may specify the
+ options that need to be passed to the JUI Sortable plugin. Please refer to
+ the 'JUI Sortable' documentation for possible options (name-value pairs).
+
+ If you are using javascript code anywhere in the code, please add "js:" at
+ the start of the js code definition and Yii will use this string as js code.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<itemTemplate>				*CJuiSortable::itemTemplate*
+ (string) the template that is used to generated every sortable item. The
+ token "{content}" in the template will be replaced with the item content,
+ while "{id}" be replaced with the item ID.
+
+<items> 				*CJuiSortable::items*
+ (array) list of sortable items (id=>item content). Note that the item
+ contents will not be HTML-encoded.
+
+<tagName>				*CJuiSortable::tagName*
+ (string) the name of the container element that contains all items. Defaults
+ to 'ul'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CJuiSortable::run*						 public
+>
+ run()
+<
+(void)
+
+ Run this widget. This method registers necessary javascript and renders the
+ needed HTML code.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

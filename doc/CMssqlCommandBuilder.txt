@@ -1,0 +1,183 @@
+
+*CMssqlCommandBuilder*   >> |CDbCommandBuilder| >> |CComponent|
+======================
+
+ CMssqlCommandBuilder provides basic methods to create query commands for
+ tables for Mssql Servers.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CMssqlCommandBuilder::applyLimit*				 public
+>
+ applyLimit($sql, $limit, $offset)
+<
+(string) SQL with limit and offset.
+
+ This is a port from Prado Framework.
+
+ Overrides parent implementation. Alters the sql to apply $limit and $offset.
+ The idea for limit with offset is done by modifying the sql on the fly with
+ numerous assumptions on the structure of the sql string. The modification is
+ done with reference to the notes from
+ http://troels.arvin.dk/db/rdbms/#select-limit-offset
+
+ ' SELECT * FROM (  SELECT TOP n * FROM (    SELECT TOP z columns      --
+ (z=n+skip)    FROM tablename    ORDER BY key ASC  ) AS FOO ORDER BY key DESC
+ -- ('FOO' may be anything) ) AS BAR ORDER BY key ASC    -- ('BAR' may be
+ anything) '
+
+ <b>Regular expressions are used to alter the SQL query. The resulting SQL
+ query may be malformed for complex queries.</b> The following restrictions
+ apply
+
+ <ul>   <li> In particular, <b>commas</b> should <b>NOT</b> be used as part of
+ the ordering expression or identifier. Commas must only be used for
+ separating the ordering clauses.  </li>  <li> In the ORDER BY clause, the
+ column name should NOT be be qualified with a table name or view name. Alias
+ the column names or use column index. </li> <li> No clauses should follow the
+ ORDER BY clause, e.g. no COMPUTE or FOR clauses. </li>
+    [sql] (string) SQL query string.
+    [limit] (integer) maximum number of rows, -1 to ignore limit.
+    [offset] (integer) row offset, -1 to ignore offset.
+
+
+*CMssqlCommandBuilder::checkCriteria*				 protected
+>
+ checkCriteria($table, $criteria)
+<
+(CDbCrireria) the modified criteria
+
+ Checks if the criteria has an order by clause when using offset/limit.
+ Override parent implementation to check if an orderby clause if specified
+ when querying with an offset If not, order it by pk.
+    [table] (CMssqlTableSchema) table schema
+    [criteria] (CDbCriteria) criteria
+
+
+*CMssqlCommandBuilder::createCompositeInCondition*		 protected
+>
+ createCompositeInCondition($table, $values, $prefix)
+<
+(string) the expression for selection
+
+ Generates the expression for selecting rows with specified composite key
+ values.
+    [table] (CDbTableSchema) the table schema
+    [values] (array) list of primary key values to be selected within
+    [prefix] (string) column prefix (ended with dot)
+
+
+*CMssqlCommandBuilder::createCountCommand*			 public
+>
+ createCountCommand($table, $criteria, $alias='t')
+<
+(CDbCommand) query command.
+
+ Creates a COUNT(*) command for a single table. Override parent implementation
+ to remove the order clause of criteria if it exists
+    [table] (CDbTableSchema) the table metadata
+    [criteria] (CDbCriteria) the query criteria
+    [alias] (string) the alias name of the primary table. Defaults to 't'.
+
+
+*CMssqlCommandBuilder::createDeleteCommand*			 public
+>
+ createDeleteCommand($table, $criteria)
+<
+(CDbCommand) delete command.
+
+ Creates a DELETE command. Override parent implementation to check if an
+ orderby clause if specified when querying with an offset
+    [table] (CDbTableSchema) the table metadata
+    [criteria] (CDbCriteria) the query criteria
+
+
+*CMssqlCommandBuilder::createFindCommand*			 public
+>
+ createFindCommand($table, $criteria, $alias='t')
+<
+(CDbCommand) query command.
+
+ Creates a SELECT command for a single table. Override parent implementation
+ to check if an orderby clause if specified when querying with an offset
+    [table] (CDbTableSchema) the table metadata
+    [criteria] (CDbCriteria) the query criteria
+    [alias] (string) the alias name of the primary table. Defaults to 't'.
+
+
+*CMssqlCommandBuilder::createUpdateCommand*			 public
+>
+ createUpdateCommand($table, $data, $criteria)
+<
+(CDbCommand) update command.
+
+ Creates an UPDATE command. Override parent implementation because mssql don't
+ want to update an identity column
+    [table] (CDbTableSchema) the table metadata
+    [data] (array) list of columns to be updated (name=>value)
+    [criteria] (CDbCriteria) the query criteria
+
+
+*CMssqlCommandBuilder::createUpdateCounterCommand*		 public
+>
+ createUpdateCounterCommand($table, $counters, $criteria)
+<
+(CDbCommand) the created command
+
+ Creates an UPDATE command that increments/decrements certain columns.
+ Override parent implementation to check if an orderby clause if specified
+ when querying with an offset
+    [table] (CDbTableSchema) the table metadata
+    [counters] (CDbCriteria) the query criteria
+    [criteria] (array) counters to be updated (counter increments/decrements
+    indexed by column names.)
+
+
+*CMssqlCommandBuilder::findOrdering*				 protected
+>
+ findOrdering($sql)
+<
+(array) ordering expression as key and ordering direction as value
+
+ Base on simplified syntax
+ http://msdn2.microsoft.com/en-us/library/aa259187(SQL.80).aspx
+    [sql] (string) $sql
+
+
+*CMssqlCommandBuilder::joinOrdering*				 protected
+>
+ joinOrdering($orders, $newPrefix)
+<
+(string) concat the orderings
+
+    [orders] (array) ordering obtained from findOrdering()
+    [newPrefix] (string) new table prefix to the ordering columns
+
+
+*CMssqlCommandBuilder::reverseDirection*			 protected
+>
+ reverseDirection($orders)
+<
+(array) ordering with reversed direction.
+
+    [orders] (array) original ordering
+
+
+*CMssqlCommandBuilder::rewriteLimitOffsetSql*			 protected
+>
+ rewriteLimitOffsetSql($sql, $limit, $offset)
+<
+(sql) modified sql query applied with limit and offset.
+
+ Rewrite sql to apply $limit > and $offset > 0 for MSSQL database. See
+ http://troels.arvin.dk/db/rdbms/#select-limit-offset
+    [sql] (string) sql query
+    [limit] (integer) $limit > 0
+    [offset] (integer) $offset > 0
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

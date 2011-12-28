@@ -1,0 +1,103 @@
+
+*CLogRoute*   >> |CComponent|
+===========
+
+ CLogRoute is the base class for all log route classes.
+
+ A log route object retrieves log messages from a logger and sends it
+ somewhere, such as files, emails. The messages being retrieved may be
+ filtered first before being sent to the destination. The filters include log
+ level filter and log category filter.
+
+ To specify level filter, set |CLogRoute::levels| property, which takes a
+ string of comma-separated desired level names (e.g. 'Error, Debug'). To
+ specify category filter, set |CLogRoute::categories| property, which takes a
+ string of comma-separated desired category names (e.g. 'System.Web,
+ System.IO').
+
+ Level filter and category filter are combinational, i.e., only messages
+ satisfying both filter conditions will they be returned.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<categories>				*CLogRoute::categories*
+ (string) list of categories separated by comma or space. Defaults to empty,
+ meaning all categories.
+
+<enabled>				*CLogRoute::enabled*
+ (boolean) whether to enable this log route. Defaults to true.
+
+<filter>				*CLogRoute::filter*
+ (mixed) the additional filter (eg |CLogFilter|) that can be applied to the
+ log messages. The value of this property will be passed to
+ |Yii::createComponent| to create a log filter object. As a result, this can
+ be either a string representing the filter class name or an array
+ representing the filter configuration. In general, the log filter class
+ should be |CLogFilter| or a child class of it. Defaults to null, meaning no
+ filter will be used.
+
+<levels>				*CLogRoute::levels*
+ (string) list of levels separated by comma or space. Defaults to empty,
+ meaning all levels.
+
+<logs>					*CLogRoute::logs*
+ (array) the logs that are collected so far by this log route.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CLogRoute::collectLogs*					 public
+>
+ collectLogs($logger, $processLogs=false)
+<
+(void)
+
+ Retrieves filtered log messages from logger for further processing.
+    [logger] (CLogger) logger instance
+    [processLogs] (boolean) whether to process the logs after they are
+    collected from the logger
+
+
+*CLogRoute::formatLogMessage*					 protected
+>
+ formatLogMessage($message, $level, $category, $time)
+<
+(string) formatted message
+
+ Formats a log message given different fields.
+    [message] (string) message content
+    [level] (integer) message level
+    [category] (string) message category
+    [time] (integer) timestamp
+
+
+*CLogRoute::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the route. This method is invoked after the route is created by
+ the route manager.
+
+
+*CLogRoute::processLogs*					 protected
+>
+ processLogs($logs)
+<
+(void)
+
+ Processes log messages and sends them to specific destination. Derived child
+ classes must implement this method.
+    [logs] (array) list of messages.  Each array elements represents one
+    message with the following structure: array(   [0] => message (string)  
+    [1] => level (string)   [2] => category (string)   [3] => timestamp
+    (float, obtained by microtime(true));
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

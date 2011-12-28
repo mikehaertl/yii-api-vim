@@ -1,0 +1,1338 @@
+
+*CActiveRecord*   >> |CModel| >> |CComponent|
+===============
+
+ CActiveRecord is the base class for classes representing relational data.
+
+ It implements the active record design pattern, a popular Object-Relational
+ Mapping (ORM) technique. Please check 'the Guide' for more details about this
+ class.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<attributes>				*CActiveRecord::attributes*
+ (array) Returns all column attribute values. Note, related objects are not
+ returned.
+
+<commandBuilder>			*CActiveRecord::commandBuilder*
+ (CDbCommandBuilder) Returns the command builder used by this AR.
+
+<db>					*CActiveRecord::db*
+ (CDbConnection) the default database connection for all active record
+ classes. By default, this is the 'db' application component.
+
+<dbConnection>				*CActiveRecord::dbConnection*
+ (CDbConnection) Returns the database connection used by active record. By
+ default, the "db" application component is used as the database connection.
+ You may override this method if you want to use a different database
+ connection.
+
+<dbCriteria>				*CActiveRecord::dbCriteria*
+ (CDbCriteria) Returns the query criteria associated with this model.
+
+<isNewRecord>				*CActiveRecord::isNewRecord*
+ (boolean) Returns if the current record is new.
+
+<metaData>				*CActiveRecord::metaData*
+ (CActiveRecordMetaData) Returns the meta-data for this AR
+
+<oldPrimaryKey> 			*CActiveRecord::oldPrimaryKey*
+ (mixed) Returns the old primary key value. This refers to the primary key
+ value that is populated into the record after executing a find method (e.g.
+ find(), findAll()). The value remains unchanged even if the primary key
+ attribute is manually assigned with a different value.
+
+<primaryKey>				*CActiveRecord::primaryKey*
+ (mixed) Returns the primary key value.
+
+<tableAlias>				*CActiveRecord::tableAlias*
+ (string) Returns the table alias to be used by the find methods. In
+ relational queries, the returned table alias may vary according to the
+ corresponding relation declaration. Also, the default table alias set by
+ |CActiveRecord::setTableAlias| may be overridden by the applied scopes.
+
+<tableSchema>				*CActiveRecord::tableSchema*
+ (CDbTableSchema) Returns the metadata of the table that this AR belongs to
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CActiveRecord::__call* 					 public
+>
+ __call($name, $parameters)
+<
+(mixed) the method return value
+
+ Calls the named method which is not a class method. Do not call this method.
+ This is a PHP magic method that we override to implement the named scope
+ feature.
+    [name] (string) the method name
+    [parameters] (array) method parameters
+
+
+*CActiveRecord::__construct*					 public
+>
+ __construct($scenario='insert')
+<
+(void)
+
+ Constructor.
+    [scenario] (string) scenario name. See |CModel::scenario| for more details
+    about this parameter.
+
+
+*CActiveRecord::__get*						 public
+>
+ __get($name)
+<
+(mixed) property value
+
+ PHP getter magic method. This method is overridden so that AR attributes can
+ be accessed like properties.
+    [name] (string) property name
+
+
+*CActiveRecord::__isset*					 public
+>
+ __isset($name)
+<
+(boolean) whether the property value is null
+
+ Checks if a property value is null. This method overrides the parent
+ implementation by checking if the named attribute is null or not.
+    [name] (string) the property name or the event name
+
+
+*CActiveRecord::__set*						 public
+>
+ __set($name, $value)
+<
+(void)
+
+ PHP setter magic method. This method is overridden so that AR attributes can
+ be accessed like properties.
+    [name] (string) property name
+    [value] (mixed) property value
+
+
+*CActiveRecord::__sleep*					 public
+>
+ __sleep()
+<
+(void)
+
+ PHP sleep magic method. This method ensures that the model meta data
+ reference is set to null.
+
+
+*CActiveRecord::__unset*					 public
+>
+ __unset($name)
+<
+(void)
+
+ Sets a component property to be null. This method overrides the parent
+ implementation by clearing the specified attribute value.
+    [name] (string) the property name or the event name
+
+
+*CActiveRecord::addRelatedRecord*				 public
+>
+ addRelatedRecord($name, $record, $index)
+<
+(void)
+
+ Adds a related object to this record. This method is used internally by
+ |CActiveFinder| to populate related objects.
+    [name] (string) attribute name
+    [record] (mixed) the related record
+    [index] (mixed) the index value in the related object collection. If true,
+    it means using zero-based integer index. If false, it means a HAS_ONE or
+    BELONGS_TO object and no index is needed.
+
+
+*CActiveRecord::afterDelete*					 protected
+>
+ afterDelete()
+<
+(void)
+
+ This method is invoked after deleting a record. The default implementation
+ raises the |CActiveRecord::onAfterDelete| event. You may override this method
+ to do postprocessing after the record is deleted. Make sure you call the
+ parent implementation so that the event is raised properly.
+
+
+*CActiveRecord::afterFind*					 protected
+>
+ afterFind()
+<
+(void)
+
+ This method is invoked after each record is instantiated by a find method.
+ The default implementation raises the |CActiveRecord::onAfterFind| event. You
+ may override this method to do postprocessing after each newly found record
+ is instantiated. Make sure you call the parent implementation so that the
+ event is raised properly.
+
+
+*CActiveRecord::afterFindInternal*				 public
+>
+ afterFindInternal()
+<
+(void)
+
+ Calls |CActiveRecord::afterFind|. This method is internally used.
+
+
+*CActiveRecord::afterSave*					 protected
+>
+ afterSave()
+<
+(void)
+
+ This method is invoked after saving a record successfully. The default
+ implementation raises the |CActiveRecord::onAfterSave| event. You may
+ override this method to do postprocessing after record saving. Make sure you
+ call the parent implementation so that the event is raised properly.
+
+
+*CActiveRecord::applyScopes*					 public
+>
+ applyScopes($criteria)
+<
+(void)
+
+ Applies the query scopes to the given criteria. This method merges
+ |CActiveRecord::dbCriteria| with the given criteria parameter. It then resets
+ |CActiveRecord::dbCriteria| to be null.
+    [criteria] (CDbCriteria) the query criteria. This parameter may be
+    modified by merging |CActiveRecord::dbCriteria|.
+
+
+*CActiveRecord::attributeNames* 				 public
+>
+ attributeNames()
+<
+(array) list of attribute names.
+
+ Returns the list of all attribute names of the model. This would return all
+ column names of the table associated with this AR class.
+
+
+*CActiveRecord::beforeDelete*					 protected
+>
+ beforeDelete()
+<
+(boolean) whether the record should be deleted. Defaults to true.
+
+ This method is invoked before deleting a record. The default implementation
+ raises the |CActiveRecord::onBeforeDelete| event. You may override this
+ method to do any preparation work for record deletion. Make sure you call the
+ parent implementation so that the event is raised properly.
+
+
+*CActiveRecord::beforeFind*					 protected
+>
+ beforeFind()
+<
+(void)
+
+ This method is invoked before an AR finder executes a find call. The find
+ calls include |CActiveRecord::find|, |CActiveRecord::findAll|,
+ |CActiveRecord::findByPk|, |CActiveRecord::findAllByPk|,
+ |CActiveRecord::findByAttributes| and |CActiveRecord::findAllByAttributes|.
+ The default implementation raises the |CActiveRecord::onBeforeFind| event. If
+ you override this method, make sure you call the parent implementation so
+ that the event is raised properly.
+
+ Starting from version 1.1.5, this method may be called with a hidden
+ |CDbCriteria| parameter which represents the current query criteria as passed
+ to a find method of AR.
+
+
+*CActiveRecord::beforeFindInternal*				 public
+>
+ beforeFindInternal()
+<
+(void)
+
+ Calls |CActiveRecord::beforeFind|. This method is internally used.
+
+
+*CActiveRecord::beforeSave*					 protected
+>
+ beforeSave()
+<
+(boolean) whether the saving should be executed. Defaults to true.
+
+ This method is invoked before saving a record (after validation, if any). The
+ default implementation raises the |CActiveRecord::onBeforeSave| event. You
+ may override this method to do any preparation work for record saving. Use
+ |CActiveRecord::isNewRecord| to determine whether the saving is for inserting
+ or updating record. Make sure you call the parent implementation so that the
+ event is raised properly.
+
+
+*CActiveRecord::cache*						 public
+>
+ cache($duration, $dependency=NULL, $queryCount=1)
+<
+(CActiveRecord) the active record instance itself.
+
+ Sets the parameters about query caching. This is a shortcut method to
+ |CDbConnection::cache|. It changes the query caching parameter of the
+ |CActiveRecord::dbConnection| instance.
+    [duration] (integer) the number of seconds that query results may remain
+    valid in cache. If this is 0, the caching will be disabled.
+    [dependency] (CCacheDependency) the dependency that will be used when
+    saving the query results into cache.
+    [queryCount] (integer) number of SQL queries that need to be cached after
+    calling this method. Defaults to 1, meaning that the next SQL query will
+    be cached.
+
+
+*CActiveRecord::count*						 public
+>
+ count($condition='', $params=array())
+<
+(string) the number of rows satisfying the specified query condition. Note:
+type is string to keep max. precision.
+
+ Finds the number of rows satisfying the specified query condition. See
+ |CActiveRecord::find| for detailed explanation about $condition and $params.
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::countByAttributes*				 public
+>
+ countByAttributes($attributes, $condition='', $params=array())
+<
+(string) the number of rows satisfying the specified query condition. Note:
+type is string to keep max. precision.
+
+ Finds the number of rows that have the specified attribute values. See
+ |CActiveRecord::find| for detailed explanation about $condition and $params.
+    [attributes] (array) list of attribute values (indexed by attribute names)
+    that the active records should match. An attribute value can be an array
+    which will be used to generate an IN condition.
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::countBySql*					 public
+>
+ countBySql($sql, $params=array())
+<
+(string) the number of rows using the given SQL statement. Note: type is
+string to keep max. precision.
+
+ Finds the number of rows using the given SQL statement. This is equivalent to
+ calling |CDbCommand::queryScalar| with the specified SQL statement and the
+ parameters.
+    [sql] (string) the SQL statement
+    [params] (array) parameters to be bound to the SQL statement
+
+
+*CActiveRecord::defaultScope*					 public
+>
+ defaultScope()
+<
+(array) the query criteria. This will be used as the parameter to the
+constructor of |CDbCriteria|.
+
+ Returns the default named scope that should be implicitly applied to all
+ queries for this model. Note, default scope only applies to SELECT queries.
+ It is ignored for INSERT, UPDATE and DELETE queries. The default
+ implementation simply returns an empty array. You may override this method if
+ the model needs to be queried with some default criteria (e.g. only active
+ records should be returned).
+
+
+*CActiveRecord::delete* 					 public
+>
+ delete()
+<
+(boolean) whether the deletion is successful.
+
+ Deletes the row corresponding to this active record.
+
+
+*CActiveRecord::deleteAll*					 public
+>
+ deleteAll($condition='', $params=array())
+<
+(integer) the number of rows deleted
+
+ Deletes rows with the specified condition. See |CActiveRecord::find| for
+ detailed explanation about $condition and $params.
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::deleteAllByAttributes*				 public
+>
+ deleteAllByAttributes($attributes, $condition='', $params=array())
+<
+(integer) number of rows affected by the execution.
+
+ Deletes rows which match the specified attribute values. See
+ |CActiveRecord::find| for detailed explanation about $condition and $params.
+    [attributes] (array) list of attribute values (indexed by attribute names)
+    that the active records should match. Since version 1.0.8, an attribute
+    value can be an array which will be used to generate an IN condition.
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::deleteByPk*					 public
+>
+ deleteByPk($pk, $condition='', $params=array())
+<
+(integer) the number of rows deleted
+
+ Deletes rows with the specified primary key. See |CActiveRecord::find| for
+ detailed explanation about $condition and $params.
+    [pk] (mixed) primary key value(s). Use array for multiple primary keys.
+    For composite key, each key value must be an array (column name=>column
+    value).
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::equals* 					 public
+>
+ equals($record)
+<
+(boolean) whether the two active records refer to the same row in the database
+table.
+
+ Compares current active record with another one. The comparison is made by
+ comparing table name and the primary key values of the two active records.
+    [record] (CActiveRecord) record to compare to
+
+
+*CActiveRecord::exists* 					 public
+>
+ exists($condition='', $params=array())
+<
+(boolean) whether there is row satisfying the specified condition.
+
+ Checks whether there is row satisfying the specified condition. See
+ |CActiveRecord::find| for detailed explanation about $condition and $params.
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::find*						 public
+>
+ find($condition='', $params=array())
+<
+(CActiveRecord) the record found. Null if no record is found.
+
+ Finds a single active record with the specified condition.
+    [condition] (mixed) query condition or criteria. If a string, it is
+    treated as query condition (the WHERE clause); If an array, it is treated
+    as the initial values for constructing a |CDbCriteria| object; Otherwise,
+    it should be an instance of |CDbCriteria|.
+    [params] (array) parameters to be bound to an SQL statement. This is only
+    used when the first parameter is a string (query condition). In other
+    cases, please use |CDbCriteria::params| to set parameters.
+
+
+*CActiveRecord::findAll*					 public
+>
+ findAll($condition='', $params=array())
+<
+(array) list of active records satisfying the specified condition. An empty
+array is returned if none is found.
+
+ Finds all active records satisfying the specified condition. See
+ |CActiveRecord::find| for detailed explanation about $condition and $params.
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::findAllByAttributes*				 public
+>
+ findAllByAttributes($attributes, $condition='', $params=array())
+<
+(array) the records found. An empty array is returned if none is found.
+
+ Finds all active records that have the specified attribute values. See
+ |CActiveRecord::find| for detailed explanation about $condition and $params.
+    [attributes] (array) list of attribute values (indexed by attribute names)
+    that the active records should match. Since version 1.0.8, an attribute
+    value can be an array which will be used to generate an IN condition.
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::findAllByPk*					 public
+>
+ findAllByPk($pk, $condition='', $params=array())
+<
+(array) the records found. An empty array is returned if none is found.
+
+ Finds all active records with the specified primary keys. See
+ |CActiveRecord::find| for detailed explanation about $condition and $params.
+    [pk] (mixed) primary key value(s). Use array for multiple primary keys.
+    For composite key, each key value must be an array (column name=>column
+    value).
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::findAllBySql*					 public
+>
+ findAllBySql($sql, $params=array())
+<
+(array) the records found. An empty array is returned if none is found.
+
+ Finds all active records using the specified SQL statement.
+    [sql] (string) the SQL statement
+    [params] (array) parameters to be bound to the SQL statement
+
+
+*CActiveRecord::findByAttributes*				 public
+>
+ findByAttributes($attributes, $condition='', $params=array())
+<
+(CActiveRecord) the record found. Null if none is found.
+
+ Finds a single active record that has the specified attribute values. See
+ |CActiveRecord::find| for detailed explanation about $condition and $params.
+    [attributes] (array) list of attribute values (indexed by attribute names)
+    that the active records should match. Since version 1.0.8, an attribute
+    value can be an array which will be used to generate an IN condition.
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::findByPk*					 public
+>
+ findByPk($pk, $condition='', $params=array())
+<
+(CActiveRecord) the record found. Null if none is found.
+
+ Finds a single active record with the specified primary key. See
+ |CActiveRecord::find| for detailed explanation about $condition and $params.
+    [pk] (mixed) primary key value(s). Use array for multiple primary keys.
+    For composite key, each key value must be an array (column name=>column
+    value).
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::findBySql*					 public
+>
+ findBySql($sql, $params=array())
+<
+(CActiveRecord) the record found. Null if none is found.
+
+ Finds a single active record with the specified SQL statement.
+    [sql] (string) the SQL statement
+    [params] (array) parameters to be bound to the SQL statement
+
+
+*CActiveRecord::getActiveRelation*				 public
+>
+ getActiveRelation($name)
+<
+(CActiveRelation) the named relation declared for this AR class. Null if the
+relation does not exist.
+
+ Returns the named relation declared for this AR class.
+    [name] (string) the relation name
+
+
+*CActiveRecord::getAttribute*					 public
+>
+ getAttribute($name)
+<
+(mixed) the attribute value. Null if the attribute is not set or does not
+exist.
+
+ Returns the named attribute value. If this is a new record and the attribute
+ is not set before, the default column value will be returned. If this record
+ is the result of a query and the attribute is not loaded, null will be
+ returned. You may also use $this->AttributeName to obtain the attribute
+ value.
+    [name] (string) the attribute name
+
+
+*CActiveRecord::getAttributeLabel*				 public
+>
+ getAttributeLabel($attribute)
+<
+(string) the attribute label
+
+ Returns the text label for the specified attribute. This method overrides the
+ parent implementation by supporting returning the label defined in relational
+ object. In particular, if the attribute name is in the form of
+ "post.author.name", then this method will derive the label from the "author"
+ relation's "name" attribute.
+    [attribute] (string) the attribute name
+
+
+*CActiveRecord::getAttributes*					 public
+>
+ getAttributes($names=true)
+<
+(array) attribute values indexed by attribute names.
+
+ Returns all column attribute values. Note, related objects are not returned.
+    [names] (mixed) names of attributes whose value needs to be returned. If
+    this is true (default), then all attribute values will be returned,
+    including those that are not loaded from DB (null will be returned for
+    those attributes). If this is null, all attributes except those that are
+    not loaded from DB will be returned.
+
+
+*CActiveRecord::getCommandBuilder*				 public
+>
+ getCommandBuilder()
+<
+(CDbCommandBuilder) the command builder used by this AR
+
+ Returns the command builder used by this AR.
+
+
+*CActiveRecord::getDbConnection*				 public
+>
+ getDbConnection()
+<
+(CDbConnection) the database connection used by active record.
+
+ Returns the database connection used by active record. By default, the "db"
+ application component is used as the database connection. You may override
+ this method if you want to use a different database connection.
+
+
+*CActiveRecord::getDbCriteria*					 public
+>
+ getDbCriteria($createIfNull=true)
+<
+(CDbCriteria) the query criteria that is associated with this model. This
+criteria is mainly used by |CActiveRecord::scopes| feature to accumulate
+different criteria specifications.
+
+ Returns the query criteria associated with this model.
+    [createIfNull] (boolean) whether to create a criteria instance if it does
+    not exist. Defaults to true.
+
+
+*CActiveRecord::getIsNewRecord* 				 public
+>
+ getIsNewRecord()
+<
+(boolean) whether the record is new and should be inserted when calling
+|CActiveRecord::save|. This property is automatically set in constructor and
+|CActiveRecord::populateRecord|. Defaults to false, but it will be set to true
+if the instance is created using the new operator.
+
+ Returns if the current record is new.
+
+
+*CActiveRecord::getMetaData*					 public
+>
+ getMetaData()
+<
+(CActiveRecordMetaData) the meta for this AR class.
+
+ Returns the meta-data for this AR
+
+
+*CActiveRecord::getOldPrimaryKey*				 public
+>
+ getOldPrimaryKey()
+<
+(mixed) the old primary key value. An array (column name=>column value) is
+returned if the primary key is composite. If primary key is not defined, null
+will be returned.
+
+ Returns the old primary key value. This refers to the primary key value that
+ is populated into the record after executing a find method (e.g. find(),
+ findAll()). The value remains unchanged even if the primary key attribute is
+ manually assigned with a different value.
+
+
+*CActiveRecord::getPrimaryKey*					 public
+>
+ getPrimaryKey()
+<
+(mixed) the primary key value. An array (column name=>column value) is
+returned if the primary key is composite. If primary key is not defined, null
+will be returned.
+
+ Returns the primary key value.
+
+
+*CActiveRecord::getRelated*					 public
+>
+ getRelated($name, $refresh=false, $params=array())
+<
+(mixed) the related object(s).
+
+ Returns the related record(s). This method will return the related record(s)
+ of the current record. If the relation is HAS_ONE or BELONGS_TO, it will
+ return a single object or null if the object does not exist. If the relation
+ is HAS_MANY or MANY_MANY, it will return an array of objects or an empty
+ array.
+    [name] (string) the relation name (see |CActiveRecord::relations|)
+    [refresh] (boolean) whether to reload the related objects from database.
+    Defaults to false.
+    [params] (array) additional parameters that customize the query conditions
+    as specified in the relation declaration. This parameter has been
+    available since version 1.0.5.
+
+
+*CActiveRecord::getTableAlias*					 public
+>
+ getTableAlias($quote=false, $checkScopes=true)
+<
+(string) the default table alias
+
+ Returns the table alias to be used by the find methods. In relational
+ queries, the returned table alias may vary according to the corresponding
+ relation declaration. Also, the default table alias set by
+ |CActiveRecord::setTableAlias| may be overridden by the applied scopes.
+    [quote] (boolean) whether to quote the alias name
+    [checkScopes] (boolean) whether to check if a table alias is defined in
+    the applied scopes so far. This parameter must be set false when calling
+    this method in |CActiveRecord::defaultScope|. An infinite loop would be
+    formed otherwise.
+
+
+*CActiveRecord::getTableSchema* 				 public
+>
+ getTableSchema()
+<
+(CDbTableSchema) the metadata of the table that this AR belongs to
+
+ Returns the metadata of the table that this AR belongs to
+
+
+*CActiveRecord::hasAttribute*					 public
+>
+ hasAttribute($name)
+<
+(boolean) whether this AR has the named attribute (table column).
+
+ Checks whether this AR has the named attribute
+    [name] (string) attribute name
+
+
+*CActiveRecord::hasRelated*					 public
+>
+ hasRelated($name)
+<
+(booolean) a value indicating whether the named related object(s) has been
+loaded.
+
+ Returns a value indicating whether the named related object(s) has been
+ loaded.
+    [name] (string) the relation name
+
+
+*CActiveRecord::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes this model. This method is invoked when an AR instance is newly
+ created and has its |CActiveRecord::scenario| set. You may override this
+ method to provide code that is needed to initialize the model (e.g. setting
+ initial property values.)
+
+
+*CActiveRecord::insert* 					 public
+>
+ insert($attributes=NULL)
+<
+(boolean) whether the attributes are valid and the record is inserted
+successfully.
+
+ Inserts a row into the table based on this active record attributes. If the
+ table's primary key is auto-incremental and is null before insertion, it will
+ be populated with the actual value after insertion. Note, validation is not
+ performed in this method. You may call |CActiveRecord::validate| to perform
+ the validation. After the record is inserted to DB successfully, its
+ |CActiveRecord::isNewRecord| property will be set false, and its
+ |CActiveRecord::scenario| property will be set to be 'update'.
+    [attributes] (array) list of attributes that need to be saved. Defaults to
+    null, meaning all attributes that are loaded from DB will be saved.
+
+
+*CActiveRecord::instantiate*					 protected
+>
+ instantiate($attributes)
+<
+(CActiveRecord) the active record
+
+ Creates an active record instance. This method is called by
+ |CActiveRecord::populateRecord| and |CActiveRecord::populateRecords|. You may
+ override this method if the instance being created depends the attributes
+ that are to be populated to the record. For example, by creating a record
+ based on the value of a column, you may implement the so-called single-table
+ inheritance mapping.
+    [attributes] (array) list of attribute values for the active records.
+
+
+*CActiveRecord::model*						 public
+>
+ model($className='CActiveRecord')
+<
+(CActiveRecord) active record model instance.
+
+ Returns the static model of the specified AR class. The model returned is a
+ static instance of the AR class. It is provided for invoking class-level
+ methods (something similar to static class methods.)
+
+ EVERY derived AR class must override this method as follows,
+>
+ public static function model($className=__CLASS__)
+ {
+     return parent::model($className);
+ }
+<
+    [className] (string) active record class name.
+
+
+*CActiveRecord::offsetExists*					 public
+>
+ offsetExists($offset)
+<
+(boolean) 
+
+ Returns whether there is an element at the specified offset. This method is
+ required by the interface ArrayAccess.
+    [offset] (mixed) the offset to check on
+
+
+*CActiveRecord::onAfterDelete*					 public
+>
+ onAfterDelete($event)
+<
+(void)
+
+ This event is raised after the record is deleted.
+    [event] (CEvent) the event parameter
+
+
+*CActiveRecord::onAfterFind*					 public
+>
+ onAfterFind($event)
+<
+(void)
+
+ This event is raised after the record is instantiated by a find method.
+    [event] (CEvent) the event parameter
+
+
+*CActiveRecord::onAfterSave*					 public
+>
+ onAfterSave($event)
+<
+(void)
+
+ This event is raised after the record is saved.
+    [event] (CEvent) the event parameter
+
+
+*CActiveRecord::onBeforeDelete* 				 public
+>
+ onBeforeDelete($event)
+<
+(void)
+
+ This event is raised before the record is deleted. By setting
+ |CModelEvent::isValid| to be false, the normal |CActiveRecord::delete|
+ process will be stopped.
+    [event] (CModelEvent) the event parameter
+
+
+*CActiveRecord::onBeforeFind*					 public
+>
+ onBeforeFind($event)
+<
+(void)
+
+ This event is raised before an AR finder performs a find call. In this event,
+ the |CModelEvent::criteria| property contains the query criteria passed as
+ parameters to those find methods. If you want to access the query criteria
+ specified in scopes, please use |CActiveRecord::getDbCriteria|. You can
+ modify either criteria to customize them based on needs.
+    [event] (CModelEvent) the event parameter
+
+
+*CActiveRecord::onBeforeSave*					 public
+>
+ onBeforeSave($event)
+<
+(void)
+
+ This event is raised before the record is saved. By setting
+ |CModelEvent::isValid| to be false, the normal |CActiveRecord::save| process
+ will be stopped.
+    [event] (CModelEvent) the event parameter
+
+
+*CActiveRecord::populateRecord* 				 public
+>
+ populateRecord($attributes, $callAfterFind=true)
+<
+(CActiveRecord) the newly created active record. The class of the object is
+the same as the model class. Null is returned if the input data is false.
+
+ Creates an active record with the given attributes. This method is internally
+ used by the find methods.
+    [attributes] (array) attribute values (column name=>column value)
+    [callAfterFind] (boolean) whether to call |CActiveRecord::afterFind| after
+    the record is populated. This parameter is added in version 1.0.3.
+
+
+*CActiveRecord::populateRecords*				 public
+>
+ populateRecords($data, $callAfterFind=true, $index='')
+<
+(array) list of active records.
+
+ Creates a list of active records based on the input data. This method is
+ internally used by the find methods.
+    [data] (array) list of attribute values for the active records.
+    [callAfterFind] (boolean) whether to call |CActiveRecord::afterFind| after
+    each record is populated. This parameter is added in version 1.0.3.
+    [index] (string) the name of the attribute whose value will be used as
+    indexes of the query result array. If null, it means the array will be
+    indexed by zero-based integers.
+
+
+*CActiveRecord::primaryKey*					 public
+>
+ primaryKey()
+<
+(mixed) the primary key of the associated database table. If the key is a
+single column, it should return the column name; If the key is a composite one
+consisting of several columns, it should return the array of the key column
+names.
+
+ Returns the primary key of the associated database table. This method is
+ meant to be overridden in case when the table is not defined with a primary
+ key (for some legency database). If the table is already defined with a
+ primary key, you do not need to override this method. The default
+ implementation simply returns null, meaning using the primary key defined in
+ the database.
+
+
+*CActiveRecord::query*						 protected
+>
+ query($criteria, $all=false)
+<
+(mixed) the AR objects populated with the query result
+
+ Performs the actual DB query and populates the AR objects with the query
+ result. This method is mainly internally used by other AR query methods.
+    [criteria] (CDbCriteria) the query criteria
+    [all] (boolean) whether to return all data
+
+
+*CActiveRecord::refresh*					 public
+>
+ refresh()
+<
+(boolean) whether the row still exists in the database. If true, the latest
+data will be populated to this active record.
+
+ Repopulates this active record with the latest data.
+
+
+*CActiveRecord::refreshMetaData*				 public
+>
+ refreshMetaData()
+<
+(void)
+
+ Refreshes the meta data for this AR class. By calling this method, this AR
+ class will regenerate the meta data needed. This is useful if the table
+ schema has been changed and you want to use the latest available table
+ schema. Make sure you have called |CDbSchema::refresh| before you call this
+ method. Otherwise, old table schema data will still be used.
+
+
+*CActiveRecord::relations*					 public
+>
+ relations()
+<
+(array) list of related object declarations. Defaults to empty array.
+
+ This method should be overridden to declare related objects.
+
+ There are four types of relations that may exist between two active record
+ objects:
+   {BELONGS_TO} e.g. a member belongs to a team;
+   {HAS_ONE} e.g. a member has at most one profile;
+   {HAS_MANY} e.g. a team has many members;
+   {MANY_MANY} e.g. a member has many skills and a skill belongs to a
+   member.Besides the above relation types, a special relation called STAT is
+ also supported that can be used to perform statistical query (or
+ aggregational query). It retrieves the aggregational information about the
+ related objects, such as the number of comments for each post, the average
+ rating for each product, etc.
+
+ Each kind of related objects is defined in this method as an array with the
+ following elements:
+>
+ 'varName'=>array('relationType', 'className', 'foreign_key', ...additional
+ options)
+<
+ where 'varName' refers to the name of the variable/property that the related
+ object(s) can be accessed through; 'relationType' refers to the type of the
+ relation, which can be one of the following four constants: self::BELONGS_TO,
+ self::HAS_ONE, self::HAS_MANY and self::MANY_MANY; 'className' refers to the
+ name of the active record class that the related object(s) is of; and
+ 'foreign_key' states the foreign key that relates the two kinds of active
+ record. Note, for composite foreign keys, they must be listed together,
+ separated by commas; and for foreign keys used in MANY_MANY relation, the
+ joining table must be declared as well (e.g. 'join_table(fk1, fk2)').
+
+ Additional options may be specified as name-value pairs in the rest array
+ elements:
+   'select': string|array, a list of columns to be selected. Defaults
+   to '*', meaning all columns.   Column names should be
+   disambiguated if they appear in an expression (e.g.
+   COUNT(relationName.name) AS name_count).
+   'condition': string, the WHERE clause. Defaults to empty. Note,
+   column references need to   be disambiguated with prefix
+   'relationName.' (e.g. relationName.age&gt;20)
+   'order': string, the ORDER BY clause. Defaults to empty. Note,
+   column references need to   be disambiguated with prefix
+   'relationName.' (e.g. relationName.age DESC)
+   'with': string|array, a list of child related objects that should
+   be loaded together with this object.   Note, this is only honored
+   by lazy loading, not eager loading.
+   'joinType': type of join. Defaults to 'LEFT OUTER JOIN'.
+   'alias': the alias for the table associated with this
+   relationship.   This option has been available since version
+   1.0.1. It defaults to null,   meaning the table alias is the same
+   as the relation name.
+   'params': the parameters to be bound to the generated SQL
+   statement.   This should be given as an array of name-value pairs.
+   This option has been   available since version 1.0.3.
+   'on': the ON clause. The condition specified here will be appended
+     to the joining condition using the AND operator. This option has
+   been   available since version 1.0.2.
+   'index': the name of the column whose values should be used as
+   keys   of the array that stores related objects. This option is
+   only available to   HAS_MANY and MANY_MANY relations. This option
+   has been available since version 1.0.7.The following options are available
+ for certain relations when lazy loading:
+   'group': string, the GROUP BY clause. Defaults to empty. Note,
+   column references need to   be disambiguated with prefix
+   'relationName.' (e.g. relationName.age). This option only applies
+   to HAS_MANY and MANY_MANY relations.
+   'having': string, the HAVING clause. Defaults to empty. Note,
+   column references need to   be disambiguated with prefix
+   'relationName.' (e.g. relationName.age). This option only applies
+   to HAS_MANY and MANY_MANY relations.
+   'limit': limit of the rows to be selected. This option does not
+   apply to BELONGS_TO relation.
+   'offset': offset of the rows to be selected. This option does not
+   apply to BELONGS_TO relation.Below is an example declaring related objects
+ for 'Post' active record class:
+>
+ return array(
+     'author'=>array(self::BELONGS_TO, 'User', 'author_id'),
+     'comments'=>array(self::HAS_MANY, 'Comment', 'post_id', 'with'=>'author',
+ 'order'=>'create_time DESC'),
+     'tags'=>array(self::MANY_MANY, 'Tag', 'post_tag(post_id, tag_id)',
+ 'order'=>'name'),
+ );
+<
+
+
+*CActiveRecord::resetScope*					 public
+>
+ resetScope()
+<
+(CActiveRecord) 
+
+ Resets all scopes and criterias applied including default scope.
+
+
+*CActiveRecord::save*						 public
+>
+ save($runValidation=true, $attributes=NULL)
+<
+(boolean) whether the saving succeeds
+
+ Saves the current record.
+
+ The record is inserted as a row into the database table if its
+ |CActiveRecord::isNewRecord| property is true (usually the case when the
+ record is created using the 'new' operator). Otherwise, it will be used to
+ update the corresponding row in the table (usually the case if the record is
+ obtained using one of those 'find' methods.)
+
+ Validation will be performed before saving the record. If the validation
+ fails, the record will not be saved. You can call |CActiveRecord::getErrors|
+ to retrieve the validation errors.
+
+ If the record is saved via insertion, its |CActiveRecord::isNewRecord|
+ property will be set false, and its |CActiveRecord::scenario| property will
+ be set to be 'update'. And if its primary key is auto-incremental and is not
+ set before insertion, the primary key will be populated with the
+ automatically generated key value.
+    [runValidation] (boolean) whether to perform validation before saving the
+    record. If the validation fails, the record will not be saved to database.
+    [attributes] (array) list of attributes that need to be saved. Defaults to
+    null, meaning all attributes that are loaded from DB will be saved.
+
+
+*CActiveRecord::saveAttributes* 				 public
+>
+ saveAttributes($attributes)
+<
+(boolean) whether the update is successful
+
+ Saves a selected list of attributes. Unlike |CActiveRecord::save|, this
+ method only saves the specified attributes of an existing row dataset and
+ does NOT call either |CActiveRecord::beforeSave| or
+ |CActiveRecord::afterSave|. Also note that this method does neither attribute
+ filtering nor validation. So do not use this method with untrusted data (such
+ as user posted data). You may consider the following alternative if you want
+ to do so:
+>
+ $postRecord=Post::model()->findByPk($postID);
+ $postRecord->attributes=$_POST['post'];
+ $postRecord->save();
+<
+    [attributes] (array) attributes to be updated. Each element represents an
+    attribute name or an attribute value indexed by its name. If the latter,
+    the record's attribute will be changed accordingly before saving.
+
+
+*CActiveRecord::scopes* 					 public
+>
+ scopes()
+<
+(array) the scope definition. The array keys are scope names; the array values
+are the corresponding scope definitions. Each scope definition is represented
+as an array whose keys must be properties of |CDbCriteria|.
+
+ Returns the declaration of named scopes. A named scope represents a query
+ criteria that can be chained together with other named scopes and applied to
+ a query. This method should be overridden by child classes to declare named
+ scopes for the particular AR classes. For example, the following code
+ declares two named scopes: 'recently' and 'published'.
+>
+ return array(
+     'published'=>array(
+           'condition'=>'status=1',
+     ),
+     'recently'=>array(
+           'order'=>'create_time DESC',
+           'limit'=>5,
+     ),
+ );
+<
+ If the above scopes are declared in a 'Post' model, we can perform the
+ following queries:
+>
+ $posts=Post::model()->published()->findAll();
+ $posts=Post::model()->published()->recently()->findAll();
+ $posts=Post::model()->published()->with('comments')->findAll();
+<
+ Note that the last query is a relational query.
+
+
+*CActiveRecord::setAttribute*					 public
+>
+ setAttribute($name, $value)
+<
+(boolean) whether the attribute exists and the assignment is conducted
+successfully
+
+ Sets the named attribute value. You may also use $this->AttributeName to set
+ the attribute value.
+    [name] (string) the attribute name
+    [value] (mixed) the attribute value.
+
+
+*CActiveRecord::setDbCriteria*					 public
+>
+ setDbCriteria($criteria)
+<
+(void)
+
+ Sets the query criteria for the current model.
+    [criteria] (CDbCriteria) the query criteria
+
+
+*CActiveRecord::setIsNewRecord* 				 public
+>
+ setIsNewRecord($value)
+<
+(void)
+
+ Sets if the record is new.
+    [value] (boolean) whether the record is new and should be inserted when
+    calling |CActiveRecord::save|.
+
+
+*CActiveRecord::setOldPrimaryKey*				 public
+>
+ setOldPrimaryKey($value)
+<
+(void)
+
+ Sets the old primary key value.
+    [value] (mixed) the old primary key value.
+
+
+*CActiveRecord::setPrimaryKey*					 public
+>
+ setPrimaryKey($value)
+<
+(void)
+
+ Sets the primary key value. After calling this method, the old primary key
+ value can be obtained from |CActiveRecord::oldPrimaryKey|.
+    [value] (mixed) the new primary key value. If the primary key is
+    composite, the new value should be provided as an array (column
+    name=>column value).
+
+
+*CActiveRecord::setTableAlias*					 public
+>
+ setTableAlias($alias)
+<
+(void)
+
+ Sets the table alias to be used in queries.
+    [alias] (string) the table alias to be used in queries. The alias should
+    NOT be quoted.
+
+
+*CActiveRecord::tableName*					 public
+>
+ tableName()
+<
+(string) the table name
+
+ Returns the name of the associated database table. By default this method
+ returns the class name as the table name. You may override this method if the
+ table is not named after this convention.
+
+
+*CActiveRecord::together*					 public
+>
+ together()
+<
+(CActiveRecord) the AR object itself
+
+ Sets |CDbCriteria::together| property to be true. This is only used in
+ relational AR query. Please refer to |CDbCriteria::together| for more
+ details.
+
+
+*CActiveRecord::update* 					 public
+>
+ update($attributes=NULL)
+<
+(boolean) whether the update is successful
+
+ Updates the row represented by this active record. All loaded attributes will
+ be saved to the database. Note, validation is not performed in this method.
+ You may call |CActiveRecord::validate| to perform the validation.
+    [attributes] (array) list of attributes that need to be saved. Defaults to
+    null, meaning all attributes that are loaded from DB will be saved.
+
+
+*CActiveRecord::updateAll*					 public
+>
+ updateAll($attributes, $condition='', $params=array())
+<
+(integer) the number of rows being updated
+
+ Updates records with the specified condition. See |CActiveRecord::find| for
+ detailed explanation about $condition and $params. Note, the attributes are
+ not checked for safety and no validation is done.
+    [attributes] (array) list of attributes (name=>$value) to be updated
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::updateByPk*					 public
+>
+ updateByPk($pk, $attributes, $condition='', $params=array())
+<
+(integer) the number of rows being updated
+
+ Updates records with the specified primary key(s). See |CActiveRecord::find|
+ for detailed explanation about $condition and $params. Note, the attributes
+ are not checked for safety and validation is NOT performed.
+    [pk] (mixed) primary key value(s). Use array for multiple primary keys.
+    For composite key, each key value must be an array (column name=>column
+    value).
+    [attributes] (array) list of attributes (name=>$value) to be updated
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::updateCounters* 				 public
+>
+ updateCounters($counters, $condition='', $params=array())
+<
+(integer) the number of rows being updated
+
+ Updates one or several counter columns. Note, this updates all rows of data
+ unless a condition or criteria is specified. See |CActiveRecord::find| for
+ detailed explanation about $condition and $params.
+    [counters] (array) the counters to be updated (column name=>increment
+    value)
+    [condition] (mixed) query condition or criteria.
+    [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::with*						 public
+>
+ with()
+<
+(CActiveRecord) the AR object itself.
+
+ Specifies which related objects should be eagerly loaded. This method takes
+ variable number of parameters. Each parameter specifies the name of a
+ relation or child-relation. For example,
+>
+ // find all posts together with their author and comments
+ Post::model()->with('author','comments')->findAll();
+ // find all posts together with their author and the author's profile
+ Post::model()->with('author','author.profile')->findAll();
+<
+ The relations should be declared in |CActiveRecord::relations|.
+
+ By default, the options specified in |CActiveRecord::relations| will be used
+ to do relational query. In order to customize the options on the fly, we
+ should pass an array parameter to the with() method. The array keys are
+ relation names, and the array values are the corresponding query options. For
+ example,
+>
+ Post::model()->with(array(
+     'author'=>array('select'=>'id, name'),
+     'comments'=>array('condition'=>'approved=1', 'order'=>'create_time'),
+ ))->findAll();
+<
+ Note, the possible parameters to this method have been changed since version
+ 1.0.2. Previously, it was not possible to specify on-th-fly query options,
+ and child-relations were specified as hierarchical arrays.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

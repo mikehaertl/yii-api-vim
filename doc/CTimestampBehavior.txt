@@ -1,0 +1,101 @@
+
+*CTimestampBehavior*   >> |CActiveRecordBehavior| >> |CModelBehavior| >> |CBehavior| >> |CComponent|
+====================
+
+ CTimestampBehavior will automatically fill date and time related atributes.
+
+ CTimestampBehavior will automatically fill date and time related atributes
+ when the active record is created and/or upadated. You may specify an active
+ record model to use this behavior like so:
+>
+ public function behaviors(){
+ 	return array(
+ 		'CTimestampBehavior' => array(
+ 			'class' => 'zii.behaviors.CTimestampBehavior',
+ 			'createAttribute' => 'create_time_attribute',
+ 			'updateAttribute' => 'update_time_attribute',
+ 		)
+ 	);
+ }
+<
+ The |CTimestampBehavior::createAttribute| and
+ |CTimestampBehavior::updateAttribute| options actually default to
+ 'create_time' and 'update_time' respectively, so it is not required that you
+ configure them.  If you do not wish CTimestampBehavior to set a timestamp for
+ record update or creation, set the corrisponding attribute option to null.
+
+ By default, the update attribute is only set on record update.  If you also
+ wish it to be set on record creation, set the
+ |CTimestampBehavior::setUpdateOnCreate| option to true.
+
+ Although CTimestampBehavior attempts to figure out on it's own what value to
+ inject into the timestamp attribute, you may specify a custom value to use
+ instead via |CTimestampBehavior::timestampExpression|
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<createAttribute>			*CTimestampBehavior::createAttribute*
+ (mixed) The name of the attribute to store the creation time.  Set to null to
+ not use a timstamp for the creation attribute.  Defaults to 'create_time'
+
+<map>					*CTimestampBehavior::map*
+ (array) Maps column types to database method
+
+<setUpdateOnCreate>			*CTimestampBehavior::setUpdateOnCreate*
+ (bool) Whether to set the update attribute to the creation timestamp upon
+ creation. Otherwise it will be left alone.  Defaults to false.
+
+<timestampExpression>			*CTimestampBehavior::timestampExpression*
+ (mixed) The expression that will be used for generating the timestamp. This
+ can be either a string representing a PHP expression (e.g. 'time()'), or a
+ |CDbExpression| object representing a DB expression (e.g. new
+ CDbExpression('NOW()')). Defaults to null, meaning that we will attempt to
+ figure out the appropriate timestamp automatically. If we fail at finding the
+ appropriate timestamp, then it will fall back to using the current UNIX
+ timestamp
+
+<updateAttribute>			*CTimestampBehavior::updateAttribute*
+ (mixed) The name of the attribute to store the modification time.  Set to
+ null to not use a timstamp for the update attribute.  Defaults to
+ 'update_time'
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CTimestampBehavior::beforeSave*				 public
+>
+ beforeSave($event)
+<
+(void)
+
+ Responds to CModel::onBeforeSave event. Sets the values of the creation or
+ modified attributes as configured
+    [event] (CModelEvent) event parameter
+
+
+*CTimestampBehavior::getTimestampByAttribute*			 protected
+>
+ getTimestampByAttribute($attribute)
+<
+(mixed) timestamp (eg unix timestamp or a mysql function)
+
+ Gets the approprate timestamp depending on the column type $attribute is
+    [attribute] (string) $attribute
+
+
+*CTimestampBehavior::getTimestampByColumnType*			 protected
+>
+ getTimestampByColumnType($columnType)
+<
+(mixed) timestamp (eg unix timestamp or a mysql function)
+
+ Returns the approprate timestamp depending on $columnType
+    [columnType] (string) $columnType
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

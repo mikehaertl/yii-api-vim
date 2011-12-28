@@ -1,0 +1,61 @@
+
+*CMssqlPdoAdapter*   >> |PDO|
+==================
+
+ This is an extension of default PDO class for mssql driver only It provides
+ some missing functionalities of pdo driver
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CMssqlPdoAdapter::beginTransaction*				 public
+>
+ beginTransaction()
+<
+(boolean) 
+
+ Begin a transaction
+
+ Is is necessary to override pdo's method, as mssql pdo drivers does not
+ support transaction
+
+
+*CMssqlPdoAdapter::commit*					 public
+>
+ commit()
+<
+(boolean) 
+
+ Commit a transaction
+
+ Is is necessary to override pdo's method, as mssql pdo drivers does not
+ support transaction
+
+
+*CMssqlPdoAdapter::lastInsertId*				 public
+>
+ lastInsertId($sequence='')
+<
+(integer) last inserted id
+
+ Get the last inserted id value MSSQL doesn't support sequence, so, argument
+ is ignored
+    [sequence] (string) sequence name. Defaults to null
+
+
+*CMssqlPdoAdapter::rollBack*					 public
+>
+ rollBack()
+<
+(boolean) 
+
+ Rollback a transaction
+
+ Is is necessary to override pdo's method, ac mssql pdo drivers does not
+ support transaction
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

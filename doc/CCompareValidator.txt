@@ -1,0 +1,87 @@
+
+*CCompareValidator*   >> |CValidator| >> |CComponent|
+===================
+
+ CCompareValidator compares the specified attribute value with another value
+ and validates if they are equal.
+
+ The value being compared with can be another attribute value (specified via
+ |CCompareValidator::compareAttribute|) or a constant (specified via
+ |CCompareValidator::compareValue|. When both are specified, the latter takes
+ precedence. If neither is specified, the attribute will be compared with
+ another attribute whose name is by appending "_repeat" to the source
+ attribute name.
+
+ The comparison can be either |CCompareValidator::strict| or not.
+
+ Starting from version 1.0.8, CCompareValidator supports different comparison
+ operators. Previously, it only compares to see if two values are equal or
+ not.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowEmpty>				*CCompareValidator::allowEmpty*
+ (boolean) whether the attribute value can be null or empty. Defaults to
+ false. If this is true, it means the attribute is considered valid when it is
+ empty.
+
+<compareAttribute>			*CCompareValidator::compareAttribute*
+ (string) the name of the attribute to be compared with
+
+<compareValue>				*CCompareValidator::compareValue*
+ (string) the constant value to be compared with
+
+<operator>				*CCompareValidator::operator*
+ (string) the operator for comparison. Defaults to '='. The followings are
+ valid operators:
+   '=' or '==': validates to see if the two values are equal. If
+   |CCompareValidator::strict| is true, the comparison will be done
+   in strict mode (i.e. checking value type as well).
+   '!=': validates to see if the two values are NOT equal. If
+   |CCompareValidator::strict| is true, the comparison will be done
+   in strict mode (i.e. checking value type as well).
+   '>': validates to see if the value being validated is greater than
+   the value being compared with.
+   '>=': validates to see if the value being validated is greater
+   than or equal to the value being compared with.
+   '<': validates to see if the value being validated is less than
+   the value being compared with.
+   '<=': validates to see if the value being validated is less than
+   or equal to the value being compared with.
+
+<strict>				*CCompareValidator::strict*
+ (boolean) whether the comparison is strict (both value and type must be the
+ same.) Defaults to false.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CCompareValidator::clientValidateAttribute*			 public
+>
+ clientValidateAttribute($object, $attribute)
+<
+(string) the client-side validation script.
+
+ Returns the JavaScript needed for performing client-side validation.
+    [object] (CModel) the data object being validated
+    [attribute] (string) the name of the attribute to be validated.
+
+
+*CCompareValidator::validateAttribute*				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

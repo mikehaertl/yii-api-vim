@@ -1,0 +1,38 @@
+
+*IWebServiceProvider*  
+=====================
+
+ IWebServiceProvider interface may be implemented by Web service provider
+ classes.
+
+ If this interface is implemented, the provider instance will be able to
+ intercept the remote method invocation (e.g. for logging or authentication
+ purpose).
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*IWebServiceProvider::afterWebMethod*				 public
+>
+ afterWebMethod($service)
+<
+(void)
+
+ This method is invoked after the requested remote method is invoked.
+    [service] (CWebService) the currently requested Web service.
+
+
+*IWebServiceProvider::beforeWebMethod*				 public
+>
+ beforeWebMethod($service)
+<
+(boolean) whether the remote method should be executed.
+
+ This method is invoked before the requested remote method is invoked.
+    [service] (CWebService) the currently requested Web service.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

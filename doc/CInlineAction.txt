@@ -1,0 +1,36 @@
+
+*CInlineAction*   >> |CAction| >> |CComponent|
+===============
+
+ CInlineAction represents an action that is defined as a controller method.
+
+ The method name is like 'actionXYZ' where 'XYZ' stands for the action name.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CInlineAction::run*						 public
+>
+ run()
+<
+(void)
+
+ Runs the action. The action method defined in the controller is invoked. This
+ method is required by |CAction|.
+
+
+*CInlineAction::runWithParams*					 public
+>
+ runWithParams($params)
+<
+(boolean) whether the request parameters are valid
+
+ Runs the action with the supplied request parameters. This method is
+ internally called by |CController::runAction|.
+    [params] (array) the request parameters (name=>value)
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

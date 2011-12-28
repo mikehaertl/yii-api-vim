@@ -1,0 +1,441 @@
+
+*CDbSchema*   >> |CComponent|
+===========
+
+ CDbSchema is the base class for retrieving metadata information.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<columnTypes>				*CDbSchema::columnTypes*
+ (array) the abstract column types mapped to physical column types.
+
+<commandBuilder>			*CDbSchema::commandBuilder*
+ (CDbCommandBuilder) the SQL command builder for this connection.
+
+<dbConnection>				*CDbSchema::dbConnection*
+ (CDbConnection) database connection. The connection is active.
+
+<tableNames>				*CDbSchema::tableNames*
+ (array) Returns all table names in the database.
+
+<tables>				*CDbSchema::tables*
+ (array) Returns the metadata for all tables in the database.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbSchema::__construct*					 public
+>
+ __construct($conn)
+<
+(void)
+
+ Constructor.
+    [conn] (CDbConnection) database connection.
+
+
+*CDbSchema::addColumn*						 public
+>
+ addColumn($table, $column, $type)
+<
+(string) the SQL statement for adding a new column.
+
+ Builds a SQL statement for adding a new DB column.
+    [table] (string) the table that the new column will be added to. The table
+    name will be properly quoted by the method.
+    [column] (string) the name of the new column. The name will be properly
+    quoted by the method.
+    [type] (string) the column type. The |CDbSchema::getColumnType| method
+    will be invoked to convert abstract column type (if any) into the physical
+    one. Anything that is not recognized as abstract type will be kept in the
+    generated SQL. For example, 'string' will be turned into 'varchar(255)',
+    while 'string not null' will become 'varchar(255) not null'.
+
+
+*CDbSchema::addForeignKey*					 public
+>
+ addForeignKey($name, $table, $columns, $refTable, $refColumns, $delete='', $update='')
+<
+(string) the SQL statement for adding a foreign key constraint to an existing
+table.
+
+ Builds a SQL statement for adding a foreign key constraint to an existing
+ table. The method will properly quote the table and column names.
+    [name] (string) the name of the foreign key constraint.
+    [table] (string) the table that the foreign key constraint will be added
+    to.
+    [columns] (string) the name of the column to that the constraint will be
+    added on. If there are multiple columns, separate them with commas.
+    [refTable] (string) the table that the foreign key references to.
+    [refColumns] (string) the name of the column that the foreign key
+    references to. If there are multiple columns, separate them with commas.
+    [delete] (string) the ON DELETE option. Most DBMS support these options:
+    RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL
+    [update] (string) the ON UPDATE option. Most DBMS support these options:
+    RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL
+
+
+*CDbSchema::alterColumn*					 public
+>
+ alterColumn($table, $column, $type)
+<
+(string) the SQL statement for changing the definition of a column.
+
+ Builds a SQL statement for changing the definition of a column.
+    [table] (string) the table whose column is to be changed. The table name
+    will be properly quoted by the method.
+    [column] (string) the name of the column to be changed. The name will be
+    properly quoted by the method.
+    [type] (string) the new column type. The |CDbSchema::getColumnType| method
+    will be invoked to convert abstract column type (if any) into the physical
+    one. Anything that is not recognized as abstract type will be kept in the
+    generated SQL. For example, 'string' will be turned into 'varchar(255)',
+    while 'string not null' will become 'varchar(255) not null'.
+
+
+*CDbSchema::checkIntegrity*					 public
+>
+ checkIntegrity($check=true, $schema='')
+<
+(void)
+
+ Enables or disables integrity check.
+    [check] (boolean) whether to turn on or off the integrity check.
+    [schema] (string) the schema of the tables. Defaults to empty string,
+    meaning the current or default schema.
+
+
+*CDbSchema::compareTableNames*					 public
+>
+ compareTableNames($name1, $name2)
+<
+(boolean) whether the two table names refer to the same table.
+
+ Compares two table names. The table names can be either quoted or unquoted.
+ This method will consider both cases.
+    [name1] (string) table name 1
+    [name2] (string) table name 2
+
+
+*CDbSchema::createCommandBuilder*				 protected
+>
+ createCommandBuilder()
+<
+(CDbCommandBuilder) command builder instance
+
+ Creates a command builder for the database. This method may be overridden by
+ child classes to create a DBMS-specific command builder.
+
+
+*CDbSchema::createIndex*					 public
+>
+ createIndex($name, $table, $column, $unique=false)
+<
+(string) the SQL statement for creating a new index.
+
+ Builds a SQL statement for creating a new index.
+    [name] (string) the name of the index. The name will be properly quoted by
+    the method.
+    [table] (string) the table that the new index will be created for. The
+    table name will be properly quoted by the method.
+    [column] (string) the column(s) that should be included in the index. If
+    there are multiple columns, please separate them by commas. The column
+    names will be properly quoted by the method.
+    [unique] (boolean) whether to add UNIQUE constraint on the created index.
+
+
+*CDbSchema::createTable*					 public
+>
+ createTable($table, $columns, $options='')
+<
+(string) the SQL statement for creating a new DB table.
+
+ Builds a SQL statement for creating a new DB table.
+
+ The columns in the new  table should be specified as name-definition pairs
+ (e.g. 'name'=>'string'), where name stands for a column name which will be
+ properly quoted by the method, and definition stands for the column type
+ which can contain an abstract DB type. The |CDbSchema::getColumnType| method
+ will be invoked to convert any abstract type into a physical one.
+
+ If a column is specified with definition only (e.g. 'PRIMARY KEY (name,
+ type)'), it will be directly inserted into the generated SQL.
+    [table] (string) the name of the table to be created. The name will be
+    properly quoted by the method.
+    [columns] (array) the columns (name=>definition) in the new table.
+    [options] (string) additional SQL fragment that will be appended to the
+    generated SQL.
+
+
+*CDbSchema::dropColumn* 					 public
+>
+ dropColumn($table, $column)
+<
+(string) the SQL statement for dropping a DB column.
+
+ Builds a SQL statement for dropping a DB column.
+    [table] (string) the table whose column is to be dropped. The name will be
+    properly quoted by the method.
+    [column] (string) the name of the column to be dropped. The name will be
+    properly quoted by the method.
+
+
+*CDbSchema::dropForeignKey*					 public
+>
+ dropForeignKey($name, $table)
+<
+(string) the SQL statement for dropping a foreign key constraint.
+
+ Builds a SQL statement for dropping a foreign key constraint.
+    [name] (string) the name of the foreign key constraint to be dropped. The
+    name will be properly quoted by the method.
+    [table] (string) the table whose foreign is to be dropped. The name will
+    be properly quoted by the method.
+
+
+*CDbSchema::dropIndex*						 public
+>
+ dropIndex($name, $table)
+<
+(string) the SQL statement for dropping an index.
+
+ Builds a SQL statement for dropping an index.
+    [name] (string) the name of the index to be dropped. The name will be
+    properly quoted by the method.
+    [table] (string) the table whose index is to be dropped. The name will be
+    properly quoted by the method.
+
+
+*CDbSchema::dropTable*						 public
+>
+ dropTable($table)
+<
+(string) the SQL statement for dropping a DB table.
+
+ Builds a SQL statement for dropping a DB table.
+    [table] (string) the table to be dropped. The name will be properly quoted
+    by the method.
+
+
+*CDbSchema::findTableNames*					 protected
+>
+ findTableNames($schema='')
+<
+(array) all table names in the database.
+
+ Returns all table names in the database. This method should be overridden by
+ child classes in order to support this feature because the default
+ implementation simply throws an exception.
+    [schema] (string) the schema of the tables. Defaults to empty string,
+    meaning the current or default schema. If not empty, the returned table
+    names will be prefixed with the schema name.
+
+
+*CDbSchema::getColumnType*					 public
+>
+ getColumnType($type)
+<
+(string) physical column type.
+
+ Converts an abstract column type into a physical column type. The conversion
+ is done using the type map specified in |CDbSchema::columnTypes|. These
+ abstract column types are supported (using MySQL as example to explain the
+ corresponding physical types):
+   {pk} an auto-incremental primary key type, will be converted into
+   "int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY"
+   {string} string type, will be converted into "varchar(255)"
+   {text} a long string type, will be converted into "text"
+   {integer} integer type, will be converted into "int(11)"
+   {boolean} boolean type, will be converted into "tinyint(1)"
+   {float} float number type, will be converted into "float"
+   {decimal} decimal number type, will be converted into "decimal"
+   {datetime} datetime type, will be converted into "datetime"
+   {timestamp} timestamp type, will be converted into "timestamp"
+   {time} time type, will be converted into "time"
+   {date} date type, will be converted into "date"
+   {binary} binary data type, will be converted into "blob"If the abstract
+ type contains two or more parts separated by spaces (e.g. "string NOT NULL"),
+ then only the first part will be converted, and the rest of the parts will be
+ appended to the conversion result. For example, 'string NOT NULL' is
+ converted to 'varchar(255) NOT NULL'.
+    [type] (string) abstract column type
+
+
+*CDbSchema::getCommandBuilder*					 public
+>
+ getCommandBuilder()
+<
+(CDbCommandBuilder) the SQL command builder for this connection.
+
+
+
+*CDbSchema::getDbConnection*					 public
+>
+ getDbConnection()
+<
+(CDbConnection) database connection. The connection is active.
+
+
+
+*CDbSchema::getTable*						 public
+>
+ getTable($name)
+<
+(CDbTableSchema) table metadata. Null if the named table does not exist.
+
+ Obtains the metadata for the named table.
+    [name] (string) table name
+
+
+*CDbSchema::getTableNames*					 public
+>
+ getTableNames($schema='')
+<
+(array) all table names in the database.
+
+ Returns all table names in the database.
+    [schema] (string) the schema of the tables. Defaults to empty string,
+    meaning the current or default schema. If not empty, the returned table
+    names will be prefixed with the schema name.
+
+
+*CDbSchema::getTables*						 public
+>
+ getTables($schema='')
+<
+(array) the metadata for all tables in the database. Each array element is an
+instance of |CDbTableSchema| (or its child class). The array keys are table
+names.
+
+ Returns the metadata for all tables in the database.
+    [schema] (string) the schema of the tables. Defaults to empty string,
+    meaning the current or default schema.
+
+
+*CDbSchema::loadTable*						 protected
+>
+ loadTable($name)
+<
+(CDbTableSchema) driver dependent table metadata, null if the table does not
+exist.
+
+ Loads the metadata for the specified table.
+    [name] (string) table name
+
+
+*CDbSchema::quoteColumnName*					 public
+>
+ quoteColumnName($name)
+<
+(string) the properly quoted column name
+
+ Quotes a column name for use in a query. If the column name contains prefix,
+ the prefix will also be properly quoted.
+    [name] (string) column name
+
+
+*CDbSchema::quoteSimpleColumnName*				 public
+>
+ quoteSimpleColumnName($name)
+<
+(string) the properly quoted column name
+
+ Quotes a simple column name for use in a query. A simple column name does not
+ contain prefix.
+    [name] (string) column name
+
+
+*CDbSchema::quoteSimpleTableName*				 public
+>
+ quoteSimpleTableName($name)
+<
+(string) the properly quoted table name
+
+ Quotes a simple table name for use in a query. A simple table name does not
+ schema prefix.
+    [name] (string) table name
+
+
+*CDbSchema::quoteTableName*					 public
+>
+ quoteTableName($name)
+<
+(string) the properly quoted table name
+
+ Quotes a table name for use in a query. If the table name contains schema
+ prefix, the prefix will also be properly quoted.
+    [name] (string) table name
+
+
+*CDbSchema::refresh*						 public
+>
+ refresh()
+<
+(void)
+
+ Refreshes the schema. This method resets the loaded table metadata and
+ command builder so that they can be recreated to reflect the change of
+ schema.
+
+
+*CDbSchema::renameColumn*					 public
+>
+ renameColumn($table, $name, $newName)
+<
+(string) the SQL statement for renaming a DB column.
+
+ Builds a SQL statement for renaming a column.
+    [table] (string) the table whose column is to be renamed. The name will be
+    properly quoted by the method.
+    [name] (string) the old name of the column. The name will be properly
+    quoted by the method.
+    [newName] (string) the new name of the column. The name will be properly
+    quoted by the method.
+
+
+*CDbSchema::renameTable*					 public
+>
+ renameTable($table, $newName)
+<
+(string) the SQL statement for renaming a DB table.
+
+ Builds a SQL statement for renaming a DB table.
+    [table] (string) the table to be renamed. The name will be properly quoted
+    by the method.
+    [newName] (string) the new table name. The name will be properly quoted by
+    the method.
+
+
+*CDbSchema::resetSequence*					 public
+>
+ resetSequence($table, $value=NULL)
+<
+(void)
+
+ Resets the sequence value of a table's primary key. The sequence will be
+ reset such that the primary key of the next new row inserted will have the
+ specified value or 1.
+    [table] (CDbTableSchema) the table schema whose primary key sequence will
+    be reset
+    [value] (mixed) the value for the primary key of the next new row
+    inserted. If this is not set, the next new row's primary key will have a
+    value 1.
+
+
+*CDbSchema::truncateTable*					 public
+>
+ truncateTable($table)
+<
+(string) the SQL statement for truncating a DB table.
+
+ Builds a SQL statement for truncating a DB table.
+    [table] (string) the table to be truncated. The name will be properly
+    quoted by the method.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,55 @@
+
+*CRegularExpressionValidator*   >> |CValidator| >> |CComponent|
+=============================
+
+ CRegularExpressionValidator validates that the attribute value matches to the
+ specified |CRegularExpressionValidator::pattern|. You may invert the
+ validation logic with help of the |CRegularExpressionValidator::not| property
+ (available since 1.1.5).
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowEmpty>				*CRegularExpressionValidator::allowEmpty*
+ (boolean) whether the attribute value can be null or empty. Defaults to true,
+ meaning that if the attribute is empty, it is considered valid.
+
+<not>					*CRegularExpressionValidator::not*
+ (boolean) whether to invert the validation logic. Defaults to false. If set
+ to true, the regular expression defined via
+ |CRegularExpressionValidator::pattern| should NOT match the attribute value.
+
+<pattern>				*CRegularExpressionValidator::pattern*
+ (string) the regular expression to be matched with
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CRegularExpressionValidator::clientValidateAttribute*		 public
+>
+ clientValidateAttribute($object, $attribute)
+<
+(string) the client-side validation script.
+
+ Returns the JavaScript needed for performing client-side validation.
+    [object] (CModel) the data object being validated
+    [attribute] (string) the name of the attribute to be validated.
+
+
+*CRegularExpressionValidator::validateAttribute*		 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

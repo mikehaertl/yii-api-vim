@@ -1,0 +1,74 @@
+
+*CTypeValidator*   >> |CValidator| >> |CComponent|
+================
+
+ CTypeValidator verifies if the attribute is of the type specified by
+ |CTypeValidator::type|.
+
+ The following data types are supported:
+   <b>integer</b> A 32-bit signed integer data type.
+   <b>float</b> A double-precision floating point number data type.
+   <b>string</b> A string data type.
+   <b>array</b> An array value.
+   <b>date</b> A date data type.
+   <b>time</b> A time data type (available since version 1.0.5).
+   <b>datetime</b> A date and time data type (available since version
+   1.0.5).For <b>date</b> type, the property |CTypeValidator::dateFormat| will
+ be used to determine how to parse the date string. If the given date value
+ doesn't follow the format, the attribute is considered as invalid.
+
+ Starting from version 1.1.7, we have a dedicated date validator
+ |CDateValidator|. Please consider using this validator to validate a
+ date-typed value.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowEmpty>				*CTypeValidator::allowEmpty*
+ (boolean) whether the attribute value can be null or empty. Defaults to true,
+ meaning that if the attribute is empty, it is considered valid.
+
+<dateFormat>				*CTypeValidator::dateFormat*
+ (string) the format pattern that the date value should follow. Defaults to
+ 'MM/dd/yyyy'. Please see |CDateTimeParser| for details about how to specify a
+ date format. This property is effective only when |CTypeValidator::type| is
+ 'date'.
+
+<datetimeFormat>			*CTypeValidator::datetimeFormat*
+ (string) the format pattern that the datetime value should follow. Defaults
+ to 'MM/dd/yyyy hh:mm'. Please see |CDateTimeParser| for details about how to
+ specify a datetime format. This property is effective only when
+ |CTypeValidator::type| is 'datetime'.
+
+<timeFormat>				*CTypeValidator::timeFormat*
+ (string) the format pattern that the time value should follow. Defaults to
+ 'hh:mm'. Please see |CDateTimeParser| for details about how to specify a time
+ format. This property is effective only when |CTypeValidator::type| is
+ 'time'.
+
+<type>					*CTypeValidator::type*
+ (string) the data type that the attribute should be. Defaults to 'string'.
+ Valid values include 'string', 'integer', 'float', 'array', 'date', 'time'
+ and 'datetime'. Note that 'time' and 'datetime' have been available since
+ version 1.0.5.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CTypeValidator::validateAttribute*				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

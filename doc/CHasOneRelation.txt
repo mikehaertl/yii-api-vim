@@ -1,0 +1,17 @@
+
+*CHasOneRelation*   >> |CActiveRelation| >> |CBaseActiveRelation| >> |CComponent|
+=================
+
+ CHasOneRelation represents the parameters specifying a HAS_ONE relation.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<through>				*CHasOneRelation::through*
+ (string) the name of the relation that should be used as the bridge to this
+ relation. Deafults to null, meaning don't use any bridge.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

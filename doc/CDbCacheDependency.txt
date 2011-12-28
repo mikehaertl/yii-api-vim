@@ -1,0 +1,78 @@
+
+*CDbCacheDependency*   >> |CCacheDependency| >> |CComponent|
+====================
+
+ CDbCacheDependency represents a dependency based on the query result of a SQL
+ statement.
+
+ If the query result (a scalar) changes, the dependency is considered as
+ changed. To specify the SQL statement, set |CDbCacheDependency::sql|
+ property. The |CDbCacheDependency::connectionID| property specifies the ID of
+ a |CDbConnection| application component. It is this DB connection that is
+ used to perform the query.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<connectionID>				*CDbCacheDependency::connectionID*
+ (string) the ID of a |CDbConnection| application component. Defaults to 'db'.
+
+<dbConnection>				*CDbCacheDependency::dbConnection*
+ (CDbConnection) the DB connection instance
+
+<params>				*CDbCacheDependency::params*
+ (array) parameters (name=>value) to be bound to the SQL statement specified
+ by |CDbCacheDependency::sql|.
+
+<sql>					*CDbCacheDependency::sql*
+ (string) the SQL statement whose result is used to determine if the
+ dependency has been changed. Note, the SQL statement should return back a
+ single value.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbCacheDependency::__construct*				 public
+>
+ __construct($sql='')
+<
+(void)
+
+ Constructor.
+    [sql] (string) the SQL statement whose result is used to determine if the
+    dependency has been changed.
+
+
+*CDbCacheDependency::__sleep*					 public
+>
+ __sleep()
+<
+(void)
+
+ PHP sleep magic method. This method ensures that the database instance is set
+ null because it contains resource handles.
+
+
+*CDbCacheDependency::generateDependentData*			 protected
+>
+ generateDependentData()
+<
+(mixed) the data needed to determine if dependency has been changed.
+
+ Generates the data needed to determine if dependency has been changed. This
+ method returns the value of the global state.
+
+
+*CDbCacheDependency::getDbConnection*				 protected
+>
+ getDbConnection()
+<
+(CDbConnection) the DB connection instance
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,104 @@
+
+*CProfileLogRoute*   >> |CWebLogRoute| >> |CLogRoute| >> |CComponent|
+==================
+
+ CProfileLogRoute displays the profiling results in Web page.
+
+ The profiling is done by calling |YiiBase::beginProfile| and
+ |YiiBase::endProfile|, which marks the begin and end of a code block.
+
+ CProfileLogRoute supports two types of report by setting the
+ |CProfileLogRoute::setReport| property:
+   {summary} list the execution time of every marked code block
+   {callstack} list the mark code blocks in a hierarchical view
+   reflecting their calling sequence.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<groupByToken>				*CProfileLogRoute::groupByToken*
+ (boolean) whether to aggregate results according to profiling tokens. If
+ false, the results will be aggregated by categories. Defaults to true. Note
+ that this property only affects the summary report that is enabled when
+ |CProfileLogRoute::report| is 'summary'.
+
+<report>				*CProfileLogRoute::report*
+ (string) the type of the profiling report to display. Defaults to 'summary'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CProfileLogRoute::aggregateResult*				 protected
+>
+ aggregateResult($result, $delta)
+<
+(void)
+
+ Aggregates the report result.
+    [result] (array) log result for this code block
+    [delta] (float) time spent for this code block
+
+
+*CProfileLogRoute::displayCallstack*				 protected
+>
+ displayCallstack($logs)
+<
+(void)
+
+ Displays the callstack of the profiling procedures for display.
+    [logs] (array) list of logs
+
+
+*CProfileLogRoute::displaySummary*				 protected
+>
+ displaySummary($logs)
+<
+(void)
+
+ Displays the summary report of the profiling result.
+    [logs] (array) list of logs
+
+
+*CProfileLogRoute::getReport*					 public
+>
+ getReport()
+<
+(string) the type of the profiling report to display. Defaults to 'summary'.
+
+
+
+*CProfileLogRoute::init*					 public
+>
+ init()
+<
+(void)
+
+ Initializes the route. This method is invoked after the route is created by
+ the route manager.
+
+
+*CProfileLogRoute::processLogs* 				 public
+>
+ processLogs($logs)
+<
+(void)
+
+ Displays the log messages.
+    [logs] (array) list of log messages
+
+
+*CProfileLogRoute::setReport*					 public
+>
+ setReport($value)
+<
+(void)
+
+    [value] (string) the type of the profiling report to display. Valid values
+    include 'summary' and 'callstack'.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

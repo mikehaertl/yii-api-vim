@@ -1,0 +1,68 @@
+
+*CJavaScript*  
+=============
+
+ CJavaScript is a helper class containing JavaScript-related handling
+ functions.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CJavaScript::encode*						 public
+>
+ encode($value)
+<
+(string) the encoded string
+
+ Encodes a PHP variable into javascript representation.
+
+ Example:
+>
+ $options=array('key1'=>true,'key2'=>123,'key3'=>'value');
+ echo CJavaScript::encode($options);
+ // The following javascript code would be generated:
+ // {'key1':true,'key2':123,'key3':'value'}
+<
+ For highly complex data structures use |CJavaScript::jsonEncode| and
+ |CJavaScript::jsonDecode| to serialize and unserialize.
+    [value] (mixed) PHP variable to be encoded
+
+
+*CJavaScript::jsonDecode*					 public
+>
+ jsonDecode($data, $useArray=true)
+<
+(mixed) the decoded PHP data
+
+ Decodes a JSON string.
+    [data] (string) the data to be decoded
+    [useArray] (boolean) whether to use associative array to represent object
+    data
+
+
+*CJavaScript::jsonEncode*					 public
+>
+ jsonEncode($data)
+<
+(string) the JSON representation of the PHP data.
+
+ Returns the JSON representation of the PHP data.
+    [data] (mixed) the data to be encoded
+
+
+*CJavaScript::quote*						 public
+>
+ quote($js, $forUrl=false)
+<
+(string) the quoted string
+
+ Quotes a javascript string. After processing, the string can be safely
+ enclosed within a pair of quotation marks and serve as a javascript string.
+    [js] (string) string to be quoted
+    [forUrl] (boolean) whether this string is used as a URL
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

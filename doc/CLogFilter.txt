@@ -1,0 +1,79 @@
+
+*CLogFilter*   >> |CComponent|
+============
+
+ CLogFilter preprocesses the logged messages before they are handled by a log
+ route.
+
+ CLogFilter is meant to be used by a log route to preprocess the logged
+ messages before they are handled by the route. The default implementation of
+ CLogFilter prepends additional context information to the logged messages. In
+ particular, by setting |CLogFilter::logVars|, predefined PHP variables such
+ as $_SERVER, $_POST, etc. can be saved as a log message, which may help
+ identify/debug issues encountered.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<context>				*CLogFilter::context*
+ (string) Generates the context information to be logged. The default
+ implementation will dump user information, system variables, etc.
+
+<logUser>				*CLogFilter::logUser*
+ (boolean) whether to log the current user name and ID. Defaults to true.
+
+<logVars>				*CLogFilter::logVars*
+ (array) list of the PHP predefined variables that should be logged. Note that
+ a variable must be accessible via $GLOBALS. Otherwise it won't be logged.
+
+<prefixSession> 			*CLogFilter::prefixSession*
+ (boolean) whether to prefix each log message with the current user session
+ ID. Defaults to false.
+
+<prefixUser>				*CLogFilter::prefixUser*
+ (boolean) whether to prefix each log message with the current user
+ |CWebUser::name| and |CWebUser::id|. Defaults to false.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CLogFilter::filter*						 public
+>
+ filter($logs)
+<
+(void)
+
+ Filters the given log messages. This is the main method of CLogFilter. It
+ processes the log messages by adding context information, etc.
+    [logs] (array) the log messages
+
+
+*CLogFilter::format*						 protected
+>
+ format($logs)
+<
+(void)
+
+ Formats the log messages. The default implementation will prefix each message
+ with session ID if |CLogFilter::prefixSession| is set true. It may also
+ prefix each message with the current user's name and ID if
+ |CLogFilter::prefixUser| is true.
+    [logs] (array) the log messages
+
+
+*CLogFilter::getContext*					 protected
+>
+ getContext()
+<
+(string) the context information. If an empty string, it means no context
+information.
+
+ Generates the context information to be logged. The default implementation
+ will dump user information, system variables, etc.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,9 @@
+
+*CTestCase*   >> |PHPUnit_Framework_TestCase| >> |PHPUnit_Framework_Assert|
+===========
+
+ CTestCase is the base class for all test case classes.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

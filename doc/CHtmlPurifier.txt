@@ -1,0 +1,67 @@
+
+*CHtmlPurifier*   >> |COutputProcessor| >> |CFilterWidget| >> |CWidget| >> |CBaseController| >> |CComponent|
+===============
+
+ CHtmlPurifier is wrapper of 'HTML Purifier'.
+
+ CHtmlPurifier removes all malicious code (better known as XSS) with a
+ thoroughly audited, secure yet permissive whitelist. It will also make sure
+ the resulting code is standard-compliant.
+
+ CHtmlPurifier can be used as either a widget or a controller filter.
+
+ Note: since HTML Purifier is a big package, its performance is not very good.
+ You should consider either caching the purification result or purifying the
+ user input before saving to database.
+
+ Usage as a class:
+>
+ $p = new CHtmlPurifier();
+ $p->options = array('URI.AllowedSchemes'=>array(
+   'http' => true,
+   'https' => true,
+ ));
+ $text = $p->purify($text);
+<
+ Usage as validation rule:
+>
+ array('text','filter','filter'=>array($obj=new CHtmlPurifier(),'purify')),
+<
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<options>				*CHtmlPurifier::options*
+ (mixed) the options to be passed to 'HTML Purifier'. This can be a
+ HTMLPurifier_Config object,  an array of directives (Namespace.Directive =>
+ Value) or the filename of an ini file.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CHtmlPurifier::processOutput*					 public
+>
+ processOutput($output)
+<
+(void)
+
+ Processes the captured output. This method purifies the output using 'HTML
+ Purifier'.
+    [output] (string) the captured output to be processed
+
+
+*CHtmlPurifier::purify* 					 public
+>
+ purify($content)
+<
+(string) the purified content
+
+ Purifies the HTML content by removing malicious code.
+    [content] (string) the content to be purified.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

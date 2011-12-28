@@ -1,0 +1,41 @@
+
+*CMissingTranslationEvent*   >> |CEvent| >> |CComponent|
+==========================
+
+ CMissingTranslationEvent represents the parameter for the
+ |CMessageSource::onMissingTranslation| event.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<category>				*CMissingTranslationEvent::category*
+ (string) the category that the message belongs to
+
+<language>				*CMissingTranslationEvent::language*
+ (string) the ID of the language that the message is to be translated to
+
+<message>				*CMissingTranslationEvent::message*
+ (string) the message to be translated
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CMissingTranslationEvent::__construct* 			 public
+>
+ __construct($sender, $category, $message, $language)
+<
+(void)
+
+ Constructor.
+    [sender] (mixed) sender of this event
+    [category] (string) the category that the message belongs to
+    [message] (string) the message to be translated
+    [language] (string) the ID of the language that the message is to be
+    translated to
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

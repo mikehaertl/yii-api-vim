@@ -1,0 +1,84 @@
+
+*CJuiButton*   >> |CJuiInputWidget| >> |CJuiWidget| >> |CWidget| >> |CBaseController| >> |CComponent|
+============
+
+ CJuiButton displays a button widget.
+
+ CJuiButton encapsulates the 'JUI Button' plugin.
+
+ To use this widget as a submit button, you may insert the following code in a
+ view:
+>
+ $this->widget('zii.widgets.jui.CJuiButton', array(
+ 		'name'=>'submit',
+ 		'caption'=>'Save',
+ 		'options'=>array(
+         'onclick'=>'js:function(){alert("Yes");}',
+     ),
+ ));
+<
+ To use this widget as a button, you may insert the following code in a view:
+>
+ $this->widget('zii.widgets.jui.CJuiButton',
+ 	array(
+ 		'name'=>'button',
+ 			'caption'=>'Save',
+ 		'value'=>'asd',
+ 		'onclick'=>'js:function(){alert("Save button clicked"); this.blur(); return
+ false;}',
+ 		)
+ );
+<
+ By configuring the |CJuiButton::options| property, you may specify the
+ options that need to be passed to the JUI button plugin. Please refer to the
+ 'JUI Button' documentation for possible options (name-value pairs).
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<buttonType>				*CJuiButton::buttonType*
+ (string) The button type (possible types: submit, button, link, radio,
+ checkbox, buttonset). "submit" is used as default.
+
+<caption>				*CJuiButton::caption*
+ (string) The button text
+
+<htmlTag>				*CJuiButton::htmlTag*
+ (string) The default html tag for the buttonset
+
+<onclick>				*CJuiButton::onclick*
+ (string) The javascript function to be raised when this item is clicked
+ (client event).
+
+<url>					*CJuiButton::url*
+ (string) The url used when a buttonType "link" is selected.
+
+<value> 				*CJuiButton::value*
+ (mixed) The value of the current item. Used only for "radio" and "checkbox"
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CJuiButton::init*						 public
+>
+ init()
+<
+(void)
+
+ (non-PHPdoc)
+
+
+*CJuiButton::run*						 public
+>
+ run()
+<
+(void)
+
+ (non-PHPdoc)
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

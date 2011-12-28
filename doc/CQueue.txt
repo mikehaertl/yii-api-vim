@@ -1,0 +1,141 @@
+
+*CQueue*   >> |CComponent|
+========
+
+ CQueue implements a queue.
+
+ The typical queue operations are implemented, which include
+ |CQueue::enqueue|, |CQueue::dequeue| and |CQueue::peek|. In addition,
+ |CQueue::contains| can be used to check if an item is contained in the queue.
+ To obtain the number of the items in the queue, check the |CQueue::getCount|
+ property.
+
+ Items in the queue may be traversed using foreach as follows,
+>
+ foreach($queue as $item) ...
+<
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<count> 				*CQueue::count*
+ (integer) Returns the number of items in the queue.
+
+<iterator>				*CQueue::iterator*
+ (Iterator) Returns an iterator for traversing the items in the queue. This
+ method is required by the interface IteratorAggregate.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CQueue::__construct*						 public
+>
+ __construct($data=NULL)
+<
+(void)
+
+ Constructor. Initializes the queue with an array or an iterable object.
+    [data] (array) the intial data. Default is null, meaning no
+    initialization.
+
+
+*CQueue::clear* 						 public
+>
+ clear()
+<
+(void)
+
+ Removes all items in the queue.
+
+
+*CQueue::contains*						 public
+>
+ contains($item)
+<
+(boolean) whether the queue contains the item
+
+    [item] (mixed) the item
+
+
+*CQueue::copyFrom*						 public
+>
+ copyFrom($data)
+<
+(void)
+
+ Copies iterable data into the queue. Note, existing data in the list will be
+ cleared first.
+    [data] (mixed) the data to be copied from, must be an array or object
+    implementing Traversable
+
+
+*CQueue::count* 						 public
+>
+ count()
+<
+(integer) number of items in the queue.
+
+ Returns the number of items in the queue. This method is required by
+ Countable interface.
+
+
+*CQueue::dequeue*						 public
+>
+ dequeue()
+<
+(mixed) the item at the beginning of the queue
+
+ Removes and returns the object at the beginning of the queue.
+
+
+*CQueue::enqueue*						 public
+>
+ enqueue($item)
+<
+(void)
+
+ Adds an object to the end of the queue.
+    [item] (mixed) the item to be appended into the queue
+
+
+*CQueue::getCount*						 public
+>
+ getCount()
+<
+(integer) the number of items in the queue
+
+ Returns the number of items in the queue.
+
+
+*CQueue::getIterator*						 public
+>
+ getIterator()
+<
+(Iterator) an iterator for traversing the items in the queue.
+
+ Returns an iterator for traversing the items in the queue. This method is
+ required by the interface IteratorAggregate.
+
+
+*CQueue::peek*							 public
+>
+ peek()
+<
+(mixed) item at the top of the queue
+
+ Returns the item at the top of the queue.
+
+
+*CQueue::toArray*						 public
+>
+ toArray()
+<
+(array) the list of items in queue
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

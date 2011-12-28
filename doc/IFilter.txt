@@ -1,0 +1,25 @@
+
+*IFilter*  
+=========
+
+ IFilter is the interface that must be implemented by action filters.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*IFilter::filter*						 public
+>
+ filter($filterChain)
+<
+(void)
+
+ Performs the filtering. This method should be implemented to perform actual
+ filtering. If the filter wants to continue the action execution, it should
+ call '$filterChain->run()'.
+    [filterChain] (CFilterChain) the filter chain that the filter is on.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

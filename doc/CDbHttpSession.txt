@@ -1,0 +1,152 @@
+
+*CDbHttpSession*   >> |CHttpSession| >> |CApplicationComponent| >> |CComponent|
+================
+
+ CDbHttpSession extends |CHttpSession| by using database as session data
+ storage.
+
+ CDbHttpSession stores session data in a DB table named 'YiiSession'. The
+ table name can be changed by setting |CDbHttpSession::sessionTableName|. If
+ the table does not exist, it will be automatically created if
+ |CDbHttpSession::autoCreateSessionTable| is set true.
+
+ The following is the table structure:
+>
+ CREATE TABLE YiiSession
+ (
+     id CHAR(32) PRIMARY KEY,
+     expire INTEGER,
+     data TEXT
+ )
+<
+ CDbHttpSession relies on 'PDO' to access database.
+
+ By default, it will use an SQLite3 database named 'session-YiiVersion.db'
+ under the application runtime directory. You can also specify
+ |CDbHttpSession::connectionID| so that it makes use of a DB application
+ component to access database.
+
+ When using CDbHttpSession in a production server, we recommend you pre-create
+ the session DB table and set |CDbHttpSession::autoCreateSessionTable| to be
+ false. This will greatly improve the performance. You may also create a DB
+ index for the 'expire' column in the session table to further improve the
+ performance.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<autoCreateSessionTable>		*CDbHttpSession::autoCreateSessionTable*
+ (boolean) whether the session DB table should be automatically created if not
+ exists. Defaults to true.
+
+<connectionID>				*CDbHttpSession::connectionID*
+ (string) the ID of a |CDbConnection| application component. If not set, a
+ SQLite database will be automatically created and used. The SQLite database
+ file is is 'protected/runtime/session-YiiVersion.db'.
+
+<dbConnection>				*CDbHttpSession::dbConnection*
+ (CDbConnection) the DB connection instance
+
+<sessionTableName>			*CDbHttpSession::sessionTableName*
+ (string) the name of the DB table to store session content. Note, if
+ |CDbHttpSession::autoCreateSessionTable| is false and you want to create the
+ DB table manually by yourself, you need to make sure the DB table is of the
+ following structure:
+>
+ (id CHAR(32) PRIMARY KEY, expire INTEGER, data TEXT)
+<
+
+<useCustomStorage>			*CDbHttpSession::useCustomStorage*
+ (boolean) Returns a value indicating whether to use custom session storage.
+ This method overrides the parent implementation and always returns true.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbHttpSession::createSessionTable*				 protected
+>
+ createSessionTable($db, $tableName)
+<
+(void)
+
+ Creates the session DB table.
+    [db] (CDbConnection) the database connection
+    [tableName] (string) the name of the table to be created
+
+
+*CDbHttpSession::destroySession*				 public
+>
+ destroySession($id)
+<
+(boolean) whether session is destroyed successfully
+
+ Session destroy handler. Do not call this method directly.
+    [id] (string) session ID
+
+
+*CDbHttpSession::gcSession*					 public
+>
+ gcSession($maxLifetime)
+<
+(boolean) whether session is GCed successfully
+
+ Session GC (garbage collection) handler. Do not call this method directly.
+    [maxLifetime] (integer) the number of seconds after which data will be
+    seen as 'garbage' and cleaned up.
+
+
+*CDbHttpSession::getDbConnection*				 protected
+>
+ getDbConnection()
+<
+(CDbConnection) the DB connection instance
+
+
+
+*CDbHttpSession::getUseCustomStorage*				 public
+>
+ getUseCustomStorage()
+<
+(boolean) whether to use custom storage.
+
+ Returns a value indicating whether to use custom session storage. This method
+ overrides the parent implementation and always returns true.
+
+
+*CDbHttpSession::openSession*					 public
+>
+ openSession($savePath, $sessionName)
+<
+(boolean) whether session is opened successfully
+
+ Session open handler. Do not call this method directly.
+    [savePath] (string) session save path
+    [sessionName] (string) session name
+
+
+*CDbHttpSession::readSession*					 public
+>
+ readSession($id)
+<
+(string) the session data
+
+ Session read handler. Do not call this method directly.
+    [id] (string) session ID
+
+
+*CDbHttpSession::writeSession*					 public
+>
+ writeSession($id, $data)
+<
+(boolean) whether session write is successful
+
+ Session write handler. Do not call this method directly.
+    [id] (string) session ID
+    [data] (string) session data
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

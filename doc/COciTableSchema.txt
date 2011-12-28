@@ -1,0 +1,17 @@
+
+*COciTableSchema*   >> |CDbTableSchema| >> |CComponent|
+=================
+
+ COciTableSchema represents the metadata for a Oracle table.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<schemaName>				*COciTableSchema::schemaName*
+ (string) name of the schema (database) that this table belongs to. Defaults
+ to null, meaning no schema (or the current database).
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

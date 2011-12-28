@@ -1,0 +1,73 @@
+
+*CActiveRecordMetaData*  
+=======================
+
+ CActiveRecordMetaData represents the meta-data for an Active Record class.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<attributeDefaults>			*CActiveRecordMetaData::attributeDefaults*
+ (array) attribute default values
+
+<columns>				*CActiveRecordMetaData::columns*
+ (array) table columns
+
+<relations>				*CActiveRecordMetaData::relations*
+ (array) list of relations
+
+<tableSchema>				*CActiveRecordMetaData::tableSchema*
+ (CDbTableSchema) the table schema information
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CActiveRecordMetaData::__construct*				 public
+>
+ __construct($model)
+<
+(void)
+
+ Constructor.
+    [model] (CActiveRecord) the model instance
+
+
+*CActiveRecordMetaData::addRelation*				 public
+>
+ addRelation($name, $config)
+<
+(void) 
+
+ Adds a relation.
+
+ $config is an array with three elements: relation type, the related active
+ record class and the foreign key.
+    [name] (string) $name Name of the relation.
+    [config] (array) $config Relation parameters.
+
+
+*CActiveRecordMetaData::hasRelation*				 public
+>
+ hasRelation($name)
+<
+(boolean) 
+
+ Checks if there is a relation with specified name defined.
+    [name] (string) $name Name of the relation.
+
+
+*CActiveRecordMetaData::removeRelation* 			 public
+>
+ removeRelation($name)
+<
+(void) 
+
+ Deletes a relation with specified name.
+    [name] (string) $name
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

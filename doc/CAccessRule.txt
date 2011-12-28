@@ -1,0 +1,141 @@
+
+*CAccessRule*   >> |CComponent|
+=============
+
+ CAccessRule represents an access rule that is managed by
+ |CAccessControlFilter|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<actions>				*CAccessRule::actions*
+ (array) list of action IDs that this rule applies to. The comparison is
+ case-insensitive.
+
+<allow> 				*CAccessRule::allow*
+ (boolean) whether this is an 'allow' rule or 'deny' rule.
+
+<controllers>				*CAccessRule::controllers*
+ (array) list of controler IDs that this rule applies to. The comparison is
+ case-insensitive.
+
+<expression>				*CAccessRule::expression*
+ (string) a PHP expression whose value indicates whether this rule should be
+ applied. In this expression, you can use '$user' which refers to
+ 'Yii::app()->user'. Starting from version 1.0.11, the expression can also be
+ a valid PHP callback, including class method name (array(ClassName/Object,
+ MethodName)), or anonymous function (PHP 5.3.0+). The function/method
+ signature should be as follows:
+>
+ function foo($user, $rule) { ... }
+<
+ where $user is the current application user object and $rule is this access
+ rule.
+
+<ips>					*CAccessRule::ips*
+ (array) IP patterns.
+
+<message>				*CAccessRule::message*
+ (string) the error message to be displayed when authorization is denied by
+ this rule. If not set, a default error message will be displayed.
+
+<roles> 				*CAccessRule::roles*
+ (array) list of roles this rule applies to. For each role, the current user's
+ |CWebUser::checkAccess| method will be invoked. If one of the invocations
+ returns true, the rule will be applied. Note, you should mainly use roles in
+ an "allow" rule because by definition, a role represents a permission
+ collection.
+
+<users> 				*CAccessRule::users*
+ (array) list of user names that this rule applies to. The comparison is
+ case-insensitive.
+
+<verbs> 				*CAccessRule::verbs*
+ (array) list of request types (e.g. GET, POST) that this rule applies to.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CAccessRule::isActionMatched*					 protected
+>
+ isActionMatched($action)
+<
+(boolean) whether the rule applies to the action
+
+    [action] (CAction) the action
+
+
+*CAccessRule::isControllerMatched*				 protected
+>
+ isControllerMatched($controller)
+<
+(boolean) whether the rule applies to the action
+
+    [controller] (CAction) the action
+
+
+*CAccessRule::isExpressionMatched*				 protected
+>
+ isExpressionMatched($user)
+<
+(boolean) the expression value. True if the expression is not specified.
+
+    [user] (IWebUser) the user
+
+
+*CAccessRule::isIpMatched*					 protected
+>
+ isIpMatched($ip)
+<
+(boolean) whether the rule applies to the IP address
+
+    [ip] (string) the IP address
+
+
+*CAccessRule::isRoleMatched*					 protected
+>
+ isRoleMatched($user)
+<
+(boolean) whether the rule applies to the role
+
+    [user] (IWebUser) the user object
+
+
+*CAccessRule::isUserAllowed*					 public
+>
+ isUserAllowed($user, $controller, $action, $ip, $verb)
+<
+(integer) 1 if the user is allowed, -1 if the user is denied, 0 if the rule
+does not apply to the user
+
+ Checks whether the Web user is allowed to perform the specified action.
+    [user] (CWebUser) the user object
+    [controller] (CController) the controller currently being executed
+    [action] (CAction) the action to be performed
+    [ip] (string) the request IP address
+    [verb] (string) the request verb (GET, POST, etc.)
+
+
+*CAccessRule::isUserMatched*					 protected
+>
+ isUserMatched($user)
+<
+(boolean) whether the rule applies to the user
+
+    [user] (IWebUser) the user
+
+
+*CAccessRule::isVerbMatched*					 protected
+>
+ isVerbMatched($verb)
+<
+(boolean) whether the rule applies to the request
+
+    [verb] (string) the request method
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

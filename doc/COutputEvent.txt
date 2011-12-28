@@ -1,0 +1,36 @@
+
+*COutputEvent*   >> |CEvent| >> |CComponent|
+==============
+
+ COutputEvent represents the parameter for events related with output
+ handling.
+
+ An event handler may retrieve the captured |COutputEvent::output| for further
+ processing.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<output>				*COutputEvent::output*
+ (string) the output to be processed. The processed output should be stored
+ back to this property.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*COutputEvent::__construct*					 public
+>
+ __construct($sender, $output)
+<
+(void)
+
+ Constructor.
+    [sender] (mixed) sender of the event
+    [output] (string) the output to be processed
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

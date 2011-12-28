@@ -1,0 +1,218 @@
+
+*CPagination*   >> |CComponent|
+=============
+
+ CPagination represents information relevant to pagination.
+
+ When data needs to be rendered in multiple pages, we can use CPagination to
+ represent information such as |CPagination::getItemCount|,
+ |CPagination::getPageSize|, |CPagination::getCurrentPage|, etc. These
+ information can be passed to |CBasePager| to render pagination buttons or
+ links.
+
+ Example:
+
+ Controller action:
+>
+ function actionIndex(){
+     $criteria = new CDbCriteria();
+     $count=Article::model()->count($criteria);
+     $pages=new CPagination($count);
+
+     // results per page
+     $pages->pageSize=10;
+     $pages->applyLimit($criteria);
+     $models = Post::model()->findAll($criteria);
+
+     $this->render('index', array(
+     'models' => $models,
+          'pages' => $pages
+     ));
+ }
+<
+ View:
+>
+ <?php foreach($models as $model): ?>
+     // display a model
+ <?php endforeach; ?>
+
+ // display pagination
+ <?php $this->widget('CLinkPager', array(
+     'pages' => $pages,
+ )) ?>
+<
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<currentPage>				*CPagination::currentPage*
+ (integer) the zero-based index of the current page. Defaults to 0.
+
+<itemCount>				*CPagination::itemCount*
+ (integer) total number of items. Defaults to 0.
+
+<limit> 				*CPagination::limit*
+ (integer) the limit of the data. This may be used to set the LIMIT value for
+ a SQL statement for fetching the current page of data. This returns the same
+ value as |CPagination::pageSize|.
+
+<offset>				*CPagination::offset*
+ (integer) the offset of the data. This may be used to set the OFFSET value
+ for a SQL statement for fetching the current page of data.
+
+<pageCount>				*CPagination::pageCount*
+ (integer) number of pages
+
+<pageSize>				*CPagination::pageSize*
+ (integer) number of items in each page. Defaults to 10.
+
+<pageVar>				*CPagination::pageVar*
+ (string) name of the GET variable storing the current page index. Defaults to
+ 'page'.
+
+<params>				*CPagination::params*
+ (array) the additional GET parameters (name=>value) that should be used when
+ generating pagination URLs. Defaults to null, meaning using the currently
+ available GET parameters.
+
+<route> 				*CPagination::route*
+ (string) the route (controller ID and action ID) for displaying the paged
+ contents. Defaults to empty string, meaning using the current route.
+
+<validateCurrentPage>			*CPagination::validateCurrentPage*
+ (boolean) whether to ensure |CPagination::currentPage| is returning a valid
+ page number. When this property is true, the value returned by
+ |CPagination::currentPage| will always be between 0 and
+ (|CPagination::pageCount|-1). Because |CPagination::pageCount| relies on the
+ correct value of |CPagination::itemCount|, it means you must have knowledge
+ about the total number of data items when you want to access
+ |CPagination::currentPage|. This is fine for SQL-based queries, but may not
+ be feasible for other kinds of queries (e.g. MongoDB). In those cases, you
+ may set this property to be false to skip the validation (you may need to
+ validate yourself then). Defaults to true.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CPagination::__construct*					 public
+>
+ __construct($itemCount=0)
+<
+(void)
+
+ Constructor.
+    [itemCount] (integer) total number of items.
+
+
+*CPagination::applyLimit*					 public
+>
+ applyLimit($criteria)
+<
+(void)
+
+ Applies LIMIT and OFFSET to the specified query criteria.
+    [criteria] (CDbCriteria) the query criteria that should be applied with
+    the limit
+
+
+*CPagination::createPageUrl*					 public
+>
+ createPageUrl($controller, $page)
+<
+(string) the created URL
+
+ Creates the URL suitable for pagination. This method is mainly called by
+ pagers when creating URLs used to perform pagination. The default
+ implementation is to call the controller's createUrl method with the page
+ information. You may override this method if your URL scheme is not the same
+ as the one supported by the controller's createUrl method.
+    [controller] (CController) the controller that will create the actual URL
+    [page] (integer) the page that the URL should point to. This is a
+    zero-based index.
+
+
+*CPagination::getCurrentPage*					 public
+>
+ getCurrentPage($recalculate=true)
+<
+(integer) the zero-based index of the current page. Defaults to 0.
+
+    [recalculate] (boolean) whether to recalculate the current page based on
+    the page size and item count.
+
+
+*CPagination::getItemCount*					 public
+>
+ getItemCount()
+<
+(integer) total number of items. Defaults to 0.
+
+
+
+*CPagination::getLimit* 					 public
+>
+ getLimit()
+<
+(integer) the limit of the data. This may be used to set the LIMIT value for a
+SQL statement for fetching the current page of data. This returns the same
+value as |CPagination::pageSize|.
+
+
+
+*CPagination::getOffset*					 public
+>
+ getOffset()
+<
+(integer) the offset of the data. This may be used to set the OFFSET value for
+a SQL statement for fetching the current page of data.
+
+
+
+*CPagination::getPageCount*					 public
+>
+ getPageCount()
+<
+(integer) number of pages
+
+
+
+*CPagination::getPageSize*					 public
+>
+ getPageSize()
+<
+(integer) number of items in each page. Defaults to 10.
+
+
+
+*CPagination::setCurrentPage*					 public
+>
+ setCurrentPage($value)
+<
+(void)
+
+    [value] (integer) the zero-based index of the current page.
+
+
+*CPagination::setItemCount*					 public
+>
+ setItemCount($value)
+<
+(void)
+
+    [value] (integer) total number of items.
+
+
+*CPagination::setPageSize*					 public
+>
+ setPageSize($value)
+<
+(void)
+
+    [value] (integer) number of items in each page
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

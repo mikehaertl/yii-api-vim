@@ -1,0 +1,60 @@
+
+*CFormElementCollection*   >> |CMap| >> |CComponent|
+========================
+
+ CFormElementCollection implements the collection for storing form elements.
+
+ Because CFormElementCollection extends from |CMap|, it can be used like an
+ associative array. For example,
+>
+ $element=$collection['username'];
+ $collection['username']=array('type'=>'text', 'maxlength'=>128);
+ $collection['password']=new
+ CFormInputElement(array('type'=>'password'),$form);
+ $collection[]='some string';
+<
+ CFormElementCollection can store three types of value: a configuration array,
+ a |CFormElement| object, or a string, as shown in the above example.
+ Internally, these values will be converted to |CFormElement| objects.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CFormElementCollection::__construct*				 public
+>
+ __construct($form, $forButtons=false)
+<
+(void)
+
+ Constructor.
+    [form] (CForm) the form object that owns this collection
+    [forButtons] (boolean) whether this collection is used to store buttons.
+
+
+*CFormElementCollection::add*					 public
+>
+ add($key, $value)
+<
+(void)
+
+ Adds an item to the collection. This method overrides the parent
+ implementation to ensure only configuration arrays, strings, or
+ |CFormElement| objects can be stored in this collection.
+    [key] (mixed) key
+    [value] (mixed) value
+
+
+*CFormElementCollection::remove*				 public
+>
+ remove($key)
+<
+(void)
+
+ Removes the specified element by key.
+    [key] (string) the name of the element to be removed from the collection
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

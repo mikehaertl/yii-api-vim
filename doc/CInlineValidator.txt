@@ -1,0 +1,36 @@
+
+*CInlineValidator*   >> |CValidator| >> |CComponent|
+==================
+
+ CInlineValidator represents a validator which is defined as a method in the
+ object being validated.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<method>				*CInlineValidator::method*
+ (string) the name of the validation method defined in the active record class
+
+<params>				*CInlineValidator::params*
+ (array) additional parameters that are passed to the validation method
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CInlineValidator::validateAttribute*				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

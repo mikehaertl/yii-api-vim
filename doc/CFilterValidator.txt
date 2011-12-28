@@ -1,0 +1,44 @@
+
+*CFilterValidator*   >> |CValidator| >> |CComponent|
+==================
+
+ CFilterValidator transforms the data being validated based on a filter.
+
+ CFilterValidator is actually not a validator but a data processor. It invokes
+ the specified filter method to process the attribute value and save the
+ processed value back to the attribute. The filter method must follow the
+ following signature:
+>
+ function foo($value) {...return $newValue; }
+<
+ Many PHP functions qualify this signature (e.g. trim).
+
+ To specify the filter method, set |CFilterValidator::filter| property to be
+ the function name.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<filter>				*CFilterValidator::filter*
+ (callback) the filter method
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CFilterValidator::validateAttribute*				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

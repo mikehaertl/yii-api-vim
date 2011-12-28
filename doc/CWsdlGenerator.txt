@@ -1,0 +1,98 @@
+
+*CWsdlGenerator*   >> |CComponent|
+================
+
+ CWsdlGenerator generates the WSDL for a given service class.
+
+ The WSDL generation is based on the doc comments found in the service class
+ file. In particular, it recognizes the '@soap' tag in the comment and
+ extracts API method and type definitions.
+
+ In a service class, a remote invokable method must be a public method with a
+ doc comment block containing the '@soap' tag. In the doc comment, the type
+ and name of every input parameter and the type of the return value should be
+ declared using the standard phpdoc format.
+
+ CWsdlGenerator recognizes the following primitive types (case-sensitive) in
+ the parameter and return type declarations:
+   str/string: maps to xsd:string;
+   int/integer: maps to xsd:int;
+   float/double: maps to xsd:float;
+   bool/boolean: maps to xsd:boolean;
+   {date} maps to xsd:date;
+   {time} maps to xsd:time;
+   {datetime} maps to xsd:dateTime;
+   {array} maps to xsd:string;
+   {object} maps to xsd:struct;
+   {mixed} maps to xsd:anyType.If a type is not a primitive type, it is
+ considered as a class type, and CWsdlGenerator will look for its property
+ declarations. Only public properties are considered, and they each must be
+ associated with a doc comment block containg the '@soap' tag. The doc comment
+ block should declare the type of the property.
+
+ CWsdlGenerator recognizes the array type with the following format:
+>
+ typeName[]: maps to tns:typeNameArray
+<
+ The following is an example declaring a remote invokable method:
+>
+ / **
+   * A foo method.
+   * @param string name of something
+   * @param string value of something
+   * @return string[] some array
+   * @soap
+   * /
+ public function foo($name,$value) {...}
+<
+ And the following is an example declaring a class with remote accessible
+ properties:
+>
+ class Foo {
+     / **
+       * @var string name of foo
+       * @soap
+       * /
+     public $name;
+     / **
+       * @var Member[] members of foo
+       * @soap
+       * /
+     public $members;
+ }
+<
+ In the above, the 'members' property is an array of 'Member' objects. Since
+ 'Member' is not a primitive type, CWsdlGenerator will look further to find
+ the definition of 'Member'.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<namespace>				*CWsdlGenerator::namespace*
+ (string) the namespace to be used in the generated WSDL. If not set, it
+ defaults to the name of the class that WSDL is generated upon.
+
+<serviceName>				*CWsdlGenerator::serviceName*
+ (string) the name of the generated WSDL. If not set, it defaults to
+ "urn:{$className}wsdl".
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CWsdlGenerator::generateWsdl*					 public
+>
+ generateWsdl($className, $serviceUrl, $encoding='UTF-8')
+<
+(string) the generated WSDL
+
+ Generates the WSDL for the given class.
+    [className] (string) class name
+    [serviceUrl] (string) Web service URL
+    [encoding] (string) encoding of the WSDL. Defaults to 'UTF-8'.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

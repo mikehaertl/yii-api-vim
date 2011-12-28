@@ -1,0 +1,62 @@
+
+*CGoogleApi*  
+============
+
+ CGoogleApi provides helper methods to easily access 'Google AJAX APIs'.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<bootstrapUrl>				*CGoogleApi::bootstrapUrl*
+ ()
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CGoogleApi::init*						 public
+>
+ init($apiKey='')
+<
+(string) the script tag that loads Google jsapi.
+
+ Renders the jsapi script file.
+    [apiKey] (string) the API key. Null if you do not have a key.
+
+
+*CGoogleApi::load*						 public
+>
+ load($name, $version='1', $options=array())
+<
+(string) the js code for loading the module. You can use |CHtml::script| to
+enclose it in a script tag.
+
+ Loads the specified API module. Note that you should call |CGoogleApi::init|
+ first.
+    [name] (string) the module name
+    [version] (string) the module version
+    [options] (array) additional js options that are to be passed to the
+    load() function.
+
+
+*CGoogleApi::register*						 public
+>
+ register($name, $version='1', $options=array(), $apiKey='')
+<
+(void)
+
+ Registers the specified API module. This is similar to |CGoogleApi::load|
+ except that it registers the loading code with |CClientScript| instead of
+ returning it. This method also registers the jsapi script needed by the
+ loading call.
+    [name] (string) the module name
+    [version] (string) the module version
+    [options] (array) additional js options that are to be passed to the
+    load() function.
+    [apiKey] (string) the API key. Null if you do not have a key.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

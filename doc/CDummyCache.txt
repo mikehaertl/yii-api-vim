@@ -1,0 +1,165 @@
+
+*CDummyCache*   >> |CApplicationComponent| >> |CComponent|
+=============
+
+ CDummyCache is a placeholder cache component.
+
+ CDummyCache does not cache anything. It is provided so that one can always
+ configure a 'cache' application component and he does not need to check if
+ Yii::app()->cache is null or not. By replacing CDummyCache with some other
+ cache component, one can quickly switch from non-caching mode to caching
+ mode.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<keyPrefix>				*CDummyCache::keyPrefix*
+ (string) a string prefixed to every cache key so that it is unique. Defaults
+ to |CApplication::getId|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDummyCache::add*						 public
+>
+ add($id, $value, $expire=0, $dependency=NULL)
+<
+(boolean) true if the value is successfully stored into cache, false otherwise
+
+ Stores a value identified by a key into cache if the cache does not contain
+ this key. Nothing will be done if the cache already contains the key.
+    [id] (string) the key identifying the value to be cached
+    [value] (mixed) the value to be cached
+    [expire] (integer) the number of seconds in which the cached value will
+    expire. 0 means never expire.
+    [dependency] (ICacheDependency) dependency of the cached item. If the
+    dependency changes, the item is labeled invalid.
+
+
+*CDummyCache::delete*						 public
+>
+ delete($id)
+<
+(boolean) if no error happens during deletion
+
+ Deletes a value with the specified key from cache
+    [id] (string) the key of the value to be deleted
+
+
+*CDummyCache::flush*						 public
+>
+ flush()
+<
+(boolean) whether the flush operation was successful.
+
+ Deletes all values from cache. Be careful of performing this operation if the
+ cache is shared by multiple applications.
+
+
+*CDummyCache::get*						 public
+>
+ get($id)
+<
+(mixed) the value stored in cache, false if the value is not in the cache,
+expired or the dependency has changed.
+
+ Retrieves a value from cache with a specified key.
+    [id] (string) a key identifying the cached value
+
+
+*CDummyCache::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component. This method overrides the parent
+ implementation by setting default cache key prefix.
+
+
+*CDummyCache::mget*						 public
+>
+ mget($ids)
+<
+(array) list of cached values corresponding to the specified keys. The array
+is returned in terms of (key,value) pairs. If a value is not cached or
+expired, the corresponding array value will be false.
+
+ Retrieves multiple values from cache with the specified keys. Some caches
+ (such as memcache, apc) allow retrieving multiple cached values at one time,
+ which may improve the performance since it reduces the communication cost. In
+ case a cache doesn't support this feature natively, it will be simulated by
+ this method.
+    [ids] (array) list of keys identifying the cached values
+
+
+*CDummyCache::offsetExists*					 public
+>
+ offsetExists($id)
+<
+(boolean) 
+
+ Returns whether there is a cache entry with a specified key. This method is
+ required by the interface ArrayAccess.
+    [id] (string) a key identifying the cached value
+
+
+*CDummyCache::offsetGet*					 public
+>
+ offsetGet($id)
+<
+(mixed) the value stored in cache, false if the value is not in the cache or
+expired.
+
+ Retrieves the value from cache with a specified key. This method is required
+ by the interface ArrayAccess.
+    [id] (string) a key identifying the cached value
+
+
+*CDummyCache::offsetSet*					 public
+>
+ offsetSet($id, $value)
+<
+(void)
+
+ Stores the value identified by a key into cache. If the cache already
+ contains such a key, the existing value will be replaced with the new ones.
+ To add expiration and dependencies, use the set() method. This method is
+ required by the interface ArrayAccess.
+    [id] (string) the key identifying the value to be cached
+    [value] (mixed) the value to be cached
+
+
+*CDummyCache::offsetUnset*					 public
+>
+ offsetUnset($id)
+<
+(boolean) if no error happens during deletion
+
+ Deletes the value with the specified key from cache This method is required
+ by the interface ArrayAccess.
+    [id] (string) the key of the value to be deleted
+
+
+*CDummyCache::set*						 public
+>
+ set($id, $value, $expire=0, $dependency=NULL)
+<
+(boolean) true if the value is successfully stored into cache, false otherwise
+
+ Stores a value identified by a key into cache. If the cache already contains
+ such a key, the existing value and expiration time will be replaced with the
+ new ones.
+    [id] (string) the key identifying the value to be cached
+    [value] (mixed) the value to be cached
+    [expire] (integer) the number of seconds in which the cached value will
+    expire. 0 means never expire.
+    [dependency] (ICacheDependency) dependency of the cached item. If the
+    dependency changes, the item is labeled invalid.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

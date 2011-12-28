@@ -1,0 +1,503 @@
+
+*CWebApplication*   >> |CApplication| >> |CModule| >> |CComponent|
+=================
+
+ CWebApplication extends CApplication by providing functionalities specific to
+ Web requests.
+
+ CWebApplication manages the controllers in MVC pattern, and provides the
+ following additional core application components:
+   |CWebApplication::urlManager|: provides URL parsing and
+   constructing functionality;
+   |CWebApplication::request|: encapsulates the Web request
+   information;
+   |CWebApplication::session|: provides the session-related
+   functionalities;
+   |CWebApplication::assetManager|: manages the publishing of private
+   asset files.
+   |CWebApplication::user|: represents the user session information.
+   |CWebApplication::themeManager|: manages themes.
+   |CWebApplication::authManager|: manages role-based access control
+   (RBAC).
+   |CWebApplication::clientScript|: manages client scripts
+   (javascripts and CSS).
+   |CWebApplication::widgetFactory|: creates widgets and supports
+   widget skinning.User requests are resolved as controller-action pairs and
+ additional parameters. CWebApplication creates the requested controller
+ instance and let it to handle the actual user request. If the user does not
+ specify controller ID, it will assume |CWebApplication::defaultController| is
+ requested (which defaults to 'site').
+
+ Controller class files must reside under the directory
+ |CWebApplication::getControllerPath| (defaults to 'protected/controllers').
+ The file name and the class name must be the same as the controller ID with
+ the first letter in upper case and appended with 'Controller'. For example,
+ the controller 'article' is defined by the class 'ArticleController' which is
+ in the file 'protected/controllers/ArticleController.php'.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<assetManager>				*CWebApplication::assetManager*
+ (CAssetManager) the asset manager component
+
+<authManager>				*CWebApplication::authManager*
+ (IAuthManager) the authorization manager component
+
+<baseUrl>				*CWebApplication::baseUrl*
+ (string) Returns the relative URL for the application. This is a shortcut
+ method to |CHttpRequest::getBaseUrl|.
+
+<catchAllRequest>			*CWebApplication::catchAllRequest*
+ (array) the configuration specifying a controller which should handle all
+ user requests. This is mainly used when the application is in maintenance
+ mode and we should use a controller to handle all incoming requests. The
+ configuration specifies the controller route (the first element) and GET
+ parameters (the rest name-value pairs). For example,
+>
+ array(
+     'offline/notice',
+     'param1'=>'value1',
+     'param2'=>'value2',
+ )
+<
+ Defaults to null, meaning catch-all is not effective.
+
+<clientScript>				*CWebApplication::clientScript*
+ (CClientScript) Returns the client script manager.
+
+<controller>				*CWebApplication::controller*
+ (CController) the currently active controller
+
+<controllerMap> 			*CWebApplication::controllerMap*
+ (array) mapping from controller ID to controller configurations. Each
+ name-value pair specifies the configuration for a single controller. A
+ controller configuration can be either a string or an array. If the former,
+ the string should be the class name or |YiiBase::getPathOfAlias| of the
+ controller. If the latter, the array must contain a 'class' element which
+ specifies the controller's class name or |YiiBase::getPathOfAlias|. The rest
+ name-value pairs in the array are used to initialize the corresponding
+ controller properties. For example,
+>
+ array(
+   'post'=>array(
+      'class'=>'path.to.PostController',
+      'pageTitle'=>'something new',
+   ),
+   'user'=>'path.to.UserController',,
+ )
+<
+ Note, when processing an incoming request, the controller map will first be
+ checked to see if the request can be handled by one of the controllers in the
+ map. If not, a controller will be searched for under the
+ |CWebApplication::getControllerPath|.
+
+<controllerPath>			*CWebApplication::controllerPath*
+ (string) the directory that contains the controller classes. Defaults to
+ 'protected/controllers'.
+
+<defaultController>			*CWebApplication::defaultController*
+ (string) the route of the default controller, action or module. Defaults to
+ 'site'.
+
+<homeUrl>				*CWebApplication::homeUrl*
+ (string) the homepage URL
+
+<layout>				*CWebApplication::layout*
+ (mixed) the application-wide layout. Defaults to 'main' (relative to
+ |CWebApplication::getLayoutPath|). If this is false, then no layout will be
+ used.
+
+<layoutPath>				*CWebApplication::layoutPath*
+ (string) the root directory of layout files. Defaults to
+ 'protected/views/layouts'.
+
+<session>				*CWebApplication::session*
+ (CHttpSession) the session component
+
+<systemViewPath>			*CWebApplication::systemViewPath*
+ (string) the root directory of system view files. Defaults to
+ 'protected/views/system'.
+
+<theme> 				*CWebApplication::theme*
+ (CTheme) the theme used currently. Null if no theme is being used.
+
+<themeManager>				*CWebApplication::themeManager*
+ (CThemeManager) the theme manager.
+
+<user>					*CWebApplication::user*
+ (CWebUser) the user session information
+
+<viewPath>				*CWebApplication::viewPath*
+ (string) the root directory of view files. Defaults to 'protected/views'.
+
+<viewRenderer>				*CWebApplication::viewRenderer*
+ (IViewRenderer) Returns the view renderer. If this component is registered
+ and enabled, the default view rendering logic defined in |CBaseController|
+ will be replaced by this renderer.
+
+<widgetFactory> 			*CWebApplication::widgetFactory*
+ (IWidgetFactory) Returns the widget factory.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CWebApplication::afterControllerAction*			 public
+>
+ afterControllerAction($controller, $action)
+<
+(void)
+
+ The post-filter for controller actions. This method is invoked after the
+ currently requested controller action and all its filters are executed. You
+ may override this method with logic that needs to be done after all
+ controller actions.
+    [controller] (CController) the controller
+    [action] (CAction) the action
+
+
+*CWebApplication::beforeControllerAction*			 public
+>
+ beforeControllerAction($controller, $action)
+<
+(boolean) whether the action should be executed.
+
+ The pre-filter for controller actions. This method is invoked before the
+ currently requested controller action and all its filters are executed. You
+ may override this method with logic that needs to be done before all
+ controller actions.
+    [controller] (CController) the controller
+    [action] (CAction) the action
+
+
+*CWebApplication::createAbsoluteUrl*				 public
+>
+ createAbsoluteUrl($route, $params=array(), $schema='', $ampersand='&')
+<
+(string) the constructed URL
+
+ Creates an absolute URL based on the given controller and action information.
+    [route] (string) the URL route. This should be in the format of
+    'ControllerID/ActionID'.
+    [params] (array) additional GET parameters (name=>value). Both the name
+    and value will be URL-encoded.
+    [schema] (string) schema to use (e.g. http, https). If empty, the schema
+    used for the current request will be used.
+    [ampersand] (string) the token separating name-value pairs in the URL.
+
+
+*CWebApplication::createController*				 public
+>
+ createController($route, $owner=NULL)
+<
+(array) the controller instance and the action ID. Null if the controller
+class does not exist or the route is invalid.
+
+ Creates a controller instance based on a route. The route should contain the
+ controller ID and the action ID. It may also contain additional GET
+ variables. All these must be concatenated together with slashes.
+
+ This method will attempt to create a controller in the following order:
+
+   1. If the first segment is found in
+   |CWebApplication::controllerMap|, the corresponding controller
+   configuration will be used to create the controller;
+   2. If the first segment is found to be a module ID, the
+   corresponding module will be used to create the controller;
+   3. Otherwise, it will search under the
+   |CWebApplication::controllerPath| to create the corresponding
+   controller. For example, if the route is "admin/user/create", then
+   the controller will be created using the class file
+   "protected/controllers/admin/UserController.php".
+
+
+    [route] (string) the route of the request.
+    [owner] (CWebModule) the module that the new controller will belong to.
+    Defaults to null, meaning the application instance is the owner.
+
+
+*CWebApplication::createUrl*					 public
+>
+ createUrl($route, $params=array(), $ampersand='&')
+<
+(string) the constructed URL
+
+ Creates a relative URL based on the given controller and action information.
+    [route] (string) the URL route. This should be in the format of
+    'ControllerID/ActionID'.
+    [params] (array) additional GET parameters (name=>value). Both the name
+    and value will be URL-encoded.
+    [ampersand] (string) the token separating name-value pairs in the URL.
+
+
+*CWebApplication::findModule*					 public
+>
+ findModule($id)
+<
+(CWebModule) the module that has the specified ID. Null if no module is found.
+
+ Searches for a module by its ID. This method is used internally. Do not call
+ this method.
+    [id] (string) module ID
+
+
+*CWebApplication::getAssetManager*				 public
+>
+ getAssetManager()
+<
+(CAssetManager) the asset manager component
+
+
+
+*CWebApplication::getAuthManager*				 public
+>
+ getAuthManager()
+<
+(IAuthManager) the authorization manager component
+
+
+
+*CWebApplication::getBaseUrl*					 public
+>
+ getBaseUrl($absolute=false)
+<
+(string) the relative URL for the application
+
+ Returns the relative URL for the application. This is a shortcut method to
+ |CHttpRequest::getBaseUrl|.
+    [absolute] (boolean) whether to return an absolute URL. Defaults to false,
+    meaning returning a relative one. This parameter has been available since
+    1.0.2.
+
+
+*CWebApplication::getClientScript*				 public
+>
+ getClientScript()
+<
+(CClientScript) the client script manager
+
+ Returns the client script manager.
+
+
+*CWebApplication::getController*				 public
+>
+ getController()
+<
+(CController) the currently active controller
+
+
+
+*CWebApplication::getControllerPath*				 public
+>
+ getControllerPath()
+<
+(string) the directory that contains the controller classes. Defaults to
+'protected/controllers'.
+
+
+
+*CWebApplication::getHomeUrl*					 public
+>
+ getHomeUrl()
+<
+(string) the homepage URL
+
+
+
+*CWebApplication::getLayoutPath*				 public
+>
+ getLayoutPath()
+<
+(string) the root directory of layout files. Defaults to
+'protected/views/layouts'.
+
+
+
+*CWebApplication::getSession*					 public
+>
+ getSession()
+<
+(CHttpSession) the session component
+
+
+
+*CWebApplication::getSystemViewPath*				 public
+>
+ getSystemViewPath()
+<
+(string) the root directory of system view files. Defaults to
+'protected/views/system'.
+
+
+
+*CWebApplication::getTheme*					 public
+>
+ getTheme()
+<
+(CTheme) the theme used currently. Null if no theme is being used.
+
+
+
+*CWebApplication::getThemeManager*				 public
+>
+ getThemeManager()
+<
+(CThemeManager) the theme manager.
+
+
+
+*CWebApplication::getUser*					 public
+>
+ getUser()
+<
+(CWebUser) the user session information
+
+
+
+*CWebApplication::getViewPath*					 public
+>
+ getViewPath()
+<
+(string) the root directory of view files. Defaults to 'protected/views'.
+
+
+
+*CWebApplication::getViewRenderer*				 public
+>
+ getViewRenderer()
+<
+(IViewRenderer) the view renderer.
+
+ Returns the view renderer. If this component is registered and enabled, the
+ default view rendering logic defined in |CBaseController| will be replaced by
+ this renderer.
+
+
+*CWebApplication::getWidgetFactory*				 public
+>
+ getWidgetFactory()
+<
+(IWidgetFactory) the widget factory
+
+ Returns the widget factory.
+
+
+*CWebApplication::init* 					 protected
+>
+ init()
+<
+(void)
+
+ Initializes the application. This method overrides the parent implementation
+ by preloading the 'request' component.
+
+
+*CWebApplication::parseActionParams*				 protected
+>
+ parseActionParams($pathInfo)
+<
+(string) action ID
+
+ Parses a path info into an action ID and GET variables.
+    [pathInfo] (string) path info
+
+
+*CWebApplication::processRequest*				 public
+>
+ processRequest()
+<
+(void)
+
+ Processes the current request. It first resolves the request into controller
+ and action, and then creates the controller to perform the action.
+
+
+*CWebApplication::registerCoreComponents*			 protected
+>
+ registerCoreComponents()
+<
+(void)
+
+ Registers the core application components. This method overrides the parent
+ implementation by registering additional core components.
+
+
+*CWebApplication::runController*				 public
+>
+ runController($route)
+<
+(void)
+
+ Creates the controller and performs the specified action.
+    [route] (string) the route of the current request. See
+    |CWebApplication::createController| for more details.
+
+
+*CWebApplication::setController*				 public
+>
+ setController($value)
+<
+(void)
+
+    [value] (CController) the currently active controller
+
+
+*CWebApplication::setControllerPath*				 public
+>
+ setControllerPath($value)
+<
+(void)
+
+    [value] (string) the directory that contains the controller classes.
+
+
+*CWebApplication::setHomeUrl*					 public
+>
+ setHomeUrl($value)
+<
+(void)
+
+    [value] (string) the homepage URL
+
+
+*CWebApplication::setLayoutPath*				 public
+>
+ setLayoutPath($path)
+<
+(void)
+
+    [path] (string) the root directory of layout files.
+
+
+*CWebApplication::setSystemViewPath*				 public
+>
+ setSystemViewPath($path)
+<
+(void)
+
+    [path] (string) the root directory of system view files.
+
+
+*CWebApplication::setTheme*					 public
+>
+ setTheme($value)
+<
+(void)
+
+    [value] (string) the theme name
+
+
+*CWebApplication::setViewPath*					 public
+>
+ setViewPath($path)
+<
+(void)
+
+    [path] (string) the root directory of view files.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

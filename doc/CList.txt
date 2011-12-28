@@ -1,0 +1,259 @@
+
+*CList*   >> |CComponent|
+=======
+
+ CList implements an integer-indexed collection class.
+
+ You can access, append, insert, remove an item by using |CList::itemAt|,
+ |CList::add|, |CList::insertAt|, |CList::remove|, and |CList::removeAt|. To
+ get the number of the items in the list, use |CList::getCount|. CList can
+ also be used like a regular array as follows,
+>
+ $list[]=$item;  // append at the end
+ $list[$index]=$item; // $index must be between 0 and $list->Count
+ unset($list[$index]); // remove the item at $index
+ if(isset($list[$index])) // if the list has an item at $index
+ foreach($list as $index=>$item) // traverse each item in the list
+ $n=count($list); // returns the number of items in the list
+<
+ To extend CList by doing additional operations with each addition or removal
+ operation (e.g. performing type check), override |CList::insertAt|, and
+ |CList::removeAt|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<count> 				*CList::count*
+ (integer) Returns the number of items in the list.
+
+<iterator>				*CList::iterator*
+ (Iterator) Returns an iterator for traversing the items in the list. This
+ method is required by the interface IteratorAggregate.
+
+<readOnly>				*CList::readOnly*
+ (boolean) whether this list is read-only or not. Defaults to false.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CList::__construct*						 public
+>
+ __construct($data=NULL, $readOnly=false)
+<
+(void)
+
+ Constructor. Initializes the list with an array or an iterable object.
+    [data] (array) the initial data. Default is null, meaning no
+    initialization.
+    [readOnly] (boolean) whether the list is read-only
+
+
+*CList::add*							 public
+>
+ add($item)
+<
+(integer) the zero-based index at which the item is added
+
+ Appends an item at the end of the list.
+    [item] (mixed) new item
+
+
+*CList::clear*							 public
+>
+ clear()
+<
+(void)
+
+ Removes all items in the list.
+
+
+*CList::contains*						 public
+>
+ contains($item)
+<
+(boolean) whether the list contains the item
+
+    [item] (mixed) the item
+
+
+*CList::copyFrom*						 public
+>
+ copyFrom($data)
+<
+(void)
+
+ Copies iterable data into the list. Note, existing data in the list will be
+ cleared first.
+    [data] (mixed) the data to be copied from, must be an array or object
+    implementing Traversable
+
+
+*CList::count*							 public
+>
+ count()
+<
+(integer) number of items in the list.
+
+ Returns the number of items in the list. This method is required by Countable
+ interface.
+
+
+*CList::getCount*						 public
+>
+ getCount()
+<
+(integer) the number of items in the list
+
+ Returns the number of items in the list.
+
+
+*CList::getIterator*						 public
+>
+ getIterator()
+<
+(Iterator) an iterator for traversing the items in the list.
+
+ Returns an iterator for traversing the items in the list. This method is
+ required by the interface IteratorAggregate.
+
+
+*CList::getReadOnly*						 public
+>
+ getReadOnly()
+<
+(boolean) whether this list is read-only or not. Defaults to false.
+
+
+
+*CList::indexOf*						 public
+>
+ indexOf($item)
+<
+(integer) the index of the item in the list (0 based), -1 if not found.
+
+    [item] (mixed) the item
+
+
+*CList::insertAt*						 public
+>
+ insertAt($index, $item)
+<
+(void)
+
+ Inserts an item at the specified position. Original item at the position and
+ the next items will be moved one step towards the end.
+    [index] (integer) the specified position.
+    [item] (mixed) new item
+
+
+*CList::itemAt* 						 public
+>
+ itemAt($index)
+<
+(mixed) the item at the index
+
+ Returns the item at the specified offset. This method is exactly the same as
+ |CList::offsetGet|.
+    [index] (integer) the index of the item
+
+
+*CList::mergeWith*						 public
+>
+ mergeWith($data)
+<
+(void)
+
+ Merges iterable data into the map. New data will be appended to the end of
+ the existing data.
+    [data] (mixed) the data to be merged with, must be an array or object
+    implementing Traversable
+
+
+*CList::offsetExists*						 public
+>
+ offsetExists($offset)
+<
+(boolean) 
+
+ Returns whether there is an item at the specified offset. This method is
+ required by the interface ArrayAccess.
+    [offset] (integer) the offset to check on
+
+
+*CList::offsetGet*						 public
+>
+ offsetGet($offset)
+<
+(mixed) the item at the offset
+
+ Returns the item at the specified offset. This method is required by the
+ interface ArrayAccess.
+    [offset] (integer) the offset to retrieve item.
+
+
+*CList::offsetSet*						 public
+>
+ offsetSet($offset, $item)
+<
+(void)
+
+ Sets the item at the specified offset. This method is required by the
+ interface ArrayAccess.
+    [offset] (integer) the offset to set item
+    [item] (mixed) the item value
+
+
+*CList::offsetUnset*						 public
+>
+ offsetUnset($offset)
+<
+(void)
+
+ Unsets the item at the specified offset. This method is required by the
+ interface ArrayAccess.
+    [offset] (integer) the offset to unset item
+
+
+*CList::remove* 						 public
+>
+ remove($item)
+<
+(integer) the index at which the item is being removed
+
+ Removes an item from the list. The list will first search for the item. The
+ first item found will be removed from the list.
+    [item] (mixed) the item to be removed.
+
+
+*CList::removeAt*						 public
+>
+ removeAt($index)
+<
+(mixed) the removed item.
+
+ Removes an item at the specified position.
+    [index] (integer) the index of the item to be removed.
+
+
+*CList::setReadOnly*						 protected
+>
+ setReadOnly($value)
+<
+(void)
+
+    [value] (boolean) whether this list is read-only or not
+
+
+*CList::toArray*						 public
+>
+ toArray()
+<
+(array) the list of items in array
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

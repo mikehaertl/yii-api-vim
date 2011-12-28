@@ -1,0 +1,172 @@
+
+*CTreeView*   >> |CWidget| >> |CBaseController| >> |CComponent|
+===========
+
+ CTreeView displays a tree view of hierarchical data.
+
+ It encapsulates the excellent tree view plugin for jQuery
+ ('http://bassistance.de/jquery-plugins/jquery-plugin-treeview/').
+
+ To use CTreeView, simply sets |CTreeView::data| to the data that you want to
+ present and you are there.
+
+ CTreeView also supports dynamic data loading via AJAX. To do so, set
+ |CTreeView::url| to be the URL that can serve the tree view data upon
+ request.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<animated>				*CTreeView::animated*
+ (string|integer) animation speed. This can be one of the three predefined
+ speeds ("slow", "normal", or "fast") or the number of milliseconds to run the
+ animation (e.g. 1000). If not set, no animation is used.
+
+<clientOptions> 			*CTreeView::clientOptions*
+ (array) the javascript options
+
+<collapsed>				*CTreeView::collapsed*
+ (boolean) whether the tree should start with all branches collapsed. Defaults
+ to false.
+
+<control>				*CTreeView::control*
+ (string) container for a tree-control, allowing the user to expand, collapse
+ and toggle all branches with one click. In the container, clicking on the
+ first hyperlink will collapse the tree; the second hyperlink will expand the
+ tree; while the third hyperlink will toggle the tree. The property should be
+ a valid jQuery selector (e.g. '#treecontrol' where 'treecontrol' is the ID of
+ the 'div' element containing the hyperlinks.)
+
+<cookieId>				*CTreeView::cookieId*
+ (string) The cookie name to use when persisting via persist:"cookie".
+ Defaults to 'treeview'.
+
+<cssFile>				*CTreeView::cssFile*
+ (mixed) the CSS file used for the widget. Defaults to null, meaning using the
+ default CSS file included together with the widget. If false, no CSS file
+ will be used. Otherwise, the specified CSS file will be included when using
+ this widget.
+
+<data>					*CTreeView::data*
+ (array) the data that can be used to generate the tree view content. Each
+ array element corresponds to a tree view node with the following structure:
+   {text} string, required, the HTML text associated with this node.
+   {expanded} boolean, optional, whether the tree view node is
+   expanded.
+   {id} string, optional, the ID identifying the node. This is used  
+   in dynamic loading of tree view (see |CTreeView::url|).
+   {hasChildren} boolean, optional, defaults to false, whether
+   clicking on this   node should trigger dynamic loading of more
+   tree view nodes from server.   The |CTreeView::url| property must
+   be set in order to make this effective.
+   {children} array, optional, child nodes of this node.
+   {htmlOptions} array, additional HTML attributes (see
+   |CHtml::tag|).   This option has been available since version
+   1.1.7.Note, anything enclosed between the beginWidget and endWidget calls
+ will also be treated as tree view content, which appends to the content
+ generated from this data.
+
+<htmlOptions>				*CTreeView::htmlOptions*
+ (array) additional HTML attributes that will be rendered in the UL tag. The
+ default tree view CSS has defined the following CSS classes which can be
+ enabled by specifying the 'class' option here:
+   treeview-black
+   treeview-gray
+   treeview-red
+   treeview-famfamfam
+   filetree
+
+<options>				*CTreeView::options*
+ (array) additional options that can be passed to the constructor of the
+ treeview js object.
+
+<persist>				*CTreeView::persist*
+ (string) Persist the tree state in cookies or the page location. If set to
+ "location", looks for the anchor that matches location.href and activates
+ that part of the treeview it. Great for href-based state-saving. If set to
+ "cookie", saves the state of the tree on each click to a cookie and restores
+ that state on page load.
+
+<prerendered>				*CTreeView::prerendered*
+ (boolean) Set to skip rendering of classes and hitarea divs, assuming that is
+ done by the serverside. Defaults to false.
+
+<toggle>				*CTreeView::toggle*
+ (string) Callback when toggling a branch. Arguments: "this" refers to the UL
+ that was shown or hidden
+
+<unique>				*CTreeView::unique*
+ (boolean) set to allow only one branch on one level to be open (closing
+ siblings which opening). Defaults to false.
+
+<url>					*CTreeView::url*
+ (string|array) the URL to which the treeview can be dynamically loaded (in
+ AJAX). See |CHtml::normalizeUrl| for possible URL formats. Setting this
+ property will enable the dynamic treeview loading. When the page is
+ displayed, the browser will request this URL with a GET parameter named
+ 'root' whose value is 'source'. The server script should then generate the
+ needed tree view data corresponding to the root of the tree (see
+ |CTreeView::saveDataAsJson|.) When a node has a CSS class 'hasChildren', then
+ expanding this node will also cause a dynamic loading of its child nodes. In
+ this case, the value of the 'root' GET parameter is the 'id' property of the
+ node.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CTreeView::getClientOptions*					 protected
+>
+ getClientOptions()
+<
+(array) the javascript options
+
+
+
+*CTreeView::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the widget. This method registers all needed client scripts and
+ renders the tree view content.
+
+
+*CTreeView::run*						 public
+>
+ run()
+<
+(void)
+
+ Ends running the widget.
+
+
+*CTreeView::saveDataAsHtml*					 public
+>
+ saveDataAsHtml($data)
+<
+(string) the generated HTML for the tree view
+
+ Generates tree view nodes in HTML from the data array.
+    [data] (array) the data for the tree view (see |CTreeView::data| for
+    possible data structure).
+
+
+*CTreeView::saveDataAsJson*					 public
+>
+ saveDataAsJson($data)
+<
+(string) the JSON representation of the data
+
+ Saves tree view data in JSON format. This method is typically used in dynamic
+ tree view loading when the server code needs to send to the client the
+ dynamic tree view data.
+    [data] (array) the data for the tree view (see |CTreeView::data| for
+    possible data structure).
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

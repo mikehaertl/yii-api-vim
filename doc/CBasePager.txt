@@ -1,0 +1,134 @@
+
+*CBasePager*   >> |CWidget| >> |CBaseController| >> |CComponent|
+============
+
+ CBasePager is the base class for all pagers.
+
+ It provides the calculation of page count and maintains the current page.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<currentPage>				*CBasePager::currentPage*
+ (integer) the zero-based index of the current page. Defaults to 0.
+
+<itemCount>				*CBasePager::itemCount*
+ (integer) total number of items.
+
+<pageCount>				*CBasePager::pageCount*
+ (integer) number of pages
+
+<pageSize>				*CBasePager::pageSize*
+ (integer) number of items in each page.
+
+<pages> 				*CBasePager::pages*
+ (CPagination) Returns the pagination information used by this pager.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CBasePager::createPageUrl*					 protected
+>
+ createPageUrl($page)
+<
+(string) the created URL
+
+ Creates the URL suitable for pagination.
+    [page] (integer) the page that the URL should point to.
+
+
+*CBasePager::createPages*					 protected
+>
+ createPages()
+<
+(CPagination) the default pagination instance.
+
+ Creates the default pagination. This is called by |CBasePager::getPages| when
+ the pagination is not set before.
+
+
+*CBasePager::getCurrentPage*					 public
+>
+ getCurrentPage($recalculate=true)
+<
+(integer) the zero-based index of the current page. Defaults to 0.
+
+    [recalculate] (boolean) whether to recalculate the current page based on
+    the page size and item count.
+
+
+*CBasePager::getItemCount*					 public
+>
+ getItemCount()
+<
+(integer) total number of items.
+
+
+
+*CBasePager::getPageCount*					 public
+>
+ getPageCount()
+<
+(integer) number of pages
+
+
+
+*CBasePager::getPageSize*					 public
+>
+ getPageSize()
+<
+(integer) number of items in each page.
+
+
+
+*CBasePager::getPages*						 public
+>
+ getPages()
+<
+(CPagination) the pagination information
+
+ Returns the pagination information used by this pager.
+
+
+*CBasePager::setCurrentPage*					 public
+>
+ setCurrentPage($value)
+<
+(void)
+
+    [value] (integer) the zero-based index of the current page.
+
+
+*CBasePager::setItemCount*					 public
+>
+ setItemCount($value)
+<
+(void)
+
+    [value] (integer) total number of items.
+
+
+*CBasePager::setPageSize*					 public
+>
+ setPageSize($value)
+<
+(void)
+
+    [value] (integer) number of items in each page
+
+
+*CBasePager::setPages*						 public
+>
+ setPages($pages)
+<
+(void)
+
+ Sets the pagination information used by this pager.
+    [pages] (CPagination) the pagination information
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

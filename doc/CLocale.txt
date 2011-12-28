@@ -1,0 +1,315 @@
+
+*CLocale*   >> |CComponent|
+=========
+
+ CLocale represents the data relevant to a locale.
+
+ The data includes the number formatting information and date formatting
+ information.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<aMName>				*CLocale::aMName*
+ (string) the AM name
+
+<currencyFormat>			*CLocale::currencyFormat*
+ (string) the currency format
+
+<dataPath>				*CLocale::dataPath*
+ (string) the directory that contains the locale data. If this property is not
+ set, the locale data will be loaded from 'framework/i18n/data'.
+
+<dateFormat>				*CLocale::dateFormat*
+ (string) date format
+
+<dateFormatter> 			*CLocale::dateFormatter*
+ (CDateFormatter) the date formatter for this locale
+
+<dateTimeFormat>			*CLocale::dateTimeFormat*
+ (string) datetime format, i.e., the order of date and time.
+
+<decimalFormat> 			*CLocale::decimalFormat*
+ (string) the decimal format
+
+<id>					*CLocale::id*
+ (string) the locale ID (in canonical form)
+
+<monthNames>				*CLocale::monthNames*
+ (array) Returns the month names in the specified width.
+
+<numberFormatter>			*CLocale::numberFormatter*
+ (CNumberFormatter) the number formatter for this locale
+
+<orientation>				*CLocale::orientation*
+ (string) the character orientation, which is either 'ltr' (left-to-right) or
+ 'rtl' (right-to-left)
+
+<pMName>				*CLocale::pMName*
+ (string) the PM name
+
+<percentFormat> 			*CLocale::percentFormat*
+ (string) the percent format
+
+<pluralRules>				*CLocale::pluralRules*
+ (array) plural forms expressions
+
+<scientificFormat>			*CLocale::scientificFormat*
+ (string) the scientific format
+
+<timeFormat>				*CLocale::timeFormat*
+ (string) date format
+
+<weekDayNames>				*CLocale::weekDayNames*
+ (array) Returns the week day names in the specified width.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CLocale::__construct*						 protected
+>
+ __construct($id)
+<
+(void)
+
+ Constructor. Since the constructor is protected, please use
+ |CLocale::getInstance| to obtain an instance of the specified locale.
+    [id] (string) the locale ID (e.g. en_US)
+
+
+*CLocale::getAMName*						 public
+>
+ getAMName()
+<
+(string) the AM name
+
+
+
+*CLocale::getCanonicalID*					 public
+>
+ getCanonicalID($id)
+<
+(string) the locale ID in canonical form
+
+ Converts a locale ID to its canonical form. In canonical form, a locale ID
+ consists of only underscores and lower-case letters.
+    [id] (string) the locale ID to be converted
+
+
+*CLocale::getCurrencyFormat*					 public
+>
+ getCurrencyFormat()
+<
+(string) the currency format
+
+
+
+*CLocale::getCurrencySymbol*					 public
+>
+ getCurrencySymbol($currency)
+<
+(string) the localized currency symbol. Null if the symbol does not exist.
+
+    [currency] (string) 3-letter ISO 4217 code. For example, the code "USD"
+    represents the US Dollar and "EUR" represents the Euro currency.
+
+
+*CLocale::getDateFormat*					 public
+>
+ getDateFormat($width='medium')
+<
+(string) date format
+
+    [width] (string) date format width. It can be 'full', 'long', 'medium' or
+    'short'.
+
+
+*CLocale::getDateFormatter*					 public
+>
+ getDateFormatter()
+<
+(CDateFormatter) the date formatter for this locale
+
+
+
+*CLocale::getDateTimeFormat*					 public
+>
+ getDateTimeFormat()
+<
+(string) datetime format, i.e., the order of date and time.
+
+
+
+*CLocale::getDecimalFormat*					 public
+>
+ getDecimalFormat()
+<
+(string) the decimal format
+
+
+
+*CLocale::getEraName*						 public
+>
+ getEraName($era, $width='wide')
+<
+(string) the era name
+
+    [era] (integer) era (0,1)
+    [width] (string) era name width.  It can be 'wide', 'abbreviated' or
+    'narrow'.
+
+
+*CLocale::getId*						 public
+>
+ getId()
+<
+(string) the locale ID (in canonical form)
+
+
+
+*CLocale::getInstance*						 public
+>
+ getInstance($id)
+<
+(CLocale) the locale instance
+
+ Returns the instance of the specified locale. Since the constructor of
+ CLocale is protected, you can only use this method to obtain an instance of
+ the specified locale.
+    [id] (string) the locale ID (e.g. en_US)
+
+
+*CLocale::getLocaleIDs* 					 public
+>
+ getLocaleIDs()
+<
+(array) IDs of the locales which the framework can recognize
+
+
+
+*CLocale::getMonthName* 					 public
+>
+ getMonthName($month, $width='wide', $standAlone=false)
+<
+(string) the month name
+
+    [month] (integer) month (1-12)
+    [width] (string) month name width. It can be 'wide', 'abbreviated' or
+    'narrow'.
+    [standAlone] (boolean) whether the month name should be returned in
+    stand-alone format
+
+
+*CLocale::getMonthNames*					 public
+>
+ getMonthNames($width='wide', $standAlone=false)
+<
+(array) month names indexed by month values (1-12)
+
+ Returns the month names in the specified width.
+    [width] (string) month name width. It can be 'wide', 'abbreviated' or
+    'narrow'.
+    [standAlone] (boolean) whether the month names should be returned in
+    stand-alone format
+
+
+*CLocale::getNumberFormatter*					 public
+>
+ getNumberFormatter()
+<
+(CNumberFormatter) the number formatter for this locale
+
+
+
+*CLocale::getNumberSymbol*					 public
+>
+ getNumberSymbol($name)
+<
+(string) symbol
+
+    [name] (string) symbol name
+
+
+*CLocale::getOrientation*					 public
+>
+ getOrientation()
+<
+(string) the character orientation, which is either 'ltr' (left-to-right) or
+'rtl' (right-to-left)
+
+
+
+*CLocale::getPMName*						 public
+>
+ getPMName()
+<
+(string) the PM name
+
+
+
+*CLocale::getPercentFormat*					 public
+>
+ getPercentFormat()
+<
+(string) the percent format
+
+
+
+*CLocale::getPluralRules*					 public
+>
+ getPluralRules()
+<
+(array) plural forms expressions
+
+
+
+*CLocale::getScientificFormat*					 public
+>
+ getScientificFormat()
+<
+(string) the scientific format
+
+
+
+*CLocale::getTimeFormat*					 public
+>
+ getTimeFormat($width='medium')
+<
+(string) date format
+
+    [width] (string) time format width. It can be 'full', 'long', 'medium' or
+    'short'.
+
+
+*CLocale::getWeekDayName*					 public
+>
+ getWeekDayName($day, $width='wide', $standAlone=false)
+<
+(string) the weekday name
+
+    [day] (integer) weekday (0-6, 0 means Sunday)
+    [width] (string) weekday name width.  It can be 'wide', 'abbreviated' or
+    'narrow'.
+    [standAlone] (boolean) whether the week day name should be returned in
+    stand-alone format
+
+
+*CLocale::getWeekDayNames*					 public
+>
+ getWeekDayNames($width='wide', $standAlone=false)
+<
+(array) the weekday names indexed by weekday values (0-6, 0 means Sunday, 1
+Monday, etc.)
+
+ Returns the week day names in the specified width.
+    [width] (string) weekday name width.  It can be 'wide', 'abbreviated' or
+    'narrow'.
+    [standAlone] (boolean) whether the week day name should be returned in
+    stand-alone format
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

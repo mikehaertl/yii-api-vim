@@ -1,0 +1,85 @@
+
+*CBaseActiveRelation*   >> |CComponent|
+=====================
+
+ CBaseActiveRelation is the base class for all active relations.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<className>				*CBaseActiveRelation::className*
+ (string) name of the related active record class
+
+<condition>				*CBaseActiveRelation::condition*
+ (string) WHERE clause. For |CActiveRelation| descendant classes, column names
+ referenced in the condition should be disambiguated with prefix
+ 'relationName.'.
+
+<foreignKey>				*CBaseActiveRelation::foreignKey*
+ (string) the foreign key in this relation
+
+<group> 				*CBaseActiveRelation::group*
+ (string) GROUP BY clause. For |CActiveRelation| descendant classes, column
+ names referenced in this property should be disambiguated with prefix
+ 'relationName.'.
+
+<having>				*CBaseActiveRelation::having*
+ (string) HAVING clause. For |CActiveRelation| descendant classes, column
+ names referenced in this property should be disambiguated with prefix
+ 'relationName.'.
+
+<join>					*CBaseActiveRelation::join*
+ (string) how to join with other tables. This refers to the JOIN clause in an
+ SQL statement. For example, ''LEFT JOIN users ON users.id=authorID''.
+
+<name>					*CBaseActiveRelation::name*
+ (string) name of the related object
+
+<order> 				*CBaseActiveRelation::order*
+ (string) ORDER BY clause. For |CActiveRelation| descendant classes, column
+ names referenced in this property should be disambiguated with prefix
+ 'relationName.'.
+
+<params>				*CBaseActiveRelation::params*
+ (array) the parameters that are to be bound to the condition. The keys are
+ parameter placeholder names, and the values are parameter values.
+
+<select>				*CBaseActiveRelation::select*
+ (mixed) list of column names (an array, or a string of names separated by
+ commas) to be selected. Do not quote or prefix the column names unless they
+ are used in an expression. In that case, you should prefix the column names
+ with 'relationName.'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CBaseActiveRelation::__construct*				 public
+>
+ __construct($name, $className, $foreignKey, $options=array())
+<
+(void)
+
+ Constructor.
+    [name] (string) name of the relation
+    [className] (string) name of the related active record class
+    [foreignKey] (string) foreign key for this relation
+    [options] (array) additional options (name=>value). The keys must be the
+    property names of this class.
+
+
+*CBaseActiveRelation::mergeWith*				 public
+>
+ mergeWith($criteria, $fromScope=false)
+<
+(void)
+
+ Merges this relation with a criteria specified dynamically.
+    [criteria] (array) the dynamically specified criteria
+    [fromScope] (boolean) whether the criteria to be merged is from scopes
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

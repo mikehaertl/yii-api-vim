@@ -1,0 +1,146 @@
+
+*CTimestamp*  
+============
+
+ CTimestamp represents a timestamp.
+
+ Part of this class was adapted from the ADOdb Date Library 'ADOdb abstraction
+ library'. The original source code was released under both BSD and GNU Lesser
+ GPL library license, with the following copyright notice:     Copyright (c)
+ 2000, 2001, 2002, 2003, 2004 John Lim     All rights reserved.
+
+ This class is provided to support UNIX timestamp that is beyond the range of
+ 1901-2038 on Unix and1970-2038 on Windows. Except |CTimestamp::getTimestamp|,
+ all other methods in this class can work with the extended timestamp range.
+ For |CTimestamp::getTimestamp|, because it is merely a wrapper of
+ http://php.net/manual/en/function.mktime.php, it may still be subject to the
+ limit of timestamp range on certain platforms. Please refer to the PHP manual
+ for more information.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CTimestamp::digitCheck*					 protected
+>
+ digitCheck($y)
+<
+(integer) change two digit year into multiple digits
+
+ Fix 2-digit years. Works for any century. Assumes that if 2-digit is more
+ than 30 years in future, then previous century.
+    [y] (integer) year
+
+
+*CTimestamp::formatDate*					 public
+>
+ formatDate($fmt, $d=, $is_gmt=false)
+<
+(string) formatted date based on timestamp $d
+
+ Formats a timestamp to a date string.
+    [fmt] (string) format pattern
+    [d] (integer) timestamp
+    [is_gmt] (boolean) whether this is a GMT timestamp
+
+
+*CTimestamp::get4DigitYear*					 public
+>
+ get4DigitYear($y)
+<
+(integer) 4-digit representation of the year
+
+ Returns 4-digit representation of the year.
+    [y] (integer) year
+
+
+*CTimestamp::getDate*						 public
+>
+ getDate($d=, $fast=false, $gmt=false)
+<
+(array) an array with date info.
+
+ Returns the getdate() array.
+    [d] (integer) original date timestamp. False to use the current timestamp.
+    [fast] (boolean) false to compute the day of the week, default is true
+    [gmt] (boolean) true to calculate the GMT dates
+
+
+*CTimestamp::getDayofWeek*					 public
+>
+ getDayofWeek($year, $month, $day)
+<
+(integer) day of week
+
+ Gets day of week, 0 = Sunday,... 6=Saturday. Algorithm from PEAR::Date_Calc
+    [year] (integer) year
+    [month] (integer) month
+    [day] (integer) day
+
+
+*CTimestamp::getGMTDiff*					 public
+>
+ getGMTDiff()
+<
+(integer) get local time zone offset from GMT
+
+
+
+*CTimestamp::getTimestamp*					 public
+>
+ getTimestamp($hr, $min, $sec, $mon=, $day=, $year=, $is_gmt=false)
+<
+(integer|float) a timestamp given a local time.
+
+ Generates a timestamp. This is the same as the PHP function
+ http://php.net/manual/en/function.mktime.php.
+    [hr] (integer) hour
+    [min] (integer) minute
+    [sec] (integer) second
+    [mon] (integer) month
+    [day] (integer) day
+    [year] (integer) year
+    [is_gmt] (boolean) whether this is GMT time. If true, gmmktime() will be
+    used.
+
+
+*CTimestamp::isLeapYear*					 public
+>
+ isLeapYear($year)
+<
+(boolean) true if is leap year
+
+ Checks for leap year, returns true if it is. No 2-digit year check. Also
+ handles julian calendar correctly.
+    [year] (integer) year to check
+
+
+*CTimestamp::isValidDate*					 public
+>
+ isValidDate($y, $m, $d)
+<
+(boolean) true if valid date, semantic check only.
+
+ Checks to see if the year, month, day are valid combination.
+    [y] (integer) year
+    [m] (integer) month
+    [d] (integer) day
+
+
+*CTimestamp::isValidTime*					 public
+>
+ isValidTime($h, $m, $s, $hs24=true)
+<
+(boolean) true if valid date, semantic check only.
+
+ Checks to see if the hour, minute and second are valid.
+    [h] (integer) hour
+    [m] (integer) minute
+    [s] (integer) second
+    [hs24] (boolean) whether the hours should be 0 through 23 (default) or 1
+    through 12.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,74 @@
+
+*CDbTableSchema*   >> |CComponent|
+================
+
+ CDbTableSchema is the base class for representing the metadata of a database
+ table.
+
+ It may be extended by different DBMS driver to provide DBMS-specific table
+ metadata.
+
+ CDbTableSchema provides the following information about a table:
+   |CDbTableSchema::name|
+   |CDbTableSchema::rawName|
+   |CDbTableSchema::columns|
+   |CDbTableSchema::primaryKey|
+   |CDbTableSchema::foreignKeys|
+   |CDbTableSchema::sequenceName|
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<columnNames>				*CDbTableSchema::columnNames*
+ (array) list of column names
+
+<columns>				*CDbTableSchema::columns*
+ (array) column metadata of this table. Each array element is a
+ CDbColumnSchema object, indexed by column names.
+
+<foreignKeys>				*CDbTableSchema::foreignKeys*
+ (array) foreign keys of this table. The array is indexed by column name. Each
+ value is an array of foreign table name and foreign column name.
+
+<name>					*CDbTableSchema::name*
+ (string) name of this table.
+
+<primaryKey>				*CDbTableSchema::primaryKey*
+ (string|array) primary key name of this table. If composite key, an array of
+ key names is returned.
+
+<rawName>				*CDbTableSchema::rawName*
+ (string) raw name of this table. This is the quoted version of table name
+ with optional schema name. It can be directly used in SQLs.
+
+<sequenceName>				*CDbTableSchema::sequenceName*
+ (string) sequence name for the primary key. Null if no sequence.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbTableSchema::getColumn*					 public
+>
+ getColumn($name)
+<
+(CDbColumnSchema) metadata of the named column. Null if the named column does
+not exist.
+
+ Gets the named column metadata. This is a convenient method for retrieving a
+ named column even if it does not exist.
+    [name] (string) column name
+
+
+*CDbTableSchema::getColumnNames*				 public
+>
+ getColumnNames()
+<
+(array) list of column names
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

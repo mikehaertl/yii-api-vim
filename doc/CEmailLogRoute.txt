@@ -1,0 +1,127 @@
+
+*CEmailLogRoute*   >> |CLogRoute| >> |CComponent|
+================
+
+ CEmailLogRoute sends selected log messages to email addresses.
+
+ The target email addresses may be specified via |CEmailLogRoute::setEmails|
+ property. Optionally, you may set the email |CEmailLogRoute::setSubject|, the
+ |CEmailLogRoute::setSentFrom| address and any additional
+ |CEmailLogRoute::setHeaders|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<emails>				*CEmailLogRoute::emails*
+ (array) list of destination email addresses
+
+<headers>				*CEmailLogRoute::headers*
+ (array) additional headers to use when sending an email.
+
+<sentFrom>				*CEmailLogRoute::sentFrom*
+ (string) send from address of the email
+
+<subject>				*CEmailLogRoute::subject*
+ (string) email subject. Defaults to CEmailLogRoute::DEFAULT_SUBJECT
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CEmailLogRoute::getEmails*					 public
+>
+ getEmails()
+<
+(array) list of destination email addresses
+
+
+
+*CEmailLogRoute::getHeaders*					 public
+>
+ getHeaders()
+<
+(array) additional headers to use when sending an email.
+
+
+
+*CEmailLogRoute::getSentFrom*					 public
+>
+ getSentFrom()
+<
+(string) send from address of the email
+
+
+
+*CEmailLogRoute::getSubject*					 public
+>
+ getSubject()
+<
+(string) email subject. Defaults to CEmailLogRoute::DEFAULT_SUBJECT
+
+
+
+*CEmailLogRoute::processLogs*					 protected
+>
+ processLogs($logs)
+<
+(void)
+
+ Sends log messages to specified email addresses.
+    [logs] (array) list of log messages
+
+
+*CEmailLogRoute::sendEmail*					 protected
+>
+ sendEmail($email, $subject, $message)
+<
+(void)
+
+ Sends an email.
+    [email] (string) single email address
+    [subject] (string) email subject
+    [message] (string) email content
+
+
+*CEmailLogRoute::setEmails*					 public
+>
+ setEmails($value)
+<
+(void)
+
+    [value] (mixed) list of destination email addresses. If the value is a
+    string, it is assumed to be comma-separated email addresses.
+
+
+*CEmailLogRoute::setHeaders*					 public
+>
+ setHeaders($value)
+<
+(void)
+
+    [value] (mixed) list of additional headers to use when sending an email.
+    If the value is a string, it is assumed to be line break separated
+    headers.
+
+
+*CEmailLogRoute::setSentFrom*					 public
+>
+ setSentFrom($value)
+<
+(void)
+
+    [value] (string) send from address of the email
+
+
+*CEmailLogRoute::setSubject*					 public
+>
+ setSubject($value)
+<
+(void)
+
+    [value] (string) email subject.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

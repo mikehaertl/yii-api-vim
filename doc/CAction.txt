@@ -1,0 +1,83 @@
+
+*CAction*   >> |CComponent|
+=========
+
+ CAction is the base class for all controller action classes.
+
+ CAction provides a way to divide a complex controller into smaller actions in
+ separate class files.
+
+ Derived classes must implement run() which is invoked by controller when the
+ action is requested.
+
+ An action instance can access its controller via |CAction::getController|
+ property.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<controller>				*CAction::controller*
+ (CController) the controller who owns this action.
+
+<id>					*CAction::id*
+ (string) id of this action
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CAction::__construct*						 public
+>
+ __construct($controller, $id)
+<
+(void)
+
+ Constructor.
+    [controller] (CController) the controller who owns this action.
+    [id] (string) id of the action.
+
+
+*CAction::getController*					 public
+>
+ getController()
+<
+(CController) the controller who owns this action.
+
+
+
+*CAction::getId*						 public
+>
+ getId()
+<
+(string) id of this action
+
+
+
+*CAction::runWithParams*					 public
+>
+ runWithParams($params)
+<
+(boolean) whether the request parameters are valid
+
+ Runs the action with the supplied request parameters. This method is
+ internally called by |CController::runAction|.
+    [params] (array) the request parameters (name=>value)
+
+
+*CAction::runWithParamsInternal*				 protected
+>
+ runWithParamsInternal($object, $method, $params)
+<
+(boolean) whether the named parameters are valid
+
+ Executes a method of an object with the supplied named parameters. This
+ method is internally used.
+    [object] (mixed) the object whose method is to be executed
+    [method] (ReflectionMethod) the method reflection
+    [params] (array) the named parameters
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

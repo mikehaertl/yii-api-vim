@@ -1,0 +1,49 @@
+
+*CHelpCommand*   >> |CConsoleCommand| >> |CComponent|
+==============
+
+ CHelpCommand represents a console help command.
+
+ CHelpCommand displays the available command list or the help instructions
+ about a specific command.
+
+ To use this command, enter the following on the command line:
+>
+ php path/to/entry_script.php help [command name]
+<
+ In the above, if the command name is not provided, it will display all
+ available commands.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<help>					*CHelpCommand::help*
+ (string) Provides the command description.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CHelpCommand::getHelp* 					 public
+>
+ getHelp()
+<
+(string) the command description.
+
+ Provides the command description.
+
+
+*CHelpCommand::run*						 public
+>
+ run($args)
+<
+(void)
+
+ Execute the action.
+    [args] (array) command line parameters specific for this command
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

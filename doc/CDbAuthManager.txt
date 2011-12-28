@@ -1,0 +1,329 @@
+
+*CDbAuthManager*   >> |CAuthManager| >> |CApplicationComponent| >> |CComponent|
+================
+
+ CDbAuthManager represents an authorization manager that stores authorization
+ information in database.
+
+ The database connection is specified by |CDbAuthManager::connectionID|. And
+ the database schema should be as described in
+ "framework/web/auth/schema.sql". You may change the names of the three tables
+ used to store the authorization data by setting |CDbAuthManager::itemTable|,
+ |CDbAuthManager::itemChildTable| and |CDbAuthManager::assignmentTable|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<assignmentTable>			*CDbAuthManager::assignmentTable*
+ (string) the name of the table storing authorization item assignments.
+ Defaults to 'AuthAssignment'.
+
+<authItems>				*CDbAuthManager::authItems*
+ (array) Returns the authorization items of the specific type and user.
+
+<connectionID>				*CDbAuthManager::connectionID*
+ (string) the ID of the |CDbConnection| application component. Defaults to
+ 'db'. The database must have the tables as declared in
+ "framework/web/auth/schema.sql".
+
+<db>					*CDbAuthManager::db*
+ (CDbConnection) the database connection. By default, this is initialized
+ automatically as the application component whose ID is indicated as
+ |CDbAuthManager::connectionID|.
+
+<dbConnection>				*CDbAuthManager::dbConnection*
+ (CDbConnection) the DB connection instance
+
+<itemChildTable>			*CDbAuthManager::itemChildTable*
+ (string) the name of the table storing authorization item hierarchy. Defaults
+ to 'AuthItemChild'.
+
+<itemTable>				*CDbAuthManager::itemTable*
+ (string) the name of the table storing authorization items. Defaults to
+ 'AuthItem'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbAuthManager::addItemChild*					 public
+>
+ addItemChild($itemName, $childName)
+<
+(void)
+
+ Adds an item as a child of another item.
+    [itemName] (string) the parent item name
+    [childName] (string) the child item name
+
+
+*CDbAuthManager::assign*					 public
+>
+ assign($itemName, $userId, $bizRule='', $data=NULL)
+<
+(CAuthAssignment) the authorization assignment information.
+
+ Assigns an authorization item to a user.
+    [itemName] (string) the item name
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+    [bizRule] (string) the business rule to be executed when
+    |CDbAuthManager::checkAccess| is called for this particular authorization
+    item.
+    [data] (mixed) additional data associated with this assignment
+
+
+*CDbAuthManager::checkAccess*					 public
+>
+ checkAccess($itemName, $userId, $params=array())
+<
+(boolean) whether the operations can be performed by the user.
+
+ Performs access check for the specified user.
+    [itemName] (string) the name of the operation that need access check
+    [userId] (mixed) the user ID. This should can be either an integer and a
+    string representing the unique identifier of a user. See
+    |IWebUser::getId|.
+    [params] (array) name-value pairs that would be passed to biz rules
+    associated with the tasks and roles assigned to the user.
+
+
+*CDbAuthManager::checkAccessRecursive*				 protected
+>
+ checkAccessRecursive($itemName, $userId, $params, $assignments)
+<
+(boolean) whether the operations can be performed by the user.
+
+ Performs access check for the specified user. This method is internally
+ called by |CDbAuthManager::checkAccess|.
+    [itemName] (string) the name of the operation that need access check
+    [userId] (mixed) the user ID. This should can be either an integer and a
+    string representing the unique identifier of a user. See
+    |IWebUser::getId|.
+    [params] (array) name-value pairs that would be passed to biz rules
+    associated with the tasks and roles assigned to the user.
+    [assignments] (array) the assignments to the specified user
+
+
+*CDbAuthManager::clearAll*					 public
+>
+ clearAll()
+<
+(void)
+
+ Removes all authorization data.
+
+
+*CDbAuthManager::clearAuthAssignments*				 public
+>
+ clearAuthAssignments()
+<
+(void)
+
+ Removes all authorization assignments.
+
+
+*CDbAuthManager::createAuthItem*				 public
+>
+ createAuthItem($name, $type, $description='', $bizRule='', $data=NULL)
+<
+(CAuthItem) the authorization item
+
+ Creates an authorization item. An authorization item represents an action
+ permission (e.g. creating a post). It has three types: operation, task and
+ role. Authorization items form a hierarchy. Higher level items inheirt
+ permissions representing by lower level items.
+    [name] (string) the item name. This must be a unique identifier.
+    [type] (integer) the item type (0: operation, 1: task, 2: role).
+    [description] (string) description of the item
+    [bizRule] (string) business rule associated with the item. This is a piece
+    of PHP code that will be executed when |CDbAuthManager::checkAccess| is
+    called for the item.
+    [data] (mixed) additional data associated with the item.
+
+
+*CDbAuthManager::detectLoop*					 protected
+>
+ detectLoop($itemName, $childName)
+<
+(boolean) whether a loop exists
+
+ Checks whether there is a loop in the authorization item hierarchy.
+    [itemName] (string) parent item name
+    [childName] (string) the name of the child item that is to be added to the
+    hierarchy
+
+
+*CDbAuthManager::getAuthAssignment*				 public
+>
+ getAuthAssignment($itemName, $userId)
+<
+(CAuthAssignment) the item assignment information. Null is returned if the
+item is not assigned to the user.
+
+ Returns the item assignment information.
+    [itemName] (string) the item name
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CDbAuthManager::getAuthAssignments*				 public
+>
+ getAuthAssignments($userId)
+<
+(array) the item assignment information for the user. An empty array will be
+returned if there is no item assigned to the user.
+
+ Returns the item assignments for the specified user.
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CDbAuthManager::getAuthItem*					 public
+>
+ getAuthItem($name)
+<
+(CAuthItem) the authorization item. Null if the item cannot be found.
+
+ Returns the authorization item with the specified name.
+    [name] (string) the name of the item
+
+
+*CDbAuthManager::getAuthItems*					 public
+>
+ getAuthItems($type=, $userId=NULL)
+<
+(array) the authorization items of the specific type.
+
+ Returns the authorization items of the specific type and user.
+    [type] (integer) the item type (0: operation, 1: task, 2: role). Defaults
+    to null, meaning returning all items regardless of their type.
+    [userId] (mixed) the user ID. Defaults to null, meaning returning all
+    items even if they are not assigned to a user.
+
+
+*CDbAuthManager::getDbConnection*				 protected
+>
+ getDbConnection()
+<
+(CDbConnection) the DB connection instance
+
+
+
+*CDbAuthManager::getItemChildren*				 public
+>
+ getItemChildren($names)
+<
+(array) all child items of the parent
+
+ Returns the children of the specified item.
+    [names] (mixed) the parent item name. This can be either a string or an
+    array. The latter represents a list of item names (available since version
+    1.0.5).
+
+
+*CDbAuthManager::hasItemChild*					 public
+>
+ hasItemChild($itemName, $childName)
+<
+(boolean) whether the child exists
+
+ Returns a value indicating whether a child exists within a parent.
+    [itemName] (string) the parent item name
+    [childName] (string) the child item name
+
+
+*CDbAuthManager::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component. This method overrides the parent
+ implementation by establishing the database connection.
+
+
+*CDbAuthManager::isAssigned*					 public
+>
+ isAssigned($itemName, $userId)
+<
+(boolean) whether the item has been assigned to the user.
+
+ Returns a value indicating whether the item has been assigned to the user.
+    [itemName] (string) the item name
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CDbAuthManager::removeAuthItem*				 public
+>
+ removeAuthItem($name)
+<
+(boolean) whether the item exists in the storage and has been removed
+
+ Removes the specified authorization item.
+    [name] (string) the name of the item to be removed
+
+
+*CDbAuthManager::removeItemChild*				 public
+>
+ removeItemChild($itemName, $childName)
+<
+(boolean) whether the removal is successful
+
+ Removes a child from its parent. Note, the child item is not deleted. Only
+ the parent-child relationship is removed.
+    [itemName] (string) the parent item name
+    [childName] (string) the child item name
+
+
+*CDbAuthManager::revoke*					 public
+>
+ revoke($itemName, $userId)
+<
+(boolean) whether removal is successful
+
+ Revokes an authorization assignment from a user.
+    [itemName] (string) the item name
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CDbAuthManager::save*						 public
+>
+ save()
+<
+(void)
+
+ Saves the authorization data to persistent storage.
+
+
+*CDbAuthManager::saveAuthAssignment*				 public
+>
+ saveAuthAssignment($assignment)
+<
+(void)
+
+ Saves the changes to an authorization assignment.
+    [assignment] (CAuthAssignment) the assignment that has been changed.
+
+
+*CDbAuthManager::saveAuthItem*					 public
+>
+ saveAuthItem($item, $oldName='')
+<
+(void)
+
+ Saves an authorization item to persistent storage.
+    [item] (CAuthItem) the item to be saved.
+    [oldName] (string) the old item name. If null, it means the item name is
+    not changed.
+
+
+*CDbAuthManager::usingSqlite*					 protected
+>
+ usingSqlite()
+<
+(boolean) whether the database is a SQLite database
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,186 @@
+
+*CMysqlSchema*   >> |CDbSchema| >> |CComponent|
+==============
+
+ CMysqlSchema is the class for retrieving metadata information from a MySQL
+ database (version 4.1.x and 5.x).
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<columnTypes>				*CMysqlSchema::columnTypes*
+ (array) the abstract column types mapped to physical column types.
+
+<serverVersion> 			*CMysqlSchema::serverVersion*
+ (float) server version.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CMysqlSchema::checkIntegrity*					 public
+>
+ checkIntegrity($check=true, $schema='')
+<
+(void)
+
+ Enables or disables integrity check.
+    [check] (boolean) whether to turn on or off the integrity check.
+    [schema] (string) the schema of the tables. Defaults to empty string,
+    meaning the current or default schema.
+
+
+*CMysqlSchema::compareTableNames*				 public
+>
+ compareTableNames($name1, $name2)
+<
+(boolean) whether the two table names refer to the same table.
+
+ Compares two table names. The table names can be either quoted or unquoted.
+ This method will consider both cases.
+    [name1] (string) table name 1
+    [name2] (string) table name 2
+
+
+*CMysqlSchema::createColumn*					 protected
+>
+ createColumn($column)
+<
+(CDbColumnSchema) normalized column metadata
+
+ Creates a table column.
+    [column] (array) column metadata
+
+
+*CMysqlSchema::dropForeignKey*					 public
+>
+ dropForeignKey($name, $table)
+<
+(string) the SQL statement for dropping a foreign key constraint.
+
+ Builds a SQL statement for dropping a foreign key constraint.
+    [name] (string) the name of the foreign key constraint to be dropped. The
+    name will be properly quoted by the method.
+    [table] (string) the table whose foreign is to be dropped. The name will
+    be properly quoted by the method.
+
+
+*CMysqlSchema::findColumns*					 protected
+>
+ findColumns($table)
+<
+(boolean) whether the table exists in the database
+
+ Collects the table column metadata.
+    [table] (CMysqlTableSchema) the table metadata
+
+
+*CMysqlSchema::findConstraints* 				 protected
+>
+ findConstraints($table)
+<
+(void)
+
+ Collects the foreign key column details for the given table.
+    [table] (CMysqlTableSchema) the table metadata
+
+
+*CMysqlSchema::findTableNames*					 protected
+>
+ findTableNames($schema='')
+<
+(array) all table names in the database.
+
+ Returns all table names in the database.
+    [schema] (string) the schema of the tables. Defaults to empty string,
+    meaning the current or default schema. If not empty, the returned table
+    names will be prefixed with the schema name.
+
+
+*CMysqlSchema::getServerVersion*				 protected
+>
+ getServerVersion()
+<
+(float) server version.
+
+
+
+*CMysqlSchema::loadTable*					 protected
+>
+ loadTable($name)
+<
+(CMysqlTableSchema) driver dependent table metadata. Null if the table does
+not exist.
+
+ Loads the metadata for the specified table.
+    [name] (string) table name
+
+
+*CMysqlSchema::quoteSimpleColumnName*				 public
+>
+ quoteSimpleColumnName($name)
+<
+(string) the properly quoted column name
+
+ Quotes a column name for use in a query. A simple column name does not
+ contain prefix.
+    [name] (string) column name
+
+
+*CMysqlSchema::quoteSimpleTableName*				 public
+>
+ quoteSimpleTableName($name)
+<
+(string) the properly quoted table name
+
+ Quotes a table name for use in a query. A simple table name does not schema
+ prefix.
+    [name] (string) table name
+
+
+*CMysqlSchema::renameColumn*					 public
+>
+ renameColumn($table, $name, $newName)
+<
+(string) the SQL statement for renaming a DB column.
+
+ Builds a SQL statement for renaming a column.
+    [table] (string) the table whose column is to be renamed. The name will be
+    properly quoted by the method.
+    [name] (string) the old name of the column. The name will be properly
+    quoted by the method.
+    [newName] (string) the new name of the column. The name will be properly
+    quoted by the method.
+
+
+*CMysqlSchema::resetSequence*					 public
+>
+ resetSequence($table, $value=NULL)
+<
+(void)
+
+ Resets the sequence value of a table's primary key. The sequence will be
+ reset such that the primary key of the next new row inserted will have the
+ specified value or 1.
+    [table] (CDbTableSchema) the table schema whose primary key sequence will
+    be reset
+    [value] (mixed) the value for the primary key of the next new row
+    inserted. If this is not set, the next new row's primary key will have a
+    value 1.
+
+
+*CMysqlSchema::resolveTableNames*				 protected
+>
+ resolveTableNames($table, $name)
+<
+(void)
+
+ Generates various kinds of table names.
+    [table] (CMysqlTableSchema) the table instance
+    [name] (string) the unquoted table name
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

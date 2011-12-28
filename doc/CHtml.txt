@@ -1,0 +1,1401 @@
+
+*CHtml*  
+=======
+
+ CHtml is a static class that provides a collection of helper methods for
+ creating HTML views.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<afterRequiredLabel>			*CHtml::afterRequiredLabel*
+ (string) the HTML code to be appended to the required label.
+
+<beforeRequiredLabel>			*CHtml::beforeRequiredLabel*
+ (string) the HTML code to be prepended to the required label.
+
+<count> 				*CHtml::count*
+ (integer) the counter for generating automatic input field names.
+
+<errorCss>				*CHtml::errorCss*
+ (string) the CSS class for highlighting error inputs. Form inputs will be
+ appended with this CSS class if they have input errors.
+
+<errorMessageCss>			*CHtml::errorMessageCss*
+ (string) the CSS class for displaying error messages (see |CHtml::error|).
+
+<errorSummaryCss>			*CHtml::errorSummaryCss*
+ (string) the CSS class for displaying error summaries (see
+ |CHtml::errorSummary|).
+
+<requiredCss>				*CHtml::requiredCss*
+ (string) the CSS class for required labels. Defaults to 'required'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CHtml::activeCheckBox* 					 public
+>
+ activeCheckBox($model, $attribute, $htmlOptions=array())
+<
+(string) the generated check box
+
+ Generates a check box for a model attribute. The attribute is assumed to take
+ either true or false value. If the attribute has input error, the input
+ field's CSS class will be appended with |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.) Since version
+    1.0.2, a special option named 'uncheckValue' is available that can be used
+    to specify the value returned when the checkbox is not checked. By
+    default, this value is '0'. Internally, a hidden field is rendered so that
+    when the checkbox is not checked, we can still obtain the posted uncheck
+    value. If 'uncheckValue' is set as NULL, the hidden field will not be
+    rendered.
+
+
+*CHtml::activeCheckBoxList*					 public
+>
+ activeCheckBoxList($model, $attribute, $data, $htmlOptions=array())
+<
+(string) the generated check box list
+
+ Generates a check box list for a model attribute. The model attribute value
+ is used as the selection. If the attribute has input error, the input field's
+ CSS class will be appended with |CHtml::errorCss|. Note that a check box list
+ allows multiple selection, like |CHtml::listBox|. As a result, the
+ corresponding POST value is an array. In case no selection is made, the
+ corresponding POST value is an empty string.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [data] (array) value-label pairs used to generate the check box list.
+    Note, the values will be automatically HTML-encoded, while the labels will
+    not.
+    [htmlOptions] (array) addtional HTML options. The options will be applied
+    to each checkbox input. The following special options are recognized:
+      {template} string, specifies how each checkbox is rendered.
+      Defaults to "{input} {label}", where "{input}" will be replaced by
+      the generated check box input tag while "{label}" will be replaced
+      by the corresponding check box label.
+      {separator} string, specifies the string that separates the
+      generated check boxes.
+      {checkAll} string, specifies the label for the "check all"
+      checkbox. If this option is specified, a 'check all' checkbox will
+      be displayed. Clicking on this checkbox will cause all checkboxes
+      checked or unchecked. This option has been available since version
+      1.0.4.
+      {checkAllLast} boolean, specifies whether the 'check all' checkbox
+      should be displayed at the end of the checkbox list. If this
+      option is not set (default) or is false, the 'check all' checkbox
+      will be displayed at the beginning of the checkbox list. This
+      option has been available since version 1.0.4.
+      {encode} boolean, specifies whether to encode HTML-encode tag
+      attributes and values. Defaults to true. This option has been
+      available since version 1.0.5.Since 1.1.7, a special option named
+    'uncheckValue' is available. It can be used to set the value that will be
+    returned when the checkbox is not checked. By default, this value is ''.
+    Internally, a hidden field is rendered so when the checkbox is not
+    checked, we can still obtain the value. If 'uncheckValue' is set to NULL,
+    there will be no hidden field rendered.
+
+
+*CHtml::activeDropDownList*					 public
+>
+ activeDropDownList($model, $attribute, $data, $htmlOptions=array())
+<
+(string) the generated drop down list
+
+ Generates a drop down list for a model attribute. If the attribute has input
+ error, the input field's CSS class will be appended with |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [data] (array) data for generating the list options (value=>display) You
+    may use |CHtml::listData| to generate this data. Please refer to
+    |CHtml::listOptions| on how this data is used to generate the list
+    options. Note, the values and labels will be automatically HTML-encoded by
+    this method.
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are recognized. See
+    |CHtml::clientChange| and |CHtml::tag| for more details. In addition, the
+    following options are also supported:
+      {encode} boolean, specifies whether to encode the values. Defaults
+      to true. This option has been available since version 1.0.5.
+      {prompt} string, specifies the prompt text shown as the first list
+      option. Its value is empty.  Note, the prompt text will NOT be
+      HTML-encoded.
+      {empty} string, specifies the text corresponding to empty
+      selection. Its value is empty. Starting from version 1.0.10, the
+      'empty' option can also be an array of value-label pairs. Each
+      pair will be used to render a list option at the beginning. Note,
+      the text label will NOT be HTML-encoded.
+      {options} array, specifies additional attributes for each OPTION
+      tag.     The array keys must be the option values, and the array
+      values are the extra     OPTION tag attributes in the name-value
+      pairs. For example,
+>
+        array(
+            'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+            'value2'=>array('label'=>'value 2'),
+        );
+<
+    This option has been available since
+      version 1.0.3.
+
+
+*CHtml::activeFileField*					 public
+>
+ activeFileField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a file input for a model attribute. Note, you have to set the
+ enclosing form's 'enctype' attribute to be 'multipart/form-data'. After the
+ form is submitted, the uploaded file information can be obtained via $_FILES
+ (see PHP documentation).
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes (see |CHtml::tag|).
+
+
+*CHtml::activeHiddenField*					 public
+>
+ activeHiddenField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a hidden input for a model attribute.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes.
+
+
+*CHtml::activeId*						 public
+>
+ activeId($model, $attribute)
+<
+(string) the generated input field ID
+
+ Generates input field ID for a model attribute.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+
+
+*CHtml::activeInputField*					 protected
+>
+ activeInputField($type, $model, $attribute, $htmlOptions)
+<
+(string) the generated input tag
+
+ Generates an input HTML tag for a model attribute. This method generates an
+ input HTML tag based on the given data model and attribute. If the attribute
+ has input error, the input field's CSS class will be appended with
+ |CHtml::errorCss|. This enables highlighting the incorrect input.
+    [type] (string) the input type (e.g. 'text', 'radio')
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes for the HTML tag
+
+
+*CHtml::activeLabel*						 public
+>
+ activeLabel($model, $attribute, $htmlOptions=array())
+<
+(string) the generated label tag
+
+ Generates a label tag for a model attribute. The label text is the attribute
+ label and the label is associated with the input for the attribute (see
+ |CModel::getAttributeLabel|. If the attribute has input error, the label's
+ CSS class will be appended with |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. The following special
+    options are recognized:
+      {required} if this is set and is true, the label will be styled
+      with CSS class 'required' (customizable with CHtml::$requiredCss),
+      and be decorated with |CHtml::beforeRequiredLabel| and
+      |CHtml::afterRequiredLabel|. This option has been available since
+      version 1.0.2.
+      {label} this specifies the label to be displayed. If this is not
+      set, |CModel::getAttributeLabel| will be called to get the label
+      for display. If the label is specified as false, no label will be
+      rendered. This option has been available since version 1.0.4.
+
+
+*CHtml::activeLabelEx*						 public
+>
+ activeLabelEx($model, $attribute, $htmlOptions=array())
+<
+(string) the generated label tag
+
+ Generates a label tag for a model attribute. This is an enhanced version of
+ |CHtml::activeLabel|. It will render additional CSS class and mark when the
+ attribute is required. In particular, it calls |CModel::isAttributeRequired|
+ to determine if the attribute is required. If so, it will add a CSS class
+ |CHtml::requiredCss| to the label, and decorate the label with
+ |CHtml::beforeRequiredLabel| and |CHtml::afterRequiredLabel|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes.
+
+
+*CHtml::activeListBox*						 public
+>
+ activeListBox($model, $attribute, $data, $htmlOptions=array())
+<
+(string) the generated list box
+
+ Generates a list box for a model attribute. The model attribute value is used
+ as the selection. If the attribute has input error, the input field's CSS
+ class will be appended with |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [data] (array) data for generating the list options (value=>display) You
+    may use |CHtml::listData| to generate this data. Please refer to
+    |CHtml::listOptions| on how this data is used to generate the list
+    options. Note, the values and labels will be automatically HTML-encoded by
+    this method.
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are recognized. See
+    |CHtml::clientChange| and |CHtml::tag| for more details. In addition, the
+    following options are also supported:
+      {encode} boolean, specifies whether to encode the values. Defaults
+      to true. This option has been available since version 1.0.5.
+      {prompt} string, specifies the prompt text shown as the first list
+      option. Its value is empty. Note, the prompt text will NOT be
+      HTML-encoded.
+      {empty} string, specifies the text corresponding to empty
+      selection. Its value is empty. Starting from version 1.0.10, the
+      'empty' option can also be an array of value-label pairs. Each
+      pair will be used to render a list option at the beginning. Note,
+      the text label will NOT be HTML-encoded.
+      {options} array, specifies additional attributes for each OPTION
+      tag.     The array keys must be the option values, and the array
+      values are the extra     OPTION tag attributes in the name-value
+      pairs. For example,
+>
+        array(
+            'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+            'value2'=>array('label'=>'value 2'),
+        );
+<
+    This option has been available since
+      version 1.0.3.
+
+
+*CHtml::activeName*						 public
+>
+ activeName($model, $attribute)
+<
+(string) the generated input field name
+
+ Generates input field name for a model attribute. Unlike
+ |CHtml::resolveName|, this method does NOT modify the attribute name.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+
+
+*CHtml::activePasswordField*					 public
+>
+ activePasswordField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a password field input for a model attribute. If the attribute has
+ input error, the input field's CSS class will be appended with
+ |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::activeRadioButton*					 public
+>
+ activeRadioButton($model, $attribute, $htmlOptions=array())
+<
+(string) the generated radio button
+
+ Generates a radio button for a model attribute. If the attribute has input
+ error, the input field's CSS class will be appended with |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.) Since version
+    1.0.9, a special option named 'uncheckValue' is available that can be used
+    to specify the value returned when the radio button is not checked. By
+    default, this value is '0'. Internally, a hidden field is rendered so that
+    when the radio button is not checked, we can still obtain the posted
+    uncheck value. If 'uncheckValue' is set as NULL, the hidden field will not
+    be rendered.
+
+
+*CHtml::activeRadioButtonList*					 public
+>
+ activeRadioButtonList($model, $attribute, $data, $htmlOptions=array())
+<
+(string) the generated radio button list
+
+ Generates a radio button list for a model attribute. The model attribute
+ value is used as the selection. If the attribute has input error, the input
+ field's CSS class will be appended with |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [data] (array) value-label pairs used to generate the radio button list.
+    Note, the values will be automatically HTML-encoded, while the labels will
+    not.
+    [htmlOptions] (array) addtional HTML options. The options will be applied
+    to each radio button input. The following special options are recognized:
+      {template} string, specifies how each radio button is rendered.
+      Defaults to "{input} {label}", where "{input}" will be replaced by
+      the generated radio button input tag while "{label}" will be
+      replaced by the corresponding radio button label.
+      {separator} string, specifies the string that separates the
+      generated radio buttons.
+      {encode} boolean, specifies whether to encode HTML-encode tag
+      attributes and values. Defaults to true. This option has been
+      available since version 1.0.5.Since version 1.1.7, a special option
+    named 'uncheckValue' is available that can be used to specify the value
+    returned when the radio button is not checked. By default, this value is
+    ''. Internally, a hidden field is rendered so that when the radio button
+    is not checked, we can still obtain the posted uncheck value. If
+    'uncheckValue' is set as NULL, the hidden field will not be rendered.
+
+
+*CHtml::activeTextArea* 					 public
+>
+ activeTextArea($model, $attribute, $htmlOptions=array())
+<
+(string) the generated text area
+
+ Generates a text area input for a model attribute. If the attribute has input
+ error, the input field's CSS class will be appended with |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::activeTextField*					 public
+>
+ activeTextField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a text field input for a model attribute. If the attribute has
+ input error, the input field's CSS class will be appended with
+ |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::addErrorCss*						 protected
+>
+ addErrorCss($htmlOptions)
+<
+(void)
+
+ Appends |CHtml::errorCss| to the 'class' attribute.
+    [htmlOptions] (array) HTML options to be modified
+
+
+*CHtml::ajax*							 public
+>
+ ajax($options)
+<
+(string) the generated JavaScript
+
+ Generates the JavaScript that initiates an AJAX request.
+    [options] (array) AJAX options. The valid options are specified in the
+    jQuery ajax documentation. The following special options are added for
+    convenience:
+      {update} string, specifies the selector whose HTML content should
+      be replaced   by the AJAX request result.
+      {replace} string, specifies the selector whose target should be
+      replaced   by the AJAX request result.Note, if you specify the 'success'
+    option, the above options will be ignored.
+
+
+*CHtml::ajaxButton*						 public
+>
+ ajaxButton($label, $url, $ajaxOptions=array(), $htmlOptions=array())
+<
+(string) the generated button
+
+ Generates a push button that can initiate AJAX requests.
+    [label] (string) the button label
+    [url] (mixed) the URL for the AJAX request. If empty, it is assumed to be
+    the current URL. See |CHtml::normalizeUrl| for more details.
+    [ajaxOptions] (array) AJAX options (see |CHtml::ajax|)
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::ajaxLink*						 public
+>
+ ajaxLink($text, $url, $ajaxOptions=array(), $htmlOptions=array())
+<
+(string) the generated link
+
+ Generates a link that can initiate AJAX requests.
+    [text] (string) the link body (it will NOT be HTML-encoded.)
+    [url] (mixed) the URL for the AJAX request. If empty, it is assumed to be
+    the current URL. See |CHtml::normalizeUrl| for more details.
+    [ajaxOptions] (array) AJAX options (see |CHtml::ajax|)
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::ajaxSubmitButton*					 public
+>
+ ajaxSubmitButton($label, $url, $ajaxOptions=array(), $htmlOptions=array())
+<
+(string) the generated button
+
+ Generates a push button that can submit the current form in POST method.
+    [label] (string) the button label
+    [url] (mixed) the URL for the AJAX request. If empty, it is assumed to be
+    the current URL. See |CHtml::normalizeUrl| for more details.
+    [ajaxOptions] (array) AJAX options (see |CHtml::ajax|)
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::asset*							 public
+>
+ asset($path, $hashByName=false)
+<
+(string) the asset URL
+
+ Generates the URL for the published assets.
+    [path] (string) the path of the asset to be published
+    [hashByName] (boolean) whether the published directory should be named as
+    the hashed basename. If false, the name will be the hashed dirname of the
+    path being published. Defaults to false. Set true if the path being
+    published is shared among different extensions.
+
+
+*CHtml::beginForm*						 public
+>
+ beginForm($action='', $method='post', $htmlOptions=array())
+<
+(string) the generated form tag.
+
+ Generates an opening form tag. Note, only the open tag is generated. A close
+ tag should be placed manually at the end of the form.
+    [action] (mixed) the form action URL (see |CHtml::normalizeUrl| for
+    details about this parameter.)
+    [method] (string) form method (e.g. post, get)
+    [htmlOptions] (array) additional HTML attributes (see |CHtml::tag|).
+
+
+*CHtml::button* 						 public
+>
+ button($label='button', $htmlOptions=array())
+<
+(string) the generated button tag
+
+ Generates a button.
+    [label] (string) the button label
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::cdata*							 public
+>
+ cdata($text)
+<
+(string) the CDATA tag with the enclosed content.
+
+ Encloses the given string within a CDATA tag.
+    [text] (string) the string to be enclosed
+
+
+*CHtml::checkBox*						 public
+>
+ checkBox($name, $checked=false, $htmlOptions=array())
+<
+(string) the generated check box
+
+ Generates a check box.
+    [name] (string) the input name
+    [checked] (boolean) whether the check box is checked
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.) Since version
+    1.1.2, a special option named 'uncheckValue' is available that can be used
+    to specify the value returned when the checkbox is not checked. When set,
+    a hidden field is rendered so that when the checkbox is not checked, we
+    can still obtain the posted uncheck value. If 'uncheckValue' is not set or
+    set to NULL, the hidden field will not be rendered.
+
+
+*CHtml::checkBoxList*						 public
+>
+ checkBoxList($name, $select, $data, $htmlOptions=array())
+<
+(string) the generated check box list
+
+ Generates a check box list. A check box list allows multiple selection, like
+ |CHtml::listBox|. As a result, the corresponding POST value is an array.
+    [name] (string) name of the check box list. You can use this name to
+    retrieve the selected value(s) once the form is submitted.
+    [select] (mixed) selection of the check boxes. This can be either a string
+    for single selection or an array for multiple selections.
+    [data] (array) value-label pairs used to generate the check box list.
+    Note, the values will be automatically HTML-encoded, while the labels will
+    not.
+    [htmlOptions] (array) addtional HTML options. The options will be applied
+    to each checkbox input. The following special options are recognized:
+      {template} string, specifies how each checkbox is rendered.
+      Defaults to "{input} {label}", where "{input}" will be replaced by
+      the generated check box input tag while "{label}" be replaced by
+      the corresponding check box label.
+      {separator} string, specifies the string that separates the
+      generated check boxes.
+      {checkAll} string, specifies the label for the "check all"
+      checkbox. If this option is specified, a 'check all' checkbox will
+      be displayed. Clicking on this checkbox will cause all checkboxes
+      checked or unchecked. This option has been available since version
+      1.0.4.
+      {checkAllLast} boolean, specifies whether the 'check all' checkbox
+      should be displayed at the end of the checkbox list. If this
+      option is not set (default) or is false, the 'check all' checkbox
+      will be displayed at the beginning of the checkbox list. This
+      option has been available since version 1.0.4.
+      {labelOptions} array, specifies the additional HTML attributes to
+      be rendered for every label tag in the list. This option has been
+      available since version 1.0.10.
+
+
+*CHtml::clientChange*						 protected
+>
+ clientChange($event, $htmlOptions)
+<
+(void)
+
+ Generates the JavaScript with the specified client changes.
+    [event] (string) event name (without 'on')
+    [htmlOptions] (array) HTML attributes which may contain the following
+    special attributes specifying the client change behaviors:
+      {submit} string, specifies the URL that the button should submit
+      to. If empty, the current requested URL will be used.
+      {params} array, name-value pairs that should be submitted together
+      with the form. This is only used when 'submit' option is
+      specified.
+      {csrf} boolean, whether a CSRF token should be submitted when
+      |CHttpRequest::enableCsrfValidation| is true. Defaults to false.
+      This option has been available since version 1.0.7. You may want
+      to set this to be true if there is no enclosing form around this
+      element. This option is meaningful only when 'submit' option is
+      set.
+      {return} boolean, the return value of the javascript. Defaults to
+      false, meaning that the execution of javascript would not cause
+      the default behavior of the event. This option has been available
+      since version 1.0.2.
+      {confirm} string, specifies the message that should show in a
+      pop-up confirmation dialog.
+      {ajax} array, specifies the AJAX options (see |CHtml::ajax|).
+      {live} boolean, whether the event handler should be bound in
+      "live" (a jquery event concept). Defaults to true. This option has
+      been available since version 1.1.6.This parameter has been available
+    since version 1.1.1.
+
+
+*CHtml::closeTag*						 public
+>
+ closeTag($tag)
+<
+(string) the generated HTML element tag
+
+ Generates a close HTML element.
+    [tag] (string) the tag name
+
+
+*CHtml::css*							 public
+>
+ css($text, $media='')
+<
+(string) the CSS properly enclosed
+
+ Encloses the given CSS content with a CSS tag.
+    [text] (string) the CSS content
+    [media] (string) the media that this CSS should apply to.
+
+
+*CHtml::cssFile*						 public
+>
+ cssFile($url, $media='')
+<
+(string) the CSS link.
+
+ Links to the specified CSS file.
+    [url] (string) the CSS URL
+    [media] (string) the media that this CSS should apply to.
+
+
+*CHtml::dropDownList*						 public
+>
+ dropDownList($name, $select, $data, $htmlOptions=array())
+<
+(string) the generated drop down list
+
+ Generates a drop down list.
+    [name] (string) the input name
+    [select] (string) the selected value
+    [data] (array) data for generating the list options (value=>display). You
+    may use |CHtml::listData| to generate this data. Please refer to
+    |CHtml::listOptions| on how this data is used to generate the list
+    options. Note, the values and labels will be automatically HTML-encoded by
+    this method.
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are recognized. See
+    |CHtml::clientChange| and |CHtml::tag| for more details. In addition, the
+    following options are also supported specifically for dropdown list:
+      {encode} boolean, specifies whether to encode the values. Defaults
+      to true. This option has been available since version 1.0.5.
+      {prompt} string, specifies the prompt text shown as the first list
+      option. Its value is empty. Note, the prompt text will NOT be
+      HTML-encoded.
+      {empty} string, specifies the text corresponding to empty
+      selection. Its value is empty. Starting from version 1.0.10, the
+      'empty' option can also be an array of value-label pairs. Each
+      pair will be used to render a list option at the beginning. Note,
+      the text label will NOT be HTML-encoded.
+      {options} array, specifies additional attributes for each OPTION
+      tag.     The array keys must be the option values, and the array
+      values are the extra     OPTION tag attributes in the name-value
+      pairs. For example,
+>
+        array(
+            'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+            'value2'=>array('label'=>'value 2'),
+        );
+<
+    This option has been available since
+      version 1.0.3.
+
+
+*CHtml::encode* 						 public
+>
+ encode($text)
+<
+(string) the encoded data
+
+ Encodes special characters into HTML entities. The |CApplication::charset|
+ will be used for encoding.
+    [text] (string) data to be encoded
+
+
+*CHtml::encodeArray*						 public
+>
+ encodeArray($data)
+<
+(array) the encoded data
+
+ Encodes special characters in an array of strings into HTML entities. Both
+ the array keys and values will be encoded if needed. If a value is an array,
+ this method will also encode it recursively. The |CApplication::charset| will
+ be used for encoding.
+    [data] (array) data to be encoded
+
+
+*CHtml::endForm*						 public
+>
+ endForm()
+<
+(string) the generated tag
+
+ Generates a closing form tag.
+
+
+*CHtml::error*							 public
+>
+ error($model, $attribute, $htmlOptions=array())
+<
+(string) the error display. Empty if no errors are found.
+
+ Displays the first validation error for a model attribute.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute name
+    [htmlOptions] (array) additional HTML attributes to be rendered in the
+    container div tag. This parameter has been available since version 1.0.7.
+
+
+*CHtml::errorSummary*						 public
+>
+ errorSummary($model, $header='', $footer='', $htmlOptions=array())
+<
+(string) the error summary. Empty if no errors are found.
+
+ Displays a summary of validation errors for one or several models.
+    [model] (mixed) the models whose input errors are to be displayed. This
+    can be either a single model or an array of models.
+    [header] (string) a piece of HTML code that appears in front of the errors
+    [footer] (string) a piece of HTML code that appears at the end of the
+    errors
+    [htmlOptions] (array) additional HTML attributes to be rendered in the
+    container div tag. This parameter has been available since version 1.0.7.
+    A special option named 'firstError' is recognized, which when set true,
+    will make the error summary to show only the first error message of each
+    attribute. If this is not set or is false, all error messages will be
+    displayed. This option has been available since version 1.1.3.
+
+
+*CHtml::fileField*						 public
+>
+ fileField($name, $value='', $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a file input. Note, you have to set the enclosing form's 'enctype'
+ attribute to be 'multipart/form-data'. After the form is submitted, the
+ uploaded file information can be obtained via $_FILES[$name] (see PHP
+ documentation).
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes (see |CHtml::tag|).
+
+
+*CHtml::form*							 public
+>
+ form($action='', $method='post', $htmlOptions=array())
+<
+(string) the generated form tag.
+
+ Generates an opening form tag. This is a shortcut to |CHtml::beginForm|.
+    [action] (mixed) the form action URL (see |CHtml::normalizeUrl| for
+    details about this parameter.)
+    [method] (string) form method (e.g. post, get)
+    [htmlOptions] (array) additional HTML attributes (see |CHtml::tag|).
+
+
+*CHtml::getActiveId*						 public
+>
+ getActiveId($model, $attribute)
+<
+(string) the element ID for the active field corresponding to the specified
+model and attribute.
+
+ Returns the element ID that is used by methods such as
+ |CHtml::activeTextField|. This method has been deprecated since version
+ 1.0.5. Please use |CHtml::activeId| instead.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+
+
+*CHtml::getIdByName*						 public
+>
+ getIdByName($name)
+<
+(string) the ID generated based on name.
+
+ Generates a valid HTML ID based on name.
+    [name] (string) name from which to generate HTML ID
+
+
+*CHtml::hiddenField*						 public
+>
+ hiddenField($name, $value='', $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a hidden input.
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes (see |CHtml::tag|).
+
+
+*CHtml::htmlButton*						 public
+>
+ htmlButton($label='button', $htmlOptions=array())
+<
+(string) the generated button tag
+
+ Generates a button using HTML button tag. This method is similar to
+ |CHtml::button| except that it generates a 'button' tag instead of 'input'
+ tag.
+    [label] (string) the button label. Note that this value will be directly
+    inserted in the button element without being HTML-encoded.
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::image*							 public
+>
+ image($src, $alt='', $htmlOptions=array())
+<
+(string) the generated image tag
+
+ Generates an image tag.
+    [src] (string) the image URL
+    [alt] (string) the alternative text display
+    [htmlOptions] (array) additional HTML attributes (see |CHtml::tag|).
+
+
+*CHtml::imageButton*						 public
+>
+ imageButton($src, $htmlOptions=array())
+<
+(string) the generated button tag
+
+ Generates an image submit button.
+    [src] (string) the image URL
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::inputField*						 protected
+>
+ inputField($type, $name, $value, $htmlOptions)
+<
+(string) the generated input tag
+
+ Generates an input HTML tag. This method generates an input HTML tag based on
+ the given input name and value.
+    [type] (string) the input type (e.g. 'text', 'radio')
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes for the HTML tag (see
+    |CHtml::tag|).
+
+
+*CHtml::label*							 public
+>
+ label($label, $for, $htmlOptions=array())
+<
+(string) the generated label tag
+
+ Generates a label tag.
+    [label] (string) label text. Note, you should HTML-encode the text if
+    needed.
+    [for] (string) the ID of the HTML element that this label is associated
+    with. If this is false, the 'for' attribute for the label tag will not be
+    rendered (since version 1.0.11).
+    [htmlOptions] (array) additional HTML attributes. Starting from version
+    1.0.2, the following HTML option is recognized:
+      {required} if this is set and is true, the label will be styled
+      with CSS class 'required' (customizable with CHtml::$requiredCss),
+      and be decorated with |CHtml::beforeRequiredLabel| and
+      |CHtml::afterRequiredLabel|.
+
+
+*CHtml::link*							 public
+>
+ link($text, $url='#', $htmlOptions=array())
+<
+(string) the generated hyperlink
+
+ Generates a hyperlink tag.
+    [text] (string) link body. It will NOT be HTML-encoded. Therefore you can
+    pass in HTML code such as an image tag.
+    [url] (mixed) a URL or an action route that can be used to create a URL.
+    See |CHtml::normalizeUrl| for more details about how to specify this
+    parameter.
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::linkButton*						 public
+>
+ linkButton($label='submit', $htmlOptions=array())
+<
+(string) the generated button tag
+
+ Generates a link submit button.
+    [label] (string) the button label
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::linkTag*						 public
+>
+ linkTag($relation='', $type='', $href='', $media='', $options=array())
+<
+(string) the generated link tag
+
+ Generates a link tag that can be inserted in the head section of HTML page.
+ Do not confuse this method with |CHtml::link|. The latter generates a
+ hyperlink.
+    [relation] (string) rel attribute of the link tag. If null, the attribute
+    will not be generated.
+    [type] (string) type attribute of the link tag. If null, the attribute
+    will not be generated.
+    [href] (string) href attribute of the link tag. If null, the attribute
+    will not be generated.
+    [media] (string) media attribute of the link tag. If null, the attribute
+    will not be generated.
+    [options] (array) other options in name-value pairs
+
+
+*CHtml::listBox*						 public
+>
+ listBox($name, $select, $data, $htmlOptions=array())
+<
+(string) the generated list box
+
+ Generates a list box.
+    [name] (string) the input name
+    [select] (mixed) the selected value(s). This can be either a string for
+    single selection or an array for multiple selections.
+    [data] (array) data for generating the list options (value=>display) You
+    may use |CHtml::listData| to generate this data. Please refer to
+    |CHtml::listOptions| on how this data is used to generate the list
+    options. Note, the values and labels will be automatically HTML-encoded by
+    this method.
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized. See
+    |CHtml::clientChange| and |CHtml::tag| for more details. In addition, the
+    following options are also supported specifically for list box:
+      {encode} boolean, specifies whether to encode the values. Defaults
+      to true. This option has been available since version 1.0.5.
+      {prompt} string, specifies the prompt text shown as the first list
+      option. Its value is empty. Note, the prompt text will NOT be
+      HTML-encoded.
+      {empty} string, specifies the text corresponding to empty
+      selection. Its value is empty. Starting from version 1.0.10, the
+      'empty' option can also be an array of value-label pairs. Each
+      pair will be used to render a list option at the beginning. Note,
+      the text label will NOT be HTML-encoded.
+      {options} array, specifies additional attributes for each OPTION
+      tag.     The array keys must be the option values, and the array
+      values are the extra     OPTION tag attributes in the name-value
+      pairs. For example,
+>
+        array(
+            'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+            'value2'=>array('label'=>'value 2'),
+        );
+<
+    This option has been available since
+      version 1.0.3.
+
+
+*CHtml::listData*						 public
+>
+ listData($models, $valueField, $textField, $groupField='')
+<
+(array) the list data that can be used in |CHtml::dropDownList|,
+|CHtml::listBox|, etc.
+
+ Generates the data suitable for list-based HTML elements. The generated data
+ can be used in |CHtml::dropDownList|, |CHtml::listBox|,
+ |CHtml::checkBoxList|, |CHtml::radioButtonList|, and their active-versions
+ (such as |CHtml::activeDropDownList|). Note, this method does not HTML-encode
+ the generated data. You may call |CHtml::encodeArray| to encode it if needed.
+ Please refer to the |CHtml::value| method on how to specify value field, text
+ field and group field.
+    [models] (array) a list of model objects. Starting from version 1.0.3,
+    this parameter can also be an array of associative arrays (e.g. results of
+    |CDbCommand::queryAll|).
+    [valueField] (string) the attribute name for list option values
+    [textField] (string) the attribute name for list option texts
+    [groupField] (string) the attribute name for list option group names. If
+    empty, no group will be generated.
+
+
+*CHtml::listOptions*						 public
+>
+ listOptions($selection, $listData, $htmlOptions)
+<
+(string) the generated list options
+
+ Generates the list options.
+    [selection] (mixed) the selected value(s). This can be either a string for
+    single selection or an array for multiple selections.
+    [listData] (array) the option data (see |CHtml::listData|)
+    [htmlOptions] (array) additional HTML attributes. The following two
+    special attributes are recognized:
+      {encode} boolean, specifies whether to encode the values. Defaults
+      to true. This option has been available since version 1.0.5.
+      {prompt} string, specifies the prompt text shown as the first list
+      option. Its value is empty. Note, the prompt text will NOT be
+      HTML-encoded.
+      {empty} string, specifies the text corresponding to empty
+      selection. Its value is empty. Starting from version 1.0.10, the
+      'empty' option can also be an array of value-label pairs. Each
+      pair will be used to render a list option at the beginning. Note,
+      the text label will NOT be HTML-encoded.
+      {options} array, specifies additional attributes for each OPTION
+      tag.     The array keys must be the option values, and the array
+      values are the extra     OPTION tag attributes in the name-value
+      pairs. For example,
+>
+        array(
+            'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+            'value2'=>array('label'=>'value 2'),
+        );
+<
+    This option has been available since
+      version 1.0.3.
+      {key} string, specifies the name of key attribute of the selection
+      object(s). This is used when the selection is represented in terms
+      of objects. In this case, the property named by the key option of
+      the objects will be treated as the actual selection value. This
+      option defaults to 'primaryKey', meaning using the 'primaryKey'
+      property value of the objects in the selection. This option has
+      been available since version 1.1.3.
+
+
+*CHtml::mailto* 						 public
+>
+ mailto($text, $email='', $htmlOptions=array())
+<
+(string) the generated mailto link
+
+ Generates a mailto link.
+    [text] (string) link body. It will NOT be HTML-encoded. Therefore you can
+    pass in HTML code such as an image tag.
+    [email] (string) email address. If this is empty, the first parameter
+    (link body) will be treated as the email address.
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::metaTag*						 public
+>
+ metaTag($content, $name='', $httpEquiv='', $options=array())
+<
+(string) the generated meta tag
+
+ Generates a meta tag that can be inserted in the head section of HTML page.
+    [content] (string) content attribute of the meta tag
+    [name] (string) name attribute of the meta tag. If null, the attribute
+    will not be generated
+    [httpEquiv] (string) http-equiv attribute of the meta tag. If null, the
+    attribute will not be generated
+    [options] (array) other options in name-value pairs (e.g. 'scheme',
+    'lang')
+
+
+*CHtml::normalizeUrl*						 public
+>
+ normalizeUrl($url)
+<
+(string) the normalized URL
+
+ Normalizes the input parameter to be a valid URL.
+
+ If the input parameter is an empty string, the currently requested URL will
+ be returned.
+
+ If the input parameter is a non-empty string, it is treated as a valid URL
+ and will be returned without any change.
+
+ If the input parameter is an array, it is treated as a controller route and a
+ list of GET parameters, and the |CController::createUrl| method will be
+ invoked to create a URL. In this case, the first array element refers to the
+ controller route, and the rest key-value pairs refer to the additional GET
+ parameters for the URL. For example, 'array('post/list', 'page'=>3)' may be
+ used to generate the URL '/index.php?r=post/list&page=3'.
+    [url] (mixed) the parameter to be used to generate a valid URL
+
+
+*CHtml::openTag*						 public
+>
+ openTag($tag, $htmlOptions=array())
+<
+(string) the generated HTML element tag
+
+ Generates an open HTML element.
+    [tag] (string) the tag name
+    [htmlOptions] (array) the element attributes. The values will be
+    HTML-encoded using |CHtml::encode|. Since version 1.0.5, if an 'encode'
+    attribute is given and its value is false, the rest of the attribute
+    values will NOT be HTML-encoded. Since version 1.1.5, attributes whose
+    value is null will not be rendered.
+
+
+*CHtml::pageStateField* 					 public
+>
+ pageStateField($value)
+<
+(string) the generated hidden field
+
+ Generates a hidden field for storing persistent page states. This method is
+ internally used by |CHtml::statefulForm|.
+    [value] (string) the persistent page states in serialized format
+
+
+*CHtml::passwordField*						 public
+>
+ passwordField($name, $value='', $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a password field input.
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::radioButton*						 public
+>
+ radioButton($name, $checked=false, $htmlOptions=array())
+<
+(string) the generated radio button
+
+ Generates a radio button.
+    [name] (string) the input name
+    [checked] (boolean) whether the radio button is checked
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.) Since version
+    1.1.2, a special option named 'uncheckValue' is available that can be used
+    to specify the value returned when the radio button is not checked. When
+    set, a hidden field is rendered so that when the radio button is not
+    checked, we can still obtain the posted uncheck value. If 'uncheckValue'
+    is not set or set to NULL, the hidden field will not be rendered.
+
+
+*CHtml::radioButtonList*					 public
+>
+ radioButtonList($name, $select, $data, $htmlOptions=array())
+<
+(string) the generated radio button list
+
+ Generates a radio button list. A radio button list is like a
+ |CHtml::checkBoxList|, except that it only allows single selection.
+    [name] (string) name of the radio button list. You can use this name to
+    retrieve the selected value(s) once the form is submitted.
+    [select] (mixed) selection of the radio buttons. This can be either a
+    string for single selection or an array for multiple selections.
+    [data] (array) value-label pairs used to generate the radio button list.
+    Note, the values will be automatically HTML-encoded, while the labels will
+    not.
+    [htmlOptions] (array) addtional HTML options. The options will be applied
+    to each radio button input. The following special options are recognized:
+      {template} string, specifies how each radio button is rendered.
+      Defaults to "{input} {label}", where "{input}" will be replaced by
+      the generated radio button input tag while "{label}" will be
+      replaced by the corresponding radio button label.
+      {separator} string, specifies the string that separates the
+      generated radio buttons.
+      {labelOptions} array, specifies the additional HTML attributes to
+      be rendered for every label tag in the list. This option has been
+      available since version 1.0.10.
+
+
+*CHtml::refresh*						 public
+>
+ refresh($seconds, $url='')
+<
+(void)
+
+ Registers a 'refresh' meta tag. This method can be invoked anywhere in a
+ view. It will register a 'refresh' meta tag with |CClientScript| so that the
+ page can be refreshed in the specified seconds.
+    [seconds] (integer) the number of seconds to wait before refreshing the
+    page
+    [url] (string) the URL to which the page should be redirected to. If
+    empty, it means the current page.
+
+
+*CHtml::renderAttributes*					 public
+>
+ renderAttributes($htmlOptions)
+<
+(string) the rendering result
+
+ Renders the HTML tag attributes. Since version 1.1.5, attributes whose value
+ is null will not be rendered. Special attributes, such as 'checked',
+ 'disabled', 'readonly', will be rendered properly based on their
+ corresponding boolean value.
+    [htmlOptions] (array) attributes to be rendered
+
+
+*CHtml::resetButton*						 public
+>
+ resetButton($label='reset', $htmlOptions=array())
+<
+(string) the generated button tag
+
+ Generates a reset button.
+    [label] (string) the button label
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::resolveName*						 public
+>
+ resolveName($model, $attribute)
+<
+(string) the input name
+
+ Generates input name for a model attribute. Note, the attribute name may be
+ modified after calling this method if the name contains square brackets
+ (mainly used in tabular input) before the real attribute name.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+
+
+*CHtml::resolveNameID*						 public
+>
+ resolveNameID($model, $attribute, $htmlOptions)
+<
+(void)
+
+ Generates input name and ID for a model attribute. This method will update
+ the HTML options by setting appropriate 'name' and 'id' attributes. This
+ method may also modify the attribute name if the name contains square
+ brackets (mainly used in tabular input).
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) the HTML options
+
+
+*CHtml::resolveValue*						 public
+>
+ resolveValue($model, $attribute)
+<
+(mixed) the attribute value
+
+ Evaluates the attribute value of the model. This method can recognize the
+ attribute name written in array format. For example, if the attribute name is
+ 'name[a][b]', the value "$model->name['a']['b']" will be returned.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute name
+
+
+*CHtml::script* 						 public
+>
+ script($text)
+<
+(string) the enclosed JavaScript
+
+ Encloses the given JavaScript within a script tag.
+    [text] (string) the JavaScript to be enclosed
+
+
+*CHtml::scriptFile*						 public
+>
+ scriptFile($url)
+<
+(string) the JavaScript file tag
+
+ Includes a JavaScript file.
+    [url] (string) URL for the JavaScript file
+
+
+*CHtml::statefulForm*						 public
+>
+ statefulForm($action='', $method='post', $htmlOptions=array())
+<
+(string) the generated form tag.
+
+ Generates a stateful form tag. A stateful form tag is similar to
+ |CHtml::form| except that it renders an additional hidden field for storing
+ persistent page states. You should use this method to generate a form tag if
+ you want to access persistent page states when the form is submitted.
+    [action] (mixed) the form action URL (see |CHtml::normalizeUrl| for
+    details about this parameter.)
+    [method] (string) form method (e.g. post, get)
+    [htmlOptions] (array) additional HTML attributes (see |CHtml::tag|).
+
+
+*CHtml::submitButton*						 public
+>
+ submitButton($label='submit', $htmlOptions=array())
+<
+(string) the generated button tag
+
+ Generates a submit button.
+    [label] (string) the button label
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::tag*							 public
+>
+ tag($tag, $htmlOptions=array(), $content=false, $closeTag=true)
+<
+(string) the generated HTML element tag
+
+ Generates an HTML element.
+    [tag] (string) the tag name
+    [htmlOptions] (array) the element attributes. The values will be
+    HTML-encoded using |CHtml::encode|. Since version 1.0.5, if an 'encode'
+    attribute is given and its value is false, the rest of the attribute
+    values will NOT be HTML-encoded. Since version 1.1.5, attributes whose
+    value is null will not be rendered.
+    [content] (mixed) the content to be enclosed between open and close
+    element tags. It will not be HTML-encoded. If false, it means there is no
+    body content.
+    [closeTag] (boolean) whether to generate the close tag.
+
+
+*CHtml::textArea*						 public
+>
+ textArea($name, $value='', $htmlOptions=array())
+<
+(string) the generated text area
+
+ Generates a text area input.
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::textField*						 public
+>
+ textField($name, $value='', $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a text field input.
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::value*							 public
+>
+ value($model, $attribute, $defaultValue=NULL)
+<
+(mixed) the attribute value
+
+ Evaluates the value of the specified attribute for the given model. The
+ attribute name can be given in a dot syntax. For example, if the attribute is
+ "author.firstName", this method will return the value of
+ "$model->author->firstName". A default value (passed as the last parameter)
+ will be returned if the attribute does not exist or is broken in the middle
+ (e.g. $model->author is null). The model can be either an object or an array.
+ If the latter, the attribute is treated as a key of the array. For the
+ example of "author.firstName", if would mean the array value
+ "$model['author']['firstName']".
+    [model] (mixed) the model. This can be either an object or an array.
+    [attribute] (string) the attribute name (use dot to concatenate multiple
+    attributes)
+    [defaultValue] (mixed) the default value to return when the attribute does
+    not exist
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

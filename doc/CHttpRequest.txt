@@ -1,0 +1,711 @@
+
+*CHttpRequest*   >> |CApplicationComponent| >> |CComponent|
+==============
+
+ CHttpRequest encapsulates the $_SERVER variable and resolves its
+ inconsistency among different Web servers.
+
+ CHttpRequest also manages the cookies sent from and sent to the user. By
+ setting |CHttpRequest::enableCookieValidation| to true, cookies sent from the
+ user will be validated to see if they are tampered. The property
+ |CHttpRequest::getCookies| returns the collection of cookies. For more
+ details, see |CCookieCollection|.
+
+ CHttpRequest is a default application component loaded by |CWebApplication|.
+ It can be accessed via |CWebApplication::getRequest|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<acceptTypes>				*CHttpRequest::acceptTypes*
+ (string) Returns user browser accept types, null if not present.
+
+<baseUrl>				*CHttpRequest::baseUrl*
+ (string) Returns the relative URL for the application. This is similar to
+ |CHttpRequest::getScriptUrl| except that it does not have the script file
+ name, and the ending slashes are stripped off.
+
+<browser>				*CHttpRequest::browser*
+ (array) Returns information about the capabilities of user browser.
+
+<cookies>				*CHttpRequest::cookies*
+ (CCookieCollection) Returns the cookie collection. The result can be used
+ like an associative array. Adding |CHttpCookie| objects to the collection
+ will send the cookies to the client; and removing the objects from the
+ collection will delete those cookies on the client.
+
+<csrfCookie>				*CHttpRequest::csrfCookie*
+ (array) the property values (in name-value pairs) used to initialize the CSRF
+ cookie. Any property of |CHttpCookie| may be initialized. This property is
+ effective only when |CHttpRequest::enableCsrfValidation| is true.
+
+<csrfToken>				*CHttpRequest::csrfToken*
+ (string) Returns the random token used to perform CSRF validation. The token
+ will be read from cookie first. If not found, a new token will be generated.
+
+<csrfTokenName> 			*CHttpRequest::csrfTokenName*
+ (string) the name of the token used to prevent CSRF. Defaults to
+ 'YII_CSRF_TOKEN'. This property is effectively only when
+ |CHttpRequest::enableCsrfValidation| is true.
+
+<enableCookieValidation>		*CHttpRequest::enableCookieValidation*
+ (boolean) whether cookies should be validated to ensure they are not
+ tampered. Defaults to false.
+
+<enableCsrfValidation>			*CHttpRequest::enableCsrfValidation*
+ (boolean) whether to enable CSRF (Cross-Site Request Forgery) validation.
+ Defaults to false. By setting this property to true, forms submitted to an
+ Yii Web application must be originated from the same application. If not, a
+ 400 HTTP exception will be raised. Note, this feature requires that the user
+ client accepts cookie. You also need to use |CHtml::form| or
+ |CHtml::statefulForm| to generate the needed HTML forms in your pages.
+
+<hostInfo>				*CHttpRequest::hostInfo*
+ (string) Returns the schema and host part of the application URL. The
+ returned URL does not have an ending slash. By default this is determined
+ based on the user request information. You may explicitly specify it by
+ setting the |CHttpRequest::setHostInfo| property.
+
+<isAjaxRequest> 			*CHttpRequest::isAjaxRequest*
+ (boolean) Returns whether this is an AJAX (XMLHttpRequest) request.
+
+<isDeleteRequest>			*CHttpRequest::isDeleteRequest*
+ (boolean) Returns whether this is a DELETE request.
+
+<isPostRequest> 			*CHttpRequest::isPostRequest*
+ (boolean) Returns whether this is a POST request.
+
+<isPutRequest>				*CHttpRequest::isPutRequest*
+ (boolean) Returns whether this is a PUT request.
+
+<isSecureConnection>			*CHttpRequest::isSecureConnection*
+ (boolean) Return if the request is sent via secure channel (https).
+
+<pathInfo>				*CHttpRequest::pathInfo*
+ (string) Returns the path info of the currently requested URL. This refers to
+ the part that is after the entry script and before the question mark. The
+ starting and ending slashes are stripped off.
+
+<port>					*CHttpRequest::port*
+ (integer) Returns the port to use for insecure requests. Defaults to 80, or
+ the port specified by the server if the current request is insecure. You may
+ explicitly specify it by setting the |CHttpRequest::setPort| property.
+
+<preferredLanguage>			*CHttpRequest::preferredLanguage*
+ (string) Returns the user preferred language. The returned language ID will
+ be canonicalized using |CLocale::getCanonicalID|. This method returns false
+ if the user does not have language preference.
+
+<queryString>				*CHttpRequest::queryString*
+ (string) Returns part of the request URL that is after the question mark.
+
+<requestType>				*CHttpRequest::requestType*
+ (string) Returns the request type, such as GET, POST, HEAD, PUT, DELETE.
+
+<requestUri>				*CHttpRequest::requestUri*
+ (string) Returns the request URI portion for the currently requested URL.
+ This refers to the portion that is after the |CHttpRequest::hostInfo| part.
+ It includes the |CHttpRequest::queryString| part if any. The implementation
+ of this method referenced Zend_Controller_Request_Http in Zend Framework.
+
+<restParams>				*CHttpRequest::restParams*
+ (array) Returns the PUT or DELETE request parameters.
+
+<scriptFile>				*CHttpRequest::scriptFile*
+ (string) Returns entry script file path.
+
+<scriptUrl>				*CHttpRequest::scriptUrl*
+ (string) Returns the relative URL of the entry script. The implementation of
+ this method referenced Zend_Controller_Request_Http in Zend Framework.
+
+<securePort>				*CHttpRequest::securePort*
+ (integer) Returns the port to use for secure requests. Defaults to 443, or
+ the port specified by the server if the current request is secure. You may
+ explicitly specify it by setting the |CHttpRequest::setSecurePort| property.
+
+<serverName>				*CHttpRequest::serverName*
+ (string) Returns the server name.
+
+<serverPort>				*CHttpRequest::serverPort*
+ (integer) Returns the server port number.
+
+<url>					*CHttpRequest::url*
+ (string) Returns the currently requested URL. This is the same as
+ |CHttpRequest::getRequestUri|.
+
+<urlReferrer>				*CHttpRequest::urlReferrer*
+ (string) Returns the URL referrer, null if not present
+
+<userAgent>				*CHttpRequest::userAgent*
+ (string) Returns the user agent, null if not present.
+
+<userHost>				*CHttpRequest::userHost*
+ (string) Returns the user host name, null if it cannot be determined.
+
+<userHostAddress>			*CHttpRequest::userHostAddress*
+ (string) Returns the user IP address.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CHttpRequest::createCsrfCookie*				 protected
+>
+ createCsrfCookie()
+<
+(CHttpCookie) the generated cookie
+
+ Creates a cookie with a randomly generated CSRF token. Initial values
+ specified in |CHttpRequest::csrfCookie| will be applied to the generated
+ cookie.
+
+
+*CHttpRequest::getAcceptTypes*					 public
+>
+ getAcceptTypes()
+<
+(string) user browser accept types, null if not present
+
+ Returns user browser accept types, null if not present.
+
+
+*CHttpRequest::getBaseUrl*					 public
+>
+ getBaseUrl($absolute=false)
+<
+(string) the relative URL for the application
+
+ Returns the relative URL for the application. This is similar to
+ |CHttpRequest::getScriptUrl| except that it does not have the script file
+ name, and the ending slashes are stripped off.
+    [absolute] (boolean) whether to return an absolute URL. Defaults to false,
+    meaning returning a relative one. This parameter has been available since
+    1.0.2.
+
+
+*CHttpRequest::getBrowser*					 public
+>
+ getBrowser($userAgent='')
+<
+(array) user browser capabilities.
+
+ Returns information about the capabilities of user browser.
+    [userAgent] (string) the user agent to be analyzed. Defaults to null,
+    meaning using the current User-Agent HTTP header information.
+
+
+*CHttpRequest::getCookies*					 public
+>
+ getCookies()
+<
+(CCookieCollection) the cookie collection.
+
+ Returns the cookie collection. The result can be used like an associative
+ array. Adding |CHttpCookie| objects to the collection will send the cookies
+ to the client; and removing the objects from the collection will delete those
+ cookies on the client.
+
+
+*CHttpRequest::getCsrfToken*					 public
+>
+ getCsrfToken()
+<
+(string) the random token for CSRF validation.
+
+ Returns the random token used to perform CSRF validation. The token will be
+ read from cookie first. If not found, a new token will be generated.
+
+
+*CHttpRequest::getDelete*					 public
+>
+ getDelete($name, $defaultValue=NULL)
+<
+(mixed) the DELETE parameter value
+
+ Returns the named DELETE parameter value. If the DELETE parameter does not
+ exist or if the current request is not a DELETE request, the second parameter
+ to this method will be returned.
+    [name] (string) the DELETE parameter name
+    [defaultValue] (mixed) the default parameter value if the DELETE parameter
+    does not exist.
+
+
+*CHttpRequest::getHostInfo*					 public
+>
+ getHostInfo($schema='')
+<
+(string) schema and hostname part (with port number if needed) of the request
+URL (e.g. http://www.yiiframework.com)
+
+ Returns the schema and host part of the application URL. The returned URL
+ does not have an ending slash. By default this is determined based on the
+ user request information. You may explicitly specify it by setting the
+ |CHttpRequest::setHostInfo| property.
+    [schema] (string) schema to use (e.g. http, https). If empty, the schema
+    used for the current request will be used.
+
+
+*CHttpRequest::getIsAjaxRequest*				 public
+>
+ getIsAjaxRequest()
+<
+(boolean) whether this is an AJAX (XMLHttpRequest) request.
+
+ Returns whether this is an AJAX (XMLHttpRequest) request.
+
+
+*CHttpRequest::getIsDeleteRequest*				 public
+>
+ getIsDeleteRequest()
+<
+(boolean) whether this is a DELETE request.
+
+ Returns whether this is a DELETE request.
+
+
+*CHttpRequest::getIsPostRequest*				 public
+>
+ getIsPostRequest()
+<
+(boolean) whether this is a POST request.
+
+ Returns whether this is a POST request.
+
+
+*CHttpRequest::getIsPutRequest* 				 public
+>
+ getIsPutRequest()
+<
+(boolean) whether this is a PUT request.
+
+ Returns whether this is a PUT request.
+
+
+*CHttpRequest::getIsSecureConnection*				 public
+>
+ getIsSecureConnection()
+<
+(boolean) if the request is sent via secure channel (https)
+
+ Return if the request is sent via secure channel (https).
+
+
+*CHttpRequest::getParam*					 public
+>
+ getParam($name, $defaultValue=NULL)
+<
+(mixed) the GET parameter value
+
+ Returns the named GET or POST parameter value. If the GET or POST parameter
+ does not exist, the second parameter to this method will be returned. If both
+ GET and POST contains such a named parameter, the GET parameter takes
+ precedence.
+    [name] (string) the GET parameter name
+    [defaultValue] (mixed) the default parameter value if the GET parameter
+    does not exist.
+
+
+*CHttpRequest::getPathInfo*					 public
+>
+ getPathInfo()
+<
+(string) part of the request URL that is after the entry script and before the
+question mark. Note, the returned pathinfo is decoded starting from 1.1.4.
+Prior to 1.1.4, whether it is decoded or not depends on the server
+configuration (in most cases it is not decoded).
+
+ Returns the path info of the currently requested URL. This refers to the part
+ that is after the entry script and before the question mark. The starting and
+ ending slashes are stripped off.
+
+
+*CHttpRequest::getPort* 					 public
+>
+ getPort()
+<
+(integer) port number for insecure requests.
+
+ Returns the port to use for insecure requests. Defaults to 80, or the port
+ specified by the server if the current request is insecure. You may
+ explicitly specify it by setting the |CHttpRequest::setPort| property.
+
+
+*CHttpRequest::getPost* 					 public
+>
+ getPost($name, $defaultValue=NULL)
+<
+(mixed) the POST parameter value
+
+ Returns the named POST parameter value. If the POST parameter does not exist,
+ the second parameter to this method will be returned.
+    [name] (string) the POST parameter name
+    [defaultValue] (mixed) the default parameter value if the POST parameter
+    does not exist.
+
+
+*CHttpRequest::getPreferredLanguage*				 public
+>
+ getPreferredLanguage()
+<
+(string) the user preferred language.
+
+ Returns the user preferred language. The returned language ID will be
+ canonicalized using |CLocale::getCanonicalID|. This method returns false if
+ the user does not have language preference.
+
+
+*CHttpRequest::getPut*						 public
+>
+ getPut($name, $defaultValue=NULL)
+<
+(mixed) the PUT parameter value
+
+ Returns the named PUT parameter value. If the PUT parameter does not exist or
+ if the current request is not a PUT request, the second parameter to this
+ method will be returned.
+    [name] (string) the PUT parameter name
+    [defaultValue] (mixed) the default parameter value if the PUT parameter
+    does not exist.
+
+
+*CHttpRequest::getQuery*					 public
+>
+ getQuery($name, $defaultValue=NULL)
+<
+(mixed) the GET parameter value
+
+ Returns the named GET parameter value. If the GET parameter does not exist,
+ the second parameter to this method will be returned.
+    [name] (string) the GET parameter name
+    [defaultValue] (mixed) the default parameter value if the GET parameter
+    does not exist.
+
+
+*CHttpRequest::getQueryString*					 public
+>
+ getQueryString()
+<
+(string) part of the request URL that is after the question mark
+
+ Returns part of the request URL that is after the question mark.
+
+
+*CHttpRequest::getRequestType*					 public
+>
+ getRequestType()
+<
+(string) request type, such as GET, POST, HEAD, PUT, DELETE.
+
+ Returns the request type, such as GET, POST, HEAD, PUT, DELETE.
+
+
+*CHttpRequest::getRequestUri*					 public
+>
+ getRequestUri()
+<
+(string) the request URI portion for the currently requested URL.
+
+ Returns the request URI portion for the currently requested URL. This refers
+ to the portion that is after the |CHttpRequest::hostInfo| part. It includes
+ the |CHttpRequest::queryString| part if any. The implementation of this
+ method referenced Zend_Controller_Request_Http in Zend Framework.
+
+
+*CHttpRequest::getRestParams*					 protected
+>
+ getRestParams()
+<
+(array) the request parameters
+
+ Returns the PUT or DELETE request parameters.
+
+
+*CHttpRequest::getScriptFile*					 public
+>
+ getScriptFile()
+<
+(string) entry script file path (processed w/ realpath())
+
+ Returns entry script file path.
+
+
+*CHttpRequest::getScriptUrl*					 public
+>
+ getScriptUrl()
+<
+(string) the relative URL of the entry script.
+
+ Returns the relative URL of the entry script. The implementation of this
+ method referenced Zend_Controller_Request_Http in Zend Framework.
+
+
+*CHttpRequest::getSecurePort*					 public
+>
+ getSecurePort()
+<
+(integer) port number for secure requests.
+
+ Returns the port to use for secure requests. Defaults to 443, or the port
+ specified by the server if the current request is secure. You may explicitly
+ specify it by setting the |CHttpRequest::setSecurePort| property.
+
+
+*CHttpRequest::getServerName*					 public
+>
+ getServerName()
+<
+(string) server name
+
+ Returns the server name.
+
+
+*CHttpRequest::getServerPort*					 public
+>
+ getServerPort()
+<
+(integer) server port number
+
+ Returns the server port number.
+
+
+*CHttpRequest::getUrl*						 public
+>
+ getUrl()
+<
+(string) part of the request URL after the host info.
+
+ Returns the currently requested URL. This is the same as
+ |CHttpRequest::getRequestUri|.
+
+
+*CHttpRequest::getUrlReferrer*					 public
+>
+ getUrlReferrer()
+<
+(string) URL referrer, null if not present
+
+ Returns the URL referrer, null if not present
+
+
+*CHttpRequest::getUserAgent*					 public
+>
+ getUserAgent()
+<
+(string) user agent, null if not present
+
+ Returns the user agent, null if not present.
+
+
+*CHttpRequest::getUserHost*					 public
+>
+ getUserHost()
+<
+(string) user host name, null if cannot be determined
+
+ Returns the user host name, null if it cannot be determined.
+
+
+*CHttpRequest::getUserHostAddress*				 public
+>
+ getUserHostAddress()
+<
+(string) user IP address
+
+ Returns the user IP address.
+
+
+*CHttpRequest::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component. This method overrides the parent
+ implementation by preprocessing the user request data.
+
+
+*CHttpRequest::normalizeRequest*				 protected
+>
+ normalizeRequest()
+<
+(void)
+
+ Normalizes the request data. This method strips off slashes in request data
+ if get_magic_quotes_gpc() returns true. It also performs CSRF validation if
+ |CHttpRequest::enableCsrfValidation| is true.
+
+
+*CHttpRequest::redirect*					 public
+>
+ redirect($url, $terminate=true, $statusCode=302)
+<
+(void)
+
+ Redirects the browser to the specified URL.
+    [url] (string) URL to be redirected to. If the URL is a relative one, the
+    base URL of the application will be inserted at the beginning.
+    [terminate] (boolean) whether to terminate the current application
+    [statusCode] (integer) the HTTP status code. Defaults to 302. See
+    'http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html' for details about
+    HTTP status code. This parameter has been available since version 1.0.4.
+
+
+*CHttpRequest::sendFile*					 public
+>
+ sendFile($fileName, $content, $mimeType='', $terminate=true)
+<
+(void)
+
+ Sends a file to user.
+    [fileName] (string) file name
+    [content] (string) content to be set.
+    [mimeType] (string) mime type of the content. If null, it will be guessed
+    automatically based on the given file name.
+    [terminate] (boolean) whether to terminate the current application after
+    calling this method
+
+
+*CHttpRequest::setBaseUrl*					 public
+>
+ setBaseUrl($value)
+<
+(void)
+
+ Sets the relative URL for the application. By default the URL is determined
+ based on the entry script URL. This setter is provided in case you want to
+ change this behavior.
+    [value] (string) the relative URL for the application
+
+
+*CHttpRequest::setHostInfo*					 public
+>
+ setHostInfo($value)
+<
+(void)
+
+ Sets the schema and host part of the application URL. This setter is provided
+ in case the schema and hostname cannot be determined on certain Web servers.
+    [value] (string) the schema and host part of the application URL.
+
+
+*CHttpRequest::setPort* 					 public
+>
+ setPort($value)
+<
+(void)
+
+ Sets the port to use for insecure requests. This setter is provided in case a
+ custom port is necessary for certain server configurations.
+    [value] (integer) port number.
+
+
+*CHttpRequest::setScriptUrl*					 public
+>
+ setScriptUrl($value)
+<
+(void)
+
+ Sets the relative URL for the application entry script. This setter is
+ provided in case the entry script URL cannot be determined on certain Web
+ servers.
+    [value] (string) the relative URL for the application entry script.
+
+
+*CHttpRequest::setSecurePort*					 public
+>
+ setSecurePort($value)
+<
+(void)
+
+ Sets the port to use for secure requests. This setter is provided in case a
+ custom port is necessary for certain server configurations.
+    [value] (integer) port number.
+
+
+*CHttpRequest::stripSlashes*					 public
+>
+ stripSlashes($data)
+<
+(mixed) processed data
+
+ Strips slashes from input data. This method is applied when magic quotes is
+ enabled.
+    [data] (mixed) input data to be processed
+
+
+*CHttpRequest::validateCsrfToken*				 public
+>
+ validateCsrfToken($event)
+<
+(void)
+
+ Performs the CSRF validation. This is the event handler responding to
+ |CApplication::onBeginRequest|. The default implementation will compare the
+ CSRF token obtained from a cookie and from a POST field. If they are
+ different, a CSRF attack is detected.
+    [event] (CEvent) event parameter
+
+
+*CHttpRequest::xSendFile*					 public
+>
+ xSendFile($filePath, $options=array())
+<
+(boolean) false if file not found, true otherwise.
+
+ Sends existing file to a browser as a download using x-sendfile.
+
+ X-Sendfile is a feature allowing a web application to redirect the request
+ for a file to the webserver that in turn processes the request, this way
+ eliminating the need to perform tasks like reading the file and sending it to
+ the user. When dealing with a lot of files (or very big files) this can lead
+ to a great increase in performance as the web application is allowed to
+ terminate earlier while the webserver is handling the request.
+
+ The request is sent to the server through a special non-standard HTTP-header.
+ When the web server encounters the presence of such header it will discard
+ all output and send the file specified by that header using web server
+ internals including all optimizations like caching-headers.
+
+ As this header directive is non-standard different directives exists for
+ different web servers applications:
+   {Apache} 'X-Sendfile'
+   Lighttpd v1.4: 'X-LIGHTTPD-send-file'
+   Lighttpd v1.5: X-Sendfile 'X-Sendfile'
+   {Nginx} 'X-Accel-Redirect'
+   {Cherokee} 'X-Sendfile and X-Accel-Redirect'So for this method to work the
+ X-SENDFILE option/module should be enabled by the web server and a proper
+ xHeader should be sent.
+
+ <b>Note:</b> This option allows to download files that are not under web
+ folders, and even files that are otherwise protected (deny from all) like
+ .htaccess
+
+ <b>Side effects</b>: If this option is disabled by the web server, when this
+ method is called a download configuration dialog will open but the downloaded
+ file will have 0 bytes.
+
+ <b>Example</b>:
+>
+ <?php
+   Yii::app()->request->xSendFile('/home/user/Pictures/picture1.jpg',array(
+   'saveName'=>'image1.jpg',
+   'mimeType'=>'image/jpeg',
+   'terminate'=>false,
+   ));
+ ?>
+<
+    [filePath] (string) file name with full path
+    [options] (array) additional options:
+      {saveName} file name shown to the user, if not set real file name
+      will be used
+      {mimeType} mime type of the file, if not set it will be guessed
+      automatically based on the file name.
+      {xHeader} appropriate x-sendfile header, defaults to "X-Sendfile"
+      {terminate} whether to terminate the current application after
+      calling this method, defaults to true
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,110 @@
+
+*CDirectoryCacheDependency*   >> |CCacheDependency| >> |CComponent|
+===========================
+
+ CDirectoryCacheDependency represents a dependency based on change of a
+ directory.
+
+ CDirectoryCacheDependency performs dependency checking based on the
+ modification time of the files contained in the specified directory. The
+ directory being checked is specified via
+ |CDirectoryCacheDependency::directory|.
+
+ By default, all files under the specified directory and subdirectories will
+ be checked. If the last modification time of any of them is changed or if
+ different number of files are contained in a directory, the dependency is
+ reported as changed. By specifying
+ |CDirectoryCacheDependency::recursiveLevel|, one can limit the checking to a
+ certain depth of the directory.
+
+ Note, dependency checking for a directory is expensive because it involves
+ accessing modification time of multiple files under the directory.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<directory>				*CDirectoryCacheDependency::directory*
+ (string) the directory whose change is used to determine if the dependency
+ has been changed. If any of the files under the directory is changed, the
+ dependency is considered as changed.
+
+<namePattern>				*CDirectoryCacheDependency::namePattern*
+ (string) the regular expression matching valid file/directory names. Only the
+ matching files or directories will be checked for changes. Defaults to null,
+ meaning all files/directories will qualify.
+
+<recursiveLevel>			*CDirectoryCacheDependency::recursiveLevel*
+ (integer) the depth of the subdirectories to be recursively checked. If the
+ value is less than 0, it means unlimited depth. If the value is 0, it means
+ checking the files directly under the specified directory.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDirectoryCacheDependency::__construct*			 public
+>
+ __construct($directory='')
+<
+(void)
+
+ Constructor.
+    [directory] (string) the directory to be checked
+
+
+*CDirectoryCacheDependency::generateDependentData*		 protected
+>
+ generateDependentData()
+<
+(mixed) the data needed to determine if dependency has been changed.
+
+ Generates the data needed to determine if dependency has been changed. This
+ method returns the modification timestamps for files under the directory.
+
+
+*CDirectoryCacheDependency::generateTimestamps* 		 protected
+>
+ generateTimestamps($directory, $level=0)
+<
+(array) list of file modification time indexed by the file path
+
+ Determines the last modification time for files under the directory. This
+ method may go recursively into subdirectories if
+ |CDirectoryCacheDependency::recursiveLevel| is not 0.
+    [directory] (string) the directory name
+    [level] (integer) level of the recursion
+
+
+*CDirectoryCacheDependency::validateDirectory*			 protected
+>
+ validateDirectory($directory)
+<
+(boolean) whether this subdirectory should be checked.
+
+ Checks to see if the specified subdirectory should be checked for dependency.
+ This method is invoked when dependency of the whole directory is being
+ checked. By default, it always returns true, meaning the subdirectory should
+ be checked. You may override this method to check only certain
+ subdirectories.
+    [directory] (string) the name of the subdirectory that may be checked for
+    dependency.
+
+
+*CDirectoryCacheDependency::validateFile*			 protected
+>
+ validateFile($fileName)
+<
+(boolean) whether this file should be checked.
+
+ Checks to see if the file should be checked for dependency. This method is
+ invoked when dependency of the whole directory is being checked. By default,
+ it always returns true, meaning the file should be checked. You may override
+ this method to check only certain files.
+    [fileName] (string) the name of the file that may be checked for
+    dependency.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

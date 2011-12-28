@@ -1,0 +1,17 @@
+
+*CMysqlTableSchema*   >> |CDbTableSchema| >> |CComponent|
+===================
+
+ CMysqlTableSchema represents the metadata for a MySQL table.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<schemaName>				*CMysqlTableSchema::schemaName*
+ (string) name of the schema (database) that this table belongs to. Defaults
+ to null, meaning no schema (or the current database).
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

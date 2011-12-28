@@ -1,0 +1,148 @@
+
+*CFormElement*   >> |CComponent|
+==============
+
+ CFormElement is the base class for presenting all kinds of form element.
+
+ CFormElement implements the way to get and set arbitrary attributes.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<attributes>				*CFormElement::attributes*
+ (array) list of attributes (name=>value) for the HTML element represented by
+ this object.
+
+<parent>				*CFormElement::parent*
+ (mixed) the direct parent of this element. This could be either a |CForm|
+ object or a |CBaseController| object (a controller or a widget).
+
+<visible>				*CFormElement::visible*
+ (boolean) Returns a value indicating whether this element is visible and
+ should be rendered. This method will call |CFormElement::evaluateVisible| to
+ determine the visibility of this element.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CFormElement::__construct*					 public
+>
+ __construct($config, $parent)
+<
+(void)
+
+ Constructor.
+    [config] (mixed) the configuration for this element.
+    [parent] (mixed) the direct parent of this element.
+
+
+*CFormElement::__get*						 public
+>
+ __get($name)
+<
+(mixed) the property or attribute value
+
+ Returns a property value or an attribute value. Do not call this method. This
+ is a PHP magic method that we override to allow using the following syntax to
+ read a property or attribute:
+>
+ $value=$element->propertyName;
+ $value=$element->attributeName;
+<
+    [name] (string) the property or attribute name
+
+
+*CFormElement::__set*						 public
+>
+ __set($name, $value)
+<
+(void)
+
+ Sets value of a property or attribute. Do not call this method. This is a PHP
+ magic method that we override to allow using the following syntax to set a
+ property or attribute.
+>
+ $this->propertyName=$value;
+ $this->attributeName=$value;
+<
+    [name] (string) the property or attribute name
+    [value] (mixed) the property or attribute value
+
+
+*CFormElement::__toString*					 public
+>
+ __toString()
+<
+(string) the string representation of this object.
+
+ Converts the object to a string. This is a PHP magic method. The default
+ implementation simply calls |CFormElement::render| and return the rendering
+ result.
+
+
+*CFormElement::configure*					 public
+>
+ configure($config)
+<
+(void)
+
+ Configures this object with property initial values.
+    [config] (mixed) the configuration for this object. This can be an array
+    representing the property names and their initial values. It can also be a
+    string representing the file name of the PHP script that returns a
+    configuration array.
+
+
+*CFormElement::evaluateVisible* 				 protected
+>
+ evaluateVisible()
+<
+(boolean) whether this element is visible. Defaults to true.
+
+ Evaluates the visibility of this element. Child classes should override this
+ method to implement the actual algorithm for determining the visibility.
+
+
+*CFormElement::getParent*					 public
+>
+ getParent()
+<
+(mixed) the direct parent of this element. This could be either a |CForm|
+object or a |CBaseController| object (a controller or a widget).
+
+
+
+*CFormElement::getVisible*					 public
+>
+ getVisible()
+<
+(boolean) whether this element is visible and should be rendered.
+
+ Returns a value indicating whether this element is visible and should be
+ rendered. This method will call |CFormElement::evaluateVisible| to determine
+ the visibility of this element.
+
+
+*CFormElement::render*						 public
+>
+ render()
+<
+(string) the rendering result
+
+ Renders this element.
+
+
+*CFormElement::setVisible*					 public
+>
+ setVisible($value)
+<
+(void)
+
+    [value] (boolean) whether this element is visible and should be rendered.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

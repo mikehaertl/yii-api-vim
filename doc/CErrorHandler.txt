@@ -1,0 +1,235 @@
+
+*CErrorHandler*   >> |CApplicationComponent| >> |CComponent|
+===============
+
+ CErrorHandler handles uncaught PHP errors and exceptions.
+
+ It displays these errors using appropriate views based on the nature of the
+ error and the mode the application runs at. It also chooses the most
+ preferred language for displaying the error.
+
+ CErrorHandler uses two sets of views: <li>development views, named as
+ 'exception.php'; <li>production views, named as
+ 'error&lt;StatusCode&gt;.php'; where &lt;StatusCode&gt; stands for the HTTP
+ error code (e.g. error500.php). Localized views are named similarly but
+ located under a subdirectory whose name is the language code (e.g.
+ zh_cn/error500.php).
+
+ Development views are displayed when the application is in debug mode (i.e.
+ YII_DEBUG is defined as true). Detailed error information with source code
+ are displayed in these views. Production views are meant to be shown to
+ end-users and are used when the application is in production mode. For
+ security reasons, they only display the error message without any sensitive
+ information.
+
+ CErrorHandler looks for the view templates from the following locations in
+ order:
+
+   1. 'themes/ThemeName/views/system': when a theme is active.
+   2. 'protected/views/system'
+   3. 'framework/views'
+
+ If the view is not found in a directory, it will be looked for in the next
+ directory.
+
+ The property |CErrorHandler::maxSourceLines| can be changed to specify the
+ number of source code lines to be displayed in development views.
+
+ CErrorHandler is a core application component that can be accessed via
+ |CApplication::getErrorHandler|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<adminInfo>				*CErrorHandler::adminInfo*
+ (string) the application administrator information (could be a name or email
+ link). It is displayed in error pages to end users. Defaults to 'the
+ webmaster'.
+
+<discardOutput> 			*CErrorHandler::discardOutput*
+ (boolean) whether to discard any existing page output before error display.
+ Defaults to true.
+
+<error> 				*CErrorHandler::error*
+ (array) Returns the details about the error that is currently being handled.
+ The error is returned in terms of an array, with the following information:
+   code - the HTTP status code (e.g. 403, 500)
+   type - the error type (e.g. 'CHttpException', 'PHP Error')
+   message - the error message
+   file - the name of the PHP script file where the error occurs
+   line - the line number of the code where the error occurs
+   trace - the call stack of the error
+   source - the context source code where the error occurs
+
+<errorAction>				*CErrorHandler::errorAction*
+ (string) the route (eg 'site/error') to the controller action that will be
+ used to display external errors. Inside the action, it can retrieve the error
+ information by Yii::app()->errorHandler->error. This property defaults to
+ null, meaning CErrorHandler will handle the error display.
+
+<maxSourceLines>			*CErrorHandler::maxSourceLines*
+ (integer) maximum number of source code lines to be displayed. Defaults to
+ 25.
+
+<maxTraceSourceLines>			*CErrorHandler::maxTraceSourceLines*
+ (integer) maximum number of trace source code lines to be displayed. Defaults
+ to 10.
+
+<versionInfo>				*CErrorHandler::versionInfo*
+ (string) Returns server version information. If the application is in
+ production mode, empty string is returned.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CErrorHandler::argumentsToString*				 protected
+>
+ argumentsToString($args)
+<
+(string) string representation of the arguments array
+
+ Converts arguments array to its string representation
+    [args] (array) arguments array to be converted
+
+
+*CErrorHandler::getError*					 public
+>
+ getError()
+<
+(array) the error details. Null if there is no error.
+
+ Returns the details about the error that is currently being handled. The
+ error is returned in terms of an array, with the following information:
+   code - the HTTP status code (e.g. 403, 500)
+   type - the error type (e.g. 'CHttpException', 'PHP Error')
+   message - the error message
+   file - the name of the PHP script file where the error occurs
+   line - the line number of the code where the error occurs
+   trace - the call stack of the error
+   source - the context source code where the error occurs
+
+
+*CErrorHandler::getExactTrace*					 protected
+>
+ getExactTrace($exception)
+<
+(array) the exact trace where the problem occurs
+
+ Returns the exact trace where the problem occurs.
+    [exception] (Exception) the uncaught exception
+
+
+*CErrorHandler::getVersionInfo* 				 protected
+>
+ getVersionInfo()
+<
+(string) server version information. Empty if in production mode.
+
+ Returns server version information. If the application is in production mode,
+ empty string is returned.
+
+
+*CErrorHandler::getViewFile*					 protected
+>
+ getViewFile($view, $code)
+<
+(string) view file path
+
+ Determines which view file should be used.
+    [view] (string) view name (either 'exception' or 'error')
+    [code] (integer) HTTP status code
+
+
+*CErrorHandler::getViewFileInternal*				 protected
+>
+ getViewFileInternal($viewPath, $view, $code, $srcLanguage='')
+<
+(string) view file path
+
+ Looks for the view under the specified directory.
+    [viewPath] (string) the directory containing the views
+    [view] (string) view name (either 'exception' or 'error')
+    [code] (integer) HTTP status code
+    [srcLanguage] (string) the language that the view file is in
+
+
+*CErrorHandler::handle* 					 public
+>
+ handle($event)
+<
+(void)
+
+ Handles the exception/error event. This method is invoked by the application
+ whenever it captures an exception or PHP error.
+    [event] (CEvent) the event containing the exception/error information
+
+
+*CErrorHandler::handleError*					 protected
+>
+ handleError($event)
+<
+(void)
+
+ Handles the PHP error.
+    [event] (CErrorEvent) the PHP error event
+
+
+*CErrorHandler::handleException*				 protected
+>
+ handleException($exception)
+<
+(void)
+
+ Handles the exception.
+    [exception] (Exception) the exception captured
+
+
+*CErrorHandler::isAjaxRequest*					 protected
+>
+ isAjaxRequest()
+<
+(boolean) whether the current request is an AJAX request.
+
+ whether the current request is an AJAX (XMLHttpRequest) request.
+
+
+*CErrorHandler::isCoreCode*					 protected
+>
+ isCoreCode($trace)
+<
+(boolean) whether the call stack is from application code.
+
+ Returns a value indicating whether the call stack is from application code.
+    [trace] (array) the trace data
+
+
+*CErrorHandler::render* 					 protected
+>
+ render($view, $data)
+<
+(void)
+
+ Renders the view.
+    [view] (string) the view name (file name without extension). See
+    |CErrorHandler::getViewFile| for how a view file is located given its
+    name.
+    [data] (array) data to be passed to the view
+
+
+*CErrorHandler::renderSourceCode*				 protected
+>
+ renderSourceCode($file, $errorLine, $maxLines)
+<
+(string) the rendering result
+
+ Renders the source code around the error line.
+    [file] (string) source file path
+    [errorLine] (integer) the error line number
+    [maxLines] (integer) maximum number of lines to display
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,66 @@
+
+*CCacheDependency*   >> |CComponent|
+==================
+
+ CCacheDependency is the base class for cache dependency classes.
+
+ CCacheDependency implements the |ICacheDependency| interface. Child classes
+ should override its |CCacheDependency::generateDependentData| for actual
+ dependency checking.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<dependentData> 			*CCacheDependency::dependentData*
+ (mixed) the data used to determine if dependency has been changed. This data
+ is available after |CCacheDependency::evaluateDependency| is called.
+
+<hasChanged>				*CCacheDependency::hasChanged*
+ (boolean) whether the dependency has changed.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CCacheDependency::evaluateDependency*				 public
+>
+ evaluateDependency()
+<
+(void)
+
+ Evaluates the dependency by generating and saving the data related with
+ dependency. This method is invoked by cache before writing data into it.
+
+
+*CCacheDependency::generateDependentData*			 protected
+>
+ generateDependentData()
+<
+(mixed) the data needed to determine if dependency has been changed.
+
+ Generates the data needed to determine if dependency has been changed.
+ Derived classes should override this method to generate actual dependent
+ data.
+
+
+*CCacheDependency::getDependentData*				 public
+>
+ getDependentData()
+<
+(mixed) the data used to determine if dependency has been changed. This data
+is available after |CCacheDependency::evaluateDependency| is called.
+
+
+
+*CCacheDependency::getHasChanged*				 public
+>
+ getHasChanged()
+<
+(boolean) whether the dependency has changed.
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

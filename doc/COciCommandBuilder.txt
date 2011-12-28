@@ -1,0 +1,58 @@
+
+*COciCommandBuilder*   >> |CDbCommandBuilder| >> |CComponent|
+====================
+
+ COciCommandBuilder provides basic methods to create query commands for
+ tables.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<returnID>				*COciCommandBuilder::returnID*
+ (integer) the last insertion ID
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*COciCommandBuilder::applyLimit*				 public
+>
+ applyLimit($sql, $limit, $offset)
+<
+(string) SQL with LIMIT and OFFSET
+
+ Alters the SQL to apply LIMIT and OFFSET. Default implementation is
+ applicable for PostgreSQL, MySQL and SQLite.
+    [sql] (string) SQL query string without LIMIT and OFFSET.
+    [limit] (integer) maximum number of rows, -1 to ignore limit.
+    [offset] (integer) row offset, -1 to ignore offset.
+
+
+*COciCommandBuilder::createInsertCommand*			 public
+>
+ createInsertCommand($table, $data)
+<
+(CDbCommand) insert command
+
+ Creates an INSERT command.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [data] (array) data to be inserted (column name=>column value). If a key
+    is not a valid column name, the corresponding value will be ignored.
+
+
+*COciCommandBuilder::getLastInsertID*				 public
+>
+ getLastInsertID($table)
+<
+(mixed) last insertion id. Null is returned if no sequence name.
+
+ Returns the last insertion ID for the specified table.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

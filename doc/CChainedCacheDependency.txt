@@ -1,0 +1,80 @@
+
+*CChainedCacheDependency*   >> |CComponent|
+=========================
+
+ CChainedCacheDependency represents a list of cache dependencies.
+
+ If any of the dependencies reports a dependency change,
+ CChainedCacheDependency will return true for the checking.
+
+ To add dependencies to CChainedCacheDependency, use
+ |CChainedCacheDependency::getDependencies| which gives a |CTypedList|
+ instance and can be used like an array (see |CList| for more details}).
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<dependencies>				*CChainedCacheDependency::dependencies*
+ (CTypedList) list of dependency objects
+
+<hasChanged>				*CChainedCacheDependency::hasChanged*
+ (boolean) Performs the actual dependency checking. This method returns true
+ if any of the dependency objects reports a dependency change.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CChainedCacheDependency::__construct*				 public
+>
+ __construct($dependencies=array())
+<
+(void)
+
+ Constructor.
+    [dependencies] (array) the dependencies to be added to this chain.
+
+
+*CChainedCacheDependency::evaluateDependency*			 public
+>
+ evaluateDependency()
+<
+(void)
+
+ Evaluates the dependency by generating and saving the data related with
+ dependency.
+
+
+*CChainedCacheDependency::getDependencies*			 public
+>
+ getDependencies()
+<
+(CTypedList) list of dependency objects
+
+
+
+*CChainedCacheDependency::getHasChanged*			 public
+>
+ getHasChanged()
+<
+(boolean) whether the dependency is changed or not.
+
+ Performs the actual dependency checking. This method returns true if any of
+ the dependency objects reports a dependency change.
+
+
+*CChainedCacheDependency::setDependencies*			 public
+>
+ setDependencies($values)
+<
+(void)
+
+    [values] (array) list of dependency objects or configurations to be added
+    to this chain. If a depedency is specified as a configuration, it must be
+    an array that can be recognized by |YiiBase::createComponent|.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

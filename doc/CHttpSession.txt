@@ -1,0 +1,549 @@
+
+*CHttpSession*   >> |CApplicationComponent| >> |CComponent|
+==============
+
+ CHttpSession provides session-level data management and the related
+ configurations.
+
+ To start the session, call |CHttpSession::open|; To complete and send out
+ session data, call |CHttpSession::close|; To destroy the session, call
+ |CHttpSession::destroy|.
+
+ If |CHttpSession::autoStart| is set true, the session will be started
+ automatically when the application component is initialized by the
+ application.
+
+ CHttpSession can be used like an array to set and get session data. For
+ example,
+>
+   $session=new CHttpSession;
+   $session->open();
+   $value1=$session['name1'];  // get session variable 'name1'
+   $value2=$session['name2'];  // get session variable 'name2'
+   foreach($session as $name=>$value) // traverse all session variables
+   $session['name3']=$value3;  // set session variable 'name3'
+<
+ The following configurations are available for session:
+   |CHttpSession::setSessionID|;
+   |CHttpSession::setSessionName|;
+   |CHttpSession::autoStart|;
+   |CHttpSession::setSavePath|;
+   |CHttpSession::setCookieParams|;
+   |CHttpSession::setGCProbability|;
+   |CHttpSession::setCookieMode|;
+   |CHttpSession::setUseTransparentSessionID|;
+   |CHttpSession::setTimeout|.See the corresponding setter and getter
+ documentation for more information. Note, these properties must be set before
+ the session is started.
+
+ CHttpSession can be extended to support customized session storage. Override
+ |CHttpSession::openSession|, |CHttpSession::closeSession|,
+ |CHttpSession::readSession|, |CHttpSession::writeSession|,
+ |CHttpSession::destroySession| and |CHttpSession::gcSession| and set
+ |CHttpSession::useCustomStorage| to true. Then, the session data will be
+ stored and retrieved using the above methods.
+
+ CHttpSession is a Web application component that can be accessed via
+ |CWebApplication::getSession|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<autoStart>				*CHttpSession::autoStart*
+ (boolean) whether the session should be automatically started when the
+ session application component is initialized, defaults to true.
+
+<cookieMode>				*CHttpSession::cookieMode*
+ (string) how to use cookie to store session ID. Defaults to 'Allow'.
+
+<cookieParams>				*CHttpSession::cookieParams*
+ (array) the session cookie parameters.
+
+<count> 				*CHttpSession::count*
+ (integer) Returns the number of items in the session.
+
+<gCProbability> 			*CHttpSession::gCProbability*
+ (integer) the probability (percentage) that the gc (garbage collection)
+ process is started on every session initialization, defaults to 1 meaning 1%
+ chance.
+
+<isStarted>				*CHttpSession::isStarted*
+ (boolean) whether the session has started
+
+<iterator>				*CHttpSession::iterator*
+ (CHttpSessionIterator) Returns an iterator for traversing the session
+ variables. This method is required by the interface IteratorAggregate.
+
+<keys>					*CHttpSession::keys*
+ (array) the list of session variable names
+
+<savePath>				*CHttpSession::savePath*
+ (string) the current session save path, defaults to '/tmp'.
+
+<sessionID>				*CHttpSession::sessionID*
+ (string) the current session ID
+
+<sessionName>				*CHttpSession::sessionName*
+ (string) the current session name
+
+<timeout>				*CHttpSession::timeout*
+ (integer) the number of seconds after which data will be seen as 'garbage'
+ and cleaned up, defaults to 1440 seconds.
+
+<useCustomStorage>			*CHttpSession::useCustomStorage*
+ (boolean) Returns a value indicating whether to use custom session storage.
+ This method should be overriden to return true if custom session storage
+ handler should be used. If returning true, make sure the methods
+ |CHttpSession::openSession|, |CHttpSession::closeSession|,
+ |CHttpSession::readSession|, |CHttpSession::writeSession|,
+ |CHttpSession::destroySession|, and |CHttpSession::gcSession| are overridden
+ in child class, because they will be used as the callback handlers. The
+ default implementation always return false.
+
+<useTransparentSessionID>		*CHttpSession::useTransparentSessionID*
+ (boolean) whether transparent sid support is enabled or not, defaults to
+ false.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CHttpSession::add*						 public
+>
+ add($key, $value)
+<
+(void)
+
+ Adds a session variable. Note, if the specified name already exists, the old
+ value will be removed first.
+    [key] (mixed) session variable name
+    [value] (mixed) session variable value
+
+
+*CHttpSession::clear*						 public
+>
+ clear()
+<
+(void)
+
+ Removes all session variables
+
+
+*CHttpSession::close*						 public
+>
+ close()
+<
+(void)
+
+ Ends the current session and store session data.
+
+
+*CHttpSession::closeSession*					 public
+>
+ closeSession()
+<
+(boolean) whether session is closed successfully
+
+ Session close handler. This method should be overridden if
+ |CHttpSession::useCustomStorage| is set true. Do not call this method
+ directly.
+
+
+*CHttpSession::contains*					 public
+>
+ contains($key)
+<
+(boolean) whether there is the named session variable
+
+    [key] (mixed) session variable name
+
+
+*CHttpSession::count*						 public
+>
+ count()
+<
+(integer) number of items in the session.
+
+ Returns the number of items in the session. This method is required by
+ Countable interface.
+
+
+*CHttpSession::destroy* 					 public
+>
+ destroy()
+<
+(void)
+
+ Frees all session variables and destroys all data registered to a session.
+
+
+*CHttpSession::destroySession*					 public
+>
+ destroySession($id)
+<
+(boolean) whether session is destroyed successfully
+
+ Session destroy handler. This method should be overridden if
+ |CHttpSession::useCustomStorage| is set true. Do not call this method
+ directly.
+    [id] (string) session ID
+
+
+*CHttpSession::gcSession*					 public
+>
+ gcSession($maxLifetime)
+<
+(boolean) whether session is GCed successfully
+
+ Session GC (garbage collection) handler. This method should be overridden if
+ |CHttpSession::useCustomStorage| is set true. Do not call this method
+ directly.
+    [maxLifetime] (integer) the number of seconds after which data will be
+    seen as 'garbage' and cleaned up.
+
+
+*CHttpSession::get*						 public
+>
+ get($key, $defaultValue=NULL)
+<
+(mixed) the session variable value, or $defaultValue if the session variable
+does not exist.
+
+ Returns the session variable value with the session variable name. This
+ method is very similar to |CHttpSession::itemAt| and
+ |CHttpSession::offsetGet|, except that it will return $defaultValue if the
+ session variable does not exist.
+    [key] (mixed) the session variable name
+    [defaultValue] (mixed) the default value to be returned when the session
+    variable does not exist.
+
+
+*CHttpSession::getCookieMode*					 public
+>
+ getCookieMode()
+<
+(string) how to use cookie to store session ID. Defaults to 'Allow'.
+
+
+
+*CHttpSession::getCookieParams* 				 public
+>
+ getCookieParams()
+<
+(array) the session cookie parameters.
+
+
+
+*CHttpSession::getCount*					 public
+>
+ getCount()
+<
+(integer) the number of session variables
+
+ Returns the number of items in the session.
+
+
+*CHttpSession::getGCProbability*				 public
+>
+ getGCProbability()
+<
+(integer) the probability (percentage) that the gc (garbage collection)
+process is started on every session initialization, defaults to 1 meaning 1%
+chance.
+
+
+
+*CHttpSession::getIsStarted*					 public
+>
+ getIsStarted()
+<
+(boolean) whether the session has started
+
+
+
+*CHttpSession::getIterator*					 public
+>
+ getIterator()
+<
+(CHttpSessionIterator) an iterator for traversing the session variables.
+
+ Returns an iterator for traversing the session variables. This method is
+ required by the interface IteratorAggregate.
+
+
+*CHttpSession::getKeys* 					 public
+>
+ getKeys()
+<
+(array) the list of session variable names
+
+
+
+*CHttpSession::getSavePath*					 public
+>
+ getSavePath()
+<
+(string) the current session save path, defaults to '/tmp'.
+
+
+
+*CHttpSession::getSessionID*					 public
+>
+ getSessionID()
+<
+(string) the current session ID
+
+
+
+*CHttpSession::getSessionName*					 public
+>
+ getSessionName()
+<
+(string) the current session name
+
+
+
+*CHttpSession::getTimeout*					 public
+>
+ getTimeout()
+<
+(integer) the number of seconds after which data will be seen as 'garbage' and
+cleaned up, defaults to 1440 seconds.
+
+
+
+*CHttpSession::getUseCustomStorage*				 public
+>
+ getUseCustomStorage()
+<
+(boolean) whether to use custom storage.
+
+ Returns a value indicating whether to use custom session storage. This method
+ should be overriden to return true if custom session storage handler should
+ be used. If returning true, make sure the methods
+ |CHttpSession::openSession|, |CHttpSession::closeSession|,
+ |CHttpSession::readSession|, |CHttpSession::writeSession|,
+ |CHttpSession::destroySession|, and |CHttpSession::gcSession| are overridden
+ in child class, because they will be used as the callback handlers. The
+ default implementation always return false.
+
+
+*CHttpSession::getUseTransparentSessionID*			 public
+>
+ getUseTransparentSessionID()
+<
+(boolean) whether transparent sid support is enabled or not, defaults to
+false.
+
+
+
+*CHttpSession::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component. This method is required by
+ IApplicationComponent and is invoked by application.
+
+
+*CHttpSession::itemAt*						 public
+>
+ itemAt($key)
+<
+(mixed) the session variable value, null if no such variable exists
+
+ Returns the session variable value with the session variable name. This
+ method is exactly the same as |CHttpSession::offsetGet|.
+    [key] (mixed) the session variable name
+
+
+*CHttpSession::offsetExists*					 public
+>
+ offsetExists($offset)
+<
+(boolean) 
+
+ This method is required by the interface ArrayAccess.
+    [offset] (mixed) the offset to check on
+
+
+*CHttpSession::offsetGet*					 public
+>
+ offsetGet($offset)
+<
+(mixed) the element at the offset, null if no element is found at the offset
+
+ This method is required by the interface ArrayAccess.
+    [offset] (integer) the offset to retrieve element.
+
+
+*CHttpSession::offsetSet*					 public
+>
+ offsetSet($offset, $item)
+<
+(void)
+
+ This method is required by the interface ArrayAccess.
+    [offset] (integer) the offset to set element
+    [item] (mixed) the element value
+
+
+*CHttpSession::offsetUnset*					 public
+>
+ offsetUnset($offset)
+<
+(void)
+
+ This method is required by the interface ArrayAccess.
+    [offset] (mixed) the offset to unset element
+
+
+*CHttpSession::open*						 public
+>
+ open()
+<
+(void)
+
+ Starts the session if it has not started yet.
+
+
+*CHttpSession::openSession*					 public
+>
+ openSession($savePath, $sessionName)
+<
+(boolean) whether session is opened successfully
+
+ Session open handler. This method should be overridden if
+ |CHttpSession::useCustomStorage| is set true. Do not call this method
+ directly.
+    [savePath] (string) session save path
+    [sessionName] (string) session name
+
+
+*CHttpSession::readSession*					 public
+>
+ readSession($id)
+<
+(string) the session data
+
+ Session read handler. This method should be overridden if
+ |CHttpSession::useCustomStorage| is set true. Do not call this method
+ directly.
+    [id] (string) session ID
+
+
+*CHttpSession::remove*						 public
+>
+ remove($key)
+<
+(mixed) the removed value, null if no such session variable.
+
+ Removes a session variable.
+    [key] (mixed) the name of the session variable to be removed
+
+
+*CHttpSession::setCookieMode*					 public
+>
+ setCookieMode($value)
+<
+(void)
+
+    [value] (string) how to use cookie to store session ID. Valid values
+    include 'none', 'allow' and 'only'.
+
+
+*CHttpSession::setCookieParams* 				 public
+>
+ setCookieParams($value)
+<
+(void)
+
+ Sets the session cookie parameters. The effect of this method only lasts for
+ the duration of the script. Call this method before the session starts.
+    [value] (array) cookie parameters, valid keys include: lifetime, path,
+    domain, secure.
+
+
+*CHttpSession::setGCProbability*				 public
+>
+ setGCProbability($value)
+<
+(void)
+
+    [value] (integer) the probability (percentage) that the gc (garbage
+    collection) process is started on every session initialization.
+
+
+*CHttpSession::setSavePath*					 public
+>
+ setSavePath($value)
+<
+(void)
+
+    [value] (string) the current session save path
+
+
+*CHttpSession::setSessionID*					 public
+>
+ setSessionID($value)
+<
+(void)
+
+    [value] (string) the session ID for the current session
+
+
+*CHttpSession::setSessionName*					 public
+>
+ setSessionName($value)
+<
+(void)
+
+    [value] (string) the session name for the current session, must be an
+    alphanumeric string, defaults to PHPSESSID
+
+
+*CHttpSession::setTimeout*					 public
+>
+ setTimeout($value)
+<
+(void)
+
+    [value] (integer) the number of seconds after which data will be seen as
+    'garbage' and cleaned up
+
+
+*CHttpSession::setUseTransparentSessionID*			 public
+>
+ setUseTransparentSessionID($value)
+<
+(void)
+
+    [value] (boolean) whether transparent sid support is enabled or not.
+
+
+*CHttpSession::toArray* 					 public
+>
+ toArray()
+<
+(array) the list of all session variables in array
+
+
+
+*CHttpSession::writeSession*					 public
+>
+ writeSession($id, $data)
+<
+(boolean) whether session write is successful
+
+ Session write handler. This method should be overridden if
+ |CHttpSession::useCustomStorage| is set true. Do not call this method
+ directly.
+    [id] (string) session ID
+    [data] (string) session data
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,414 @@
+
+*CComponent*  
+============
+
+ CComponent is the base class for all components.
+
+ CComponent implements the protocol of defining, using properties and events.
+
+ A property is defined by a getter method, and/or a setter method. Properties
+ can be accessed in the way like accessing normal object members. Reading or
+ writing a property will cause the invocation of the corresponding getter or
+ setter method, e.g
+>
+ $a=$component->text;     // equivalent to $a=$component->getText();
+ $component->text='abc';  // equivalent to $component->setText('abc');
+<
+ The signatures of getter and setter methods are as follows,
+>
+ // getter, defines a readable property 'text'
+ public function getText() { ... }
+ // setter, defines a writable property 'text' with $value to be set to the
+ property
+ public function setText($value) { ... }
+<
+ An event is defined by the presence of a method whose name starts with 'on'.
+ The event name is the method name. When an event is raised, functions (called
+ event handlers) attached to the event will be invoked automatically.
+
+ An event can be raised by calling |CComponent::raiseEvent| method, upon which
+ the attached event handlers will be invoked automatically in the order they
+ are attached to the event. Event handlers must have the following signature,
+>
+ function eventHandler($event) { ... }
+<
+ where $event includes parameters associated with the event.
+
+ To attach an event handler to an event, see |CComponent::attachEventHandler|.
+ You can also use the following syntax:
+>
+ $component->onClick=$callback;    // or $component->onClick->add($callback);
+<
+ where $callback refers to a valid PHP callback. Below we show some callback
+ examples:
+>
+ 'handleOnClick'                   // handleOnClick() is a global function
+ array($object,'handleOnClick')    // using $object->handleOnClick()
+ array('Page','handleOnClick')     // using Page::handleOnClick()
+<
+ To raise an event, use |CComponent::raiseEvent|. The on-method defining an
+ event is commonly written like the following:
+>
+ public function onClick($event)
+ {
+     $this->raiseEvent('onClick',$event);
+ }
+<
+ where '$event' is an instance of |CEvent| or its child class. One can then
+ raise the event by calling the on-method instead of |CComponent::raiseEvent|
+ directly.
+
+ Both property names and event names are case-insensitive.
+
+ Starting from version 1.0.2, CComponent supports behaviors. A behavior is an
+ instance of |IBehavior| which is attached to a component. The methods of the
+ behavior can be invoked as if they belong to the component. Multiple
+ behaviors can be attached to the same component.
+
+ To attach a behavior to a component, call |CComponent::attachBehavior|; and
+ to detach the behavior from the component, call |CComponent::detachBehavior|.
+
+ A behavior can be temporarily enabled or disabled by calling
+ |CComponent::enableBehavior| or |CComponent::disableBehavior|, respectively.
+ When disabled, the behavior methods cannot be invoked via the component.
+
+ Starting from version 1.1.0, a behavior's properties (either its public
+ member variables or its properties defined via getters and/or setters) can be
+ accessed through the component it is attached to.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CComponent::__call*						 public
+>
+ __call($name, $parameters)
+<
+(mixed) the method return value
+
+ Calls the named method which is not a class method. Do not call this method.
+ This is a PHP magic method that we override to implement the behavior
+ feature.
+    [name] (string) the method name
+    [parameters] (array) method parameters
+
+
+*CComponent::__get*						 public
+>
+ __get($name)
+<
+(mixed) the property value, event handlers attached to the event, or the named
+behavior (since version 1.0.2)
+
+ Returns a property value, an event handler list or a behavior based on its
+ name. Do not call this method. This is a PHP magic method that we override to
+ allow using the following syntax to read a property or obtain event handlers:
+>
+ $value=$component->propertyName;
+ $handlers=$component->eventName;
+<
+    [name] (string) the property name or event name
+
+
+*CComponent::__isset*						 public
+>
+ __isset($name)
+<
+(void)
+
+ Checks if a property value is null. Do not call this method. This is a PHP
+ magic method that we override to allow using isset() to detect if a component
+ property is set or not.
+    [name] (string) the property name or the event name
+
+
+*CComponent::__set*						 public
+>
+ __set($name, $value)
+<
+(void)
+
+ Sets value of a component property. Do not call this method. This is a PHP
+ magic method that we override to allow using the following syntax to set a
+ property or attach an event handler
+>
+ $this->propertyName=$value;
+ $this->eventName=$callback;
+<
+    [name] (string) the property name or the event name
+    [value] (mixed) the property value or callback
+
+
+*CComponent::__unset*						 public
+>
+ __unset($name)
+<
+(void)
+
+ Sets a component property to be null. Do not call this method. This is a PHP
+ magic method that we override to allow using unset() to set a component
+ property to be null.
+    [name] (string) the property name or the event name
+
+
+*CComponent::asa*						 public
+>
+ asa($behavior)
+<
+(IBehavior) the behavior object, or null if the behavior does not exist
+
+ Returns the named behavior object. The name 'asa' stands for 'as a'.
+    [behavior] (string) the behavior name
+
+
+*CComponent::attachBehavior*					 public
+>
+ attachBehavior($name, $behavior)
+<
+(IBehavior) the behavior object
+
+ Attaches a behavior to this component. This method will create the behavior
+ object based on the given configuration. After that, the behavior object will
+ be initialized by calling its |IBehavior::attach| method.
+    [name] (string) the behavior's name. It should uniquely identify this
+    behavior.
+    [behavior] (mixed) the behavior configuration. This is passed as the first
+    parameter to |YiiBase::createComponent| to create the behavior object.
+
+
+*CComponent::attachBehaviors*					 public
+>
+ attachBehaviors($behaviors)
+<
+(void)
+
+ Attaches a list of behaviors to the component. Each behavior is indexed by
+ its name and should be an instance of |IBehavior|, a string specifying the
+ behavior class, or an array of the following structure:
+>
+ array(
+     'class'=>'path.to.BehaviorClass',
+     'property1'=>'value1',
+     'property2'=>'value2',
+ )
+<
+    [behaviors] (array) list of behaviors to be attached to the component
+
+
+*CComponent::attachEventHandler*				 public
+>
+ attachEventHandler($name, $handler)
+<
+(void)
+
+ Attaches an event handler to an event.
+
+ An event handler must be a valid PHP callback, i.e., a string referring to a
+ global function name, or an array containing two elements with the first
+ element being an object and the second element a method name of the object.
+
+ An event handler must be defined with the following signature,
+>
+ function handlerName($event) {}
+<
+ where $event includes parameters associated with the event.
+
+ This is a convenient method of attaching a handler to an event. It is
+ equivalent to the following code:
+>
+ $component->getEventHandlers($eventName)->add($eventHandler);
+<
+ Using |CComponent::getEventHandlers|, one can also specify the excution order
+ of multiple handlers attaching to the same event. For example:
+>
+ $component->getEventHandlers($eventName)->insertAt(0,$eventHandler);
+<
+ makes the handler to be invoked first.
+    [name] (string) the event name
+    [handler] (callback) the event handler
+
+
+*CComponent::canGetProperty*					 public
+>
+ canGetProperty($name)
+<
+(boolean) whether the property can be read
+
+ Determines whether a property can be read. A property can be read if the
+ class has a getter method for the property name. Note, property name is
+ case-insensitive.
+    [name] (string) the property name
+
+
+*CComponent::canSetProperty*					 public
+>
+ canSetProperty($name)
+<
+(boolean) whether the property can be written
+
+ Determines whether a property can be set. A property can be written if the
+ class has a setter method for the property name. Note, property name is
+ case-insensitive.
+    [name] (string) the property name
+
+
+*CComponent::detachBehavior*					 public
+>
+ detachBehavior($name)
+<
+(IBehavior) the detached behavior. Null if the behavior does not exist.
+
+ Detaches a behavior from the component. The behavior's |IBehavior::detach|
+ method will be invoked.
+    [name] (string) the behavior's name. It uniquely identifies the behavior.
+
+
+*CComponent::detachBehaviors*					 public
+>
+ detachBehaviors()
+<
+(void)
+
+ Detaches all behaviors from the component.
+
+
+*CComponent::detachEventHandler*				 public
+>
+ detachEventHandler($name, $handler)
+<
+(boolean) if the detachment process is successful
+
+ Detaches an existing event handler. This method is the opposite of
+ |CComponent::attachEventHandler|.
+    [name] (string) event name
+    [handler] (callback) the event handler to be removed
+
+
+*CComponent::disableBehavior*					 public
+>
+ disableBehavior($name)
+<
+(void)
+
+ Disables an attached behavior. A behavior is only effective when it is
+ enabled.
+    [name] (string) the behavior's name. It uniquely identifies the behavior.
+
+
+*CComponent::disableBehaviors*					 public
+>
+ disableBehaviors()
+<
+(void)
+
+ Disables all behaviors attached to this component.
+
+
+*CComponent::enableBehavior*					 public
+>
+ enableBehavior($name)
+<
+(void)
+
+ Enables an attached behavior. A behavior is only effective when it is
+ enabled. A behavior is enabled when first attached.
+    [name] (string) the behavior's name. It uniquely identifies the behavior.
+
+
+*CComponent::enableBehaviors*					 public
+>
+ enableBehaviors()
+<
+(void)
+
+ Enables all behaviors attached to this component.
+
+
+*CComponent::evaluateExpression*				 public
+>
+ evaluateExpression($_expression_, $_data_=array())
+<
+(mixed) the expression result
+
+ Evaluates a PHP expression or callback under the context of this component.
+
+ Valid PHP callback can be class method name in the form of
+ array(ClassName/Object, MethodName), or anonymous function (only available in
+ PHP 5.3.0 or above).
+
+ If a PHP callback is used, the corresponding function/method signature should
+ be
+>
+ function foo($param1, $param2, ..., $component) { ... }
+<
+ where the array elements in the second parameter to this method will be
+ passed to the callback as $param1, $param2, ...; and the last parameter will
+ be the component itself.
+
+ If a PHP expression is used, the second parameter will be "extracted" into
+ PHP variables that can be directly accessed in the expression. See 'PHP
+ extract' for more details. In the expression, the component object can be
+ accessed using $this.
+    [_expression_] (mixed) a PHP expression or PHP callback to be evaluated.
+    [_data_] (array) additional parameters to be passed to the above
+    expression/callback.
+
+
+*CComponent::getEventHandlers*					 public
+>
+ getEventHandlers($name)
+<
+(CList) list of attached event handlers for the event
+
+ Returns the list of attached event handlers for an event.
+    [name] (string) the event name
+
+
+*CComponent::hasEvent*						 public
+>
+ hasEvent($name)
+<
+(boolean) whether an event is defined
+
+ Determines whether an event is defined. An event is defined if the class has
+ a method named like 'onXXX'. Note, event name is case-insensitive.
+    [name] (string) the event name
+
+
+*CComponent::hasEventHandler*					 public
+>
+ hasEventHandler($name)
+<
+(boolean) whether an event has been attached one or several handlers
+
+ Checks whether the named event has attached handlers.
+    [name] (string) the event name
+
+
+*CComponent::hasProperty*					 public
+>
+ hasProperty($name)
+<
+(boolean) whether the property is defined
+
+ Determines whether a property is defined. A property is defined if there is a
+ getter or setter method defined in the class. Note, property names are
+ case-insensitive.
+    [name] (string) the property name
+
+
+*CComponent::raiseEvent*					 public
+>
+ raiseEvent($name, $event)
+<
+(void)
+
+ Raises an event. This method represents the happening of an event. It invokes
+ all attached handlers for the event.
+    [name] (string) the event name
+    [event] (CEvent) the event parameter
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

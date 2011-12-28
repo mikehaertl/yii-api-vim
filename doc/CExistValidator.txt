@@ -1,0 +1,52 @@
+
+*CExistValidator*   >> |CValidator| >> |CComponent|
+=================
+
+ CExistValidator validates that the attribute value exists in a table.
+
+ This validator is often used to verify that a foreign key contains a value
+ that can be found in the foreign table.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowEmpty>				*CExistValidator::allowEmpty*
+ (boolean) whether the attribute value can be null or empty. Defaults to true,
+ meaning that if the attribute is empty, it is considered valid.
+
+<attributeName> 			*CExistValidator::attributeName*
+ (string) the ActiveRecord class attribute name that should be used to look
+ for the attribute value being validated. Defaults to null, meaning using the
+ name of the attribute being validated.
+
+<className>				*CExistValidator::className*
+ (string) the ActiveRecord class name that should be used to look for the
+ attribute value being validated. Defaults to null, meaning using the
+ ActiveRecord class of the attribute being validated. You may use path alias
+ to reference a class name here.
+
+<criteria>				*CExistValidator::criteria*
+ (array) additional query criteria. This will be combined with the condition
+ that checks if the attribute value exists in the corresponding table column.
+ This array will be used to instantiate a |CDbCriteria| object.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CExistValidator::validateAttribute*				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,117 @@
+
+*CTheme*   >> |CComponent|
+========
+
+ CTheme represents an application theme.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<basePath>				*CTheme::basePath*
+ (string) the file path to the theme folder
+
+<baseUrl>				*CTheme::baseUrl*
+ (string) the relative URL to the theme folder (without ending slash)
+
+<name>					*CTheme::name*
+ (string) theme name
+
+<skinPath>				*CTheme::skinPath*
+ (string) the path for widget skins. Defaults to 'ThemeRoot/views/skins'.
+
+<systemViewPath>			*CTheme::systemViewPath*
+ (string) the path for system views. Defaults to 'ThemeRoot/views/system'.
+
+<viewPath>				*CTheme::viewPath*
+ (string) the path for controller views. Defaults to 'ThemeRoot/views'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CTheme::__construct*						 public
+>
+ __construct($name, $basePath, $baseUrl)
+<
+(void)
+
+ Constructor.
+    [name] (string) name of the theme
+    [basePath] (string) base theme path
+    [baseUrl] (string) base theme URL
+
+
+*CTheme::getBasePath*						 public
+>
+ getBasePath()
+<
+(string) the file path to the theme folder
+
+
+
+*CTheme::getBaseUrl*						 public
+>
+ getBaseUrl()
+<
+(string) the relative URL to the theme folder (without ending slash)
+
+
+
+*CTheme::getLayoutFile* 					 public
+>
+ getLayoutFile($controller, $layoutName)
+<
+(string) the layout file path. False if the file does not exist.
+
+ Finds the layout file for the specified controller's layout.
+    [controller] (CController) the controller
+    [layoutName] (string) the layout name
+
+
+*CTheme::getName*						 public
+>
+ getName()
+<
+(string) theme name
+
+
+
+*CTheme::getSkinPath*						 public
+>
+ getSkinPath()
+<
+(string) the path for widget skins. Defaults to 'ThemeRoot/views/skins'.
+
+
+
+*CTheme::getSystemViewPath*					 public
+>
+ getSystemViewPath()
+<
+(string) the path for system views. Defaults to 'ThemeRoot/views/system'.
+
+
+
+*CTheme::getViewFile*						 public
+>
+ getViewFile($controller, $viewName)
+<
+(string) the view file path. False if the file does not exist.
+
+ Finds the view file for the specified controller's view.
+    [controller] (CController) the controller
+    [viewName] (string) the view name
+
+
+*CTheme::getViewPath*						 public
+>
+ getViewPath()
+<
+(string) the path for controller views. Defaults to 'ThemeRoot/views'.
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

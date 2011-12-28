@@ -1,0 +1,55 @@
+
+*CRequiredValidator*   >> |CValidator| >> |CComponent|
+====================
+
+ CRequiredValidator validates that the specified attribute does not have null
+ or empty value.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<requiredValue> 			*CRequiredValidator::requiredValue*
+ (mixed) the desired value that the attribute must have. If this is null, the
+ validator will validate that the specified attribute does not have null or
+ empty value. If this is set as a value that is not null, the validator will
+ validate that the attribute has a value that is the same as this property
+ value. Defaults to null.
+
+<strict>				*CRequiredValidator::strict*
+ (boolean) whether the comparison to |CRequiredValidator::requiredValue| is
+ strict. When this is true, the attribute value and type must both match those
+ of |CRequiredValidator::requiredValue|. Defaults to false, meaning only the
+ value needs to be matched. This property is only used when
+ |CRequiredValidator::requiredValue| is not null.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CRequiredValidator::clientValidateAttribute*			 public
+>
+ clientValidateAttribute($object, $attribute)
+<
+(string) the client-side validation script.
+
+ Returns the JavaScript needed for performing client-side validation.
+    [object] (CModel) the data object being validated
+    [attribute] (string) the name of the attribute to be validated.
+
+
+*CRequiredValidator::validateAttribute* 			 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

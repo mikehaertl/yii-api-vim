@@ -1,0 +1,32 @@
+
+*CExceptionEvent*   >> |CEvent| >> |CComponent|
+=================
+
+ CExceptionEvent represents the parameter for the |CApplication::onException|
+ event.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<exception>				*CExceptionEvent::exception*
+ (CException) the exception that this event is about.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CExceptionEvent::__construct*					 public
+>
+ __construct($sender, $exception)
+<
+(void)
+
+ Constructor.
+    [sender] (mixed) sender of the event
+    [exception] (CException) the exception
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

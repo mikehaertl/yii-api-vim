@@ -1,0 +1,96 @@
+
+*CAuthAssignment*   >> |CComponent|
+=================
+
+ CAuthAssignment represents an assignment of a role to a user. It includes
+ additional assignment information such as |CAuthAssignment::bizRule| and
+ |CAuthAssignment::data|. Do not create a CAuthAssignment instance using the
+ 'new' operator. Instead, call |IAuthManager::assign|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<bizRule>				*CAuthAssignment::bizRule*
+ (string) the business rule associated with this assignment
+
+<data>					*CAuthAssignment::data*
+ (mixed) additional data for this assignment
+
+<itemName>				*CAuthAssignment::itemName*
+ (string) the authorization item name
+
+<userId>				*CAuthAssignment::userId*
+ (mixed) user ID (see |IWebUser::getId|)
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CAuthAssignment::__construct*					 public
+>
+ __construct($auth, $itemName, $userId, $bizRule='', $data=NULL)
+<
+(void)
+
+ Constructor.
+    [auth] (IAuthManager) the authorization manager
+    [itemName] (string) authorization item name
+    [userId] (mixed) user ID (see |IWebUser::getId|)
+    [bizRule] (string) the business rule associated with this assignment
+    [data] (mixed) additional data for this assignment
+
+
+*CAuthAssignment::getBizRule*					 public
+>
+ getBizRule()
+<
+(string) the business rule associated with this assignment
+
+
+
+*CAuthAssignment::getData*					 public
+>
+ getData()
+<
+(mixed) additional data for this assignment
+
+
+
+*CAuthAssignment::getItemName*					 public
+>
+ getItemName()
+<
+(string) the authorization item name
+
+
+
+*CAuthAssignment::getUserId*					 public
+>
+ getUserId()
+<
+(mixed) user ID (see |IWebUser::getId|)
+
+
+
+*CAuthAssignment::setBizRule*					 public
+>
+ setBizRule($value)
+<
+(void)
+
+    [value] (string) the business rule associated with this assignment
+
+
+*CAuthAssignment::setData*					 public
+>
+ setData($value)
+<
+(void)
+
+    [value] (mixed) additional data for this assignment
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

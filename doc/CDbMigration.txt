@@ -1,0 +1,356 @@
+
+*CDbMigration*   >> |CComponent|
+==============
+
+ CDbMigration is the base class for representing a database migration.
+
+ CDbMigration is designed to be used together with the "yiic migrate" command.
+
+ Each child class of CDbMigration represents an individual database migration
+ which is identified by the child class name.
+
+ Within each migration, the |CDbMigration::up| method contains the logic for
+ "upgrading" the database used in an application; while the
+ |CDbMigration::down| method contains "downgrading" logic. The "yiic migrate"
+ command manages all available migrations in an application.
+
+ CDbMigration provides a set of convenient methods for manipulating database
+ data and schema. For example, the |CDbMigration::insert| method can be used
+ to easily insert a row of data into a database table; the
+ |CDbMigration::createTable| method can be used to create a database table.
+ Compared with the same methods in |CDbCommand|, these methods will display
+ extra information showing the method parameters and execution time, which may
+ be useful when applying migrations.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<dbConnection>				*CDbMigration::dbConnection*
+ (CDbConnection) Returns the currently active database connection. By default,
+ the 'db' application component will be returned and activated. You can call
+ |CDbMigration::setDbConnection| to switch to a different database connection.
+ Methods such as |CDbMigration::insert|, |CDbMigration::createTable| will use
+ this database connection to perform DB queries.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbMigration::addColumn*					 public
+>
+ addColumn($table, $column, $type)
+<
+(void)
+
+ Builds and executes a SQL statement for adding a new DB column.
+    [table] (string) the table that the new column will be added to. The table
+    name will be properly quoted by the method.
+    [column] (string) the name of the new column. The name will be properly
+    quoted by the method.
+    [type] (string) the column type. The getColumnType method will be invoked
+    to convert abstract column type (if any) into the physical one. Anything
+    that is not recognized as abstract type will be kept in the generated SQL.
+    For example, 'string' will be turned into 'varchar(255)', while 'string
+    not null' will become 'varchar(255) not null'.
+
+
+*CDbMigration::addForeignKey*					 public
+>
+ addForeignKey($name, $table, $columns, $refTable, $refColumns, $delete='', $update='')
+<
+(void)
+
+ Builds a SQL statement for adding a foreign key constraint to an existing
+ table. The method will properly quote the table and column names.
+    [name] (string) the name of the foreign key constraint.
+    [table] (string) the table that the foreign key constraint will be added
+    to.
+    [columns] (string) the name of the column to that the constraint will be
+    added on. If there are multiple columns, separate them with commas.
+    [refTable] (string) the table that the foreign key references to.
+    [refColumns] (string) the name of the column that the foreign key
+    references to. If there are multiple columns, separate them with commas.
+    [delete] (string) the ON DELETE option. Most DBMS support these options:
+    RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL
+    [update] (string) the ON UPDATE option. Most DBMS support these options:
+    RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL
+
+
+*CDbMigration::alterColumn*					 public
+>
+ alterColumn($table, $column, $type)
+<
+(void)
+
+ Builds and executes a SQL statement for changing the definition of a column.
+    [table] (string) the table whose column is to be changed. The table name
+    will be properly quoted by the method.
+    [column] (string) the name of the column to be changed. The name will be
+    properly quoted by the method.
+    [type] (string) the new column type. The getColumnType method will be
+    invoked to convert abstract column type (if any) into the physical one.
+    Anything that is not recognized as abstract type will be kept in the
+    generated SQL. For example, 'string' will be turned into 'varchar(255)',
+    while 'string not null' will become 'varchar(255) not null'.
+
+
+*CDbMigration::createIndex*					 public
+>
+ createIndex($name, $table, $column, $unique=false)
+<
+(void)
+
+ Builds and executes a SQL statement for creating a new index.
+    [name] (string) the name of the index. The name will be properly quoted by
+    the method.
+    [table] (string) the table that the new index will be created for. The
+    table name will be properly quoted by the method.
+    [column] (string) the column(s) that should be included in the index. If
+    there are multiple columns, please separate them by commas. The column
+    names will be properly quoted by the method.
+    [unique] (boolean) whether to add UNIQUE constraint on the created index.
+
+
+*CDbMigration::createTable*					 public
+>
+ createTable($table, $columns, $options='')
+<
+(void)
+
+ Builds and executes a SQL statement for creating a new DB table.
+
+ The columns in the new  table should be specified as name-definition pairs
+ (e.g. 'name'=>'string'), where name stands for a column name which will be
+ properly quoted by the method, and definition stands for the column type
+ which can contain an abstract DB type. The getColumnType method will be
+ invoked to convert any abstract type into a physical one.
+
+ If a column is specified with definition only (e.g. 'PRIMARY KEY (name,
+ type)'), it will be directly inserted into the generated SQL.
+    [table] (string) the name of the table to be created. The name will be
+    properly quoted by the method.
+    [columns] (array) the columns (name=>definition) in the new table.
+    [options] (string) additional SQL fragment that will be appended to the
+    generated SQL.
+
+
+*CDbMigration::delete*						 public
+>
+ delete($table, $conditions='', $params=array())
+<
+(void)
+
+ Creates and executes a DELETE SQL statement.
+    [table] (string) the table where the data will be deleted from.
+    [conditions] (mixed) the conditions that will be put in the WHERE part.
+    Please refer to where on how to specify conditions.
+    [params] (array) the parameters to be bound to the query.
+
+
+*CDbMigration::down*						 public
+>
+ down()
+<
+(void)
+
+ This method contains the logic to be executed when removing this migration.
+ The default implementation throws an exception indicating the migration
+ cannot be removed. Child classes may override this method if the
+ corresponding migrations can be removed.
+
+
+*CDbMigration::dropColumn*					 public
+>
+ dropColumn($table, $column)
+<
+(void)
+
+ Builds and executes a SQL statement for dropping a DB column.
+    [table] (string) the table whose column is to be dropped. The name will be
+    properly quoted by the method.
+    [column] (string) the name of the column to be dropped. The name will be
+    properly quoted by the method.
+
+
+*CDbMigration::dropForeignKey*					 public
+>
+ dropForeignKey($name, $table)
+<
+(void)
+
+ Builds a SQL statement for dropping a foreign key constraint.
+    [name] (string) the name of the foreign key constraint to be dropped. The
+    name will be properly quoted by the method.
+    [table] (string) the table whose foreign is to be dropped. The name will
+    be properly quoted by the method.
+
+
+*CDbMigration::dropIndex*					 public
+>
+ dropIndex($name, $table)
+<
+(void)
+
+ Builds and executes a SQL statement for dropping an index.
+    [name] (string) the name of the index to be dropped. The name will be
+    properly quoted by the method.
+    [table] (string) the table whose index is to be dropped. The name will be
+    properly quoted by the method.
+
+
+*CDbMigration::dropTable*					 public
+>
+ dropTable($table)
+<
+(void)
+
+ Builds and executes a SQL statement for dropping a DB table.
+    [table] (string) the table to be dropped. The name will be properly quoted
+    by the method.
+
+
+*CDbMigration::execute* 					 public
+>
+ execute($sql, $params=array())
+<
+(void)
+
+ Executes a SQL statement. This method executes the specified SQL statement
+ using |CDbMigration::dbConnection|.
+    [sql] (string) the SQL statement to be executed
+    [params] (array) input parameters (name=>value) for the SQL execution. See
+    |CDbCommand::execute| for more details.
+
+
+*CDbMigration::getDbConnection* 				 public
+>
+ getDbConnection()
+<
+(CDbConnection) the currently active database connection
+
+ Returns the currently active database connection. By default, the 'db'
+ application component will be returned and activated. You can call
+ |CDbMigration::setDbConnection| to switch to a different database connection.
+ Methods such as |CDbMigration::insert|, |CDbMigration::createTable| will use
+ this database connection to perform DB queries.
+
+
+*CDbMigration::insert*						 public
+>
+ insert($table, $columns)
+<
+(void)
+
+ Creates and executes an INSERT SQL statement. The method will properly escape
+ the column names, and bind the values to be inserted.
+    [table] (string) the table that new rows will be inserted into.
+    [columns] (array) the column data (name=>value) to be inserted into the
+    table.
+
+
+*CDbMigration::renameColumn*					 public
+>
+ renameColumn($table, $name, $newName)
+<
+(void)
+
+ Builds and executes a SQL statement for renaming a column.
+    [table] (string) the table whose column is to be renamed. The name will be
+    properly quoted by the method.
+    [name] (string) the old name of the column. The name will be properly
+    quoted by the method.
+    [newName] (string) the new name of the column. The name will be properly
+    quoted by the method.
+
+
+*CDbMigration::renameTable*					 public
+>
+ renameTable($table, $newName)
+<
+(void)
+
+ Builds and executes a SQL statement for renaming a DB table.
+    [table] (string) the table to be renamed. The name will be properly quoted
+    by the method.
+    [newName] (string) the new table name. The name will be properly quoted by
+    the method.
+
+
+*CDbMigration::safeDown*					 public
+>
+ safeDown()
+<
+(void)
+
+ This method contains the logic to be executed when removing this migration.
+ This method differs from |CDbMigration::down| in that the DB logic
+ implemented here will be enclosed within a DB transaction. Child classes may
+ implement this method instead of |CDbMigration::up| if the DB logic needs to
+ be within a transaction.
+
+
+*CDbMigration::safeUp*						 public
+>
+ safeUp()
+<
+(void)
+
+ This method contains the logic to be executed when applying this migration.
+ This method differs from |CDbMigration::up| in that the DB logic implemented
+ here will be enclosed within a DB transaction. Child classes may implement
+ this method instead of |CDbMigration::up| if the DB logic needs to be within
+ a transaction.
+
+
+*CDbMigration::setDbConnection* 				 public
+>
+ setDbConnection($db)
+<
+(void)
+
+ Sets the currently active database connection. The database connection will
+ be used by the methods such as |CDbMigration::insert|,
+ |CDbMigration::createTable|.
+    [db] (CDbConnection) the database connection component
+
+
+*CDbMigration::truncateTable*					 public
+>
+ truncateTable($table)
+<
+(void)
+
+ Builds and executes a SQL statement for truncating a DB table.
+    [table] (string) the table to be truncated. The name will be properly
+    quoted by the method.
+
+
+*CDbMigration::up*						 public
+>
+ up()
+<
+(void)
+
+ This method contains the logic to be executed when applying this migration.
+ Child classes may implement this method to provide actual migration logic.
+
+
+*CDbMigration::update*						 public
+>
+ update($table, $columns, $conditions='', $params=array())
+<
+(void)
+
+ Creates and executes an UPDATE SQL statement. The method will properly escape
+ the column names and bind the values to be updated.
+    [table] (string) the table to be updated.
+    [columns] (array) the column data (name=>value) to be updated.
+    [conditions] (mixed) the conditions that will be put in the WHERE part.
+    Please refer to where on how to specify conditions.
+    [params] (array) the parameters to be bound to the query.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

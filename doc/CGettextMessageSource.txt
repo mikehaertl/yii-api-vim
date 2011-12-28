@@ -1,0 +1,79 @@
+
+*CGettextMessageSource*   >> |CMessageSource| >> |CApplicationComponent| >> |CComponent|
+=======================
+
+ CGettextMessageSource represents a message source that is based on GNU
+ Gettext.
+
+ Each CGettextMessageSource instance represents the message tranlations for a
+ single domain. And each message category represents a message context in
+ Gettext. Translated messages are stored as either a MO or PO file, depending
+ on the |CGettextMessageSource::useMoFile| property value.
+
+ All translations are saved under the |CGettextMessageSource::basePath|
+ directory. Translations in one language are kept as MO or PO files under an
+ individual subdirectory whose name is the language ID. The file name is
+ specified via |CGettextMessageSource::catalog| property, which defaults to
+ 'messages'.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<basePath>				*CGettextMessageSource::basePath*
+ (string) the base path for all translated messages. Defaults to null, meaning
+ the "messages" subdirectory of the application directory (e.g.
+ "protected/messages").
+
+<cacheID>				*CGettextMessageSource::cacheID*
+ (string) the ID of the cache application component that is used to cache the
+ messages. Defaults to 'cache' which refers to the primary cache application
+ component. Set this property to false if you want to disable caching the
+ messages.
+
+<cachingDuration>			*CGettextMessageSource::cachingDuration*
+ (integer) the time in seconds that the messages can remain valid in cache.
+ Defaults to 0, meaning the caching is disabled.
+
+<catalog>				*CGettextMessageSource::catalog*
+ (string) the message catalog name. This is the name of the message file
+ (without extension) that stores the translated messages. Defaults to
+ 'messages'.
+
+<useBigEndian>				*CGettextMessageSource::useBigEndian*
+ (boolean) whether to use Big Endian to read and write MO files. Defaults to
+ false. This property is only used when |CGettextMessageSource::useMoFile| is
+ true.
+
+<useMoFile>				*CGettextMessageSource::useMoFile*
+ (boolean) whether to load messages from MO files. Defaults to true. If false,
+ messages will be loaded from PO files.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CGettextMessageSource::init*					 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component. This method overrides the parent
+ implementation by preprocessing the user request data.
+
+
+*CGettextMessageSource::loadMessages*				 protected
+>
+ loadMessages($category, $language)
+<
+(array) the loaded messages
+
+ Loads the message translation for the specified language and category.
+    [category] (string) the message category
+    [language] (string) the target language
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

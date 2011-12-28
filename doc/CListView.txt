@@ -1,0 +1,181 @@
+
+*CListView*   >> |CBaseListView| >> |CWidget| >> |CBaseController| >> |CComponent|
+===========
+
+ CListView displays a list of data items in terms of a list.
+
+ Unlike |CGridView| which displays the data items in a table, CListView allows
+ one to use a view template to render each data item. As a result, CListView
+ could generate more flexible rendering result.
+
+ CListView supports both sorting and pagination of the data items. The sorting
+ and pagination can be done in AJAX mode or normal page request. A benefit of
+ using CListView is that when the user browser disables JavaScript, the
+ sorting and pagination automatically degenerate to normal page requests and
+ are still functioning as expected.
+
+ CListView should be used together with a |IDataProvider|, preferrably a
+ |CActiveDataProvider|.
+
+ The minimal code needed to use CListView is as follows:
+>
+ $dataProvider=new CActiveDataProvider('Post');
+
+ $this->widget('zii.widgets.CListView', array(
+     'dataProvider'=>$dataProvider,
+     'itemView'=>'_post',   // refers to the partial view named '_post'
+     'sortableAttributes'=>array(
+         'title',
+         'create_time'=>'Post Time',
+     ),
+ ));
+<
+ The above code first creates a data provider for the 'Post' ActiveRecord
+ class. It then uses CListView to display every data item as returned by the
+ data provider. The display is done via the partial view named '_post'. This
+ partial view will be rendered once for every data item. In the view, one can
+ access the current data item via variable '$data'. For more details, see
+ |CListView::itemView|.
+
+ In order to support sorting, one has to specify the
+ |CListView::sortableAttributes| property. By doing so, a list of hyperlinks
+ that can sort the data will be displayed.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<afterAjaxUpdate>			*CListView::afterAjaxUpdate*
+ (string) a javascript function that will be invoked after a successful AJAX
+ response is received. The function signature is 'function(id, data)' where
+ 'id' refers to the ID of the list view 'data' the received ajax response
+ data.
+
+<ajaxUpdate>				*CListView::ajaxUpdate*
+ (mixed) the ID of the container whose content may be updated with an AJAX
+ response. Defaults to null, meaning the container for this list view
+ instance. If it is set false, it means sorting and pagination will be
+ performed in normal page requests instead of AJAX requests. If the sorting
+ and pagination should trigger the update of multiple containers' content in
+ AJAX fashion, these container IDs may be listed here (separated with comma).
+
+<ajaxVar>				*CListView::ajaxVar*
+ (string) the name of the GET variable that indicates the request is an AJAX
+ request triggered by this widget. Defaults to 'ajax'. This is effective only
+ when |CListView::ajaxUpdate| is not false.
+
+<baseScriptUrl> 			*CListView::baseScriptUrl*
+ (string) the base script URL for all list view resources (e.g. javascript,
+ CSS file, images). Defaults to null, meaning using the integrated list view
+ resources (which are published as assets).
+
+<beforeAjaxUpdate>			*CListView::beforeAjaxUpdate*
+ (string) a javascript function that will be invoked before an AJAX update
+ occurs. The function signature is 'function(id)' where 'id' refers to the ID
+ of the list view.
+
+<cssFile>				*CListView::cssFile*
+ (string) the URL of the CSS file used by this list view. Defaults to null,
+ meaning using the integrated CSS file. If this is set false, you are
+ responsible to explicitly include the necessary CSS file in your page.
+
+<itemView>				*CListView::itemView*
+ (string) the view used for rendering each data item. This property value will
+ be passed as the first parameter to either |CController::renderPartial| or
+ |CWidget::render| to render each data item. In the corresponding view
+ template, the following variables can be used in addition to those declared
+ in |CListView::viewData|:
+   '$this': refers to the owner of this list view widget. For
+   example, if the widget is in the view of a controller, then
+   '$this' refers to the controller.
+   '$data': refers to the data item currently being rendered.
+   '$index': refers to the zero-based index of the data item
+   currently being rendered.
+   '$widget': refers to this list view widget instance.
+
+<itemsTagName>				*CListView::itemsTagName*
+ (string) the HTML tag name for the container of all data item display.
+ Defaults to 'div'.
+
+<loadingCssClass>			*CListView::loadingCssClass*
+ (string) the CSS class name that will be assigned to the widget container
+ element when the widget is updating its content via AJAX. Defaults to
+ 'list-view-loading'.
+
+<separator>				*CListView::separator*
+ (string) the HTML code to be displayed between any two consecutive items.
+
+<sortableAttributes>			*CListView::sortableAttributes*
+ (array) list of sortable attribute names. In order for an attribute to be
+ sortable, it must also appear as a sortable attribute in the
+ |IDataProvider::sort| property of |CListView::dataProvider|.
+
+<sorterCssClass>			*CListView::sorterCssClass*
+ (string) the CSS class name for the sorter container. Defaults to 'sorter'.
+
+<sorterFooter>				*CListView::sorterFooter*
+ (string) the text shown after sort links. Defaults to empty.
+
+<sorterHeader>				*CListView::sorterHeader*
+ (string) the text shown before sort links. Defaults to 'Sort by: '.
+
+<template>				*CListView::template*
+ (string) the template to be used to control the layout of various components
+ in the list view. These tokens are recognized: {summary}, {sorter}, {items}
+ and {pager}. They will be replaced with the summary text, the sort links, the
+ data item list, and the pager.
+
+<updateSelector>			*CListView::updateSelector*
+ (string) the jQuery selector of the HTML elements that may trigger AJAX
+ updates when they are clicked. If not set, the pagination links and the
+ sorting links will trigger AJAX updates.
+
+<viewData>				*CListView::viewData*
+ (array) additional data to be passed to |CListView::itemView| when rendering
+ each data item. This array will be extracted into local PHP variables that
+ can be accessed in the |CListView::itemView|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CListView::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the list view. This method will initialize required property
+ values and instantiate columns objects.
+
+
+*CListView::registerClientScript*				 public
+>
+ registerClientScript()
+<
+(void)
+
+ Registers necessary client scripts.
+
+
+*CListView::renderItems*					 public
+>
+ renderItems()
+<
+(void)
+
+ Renders the data item list.
+
+
+*CListView::renderSorter*					 public
+>
+ renderSorter()
+<
+(void)
+
+ Renders the sorter.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

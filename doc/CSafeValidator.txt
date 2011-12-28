@@ -1,0 +1,26 @@
+
+*CSafeValidator*   >> |CValidator| >> |CComponent|
+================
+
+ CSafeValidator marks the associated attributes to be safe for massive
+ assignments.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CSafeValidator::validateAttribute*				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

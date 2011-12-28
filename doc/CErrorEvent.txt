@@ -1,0 +1,43 @@
+
+*CErrorEvent*   >> |CEvent| >> |CComponent|
+=============
+
+ CErrorEvent represents the parameter for the |CApplication::onError| event.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<code>					*CErrorEvent::code*
+ (string) error code
+
+<file>					*CErrorEvent::file*
+ (string) error message
+
+<line>					*CErrorEvent::line*
+ (string) error file
+
+<message>				*CErrorEvent::message*
+ (string) error message
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CErrorEvent::__construct*					 public
+>
+ __construct($sender, $code, $message, $file, $line)
+<
+(void)
+
+ Constructor.
+    [sender] (mixed) sender of the event
+    [code] (string) error code
+    [message] (string) error message
+    [file] (string) error file
+    [line] (integer) error line
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

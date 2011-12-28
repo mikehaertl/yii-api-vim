@@ -1,0 +1,97 @@
+
+*CThemeManager*   >> |CApplicationComponent| >> |CComponent|
+===============
+
+ CThemeManager manages the themes for the Web application.
+
+ A theme is a collection of view/layout files and resource files (e.g. css,
+ image, js files). When a theme is active, |CController| will look for the
+ specified view/layout under the theme folder first. The corresponding
+ view/layout files will be used if the theme provides them. Otherwise, the
+ default view/layout files will be used.
+
+ By default, each theme is organized as a directory whose name is the theme
+ name. All themes are located under the "WebRootPath/themes" directory.
+
+ To activate a theme, set the |CWebApplication::setTheme| property to be the
+ name of that theme.
+
+ Since a self-contained theme often contains resource files that are made Web
+ accessible, please make sure the view/layout files are protected from Web
+ access.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<basePath>				*CThemeManager::basePath*
+ (string) the base path for all themes. Defaults to "WebRootPath/themes".
+
+<baseUrl>				*CThemeManager::baseUrl*
+ (string) the base URL for all themes. Defaults to "/WebRoot/themes".
+
+<themeClass>				*CThemeManager::themeClass*
+ (string) the name of the theme class for representing a theme. Defaults to
+ |CTheme|. This can also be a class name in dot syntax.
+
+<themeNames>				*CThemeManager::themeNames*
+ (array) list of available theme names
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CThemeManager::getBasePath*					 public
+>
+ getBasePath()
+<
+(string) the base path for all themes. Defaults to "WebRootPath/themes".
+
+
+
+*CThemeManager::getBaseUrl*					 public
+>
+ getBaseUrl()
+<
+(string) the base URL for all themes. Defaults to "/WebRoot/themes".
+
+
+
+*CThemeManager::getTheme*					 public
+>
+ getTheme($name)
+<
+(CTheme) the theme retrieved. Null if the theme does not exist.
+
+    [name] (string) name of the theme to be retrieved
+
+
+*CThemeManager::getThemeNames*					 public
+>
+ getThemeNames()
+<
+(array) list of available theme names
+
+
+
+*CThemeManager::setBasePath*					 public
+>
+ setBasePath($value)
+<
+(void)
+
+    [value] (string) the base path for all themes.
+
+
+*CThemeManager::setBaseUrl*					 public
+>
+ setBaseUrl($value)
+<
+(void)
+
+    [value] (string) the base URL for all themes.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,106 @@
+
+*CSqlDataProvider*   >> |CDataProvider| >> |CComponent|
+==================
+
+ CSqlDataProvider implements a data provider based on a plain SQL statement.
+
+ CSqlDataProvider provides data in terms of arrays, each representing a row of
+ query result.
+
+ Like other data providers, CSqlDataProvider also supports sorting and
+ pagination. It does so by modifying the given |CSqlDataProvider::sql|
+ statement with "ORDER BY" and "LIMIT" clauses. You may configure the
+ |CSqlDataProvider::sort| and |CSqlDataProvider::pagination| properties to
+ customize sorting and pagination behaviors.
+
+ CSqlDataProvider may be used in the following way:
+>
+ $count=Yii::app()->db->createCommand('SELECT COUNT(*) FROM
+ tbl_user')->queryScalar();
+ $sql='SELECT * FROM tbl_user';
+ $dataProvider=new CSqlDataProvider($sql, array(
+     'totalItemCount'=>$count,
+     'sort'=>array(
+         'attributes'=>array(
+              'id', 'username', 'email',
+         ),
+     ),
+     'pagination'=>array(
+         'pageSize'=>10,
+     ),
+ ));
+ // $dataProvider->getData() will return a list of arrays.
+<
+ Note: if you want to use the pagination feature, you must configure the
+ |CSqlDataProvider::totalItemCount| property to be the total number of rows
+ (without pagination). And if you want to use the sorting feature, you must
+ configure |CSqlDataProvider::sort| property so that the provider knows which
+ columns can be sorted.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<db>					*CSqlDataProvider::db*
+ (CDbConnection) the database connection to be used in the queries. Defaults
+ to null, meaning using Yii::app()->db.
+
+<keyField>				*CSqlDataProvider::keyField*
+ (string) the name of key field. Defaults to 'id'.
+
+<params>				*CSqlDataProvider::params*
+ (array) parameters (name=>value) to be bound to the SQL statement.
+
+<sql>					*CSqlDataProvider::sql*
+ (string) the SQL statement to be used for fetching data rows.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CSqlDataProvider::__construct* 				 public
+>
+ __construct($sql, $config=array())
+<
+(void)
+
+ Constructor.
+    [sql] (string) the SQL statement to be used for fetching data rows.
+    [config] (array) configuration (name=>value) to be applied as the initial
+    property values of this class.
+
+
+*CSqlDataProvider::calculateTotalItemCount*			 protected
+>
+ calculateTotalItemCount()
+<
+(integer) the total number of data items.
+
+ Calculates the total number of data items. This method is invoked when
+ |CSqlDataProvider::getTotalItemCount| is invoked and
+ |CSqlDataProvider::totalItemCount| is not set previously. The default
+ implementation simply returns 0. You may override this method to return
+ accurate total number of data items.
+
+
+*CSqlDataProvider::fetchData*					 protected
+>
+ fetchData()
+<
+(array) list of data items
+
+ Fetches the data from the persistent data storage.
+
+
+*CSqlDataProvider::fetchKeys*					 protected
+>
+ fetchKeys()
+<
+(array) list of data item keys.
+
+ Fetches the data item keys from the persistent data storage.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

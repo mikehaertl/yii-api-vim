@@ -1,0 +1,64 @@
+
+*CFilterWidget*   >> |CWidget| >> |CBaseController| >> |CComponent|
+===============
+
+ CFilterWidget is the base class for widgets that can also be used as filters.
+
+ Derived classes may need to override the following methods:
+   |CWidget::init| : called when this is object is used as a widget
+   and needs initialization.
+   |CWidget::run| : called when this is object is used as a widget.
+   |CFilterWidget::filter| : the filtering method called when this
+   object is used as an action filter.CFilterWidget provides all properties
+ and methods of |CWidget| and |CFilter|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<isFilter>				*CFilterWidget::isFilter*
+ (boolean) whether this widget is used as a filter.
+
+<stopAction>				*CFilterWidget::stopAction*
+ (boolean) whether to stop the action execution when this widget is used as a
+ filter. This property should be changed only in |CWidget::init| method.
+ Defaults to false, meaning the action should be executed.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CFilterWidget::__construct*					 public
+>
+ __construct($owner=NULL)
+<
+(void)
+
+ Constructor.
+    [owner] (CBaseController) owner/creator of this widget. It could be either
+    a widget or a controller.
+
+
+*CFilterWidget::filter* 					 public
+>
+ filter($filterChain)
+<
+(void)
+
+ Performs the filtering. The default implementation simply calls
+ |CFilterWidget::init|, |CFilterChain::run| and |CFilterWidget::run| in order
+ Derived classes may want to override this method to change this behavior.
+    [filterChain] (CFilterChain) the filter chain that the filter is on.
+
+
+*CFilterWidget::getIsFilter*					 public
+>
+ getIsFilter()
+<
+(boolean) whether this widget is used as a filter.
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

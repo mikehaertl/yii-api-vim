@@ -1,0 +1,134 @@
+
+*CFileLogRoute*   >> |CLogRoute| >> |CComponent|
+===============
+
+ CFileLogRoute records log messages in files.
+
+ The log files are stored under |CFileLogRoute::setLogPath| and the file name
+ is specified by |CFileLogRoute::setLogFile|. If the size of the log file is
+ greater than |CFileLogRoute::setMaxFileSize| (in kilo-bytes), a rotation is
+ performed, which renames the current log file by suffixing the file name with
+ '.1'. All existing log files are moved backwards one place, i.e., '.2' to
+ '.3', '.1' to '.2'. The property |CFileLogRoute::setMaxLogFiles| specifies
+ how many files to be kept.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<logFile>				*CFileLogRoute::logFile*
+ (string) log file name. Defaults to 'application.log'.
+
+<logPath>				*CFileLogRoute::logPath*
+ (string) directory storing log files. Defaults to application runtime path.
+
+<maxFileSize>				*CFileLogRoute::maxFileSize*
+ (integer) maximum log file size in kilo-bytes (KB). Defaults to 1024 (1MB).
+
+<maxLogFiles>				*CFileLogRoute::maxLogFiles*
+ (integer) number of files used for rotation. Defaults to 5.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CFileLogRoute::getLogFile*					 public
+>
+ getLogFile()
+<
+(string) log file name. Defaults to 'application.log'.
+
+
+
+*CFileLogRoute::getLogPath*					 public
+>
+ getLogPath()
+<
+(string) directory storing log files. Defaults to application runtime path.
+
+
+
+*CFileLogRoute::getMaxFileSize* 				 public
+>
+ getMaxFileSize()
+<
+(integer) maximum log file size in kilo-bytes (KB). Defaults to 1024 (1MB).
+
+
+
+*CFileLogRoute::getMaxLogFiles* 				 public
+>
+ getMaxLogFiles()
+<
+(integer) number of files used for rotation. Defaults to 5.
+
+
+
+*CFileLogRoute::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the route. This method is invoked after the route is created by
+ the route manager.
+
+
+*CFileLogRoute::processLogs*					 protected
+>
+ processLogs($logs)
+<
+(void)
+
+ Saves log messages in files.
+    [logs] (array) list of log messages
+
+
+*CFileLogRoute::rotateFiles*					 protected
+>
+ rotateFiles()
+<
+(void)
+
+ Rotates log files.
+
+
+*CFileLogRoute::setLogFile*					 public
+>
+ setLogFile($value)
+<
+(void)
+
+    [value] (string) log file name
+
+
+*CFileLogRoute::setLogPath*					 public
+>
+ setLogPath($value)
+<
+(void)
+
+    [value] (string) directory for storing log files.
+
+
+*CFileLogRoute::setMaxFileSize* 				 public
+>
+ setMaxFileSize($value)
+<
+(void)
+
+    [value] (integer) maximum log file size in kilo-bytes (KB).
+
+
+*CFileLogRoute::setMaxLogFiles* 				 public
+>
+ setMaxLogFiles($value)
+<
+(void)
+
+    [value] (integer) number of files used for rotation.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

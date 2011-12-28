@@ -1,0 +1,44 @@
+
+*CEvent*   >> |CComponent|
+========
+
+ CEvent is the base class for all event classes.
+
+ It encapsulates the parameters associated with an event. The |CEvent::sender|
+ property describes who raises the event. And the |CEvent::handled| property
+ indicates if the event is handled. If an event handler sets |CEvent::handled|
+ to true, those handlers that are not invoked yet will not be invoked anymore.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<handled>				*CEvent::handled*
+ (boolean) whether the event is handled. Defaults to false. When a handler
+ sets this true, the rest of the uninvoked event handlers will not be invoked
+ anymore.
+
+<params>				*CEvent::params*
+ (mixed) additional event parameters.
+
+<sender>				*CEvent::sender*
+ (object) the sender of this event
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CEvent::__construct*						 public
+>
+ __construct($sender=NULL, $params=NULL)
+<
+(void)
+
+ Constructor.
+    [sender] (mixed) sender of the event
+    [params] (mixed) additional parameters for the event
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

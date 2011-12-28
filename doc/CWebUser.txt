@@ -1,0 +1,602 @@
+
+*CWebUser*   >> |CApplicationComponent| >> |CComponent|
+==========
+
+ CWebUser represents the persistent state for a Web application user.
+
+ CWebUser is used as an application component whose ID is 'user'. Therefore,
+ at any place one can access the user state via 'Yii::app()->user'.
+
+ CWebUser should be used together with an |IUserIdentity| which implements the
+ actual authentication algorithm.
+
+ A typical authentication process using CWebUser is as follows:
+
+   1. The user provides information needed for authentication.
+   2. An |IUserIdentity| is created with the user-provided
+   information.
+   3. Call |IUserIdentity::authenticate| to check if the identity is
+   valid.
+   4. If valid, call |CWebUser::login| to login the user, and    
+   Redirect the user browser to |CWebUser::returnUrl|.
+   5. If not valid, retrieve the error code or message from the
+   identity instance and display it.
+
+ The property |CWebUser::id| and |CWebUser::name| are both identifiers for the
+ user. The former is mainly used internally (e.g. primary key), while the
+ latter is for display purpose (e.g. username). The |CWebUser::id| property is
+ a unique identifier for a user that is persistent during the whole user
+ session. It can be a username, or something else, depending on the
+ implementation of the |IUserIdentity|.
+
+ Both |CWebUser::id| and |CWebUser::name| are persistent during the user
+ session. Besides, an identity may have additional persistent data which can
+ be accessed by calling |CWebUser::getState|. Note, when
+ |CWebUser::allowAutoLogin| is enabled, all these persistent data will be
+ stored in cookie. Therefore, do not store password or other sensitive data in
+ the persistent storage. Instead, you should store them directly in session on
+ the server side if needed.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowAutoLogin>			*CWebUser::allowAutoLogin*
+ (boolean) whether to enable cookie-based login. Defaults to false.
+
+<authTimeout>				*CWebUser::authTimeout*
+ (integer) timeout in seconds after which user is logged out if inactive. If
+ this property is not set, the user will be logged out after the current
+ session expires (c.f. |CHttpSession::timeout|).
+
+<autoRenewCookie>			*CWebUser::autoRenewCookie*
+ (boolean) whether to automatically renew the identity cookie each time a page
+ is requested. Defaults to false. This property is effective only when
+ |CWebUser::allowAutoLogin| is true. When this is false, the identity cookie
+ will expire after the specified duration since the user is initially logged
+ in. When this is true, the identity cookie will expire after the specified
+ duration since the user visits the site the last time.
+
+<autoUpdateFlash>			*CWebUser::autoUpdateFlash*
+ (boolean) whether to automatically update the validity of flash messages.
+ Defaults to true, meaning flash messages will be valid only in the current
+ and the next requests. If this is set false, you will be responsible for
+ ensuring a flash message is deleted after usage. (This can be achieved by
+ calling |CWebUser::getFlash| with the 3rd parameter being true).
+
+<flashes>				*CWebUser::flashes*
+ (array) Returns all flash messages. This method is similar to
+ |CWebUser::getFlash| except that it returns all currently available flash
+ messages.
+
+<guestName>				*CWebUser::guestName*
+ (string) the name for a guest user. Defaults to 'Guest'. This is used by
+ |CWebUser::getName| when the current user is a guest (not authenticated).
+
+<id>					*CWebUser::id*
+ (mixed) the unique identifier for the user. If null, it means the user is a
+ guest.
+
+<identityCookie>			*CWebUser::identityCookie*
+ (array) the property values (in name-value pairs) used to initialize the
+ identity cookie. Any property of |CHttpCookie| may be initialized. This
+ property is effective only when |CWebUser::allowAutoLogin| is true.
+
+<isGuest>				*CWebUser::isGuest*
+ (boolean) whether the current application user is a guest.
+
+<loginUrl>				*CWebUser::loginUrl*
+ (string|array) the URL for login. If using array, the first element should be
+ the route to the login action, and the rest name-value pairs are GET
+ parameters to construct the login URL (e.g. array('/site/login')). If this
+ property is null, a 403 HTTP exception will be raised instead.
+
+<name>					*CWebUser::name*
+ (string) Returns the unique identifier for the user (e.g. username). This is
+ the unique identifier that is mainly used for display purpose.
+
+<returnUrl>				*CWebUser::returnUrl*
+ (string) Returns the URL that the user should be redirected to after
+ successful login. This property is usually used by the login action. If the
+ login is successful, the action should read this property and use it to
+ redirect the user browser.
+
+<stateKeyPrefix>			*CWebUser::stateKeyPrefix*
+ (string) a prefix for the name of the session variables storing user session
+ data.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CWebUser::__get*						 public
+>
+ __get($name)
+<
+(mixed) property value
+
+ PHP magic method. This method is overriden so that persistent states can be
+ accessed like properties.
+    [name] (string) property name
+
+
+*CWebUser::__isset*						 public
+>
+ __isset($name)
+<
+(void)
+
+ PHP magic method. This method is overriden so that persistent states can also
+ be checked for null value.
+    [name] (string) property name
+
+
+*CWebUser::__set*						 public
+>
+ __set($name, $value)
+<
+(void)
+
+ PHP magic method. This method is overriden so that persistent states can be
+ set like properties.
+    [name] (string) property name
+    [value] (mixed) property value
+
+
+*CWebUser::__unset*						 public
+>
+ __unset($name)
+<
+(void)
+
+ PHP magic method. This method is overriden so that persistent states can also
+ be unset.
+    [name] (string) property name
+
+
+*CWebUser::afterLogin*						 protected
+>
+ afterLogin($fromCookie)
+<
+(void)
+
+ This method is called after the user is successfully logged in. You may
+ override this method to do some postprocessing (e.g. log the user login IP
+ and time; load the user permission information).
+    [fromCookie] (boolean) whether the login is based on cookie.
+
+
+*CWebUser::afterLogout* 					 protected
+>
+ afterLogout()
+<
+(void)
+
+ This method is invoked right after a user is logged out. You may override
+ this method to do some extra cleanup work for the user.
+
+
+*CWebUser::beforeLogin* 					 protected
+>
+ beforeLogin($id, $states, $fromCookie)
+<
+(boolean) whether the user should be logged in
+
+ This method is called before logging in a user. You may override this method
+ to provide additional security check. For example, when the login is
+ cookie-based, you may want to verify that the user ID together with a random
+ token in the states can be found in the database. This will prevent hackers
+ from faking arbitrary identity cookies even if they crack down the server
+ private key.
+    [id] (mixed) the user ID. This is the same as returned by
+    |CWebUser::getId|.
+    [states] (array) a set of name-value pairs that are provided by the user
+    identity.
+    [fromCookie] (boolean) whether the login is based on cookie
+
+
+*CWebUser::beforeLogout*					 protected
+>
+ beforeLogout()
+<
+(boolean) whether to log out the user
+
+ This method is invoked when calling |CWebUser::logout| to log out a user. If
+ this method return false, the logout action will be cancelled. You may
+ override this method to provide additional check before logging out a user.
+
+
+*CWebUser::changeIdentity*					 protected
+>
+ changeIdentity($id, $name, $states)
+<
+(void)
+
+ Changes the current user with the specified identity information. This method
+ is called by |CWebUser::login| and |CWebUser::restoreFromCookie| when the
+ current user needs to be populated with the corresponding identity
+ information. Derived classes may override this method by retrieving
+ additional user-related information. Make sure the parent implementation is
+ called first.
+    [id] (mixed) a unique identifier for the user
+    [name] (string) the display name for the user
+    [states] (array) identity states
+
+
+*CWebUser::checkAccess* 					 public
+>
+ checkAccess($operation, $params=array(), $allowCaching=true)
+<
+(boolean) whether the operations can be performed by this user.
+
+ Performs access check for this user.
+    [operation] (string) the name of the operation that need access check.
+    [params] (array) name-value pairs that would be passed to business rules
+    associated with the tasks and roles assigned to the user.
+    [allowCaching] (boolean) whether to allow caching the result of access
+    check. This parameter has been available since version 1.0.5. When this
+    parameter is true (default), if the access check of an operation was
+    performed before, its result will be directly returned when calling this
+    method to check the same operation. If this parameter is false, this
+    method will always call |CAuthManager::checkAccess| to obtain the
+    up-to-date access result. Note that this caching is effective only within
+    the same request.
+
+
+*CWebUser::clearStates* 					 public
+>
+ clearStates()
+<
+(void)
+
+ Clears all user identity information from persistent storage. This will
+ remove the data stored via |CWebUser::setState|.
+
+
+*CWebUser::createIdentityCookie*				 protected
+>
+ createIdentityCookie($name)
+<
+(CHttpCookie) the cookie used to store identity information
+
+ Creates a cookie to store identity information.
+    [name] (string) the cookie name
+
+
+*CWebUser::getFlash*						 public
+>
+ getFlash($key, $defaultValue=NULL, $delete=true)
+<
+(mixed) the message message
+
+ Returns a flash message. A flash message is available only in the current and
+ the next requests.
+    [key] (string) key identifying the flash message
+    [defaultValue] (mixed) value to be returned if the flash message is not
+    available.
+    [delete] (boolean) whether to delete this flash message after accessing
+    it. Defaults to true. This parameter has been available since version
+    1.0.2.
+
+
+*CWebUser::getFlashes*						 public
+>
+ getFlashes($delete=true)
+<
+(array) flash messages (key => message).
+
+ Returns all flash messages. This method is similar to |CWebUser::getFlash|
+ except that it returns all currently available flash messages.
+    [delete] (boolean) whether to delete the flash messages after calling this
+    method.
+
+
+*CWebUser::getId*						 public
+>
+ getId()
+<
+(mixed) the unique identifier for the user. If null, it means the user is a
+guest.
+
+
+
+*CWebUser::getIsGuest*						 public
+>
+ getIsGuest()
+<
+(boolean) whether the current application user is a guest.
+
+
+
+*CWebUser::getName*						 public
+>
+ getName()
+<
+(string) the user name. If the user is not logged in, this will be
+|CWebUser::guestName|.
+
+ Returns the unique identifier for the user (e.g. username). This is the
+ unique identifier that is mainly used for display purpose.
+
+
+*CWebUser::getReturnUrl*					 public
+>
+ getReturnUrl($defaultUrl='')
+<
+(string) the URL that the user should be redirected to after login.
+
+ Returns the URL that the user should be redirected to after successful login.
+ This property is usually used by the login action. If the login is
+ successful, the action should read this property and use it to redirect the
+ user browser.
+    [defaultUrl] (string) the default return URL in case it was not set
+    previously. If this is null, the application entry URL will be considered
+    as the default return URL.
+
+
+*CWebUser::getState*						 public
+>
+ getState($key, $defaultValue=NULL)
+<
+(mixed) the value of the variable. If it doesn't exist in the session, the
+provided default value will be returned
+
+ Returns the value of a variable that is stored in user session.
+
+ This function is designed to be used by CWebUser descendant classes who want
+ to store additional user information in user session. A variable, if stored
+ in user session using |CWebUser::setState| can be retrieved back using this
+ function.
+    [key] (string) variable name
+    [defaultValue] (mixed) default value
+
+
+*CWebUser::getStateKeyPrefix*					 public
+>
+ getStateKeyPrefix()
+<
+(string) a prefix for the name of the session variables storing user session
+data.
+
+
+
+*CWebUser::hasFlash*						 public
+>
+ hasFlash($key)
+<
+(boolean) whether the specified flash message exists
+
+    [key] (string) key identifying the flash message
+
+
+*CWebUser::hasState*						 public
+>
+ hasState($key)
+<
+(boolean) whether there is a state of the specified name.
+
+ Returns a value indicating whether there is a state of the specified name.
+    [key] (string) state name
+
+
+*CWebUser::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component. This method overrides the parent
+ implementation by starting session, performing cookie-based authentication if
+ enabled, and updating the flash variables.
+
+
+*CWebUser::loadIdentityStates*					 protected
+>
+ loadIdentityStates($states)
+<
+(void)
+
+ Loads identity states from an array and saves them to persistent storage.
+    [states] (array) the identity states
+
+
+*CWebUser::login*						 public
+>
+ login($identity, $duration=0)
+<
+(void)
+
+ Logs in a user.
+
+ The user identity information will be saved in storage that is persistent
+ during the user session. By default, the storage is simply the session
+ storage. If the duration parameter is greater than 0, a cookie will be sent
+ to prepare for cookie-based login in future.
+
+ Note, you have to set |CWebUser::allowAutoLogin| to true if you want to allow
+ user to be authenticated based on the cookie information.
+    [identity] (IUserIdentity) the user identity (which should already be
+    authenticated)
+    [duration] (integer) number of seconds that the user can remain in
+    logged-in status. Defaults to 0, meaning login till the user closes the
+    browser. If greater than 0, cookie-based login will be used. In this case,
+    |CWebUser::allowAutoLogin| must be set true, otherwise an exception will
+    be thrown.
+
+
+*CWebUser::loginRequired*					 public
+>
+ loginRequired()
+<
+(void)
+
+ Redirects the user browser to the login page. Before the redirection, the
+ current URL (if it's not an AJAX url) will be kept in |CWebUser::returnUrl|
+ so that the user browser may be redirected back to the current page after
+ successful login. Make sure you set |CWebUser::loginUrl| so that the user
+ browser can be redirected to the specified login URL after calling this
+ method. After calling this method, the current request processing will be
+ terminated.
+
+
+*CWebUser::logout*						 public
+>
+ logout($destroySession=true)
+<
+(void)
+
+ Logs out the current user. This will remove authentication-related session
+ data. If the parameter is true, the whole session will be destroyed as well.
+    [destroySession] (boolean) whether to destroy the whole session. Defaults
+    to true. If false, then |CWebUser::clearStates| will be called, which
+    removes only the data stored via |CWebUser::setState|. This parameter has
+    been available since version 1.0.7. Before 1.0.7, the behavior is to
+    destroy the whole session.
+
+
+*CWebUser::renewCookie* 					 protected
+>
+ renewCookie()
+<
+(void)
+
+ Renews the identity cookie. This method will set the expiration time of the
+ identity cookie to be the current time plus the originally specified cookie
+ duration.
+
+
+*CWebUser::restoreFromCookie*					 protected
+>
+ restoreFromCookie()
+<
+(void)
+
+ Populates the current user object with the information obtained from cookie.
+ This method is used when automatic login (|CWebUser::allowAutoLogin|) is
+ enabled. The user identity information is recovered from cookie. Sufficient
+ security measures are used to prevent cookie data from being tampered.
+
+
+*CWebUser::saveIdentityStates*					 protected
+>
+ saveIdentityStates()
+<
+(array) the identity states
+
+ Retrieves identity states from persistent storage and saves them as an array.
+
+
+*CWebUser::saveToCookie*					 protected
+>
+ saveToCookie($duration)
+<
+(void)
+
+ Saves necessary user data into a cookie. This method is used when automatic
+ login (|CWebUser::allowAutoLogin|) is enabled. This method saves user ID,
+ username, other identity states and a validation key to cookie. These
+ information are used to do authentication next time when user visits the
+ application.
+    [duration] (integer) number of seconds that the user can remain in
+    logged-in status. Defaults to 0, meaning login till the user closes the
+    browser.
+
+
+*CWebUser::setFlash*						 public
+>
+ setFlash($key, $value, $defaultValue=NULL)
+<
+(void)
+
+ Stores a flash message. A flash message is available only in the current and
+ the next requests.
+    [key] (string) key identifying the flash message
+    [value] (mixed) flash message
+    [defaultValue] (mixed) if this value is the same as the flash message, the
+    flash message will be removed. (Therefore, you can use
+    setFlash('key',null) to remove a flash message.)
+
+
+*CWebUser::setId*						 public
+>
+ setId($value)
+<
+(void)
+
+    [value] (mixed) the unique identifier for the user. If null, it means the
+    user is a guest.
+
+
+*CWebUser::setName*						 public
+>
+ setName($value)
+<
+(void)
+
+ Sets the unique identifier for the user (e.g. username).
+    [value] (string) the user name.
+
+
+*CWebUser::setReturnUrl*					 public
+>
+ setReturnUrl($value)
+<
+(void)
+
+    [value] (string) the URL that the user should be redirected to after
+    login.
+
+
+*CWebUser::setState*						 public
+>
+ setState($key, $value, $defaultValue=NULL)
+<
+(void)
+
+ Stores a variable in user session.
+
+ This function is designed to be used by CWebUser descendant classes who want
+ to store additional user information in user session. By storing a variable
+ using this function, the variable may be retrieved back later using
+ |CWebUser::getState|. The variable will be persistent across page requests
+ during a user session.
+    [key] (string) variable name
+    [value] (mixed) variable value
+    [defaultValue] (mixed) default value. If $value===$defaultValue, the
+    variable will be removed from the session
+
+
+*CWebUser::setStateKeyPrefix*					 public
+>
+ setStateKeyPrefix($value)
+<
+(void)
+
+    [value] (string) a prefix for the name of the session variables storing
+    user session data.
+
+
+*CWebUser::updateAuthStatus*					 protected
+>
+ updateAuthStatus()
+<
+(void)
+
+ Updates the authentication status according to |CWebUser::authTimeout|. If
+ the user has been inactive for |CWebUser::authTimeout| seconds, he will be
+ automatically logged out.
+
+
+*CWebUser::updateFlash* 					 protected
+>
+ updateFlash()
+<
+(void)
+
+ Updates the internal counters for flash messages. This method is internally
+ used by |CWebApplication| to maintain the availability of flash messages.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

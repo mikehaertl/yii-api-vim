@@ -1,0 +1,149 @@
+
+*CGettextMoFile*   >> |CGettextFile| >> |CComponent|
+================
+
+ CGettextMoFile represents an MO Gettext message file.
+
+ This class is written by adapting Michael's Gettext_MO class in PEAR. Please
+ refer to the following license terms.
+
+ Copyright (c) 2004-2005, Michael Wallner <mike@iworks.at>. All rights
+ reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice,     
+  this list of conditions and the following disclaimer.     * Redistributions
+ in binary form must reproduce the above copyright       notice, this list of
+ conditions and the following disclaimer in the       documentation and/or
+ other materials provided with the distribution.
+
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<useBigEndian>				*CGettextMoFile::useBigEndian*
+ (boolean) whether to use Big Endian when reading and writing an integer.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CGettextMoFile::__construct*					 public
+>
+ __construct($useBigEndian=false)
+<
+(void)
+
+ Constructor.
+    [useBigEndian] (boolean) whether to use Big Endian when reading and
+    writing an integer.
+
+
+*CGettextMoFile::load*						 public
+>
+ load($file, $context)
+<
+(array) message translations (source message => translated message)
+
+ Loads messages from an MO file.
+    [file] (string) file path
+    [context] (string) message context
+
+
+*CGettextMoFile::readByte*					 protected
+>
+ readByte($fr, $n=1)
+<
+(string) bytes
+
+ Reads one or several bytes.
+    [fr] (resource) file handle
+    [n] (integer) number of bytes to read
+
+
+*CGettextMoFile::readInteger*					 protected
+>
+ readInteger($fr)
+<
+(integer) the result
+
+ Reads a 4-byte integer.
+    [fr] (resource) file handle
+
+
+*CGettextMoFile::readString*					 protected
+>
+ readString($fr, $length, $offset=)
+<
+(string) the result
+
+ Reads a string.
+    [fr] (resource) file handle
+    [length] (integer) string length
+    [offset] (integer) offset of the string in the file. If null, it reads
+    from the current position.
+
+
+*CGettextMoFile::save*						 public
+>
+ save($file, $messages)
+<
+(void)
+
+ Saves messages to an MO file.
+    [file] (string) file path
+    [messages] (array) message translations (message id => translated
+    message). Note if the message has a context, the message id must be
+    prefixed with the context with chr(4) as the separator.
+
+
+*CGettextMoFile::writeByte*					 protected
+>
+ writeByte($fw, $data)
+<
+(integer) how many bytes are written
+
+ Writes bytes.
+    [fw] (resource) file handle
+    [data] (string) the data
+
+
+*CGettextMoFile::writeInteger*					 protected
+>
+ writeInteger($fw, $data)
+<
+(integer) how many bytes are written
+
+ Writes a 4-byte integer.
+    [fw] (resource) file handle
+    [data] (integer) the data
+
+
+*CGettextMoFile::writeString*					 protected
+>
+ writeString($fw, $data)
+<
+(integer) how many bytes are written
+
+ Writes a string.
+    [fw] (resource) file handle
+    [data] (string) the string
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

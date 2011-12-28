@@ -1,0 +1,36 @@
+
+*CHttpException*   >> |CException| >> |Exception|
+================
+
+ CHttpException represents an exception caused by invalid operations of
+ end-users.
+
+ The HTTP error code can be obtained via |CHttpException::statusCode|. Error
+ handlers may use this status code to decide how to format the error page.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<statusCode>				*CHttpException::statusCode*
+ (integer) HTTP status code, such as 403, 404, 500, etc.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CHttpException::__construct*					 public
+>
+ __construct($status, $message='', $code=0)
+<
+(void)
+
+ Constructor.
+    [status] (integer) HTTP status code, such as 404, 500, etc.
+    [message] (string) error message
+    [code] (integer) error code
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

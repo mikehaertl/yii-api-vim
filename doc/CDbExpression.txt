@@ -1,0 +1,55 @@
+
+*CDbExpression*   >> |CComponent|
+===============
+
+ CDbExpression represents a DB expression that does not need escaping.
+ CDbExpression is mainly used in |CActiveRecord| as attribute values. When
+ inserting or updating a |CActiveRecord|, attribute values of type
+ CDbExpression will be directly put into the corresponding SQL statement
+ without escaping. A typical usage is that an attribute is set with 'NOW()'
+ expression so that saving the record would fill the corresponding column with
+ the current DB server timestamp.
+
+ Starting from version 1.1.1, one can also specify parameters to be bound for
+ the expression. For example, if the expression is 'LOWER(:value)', then one
+ can set |CDbExpression::params| to be 'array(':value'=>$value)'.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<expression>				*CDbExpression::expression*
+ (string) the DB expression
+
+<params>				*CDbExpression::params*
+ (array) list of parameters that should be bound for this expression. The keys
+ are placeholders appearing in |CDbExpression::expression|, while the values
+ are the corresponding parameter values.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbExpression::__construct*					 public
+>
+ __construct($expression, $params=array())
+<
+(void)
+
+ Constructor.
+    [expression] (string) the DB expression
+    [params] (array) parameters
+
+
+*CDbExpression::__toString*					 public
+>
+ __toString()
+<
+(string) the DB expression
+
+ String magic method
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

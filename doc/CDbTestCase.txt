@@ -1,0 +1,107 @@
+
+*CDbTestCase*   >> |CTestCase| >> |PHPUnit_Framework_TestCase| >> |PHPUnit_Framework_Assert|
+=============
+
+ CDbTestCase is the base class for test cases about DB-related features.
+
+ CDbTestCase provides database fixture management with the help of
+ |CDbFixtureManager|. By declaring |CDbTestCase::fixtures| property, one can
+ ensure the specified tables have the expected fixture state when executing
+ each test method. In addition, CDbTestCase provides two ways to access the
+ fixture data.
+
+ For example, assume we declare |CDbTestCase::fixtures| to be:
+>
+ public $fixtures=array(
+     'posts' => 'Post',
+     'comments' => 'Comment',
+ );
+<
+ We can access the original fixture data rows using '$this->posts'
+ '$this->posts['first post']'. We can also retrieve an ActiveRecord instance
+ corresponding to a fixture data row using '$this->posts('first post')'. Note,
+ here 'first post' refers to a key to a row in the original fixture data.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<fixtures>				*CDbTestCase::fixtures*
+ (array) a list of fixtures that should be loaded before each test method
+ executes. The array keys are fixture names, and the array values are either
+ AR class names or table names. If table names, they must begin with a colon
+ character (e.g. 'Post' means an AR class, while ':post' means a table name).
+ Defaults to false, meaning fixtures will not be used at all.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbTestCase::__call*						 public
+>
+ __call($name, $params)
+<
+(mixed) the property value
+
+ PHP magic method. This method is overridden so that named fixture
+ ActiveRecord instances can be accessed in terms of a method call.
+    [name] (string) method name
+    [params] (string) method parameters
+
+
+*CDbTestCase::__get*						 public
+>
+ __get($name)
+<
+(mixed) the property value
+
+ PHP magic method. This method is overridden so that named fixture data can be
+ accessed like a normal property.
+    [name] (string) the property name
+
+
+*CDbTestCase::getFixtureData*					 public
+>
+ getFixtureData($name)
+<
+(array) the named fixture data
+
+    [name] (string) the fixture name (the key value in
+    |CDbTestCase::fixtures|).
+
+
+*CDbTestCase::getFixtureManager*				 public
+>
+ getFixtureManager()
+<
+(CDbFixtureManager) the database fixture manager
+
+
+
+*CDbTestCase::getFixtureRecord* 				 public
+>
+ getFixtureRecord($name, $alias)
+<
+(CActiveRecord) the ActiveRecord instance corresponding to the specified alias
+in the named fixture. False is returned if there is no such fixture or the
+record cannot be found.
+
+    [name] (string) the fixture name (the key value in
+    |CDbTestCase::fixtures|).
+    [alias] (string) the alias of the fixture data row
+
+
+*CDbTestCase::setUp*						 protected
+>
+ setUp()
+<
+(void)
+
+ Sets up the fixture before executing a test method. If you override this
+ method, make sure the parent implementation is invoked. Otherwise, the
+ database fixtures will not be managed properly.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

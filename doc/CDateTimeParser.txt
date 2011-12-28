@@ -1,0 +1,84 @@
+
+*CDateTimeParser*  
+=================
+
+ CDateTimeParser converts a date/time string to a UNIX timestamp according to
+ the specified pattern.
+
+ The following pattern characters are recognized:
+>
+ Pattern |      Description
+ ----------------------------------------------------
+ d       | Day of month 1 to 31, no padding
+ dd      | Day of month 01 to 31, zero leading
+ M       | Month digit 1 to 12, no padding
+ MM      | Month digit 01 to 12, zero leading
+ yy      | 2 year digit, e.g., 96, 05
+ yyyy    | 4 year digit, e.g., 2005
+ h       | Hour in 0 to 23, no padding
+ hh      | Hour in 00 to 23, zero leading
+ H       | Hour in 0 to 23, no padding
+ HH      | Hour in 00 to 23, zero leading
+ m       | Minutes in 0 to 59, no padding
+ mm      | Minutes in 00 to 59, zero leading
+ s       | Seconds in 0 to 59, no padding
+ ss      | Seconds in 00 to 59, zero leading
+ a       | AM or PM, case-insensitive (since version 1.1.5)
+ ----------------------------------------------------
+<
+ All other characters must appear in the date string at the corresponding
+ positions.
+
+ For example, to parse a date string '21/10/2008', use the following:
+>
+ $timestamp=CDateTimeParser::parse('21/10/2008','dd/MM/yyyy');
+<
+ To format a timestamp to a date string, please use |CDateFormatter|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDateTimeParser::parse*					 public
+>
+ parse($value, $pattern='MM/dd/yyyy', $defaults=array())
+<
+(integer) timestamp for the date string. False if parsing fails.
+
+ Converts a date string to a timestamp.
+    [value] (string) the date string to be parsed
+    [pattern] (string) the pattern that the date string is following
+    [defaults] (array) the default values for year, month, day, hour, minute
+    and second. The default values will be used in case when the pattern
+    doesn't specify the corresponding fields. For example, if the pattern is
+    'MM/dd/yyyy' and this parameter is array('minute'=>0, 'second'=>0), then
+    the actual minute and second for the parsing result will take value 0,
+    while the actual hour value will be the current hour obtained by
+    date('H'). This parameter has been available since version 1.1.5.
+
+
+*CDateTimeParser::parseAmPm*					 protected
+>
+ parseAmPm($value, $offset)
+<
+(void)
+
+    [value] () 
+    [offset] () 
+
+
+*CDateTimeParser::parseInteger* 				 protected
+>
+ parseInteger($value, $offset, $minLength, $maxLength)
+<
+(void)
+
+    [value] () 
+    [offset] () 
+    [minLength] () 
+    [maxLength] () 
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

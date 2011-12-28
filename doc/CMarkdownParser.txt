@@ -1,0 +1,141 @@
+
+*CMarkdownParser*   >> |MarkdownExtra_Parser| >> |Markdown_Parser|
+=================
+
+ CMarkdownParser is a wrapper of 'MarkdownExtra_Parser'.
+
+ CMarkdownParser extends MarkdownExtra_Parser by using Text_Highlighter to
+ highlight code blocks with specific language syntax. In particular, if a code
+ block starts with the following:
+>
+ [language]
+<
+ The syntax for the specified language will be used to highlight code block.
+ The languages supported include (case-insensitive): ABAP, CPP, CSS, DIFF,
+ DTD, HTML, JAVA, JAVASCRIPT, MYSQL, PERL, PHP, PYTHON, RUBY, SQL, XML
+
+ You can also specify options to be passed to the syntax highlighter. For
+ example:
+>
+ [php showLineNumbers=1]
+<
+ which will show line numbers in each line of the code block.
+
+ For details about the standard markdown syntax, please check the following:
+   'official markdown syntax'
+   'markdown extra syntax'
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<highlightCssClass>			*CMarkdownParser::highlightCssClass*
+ (string) the css class for the div element containing the code block that is
+ highlighted. Defaults to 'hl-code'.
+
+<purifierOptions>			*CMarkdownParser::purifierOptions*
+ (mixed) the options to be passed to 'HTML Purifier'. This can be a
+ HTMLPurifier_Config object,  an array of directives (Namespace.Directive =>
+ Value) or the filename of an ini file. This property is used only when
+ |CMarkdownParser::safeTransform| is invoked.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CMarkdownParser::_doCodeBlocks_callback*			 public
+>
+ _doCodeBlocks_callback($matches)
+<
+(string) the highlighted code block
+
+ Callback function when a code block is matched.
+    [matches] (array) matches
+
+
+*CMarkdownParser::_doFencedCodeBlocks_callback* 		 public
+>
+ _doFencedCodeBlocks_callback($matches)
+<
+(string) the highlighted code block
+
+ Callback function when a fenced code block is matched.
+    [matches] (array) matches
+
+
+*CMarkdownParser::createHighLighter*				 protected
+>
+ createHighLighter($options)
+<
+(Text_Highlighter) the highlighter instance
+
+ Creates a highlighter instance.
+    [options] (string) the user-entered options
+
+
+*CMarkdownParser::getDefaultCssFile*				 public
+>
+ getDefaultCssFile()
+<
+(string) the default CSS file that is used to highlight code blocks.
+
+
+
+*CMarkdownParser::getHighlightTag*				 protected
+>
+ getHighlightTag($codeblock)
+<
+(string) the user-entered highlighting options. Null if no option is entered.
+
+ Returns the user-entered highlighting options.
+    [codeblock] (string) code block with highlighting options.
+
+
+*CMarkdownParser::getHiglightConfig*				 public
+>
+ getHiglightConfig($options)
+<
+(array) the highlighter config
+
+ Generates the config for the highlighter.
+    [options] (string) user-entered options
+
+
+*CMarkdownParser::getInlineOption*				 protected
+>
+ getInlineOption($name, $str, $defaultValue)
+<
+(mixed) the configuration value
+
+ Retrieves the specified configuration.
+    [name] (string) the configuration name
+    [str] (string) the user-entered options
+    [defaultValue] (mixed) default value if the configuration is not present
+
+
+*CMarkdownParser::highlightCodeBlock*				 protected
+>
+ highlightCodeBlock($codeblock)
+<
+(string) the highlighted code block. Null if the code block does not need to
+highlighted
+
+ Highlights the code block.
+    [codeblock] (string) the code block
+
+
+*CMarkdownParser::safeTransform*				 public
+>
+ safeTransform($content)
+<
+(string) the purified HTML content
+
+ Transforms the content and purifies the result. This method calls the
+ transform() method to convert markdown content into HTML content. It then
+ uses |CHtmlPurifier| to purify the HTML content to avoid XSS attacks.
+    [content] (string) the markdown content
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

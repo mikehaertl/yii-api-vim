@@ -1,0 +1,96 @@
+
+*CCacheHttpSession*   >> |CHttpSession| >> |CApplicationComponent| >> |CComponent|
+===================
+
+ CCacheHttpSession implements a session component using cache as storage
+ medium.
+
+ The cache being used can be any cache application component implementing
+ |ICache| interface. The ID of the cache application component is specified
+ via |CCacheHttpSession::cacheID|, which defaults to 'cache'.
+
+ Beware, by definition cache storage are volatile, which means the data stored
+ on them may be swapped out and get lost. Therefore, you must make sure the
+ cache used by this component is NOT volatile. If you want to use |CDbCache|
+ as storage medium, use |CDbHttpSession| is a better choice.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<cacheID>				*CCacheHttpSession::cacheID*
+ (string) the ID of the cache application component. Defaults to 'cache' (the
+ primary cache application component.)
+
+<useCustomStorage>			*CCacheHttpSession::useCustomStorage*
+ (boolean) Returns a value indicating whether to use custom session storage.
+ This method overrides the parent implementation and always returns true.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CCacheHttpSession::calculateKey*				 protected
+>
+ calculateKey($id)
+<
+(string) a safe cache key associated with the session variable name
+
+ Generates a unique key used for storing session data in cache.
+    [id] (string) session variable name
+
+
+*CCacheHttpSession::destroySession*				 public
+>
+ destroySession($id)
+<
+(boolean) whether session is destroyed successfully
+
+ Session destroy handler. Do not call this method directly.
+    [id] (string) session ID
+
+
+*CCacheHttpSession::getUseCustomStorage*			 public
+>
+ getUseCustomStorage()
+<
+(boolean) whether to use custom storage.
+
+ Returns a value indicating whether to use custom session storage. This method
+ overrides the parent implementation and always returns true.
+
+
+*CCacheHttpSession::init*					 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component. This method overrides the parent
+ implementation by checking if cache is available.
+
+
+*CCacheHttpSession::readSession*				 public
+>
+ readSession($id)
+<
+(string) the session data
+
+ Session read handler. Do not call this method directly.
+    [id] (string) session ID
+
+
+*CCacheHttpSession::writeSession*				 public
+>
+ writeSession($id, $data)
+<
+(boolean) whether session write is successful
+
+ Session write handler. Do not call this method directly.
+    [id] (string) session ID
+    [data] (string) session data
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

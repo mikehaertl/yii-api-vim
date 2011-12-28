@@ -1,0 +1,68 @@
+
+*CNumberValidator*   >> |CValidator| >> |CComponent|
+==================
+
+ CNumberValidator validates that the attribute value is a number.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowEmpty>				*CNumberValidator::allowEmpty*
+ (boolean) whether the attribute value can be null or empty. Defaults to true,
+ meaning that if the attribute is empty, it is considered valid.
+
+<integerOnly>				*CNumberValidator::integerOnly*
+ (boolean) whether the attribute value can only be an integer. Defaults to
+ false.
+
+<integerPattern>			*CNumberValidator::integerPattern*
+ (string) the regular expression for matching integers.
+
+<max>					*CNumberValidator::max*
+ (integer|float) upper limit of the number. Defaults to null, meaning no upper
+ limit.
+
+<min>					*CNumberValidator::min*
+ (integer|float) lower limit of the number. Defaults to null, meaning no lower
+ limit.
+
+<numberPattern> 			*CNumberValidator::numberPattern*
+ (string) the regular expression for matching numbers.
+
+<tooBig>				*CNumberValidator::tooBig*
+ (string) user-defined error message used when the value is too big.
+
+<tooSmall>				*CNumberValidator::tooSmall*
+ (string) user-defined error message used when the value is too small.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CNumberValidator::clientValidateAttribute*			 public
+>
+ clientValidateAttribute($object, $attribute)
+<
+(string) the client-side validation script.
+
+ Returns the JavaScript needed for performing client-side validation.
+    [object] (CModel) the data object being validated
+    [attribute] (string) the name of the attribute to be validated.
+
+
+*CNumberValidator::validateAttribute*				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

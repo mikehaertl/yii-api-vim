@@ -1,0 +1,98 @@
+
+*CPortlet*   >> |CWidget| >> |CBaseController| >> |CComponent|
+==========
+
+ CPortlet is the base class for portlet widgets.
+
+ A portlet displays a fragment of content, usually in terms of a block on the
+ side bars of a Web page.
+
+ To specify the content of the portlet, override the |CPortlet::renderContent|
+ method, or insert the content code between the |CController::beginWidget| and
+ |CController::endWidget| calls. For example,
+>
+ <?php $this->beginWidget('zii.widgets.CPortlet'); ?>
+     ...insert content here...
+ <?php $this->endWidget(); ?>
+<
+ A portlet also has an optional |CPortlet::title|. One may also override
+ |CPortlet::renderDecoration| to further customize the decorative display of a
+ portlet (e.g. adding min/max buttons).
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<contentCssClass>			*CPortlet::contentCssClass*
+ (string) the CSS class for the content container tag. Defaults to
+ 'portlet-content'.
+
+<decorationCssClass>			*CPortlet::decorationCssClass*
+ (string) the CSS class for the decoration container tag. Defaults to
+ 'portlet-decoration'.
+
+<hideOnEmpty>				*CPortlet::hideOnEmpty*
+ (boolean) whether to hide the portlet when the body content is empty.
+ Defaults to true.
+
+<htmlOptions>				*CPortlet::htmlOptions*
+ (array) the HTML attributes for the portlet container tag.
+
+<tagName>				*CPortlet::tagName*
+ (string) the tag name for the portlet container tag. Defaults to 'div'.
+
+<title> 				*CPortlet::title*
+ (string) the title of the portlet. Defaults to null. When this is not set,
+ Decoration will not be displayed. Note that the title will not be
+ HTML-encoded when rendering.
+
+<titleCssClass> 			*CPortlet::titleCssClass*
+ (string) the CSS class for the portlet title tag. Defaults to
+ 'portlet-title'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CPortlet::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the widget. This renders the open tags needed by the portlet. It
+ also renders the decoration, if any.
+
+
+*CPortlet::renderContent*					 protected
+>
+ renderContent()
+<
+(void)
+
+ Renders the content of the portlet. Child classes should override this method
+ to render the actual content.
+
+
+*CPortlet::renderDecoration*					 protected
+>
+ renderDecoration()
+<
+(void)
+
+ Renders the decoration for the portlet. The default implementation will
+ render the title if it is set.
+
+
+*CPortlet::run* 						 public
+>
+ run()
+<
+(void)
+
+ Renders the content of the portlet.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,98 @@
+
+*CPhpMessageSource*   >> |CMessageSource| >> |CApplicationComponent| >> |CComponent|
+===================
+
+ CPhpMessageSource represents a message source that stores translated messages
+ in PHP scripts.
+
+ CPhpMessageSource uses PHP files and arrays to keep message translations.
+   All translations are saved under the |CPhpMessageSource::basePath|
+   directory.
+   Translations in one language are kept as PHP files under an
+   individual subdirectory   whose name is the same as the language
+   ID. Each PHP file contains messages   belonging to the same
+   category, and the file name is the same as the category name.
+   Within a PHP file, an array of (source, translation) pairs is
+   returned. For example:
+>
+ return array(
+     'original message 1' => 'translated message 1',
+     'original message 2' => 'translated message 2',
+ );
+<
+ When |CPhpMessageSource::cachingDuration| is set as a positive number,
+ message translations will be cached.
+
+ Starting from version 1.0.10, messages for an extension class (e.g. a widget,
+ a module) can be specially managed and used. In particular, if a message
+ belongs to an extension whose class name is Xyz, then the message category
+ can be specified in the format of 'Xyz.categoryName'. And the corresponding
+ message file is assumed to be
+ 'BasePath/messages/LanguageID/categoryName.php', where 'BasePath' refers to
+ the directory that contains the extension class file. When using Yii::t() to
+ translate an extension message, the category name should be set as
+ 'Xyz.categoryName'.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<basePath>				*CPhpMessageSource::basePath*
+ (string) the base path for all translated messages. Defaults to null, meaning
+ the "messages" subdirectory of the application directory (e.g.
+ "protected/messages").
+
+<cacheID>				*CPhpMessageSource::cacheID*
+ (string) the ID of the cache application component that is used to cache the
+ messages. Defaults to 'cache' which refers to the primary cache application
+ component. Set this property to false if you want to disable caching the
+ messages.
+
+<cachingDuration>			*CPhpMessageSource::cachingDuration*
+ (integer) the time in seconds that the messages can remain valid in cache.
+ Defaults to 0, meaning the caching is disabled.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CPhpMessageSource::getMessageFile*				 protected
+>
+ getMessageFile($category, $language)
+<
+(string) the message file path
+
+ Determines the message file name based on the given category and language. If
+ the category name contains a dot, it will be split into the module class name
+ and the category name. In this case, the message file will be assumed to be
+ located within the 'messages' subdirectory of the directory containing the
+ module class file. Otherwise, the message file is assumed to be under the
+ |CPhpMessageSource::basePath|.
+    [category] (string) category name
+    [language] (string) language ID
+
+
+*CPhpMessageSource::init*					 public
+>
+ init()
+<
+(void)
+
+ Initializes the application component. This method overrides the parent
+ implementation by preprocessing the user request data.
+
+
+*CPhpMessageSource::loadMessages*				 protected
+>
+ loadMessages($category, $language)
+<
+(array) the loaded messages
+
+ Loads the message translation for the specified language and category.
+    [category] (string) the message category
+    [language] (string) the target language
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

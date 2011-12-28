@@ -1,0 +1,221 @@
+
+*CDbFixtureManager*   >> |CApplicationComponent| >> |CComponent|
+===================
+
+ CDbFixtureManager manages database fixtures during tests.
+
+ A fixture represents a list of rows for a specific table. For a test method,
+ using a fixture means that at the begin of the method, the table has and only
+ has the rows that are given in the fixture. Therefore, the table's state is
+ predictable.
+
+ A fixture is represented as a PHP script whose name (without suffix) is the
+ same as the table name (if schema name is needed, it should be prefixed to
+ the table name). The PHP script returns an array representing a list of table
+ rows. Each row is an associative array of column values indexed by column
+ names.
+
+ A fixture can be associated with an init script which sits under the same
+ fixture directory and is named as "TableName.init.php". The init script is
+ used to initialize the table before populating the fixture data into the
+ table. If the init script does not exist, the table will be emptied.
+
+ Fixtures must be stored under the |CDbFixtureManager::basePath| directory.
+ The directory may contain a file named "init.php" which will be executed once
+ to initialize the database. If this file is not found, all available fixtures
+ will be loaded into the database.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<basePath>				*CDbFixtureManager::basePath*
+ (string) the base path containing all fixtures. Defaults to null, meaning the
+ path 'protected/tests/fixtures'.
+
+<connectionID>				*CDbFixtureManager::connectionID*
+ (string) the ID of the database connection. Defaults to 'db'. Note, data in
+ this database may be deleted or modified during testing. Make sure you have a
+ backup database.
+
+<dbConnection>				*CDbFixtureManager::dbConnection*
+ (CDbConnection) Returns the database connection used to load fixtures.
+
+<fixtures>				*CDbFixtureManager::fixtures*
+ (array) Returns the information of the available fixtures. This method will
+ search for all PHP files under |CDbFixtureManager::basePath|. If a file's
+ name is the same as a table name, it is considered to be the fixture data for
+ that table.
+
+<initScript>				*CDbFixtureManager::initScript*
+ (string) the name of the initialization script that would be executed before
+ the whole test set runs. Defaults to 'init.php'. If the script does not
+ exist, every table with a fixture file will be reset.
+
+<initScriptSuffix>			*CDbFixtureManager::initScriptSuffix*
+ (string) the suffix for fixture initialization scripts. If a table is
+ associated with such a script whose name is TableName suffixed this property
+ value, then the script will be executed each time before the table is reset.
+
+<schemas>				*CDbFixtureManager::schemas*
+ (array) list of database schemas that the test tables may reside in. Defaults
+ to array(''), meaning using the default schema (an empty string refers to the
+ default schema). This property is mainly used when turning on and off
+ integrity checks so that fixture data can be populated into the database
+ without causing problem.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDbFixtureManager::checkIntegrity*				 public
+>
+ checkIntegrity($check)
+<
+(void)
+
+ Enables or disables database integrity check. This method may be used to
+ temporarily turn off foreign constraints check.
+    [check] (boolean) whether to enable database integrity check
+
+
+*CDbFixtureManager::getDbConnection*				 public
+>
+ getDbConnection()
+<
+(CDbConnection) the database connection
+
+ Returns the database connection used to load fixtures.
+
+
+*CDbFixtureManager::getFixtures*				 public
+>
+ getFixtures()
+<
+(array) the information of the available fixtures (table name => fixture file)
+
+ Returns the information of the available fixtures. This method will search
+ for all PHP files under |CDbFixtureManager::basePath|. If a file's name is
+ the same as a table name, it is considered to be the fixture data for that
+ table.
+
+
+*CDbFixtureManager::getRecord*					 public
+>
+ getRecord($name, $alias)
+<
+(CActiveRecord) the ActiveRecord instance. False is returned if there is no
+such fixture row.
+
+ Returns the specified ActiveRecord instance in the fixture data.
+    [name] (string) the fixture name
+    [alias] (string) the alias for the fixture data row
+
+
+*CDbFixtureManager::getRows*					 public
+>
+ getRows($name)
+<
+(array) the fixture data rows. False is returned if there is no such fixture
+data.
+
+ Returns the fixture data rows. The rows will have updated primary key values
+ if the primary key is auto-incremental.
+    [name] (string) the fixture name
+
+
+*CDbFixtureManager::init*					 public
+>
+ init()
+<
+(void)
+
+ Initializes this application component.
+
+
+*CDbFixtureManager::load*					 public
+>
+ load($fixtures)
+<
+(void)
+
+ Loads the specified fixtures. For each fixture, the corresponding table will
+ be reset first by calling |CDbFixtureManager::resetTable| and then be
+ populated with the fixture data. The loaded fixture data may be later
+ retrieved using |CDbFixtureManager::getRows| and
+ |CDbFixtureManager::getRecord|. Note, if a table does not have fixture data,
+ |CDbFixtureManager::resetTable| will still be called to reset the table.
+    [fixtures] (array) fixtures to be loaded. The array keys are fixture
+    names, and the array values are either AR class names or table names. If
+    table names, they must begin with a colon character (e.g. 'Post' means an
+    AR class, while ':Post' means a table name).
+
+
+*CDbFixtureManager::loadFixture*				 public
+>
+ loadFixture($tableName)
+<
+(array) the loaded fixture rows indexed by row aliases (if any). False is
+returned if the table does not have a fixture.
+
+ Loads the fixture for the specified table. This method will insert rows given
+ in the fixture into the corresponding table. The loaded rows will be returned
+ by this method. If the table has auto-incremental primary key, each row will
+ contain updated primary key value. If the fixture does not exist, this method
+ will return false. Note, you may want to call |CDbFixtureManager::resetTable|
+ before calling this method so that the table is emptied first.
+    [tableName] (string) table name
+
+
+*CDbFixtureManager::prepare*					 public
+>
+ prepare()
+<
+(void)
+
+ Prepares the fixtures for the whole test. This method is invoked in
+ |CDbFixtureManager::init|. It executes the database init script if it exists.
+ Otherwise, it will load all available fixtures.
+
+
+*CDbFixtureManager::resetTable* 				 public
+>
+ resetTable($tableName)
+<
+(void)
+
+ Resets the table to the state that it contains no fixture data. If there is
+ an init script named "tests/fixtures/TableName.init.php", the script will be
+ executed. Otherwise, |CDbFixtureManager::truncateTable| will be invoked to
+ delete all rows in the table and reset primary key sequence, if any.
+    [tableName] (string) the table name
+
+
+*CDbFixtureManager::truncateTable*				 public
+>
+ truncateTable($tableName)
+<
+(void)
+
+ Removes all rows from the specified table and resets its primary key
+ sequence, if any. You may need to call |CDbFixtureManager::checkIntegrity| to
+ turn off integrity check temporarily before you call this method.
+    [tableName] (string) the table name
+
+
+*CDbFixtureManager::truncateTables*				 public
+>
+ truncateTables($schema='')
+<
+(void)
+
+ Truncates all tables in the specified schema. You may need to call
+ |CDbFixtureManager::checkIntegrity| to turn off integrity check temporarily
+ before you call this method.
+    [schema] (string) the schema name. Defaults to empty string, meaning the
+    default database schema.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,548 @@
+
+*CModel*   >> |CComponent|
+========
+
+ CModel is the base class providing the common features needed by data model
+ objects.
+
+ CModel defines the basic framework for data models that need to be validated.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<attributes>				*CModel::attributes*
+ (array) Returns all attribute values.
+
+<errors>				*CModel::errors*
+ (array) Returns the errors for all attribute or a single attribute.
+
+<iterator>				*CModel::iterator*
+ (CMapIterator) Returns an iterator for traversing the attributes in the
+ model. This method is required by the interface IteratorAggregate.
+
+<safeAttributeNames>			*CModel::safeAttributeNames*
+ (array) Returns the attribute names that are safe to be massively assigned. A
+ safe attribute is one that is associated with a validation rule in the
+ current |CModel::scenario|.
+
+<scenario>				*CModel::scenario*
+ (string) Returns the scenario that this model is used in.
+
+ Scenario affects how validation is performed and which attributes can be
+ massively assigned.
+
+ A validation rule will be performed when calling |CModel::validate| if its
+ 'on' option is not set or contains the current scenario value.
+
+ And an attribute can be massively assigned if it is associated with a
+ validation rule for the current scenario. Note that an exception is the
+ |CUnsafeValidator| validator which marks the associated attributes as unsafe
+ and not allowed to be massively assigned.
+
+<validatorList> 			*CModel::validatorList*
+ (CList) Returns all the validators declared in the model. This method differs
+ from |CModel::getValidators| in that the latter would only return the
+ validators applicable to the current |CModel::scenario|. Also, since this
+ method return a |CList| object, you may manipulate it by inserting or
+ removing validators (useful in behaviors). For example,
+ '$model->validatorList->add($newValidator)'. The change made to the |CList|
+ object will persist and reflect in the result of the next call of
+ |CModel::getValidators|.
+
+<validators>				*CModel::validators*
+ (array) Returns the validators applicable to the current |CModel::scenario|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CModel::addError*						 public
+>
+ addError($attribute, $error)
+<
+(void)
+
+ Adds a new error to the specified attribute.
+    [attribute] (string) attribute name
+    [error] (string) new error message
+
+
+*CModel::addErrors*						 public
+>
+ addErrors($errors)
+<
+(void)
+
+ Adds a list of errors.
+    [errors] (array) a list of errors. The array keys must be attribute names.
+    The array values should be error messages. If an attribute has multiple
+    errors, these errors must be given in terms of an array. You may use the
+    result of |CModel::getErrors| as the value for this parameter.
+
+
+*CModel::afterConstruct*					 protected
+>
+ afterConstruct()
+<
+(void)
+
+ This method is invoked after a model instance is created by new operator. The
+ default implementation raises the |CModel::onAfterConstruct| event. You may
+ override this method to do postprocessing after model creation. Make sure you
+ call the parent implementation so that the event is raised properly.
+
+
+*CModel::afterValidate* 					 protected
+>
+ afterValidate()
+<
+(void)
+
+ This method is invoked after validation ends. The default implementation
+ calls |CModel::onAfterValidate| to raise an event. You may override this
+ method to do postprocessing after validation. Make sure the parent
+ implementation is invoked so that the event can be raised.
+
+
+*CModel::attributeLabels*					 public
+>
+ attributeLabels()
+<
+(array) attribute labels (name=>label)
+
+ Returns the attribute labels. Attribute labels are mainly used in error
+ messages of validation. By default an attribute label is generated using
+ |CModel::generateAttributeLabel|. This method allows you to explicitly
+ specify attribute labels.
+
+ Note, in order to inherit labels defined in the parent class, a child class
+ needs to merge the parent labels with child labels using functions like
+ array_merge().
+
+
+*CModel::attributeNames*					 public
+>
+ attributeNames()
+<
+(array) list of attribute names.
+
+ Returns the list of attribute names of the model.
+
+
+*CModel::beforeValidate*					 protected
+>
+ beforeValidate()
+<
+(boolean) whether validation should be executed. Defaults to true. If false is
+returned, the validation will stop and the model is considered invalid.
+
+ This method is invoked before validation starts. The default implementation
+ calls |CModel::onBeforeValidate| to raise an event. You may override this
+ method to do preliminary checks before validation. Make sure the parent
+ implementation is invoked so that the event can be raised.
+
+
+*CModel::behaviors*						 public
+>
+ behaviors()
+<
+(array) the behavior configurations (behavior name=>behavior configuration)
+
+ Returns a list of behaviors that this model should behave as. The return
+ value should be an array of behavior configurations indexed by behavior
+ names. Each behavior configuration can be either a string specifying the
+ behavior class or an array of the following structure:
+>
+ 'behaviorName'=>array(
+     'class'=>'path.to.BehaviorClass',
+     'property1'=>'value1',
+     'property2'=>'value2',
+ )
+<
+ Note, the behavior classes must implement |IBehavior| or extend from
+ |CBehavior|. Behaviors declared in this method will be attached to the model
+ when it is instantiated.
+
+ For more details about behaviors, see |CComponent|.
+
+
+*CModel::clearErrors*						 public
+>
+ clearErrors($attribute='')
+<
+(void)
+
+ Removes errors for all attributes or a single attribute.
+    [attribute] (string) attribute name. Use null to remove errors for all
+    attribute.
+
+
+*CModel::createValidators*					 public
+>
+ createValidators()
+<
+(CList) validators built based on |CModel::rules|.
+
+ Creates validator objects based on the specification in |CModel::rules|. This
+ method is mainly used internally.
+
+
+*CModel::generateAttributeLabel*				 public
+>
+ generateAttributeLabel($name)
+<
+(string) the attribute label
+
+ Generates a user friendly attribute label. This is done by replacing
+ underscores or dashes with blanks and changing the first letter of each word
+ to upper case. For example, 'department_name' or 'DepartmentName' becomes
+ 'Department Name'.
+    [name] (string) the column name
+
+
+*CModel::getAttributeLabel*					 public
+>
+ getAttributeLabel($attribute)
+<
+(string) the attribute label
+
+ Returns the text label for the specified attribute.
+    [attribute] (string) the attribute name
+
+
+*CModel::getAttributes* 					 public
+>
+ getAttributes($names=NULL)
+<
+(array) attribute values (name=>value).
+
+ Returns all attribute values.
+    [names] (array) list of attributes whose value needs to be returned.
+    Defaults to null, meaning all attributes as listed in
+    |CModel::attributeNames| will be returned. If it is an array, only the
+    attributes in the array will be returned.
+
+
+*CModel::getError*						 public
+>
+ getError($attribute)
+<
+(string) the error message. Null is returned if no error.
+
+ Returns the first error of the specified attribute.
+    [attribute] (string) attribute name.
+
+
+*CModel::getErrors*						 public
+>
+ getErrors($attribute='')
+<
+(array) errors for all attributes or the specified attribute. Empty array is
+returned if no error.
+
+ Returns the errors for all attribute or a single attribute.
+    [attribute] (string) attribute name. Use null to retrieve errors for all
+    attributes.
+
+
+*CModel::getIterator*						 public
+>
+ getIterator()
+<
+(CMapIterator) an iterator for traversing the items in the list.
+
+ Returns an iterator for traversing the attributes in the model. This method
+ is required by the interface IteratorAggregate.
+
+
+*CModel::getSafeAttributeNames* 				 public
+>
+ getSafeAttributeNames()
+<
+(array) safe attribute names
+
+ Returns the attribute names that are safe to be massively assigned. A safe
+ attribute is one that is associated with a validation rule in the current
+ |CModel::scenario|.
+
+
+*CModel::getScenario*						 public
+>
+ getScenario()
+<
+(string) the scenario that this model is in.
+
+ Returns the scenario that this model is used in.
+
+ Scenario affects how validation is performed and which attributes can be
+ massively assigned.
+
+ A validation rule will be performed when calling |CModel::validate| if its
+ 'on' option is not set or contains the current scenario value.
+
+ And an attribute can be massively assigned if it is associated with a
+ validation rule for the current scenario. Note that an exception is the
+ |CUnsafeValidator| validator which marks the associated attributes as unsafe
+ and not allowed to be massively assigned.
+
+
+*CModel::getValidatorList*					 public
+>
+ getValidatorList()
+<
+(CList) all the validators declared in the model.
+
+ Returns all the validators declared in the model. This method differs from
+ |CModel::getValidators| in that the latter would only return the validators
+ applicable to the current |CModel::scenario|. Also, since this method return
+ a |CList| object, you may manipulate it by inserting or removing validators
+ (useful in behaviors). For example,
+ '$model->validatorList->add($newValidator)'. The change made to the |CList|
+ object will persist and reflect in the result of the next call of
+ |CModel::getValidators|.
+
+
+*CModel::getValidators* 					 public
+>
+ getValidators($attribute='')
+<
+(array) the validators applicable to the current |CModel::scenario|.
+
+ Returns the validators applicable to the current |CModel::scenario|.
+    [attribute] (string) the name of the attribute whose validators should be
+    returned. If this is null, the validators for ALL attributes in the model
+    will be returned.
+
+
+*CModel::hasErrors*						 public
+>
+ hasErrors($attribute='')
+<
+(boolean) whether there is any error.
+
+ Returns a value indicating whether there is any validation error.
+    [attribute] (string) attribute name. Use null to check all attributes.
+
+
+*CModel::isAttributeRequired*					 public
+>
+ isAttributeRequired($attribute)
+<
+(boolean) whether the attribute is required
+
+ Returns a value indicating whether the attribute is required. This is
+ determined by checking if the attribute is associated with a
+ |CRequiredValidator| validation rule in the current |CModel::scenario|.
+    [attribute] (string) attribute name
+
+
+*CModel::isAttributeSafe*					 public
+>
+ isAttributeSafe($attribute)
+<
+(boolean) whether the attribute is safe for massive assignments
+
+ Returns a value indicating whether the attribute is safe for massive
+ assignments.
+    [attribute] (string) attribute name
+
+
+*CModel::offsetExists*						 public
+>
+ offsetExists($offset)
+<
+(boolean) 
+
+ Returns whether there is an element at the specified offset. This method is
+ required by the interface ArrayAccess.
+    [offset] (mixed) the offset to check on
+
+
+*CModel::offsetGet*						 public
+>
+ offsetGet($offset)
+<
+(mixed) the element at the offset, null if no element is found at the offset
+
+ Returns the element at the specified offset. This method is required by the
+ interface ArrayAccess.
+    [offset] (integer) the offset to retrieve element.
+
+
+*CModel::offsetSet*						 public
+>
+ offsetSet($offset, $item)
+<
+(void)
+
+ Sets the element at the specified offset. This method is required by the
+ interface ArrayAccess.
+    [offset] (integer) the offset to set element
+    [item] (mixed) the element value
+
+
+*CModel::offsetUnset*						 public
+>
+ offsetUnset($offset)
+<
+(void)
+
+ Unsets the element at the specified offset. This method is required by the
+ interface ArrayAccess.
+    [offset] (mixed) the offset to unset element
+
+
+*CModel::onAfterConstruct*					 public
+>
+ onAfterConstruct($event)
+<
+(void)
+
+ This event is raised after the model instance is created by new operator.
+    [event] (CEvent) the event parameter
+
+
+*CModel::onAfterValidate*					 public
+>
+ onAfterValidate($event)
+<
+(void)
+
+ This event is raised after the validation is performed.
+    [event] (CEvent) the event parameter
+
+
+*CModel::onBeforeValidate*					 public
+>
+ onBeforeValidate($event)
+<
+(void)
+
+ This event is raised before the validation is performed.
+    [event] (CModelEvent) the event parameter
+
+
+*CModel::onUnsafeAttribute*					 public
+>
+ onUnsafeAttribute($name, $value)
+<
+(void)
+
+ This method is invoked when an unsafe attribute is being massively assigned.
+ The default implementation will log a warning message if YII_DEBUG is on. It
+ does nothing otherwise.
+    [name] (string) the unsafe attribute name
+    [value] (mixed) the attribute value
+
+
+*CModel::rules* 						 public
+>
+ rules()
+<
+(array) validation rules to be applied when |CModel::validate| is called.
+
+ Returns the validation rules for attributes.
+
+ This method should be overridden to declare validation rules. Each rule is an
+ array with the following structure:
+>
+ array('attribute list', 'validator name', 'on'=>'scenario name',
+ ...validation parameters...)
+<
+ where
+   attribute list: specifies the attributes (separated by commas) to
+   be validated;
+   validator name: specifies the validator to be used. It can be the
+   name of a model class   method, the name of a built-in validator,
+   or a validator class (or its path alias).   A validation method
+   must have the following signature:
+>
+ // $params refers to validation parameters given in the rule
+ function validatorName($attribute,$params)
+<
+ A built-in validator
+   refers to one of the validators declared in
+   |CValidator::builtInValidators|.   And a validator class is a
+   class extending |CValidator|.
+   {on} this specifies the scenarios when the validation rule should
+   be performed.   Separate different scenarios with commas. If this
+   option is not set, the rule   will be applied in any scenario.
+   Please see |CModel::scenario| for more details about this option.
+   additional parameters are used to initialize the corresponding
+   validator properties.   Please refer to individal validator class
+   API for possible properties.The following are some examples:
+>
+ array(
+     array('username', 'required'),
+     array('username', 'length', 'min'=>3, 'max'=>12),
+     array('password', 'compare', 'compareAttribute'=>'password2',
+ 'on'=>'register'),
+     array('password', 'authenticate', 'on'=>'login'),
+ );
+<
+ Note, in order to inherit rules defined in the parent class, a child class
+ needs to merge the parent rules with child rules using functions like
+ array_merge().
+
+
+*CModel::setAttributes* 					 public
+>
+ setAttributes($values, $safeOnly=true)
+<
+(void)
+
+ Sets the attribute values in a massive way.
+    [values] (array) attribute values (name=>value) to be set.
+    [safeOnly] (boolean) whether the assignments should only be done to the
+    safe attributes. A safe attribute is one that is associated with a
+    validation rule in the current |CModel::scenario|.
+
+
+*CModel::setScenario*						 public
+>
+ setScenario($value)
+<
+(void)
+
+ Sets the scenario for the model.
+    [value] (string) the scenario that this model is in.
+
+
+*CModel::unsetAttributes*					 public
+>
+ unsetAttributes($names=NULL)
+<
+(void)
+
+ Unsets the attributes.
+    [names] (array) list of attributes to be set null. If this parameter is
+    not given, all attributes as specified by |CModel::attributeNames| will
+    have their values unset.
+
+
+*CModel::validate*						 public
+>
+ validate($attributes=NULL, $clearErrors=true)
+<
+(boolean) whether the validation is successful without any error.
+
+ Performs the validation.
+
+ This method executes the validation rules as declared in |CModel::rules|.
+ Only the rules applicable to the current |CModel::scenario| will be executed.
+ A rule is considered applicable to a scenario if its 'on' option is not set
+ or contains the scenario.
+
+ Errors found during the validation can be retrieved via |CModel::getErrors|.
+    [attributes] (array) list of attributes that should be validated. Defaults
+    to null, meaning any attribute listed in the applicable validation rules
+    should be validated. If this parameter is given as a list of attributes,
+    only the listed attributes will be validated.
+    [clearErrors] (boolean) whether to call |CModel::clearErrors| before
+    performing validation
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,58 @@
+
+*CRangeValidator*   >> |CValidator| >> |CComponent|
+=================
+
+ CRangeValidator validates that the attribute value is among the list
+ (specified via |CRangeValidator::range|). You may invert the validation logic
+ with help of the |CRangeValidator::not| property (available since 1.1.5).
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<allowEmpty>				*CRangeValidator::allowEmpty*
+ (boolean) whether the attribute value can be null or empty. Defaults to true,
+ meaning that if the attribute is empty, it is considered valid.
+
+<not>					*CRangeValidator::not*
+ (boolean) whether to invert the validation logic. Defaults to false. If set
+ to true, the attribute value should NOT be among the list of values defined
+ via |CRangeValidator::range|.
+
+<range> 				*CRangeValidator::range*
+ (array) list of valid values that the attribute value should be among
+
+<strict>				*CRangeValidator::strict*
+ (boolean) whether the comparison is strict (both type and value must be the
+ same)
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CRangeValidator::clientValidateAttribute*			 public
+>
+ clientValidateAttribute($object, $attribute)
+<
+(string) the client-side validation script.
+
+ Returns the JavaScript needed for performing client-side validation.
+    [object] (CModel) the data object being validated
+    [attribute] (string) the name of the attribute to be validated.
+
+
+*CRangeValidator::validateAttribute*				 protected
+>
+ validateAttribute($object, $attribute)
+<
+(void)
+
+ Validates the attribute of the object. If there is any error, the error
+ message is added to the object.
+    [object] (CModel) the object being validated
+    [attribute] (string) the attribute being validated
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,331 @@
+
+*YiiBase*  
+=========
+
+ YiiBase is a helper class serving common framework functionalities.
+
+ Do not use YiiBase directly. Instead, use its child class |Yii| where you can
+ customize methods of YiiBase.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<classMap>				*YiiBase::classMap*
+ (array) class map used by the Yii autoloading mechanism. The array keys are
+ the class names and the array values are the corresponding class file paths.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*YiiBase::app*							 public
+>
+ app()
+<
+(CApplication) the application singleton, null if the singleton has not been
+created yet.
+
+ Returns the application singleton, null if the singleton has not been created
+ yet.
+
+
+*YiiBase::autoload*						 public
+>
+ autoload($className)
+<
+(boolean) whether the class has been loaded successfully
+
+ Class autoload loader. This method is provided to be invoked within an
+ __autoload() magic method.
+    [className] (string) class name
+
+
+*YiiBase::beginProfile* 					 public
+>
+ beginProfile($token, $category='application')
+<
+(void)
+
+ Marks the begin of a code block for profiling. This has to be matched with a
+ call to |YiiBase::endProfile| with the same token. The begin- and end- calls
+ must also be properly nested, e.g.,
+>
+ Yii::beginProfile('block1');
+ Yii::beginProfile('block2');
+ Yii::endProfile('block2');
+ Yii::endProfile('block1');
+<
+ The following sequence is not valid:
+>
+ Yii::beginProfile('block1');
+ Yii::beginProfile('block2');
+ Yii::endProfile('block1');
+ Yii::endProfile('block2');
+<
+    [token] (string) token for the code block
+    [category] (string) the category of this log message
+
+
+*YiiBase::createApplication*					 public
+>
+ createApplication($class, $config=NULL)
+<
+(mixed) the application instance
+
+ Creates an application of the specified class.
+    [class] (string) the application class name
+    [config] (mixed) application configuration. This parameter will be passed
+    as the parameter to the constructor of the application class.
+
+
+*YiiBase::createComponent*					 public
+>
+ createComponent($config)
+<
+(mixed) the created object
+
+ Creates an object and initializes it based on the given configuration.
+
+ The specified configuration can be either a string or an array. If the
+ former, the string is treated as the object type which can be either the
+ class name or |YiiBase::getPathOfAlias|. If the latter, the 'class' element
+ is treated as the object type, and the rest name-value pairs in the array are
+ used to initialize the corresponding object properties.
+
+ Any additional parameters passed to this method will be passed to the
+ constructor of the object being created.
+
+ NOTE: the array-typed configuration has been supported since version 1.0.1.
+    [config] (mixed) the configuration. It can be either a string or an array.
+
+
+*YiiBase::createConsoleApplication*				 public
+>
+ createConsoleApplication($config=NULL)
+<
+(void)
+
+ Creates a console application instance.
+    [config] (mixed) application configuration. If a string, it is treated as
+    the path of the file that contains the configuration; If an array, it is
+    the actual configuration information. Please make sure you specify the
+    |CApplication::basePath| property in the configuration, which should point
+    to the directory containing all application logic, template and data. If
+    not, the directory will be defaulted to 'protected'.
+
+
+*YiiBase::createWebApplication* 				 public
+>
+ createWebApplication($config=NULL)
+<
+(void)
+
+ Creates a Web application instance.
+    [config] (mixed) application configuration. If a string, it is treated as
+    the path of the file that contains the configuration; If an array, it is
+    the actual configuration information. Please make sure you specify the
+    |CApplication::basePath| property in the configuration, which should point
+    to the directory containing all application logic, template and data. If
+    not, the directory will be defaulted to 'protected'.
+
+
+*YiiBase::endProfile*						 public
+>
+ endProfile($token, $category='application')
+<
+(void)
+
+ Marks the end of a code block for profiling. This has to be matched with a
+ previous call to |YiiBase::beginProfile| with the same token.
+    [token] (string) token for the code block
+    [category] (string) the category of this log message
+
+
+*YiiBase::getFrameworkPath*					 public
+>
+ getFrameworkPath()
+<
+(string) the path of the framework
+
+
+
+*YiiBase::getLogger*						 public
+>
+ getLogger()
+<
+(CLogger) message logger
+
+
+
+*YiiBase::getPathOfAlias*					 public
+>
+ getPathOfAlias($alias)
+<
+(mixed) file path corresponding to the alias, false if the alias is invalid.
+
+ Translates an alias into a file path. Note, this method does not ensure the
+ existence of the resulting file path. It only checks if the root alias is
+ valid or not.
+    [alias] (string) alias (e.g. system.web.CController)
+
+
+*YiiBase::getVersion*						 public
+>
+ getVersion()
+<
+(string) the version of Yii framework
+
+
+
+*YiiBase::import*						 public
+>
+ import($alias, $forceInclude=false)
+<
+(string) the class name or the directory that this alias refers to
+
+ Imports a class or a directory.
+
+ Importing a class is like including the corresponding class file. The main
+ difference is that importing a class is much lighter because it only includes
+ the class file when the class is referenced the first time.
+
+ Importing a directory is equivalent to adding a directory into the PHP
+ include path. If multiple directories are imported, the directories imported
+ later will take precedence in class file searching (i.e., they are added to
+ the front of the PHP include path).
+
+ Path aliases are used to import a class or directory. For example,
+   'application.components.GoogleMap': import the 'GoogleMap' class.
+   'application.components.*': import the 'components' directory.The same path
+ alias can be imported multiple times, but only the first time is effective.
+ Importing a directory does not import any of its subdirectories.
+
+ Starting from version 1.1.5, this method can also be used to import a class
+ in namespace format (available for PHP 5.3 or above only). It is similar to
+ importing a class in path alias format, except that the dot separator is
+ replaced by the backslash separator. For example, importing
+ 'application\components\GoogleMap' is similar to importing
+ 'application.components.GoogleMap'. The difference is that the former class
+ is using qualified name, while the latter unqualified.
+
+ Note, importing a class in namespace format requires that the namespace is
+ corresponding to a valid path alias if we replace the backslash characters
+ with dot characters. For example, the namespace 'application\components' must
+ correspond to a valid path alias 'application.components'.
+    [alias] (string) path alias to be imported
+    [forceInclude] (boolean) whether to include the class file immediately. If
+    false, the class file will be included only when the class is being used.
+    This parameter is used only when the path alias refers to a class.
+
+
+*YiiBase::log*							 public
+>
+ log($msg, $level='info', $category='application')
+<
+(void)
+
+ Logs a message. Messages logged by this method may be retrieved via
+ |CLogger::getLogs| and may be recorded in different media, such as file,
+ email, database, using |CLogRouter|.
+    [msg] (string) message to be logged
+    [level] (string) level of the message (e.g. 'trace', 'warning', 'error').
+    It is case-insensitive.
+    [category] (string) category of the message (e.g. 'system.web'). It is
+    case-insensitive.
+
+
+*YiiBase::powered*						 public
+>
+ powered()
+<
+(string) a string that can be displayed on your Web page showing
+Powered-by-Yii information
+
+ Returns a string that can be displayed on your Web page showing
+ Powered-by-Yii information
+
+
+*YiiBase::registerAutoloader*					 public
+>
+ registerAutoloader($callback)
+<
+(void)
+
+ Registers a new class autoloader. The new autoloader will be placed before
+ |YiiBase::autoload| and after any other existing autoloaders.
+    [callback] (callback) a valid PHP callback (function name or
+    array($className,$methodName)).
+
+
+*YiiBase::setApplication*					 public
+>
+ setApplication($app)
+<
+(void)
+
+ Stores the application instance in the class static member. This method helps
+ implement a singleton pattern for CApplication. Repeated invocation of this
+ method or the CApplication constructor will cause the throw of an exception.
+ To retrieve the application instance, use |YiiBase::app|.
+    [app] (CApplication) the application instance. If this is null, the
+    existing application singleton will be removed.
+
+
+*YiiBase::setPathOfAlias*					 public
+>
+ setPathOfAlias($alias, $path)
+<
+(void)
+
+ Create a path alias. Note, this method neither checks the existence of the
+ path nor normalizes the path.
+    [alias] (string) alias to the path
+    [path] (string) the path corresponding to the alias. If this is null, the
+    corresponding path alias will be removed.
+
+
+*YiiBase::t*							 public
+>
+ t($category, $message, $params=array(), $source='', $language='')
+<
+(string) the translated message
+
+ Translates a message to the specified language. Starting from version 1.0.2,
+ this method supports choice format (see |CChoiceFormat|), i.e., the message
+ returned will be chosen from a few candidates according to the given number
+ value. This feature is mainly used to solve plural format issue in case a
+ message has different plural forms in some languages.
+    [category] (string) message category. Please use only word letters. Note,
+    category 'yii' is reserved for Yii framework core code use. See
+    |CPhpMessageSource| for more interpretation about message category.
+    [message] (string) the original message
+    [params] (array) parameters to be applied to the message using 'strtr'.
+    Starting from version 1.0.2, the first parameter can be a number without
+    key. And in this case, the method will call |CChoiceFormat::format| to
+    choose an appropriate message translation. Starting from version 1.1.6 you
+    can pass parameter for |CChoiceFormat::format| or plural forms format
+    without wrapping it with array.
+    [source] (string) which message source application component to use.
+    Defaults to null, meaning using 'coreMessages' for messages belonging to
+    the 'yii' category and using 'messages' for the rest messages.
+    [language] (string) the target language. If null (default), the
+    |CApplication::getLanguage| will be used. This parameter has been
+    available since version 1.0.3.
+
+
+*YiiBase::trace*						 public
+>
+ trace($msg, $category='application')
+<
+(void)
+
+ Writes a trace message. This method will only log a message when the
+ application is in debug mode.
+    [msg] (string) message to be logged
+    [category] (string) category of the message
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

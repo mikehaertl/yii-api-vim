@@ -1,0 +1,9 @@
+
+*CManyManyRelation*   >> |CHasManyRelation| >> |CActiveRelation| >> |CBaseActiveRelation| >> |CComponent|
+===================
+
+ CManyManyRelation represents the parameters specifying a MANY_MANY relation.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

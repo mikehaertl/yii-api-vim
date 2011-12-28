@@ -1,0 +1,41 @@
+
+*CStatElement*  
+==============
+
+ CStatElement represents STAT join element for |CActiveFinder|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<relation>				*CStatElement::relation*
+ (CActiveRelation) the relation represented by this tree node
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CStatElement::__construct*					 public
+>
+ __construct($finder, $relation, $parent)
+<
+(void)
+
+ Constructor.
+    [finder] (CActiveFinder) the finder
+    [relation] (CStatRelation) the STAT relation
+    [parent] (CJoinElement) the join element owning this STAT element
+
+
+*CStatElement::query*						 public
+>
+ query()
+<
+(void)
+
+ Performs the STAT query.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

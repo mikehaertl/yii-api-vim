@@ -1,0 +1,66 @@
+
+*IUserIdentity*  
+===============
+
+ IUserIdentity interface is implemented by a user identity class.
+
+ An identity represents a way to authenticate a user and retrieve information
+ needed to uniquely identity the user. It is normally used with the
+ |CWebApplication::user|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*IUserIdentity::authenticate*					 public
+>
+ authenticate()
+<
+(boolean) whether authentication succeeds.
+
+ Authenticates the user. The information needed to authenticate the user are
+ usually provided in the constructor.
+
+
+*IUserIdentity::getId*						 public
+>
+ getId()
+<
+(mixed) a value that uniquely represents the identity (e.g. primary key
+value).
+
+ Returns a value that uniquely represents the identity.
+
+
+*IUserIdentity::getIsAuthenticated*				 public
+>
+ getIsAuthenticated()
+<
+(boolean) whether the identity is valid.
+
+ Returns a value indicating whether the identity is authenticated.
+
+
+*IUserIdentity::getName*					 public
+>
+ getName()
+<
+(string) the display name for the identity.
+
+ Returns the display name for the identity (e.g. username).
+
+
+*IUserIdentity::getPersistentStates*				 public
+>
+ getPersistentStates()
+<
+(array) additional identity information that needs to be persistent during the
+user session (excluding |IUserIdentity::id|).
+
+ Returns the additional identity information that needs to be persistent
+ during the user session.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,91 @@
+
+*CBehavior*   >> |CComponent|
+===========
+
+ CBehavior is a convenient base class for behavior classes.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<enabled>				*CBehavior::enabled*
+ (boolean) whether this behavior is enabled
+
+<owner> 				*CBehavior::owner*
+ (CComponent) the owner component that this behavior is attached to.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CBehavior::attach*						 public
+>
+ attach($owner)
+<
+(void)
+
+ Attaches the behavior object to the component. The default implementation
+ will set the |CBehavior::owner| property and attach event handlers as
+ declared in |CBehavior::events|. Make sure you call the parent implementation
+ if you override this method.
+    [owner] (CComponent) the component that this behavior is to be attached
+    to.
+
+
+*CBehavior::detach*						 public
+>
+ detach($owner)
+<
+(void)
+
+ Detaches the behavior object from the component. The default implementation
+ will unset the |CBehavior::owner| property and detach event handlers declared
+ in |CBehavior::events|. Make sure you call the parent implementation if you
+ override this method.
+    [owner] (CComponent) the component that this behavior is to be detached
+    from.
+
+
+*CBehavior::events*						 public
+>
+ events()
+<
+(array) events (array keys) and the corresponding event handler methods (array
+values).
+
+ Declares events and the corresponding event handler methods. The events are
+ defined by the |CBehavior::owner| component, while the handler methods by the
+ behavior class. The handlers will be attached to the corresponding events
+ when the behavior is attached to the |CBehavior::owner| component; and they
+ will be detached from the events when the behavior is detached from the
+ component.
+
+
+*CBehavior::getEnabled* 					 public
+>
+ getEnabled()
+<
+(boolean) whether this behavior is enabled
+
+
+
+*CBehavior::getOwner*						 public
+>
+ getOwner()
+<
+(CComponent) the owner component that this behavior is attached to.
+
+
+
+*CBehavior::setEnabled* 					 public
+>
+ setEnabled($value)
+<
+(void)
+
+    [value] (boolean) whether this behavior is enabled
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

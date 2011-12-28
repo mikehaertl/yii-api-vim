@@ -1,0 +1,201 @@
+
+*CButtonColumn*   >> |CGridColumn| >> |CComponent|
+===============
+
+ CButtonColumn represents a grid view column that renders one or several
+ buttons.
+
+ By default, it will display three buttons, "view", "update" and "delete",
+ which triggers the corresponding actions on the model of the row.
+
+ By configuring |CButtonColumn::buttons| and |CButtonColumn::template|
+ properties, the column can display other buttons and customize the display
+ order of the buttons.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<afterDelete>				*CButtonColumn::afterDelete*
+ (string) a javascript function that will be invoked after the delete ajax
+ call.
+
+ The function signature is 'function(link, success, data)'
+   'link' references the delete link.<li>'success' status of the ajax call,
+ true if the ajax call was successful, false if the ajax call failed.
+ <li>'data' the data returned by the server (in case of a successful call).
+ Note that if success is true it does not mean that the delete was successful,
+ it only means that the ajax call was successful.
+
+ Example:
+>
+  array(
+     class'=>'CButtonColumn',
+     'afterDelete'=>'function(link,success,data){ if(success) alert("Delete
+ completed successfuly"); }',
+  ),
+<
+
+<buttons>				*CButtonColumn::buttons*
+ (array) the configuration for additional buttons. Each array element
+ specifies a single button which has the following format:
+>
+ 'buttonID' => array(
+     'label'=>'...',     // text label of the button
+     'url'=>'...',       // a PHP expression for generating the URL of the
+ button
+     'imageUrl'=>'...',  // image URL of the button. If not set or false, a
+ text link is used
+     'options'=>array(...), // HTML options for the button tag
+     'click'=>'...',     // a JS function to be invoked when the button is
+ clicked
+     'visible'=>'...',   // a PHP expression for determining whether the
+ button is visible
+ )
+<
+ In the PHP expression for the 'url' option and/or 'visible' option, the
+ variable '$row' refers to the current row number (zero-based), and '$data'
+ refers to the data model for the row.
+
+ Note that in order to display these additional buttons, the
+ |CButtonColumn::template| property needs to be configured so that the
+ corresponding button IDs appear as tokens in the template.
+
+<deleteButtonImageUrl>			*CButtonColumn::deleteButtonImageUrl*
+ (string) the image URL for the delete button. If not set, an integrated image
+ will be used. You may set this property to be false to render a text link
+ instead.
+
+<deleteButtonLabel>			*CButtonColumn::deleteButtonLabel*
+ (string) the label for the delete button. Defaults to "Delete". Note that the
+ label will not be HTML-encoded when rendering.
+
+<deleteButtonOptions>			*CButtonColumn::deleteButtonOptions*
+ (array) the HTML options for the view button tag.
+
+<deleteButtonUrl>			*CButtonColumn::deleteButtonUrl*
+ (string) a PHP expression that is evaluated for every delete button and whose
+ result is used as the URL for the delete button. In this expression, the
+ variable '$row' the row number (zero-based); '$data' the data model for the
+ row; and '$this' the column object.
+
+<deleteConfirmation>			*CButtonColumn::deleteConfirmation*
+ (string) the confirmation message to be displayed when delete button is
+ clicked. By setting this property to be false, no confirmation message will
+ be displayed.
+
+<footerHtmlOptions>			*CButtonColumn::footerHtmlOptions*
+ (array) the HTML options for the footer cell tag.
+
+<headerHtmlOptions>			*CButtonColumn::headerHtmlOptions*
+ (array) the HTML options for the header cell tag.
+
+<htmlOptions>				*CButtonColumn::htmlOptions*
+ (array) the HTML options for the data cell tags.
+
+<template>				*CButtonColumn::template*
+ (string) the template that is used to render the content in each data cell.
+ These default tokens are recognized: {view}, {update} and {delete}. If the
+ |CButtonColumn::buttons| property defines additional buttons, their IDs are
+ also recognized here. For example, if a button named 'preview' is declared in
+ |CButtonColumn::buttons|, we can use the token '{preview}' here to specify
+ where to display the button.
+
+<updateButtonImageUrl>			*CButtonColumn::updateButtonImageUrl*
+ (string) the image URL for the update button. If not set, an integrated image
+ will be used. You may set this property to be false to render a text link
+ instead.
+
+<updateButtonLabel>			*CButtonColumn::updateButtonLabel*
+ (string) the label for the update button. Defaults to "Update". Note that the
+ label will not be HTML-encoded when rendering.
+
+<updateButtonOptions>			*CButtonColumn::updateButtonOptions*
+ (array) the HTML options for the update button tag.
+
+<updateButtonUrl>			*CButtonColumn::updateButtonUrl*
+ (string) a PHP expression that is evaluated for every update button and whose
+ result is used as the URL for the update button. In this expression, the
+ variable '$row' the row number (zero-based); '$data' the data model for the
+ row; and '$this' the column object.
+
+<viewButtonImageUrl>			*CButtonColumn::viewButtonImageUrl*
+ (string) the image URL for the view button. If not set, an integrated image
+ will be used. You may set this property to be false to render a text link
+ instead.
+
+<viewButtonLabel>			*CButtonColumn::viewButtonLabel*
+ (string) the label for the view button. Defaults to "View". Note that the
+ label will not be HTML-encoded when rendering.
+
+<viewButtonOptions>			*CButtonColumn::viewButtonOptions*
+ (array) the HTML options for the view button tag.
+
+<viewButtonUrl> 			*CButtonColumn::viewButtonUrl*
+ (string) a PHP expression that is evaluated for every view button and whose
+ result is used as the URL for the view button. In this expression, the
+ variable '$row' the row number (zero-based); '$data' the data model for the
+ row; and '$this' the column object.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CButtonColumn::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the column. This method registers necessary client script for the
+ button column.
+
+
+*CButtonColumn::initDefaultButtons*				 protected
+>
+ initDefaultButtons()
+<
+(void)
+
+ Initializes the default buttons (view, update and delete).
+
+
+*CButtonColumn::registerClientScript*				 protected
+>
+ registerClientScript()
+<
+(void)
+
+ Registers the client scripts for the button column.
+
+
+*CButtonColumn::renderButton*					 protected
+>
+ renderButton($id, $button, $row, $data)
+<
+(void)
+
+ Renders a link button.
+    [id] (string) the ID of the button
+    [button] (array) the button configuration which may contain 'label',
+    'url', 'imageUrl' and 'options' elements. See |CButtonColumn::buttons| for
+    more details.
+    [row] (integer) the row number (zero-based)
+    [data] (mixed) the data object associated with the row
+
+
+*CButtonColumn::renderDataCellContent*				 protected
+>
+ renderDataCellContent($row, $data)
+<
+(void)
+
+ Renders the data cell content. This method renders the view, update and
+ delete buttons in the data cell.
+    [row] (integer) the row number (zero-based)
+    [data] (mixed) the data associated with the row
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

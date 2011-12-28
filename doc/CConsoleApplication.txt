@@ -1,0 +1,145 @@
+
+*CConsoleApplication*   >> |CApplication| >> |CModule| >> |CComponent|
+=====================
+
+ CConsoleApplication represents a console application.
+
+ CConsoleApplication extends |CApplication| by providing functionalities
+ specific to console requests. In particular, it deals with console requests
+ through a command-based approach:
+   A console application consists of one or several possible user
+   commands;
+   Each user command is implemented as a class extending
+   |CConsoleCommand|;
+   User specifies which command to run on the command line;
+   The command processes the user request with the specified
+   parameters.The command classes reside in the directory
+ |CConsoleApplication::getCommandPath|. The name of the class follows the
+ pattern: &lt;command-name&gt;Command, and its file name is the same the class
+ name. For example, the 'ShellCommand' class defines a 'shell' command and the
+ class file name is 'ShellCommand.php'.
+
+ To run the console application, enter the following on the command line:
+>
+ php path/to/entry_script.php <command name> [param 1] [param 2] ...
+<
+ You may use the following to see help instructions about a command:
+>
+ php path/to/entry_script.php help <command name>
+<
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<commandMap>				*CConsoleApplication::commandMap*
+ (array) mapping from command name to command configurations. Each command
+ configuration can be either a string or an array. If the former, the string
+ should be the file path of the command class. If the latter, the array must
+ contain a 'class' element which specifies the command's class name or
+ |YiiBase::getPathOfAlias|. The rest name-value pairs in the array are used to
+ initialize the corresponding command properties. For example,
+>
+ array(
+   'email'=>array(
+      'class'=>'path.to.Mailer',
+      'interval'=>3600,
+   ),
+   'log'=>'path/to/LoggerCommand.php',
+ )
+<
+
+<commandPath>				*CConsoleApplication::commandPath*
+ (string) the directory that contains the command classes. Defaults to
+ 'protected/commands'.
+
+<commandRunner> 			*CConsoleApplication::commandRunner*
+ (CConsoleCommandRunner) Returns the command runner.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CConsoleApplication::createCommandRunner*			 protected
+>
+ createCommandRunner()
+<
+(CConsoleCommandRunner) the command runner
+
+ Creates the command runner instance.
+
+
+*CConsoleApplication::displayError*				 public
+>
+ displayError($code, $message, $file, $line)
+<
+(void)
+
+ Displays the captured PHP error. This method displays the error in console
+ mode when there is no active error handler.
+    [code] (integer) error code
+    [message] (string) error message
+    [file] (string) error file
+    [line] (string) error line
+
+
+*CConsoleApplication::displayException* 			 public
+>
+ displayException($exception)
+<
+(void)
+
+ Displays the uncaught PHP exception. This method displays the exception in
+ console mode when there is no active error handler.
+    [exception] (Exception) the uncaught exception
+
+
+*CConsoleApplication::getCommandPath*				 public
+>
+ getCommandPath()
+<
+(string) the directory that contains the command classes. Defaults to
+'protected/commands'.
+
+
+
+*CConsoleApplication::getCommandRunner* 			 public
+>
+ getCommandRunner()
+<
+(CConsoleCommandRunner) the command runner.
+
+ Returns the command runner.
+
+
+*CConsoleApplication::init*					 protected
+>
+ init()
+<
+(void)
+
+ Initializes the application by creating the command runner.
+
+
+*CConsoleApplication::processRequest*				 public
+>
+ processRequest()
+<
+(void)
+
+ Processes the user request. This method creates a console command runner to
+ handle the particular user command.
+
+
+*CConsoleApplication::setCommandPath*				 public
+>
+ setCommandPath($value)
+<
+(void)
+
+    [value] (string) the directory that contains the command classes.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

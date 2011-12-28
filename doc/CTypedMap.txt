@@ -1,0 +1,38 @@
+
+*CTypedMap*   >> |CMap| >> |CComponent|
+===========
+
+ CTypedMap represents a map whose items are of the certain type.
+
+ CTypedMap extends |CMap| by making sure that the elements to be added to the
+ list is of certain class type.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CTypedMap::__construct*					 public
+>
+ __construct($type)
+<
+(void)
+
+ Constructor.
+    [type] (string) class type
+
+
+*CTypedMap::add*						 public
+>
+ add($index, $item)
+<
+(void)
+
+ Adds an item into the map. This method overrides the parent implementation by
+ checking the item to be inserted is of certain type.
+    [index] (integer) the specified position.
+    [item] (mixed) new item
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,43 @@
+
+*CSoapObjectWrapper*  
+====================
+
+ CSoapObjectWrapper is a wrapper class internally used when
+ SoapServer::setObject() is not defined.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<object>				*CSoapObjectWrapper::object*
+ (object) the service provider
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CSoapObjectWrapper::__call*					 public
+>
+ __call($name, $arguments)
+<
+(mixed) method return value
+
+ PHP __call magic method. This method calls the service provider to execute
+ the actual logic.
+    [name] (string) method name
+    [arguments] (array) method arguments
+
+
+*CSoapObjectWrapper::__construct*				 public
+>
+ __construct($object)
+<
+(void)
+
+ Constructor.
+    [object] (object) the service provider
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

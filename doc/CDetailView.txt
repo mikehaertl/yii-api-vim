@@ -1,0 +1,168 @@
+
+*CDetailView*   >> |CWidget| >> |CBaseController| >> |CComponent|
+=============
+
+ CDetailView displays the detail of a single data model.
+
+ CDetailView is best used for displaying a model in a regular format (e.g.
+ each model attribute is displayed as a row in a table.) The model can be
+ either an instance of |CModel| or an associative array.
+
+ CDetailView uses the |CDetailView::attributes| property to determines which
+ model attributes should be displayed and how they should be formatted.
+
+ A typical usage of CDetailView is as follows:
+>
+ $this->widget('zii.widgets.CDetailView', array(
+     'data'=>$model,
+     'attributes'=>array(
+         'title',             // title attribute (in plain text)
+         'owner.name',        // an attribute of the related object "owner"
+         'description:html',  // description attribute in HTML
+         array(               // related city displayed as a link
+             'label'=>'City',
+             'type'=>'raw',
+             'value'=>CHtml::link(CHtml::encode($model->city->name),
+                                  array('city/view','id'=>$model->city->id)),
+         ),
+     ),
+ ));
+<
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<attributes>				*CDetailView::attributes*
+ (array) a list of attributes to be displayed in the detail view. Each array
+ element represents the specification for displaying one particular attribute.
+
+ An attribute can be specified as a string in the format of "Name:Type:Label".
+ Both "Type" and "Label" are optional.
+
+ "Name" refers to the attribute name. It can be either a property (e.g.
+ "title") or a sub-property (e.g. "owner.username").
+
+ "Label" represents the label for the attribute display. If it is not given,
+ "Name" will be used to generate the appropriate label.
+
+ "Type" represents the type of the attribute. It determines how the attribute
+ value should be formatted and displayed. It is defaulted to be 'text'. "Type"
+ should be recognizable by the |CDetailView::formatter|. In particular, if
+ "Type" is "xyz", then the "formatXyz" method of |CDetailView::formatter| will
+ be invoked to format the attribute value for display. By default when
+ |CFormatter| is used, these "Type" values are valid: raw, text, ntext, html,
+ date, time, datetime, boolean, number, email, image, url. For more details
+ about these types, please refer to |CFormatter|.
+
+ An attribute can also be specified in terms of an array with the following
+ elements:
+   {label} the label associated with the attribute. If this is not
+   specified, the following "name" element will be used to generate
+   an appropriate label.
+   {name} the name of the attribute. This can be either a property or
+   a sub-property of the model. If the below "value" element is
+   specified, this will be ignored.
+   {value} the value to be displayed. If this is not specified, the
+   above "name" element will be used to retrieve the corresponding
+   attribute value for display. Note that this value will be
+   formatted according to the "type" option as described below.
+   {type} the type of the attribute that determines how the attribute
+   value would be formatted. Please see above for possible values.
+   <li>cssClass: the CSS class to be used for this item. This option
+   is available since version 1.1.3.
+   {template} the template used to render the attribute. If this is
+   not specified, |CDetailView::itemTemplate| will be used instead.
+   For more details on how to set this option, please refer to
+   |CDetailView::itemTemplate|. This option is available since
+   version 1.1.1.
+   {visible} whether the attribute is visible. If set to 'false', the
+   table row for the attribute will not be rendered. This option is
+   available since version 1.1.5.
+
+<baseScriptUrl> 			*CDetailView::baseScriptUrl*
+ (string) the base script URL for all detail view resources (e.g. javascript,
+ CSS file, images). Defaults to null, meaning using the integrated detail view
+ resources (which are published as assets).
+
+<cssFile>				*CDetailView::cssFile*
+ (string) the URL of the CSS file used by this detail view. Defaults to null,
+ meaning using the integrated CSS file. If this is set false, you are
+ responsible to explicitly include the necessary CSS file in your page.
+
+<data>					*CDetailView::data*
+ (mixed) the data model whose details are to be displayed. This can be either
+ a |CModel| instance (e.g. a |CActiveRecord| object or a |CFormModel| object)
+ or an associative array.
+
+<formatter>				*CDetailView::formatter*
+ (CFormatter) the formatter instance. Defaults to the 'format' application
+ component.
+
+<htmlOptions>				*CDetailView::htmlOptions*
+ (array) the HTML options used for |CDetailView::tagName|
+
+<itemCssClass>				*CDetailView::itemCssClass*
+ (array) the CSS class names for the items displaying attribute values. If
+ multiple CSS class names are given, they will be assigned to the items
+ sequentially and repeatedly. Defaults to 'array('odd', 'even')'.
+
+<itemTemplate>				*CDetailView::itemTemplate*
+ (string) the template used to render a single attribute. Defaults to a table
+ row. These tokens are recognized: "{class}", "{label}" and "{value}". They
+ will be replaced with the CSS class name for the item, the label and the
+ attribute value, respectively.
+
+<nullDisplay>				*CDetailView::nullDisplay*
+ (string) the text to be displayed when an attribute value is null. Defaults
+ to "Not set".
+
+<tagName>				*CDetailView::tagName*
+ (string) the name of the tag for rendering the detail view. Defaults to
+ 'table'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDetailView::getFormatter*					 public
+>
+ getFormatter()
+<
+(CFormatter) the formatter instance. Defaults to the 'format' application
+component.
+
+
+
+*CDetailView::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the detail view. This method will initialize required property
+ values.
+
+
+*CDetailView::run*						 public
+>
+ run()
+<
+(void)
+
+ Renders the detail view. This is the main entry of the whole detail view
+ rendering.
+
+
+*CDetailView::setFormatter*					 public
+>
+ setFormatter($value)
+<
+(void)
+
+    [value] (CFormatter) the formatter instance
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

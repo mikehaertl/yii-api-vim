@@ -1,0 +1,233 @@
+
+*CBaseController*   >> |CComponent|
+=================
+
+ CBaseController is the base class for |CController| and |CWidget|.
+
+ It provides the common functionalities shared by controllers who need to
+ render views.
+
+ CBaseController also implements the support for the following features:
+   |CClipWidget| : a clip is a piece of captured output that can be
+   inserted elsewhere.
+   |CWidget| : a widget is a self-contained sub-controller with its
+   own view and model.
+   |COutputCache| : fragment cache selectively caches a portion of
+   the output.To use a widget in a view, use the following in the view:
+>
+ $this->widget('path.to.widgetClass',array('property1'=>'value1',...));
+<
+ or
+>
+ $this->beginWidget('path.to.widgetClass',array('property1'=>'value1',...));
+ // ... display other contents here
+ $this->endWidget();
+<
+ To create a clip, use the following:
+>
+ $this->beginClip('clipID');
+ // ... display the clip contents
+ $this->endClip();
+<
+ Then, in a different view or place, the captured clip can be inserted as:
+>
+ echo $this->clips['clipID'];
+<
+ To use fragment cache, do as follows,
+>
+ if($this->beginCache('cacheID',array('property1'=>'value1',...))
+ {
+     // ... display the content to be cached here
+    $this->endCache();
+ }
+<
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CBaseController::beginCache*					 public
+>
+ beginCache($id, $properties=array())
+<
+(boolean) whether we need to generate content for caching. False if cached
+version is available.
+
+ Begins fragment caching. This method will display cached content if it is
+ availabe. If not, it will start caching and would expect a
+ |CBaseController::endCache| call to end the cache and save the content into
+ cache. A typical usage of fragment caching is as follows,
+>
+ if($this->beginCache($id))
+ {
+     // ...generate content here
+     $this->endCache();
+ }
+<
+    [id] (string) a unique ID identifying the fragment to be cached.
+    [properties] (array) initial property values for |COutputCache|.
+
+
+*CBaseController::beginClip*					 public
+>
+ beginClip($id, $properties=array())
+<
+(void)
+
+ Begins recording a clip. This method is a shortcut to beginning
+ |CClipWidget|.
+    [id] (string) the clip ID.
+    [properties] (array) initial property values for |CClipWidget|.
+
+
+*CBaseController::beginContent* 				 public
+>
+ beginContent($view=NULL, $data=array())
+<
+(void)
+
+ Begins the rendering of content that is to be decorated by the specified
+ view.
+    [view] (mixed) the name of the view that will be used to decorate the
+    content. The actual view script is resolved via
+    |CBaseController::getViewFile|. If this parameter is null (default), the
+    default layout will be used as the decorative view. Note that if the
+    current controller does not belong to any module, the default layout
+    refers to the application's |CWebApplication::layout|; If the controller
+    belongs to a module, the default layout refers to the module's
+    |CWebModule::layout|.
+    [data] (array) the variables (name=>value) to be extracted and made
+    available in the decorative view. This parameter has been available since
+    version 1.0.4
+
+
+*CBaseController::beginWidget*					 public
+>
+ beginWidget($className, $properties=array())
+<
+(CWidget) the widget created to run
+
+ Creates a widget and executes it. This method is similar to
+ |CBaseController::widget| except that it is expecting a
+ |CBaseController::endWidget| call to end the execution.
+    [className] (string) the widget class name or class in dot syntax (e.g.
+    application.widgets.MyWidget)
+    [properties] (array) list of initial property values for the widget
+    (Property Name => Property Value)
+
+
+*CBaseController::createWidget* 				 public
+>
+ createWidget($className, $properties=array())
+<
+(CWidget) the fully initialized widget instance.
+
+ Creates a widget and initializes it. This method first creates the specified
+ widget instance. It then configures the widget's properties with the given
+ initial values. At the end it calls |CWidget::init| to initialize the widget.
+ Starting from version 1.1, if a |CWidgetFactory| is enabled, this method will
+ use the factory to create the widget, instead.
+    [className] (string) class name (can be in path alias format)
+    [properties] (array) initial property values
+
+
+*CBaseController::endCache*					 public
+>
+ endCache()
+<
+(void)
+
+ Ends fragment caching. This is an alias to |CBaseController::endWidget|.
+
+
+*CBaseController::endClip*					 public
+>
+ endClip()
+<
+(void)
+
+ Ends recording a clip. This method is an alias to
+ |CBaseController::endWidget|.
+
+
+*CBaseController::endContent*					 public
+>
+ endContent()
+<
+(void)
+
+ Ends the rendering of content.
+
+
+*CBaseController::endWidget*					 public
+>
+ endWidget($id='')
+<
+(CWidget) the widget just ended running
+
+ Ends the execution of the named widget. This method is used together with
+ |CBaseController::beginWidget|.
+    [id] (string) optional tag identifying the method call for debugging
+    purpose.
+
+
+*CBaseController::getViewFile*					 public
+>
+ getViewFile($viewName)
+<
+(string) the file path for the named view. False if the view cannot be found.
+
+ Returns the view script file according to the specified view name. This
+ method must be implemented by child classes.
+    [viewName] (string) view name
+
+
+*CBaseController::renderFile*					 public
+>
+ renderFile($viewFile, $data=NULL, $return=false)
+<
+(string) the rendering result. Null if the rendering result is not required.
+
+ Renders a view file.
+    [viewFile] (string) view file path
+    [data] (array) data to be extracted and made available to the view
+    [return] (boolean) whether the rendering result should be returned instead
+    of being echoed
+
+
+*CBaseController::renderInternal*				 public
+>
+ renderInternal($_viewFile_, $_data_=NULL, $_return_=false)
+<
+(string) the rendering result. Null if the rendering result is not required.
+
+ Renders a view file. This method includes the view file as a PHP script and
+ captures the display result if required.
+    [_viewFile_] (string) view file
+    [_data_] (array) data to be extracted and made available to the view file
+    [_return_] (boolean) whether the rendering result should be returned as a
+    string
+
+
+*CBaseController::widget*					 public
+>
+ widget($className, $properties=array(), $captureOutput=false)
+<
+(mixed) the widget instance when $captureOutput is false, or the widget output
+when $captureOutput is true.
+
+ Creates a widget and executes it.
+    [className] (string) the widget class name or class in dot syntax (e.g.
+    application.widgets.MyWidget)
+    [properties] (array) list of initial property values for the widget
+    (Property Name => Property Value)
+    [captureOutput] (boolean) whether to capture the output of the widget. If
+    true, the method will capture and return the output generated by the
+    widget. If false, the output will be directly sent for display and the
+    widget object will be returned. This parameter is available since version
+    1.1.2.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

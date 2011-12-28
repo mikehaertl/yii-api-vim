@@ -1,0 +1,38 @@
+
+*CTypedList*   >> |CList| >> |CComponent|
+============
+
+ CTypedList represents a list whose items are of the certain type.
+
+ CTypedList extends |CList| by making sure that the elements to be added to
+ the list is of certain class type.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CTypedList::__construct*					 public
+>
+ __construct($type)
+<
+(void)
+
+ Constructor.
+    [type] (string) class type
+
+
+*CTypedList::insertAt*						 public
+>
+ insertAt($index, $item)
+<
+(void)
+
+ Inserts an item at the specified position. This method overrides the parent
+ implementation by checking the item to be inserted is of certain type.
+    [index] (integer) the specified position.
+    [item] (mixed) new item
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

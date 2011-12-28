@@ -1,0 +1,85 @@
+
+*CUserIdentity*   >> |CBaseUserIdentity| >> |CComponent|
+===============
+
+ CUserIdentity is a base class for representing identities that are
+ authenticated based on a username and a password.
+
+ Derived classes should implement |CUserIdentity::authenticate| with the
+ actual authentication scheme (e.g. checking username and password against a
+ DB table).
+
+ By default, CUserIdentity assumes the |CUserIdentity::username| is a unique
+ identifier and thus use it as the |CUserIdentity::id| of the identity.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<id>					*CUserIdentity::id*
+ (string) Returns the unique identifier for the identity. The default
+ implementation simply returns |CUserIdentity::username|. This method is
+ required by |IUserIdentity|.
+
+<name>					*CUserIdentity::name*
+ (string) Returns the display name for the identity. The default
+ implementation simply returns |CUserIdentity::username|. This method is
+ required by |IUserIdentity|.
+
+<password>				*CUserIdentity::password*
+ (string) password
+
+<username>				*CUserIdentity::username*
+ (string) username
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CUserIdentity::__construct*					 public
+>
+ __construct($username, $password)
+<
+(void)
+
+ Constructor.
+    [username] (string) username
+    [password] (string) password
+
+
+*CUserIdentity::authenticate*					 public
+>
+ authenticate()
+<
+(boolean) whether authentication succeeds.
+
+ Authenticates a user based on |CUserIdentity::username| and
+ |CUserIdentity::password|. Derived classes should override this method, or an
+ exception will be thrown. This method is required by |IUserIdentity|.
+
+
+*CUserIdentity::getId*						 public
+>
+ getId()
+<
+(string) the unique identifier for the identity.
+
+ Returns the unique identifier for the identity. The default implementation
+ simply returns |CUserIdentity::username|. This method is required by
+ |IUserIdentity|.
+
+
+*CUserIdentity::getName*					 public
+>
+ getName()
+<
+(string) the display name for the identity.
+
+ Returns the display name for the identity. The default implementation simply
+ returns |CUserIdentity::username|. This method is required by
+ |IUserIdentity|.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

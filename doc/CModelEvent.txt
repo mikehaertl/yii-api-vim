@@ -1,0 +1,30 @@
+
+*CModelEvent*   >> |CEvent| >> |CComponent|
+=============
+
+ CModelEvent class.
+
+ CModelEvent represents the event parameters needed by events raised by a
+ model.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<criteria>				*CModelEvent::criteria*
+ (CDbCrireria) the query criteria that is passed as a parameter to a find
+ method of |CActiveRecord|. Note that this property is only used by
+ |CActiveRecord::onBeforeFind| event. This property could be null.
+
+<isValid>				*CModelEvent::isValid*
+ (boolean) whether the model is in valid status and should continue its normal
+ method execution cycles. Defaults to true. For example, when this event is
+ raised in a |CFormModel| object that is executing |CModel::beforeValidate|,
+ if this property is set false by the event handler, the |CModel::validate|
+ method will quit after handling this event. If true, the normal execution
+ cycles will continue, including performing the real validations and calling
+ |CModel::afterValidate|.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

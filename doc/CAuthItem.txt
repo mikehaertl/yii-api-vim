@@ -1,0 +1,242 @@
+
+*CAuthItem*   >> |CComponent|
+===========
+
+ CAuthItem represents an authorization item. An authorization item can be an
+ operation, a task or a role. They form an authorization hierarchy. Items on
+ higher levels of the hierarchy inherit the permissions represented by items
+ on lower levels. A user may be assigned one or several authorization items
+ (called |CAuthAssignment|. He can perform an operation only when it is among
+ his assigned items.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<authManager>				*CAuthItem::authManager*
+ (IAuthManager) the authorization manager
+
+<bizRule>				*CAuthItem::bizRule*
+ (string) the business rule associated with this item
+
+<children>				*CAuthItem::children*
+ (array) Returns the children of this item.
+
+<data>					*CAuthItem::data*
+ (string) the additional data associated with this item
+
+<description>				*CAuthItem::description*
+ (string) the item description
+
+<name>					*CAuthItem::name*
+ (string) the item name
+
+<type>					*CAuthItem::type*
+ (integer) the authorization item type. This could be 0 (operation), 1 (task)
+ or 2 (role).
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CAuthItem::__construct*					 public
+>
+ __construct($auth, $name, $type, $description='', $bizRule='', $data=NULL)
+<
+(void)
+
+ Constructor.
+    [auth] (IAuthManager) authorization manager
+    [name] (string) authorization item name
+    [type] (integer) authorization item type. This can be 0 (operation), 1
+    (task) or 2 (role).
+    [description] (description) the description
+    [bizRule] (string) the business rule associated with this item
+    [data] (mixed) additional data for this item
+
+
+*CAuthItem::addChild*						 public
+>
+ addChild($name)
+<
+(boolean) whether the item is added successfully
+
+ Adds a child item.
+    [name] (string) the name of the child item
+
+
+*CAuthItem::assign*						 public
+>
+ assign($userId, $bizRule='', $data=NULL)
+<
+(CAuthAssignment) the authorization assignment information.
+
+ Assigns this item to a user.
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+    [bizRule] (string) the business rule to be executed when
+    |CAuthItem::checkAccess| is called for this particular authorization item.
+    [data] (mixed) additional data associated with this assignment
+
+
+*CAuthItem::checkAccess*					 public
+>
+ checkAccess($itemName, $params=array())
+<
+(boolean) whether the specified item is within the hierarchy starting from
+this item.
+
+ Checks to see if the specified item is within the hierarchy starting from
+ this item. This method is internally used by |IAuthManager::checkAccess|.
+    [itemName] (string) the name of the item to be checked
+    [params] (array) the parameters to be passed to business rule evaluation
+
+
+*CAuthItem::getAssignment*					 public
+>
+ getAssignment($userId)
+<
+(CAuthAssignment) the item assignment information. Null is returned if this
+item is not assigned to the user.
+
+ Returns the item assignment information.
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CAuthItem::getAuthManager*					 public
+>
+ getAuthManager()
+<
+(IAuthManager) the authorization manager
+
+
+
+*CAuthItem::getBizRule* 					 public
+>
+ getBizRule()
+<
+(string) the business rule associated with this item
+
+
+
+*CAuthItem::getChildren*					 public
+>
+ getChildren()
+<
+(array) all child items of this item.
+
+ Returns the children of this item.
+
+
+*CAuthItem::getData*						 public
+>
+ getData()
+<
+(string) the additional data associated with this item
+
+
+
+*CAuthItem::getDescription*					 public
+>
+ getDescription()
+<
+(string) the item description
+
+
+
+*CAuthItem::getName*						 public
+>
+ getName()
+<
+(string) the item name
+
+
+
+*CAuthItem::getType*						 public
+>
+ getType()
+<
+(integer) the authorization item type. This could be 0 (operation), 1 (task)
+or 2 (role).
+
+
+
+*CAuthItem::hasChild*						 public
+>
+ hasChild($name)
+<
+(boolean) whether the child exists
+
+ Returns a value indicating whether a child exists
+    [name] (string) the child item name
+
+
+*CAuthItem::isAssigned* 					 public
+>
+ isAssigned($userId)
+<
+(boolean) whether the item has been assigned to the user.
+
+ Returns a value indicating whether this item has been assigned to the user.
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CAuthItem::removeChild*					 public
+>
+ removeChild($name)
+<
+(boolean) whether the removal is successful
+
+ Removes a child item. Note, the child item is not deleted. Only the
+ parent-child relationship is removed.
+    [name] (string) the child item name
+
+
+*CAuthItem::revoke*						 public
+>
+ revoke($userId)
+<
+(boolean) whether removal is successful
+
+ Revokes an authorization assignment from a user.
+    [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CAuthItem::setBizRule* 					 public
+>
+ setBizRule($value)
+<
+(void)
+
+    [value] (string) the business rule associated with this item
+
+
+*CAuthItem::setData*						 public
+>
+ setData($value)
+<
+(void)
+
+    [value] (string) the business rule associated with this item
+
+
+*CAuthItem::setDescription*					 public
+>
+ setDescription($value)
+<
+(void)
+
+    [value] (string) the item description
+
+
+*CAuthItem::setName*						 public
+>
+ setName($value)
+<
+(void)
+
+    [value] (string) the item name
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

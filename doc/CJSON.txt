@@ -1,0 +1,105 @@
+
+*CJSON*  
+=======
+
+ CJSON converts PHP data to and from JSON format.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CJSON::decode* 						 public
+>
+ decode($str, $useArray=true)
+<
+(mixed) number, boolean, string, array, or object corresponding to given JSON
+input string.    Note that decode() always returns strings in ASCII or UTF-8
+format!
+
+ decodes a JSON string into appropriate variable
+    [str] (string) JSON-formatted string
+    [useArray] (boolean) whether to use associative array to represent object
+    data
+
+
+*CJSON::encode* 						 public
+>
+ encode($var)
+<
+(string) JSON string representation of input var
+
+ Encodes an arbitrary variable into JSON format
+    [var] (mixed) any number, boolean, string, array, or object to be encoded.
+     if var is a string, note that encode() always expects it to be in ASCII
+    or UTF-8 format!
+
+
+*CJSON::nameValue*						 protected
+>
+ nameValue($name, $value)
+<
+(string) JSON-formatted name-value pair, like '"name":value'
+
+ array-walking function for use in generating JSON-formatted name-value pairs
+    [name] (string) name of key to use
+    [value] (mixed) reference to an array element to be encoded
+
+
+*CJSON::reduceString*						 protected
+>
+ reduceString($str)
+<
+(string) string value stripped of comments and whitespace
+
+ reduce a string by removing leading and trailing comments and whitespace
+    [str] (string) string value to strip of comments and whitespace
+
+
+*CJSON::unicodeToUTF8*						 protected
+>
+ unicodeToUTF8($str)
+<
+(void)
+
+ This function converts a Unicode array back to its UTF-8 representation
+    [str] (string) string to convert
+
+
+*CJSON::utf16beToUTF8*						 protected
+>
+ utf16beToUTF8($str)
+<
+(void)
+
+ UTF-8 to UTF-16BE conversion.
+
+ Maybe really UCS-2 without mb_string due to utf8ToUnicode limits
+    [str] (string) string to convert
+
+
+*CJSON::utf8ToUTF16BE*						 protected
+>
+ utf8ToUTF16BE($str, $bom=false)
+<
+(void)
+
+ UTF-8 to UTF-16BE conversion.
+
+ Maybe really UCS-2 without mb_string due to utf8ToUnicode limits
+    [str] (string) string to convert
+    [bom] (boolean) whether to output BOM header
+
+
+*CJSON::utf8ToUnicode*						 protected
+>
+ utf8ToUnicode($str)
+<
+(void)
+
+ This function returns any UTF-8 encoded text as a list of Unicode values:
+    [str] (string) string to convert
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

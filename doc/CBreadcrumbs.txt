@@ -1,0 +1,92 @@
+
+*CBreadcrumbs*   >> |CWidget| >> |CBaseController| >> |CComponent|
+==============
+
+ CBreadcrumbs displays a list of links indicating the position of the current
+ page in the whole website.
+
+ For example, breadcrumbs like "Home > Sample Post > Edit" means the user is
+ viewing an edit page for the "Sample Post". He can click on "Sample Post" to
+ view that page, or he can click on "Home" to return to the homepage.
+
+ To use CBreadcrumbs, one usually needs to configure its |CBreadcrumbs::links|
+ property, which specifies the links to be displayed. For example,
+>
+ $this->widget('zii.widgets.CBreadcrumbs', array(
+     'links'=>array(
+         'Sample post'=>array('post/view', 'id'=>12),
+         'Edit',
+     ),
+ ));
+<
+ Because breadcrumbs usually appears in nearly every page of a website, the
+ widget is better to be placed in a layout view. One can define a property
+ "breadcrumbs" in the base controller class and assign it to the widget in the
+ layout, like the following:
+>
+ $this->widget('zii.widgets.CBreadcrumbs', array(
+     'links'=>$this->breadcrumbs,
+ ));
+<
+ Then, in each view script, one only needs to assign the "breadcrumbs"
+ property as needed.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<encodeLabel>				*CBreadcrumbs::encodeLabel*
+ (boolean) whether to HTML encode the link labels. Defaults to true.
+
+<homeLink>				*CBreadcrumbs::homeLink*
+ (string) the first hyperlink in the breadcrumbs (called home link). If this
+ property is not set, it defaults to a link pointing to
+ |CWebApplication::homeUrl| with label 'Home'. If this property is false, the
+ home link will not be rendered.
+
+<htmlOptions>				*CBreadcrumbs::htmlOptions*
+ (array) the HTML attributes for the breadcrumbs container tag.
+
+<links> 				*CBreadcrumbs::links*
+ (array) list of hyperlinks to appear in the breadcrumbs. If this property is
+ empty, the widget will not render anything. Each key-value pair in the array
+ will be used to generate a hyperlink by calling CHtml::link(key, value). For
+ this reason, the key refers to the label of the link while the value can be a
+ string or an array (used to create a URL). For more details, please refer to
+ |CHtml::link|. If an element's key is an integer, it means the element will
+ be rendered as a label only (meaning the current page).
+
+ The following example will generate breadcrumbs as "Home > Sample post >
+ Edit", where "Home" points to the homepage, "Sample post" points to the
+ "index.php?r=post/view&id=12" page, and "Edit" is a label. Note that the
+ "Home" link is specified via |CBreadcrumbs::homeLink| separately.
+>
+ array(
+     'Sample post'=>array('post/view', 'id'=>12),
+     'Edit',
+ )
+<
+
+<separator>				*CBreadcrumbs::separator*
+ (string) the separator between links in the breadcrumbs. Defaults to '
+ &raquo; '.
+
+<tagName>				*CBreadcrumbs::tagName*
+ (string) the tag name for the breadcrumbs container tag. Defaults to 'div'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CBreadcrumbs::run*						 public
+>
+ run()
+<
+(void)
+
+ Renders the content of the portlet.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

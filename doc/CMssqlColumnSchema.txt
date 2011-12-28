@@ -1,0 +1,53 @@
+
+*CMssqlColumnSchema*   >> |CDbColumnSchema| >> |CComponent|
+====================
+
+ CMssqlColumnSchema class describes the column meta data of a MSSQL table.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CMssqlColumnSchema::extractDefault*				 protected
+>
+ extractDefault($defaultValue)
+<
+(void)
+
+    [defaultValue] () 
+
+
+*CMssqlColumnSchema::extractLimit*				 protected
+>
+ extractLimit($dbType)
+<
+(void)
+
+ Extracts size, precision and scale information from column's DB type. We do
+ nothing here, since sizes and precisions have been computed before.
+    [dbType] (string) the column's DB type
+
+
+*CMssqlColumnSchema::extractType*				 protected
+>
+ extractType($dbType)
+<
+(void)
+
+ Extracts the PHP type from DB type.
+    [dbType] (string) DB type
+
+
+*CMssqlColumnSchema::typecast*					 public
+>
+ typecast($value)
+<
+(mixed) converted value
+
+ Converts the input value to the type that this column is of.
+    [value] (mixed) input value
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,156 @@
+
+*CCaptchaAction*   >> |CAction| >> |CComponent|
+================
+
+ CCaptchaAction renders a CAPTCHA image.
+
+ CCaptchaAction is used together with |CCaptcha| and |CCaptchaValidator| to
+ provide the 'CAPTCHA' feature.
+
+ You must configure properties of CCaptchaAction to customize the appearance
+ of the generated image.
+
+ Note, CCaptchaAction requires PHP GD2 extension.
+
+ Using CAPTCHA involves the following steps:
+
+   1. Override |CController::actions| and register an action of class
+   CCaptchaAction with ID 'captcha'.
+   2. In the form model, declare an attribute to store user-entered
+   verification code, and declare the attribute to be validated by
+   the 'captcha' validator.
+   3. In the controller view, insert a |CCaptcha| widget in the form.
+
+
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<backColor>				*CCaptchaAction::backColor*
+ (integer) the background color. For example, 0x55FF00. Defaults to 0xFFFFFF,
+ meaning white color.
+
+<fixedVerifyCode>			*CCaptchaAction::fixedVerifyCode*
+ (string) the fixed verification code. When this is property is set,
+ |CCaptchaAction::getVerifyCode| will always return this value. This is mainly
+ used in automated tests where we want to be able to reproduce the same
+ verification code each time we run the tests. Defaults to null, meaning the
+ verification code will be randomly generated.
+
+<fontFile>				*CCaptchaAction::fontFile*
+ (string) the TrueType font file. Defaults to Duality.ttf which is provided
+ with the Yii release.
+
+<foreColor>				*CCaptchaAction::foreColor*
+ (integer) the font color. For example, 0x55FF00. Defaults to 0x2040A0 (blue
+ color).
+
+<height>				*CCaptchaAction::height*
+ (integer) the height of the generated CAPTCHA image. Defaults to 50.
+
+<maxLength>				*CCaptchaAction::maxLength*
+ (integer) the maximum length for randomly generated word. Defaults to 7.
+
+<minLength>				*CCaptchaAction::minLength*
+ (integer) the minimum length for randomly generated word. Defaults to 6.
+
+<offset>				*CCaptchaAction::offset*
+ (integer) the offset between characters. Defaults to -2. You can adjust this
+ property in order to decrease or increase the readability of the captcha.
+
+<padding>				*CCaptchaAction::padding*
+ (integer) padding around the text. Defaults to 2.
+
+<sessionKey>				*CCaptchaAction::sessionKey*
+ (string) Returns the session variable name used to store verification code.
+
+<testLimit>				*CCaptchaAction::testLimit*
+ (integer) how many times should the same CAPTCHA be displayed. Defaults to 3.
+ A value less than or equal to 0 means the test is unlimited (available since
+ version 1.1.2).
+
+<transparent>				*CCaptchaAction::transparent*
+ (boolean) whether to use transparent background. Defaults to false.
+
+<verifyCode>				*CCaptchaAction::verifyCode*
+ (string) Gets the verification code.
+
+<width> 				*CCaptchaAction::width*
+ (integer) the width of the generated CAPTCHA image. Defaults to 120.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CCaptchaAction::generateValidationHash*			 public
+>
+ generateValidationHash($code)
+<
+(string) a hash code generated from the CAPTCHA code
+
+ Generates a hash code that can be used for client side validation.
+    [code] (string) the CAPTCHA code
+
+
+*CCaptchaAction::generateVerifyCode*				 protected
+>
+ generateVerifyCode()
+<
+(string) the generated verification code
+
+ Generates a new verification code.
+
+
+*CCaptchaAction::getSessionKey* 				 protected
+>
+ getSessionKey()
+<
+(string) the session variable name
+
+ Returns the session variable name used to store verification code.
+
+
+*CCaptchaAction::getVerifyCode* 				 public
+>
+ getVerifyCode($regenerate='')
+<
+(string) the verification code.
+
+ Gets the verification code.
+    [regenerate] (string) whether the verification code should be regenerated.
+
+
+*CCaptchaAction::renderImage*					 protected
+>
+ renderImage($code)
+<
+(string) image content
+
+ Renders the CAPTCHA image based on the code.
+    [code] (string) the verification code
+
+
+*CCaptchaAction::run*						 public
+>
+ run()
+<
+(void)
+
+ Runs the action.
+
+
+*CCaptchaAction::validate*					 public
+>
+ validate($input, $caseSensitive)
+<
+(whether) the input is valid
+
+ Validates the input to see if it matches the generated code.
+    [input] (string) user input
+    [caseSensitive] (boolean) whether the comparison should be case-sensitive
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

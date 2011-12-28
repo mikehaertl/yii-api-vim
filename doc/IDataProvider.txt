@@ -1,0 +1,93 @@
+
+*IDataProvider*  
+===============
+
+ IDataProvider is the interface that must be implemented by data provider
+ classes.
+
+ Data providers are components that can feed data for widgets such as data
+ grid, data list. Besides providing data, they also support pagination and
+ sorting.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*IDataProvider::getData*					 public
+>
+ getData($refresh=false)
+<
+(array) the list of data items currently available in this data provider.
+
+ Returns the data items currently available.
+    [refresh] (boolean) whether the data should be re-fetched from persistent
+    storage.
+
+
+*IDataProvider::getId*						 public
+>
+ getId()
+<
+(string) the unique ID that identifies the data provider from other data
+providers.
+
+
+
+*IDataProvider::getItemCount*					 public
+>
+ getItemCount($refresh=false)
+<
+(integer) the number of data items in the current page.
+
+ Returns the number of data items in the current page. This is equivalent to
+ 'count($provider->getData())'. When |IDataProvider::pagination| is set false,
+ this returns the same value as |IDataProvider::totalItemCount|.
+    [refresh] (boolean) whether the number of data items should be
+    re-calculated.
+
+
+*IDataProvider::getKeys*					 public
+>
+ getKeys($refresh=false)
+<
+(array) the list of key values corresponding to |IDataProvider::data|. Each
+data item in |IDataProvider::data| is uniquely identified by the corresponding
+key value in this array.
+
+ Returns the key values associated with the data items.
+    [refresh] (boolean) whether the keys should be re-calculated.
+
+
+*IDataProvider::getPagination*					 public
+>
+ getPagination()
+<
+(CPagination) the pagination object. If this is false, it means the pagination
+is disabled.
+
+
+
+*IDataProvider::getSort*					 public
+>
+ getSort()
+<
+(CSort) the sorting object. If this is false, it means the sorting is
+disabled.
+
+
+
+*IDataProvider::getTotalItemCount*				 public
+>
+ getTotalItemCount($refresh=false)
+<
+(integer) total number of possible data items.
+
+ Returns the total number of data items. When |IDataProvider::pagination| is
+ set false, this returns the same value as |IDataProvider::itemCount|.
+    [refresh] (boolean) whether the total number of data items should be
+    re-calculated.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,314 @@
+
+*CCodeModel*   >> |CFormModel| >> |CModel| >> |CComponent|
+============
+
+ CCodeModel is the base class for model classes that are used to generate
+ code.
+
+ Each code generator should have at least one code model class that extends
+ from this class. The purpose of a code model is to represent user-supplied
+ parameters and use them to generate customized code.
+
+ Derived classes should implement the |CCodeModel::prepare| method whose main
+ task is to fill up the |CCodeModel::files| property based on the user
+ parameters.
+
+ The |CCodeModel::files| property should be filled with a set of |CCodeFile|
+ instances, each representing a single code file to be generated.
+
+ CCodeModel implements the feature of "sticky attributes". A sticky attribute
+ is an attribute that can remember its last valid value, even if the user
+ closes his browser window and reopen it. To declare an attribute is sticky,
+ simply list it in a validation rule with the validator name being "sticky".
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<answers>				*CCodeModel::answers*
+ (array) user confirmations on whether to overwrite existing code files with
+ the newly generated ones. The value of this property is internally managed by
+ this class and |CCodeGenerator|.
+
+<files> 				*CCodeModel::files*
+ (array) a list of |CCodeFile| objects that represent the code files to be
+ generated. The |CCodeModel::prepare| method is responsible to populate this
+ property.
+
+<status>				*CCodeModel::status*
+ (integer) the status of this model. T The value of this property is
+ internally managed by |CCodeGenerator|.
+
+<stickyFile>				*CCodeModel::stickyFile*
+ (string) the file path that stores the sticky attribute values.
+
+<template>				*CCodeModel::template*
+ (string) the name of the code template that the user has selected. The value
+ of this property is internally managed by this class and |CCodeGenerator|.
+
+<templatePath>				*CCodeModel::templatePath*
+ (string) the directory that contains the template files.
+
+<templates>				*CCodeModel::templates*
+ (array) Returns a list of available code templates (name=>directory). This
+ method simply returns the |CCodeGenerator::templates| property value.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CCodeModel::attributeLabels*					 public
+>
+ attributeLabels()
+<
+(array) the attribute labels
+
+ Declares the model attribute labels. Child classes must override this method
+ in the following format:
+>
+ return array_merge(parent::attributeLabels(), array(
+     ...labels for the child class attributes...
+ ));
+<
+
+
+*CCodeModel::class2id*						 public
+>
+ class2id($name)
+<
+(string) the resulting ID
+
+ Converts a class name into a HTML ID. For example, 'PostTag' will be
+ converted as 'post-tag'.
+    [name] (string) the string to be converted
+
+
+*CCodeModel::class2name*					 public
+>
+ class2name($name, $ucwords=true)
+<
+(string) the resulting words
+
+ Converts a class name into space-separated words. For example, 'PostTag' will
+ be converted as 'Post Tag'.
+    [name] (string) the string to be converted
+    [ucwords] (boolean) whether to capitalize the first letter in each word
+
+
+*CCodeModel::class2var* 					 public
+>
+ class2var($name)
+<
+(string) the variable name converted from the class name
+
+ Converts a class name into a variable name with the first letter in lower
+ case. This method is provided because lcfirst() PHP function is only
+ available for PHP 5.3+.
+    [name] (string) the class name
+
+
+*CCodeModel::classExists*					 public
+>
+ classExists($name)
+<
+(boolean) whether the class exists
+
+ Checks if the named class exists (in a case sensitive manner).
+    [name] (string) class name to be checked
+
+
+*CCodeModel::confirmed* 					 public
+>
+ confirmed($file)
+<
+(void)
+
+    [file] (CCodeFile) whether the code file should be saved
+
+
+*CCodeModel::errorMessage*					 public
+>
+ errorMessage()
+<
+(string) the message to be displayed when some error occurred during code file
+saving.
+
+ Returns the message to be displayed when some error occurred during code file
+ saving. Child classes should override this method if the message needs to be
+ customized.
+
+
+*CCodeModel::getStickyFile*					 public
+>
+ getStickyFile()
+<
+(string) the file path that stores the sticky attribute values.
+
+
+
+*CCodeModel::getTemplatePath*					 public
+>
+ getTemplatePath()
+<
+(string) the directory that contains the template files.
+
+
+
+*CCodeModel::getTemplates*					 public
+>
+ getTemplates()
+<
+(array) a list of available code templates (name=>directory).
+
+ Returns a list of available code templates (name=>directory). This method
+ simply returns the |CCodeGenerator::templates| property value.
+
+
+*CCodeModel::loadStickyAttributes*				 public
+>
+ loadStickyAttributes()
+<
+(void)
+
+ Loads sticky attributes from a file and populates them into the model.
+
+
+*CCodeModel::pluralize* 					 public
+>
+ pluralize($name)
+<
+(string) the pluralized word
+
+ Converts a word to its plural form. Note that this is for English only! For
+ example, 'apple' will become 'apples', and 'child' will become 'children'.
+    [name] (string) the word to be pluralized
+
+
+*CCodeModel::prepare*						 public
+>
+ prepare()
+<
+(void)
+
+ Prepares the code files to be generated. This is the main method that child
+ classes should implement. It should contain the logic that populates the
+ |CCodeModel::files| property with a list of code files to be generated.
+
+
+*CCodeModel::render*						 public
+>
+ render($templateFile, $_params_=NULL)
+<
+(string) the generated code
+
+ Generates the code using the specified code template file. This method is
+ manly used in generate to generate code.
+    [templateFile] (string) the code template file path
+    [_params_] (array) a set of parameters to be extracted and made available
+    in the code template
+
+
+*CCodeModel::renderResults*					 public
+>
+ renderResults()
+<
+(string) the code generation result log.
+
+
+
+*CCodeModel::requiredTemplates* 				 public
+>
+ requiredTemplates()
+<
+(array) list of code templates that are required. They should be file paths
+relative to |CCodeModel::templatePath|.
+
+ Returns a list of code templates that are required. Derived classes usually
+ should override this method.
+
+
+*CCodeModel::rules*						 public
+>
+ rules()
+<
+(array) validation rules
+
+ Declares the model validation rules. Child classes must override this method
+ in the following format:
+>
+ return array_merge(parent::rules(), array(
+     ...rules for the child class...
+ ));
+<
+
+
+*CCodeModel::save*						 public
+>
+ save()
+<
+(void)
+
+ Saves the generated code into files.
+
+
+*CCodeModel::saveStickyAttributes*				 public
+>
+ saveStickyAttributes()
+<
+(void)
+
+ Saves sticky attributes into a file.
+
+
+*CCodeModel::sticky*						 public
+>
+ sticky($attribute, $params)
+<
+(void)
+
+ The "sticky" validator. This validator does not really validate the
+ attributes. It actually saves the attribute value in a file to make it
+ sticky.
+    [attribute] (string) the attribute to be validated
+    [params] (array) the validation parameters
+
+
+*CCodeModel::successMessage*					 public
+>
+ successMessage()
+<
+(string) the message to be displayed when the newly generated code is saved
+successfully.
+
+ Returns the message to be displayed when the newly generated code is saved
+ successfully. Child classes should override this method if the message needs
+ to be customized.
+
+
+*CCodeModel::validateReservedWord*				 public
+>
+ validateReservedWord($attribute, $params)
+<
+(void)
+
+ Validates an attribute to make sure it is not taking a PHP reserved keyword.
+    [attribute] (string) the attribute to be validated
+    [params] (array) validation parameters
+
+
+*CCodeModel::validateTemplate*					 public
+>
+ validateTemplate($attribute, $params)
+<
+(void)
+
+ Validates the template selection. This method validates whether the user
+ selects an existing template and the template contains all required template
+ files as specified in |CCodeModel::requiredTemplates|.
+    [attribute] (string) the attribute to be validated
+    [params] (array) validation parameters
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,105 @@
+
+*CMarkdown*   >> |COutputProcessor| >> |CFilterWidget| >> |CWidget| >> |CBaseController| >> |CComponent|
+===========
+
+ CMarkdown converts the captured content from markdown syntax to HTML code.
+
+ CMarkdown can be used as either a widget or a filter. It is a wrapper of
+ |CMarkdownParser|. CMarkdown adds an additional option
+ |CMarkdown::purifyOutput| which can be set true so that the converted HTML
+ code is purified before being displayed.
+
+ For details about the markdown syntax, please check the following:
+   'official markdown syntax'
+   'markdown extra syntax'
+   |CMarkdownParser|
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<cssFile>				*CMarkdown::cssFile*
+ (mixed) the CSS file used for the widget. Defaults to null, meaning using the
+ default CSS file included together with the widget. If false, no CSS file
+ will be used. Otherwise, the specified CSS file will be included when using
+ this widget.
+
+<markdownParser>			*CMarkdown::markdownParser*
+ () Returns the markdown parser instance. This method calls
+ |CMarkdown::createMarkdownParser| to create the parser instance. Call this
+ method multipe times will only return the same instance.
+
+<purifyOutput>				*CMarkdown::purifyOutput*
+ (boolean) whether to use |CHtmlPurifier| to purify the generated HTML code.
+ Defaults to false.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CMarkdown::createMarkdownParser*				 protected
+>
+ createMarkdownParser()
+<
+(CMarkdownParser) the markdown parser.
+
+ Creates a markdown parser. By default, this method creates a
+ |CMarkdownParser| instance.
+
+
+*CMarkdown::getMarkdownParser*					 public
+>
+ getMarkdownParser()
+<
+(void)
+
+ Returns the markdown parser instance. This method calls
+ |CMarkdown::createMarkdownParser| to create the parser instance. Call this
+ method multipe times will only return the same instance.
+
+
+*CMarkdown::processOutput*					 public
+>
+ processOutput($output)
+<
+(void)
+
+ Processes the captured output. This method converts the content in markdown
+ syntax to HTML code. If |CMarkdown::purifyOutput| is true, the HTML code will
+ also be purified.
+    [output] (string) the captured output to be processed
+
+
+*CMarkdown::registerClientScript*				 public
+>
+ registerClientScript()
+<
+(void)
+
+ Registers the needed CSS and JavaScript.
+
+
+*CMarkdown::registerCssFile*					 public
+>
+ registerCssFile($url='')
+<
+(void)
+
+ Registers the needed CSS file.
+    [url] (string) the CSS URL. If null, a default CSS URL will be used.
+
+
+*CMarkdown::transform*						 public
+>
+ transform($output)
+<
+(string) the converted content
+
+ Converts the content in markdown syntax to HTML code. This method uses
+ |CMarkdownParser| to do the conversion.
+    [output] (string) the content to be converted
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

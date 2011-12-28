@@ -1,0 +1,402 @@
+
+*CModule*   >> |CComponent|
+=========
+
+ CModule is the base class for module and application classes.
+
+ CModule mainly manages application components and sub-modules.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<basePath>				*CModule::basePath*
+ (string) Returns the root directory of the module.
+
+<behaviors>				*CModule::behaviors*
+ (array) the behaviors that should be attached to the module. The behaviors
+ will be attached to the module when |CModule::init| is called. Please refer
+ to |CModel::behaviors| on how to specify the value of this property.
+
+<components>				*CModule::components*
+ (array) Returns the application components.
+
+<id>					*CModule::id*
+ (string) Returns the module ID.
+
+<modulePath>				*CModule::modulePath*
+ (string) Returns the directory that contains the application modules.
+
+<modules>				*CModule::modules*
+ (array) Returns the configuration of the currently installed modules.
+
+<params>				*CModule::params*
+ (CAttributeCollection) Returns user-defined parameters.
+
+<parentModule>				*CModule::parentModule*
+ (CModule) Returns the parent module.
+
+<preload>				*CModule::preload*
+ (array) the IDs of the application components that should be preloaded.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CModule::__construct*						 public
+>
+ __construct($id, $parent, $config=NULL)
+<
+(void)
+
+ Constructor.
+    [id] (string) the ID of this module
+    [parent] (CModule) the parent module (if any)
+    [config] (mixed) the module configuration. It can be either an array or
+    the path of a PHP file returning the configuration array.
+
+
+*CModule::__get*						 public
+>
+ __get($name)
+<
+(mixed) the named property value
+
+ Getter magic method. This method is overridden to support accessing
+ application components like reading module properties.
+    [name] (string) application component or property name
+
+
+*CModule::__isset*						 public
+>
+ __isset($name)
+<
+(boolean) whether the property value is null
+
+ Checks if a property value is null. This method overrides the parent
+ implementation by checking if the named application component is loaded.
+    [name] (string) the property name or the event name
+
+
+*CModule::configure*						 public
+>
+ configure($config)
+<
+(void)
+
+ Configures the module with the specified configuration.
+    [config] (array) the configuration array
+
+
+*CModule::getBasePath*						 public
+>
+ getBasePath()
+<
+(string) the root directory of the module. Defaults to the directory
+containing the module class.
+
+ Returns the root directory of the module.
+
+
+*CModule::getComponent* 					 public
+>
+ getComponent($id, $createIfNull=true)
+<
+(IApplicationComponent) the application component instance, null if the
+application component is disabled or does not exist.
+
+ Retrieves the named application component.
+    [id] (string) application component ID (case-sensitive)
+    [createIfNull] (boolean) whether to create the component if it doesn't
+    exist yet. This parameter has been available since version 1.0.6.
+
+
+*CModule::getComponents*					 public
+>
+ getComponents($loadedOnly=true)
+<
+(array) the application components (indexed by their IDs)
+
+ Returns the application components.
+    [loadedOnly] (boolean) whether to return the loaded components only. If
+    this is set false, then all components specified in the configuration will
+    be returned, whether they are loaded or not. Loaded components will be
+    returned as objects, while unloaded components as configuration arrays.
+    This parameter has been available since version 1.1.3.
+
+
+*CModule::getId*						 public
+>
+ getId()
+<
+(string) the module ID.
+
+ Returns the module ID.
+
+
+*CModule::getModule*						 public
+>
+ getModule($id)
+<
+(CModule) the module instance, null if the module is disabled or does not
+exist.
+
+ Retrieves the named application module. The module has to be declared in
+ |CModule::modules|. A new instance will be created when calling this method
+ with the given ID for the first time.
+    [id] (string) application module ID (case-sensitive)
+
+
+*CModule::getModulePath*					 public
+>
+ getModulePath()
+<
+(string) the directory that contains the application modules. Defaults to the
+'modules' subdirectory of |CModule::basePath|.
+
+ Returns the directory that contains the application modules.
+
+
+*CModule::getModules*						 public
+>
+ getModules()
+<
+(array) the configuration of the currently installed modules (module ID =>
+configuration)
+
+ Returns the configuration of the currently installed modules.
+
+
+*CModule::getParams*						 public
+>
+ getParams()
+<
+(CAttributeCollection) the list of user-defined parameters
+
+ Returns user-defined parameters.
+
+
+*CModule::getParentModule*					 public
+>
+ getParentModule()
+<
+(CModule) the parent module. Null if this module does not have a parent.
+
+ Returns the parent module.
+
+
+*CModule::hasComponent* 					 public
+>
+ hasComponent($id)
+<
+(boolean) whether the named application component exists (including both
+loaded and disabled.)
+
+ Checks whether the named component exists.
+    [id] (string) application component ID
+
+
+*CModule::hasModule*						 public
+>
+ hasModule($id)
+<
+(boolean) whether the specified module is installed.
+
+ Returns a value indicating whether the specified module is installed.
+    [id] (string) the module ID
+
+
+*CModule::init* 						 protected
+>
+ init()
+<
+(void)
+
+ Initializes the module. This method is called at the end of the module
+ constructor. Note that at this moment, the module has been configured, the
+ behaviors have been attached and the application components have been
+ registered.
+
+
+*CModule::preinit*						 protected
+>
+ preinit()
+<
+(void)
+
+ Preinitializes the module. This method is called at the beginning of the
+ module constructor. You may override this method to do some customized
+ preinitialization work. Note that at this moment, the module is not
+ configured yet.
+
+
+*CModule::preloadComponents*					 protected
+>
+ preloadComponents()
+<
+(void)
+
+ Loads static application components.
+
+
+*CModule::setAliases*						 public
+>
+ setAliases($mappings)
+<
+(void)
+
+ Defines the root aliases.
+    [mappings] (array) list of aliases to be defined. The array keys are root
+    aliases, while the array values are paths or aliases corresponding to the
+    root aliases. For example,
+>
+    array(
+       'models'=>'application.models',              // an existing alias
+       'extensions'=>'application.extensions',      // an existing alias
+       'backend'=>dirname(__FILE__).'/../backend',  // a directory
+    )
+<
+
+
+*CModule::setBasePath*						 public
+>
+ setBasePath($path)
+<
+(void)
+
+ Sets the root directory of the module. This method can only be invoked at the
+ beginning of the constructor.
+    [path] (string) the root directory of the module.
+
+
+*CModule::setComponent* 					 public
+>
+ setComponent($id, $component)
+<
+(void)
+
+ Puts a component under the management of the module. The component will be
+ initialized by calling its |CApplicationComponent::init| method if it has not
+ done so.
+    [id] (string) component ID
+    [component] (IApplicationComponent) the component to be added to the
+    module. If this parameter is null, it will unload the component from the
+    module.
+
+
+*CModule::setComponents*					 public
+>
+ setComponents($components, $merge=true)
+<
+(void)
+
+ Sets the application components.
+
+ When a configuration is used to specify a component, it should consist of the
+ component's initial property values (name-value pairs). Additionally, a
+ component can be enabled (default) or disabled by specifying the 'enabled'
+ value in the configuration.
+
+ If a configuration is specified with an ID that is the same as an existing
+ component or configuration, the existing one will be replaced silently.
+
+ The following is the configuration for two components:
+>
+ array(
+     'db'=>array(
+         'class'=>'CDbConnection',
+         'connectionString'=>'sqlite:path/to/file.db',
+     ),
+     'cache'=>array(
+         'class'=>'CDbCache',
+         'connectionID'=>'db',
+         'enabled'=>!YII_DEBUG,  // enable caching in non-debug mode
+     ),
+ )
+<
+    [components] (array) application components(id=>component configuration or
+    instances)
+    [merge] (boolean) whether to merge the new component configuration with
+    the existing one. Defaults to true, meaning the previously registered
+    component configuration of the same ID will be merged with the new
+    configuration. If false, the existing configuration will be replaced
+    completely.
+
+
+*CModule::setId*						 public
+>
+ setId($id)
+<
+(void)
+
+ Sets the module ID.
+    [id] (string) the module ID
+
+
+*CModule::setImport*						 public
+>
+ setImport($aliases)
+<
+(void)
+
+ Sets the aliases that are used in the module.
+    [aliases] (array) list of aliases to be imported
+
+
+*CModule::setModulePath*					 public
+>
+ setModulePath($value)
+<
+(void)
+
+ Sets the directory that contains the application modules.
+    [value] (string) the directory that contains the application modules.
+
+
+*CModule::setModules*						 public
+>
+ setModules($modules)
+<
+(void)
+
+ Configures the sub-modules of this module.
+
+ Call this method to declare sub-modules and configure them with their initial
+ property values. The parameter should be an array of module configurations.
+ Each array element represents a single module, which can be either a string
+ representing the module ID or an ID-configuration pair representing a module
+ with the specified ID and the initial property values.
+
+ For example, the following array declares two modules:
+>
+ array(
+     'admin',                // a single module ID
+     'payment'=>array(       // ID-configuration pair
+         'server'=>'paymentserver.com',
+     ),
+ )
+<
+ By default, the module class is determined using the expression
+ 'ucfirst($moduleID).'Module''. And the class file is located under
+ 'modules/$moduleID'. You may override this default by explicitly specifying
+ the 'class' option in the configuration.
+
+ You may also enable or disable a module by specifying the 'enabled' option in
+ the configuration.
+    [modules] (array) module configurations.
+
+
+*CModule::setParams*						 public
+>
+ setParams($value)
+<
+(void)
+
+ Sets user-defined parameters.
+    [value] (array) user-defined parameters. This should be in name-value
+    pairs.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,94 @@
+
+*CActiveRecordBehavior*   >> |CModelBehavior| >> |CBehavior| >> |CComponent|
+=======================
+
+ CActiveRecordBehavior is the base class for behaviors that can be attached to
+ |CActiveRecord|. Compared with |CModelBehavior|, CActiveRecordBehavior
+ attaches to more events that are only defined by |CActiveRecord|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CActiveRecordBehavior::afterDelete*				 public
+>
+ afterDelete($event)
+<
+(void)
+
+ Responds to |CActiveRecord::onAfterDelete| event. Overrides this method if
+ you want to handle the corresponding event of the |CBehavior::owner|.
+    [event] (CEvent) event parameter
+
+
+*CActiveRecordBehavior::afterFind*				 public
+>
+ afterFind($event)
+<
+(void)
+
+ Responds to |CActiveRecord::onAfterFind| event. Overrides this method if you
+ want to handle the corresponding event of the |CBehavior::owner|.
+    [event] (CEvent) event parameter
+
+
+*CActiveRecordBehavior::afterSave*				 public
+>
+ afterSave($event)
+<
+(void)
+
+ Responds to |CActiveRecord::onAfterSave| event. Overrides this method if you
+ want to handle the corresponding event of the |CBehavior::owner|.
+    [event] (CModelEvent) event parameter
+
+
+*CActiveRecordBehavior::beforeDelete*				 public
+>
+ beforeDelete($event)
+<
+(void)
+
+ Responds to |CActiveRecord::onBeforeDelete| event. Overrides this method if
+ you want to handle the corresponding event of the |CBehavior::owner|. You may
+ set |CModelEvent::isValid| to be false to quit the deletion process.
+    [event] (CEvent) event parameter
+
+
+*CActiveRecordBehavior::beforeFind*				 public
+>
+ beforeFind($event)
+<
+(void)
+
+ Responds to |CActiveRecord::onBeforeFind| event. Overrides this method if you
+ want to handle the corresponding event of the |CBehavior::owner|.
+    [event] (CEvent) event parameter
+
+
+*CActiveRecordBehavior::beforeSave*				 public
+>
+ beforeSave($event)
+<
+(void)
+
+ Responds to |CActiveRecord::onBeforeSave| event. Overrides this method if you
+ want to handle the corresponding event of the |CBehavior::owner|. You may set
+ |CModelEvent::isValid| to be false to quit the saving process.
+    [event] (CModelEvent) event parameter
+
+
+*CActiveRecordBehavior::events* 				 public
+>
+ events()
+<
+(array) events (array keys) and the corresponding event handler methods (array
+values).
+
+ Declares events and the corresponding event handler methods. If you override
+ this method, make sure you merge the parent result to the return value.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

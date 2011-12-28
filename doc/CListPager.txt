@@ -1,0 +1,65 @@
+
+*CListPager*   >> |CBasePager| >> |CWidget| >> |CBaseController| >> |CComponent|
+============
+
+ CListPager displays a dropdown list that contains options leading to
+ different pages of target.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<footer>				*CListPager::footer*
+ (string) the text shown after page buttons.
+
+<header>				*CListPager::header*
+ (string) the text shown before page buttons. Defaults to 'Go to page: '.
+
+<htmlOptions>				*CListPager::htmlOptions*
+ (array) HTML attributes for the enclosing 'div' tag.
+
+<pageTextFormat>			*CListPager::pageTextFormat*
+ (string) the format string used to generate page selection text. The sprintf
+ function will be used to perform the formatting.
+
+<promptText>				*CListPager::promptText*
+ (string) the text displayed as a prompt option in the dropdown list. Defaults
+ to null, meaning no prompt.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CListPager::generatePageText*					 protected
+>
+ generatePageText($page)
+<
+(string) the list option for the page number
+
+ Generates the list option for the specified page number. You may override
+ this method to customize the option display.
+    [page] (integer) zero-based page number
+
+
+*CListPager::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the pager by setting some default property values.
+
+
+*CListPager::run*						 public
+>
+ run()
+<
+(void)
+
+ Executes the widget. This overrides the parent implementation by displaying
+ the generated page buttons.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

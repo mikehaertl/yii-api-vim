@@ -1,0 +1,208 @@
+
+*CPgsqlSchema*   >> |CDbSchema| >> |CComponent|
+==============
+
+ CPgsqlSchema is the class for retrieving metadata information from a
+ PostgreSQL database.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<columnTypes>				*CPgsqlSchema::columnTypes*
+ (array) the abstract column types mapped to physical column types.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CPgsqlSchema::addColumn*					 public
+>
+ addColumn($table, $column, $type)
+<
+(string) the SQL statement for adding a new column.
+
+ Builds a SQL statement for adding a new DB column.
+    [table] (string) the table that the new column will be added to. The table
+    name will be properly quoted by the method.
+    [column] (string) the name of the new column. The name will be properly
+    quoted by the method.
+    [type] (string) the column type. The |CPgsqlSchema::getColumnType| method
+    will be invoked to convert abstract column type (if any) into the physical
+    one. Anything that is not recognized as abstract type will be kept in the
+    generated SQL. For example, 'string' will be turned into 'varchar(255)',
+    while 'string not null' will become 'varchar(255) not null'.
+
+
+*CPgsqlSchema::alterColumn*					 public
+>
+ alterColumn($table, $column, $type)
+<
+(string) the SQL statement for changing the definition of a column.
+
+ Builds a SQL statement for changing the definition of a column.
+    [table] (string) the table whose column is to be changed. The table name
+    will be properly quoted by the method.
+    [column] (string) the name of the column to be changed. The name will be
+    properly quoted by the method.
+    [type] (string) the new column type. The |CPgsqlSchema::getColumnType|
+    method will be invoked to convert abstract column type (if any) into the
+    physical one. Anything that is not recognized as abstract type will be
+    kept in the generated SQL. For example, 'string' will be turned into
+    'varchar(255)', while 'string not null' will become 'varchar(255) not
+    null'.
+
+
+*CPgsqlSchema::checkIntegrity*					 public
+>
+ checkIntegrity($check=true, $schema='')
+<
+(void)
+
+ Enables or disables integrity check.
+    [check] (boolean) whether to turn on or off the integrity check.
+    [schema] (string) the schema of the tables. Defaults to empty string,
+    meaning the current or default schema.
+
+
+*CPgsqlSchema::createColumn*					 protected
+>
+ createColumn($column)
+<
+(CDbColumnSchema) normalized column metadata
+
+ Creates a table column.
+    [column] (array) column metadata
+
+
+*CPgsqlSchema::dropIndex*					 public
+>
+ dropIndex($name, $table)
+<
+(string) the SQL statement for dropping an index.
+
+ Builds a SQL statement for dropping an index.
+    [name] (string) the name of the index to be dropped. The name will be
+    properly quoted by the method.
+    [table] (string) the table whose index is to be dropped. The name will be
+    properly quoted by the method.
+
+
+*CPgsqlSchema::findColumns*					 protected
+>
+ findColumns($table)
+<
+(boolean) whether the table exists in the database
+
+ Collects the table column metadata.
+    [table] (CPgsqlTableSchema) the table metadata
+
+
+*CPgsqlSchema::findConstraints* 				 protected
+>
+ findConstraints($table)
+<
+(void)
+
+ Collects the primary and foreign key column details for the given table.
+    [table] (CPgsqlTableSchema) the table metadata
+
+
+*CPgsqlSchema::findForeignKey*					 protected
+>
+ findForeignKey($table, $src)
+<
+(void)
+
+ Collects foreign key information.
+    [table] (CPgsqlTableSchema) the table metadata
+    [src] (string) pgsql foreign key definition
+
+
+*CPgsqlSchema::findPrimaryKey*					 protected
+>
+ findPrimaryKey($table, $indices)
+<
+(void)
+
+ Collects primary key information.
+    [table] (CPgsqlTableSchema) the table metadata
+    [indices] (string) pgsql primary key index list
+
+
+*CPgsqlSchema::findTableNames*					 protected
+>
+ findTableNames($schema='')
+<
+(array) all table names in the database.
+
+ Returns all table names in the database.
+    [schema] (string) the schema of the tables. Defaults to empty string,
+    meaning the current or default schema. If not empty, the returned table
+    names will be prefixed with the schema name.
+
+
+*CPgsqlSchema::loadTable*					 protected
+>
+ loadTable($name)
+<
+(CDbTableSchema) driver dependent table metadata.
+
+ Loads the metadata for the specified table.
+    [name] (string) table name
+
+
+*CPgsqlSchema::quoteSimpleTableName*				 public
+>
+ quoteSimpleTableName($name)
+<
+(string) the properly quoted table name
+
+ Quotes a table name for use in a query. A simple table name does not schema
+ prefix.
+    [name] (string) table name
+
+
+*CPgsqlSchema::renameTable*					 public
+>
+ renameTable($table, $newName)
+<
+(string) the SQL statement for renaming a DB table.
+
+ Builds a SQL statement for renaming a DB table.
+    [table] (string) the table to be renamed. The name will be properly quoted
+    by the method.
+    [newName] (string) the new table name. The name will be properly quoted by
+    the method.
+
+
+*CPgsqlSchema::resetSequence*					 public
+>
+ resetSequence($table, $value=NULL)
+<
+(void)
+
+ Resets the sequence value of a table's primary key. The sequence will be
+ reset such that the primary key of the next new row inserted will have the
+ specified value or 1.
+    [table] (CDbTableSchema) the table schema whose primary key sequence will
+    be reset
+    [value] (mixed) the value for the primary key of the next new row
+    inserted. If this is not set, the next new row's primary key will have a
+    value 1.
+
+
+*CPgsqlSchema::resolveTableNames*				 protected
+>
+ resolveTableNames($table, $name)
+<
+(void)
+
+ Generates various kinds of table names.
+    [table] (CPgsqlTableSchema) the table instance
+    [name] (string) the unquoted table name
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

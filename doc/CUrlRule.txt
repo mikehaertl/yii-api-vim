@@ -1,0 +1,118 @@
+
+*CUrlRule*   >> |CComponent|
+==========
+
+ CUrlRule represents a URL formatting/parsing rule.
+
+ It mainly consists of two parts: route and pattern. The former classifies the
+ rule so that it only applies to specific controller-action route. The latter
+ performs the actual formatting and parsing role. The pattern may have a set
+ of named parameters.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<append>				*CUrlRule::append*
+ (boolean) whether the URL allows additional parameters at the end of the path
+ info.
+
+<caseSensitive> 			*CUrlRule::caseSensitive*
+ (boolean) whether the rule is case sensitive. Defaults to null, meaning using
+ the value of |CUrlManager::caseSensitive|.
+
+<defaultParams> 			*CUrlRule::defaultParams*
+ (array) the default GET parameters (name=>value) that this rule provides.
+ When this rule is used to parse the incoming request, the values declared in
+ this property will be injected into $_GET.
+
+<hasHostInfo>				*CUrlRule::hasHostInfo*
+ (boolean) whether host info should be considered for this rule
+
+<matchValue>				*CUrlRule::matchValue*
+ (boolean) whether the GET parameter values should match the corresponding
+ sub-patterns in the rule when creating a URL. Defaults to null, meaning using
+ the value of |CUrlManager::matchValue|. When this property is false, it means
+ a rule will be used for creating a URL if its route and parameter names match
+ the given ones. If this property is set true, then the given parameter values
+ must also match the corresponding parameter sub-patterns. Note that setting
+ this property to true will degrade performance.
+
+<params>				*CUrlRule::params*
+ (array) list of parameters (name=>regular expression)
+
+<parsingOnly>				*CUrlRule::parsingOnly*
+ (boolean) whether this rule is only used for request parsing. Defaults to
+ false, meaning the rule is used for both URL parsing and creation.
+
+<pattern>				*CUrlRule::pattern*
+ (string) regular expression used to parse a URL
+
+<references>				*CUrlRule::references*
+ (array) the mapping from route param name to token name (e.g. _r1=><1>)
+
+<route> 				*CUrlRule::route*
+ (string) the controller/action pair
+
+<routePattern>				*CUrlRule::routePattern*
+ (string) the pattern used to match route
+
+<template>				*CUrlRule::template*
+ (string) template used to construct a URL
+
+<urlSuffix>				*CUrlRule::urlSuffix*
+ (string) the URL suffix used for this rule. For example, ".html" can be used
+ so that the URL looks like pointing to a static HTML page. Defaults to null,
+ meaning using the value of |CUrlManager::urlSuffix|.
+
+<verb>					*CUrlRule::verb*
+ (string) the HTTP verb (e.g. GET, POST, DELETE) that this rule should match.
+ If this rule can match multiple verbs, please separate them with commas. If
+ this property is not set, the rule can match any verb. Note that this
+ property is only used when parsing a request. It is ignored for URL creation.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CUrlRule::__construct* 					 public
+>
+ __construct($route, $pattern)
+<
+(void)
+
+ Constructor.
+    [route] (string) the route of the URL (controller/action)
+    [pattern] (string) the pattern for matching the URL
+
+
+*CUrlRule::createUrl*						 public
+>
+ createUrl($manager, $route, $params, $ampersand)
+<
+(mixed) the constructed URL or false on error
+
+ Creates a URL based on this rule.
+    [manager] (CUrlManager) the manager
+    [route] (string) the route
+    [params] (array) list of parameters
+    [ampersand] (string) the token separating name-value pairs in the URL.
+
+
+*CUrlRule::parseUrl*						 public
+>
+ parseUrl($manager, $request, $pathInfo, $rawPathInfo)
+<
+(mixed) the route that consists of the controller ID and action ID or false on
+error
+
+ Parases a URL based on this rule.
+    [manager] (CUrlManager) the URL manager
+    [request] (CHttpRequest) the request object
+    [pathInfo] (string) path info part of the URL
+    [rawPathInfo] (string) path info that contains the potential URL suffix
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

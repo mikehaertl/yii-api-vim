@@ -1,0 +1,9 @@
+
+*CException*   >> |Exception|
+============
+
+ CException represents a generic exception for all purposes.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

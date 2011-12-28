@@ -1,0 +1,276 @@
+
+*CDateFormatter*   >> |CComponent|
+================
+
+ CDateFormatter provides date/time localization functionalities.
+
+ CDateFormatter allows you to format dates and times in a locale-sensitive
+ manner. Patterns are interpreted in the locale that the CDateFormatter
+ instance is associated with. For example, month names and weekday names may
+ vary under different locales, which yields different formatting results. The
+ patterns that CDateFormatter recognizes are as defined in 'CLDR'.
+
+ CDateFormatter supports predefined patterns as well as customized ones:
+   The method |CDateFormatter::formatDateTime| formats date or time
+   or both using   predefined patterns which include 'full', 'long',
+   'medium' (default) and 'short'.
+   The method |CDateFormatter::format| formats datetime using the
+   specified pattern.   See
+   'http://www.unicode.org/reports/tr35/#Date_Format_Patterns' for  
+   details about the recognized pattern characters.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDateFormatter::__construct*					 public
+>
+ __construct($locale)
+<
+(void)
+
+ Constructor.
+    [locale] (mixed) locale ID (string) or CLocale instance
+
+
+*CDateFormatter::format*					 public
+>
+ format($pattern, $time)
+<
+(string) formatted date time.
+
+ Formats a date according to a customized pattern.
+    [pattern] (string) the pattern (See
+    'http://www.unicode.org/reports/tr35/#Date_Format_Patterns')
+    [time] (mixed) UNIX timestamp or a string in strtotime format
+
+
+*CDateFormatter::formatDateTime*				 public
+>
+ formatDateTime($timestamp, $dateWidth='medium', $timeWidth='medium')
+<
+(string) formatted date time.
+
+ Formats a date according to a predefined pattern. The predefined pattern is
+ determined based on the date pattern width and time pattern width.
+    [timestamp] (mixed) UNIX timestamp or a string in strtotime format
+    [dateWidth] (string) width of the date pattern. It can be 'full', 'long',
+    'medium' and 'short'. If null, it means the date portion will NOT appear
+    in the formatting result
+    [timeWidth] (string) width of the time pattern. It can be 'full', 'long',
+    'medium' and 'short'. If null, it means the time portion will NOT appear
+    in the formatting result
+
+
+*CDateFormatter::formatDay*					 protected
+>
+ formatDay($pattern, $date)
+<
+(string) day of the month
+
+ Get the day of the month. "d" for non-padding, "dd" will always return 2
+ digits day numbers, e.g. 05.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatDayInMonth*				 protected
+>
+ formatDayInMonth($pattern, $date)
+<
+(integer) day in month
+
+ Get day of week in the month, e.g. 2nd Wed in July.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatDayInWeek*				 protected
+>
+ formatDayInWeek($pattern, $date)
+<
+(string) day of the week.
+
+ Get the day of the week. "E", "EE", "EEE" will return abbreviated week day
+ name, e.g. "Tues"; "EEEE" will return full week day name; "EEEEE" will return
+ the narrow week day name, e.g. "T";
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatDayInYear*				 protected
+>
+ formatDayInYear($pattern, $date)
+<
+(integer) hours in AM/PM format.
+
+ Get the day in the year, e.g. [1-366]
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatEra*					 protected
+>
+ formatEra($pattern, $date)
+<
+(string) era
+
+ Get the era. i.e. in gregorian, year > 0 is AD, else BC.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatHour12*					 protected
+>
+ formatHour12($pattern, $date)
+<
+(string) hours in 12 hour format.
+
+ Get the hours in 12 hour format, i.e., [1-12] "h" for non-padding, "hh" will
+ always return 2 characters.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatHour24*					 protected
+>
+ formatHour24($pattern, $date)
+<
+(string) hours in 24 hour format.
+
+ Get the hours in 24 hour format, i.e. [0-23]. "H" for non-padding, "HH" will
+ always return 2 characters.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatHourInDay*				 protected
+>
+ formatHourInDay($pattern, $date)
+<
+(integer) hours [1-24]
+
+ Get the hours [1-24]. 'k' for non-padding, and 'kk' with 2 characters
+ padding.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatHourInPeriod*				 protected
+>
+ formatHourInPeriod($pattern, $date)
+<
+(integer) hours in AM/PM format.
+
+ Get the hours in AM/PM format, e.g [0-11] "K" for non-padding, "KK" will
+ always return 2 characters.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatMinutes* 				 protected
+>
+ formatMinutes($pattern, $date)
+<
+(string) minutes.
+
+ Get the minutes. "m" for non-padding, "mm" will always return 2 characters.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatMonth*					 protected
+>
+ formatMonth($pattern, $date)
+<
+(string) month name
+
+ Get the month. "M" will return integer 1 through 12; "MM" will return two
+ digits month number with necessary zero padding, e.g. 05; "MMM" will return
+ the abrreviated month name, e.g. "Jan"; "MMMM" will return the full month
+ name, e.g. "January"; "MMMMM" will return the narrow month name, e.g. "J";
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatPeriod*					 protected
+>
+ formatPeriod($pattern, $date)
+<
+(string) AM or PM designator
+
+ Get the AM/PM designator, 12 noon is PM, 12 midnight is AM.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatSeconds* 				 protected
+>
+ formatSeconds($pattern, $date)
+<
+(string) seconds
+
+ Get the seconds. "s" for non-padding, "ss" will always return 2 characters.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatTimeZone*				 protected
+>
+ formatTimeZone($pattern, $date)
+<
+(string) time zone
+
+ Get the timezone of the server machine.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatWeekInMonth*				 protected
+>
+ formatWeekInMonth($pattern, $date)
+<
+(integer) week in month
+
+ Get week in the month.
+    [pattern] (array) result of |CTimestamp::getdate|.
+    [date] (string) a pattern.
+
+
+*CDateFormatter::formatWeekInYear*				 protected
+>
+ formatWeekInYear($pattern, $date)
+<
+(integer) week in year
+
+ Get the week in the year.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::formatYear*					 protected
+>
+ formatYear($pattern, $date)
+<
+(string) formatted year
+
+ Get the year. "yy" will return the last two digits of year. "y...y" will pad
+ the year with 0 in the front, e.g. "yyyyy" will generate "02008" for year
+ 2008.
+    [pattern] (string) a pattern.
+    [date] (array) result of |CTimestamp::getdate|.
+
+
+*CDateFormatter::parseFormat*					 protected
+>
+ parseFormat($pattern)
+<
+(array) tokenized parsing result
+
+ Parses the datetime format pattern.
+    [pattern] (string) the pattern to be parsed
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

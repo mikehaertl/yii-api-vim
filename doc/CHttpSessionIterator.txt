@@ -1,0 +1,75 @@
+
+*CHttpSessionIterator*  
+======================
+
+ CHttpSessionIterator implements an interator for |CHttpSession|.
+
+ It allows CHttpSession to return a new iterator for traversing the session
+ variables.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CHttpSessionIterator::__construct*				 public
+>
+ __construct()
+<
+(void)
+
+ Constructor.
+
+
+*CHttpSessionIterator::current* 				 public
+>
+ current()
+<
+(mixed) the current array element
+
+ Returns the current array element. This method is required by the interface
+ Iterator.
+
+
+*CHttpSessionIterator::key*					 public
+>
+ key()
+<
+(mixed) the key of the current array element
+
+ Returns the key of the current array element. This method is required by the
+ interface Iterator.
+
+
+*CHttpSessionIterator::next*					 public
+>
+ next()
+<
+(void)
+
+ Moves the internal pointer to the next array element. This method is required
+ by the interface Iterator.
+
+
+*CHttpSessionIterator::rewind*					 public
+>
+ rewind()
+<
+(void)
+
+ Rewinds internal array pointer. This method is required by the interface
+ Iterator.
+
+
+*CHttpSessionIterator::valid*					 public
+>
+ valid()
+<
+(boolean) 
+
+ Returns whether there is an element at current position. This method is
+ required by the interface Iterator.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

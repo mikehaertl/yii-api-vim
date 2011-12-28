@@ -1,0 +1,106 @@
+
+*CDataColumn*   >> |CGridColumn| >> |CComponent|
+=============
+
+ CDataColumn represents a grid view column that is associated with a data
+ attribute or expression.
+
+ Either |CDataColumn::name| or |CDataColumn::value| should be specified. The
+ former specifies a data attribute name, while the latter a PHP expression
+ whose value should be rendered instead.
+
+ The property |CDataColumn::sortable| determines whether the grid view can be
+ sorted according to this column. Note that the |CDataColumn::name| should
+ always be set if the column needs to be sortable. The |CDataColumn::name|
+ value will be used by |CSort| to render a clickable link in the header cell
+ to trigger the sorting.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<filter>				*CDataColumn::filter*
+ (mixed) the HTML code representing a filter input (e.g. a text field, a
+ dropdown list) that is used for this data column. This property is effective
+ only when CGridView::enableFiltering is set true. If this property is not
+ set, a text field will be generated as the filter input; If this property is
+ an array, a dropdown list will be generated that uses this property value as
+ the list options.
+
+<name>					*CDataColumn::name*
+ (string) the attribute name of the data model. The corresponding attribute
+ value will be rendered in each data cell. If |CDataColumn::value| is
+ specified, this property will be ignored unless the column needs to be
+ sortable or filtered.
+
+<sortable>				*CDataColumn::sortable*
+ (boolean) whether the column is sortable. If so, the header cell will contain
+ a link that may trigger the sorting. Defaults to true. Note that if
+ |CDataColumn::name| is not set, or if |CDataColumn::name| is not allowed by
+ |CSort|, this property will be treated as false.
+
+<type>					*CDataColumn::type*
+ (string) the type of the attribute value. This determines how the attribute
+ value is formatted for display. Valid values include those recognizable by
+ |CGridView::formatter|, such as: raw, text, ntext, html, date, time,
+ datetime, boolean, number, email, image, url. For more details, please refer
+ to |CFormatter|. Defaults to 'text' which means the attribute value will be
+ HTML-encoded.
+
+<value> 				*CDataColumn::value*
+ (string) a PHP expression that will be evaluated for every data cell and
+ whose result will be rendered as the content of the data cells. In this
+ expression, the variable '$row' the row number (zero-based); '$data' the data
+ model for the row; and '$this' the column object.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDataColumn::init*						 public
+>
+ init()
+<
+(void)
+
+ Initializes the column.
+
+
+*CDataColumn::renderDataCellContent*				 protected
+>
+ renderDataCellContent($row, $data)
+<
+(void)
+
+ Renders the data cell content. This method evaluates |CDataColumn::value| or
+ |CDataColumn::name| and renders the result.
+    [row] (integer) the row number (zero-based)
+    [data] (mixed) the data associated with the row
+
+
+*CDataColumn::renderFilterCellContent*				 protected
+>
+ renderFilterCellContent()
+<
+(void)
+
+ Renders the filter cell content. This method will render the
+ |CDataColumn::filter| as is if it is a string. If |CDataColumn::filter| is an
+ array, it is assumed to be a list of options, and a dropdown selector will be
+ rendered. Otherwise if |CDataColumn::filter| is not false, a text field is
+ rendered.
+
+
+*CDataColumn::renderHeaderCellContent*				 protected
+>
+ renderHeaderCellContent()
+<
+(void)
+
+ Renders the header cell content. This method will render a link that can
+ trigger the sorting if the column is sortable.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

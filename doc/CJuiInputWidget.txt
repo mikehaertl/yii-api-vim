@@ -1,0 +1,48 @@
+
+*CJuiInputWidget*   >> |CJuiWidget| >> |CWidget| >> |CBaseController| >> |CComponent|
+=================
+
+ CJuiInputWidget is the base class for JUI widgets that can collect user
+ input.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<attribute>				*CJuiInputWidget::attribute*
+ (string) the attribute associated with this widget. The name can contain
+ square brackets (e.g. 'name[1]') which is used to collect tabular data input.
+
+<model> 				*CJuiInputWidget::model*
+ (CModel) the data model associated with this widget.
+
+<name>					*CJuiInputWidget::name*
+ (string) the input name. This must be set if |CJuiInputWidget::model| is not
+ set.
+
+<value> 				*CJuiInputWidget::value*
+ (string) the input value
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CJuiInputWidget::hasModel*					 protected
+>
+ hasModel()
+<
+(boolean) whether this widget is associated with a data model.
+
+
+
+*CJuiInputWidget::resolveNameID*				 protected
+>
+ resolveNameID()
+<
+(array) the name and the ID of the input.
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

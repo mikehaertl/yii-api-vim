@@ -1,0 +1,52 @@
+
+*CMemCacheServerConfiguration*   >> |CComponent|
+==============================
+
+ CMemCacheServerConfiguration represents the configuration data for a single
+ memcache server.
+
+ See 'http://www.php.net/manual/en/function.Memcache-addServer.php' for
+ detailed explanation of each configuration property.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<host>					*CMemCacheServerConfiguration::host*
+ (string) memcache server hostname or IP address
+
+<persistent>				*CMemCacheServerConfiguration::persistent*
+ (boolean) whether to use a persistent connection
+
+<port>					*CMemCacheServerConfiguration::port*
+ (integer) memcache server port
+
+<retryInterval> 			*CMemCacheServerConfiguration::retryInterval*
+ (integer) how often a failed server will be retried (in seconds)
+
+<status>				*CMemCacheServerConfiguration::status*
+ (boolean) if the server should be flagged as online upon a failure
+
+<timeout>				*CMemCacheServerConfiguration::timeout*
+ (integer) value in seconds which will be used for connecting to the server
+
+<weight>				*CMemCacheServerConfiguration::weight*
+ (integer) probability of using this server among all servers.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CMemCacheServerConfiguration::__construct*			 public
+>
+ __construct($config)
+<
+(void)
+
+ Constructor.
+    [config] (array) list of memcache server configurations.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

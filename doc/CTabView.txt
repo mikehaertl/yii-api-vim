@@ -1,0 +1,146 @@
+
+*CTabView*   >> |CWidget| >> |CBaseController| >> |CComponent|
+==========
+
+ CTabView displays contents in multiple tabs.
+
+ At any time, only one tab is visible. Users can click on the tab header to
+ switch to see another tab of content.
+
+ JavaScript is used to control the tab switching. If JavaScript is disabled,
+ CTabView still manages to display the content in a semantically appropriate
+ way.
+
+ To specify contents and their tab structure, configure the |CTabView::tabs|
+ property. The |CTabView::tabs| property takes an array with tab ID being
+ mapped tab definition. Each tab definition is an array of the following
+ structure:
+   {title} the tab title.
+   {content} the content to be displayed in the tab.
+   {view} the name of the view to be displayed in this tab. The view
+   will be rendered using the current controller's
+   |CController::renderPartial| method. When both 'content' and
+   'view' are specified, 'content' will take precedence.
+   {url} a URL that the user browser will be redirected to when
+   clicking on this tab.
+   {data} array (name=>value), this will be passed to the view when
+   'view' is specified.For example, the |CTabView::tabs| property can be
+ configured as follows,
+>
+ array(
+     'tab1'=>array(
+           'title'=>'tab 1 title',
+           'view'=>'view1',
+           'data'=>array('model'=>$model),
+     ),
+     'tab2'=>array(
+           'title'=>'tab 2 title',
+           'url'=>'http://www.yiiframework.com/',
+     ),
+ )
+<
+ By default, the first tab will be activated. To activate a different tab when
+ the page is initially loaded, set |CTabView::activeTab| to be the ID of the
+ desired tab.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<activeTab>				*CTabView::activeTab*
+ (string) the ID of the tab that should be activated when the page is
+ initially loaded. If not set, the first tab will be activated.
+
+<cssFile>				*CTabView::cssFile*
+ (mixed) the CSS file used for the widget. Defaults to null, meaning using the
+ default CSS file included together with the widget. If false, no CSS file
+ will be used. Otherwise, the specified CSS file will be included when using
+ this widget.
+
+<htmlOptions>				*CTabView::htmlOptions*
+ (array) additional HTML options to be rendered in the container tag.
+
+<tabs>					*CTabView::tabs*
+ (array) tab definitions. The array keys are the IDs, and the array values are
+ the corresponding tab contents. Each array value must be an array with the
+ following elements:
+   {title} the tab title. You need to make sure this is HTML-encoded.
+   {content} the content to be displayed in the tab.
+   {view} the name of the view to be displayed in this tab. The view
+   will be rendered using the current controller's
+   |CController::renderPartial| method. When both 'content' and
+   'view' are specified, 'content' will take precedence.
+   {url} a URL that the user browser will be redirected to when
+   clicking on this tab.
+   {data} array (name=>value), this will be passed to the view when
+   'view' is specified. This option is available since version 1.1.1.
+>
+ array(
+     'tab1'=>array(
+           'title'=>'tab 1 title',
+           'view'=>'view1',
+     ),
+     'tab2'=>array(
+           'title'=>'tab 2 title',
+           'url'=>'http://www.yiiframework.com/',
+     ),
+ )
+<
+
+<viewData>				*CTabView::viewData*
+ (array) the data that will be passed to the partial view rendered by each
+ tab.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CTabView::registerClientScript*				 public
+>
+ registerClientScript()
+<
+(void)
+
+ Registers the needed CSS and JavaScript.
+
+
+*CTabView::registerCssFile*					 public
+>
+ registerCssFile($url='')
+<
+(void)
+
+ Registers the needed CSS file.
+    [url] (string) the CSS URL. If null, a default CSS URL will be used.
+
+
+*CTabView::renderBody*						 protected
+>
+ renderBody()
+<
+(void)
+
+ Renders the body part.
+
+
+*CTabView::renderHeader*					 protected
+>
+ renderHeader()
+<
+(void)
+
+ Renders the header part.
+
+
+*CTabView::run* 						 public
+>
+ run()
+<
+(void)
+
+ Runs the widget.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

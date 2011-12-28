@@ -1,0 +1,167 @@
+
+*CLogger*   >> |CComponent|
+=========
+
+ CLogger records log messages in memory.
+
+ CLogger implements the methods to retrieve the messages with various filter
+ conditions, including log levels and log categories.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<autoFlush>				*CLogger::autoFlush*
+ (integer) how many messages should be logged before they are flushed to
+ destinations. Defaults to 10,000, meaning for every 10,000 messages, the
+ |CLogger::flush| method will be automatically invoked once. If this is 0, it
+ means messages will never be flushed automatically.
+
+<executionTime> 			*CLogger::executionTime*
+ (float) Returns the total time for serving the current request. This method
+ calculates the difference between now and the timestamp defined by constant
+ YII_BEGIN_TIME. To estimate the execution time more accurately, the constant
+ should be defined as early as possible (best at the beginning of the entry
+ script.)
+
+<logs>					*CLogger::logs*
+ (array) Retrieves log messages.
+
+ Messages may be filtered by log levels and/or categories. A level filter is
+ specified by a list of levels separated by comma or space (e.g. 'trace,
+ error'). A category filter is similar to level filter (e.g. 'system,
+ system.web'). A difference is that in category filter you can use pattern
+ like 'system.*' to indicate all categories starting with 'system'.
+
+ If you do not specify level filter, it will bring back logs at all levels.
+ The same applies to category filter.
+
+ Level filter and category filter are combinational, i.e., only messages
+ satisfying both filter conditions will be returned.
+
+<memoryUsage>				*CLogger::memoryUsage*
+ (integer) Returns the memory usage of the current application. This method
+ relies on the PHP function memory_get_usage(). If it is not available, the
+ method will attempt to use OS programs to determine the memory usage. A value
+ 0 will be returned if the memory usage can still not be determined.
+
+<profilingResults>			*CLogger::profilingResults*
+ (array) Returns the profiling results. The results may be filtered by token
+ and/or category. If no filter is specified, the returned results would be an
+ array with each element being array($token,$category,$time). If a filter is
+ specified, the results would be an array of timings.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CLogger::flush*						 public
+>
+ flush($dumpLogs=false)
+<
+(void)
+
+ Removes all recorded messages from the memory. This method will raise an
+ |CLogger::onFlush| event. The attached event handlers can process the log
+ messages before they are removed.
+    [dumpLogs] () 
+
+
+*CLogger::getExecutionTime*					 public
+>
+ getExecutionTime()
+<
+(float) the total time for serving the current request.
+
+ Returns the total time for serving the current request. This method
+ calculates the difference between now and the timestamp defined by constant
+ YII_BEGIN_TIME. To estimate the execution time more accurately, the constant
+ should be defined as early as possible (best at the beginning of the entry
+ script.)
+
+
+*CLogger::getLogs*						 public
+>
+ getLogs($levels='', $categories='')
+<
+(array) list of messages. Each array elements represents one message with the
+following structure: array(   [0] => message (string)   [1] => level (string) 
+ [2] => category (string)   [3] => timestamp (float, obtained by
+microtime(true));
+
+ Retrieves log messages.
+
+ Messages may be filtered by log levels and/or categories. A level filter is
+ specified by a list of levels separated by comma or space (e.g. 'trace,
+ error'). A category filter is similar to level filter (e.g. 'system,
+ system.web'). A difference is that in category filter you can use pattern
+ like 'system.*' to indicate all categories starting with 'system'.
+
+ If you do not specify level filter, it will bring back logs at all levels.
+ The same applies to category filter.
+
+ Level filter and category filter are combinational, i.e., only messages
+ satisfying both filter conditions will be returned.
+    [levels] (string) level filter
+    [categories] (string) category filter
+
+
+*CLogger::getMemoryUsage*					 public
+>
+ getMemoryUsage()
+<
+(integer) memory usage of the application (in bytes).
+
+ Returns the memory usage of the current application. This method relies on
+ the PHP function memory_get_usage(). If it is not available, the method will
+ attempt to use OS programs to determine the memory usage. A value 0 will be
+ returned if the memory usage can still not be determined.
+
+
+*CLogger::getProfilingResults*					 public
+>
+ getProfilingResults($token='', $category='', $refresh=false)
+<
+(array) the profiling results.
+
+ Returns the profiling results. The results may be filtered by token and/or
+ category. If no filter is specified, the returned results would be an array
+ with each element being array($token,$category,$time). If a filter is
+ specified, the results would be an array of timings.
+    [token] (string) token filter. Defaults to null, meaning not filtered by
+    token.
+    [category] (string) category filter. Defaults to null, meaning not
+    filtered by category.
+    [refresh] (boolean) whether to refresh the internal timing calculations.
+    If false, only the first time calling this method will the timings be
+    calculated internally.
+
+
+*CLogger::log*							 public
+>
+ log($message, $level='info', $category='application')
+<
+(void)
+
+ Logs a message. Messages logged by this method may be retrieved back via
+ |CLogger::getLogs|.
+    [message] (string) message to be logged
+    [level] (string) level of the message (e.g. 'Trace', 'Warning', 'Error').
+    It is case-insensitive.
+    [category] (string) category of the message (e.g. 'system.web'). It is
+    case-insensitive.
+
+
+*CLogger::onFlush*						 public
+>
+ onFlush($event)
+<
+(void)
+
+ Raises an 'onFlush' event.
+    [event] (CEvent) the event parameter
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:
