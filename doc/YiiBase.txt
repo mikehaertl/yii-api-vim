@@ -15,6 +15,12 @@ PROPERTY DETAILS
  (array) class map used by the Yii autoloading mechanism. The array keys are
  the class names and the array values are the corresponding class file paths.
 
+<enableIncludePath>			*YiiBase::enableIncludePath*
+ (boolean) whether to rely on PHP include path to autoload class files.
+ Defaults to true. You may set this to be false if your hosting environment
+ doesn't allow changing PHP include path, or if you want to append additional
+ autoloaders to the default Yii autoloader.
+
 
 
 METHOD DETAILS
@@ -105,7 +111,7 @@ created yet.
 >
  createConsoleApplication($config=NULL)
 <
-(void)
+(CConsoleApplication) 
 
  Creates a console application instance.
     [config] (mixed) application configuration. If a string, it is treated as
@@ -120,7 +126,7 @@ created yet.
 >
  createWebApplication($config=NULL)
 <
-(void)
+(CWebApplication) 
 
  Creates a Web application instance.
     [config] (mixed) application configuration. If a string, it is treated as
@@ -249,7 +255,7 @@ Powered-by-Yii information
 
 *YiiBase::registerAutoloader*					 public
 >
- registerAutoloader($callback)
+ registerAutoloader($callback, $append=false)
 <
 (void)
 
@@ -257,6 +263,8 @@ Powered-by-Yii information
  |YiiBase::autoload| and after any other existing autoloaders.
     [callback] (callback) a valid PHP callback (function name or
     array($className,$methodName)).
+    [append] (boolean) whether to append the new autoloader after the default
+    Yii autoloader.
 
 
 *YiiBase::setApplication*					 public
@@ -271,6 +279,16 @@ Powered-by-Yii information
  To retrieve the application instance, use |YiiBase::app|.
     [app] (CApplication) the application instance. If this is null, the
     existing application singleton will be removed.
+
+
+*YiiBase::setLogger*						 public
+>
+ setLogger($logger)
+<
+(void)
+
+ Sets the logger object.
+    [logger] (CLogger) the logger object.
 
 
 *YiiBase::setPathOfAlias*					 public

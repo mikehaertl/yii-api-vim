@@ -15,14 +15,16 @@ METHOD DETAILS
 <
 (void)
 
-    [defaultValue] () 
+ Extracts the default value for the column. The value is typecasted to correct
+ PHP type.
+    [defaultValue] (mixed) the default value obtained from metadata
 
 
 *COciColumnSchema::extractOraType*				 protected
 >
  extractOraType($dbType)
 <
-(void)
+(string) 
 
  Extracts the PHP type from DB type.
     [dbType] (string) DB type

@@ -62,7 +62,7 @@ METHOD DETAILS
 >
  actions()
 <
-(void)
+(array) 
 
  Returns a list of actions that are used by this widget. The structure of this
  method's return value is similar to that returned by |CController::actions|.

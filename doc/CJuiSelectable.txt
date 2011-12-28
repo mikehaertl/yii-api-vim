@@ -39,7 +39,7 @@ PROPERTY DETAILS
 
 <tagName>				*CJuiSelectable::tagName*
  (string) the name of the container element that contains all items. Defaults
- to 'ul'.
+ to 'ol'.
 
 
 

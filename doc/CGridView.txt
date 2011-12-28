@@ -104,6 +104,11 @@ PROPERTY DETAILS
   ...
 <
 
+<ajaxUrl>				*CGridView::ajaxUrl*
+ (mixed) the URL for the AJAX requests should be sent to.
+ |CHtml::normalizeUrl| will be called on this property. If not set, the
+ current page URL will be used for AJAX requests.
+
 <ajaxVar>				*CGridView::ajaxVar*
  (string) the name of the GET variable that indicates the request is an AJAX
  request triggered by this widget. Defaults to 'ajax'. This is effective only

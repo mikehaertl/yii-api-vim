@@ -42,7 +42,7 @@ METHOD DETAILS
 >
  count($criteria)
 <
-(void)
+(string) 
 
  This method is internally called.
     [criteria] (CDbCriteria) the query criteria
@@ -52,7 +52,7 @@ METHOD DETAILS
 >
  findAllBySql($sql, $params=array())
 <
-(void)
+(CActiveRecord[]) 
 
  This method is internally called.
     [sql] (string) the SQL statement
@@ -63,7 +63,7 @@ METHOD DETAILS
 >
  findBySql($sql, $params=array())
 <
-(void)
+(CActiveRecord) 
 
  This method is internally called.
     [sql] (string) the SQL statement
@@ -88,8 +88,8 @@ METHOD DETAILS
 <
 (mixed) the query result
 
- Performs the relational query based on the given DB criteria. Do not call
- this method. This method is used internally.
+ Do not call this method. This method is used internally to perform the
+ relational query based on the given DB criteria.
     [criteria] (CDbCriteria) the DB criteria
     [all] (boolean) whether to bring back all records
 

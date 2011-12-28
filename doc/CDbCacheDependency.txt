@@ -50,7 +50,7 @@ METHOD DETAILS
 >
  __sleep()
 <
-(void)
+(array) 
 
  PHP sleep magic method. This method ensures that the database instance is set
  null because it contains resource handles.

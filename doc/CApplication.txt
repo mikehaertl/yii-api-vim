@@ -46,11 +46,19 @@ PROPERTY DETAILS
 <basePath>				*CApplication::basePath*
  (string) Returns the root path of the application.
 
+<baseUrl>				*CApplication::baseUrl*
+ (string) Returns the relative URL for the application. This is a shortcut
+ method to |CHttpRequest::getBaseUrl|.
+
 <cache> 				*CApplication::cache*
  (CCache) Returns the cache component.
 
 <charset>				*CApplication::charset*
  (string) the charset currently used for the application. Defaults to 'UTF-8'.
+
+<controller>				*CApplication::controller*
+ (CController) the currently active controller. Null is returned in this base
+ class.
 
 <coreMessages>				*CApplication::coreMessages*
  (CPhpMessageSource) Returns the core message translations component.
@@ -66,6 +74,9 @@ PROPERTY DETAILS
 
 <extensionPath> 			*CApplication::extensionPath*
  (string) Returns the root directory that holds all third-party extensions.
+
+<homeUrl>				*CApplication::homeUrl*
+ (string) the homepage URL
 
 <id>					*CApplication::id*
  (string) Returns the unique identifier for the application.
@@ -147,6 +158,36 @@ METHOD DETAILS
     [key] (string) the name of the value to be cleared
 
 
+*CApplication::createAbsoluteUrl*				 public
+>
+ createAbsoluteUrl($route, $params=array(), $schema='', $ampersand='&')
+<
+(string) the constructed URL
+
+ Creates an absolute URL based on the given controller and action information.
+    [route] (string) the URL route. This should be in the format of
+    'ControllerID/ActionID'.
+    [params] (array) additional GET parameters (name=>value). Both the name
+    and value will be URL-encoded.
+    [schema] (string) schema to use (e.g. http, https). If empty, the schema
+    used for the current request will be used.
+    [ampersand] (string) the token separating name-value pairs in the URL.
+
+
+*CApplication::createUrl*					 public
+>
+ createUrl($route, $params=array(), $ampersand='&')
+<
+(string) the constructed URL
+
+ Creates a relative URL based on the given controller and action information.
+    [route] (string) the URL route. This should be in the format of
+    'ControllerID/ActionID'.
+    [params] (array) additional GET parameters (name=>value). Both the name
+    and value will be URL-encoded.
+    [ampersand] (string) the token separating name-value pairs in the URL.
+
+
 *CApplication::displayError*					 public
 >
  displayError($code, $message, $file, $line)
@@ -221,6 +262,19 @@ language.
  Returns the root path of the application.
 
 
+*CApplication::getBaseUrl*					 public
+>
+ getBaseUrl($absolute=false)
+<
+(string) the relative URL for the application
+
+ Returns the relative URL for the application. This is a shortcut method to
+ |CHttpRequest::getBaseUrl|.
+    [absolute] (boolean) whether to return an absolute URL. Defaults to false,
+    meaning returning a relative one. This parameter has been available since
+    1.0.2.
+
+
 *CApplication::getCache*					 public
 >
  getCache()
@@ -229,6 +283,15 @@ language.
 enabled.
 
  Returns the cache component.
+
+
+*CApplication::getController*					 public
+>
+ getController()
+<
+(CController) the currently active controller. Null is returned in this base
+class.
+
 
 
 *CApplication::getCoreMessages* 				 public
@@ -290,6 +353,14 @@ enabled.
     [key] (string) the name of the value to be returned
     [defaultValue] (mixed) the default value. If the named global value is not
     found, this will be returned instead.
+
+
+*CApplication::getHomeUrl*					 public
+>
+ getHomeUrl()
+<
+(string) the homepage URL
+
 
 
 *CApplication::getId*						 public
@@ -591,6 +662,15 @@ targeted to. Defaults to the |CApplication::sourceLanguage|.
     [value] (mixed) the global value to be saved. It must be serializable.
     [defaultValue] (mixed) the default value. If the named global value is the
     same as this value, it will be cleared from the current storage.
+
+
+*CApplication::setHomeUrl*					 public
+>
+ setHomeUrl($value)
+<
+(void)
+
+    [value] (string) the homepage URL
 
 
 *CApplication::setId*						 public

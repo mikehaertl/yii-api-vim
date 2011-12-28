@@ -18,14 +18,16 @@ PROPERTY DETAILS
 
 <afterDelete>				*CButtonColumn::afterDelete*
  (string) a javascript function that will be invoked after the delete ajax
- call.
+ call. This property is used only if '$this->buttons['delete']['click']' is
+ not set.
 
  The function signature is 'function(link, success, data)'
    'link' references the delete link.<li>'success' status of the ajax call,
  true if the ajax call was successful, false if the ajax call failed.
- <li>'data' the data returned by the server (in case of a successful call).
- Note that if success is true it does not mean that the delete was successful,
- it only means that the ajax call was successful.
+ <li>'data' the data returned by the server in case of a successful call or
+ XHR object in case of error. Note that if success is true it does not mean
+ that the delete was successful, it only means that the ajax call was
+ successful.
 
  Example:
 >
@@ -82,7 +84,8 @@ PROPERTY DETAILS
 <deleteConfirmation>			*CButtonColumn::deleteConfirmation*
  (string) the confirmation message to be displayed when delete button is
  clicked. By setting this property to be false, no confirmation message will
- be displayed.
+ be displayed. This property is used only if
+ '$this->buttons['delete']['click']' is not set.
 
 <footerHtmlOptions>			*CButtonColumn::footerHtmlOptions*
  (array) the HTML options for the footer cell tag.

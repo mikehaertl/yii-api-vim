@@ -15,7 +15,9 @@ METHOD DETAILS
 <
 (void)
 
-    [defaultValue] () 
+ Extracts the default value for the column. The value is typecasted to correct
+ PHP type.
+    [defaultValue] (mixed) the default value obtained from metadata
 
 
 *CMysqlColumnSchema::extractLimit*				 protected

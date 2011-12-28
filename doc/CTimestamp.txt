@@ -35,13 +35,13 @@ METHOD DETAILS
 
 *CTimestamp::formatDate*					 public
 >
- formatDate($fmt, $d=, $is_gmt=false)
+ formatDate($fmt, $d=false, $is_gmt=false)
 <
 (string) formatted date based on timestamp $d
 
  Formats a timestamp to a date string.
     [fmt] (string) format pattern
-    [d] (integer) timestamp
+    [d] (integer|boolean) timestamp
     [is_gmt] (boolean) whether this is a GMT timestamp
 
 
@@ -57,12 +57,13 @@ METHOD DETAILS
 
 *CTimestamp::getDate*						 public
 >
- getDate($d=, $fast=false, $gmt=false)
+ getDate($d=false, $fast=false, $gmt=false)
 <
 (array) an array with date info.
 
  Returns the getdate() array.
-    [d] (integer) original date timestamp. False to use the current timestamp.
+    [d] (integer|boolean) original date timestamp. False to use the current
+    timestamp.
     [fast] (boolean) false to compute the day of the week, default is true
     [gmt] (boolean) true to calculate the GMT dates
 
@@ -89,7 +90,7 @@ METHOD DETAILS
 
 *CTimestamp::getTimestamp*					 public
 >
- getTimestamp($hr, $min, $sec, $mon=, $day=, $year=, $is_gmt=false)
+ getTimestamp($hr, $min, $sec, $mon=false, $day=false, $year=false, $is_gmt=false)
 <
 (integer|float) a timestamp given a local time.
 
@@ -98,9 +99,9 @@ METHOD DETAILS
     [hr] (integer) hour
     [min] (integer) minute
     [sec] (integer) second
-    [mon] (integer) month
-    [day] (integer) day
-    [year] (integer) year
+    [mon] (integer|boolean) month
+    [day] (integer|boolean) day
+    [year] (integer|boolean) year
     [is_gmt] (boolean) whether this is GMT time. If true, gmmktime() will be
     used.
 

@@ -11,6 +11,14 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<autoDump>				*CLogger::autoDump*
+ (boolean) this property will be passed as the parameter to |CLogger::flush|
+ when it is called in |CLogger::log| due to the limit of |CLogger::autoFlush|
+ being reached. By default, this property is false, meaning the filtered
+ messages are still kept in the memory by each log route after calling
+ |CLogger::flush|. If this is true, the filtered messages will be written to
+ the actual medium each time |CLogger::flush| is called within |CLogger::log|.
+
 <autoFlush>				*CLogger::autoFlush*
  (integer) how many messages should be logged before they are flushed to
  destinations. Defaults to 10,000, meaning for every 10,000 messages, the
@@ -65,7 +73,7 @@ METHOD DETAILS
  Removes all recorded messages from the memory. This method will raise an
  |CLogger::onFlush| event. The attached event handlers can process the log
  messages before they are removed.
-    [dumpLogs] () 
+    [dumpLogs] (boolean) whether to process the logs
 
 
 *CLogger::getExecutionTime*					 public

@@ -45,10 +45,6 @@ PROPERTY DETAILS
 <authManager>				*CWebApplication::authManager*
  (IAuthManager) the authorization manager component
 
-<baseUrl>				*CWebApplication::baseUrl*
- (string) Returns the relative URL for the application. This is a shortcut
- method to |CHttpRequest::getBaseUrl|.
-
 <catchAllRequest>			*CWebApplication::catchAllRequest*
  (array) the configuration specifying a controller which should handle all
  user requests. This is mainly used when the application is in maintenance
@@ -100,9 +96,6 @@ PROPERTY DETAILS
 <defaultController>			*CWebApplication::defaultController*
  (string) the route of the default controller, action or module. Defaults to
  'site'.
-
-<homeUrl>				*CWebApplication::homeUrl*
- (string) the homepage URL
 
 <layout>				*CWebApplication::layout*
  (mixed) the application-wide layout. Defaults to 'main' (relative to
@@ -173,22 +166,6 @@ METHOD DETAILS
     [action] (CAction) the action
 
 
-*CWebApplication::createAbsoluteUrl*				 public
->
- createAbsoluteUrl($route, $params=array(), $schema='', $ampersand='&')
-<
-(string) the constructed URL
-
- Creates an absolute URL based on the given controller and action information.
-    [route] (string) the URL route. This should be in the format of
-    'ControllerID/ActionID'.
-    [params] (array) additional GET parameters (name=>value). Both the name
-    and value will be URL-encoded.
-    [schema] (string) schema to use (e.g. http, https). If empty, the schema
-    used for the current request will be used.
-    [ampersand] (string) the token separating name-value pairs in the URL.
-
-
 *CWebApplication::createController*				 public
 >
  createController($route, $owner=NULL)
@@ -219,28 +196,14 @@ class does not exist or the route is invalid.
     Defaults to null, meaning the application instance is the owner.
 
 
-*CWebApplication::createUrl*					 public
->
- createUrl($route, $params=array(), $ampersand='&')
-<
-(string) the constructed URL
-
- Creates a relative URL based on the given controller and action information.
-    [route] (string) the URL route. This should be in the format of
-    'ControllerID/ActionID'.
-    [params] (array) additional GET parameters (name=>value). Both the name
-    and value will be URL-encoded.
-    [ampersand] (string) the token separating name-value pairs in the URL.
-
-
 *CWebApplication::findModule*					 public
 >
  findModule($id)
 <
 (CWebModule) the module that has the specified ID. Null if no module is found.
 
- Searches for a module by its ID. This method is used internally. Do not call
- this method.
+ Do not call this method. This method is used internally to search for a
+ module by its ID.
     [id] (string) module ID
 
 
@@ -258,19 +221,6 @@ class does not exist or the route is invalid.
 <
 (IAuthManager) the authorization manager component
 
-
-
-*CWebApplication::getBaseUrl*					 public
->
- getBaseUrl($absolute=false)
-<
-(string) the relative URL for the application
-
- Returns the relative URL for the application. This is a shortcut method to
- |CHttpRequest::getBaseUrl|.
-    [absolute] (boolean) whether to return an absolute URL. Defaults to false,
-    meaning returning a relative one. This parameter has been available since
-    1.0.2.
 
 
 *CWebApplication::getClientScript*				 public
@@ -296,14 +246,6 @@ class does not exist or the route is invalid.
 <
 (string) the directory that contains the controller classes. Defaults to
 'protected/controllers'.
-
-
-
-*CWebApplication::getHomeUrl*					 public
->
- getHomeUrl()
-<
-(string) the homepage URL
 
 
 
@@ -452,15 +394,6 @@ class does not exist or the route is invalid.
 (void)
 
     [value] (string) the directory that contains the controller classes.
-
-
-*CWebApplication::setHomeUrl*					 public
->
- setHomeUrl($value)
-<
-(void)
-
-    [value] (string) the homepage URL
 
 
 *CWebApplication::setLayoutPath*				 public

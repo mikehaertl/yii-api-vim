@@ -36,13 +36,13 @@ METHOD DETAILS
 
 *CMssqlPdoAdapter::lastInsertId*				 public
 >
- lastInsertId($sequence='')
+ lastInsertId($sequence=NULL)
 <
 (integer) last inserted id
 
  Get the last inserted id value MSSQL doesn't support sequence, so, argument
  is ignored
-    [sequence] (string) sequence name. Defaults to null
+    [sequence] (string|null) sequence name. Defaults to null
 
 
 *CMssqlPdoAdapter::rollBack*					 public

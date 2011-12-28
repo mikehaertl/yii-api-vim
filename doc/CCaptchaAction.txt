@@ -114,12 +114,13 @@ METHOD DETAILS
 
 *CCaptchaAction::getVerifyCode* 				 public
 >
- getVerifyCode($regenerate='')
+ getVerifyCode($regenerate=false)
 <
 (string) the verification code.
 
  Gets the verification code.
-    [regenerate] (string) whether the verification code should be regenerated.
+    [regenerate] (boolean) whether the verification code should be
+    regenerated.
 
 
 *CCaptchaAction::renderImage*					 protected

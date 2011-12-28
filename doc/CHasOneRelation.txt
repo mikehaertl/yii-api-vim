@@ -10,7 +10,7 @@ PROPERTY DETAILS
 
 <through>				*CHasOneRelation::through*
  (string) the name of the relation that should be used as the bridge to this
- relation. Deafults to null, meaning don't use any bridge.
+ relation. Defaults to null, meaning don't use any bridge.
 
 
 

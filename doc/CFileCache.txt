@@ -76,7 +76,7 @@ METHOD DETAILS
  declared in the parent class.
 
 
-*CFileCache::gc*						 protected
+*CFileCache::gc*						 public
 >
  gc($expiredOnly=true, $path='')
 <

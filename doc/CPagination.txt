@@ -72,7 +72,7 @@ PROPERTY DETAILS
  'page'.
 
 <params>				*CPagination::params*
- (array) the additional GET parameters (name=>value) that should be used when
+ (array) of parameters (name=>value) that should be used instead of GET when
  generating pagination URLs. Defaults to null, meaning using the currently
  available GET parameters.
 

@@ -130,6 +130,19 @@ METHOD DETAILS
  'framework/web/js/source' and return the corresponding URL.
 
 
+*CClientScript::getPackageBaseUrl*				 public
+>
+ getPackageBaseUrl($name)
+<
+(string) the base URL for the named package. False is returned if the package
+is not registered yet.
+
+ Returns the base URL for a registered package with the specified name. If
+ needed, this method may publish the assets of the package and returns the
+ published base URL.
+    [name] (string) the package name
+
+
 *CClientScript::isCssFileRegistered*				 public
 >
  isCssFileRegistered($url)
@@ -273,6 +286,17 @@ available since version 1.1.5).
 
  Registers a meta tag that will be inserted in the head section (right before
  the title element) of the resulting page.
+
+ <b>Note:</b> Meta tags with same attributes will be rendered more then once
+ if called with different values.
+
+ <b>Example:</b>
+>
+    $cs->registerMetaTag('example', 'description', null, array('lang' =>
+ 'en'));
+    $cs->registerMetaTag('beispiel', 'description', null, array('lang' =>
+ 'de'));
+<
     [content] (string) content attribute of the meta tag
     [name] (string) name attribute of the meta tag. If null, the attribute
     will not be generated

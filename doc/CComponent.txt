@@ -115,7 +115,7 @@ behavior (since version 1.0.2)
 >
  __isset($name)
 <
-(void)
+(boolean) 
 
  Checks if a property value is null. Do not call this method. This is a PHP
  magic method that we override to allow using isset() to detect if a component
@@ -127,7 +127,7 @@ behavior (since version 1.0.2)
 >
  __set($name, $value)
 <
-(void)
+(mixed) 
 
  Sets value of a component property. Do not call this method. This is a PHP
  magic method that we override to allow using the following syntax to set a
@@ -144,7 +144,7 @@ behavior (since version 1.0.2)
 >
  __unset($name)
 <
-(void)
+(mixed) 
 
  Sets a component property to be null. Do not call this method. This is a PHP
  magic method that we override to allow using unset() to set a component

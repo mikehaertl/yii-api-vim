@@ -11,7 +11,7 @@ PROPERTY DETAILS
 
 <actions>				*CAccessRule::actions*
  (array) list of action IDs that this rule applies to. The comparison is
- case-insensitive.
+ case-insensitive. If no actions are specified, rule applies to all actions.
 
 <allow> 				*CAccessRule::allow*
  (boolean) whether this is an 'allow' rule or 'deny' rule.
@@ -49,7 +49,7 @@ PROPERTY DETAILS
 
 <users> 				*CAccessRule::users*
  (array) list of user names that this rule applies to. The comparison is
- case-insensitive.
+ case-insensitive. If no user names are specified, rule applies to all users.
 
 <verbs> 				*CAccessRule::verbs*
  (array) list of request types (e.g. GET, POST) that this rule applies to.

@@ -2,7 +2,7 @@
 *CJuiSortable*   >> |CJuiWidget| >> |CWidget| >> |CBaseController| >> |CComponent|
 ==============
 
- CJuiSortable displays an accordion widget.
+ CJuiSortable makes selected elements sortable by dragging with the mouse.
 
  CJuiSortable encapsulates the 'JUI Sortable' plugin.
 

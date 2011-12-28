@@ -54,7 +54,7 @@ PROPERTY DETAILS
  Defaults to 'sha1', meaning using SHA1 hash algorithm.
 
 <validation>				*CSecurityManager::validation*
- () This method has been deprecated since version 1.1.3. Please use
+ (string) This method has been deprecated since version 1.1.3. Please use
  |CSecurityManager::hashAlgorithm| instead.
 
 <validationKey> 			*CSecurityManager::validationKey*
@@ -123,7 +123,7 @@ explicitly set, a random one is generated and returned.
 >
  getValidation()
 <
-(void)
+(string) 
 
  This method has been deprecated since version 1.1.3. Please use
  |CSecurityManager::hashAlgorithm| instead.

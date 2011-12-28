@@ -648,6 +648,17 @@ METHOD DETAILS
     [media] (string) the media that this CSS should apply to.
 
 
+*CHtml::decode* 						 public
+>
+ decode($text)
+<
+(string) the decoded data
+
+ Decodes special HTML entities back to the corresponding characters. This is
+ the opposite of |CHtml::encode|.
+    [text] (string) data to be decoded
+
+
 *CHtml::dropDownList*						 public
 >
  dropDownList($name, $select, $data, $htmlOptions=array())

@@ -39,7 +39,7 @@ METHOD DETAILS
 
 *CFileHelper::copyDirectoryRecursive*				 protected
 >
- copyDirectoryRecursive($src, $dst, $base, $fileTypes, $exclude, $level)
+ copyDirectoryRecursive($src, $dst, $base, $fileTypes, $exclude, $level, $options)
 <
 (void)
 
@@ -61,6 +61,10 @@ METHOD DETAILS
     copying all directories and files under the directory; Level 0 means
     copying only the files DIRECTLY under the directory; level N means copying
     those directories that are within N levels.
+    [options] (array) additional options. The following options are supported:
+    newDirMode - the permission to be set for newly copied directories
+    (defaults to 0777); newFileMode - the permission to be set for newly
+    copied files (defaults to the current environment setting).
 
 
 *CFileHelper::findFiles*					 public

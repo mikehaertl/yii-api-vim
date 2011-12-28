@@ -44,7 +44,7 @@ METHOD DETAILS
 >
  filter($logs)
 <
-(void)
+(array) 
 
  Filters the given log messages. This is the main method of CLogFilter. It
  processes the log messages by adding context information, etc.

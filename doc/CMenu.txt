@@ -182,7 +182,7 @@ METHOD DETAILS
 >
  renderMenuItem($item)
 <
-(void)
+(string) 
 
  Renders the content of a menu item. Note that the container and the sub-menus
  are not rendered here.

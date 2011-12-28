@@ -59,6 +59,11 @@ PROPERTY DETAILS
  and pagination should trigger the update of multiple containers' content in
  AJAX fashion, these container IDs may be listed here (separated with comma).
 
+<ajaxUrl>				*CListView::ajaxUrl*
+ (mixed) the URL for the AJAX requests should be sent to.
+ |CHtml::normalizeUrl| will be called on this property. If not set, the
+ current page URL will be used for AJAX requests.
+
 <ajaxVar>				*CListView::ajaxVar*
  (string) the name of the GET variable that indicates the request is an AJAX
  request triggered by this widget. Defaults to 'ajax'. This is effective only

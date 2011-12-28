@@ -635,7 +635,7 @@ to 'protected/views/ControllerID'.
  This method is invoked when the request parameters do not satisfy the
  requirement of the specified action. The default implementation will throw a
  400 HTTP exception.
-    [action] () 
+    [action] (CAction) the action being executed
 
 
 *CController::isCachingStackEmpty*				 public
@@ -786,6 +786,22 @@ partition of output caches.
     to the view script
     [return] (boolean) whether the rendering result should be returned instead
     of being displayed to end users.
+
+
+*CController::renderClip*					 public
+>
+ renderClip($name, $params=array(), $return=false)
+<
+(mixed) either the clip content or null
+
+ Renders a named clip with the supplied parameters. This is similar to
+ directly accessing the |CController::clips| property. The main difference is
+ that it can take an array of named parameters which will replace the
+ corresponding placeholders in the clip.
+    [name] (string) the name of the clip
+    [params] (array) an array of named parameters (name=>value) that should
+    replace their corresponding placeholders in the clip
+    [return] (boolean) whether to return the clip content or echo it.
 
 
 *CController::renderDynamic*					 public

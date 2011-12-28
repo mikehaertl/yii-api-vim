@@ -25,7 +25,7 @@ PROPERTY DETAILS
  this widget.
 
 <markdownParser>			*CMarkdown::markdownParser*
- () Returns the markdown parser instance. This method calls
+ (CMarkdownParser) Returns the markdown parser instance. This method calls
  |CMarkdown::createMarkdownParser| to create the parser instance. Call this
  method multipe times will only return the same instance.
 
@@ -52,7 +52,7 @@ METHOD DETAILS
 >
  getMarkdownParser()
 <
-(void)
+(CMarkdownParser) the parser instance
 
  Returns the markdown parser instance. This method calls
  |CMarkdown::createMarkdownParser| to create the parser instance. Call this

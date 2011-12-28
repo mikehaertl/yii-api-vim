@@ -145,7 +145,7 @@ METHOD DETAILS
  Creates and executes a DELETE SQL statement.
     [table] (string) the table where the data will be deleted from.
     [conditions] (mixed) the conditions that will be put in the WHERE part.
-    Please refer to where on how to specify conditions.
+    Please refer to |CDbCommand::where| on how to specify conditions.
     [params] (array) the parameters to be bound to the query.
 
 
@@ -153,7 +153,7 @@ METHOD DETAILS
 >
  down()
 <
-(void)
+(boolean) 
 
  This method contains the logic to be executed when removing this migration.
  The default implementation throws an exception indicating the migration
@@ -282,7 +282,7 @@ METHOD DETAILS
 >
  safeDown()
 <
-(void)
+(boolean) 
 
  This method contains the logic to be executed when removing this migration.
  This method differs from |CDbMigration::down| in that the DB logic
@@ -295,7 +295,7 @@ METHOD DETAILS
 >
  safeUp()
 <
-(void)
+(boolean) 
 
  This method contains the logic to be executed when applying this migration.
  This method differs from |CDbMigration::up| in that the DB logic implemented
@@ -331,7 +331,7 @@ METHOD DETAILS
 >
  up()
 <
-(void)
+(boolean) 
 
  This method contains the logic to be executed when applying this migration.
  Child classes may implement this method to provide actual migration logic.
@@ -348,7 +348,7 @@ METHOD DETAILS
     [table] (string) the table to be updated.
     [columns] (array) the column data (name=>value) to be updated.
     [conditions] (mixed) the conditions that will be put in the WHERE part.
-    Please refer to where on how to specify conditions.
+    Please refer to |CDbCommand::where| on how to specify conditions.
     [params] (array) the parameters to be bound to the query.
 
 

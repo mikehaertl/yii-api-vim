@@ -168,6 +168,7 @@ CActiveRecord::relations	CActiveRecord.txt	/*CActiveRecord::relations*
 CActiveRecord::resetScope	CActiveRecord.txt	/*CActiveRecord::resetScope*
 CActiveRecord::save	CActiveRecord.txt	/*CActiveRecord::save*
 CActiveRecord::saveAttributes	CActiveRecord.txt	/*CActiveRecord::saveAttributes*
+CActiveRecord::saveCounters	CActiveRecord.txt	/*CActiveRecord::saveCounters*
 CActiveRecord::scopes	CActiveRecord.txt	/*CActiveRecord::scopes*
 CActiveRecord::setAttribute	CActiveRecord.txt	/*CActiveRecord::setAttribute*
 CActiveRecord::setDbCriteria	CActiveRecord.txt	/*CActiveRecord::setDbCriteria*
@@ -219,10 +220,14 @@ CApcCache::setValue	CApcCache.txt	/*CApcCache::setValue*
 CApplication	CApplication.txt	/*CApplication*
 CApplication::__construct	CApplication.txt	/*CApplication::__construct*
 CApplication::basePath	CApplication.txt	/*CApplication::basePath*
+CApplication::baseUrl	CApplication.txt	/*CApplication::baseUrl*
 CApplication::cache	CApplication.txt	/*CApplication::cache*
 CApplication::charset	CApplication.txt	/*CApplication::charset*
 CApplication::clearGlobalState	CApplication.txt	/*CApplication::clearGlobalState*
+CApplication::controller	CApplication.txt	/*CApplication::controller*
 CApplication::coreMessages	CApplication.txt	/*CApplication::coreMessages*
+CApplication::createAbsoluteUrl	CApplication.txt	/*CApplication::createAbsoluteUrl*
+CApplication::createUrl	CApplication.txt	/*CApplication::createUrl*
 CApplication::dateFormatter	CApplication.txt	/*CApplication::dateFormatter*
 CApplication::db	CApplication.txt	/*CApplication::db*
 CApplication::displayError	CApplication.txt	/*CApplication::displayError*
@@ -232,13 +237,16 @@ CApplication::errorHandler	CApplication.txt	/*CApplication::errorHandler*
 CApplication::extensionPath	CApplication.txt	/*CApplication::extensionPath*
 CApplication::findLocalizedFile	CApplication.txt	/*CApplication::findLocalizedFile*
 CApplication::getBasePath	CApplication.txt	/*CApplication::getBasePath*
+CApplication::getBaseUrl	CApplication.txt	/*CApplication::getBaseUrl*
 CApplication::getCache	CApplication.txt	/*CApplication::getCache*
+CApplication::getController	CApplication.txt	/*CApplication::getController*
 CApplication::getCoreMessages	CApplication.txt	/*CApplication::getCoreMessages*
 CApplication::getDateFormatter	CApplication.txt	/*CApplication::getDateFormatter*
 CApplication::getDb	CApplication.txt	/*CApplication::getDb*
 CApplication::getErrorHandler	CApplication.txt	/*CApplication::getErrorHandler*
 CApplication::getExtensionPath	CApplication.txt	/*CApplication::getExtensionPath*
 CApplication::getGlobalState	CApplication.txt	/*CApplication::getGlobalState*
+CApplication::getHomeUrl	CApplication.txt	/*CApplication::getHomeUrl*
 CApplication::getId	CApplication.txt	/*CApplication::getId*
 CApplication::getLanguage	CApplication.txt	/*CApplication::getLanguage*
 CApplication::getLocale	CApplication.txt	/*CApplication::getLocale*
@@ -253,6 +261,7 @@ CApplication::getTimeZone	CApplication.txt	/*CApplication::getTimeZone*
 CApplication::getUrlManager	CApplication.txt	/*CApplication::getUrlManager*
 CApplication::handleError	CApplication.txt	/*CApplication::handleError*
 CApplication::handleException	CApplication.txt	/*CApplication::handleException*
+CApplication::homeUrl	CApplication.txt	/*CApplication::homeUrl*
 CApplication::id	CApplication.txt	/*CApplication::id*
 CApplication::initSystemHandlers	CApplication.txt	/*CApplication::initSystemHandlers*
 CApplication::language	CApplication.txt	/*CApplication::language*
@@ -276,6 +285,7 @@ CApplication::securityManager	CApplication.txt	/*CApplication::securityManager*
 CApplication::setBasePath	CApplication.txt	/*CApplication::setBasePath*
 CApplication::setExtensionPath	CApplication.txt	/*CApplication::setExtensionPath*
 CApplication::setGlobalState	CApplication.txt	/*CApplication::setGlobalState*
+CApplication::setHomeUrl	CApplication.txt	/*CApplication::setHomeUrl*
 CApplication::setId	CApplication.txt	/*CApplication::setId*
 CApplication::setLanguage	CApplication.txt	/*CApplication::setLanguage*
 CApplication::setLocaleDataPath	CApplication.txt	/*CApplication::setLocaleDataPath*
@@ -309,6 +319,8 @@ CAssetManager::getPublishedPath	CAssetManager.txt	/*CAssetManager::getPublishedP
 CAssetManager::getPublishedUrl	CAssetManager.txt	/*CAssetManager::getPublishedUrl*
 CAssetManager::hash	CAssetManager.txt	/*CAssetManager::hash*
 CAssetManager::linkAssets	CAssetManager.txt	/*CAssetManager::linkAssets*
+CAssetManager::newDirMode	CAssetManager.txt	/*CAssetManager::newDirMode*
+CAssetManager::newFileMode	CAssetManager.txt	/*CAssetManager::newFileMode*
 CAssetManager::publish	CAssetManager.txt	/*CAssetManager::publish*
 CAssetManager::setBasePath	CAssetManager.txt	/*CAssetManager::setBasePath*
 CAssetManager::setBaseUrl	CAssetManager.txt	/*CAssetManager::setBaseUrl*
@@ -482,6 +494,10 @@ CBasePager::setCurrentPage	CBasePager.txt	/*CBasePager::setCurrentPage*
 CBasePager::setItemCount	CBasePager.txt	/*CBasePager::setItemCount*
 CBasePager::setPageSize	CBasePager.txt	/*CBasePager::setPageSize*
 CBasePager::setPages	CBasePager.txt	/*CBasePager::setPages*
+CBaseUrlRule	CBaseUrlRule.txt	/*CBaseUrlRule*
+CBaseUrlRule::createUrl	CBaseUrlRule.txt	/*CBaseUrlRule::createUrl*
+CBaseUrlRule::hasHostInfo	CBaseUrlRule.txt	/*CBaseUrlRule::hasHostInfo*
+CBaseUrlRule::parseUrl	CBaseUrlRule.txt	/*CBaseUrlRule::parseUrl*
 CBaseUserIdentity	CBaseUserIdentity.txt	/*CBaseUserIdentity*
 CBaseUserIdentity::clearState	CBaseUserIdentity.txt	/*CBaseUserIdentity::clearState*
 CBaseUserIdentity::errorCode	CBaseUserIdentity.txt	/*CBaseUserIdentity::errorCode*
@@ -656,6 +672,7 @@ CClientScript::css	CClientScript.txt	/*CClientScript::css*
 CClientScript::cssFiles	CClientScript.txt	/*CClientScript::cssFiles*
 CClientScript::enableJavaScript	CClientScript.txt	/*CClientScript::enableJavaScript*
 CClientScript::getCoreScriptUrl	CClientScript.txt	/*CClientScript::getCoreScriptUrl*
+CClientScript::getPackageBaseUrl	CClientScript.txt	/*CClientScript::getPackageBaseUrl*
 CClientScript::hasScripts	CClientScript.txt	/*CClientScript::hasScripts*
 CClientScript::isCssFileRegistered	CClientScript.txt	/*CClientScript::isCssFileRegistered*
 CClientScript::isCssRegistered	CClientScript.txt	/*CClientScript::isCssRegistered*
@@ -887,6 +904,7 @@ CController::recordCachingAction	CController.txt	/*CController::recordCachingAct
 CController::redirect	CController.txt	/*CController::redirect*
 CController::refresh	CController.txt	/*CController::refresh*
 CController::render	CController.txt	/*CController::render*
+CController::renderClip	CController.txt	/*CController::renderClip*
 CController::renderDynamic	CController.txt	/*CController::renderDynamic*
 CController::renderDynamicInternal	CController.txt	/*CController::renderDynamicInternal*
 CController::renderPartial	CController.txt	/*CController::renderPartial*
@@ -1226,6 +1244,7 @@ CDbConnection::lastInsertID	CDbConnection.txt	/*CDbConnection::lastInsertID*
 CDbConnection::nullConversion	CDbConnection.txt	/*CDbConnection::nullConversion*
 CDbConnection::open	CDbConnection.txt	/*CDbConnection::open*
 CDbConnection::password	CDbConnection.txt	/*CDbConnection::password*
+CDbConnection::pdoClass	CDbConnection.txt	/*CDbConnection::pdoClass*
 CDbConnection::pdoInstance	CDbConnection.txt	/*CDbConnection::pdoInstance*
 CDbConnection::persistent	CDbConnection.txt	/*CDbConnection::persistent*
 CDbConnection::prefetch	CDbConnection.txt	/*CDbConnection::prefetch*
@@ -1341,6 +1360,7 @@ CDbHttpSession::getDbConnection	CDbHttpSession.txt	/*CDbHttpSession::getDbConnec
 CDbHttpSession::getUseCustomStorage	CDbHttpSession.txt	/*CDbHttpSession::getUseCustomStorage*
 CDbHttpSession::openSession	CDbHttpSession.txt	/*CDbHttpSession::openSession*
 CDbHttpSession::readSession	CDbHttpSession.txt	/*CDbHttpSession::readSession*
+CDbHttpSession::regenerateID	CDbHttpSession.txt	/*CDbHttpSession::regenerateID*
 CDbHttpSession::sessionTableName	CDbHttpSession.txt	/*CDbHttpSession::sessionTableName*
 CDbHttpSession::useCustomStorage	CDbHttpSession.txt	/*CDbHttpSession::useCustomStorage*
 CDbHttpSession::writeSession	CDbHttpSession.txt	/*CDbHttpSession::writeSession*
@@ -1867,6 +1887,7 @@ CGridView	CGridView.txt	/*CGridView*
 CGridView::afterAjaxUpdate	CGridView.txt	/*CGridView::afterAjaxUpdate*
 CGridView::ajaxUpdate	CGridView.txt	/*CGridView::ajaxUpdate*
 CGridView::ajaxUpdateError	CGridView.txt	/*CGridView::ajaxUpdateError*
+CGridView::ajaxUrl	CGridView.txt	/*CGridView::ajaxUrl*
 CGridView::ajaxVar	CGridView.txt	/*CGridView::ajaxVar*
 CGridView::baseScriptUrl	CGridView.txt	/*CGridView::baseScriptUrl*
 CGridView::beforeAjaxUpdate	CGridView.txt	/*CGridView::beforeAjaxUpdate*
@@ -1947,6 +1968,7 @@ CHtml::closeTag	CHtml.txt	/*CHtml::closeTag*
 CHtml::count	CHtml.txt	/*CHtml::count*
 CHtml::css	CHtml.txt	/*CHtml::css*
 CHtml::cssFile	CHtml.txt	/*CHtml::cssFile*
+CHtml::decode	CHtml.txt	/*CHtml::decode*
 CHtml::dropDownList	CHtml.txt	/*CHtml::dropDownList*
 CHtml::encode	CHtml.txt	/*CHtml::encode*
 CHtml::encodeArray	CHtml.txt	/*CHtml::encodeArray*
@@ -2131,6 +2153,7 @@ CHttpSession::offsetUnset	CHttpSession.txt	/*CHttpSession::offsetUnset*
 CHttpSession::open	CHttpSession.txt	/*CHttpSession::open*
 CHttpSession::openSession	CHttpSession.txt	/*CHttpSession::openSession*
 CHttpSession::readSession	CHttpSession.txt	/*CHttpSession::readSession*
+CHttpSession::regenerateID	CHttpSession.txt	/*CHttpSession::regenerateID*
 CHttpSession::remove	CHttpSession.txt	/*CHttpSession::remove*
 CHttpSession::savePath	CHttpSession.txt	/*CHttpSession::savePath*
 CHttpSession::sessionID	CHttpSession.txt	/*CHttpSession::sessionID*
@@ -2394,6 +2417,7 @@ CListPager::run	CListPager.txt	/*CListPager::run*
 CListView	CListView.txt	/*CListView*
 CListView::afterAjaxUpdate	CListView.txt	/*CListView::afterAjaxUpdate*
 CListView::ajaxUpdate	CListView.txt	/*CListView::ajaxUpdate*
+CListView::ajaxUrl	CListView.txt	/*CListView::ajaxUrl*
 CListView::ajaxVar	CListView.txt	/*CListView::ajaxVar*
 CListView::baseScriptUrl	CListView.txt	/*CListView::baseScriptUrl*
 CListView::beforeAjaxUpdate	CListView.txt	/*CListView::beforeAjaxUpdate*
@@ -2483,6 +2507,7 @@ CLogRouter::processLogs	CLogRouter.txt	/*CLogRouter::processLogs*
 CLogRouter::routes	CLogRouter.txt	/*CLogRouter::routes*
 CLogRouter::setRoutes	CLogRouter.txt	/*CLogRouter::setRoutes*
 CLogger	CLogger.txt	/*CLogger*
+CLogger::autoDump	CLogger.txt	/*CLogger::autoDump*
 CLogger::autoFlush	CLogger.txt	/*CLogger::autoFlush*
 CLogger::executionTime	CLogger.txt	/*CLogger::executionTime*
 CLogger::flush	CLogger.txt	/*CLogger::flush*
@@ -3321,6 +3346,7 @@ CUrlManager::setBaseUrl	CUrlManager.txt	/*CUrlManager::setBaseUrl*
 CUrlManager::setUrlFormat	CUrlManager.txt	/*CUrlManager::setUrlFormat*
 CUrlManager::showScriptName	CUrlManager.txt	/*CUrlManager::showScriptName*
 CUrlManager::urlFormat	CUrlManager.txt	/*CUrlManager::urlFormat*
+CUrlManager::urlRuleClass	CUrlManager.txt	/*CUrlManager::urlRuleClass*
 CUrlManager::urlSuffix	CUrlManager.txt	/*CUrlManager::urlSuffix*
 CUrlManager::useStrictParsing	CUrlManager.txt	/*CUrlManager::useStrictParsing*
 CUrlRule	CUrlRule.txt	/*CUrlRule*
@@ -3400,25 +3426,20 @@ CWebApplication	CWebApplication.txt	/*CWebApplication*
 CWebApplication::afterControllerAction	CWebApplication.txt	/*CWebApplication::afterControllerAction*
 CWebApplication::assetManager	CWebApplication.txt	/*CWebApplication::assetManager*
 CWebApplication::authManager	CWebApplication.txt	/*CWebApplication::authManager*
-CWebApplication::baseUrl	CWebApplication.txt	/*CWebApplication::baseUrl*
 CWebApplication::beforeControllerAction	CWebApplication.txt	/*CWebApplication::beforeControllerAction*
 CWebApplication::catchAllRequest	CWebApplication.txt	/*CWebApplication::catchAllRequest*
 CWebApplication::clientScript	CWebApplication.txt	/*CWebApplication::clientScript*
 CWebApplication::controller	CWebApplication.txt	/*CWebApplication::controller*
 CWebApplication::controllerMap	CWebApplication.txt	/*CWebApplication::controllerMap*
 CWebApplication::controllerPath	CWebApplication.txt	/*CWebApplication::controllerPath*
-CWebApplication::createAbsoluteUrl	CWebApplication.txt	/*CWebApplication::createAbsoluteUrl*
 CWebApplication::createController	CWebApplication.txt	/*CWebApplication::createController*
-CWebApplication::createUrl	CWebApplication.txt	/*CWebApplication::createUrl*
 CWebApplication::defaultController	CWebApplication.txt	/*CWebApplication::defaultController*
 CWebApplication::findModule	CWebApplication.txt	/*CWebApplication::findModule*
 CWebApplication::getAssetManager	CWebApplication.txt	/*CWebApplication::getAssetManager*
 CWebApplication::getAuthManager	CWebApplication.txt	/*CWebApplication::getAuthManager*
-CWebApplication::getBaseUrl	CWebApplication.txt	/*CWebApplication::getBaseUrl*
 CWebApplication::getClientScript	CWebApplication.txt	/*CWebApplication::getClientScript*
 CWebApplication::getController	CWebApplication.txt	/*CWebApplication::getController*
 CWebApplication::getControllerPath	CWebApplication.txt	/*CWebApplication::getControllerPath*
-CWebApplication::getHomeUrl	CWebApplication.txt	/*CWebApplication::getHomeUrl*
 CWebApplication::getLayoutPath	CWebApplication.txt	/*CWebApplication::getLayoutPath*
 CWebApplication::getSession	CWebApplication.txt	/*CWebApplication::getSession*
 CWebApplication::getSystemViewPath	CWebApplication.txt	/*CWebApplication::getSystemViewPath*
@@ -3428,7 +3449,6 @@ CWebApplication::getUser	CWebApplication.txt	/*CWebApplication::getUser*
 CWebApplication::getViewPath	CWebApplication.txt	/*CWebApplication::getViewPath*
 CWebApplication::getViewRenderer	CWebApplication.txt	/*CWebApplication::getViewRenderer*
 CWebApplication::getWidgetFactory	CWebApplication.txt	/*CWebApplication::getWidgetFactory*
-CWebApplication::homeUrl	CWebApplication.txt	/*CWebApplication::homeUrl*
 CWebApplication::init	CWebApplication.txt	/*CWebApplication::init*
 CWebApplication::layout	CWebApplication.txt	/*CWebApplication::layout*
 CWebApplication::layoutPath	CWebApplication.txt	/*CWebApplication::layoutPath*
@@ -3439,7 +3459,6 @@ CWebApplication::runController	CWebApplication.txt	/*CWebApplication::runControl
 CWebApplication::session	CWebApplication.txt	/*CWebApplication::session*
 CWebApplication::setController	CWebApplication.txt	/*CWebApplication::setController*
 CWebApplication::setControllerPath	CWebApplication.txt	/*CWebApplication::setControllerPath*
-CWebApplication::setHomeUrl	CWebApplication.txt	/*CWebApplication::setHomeUrl*
 CWebApplication::setLayoutPath	CWebApplication.txt	/*CWebApplication::setLayoutPath*
 CWebApplication::setSystemViewPath	CWebApplication.txt	/*CWebApplication::setSystemViewPath*
 CWebApplication::setTheme	CWebApplication.txt	/*CWebApplication::setTheme*
@@ -3717,6 +3736,7 @@ YiiBase::createApplication	YiiBase.txt	/*YiiBase::createApplication*
 YiiBase::createComponent	YiiBase.txt	/*YiiBase::createComponent*
 YiiBase::createConsoleApplication	YiiBase.txt	/*YiiBase::createConsoleApplication*
 YiiBase::createWebApplication	YiiBase.txt	/*YiiBase::createWebApplication*
+YiiBase::enableIncludePath	YiiBase.txt	/*YiiBase::enableIncludePath*
 YiiBase::endProfile	YiiBase.txt	/*YiiBase::endProfile*
 YiiBase::getFrameworkPath	YiiBase.txt	/*YiiBase::getFrameworkPath*
 YiiBase::getLogger	YiiBase.txt	/*YiiBase::getLogger*
@@ -3727,6 +3747,7 @@ YiiBase::log	YiiBase.txt	/*YiiBase::log*
 YiiBase::powered	YiiBase.txt	/*YiiBase::powered*
 YiiBase::registerAutoloader	YiiBase.txt	/*YiiBase::registerAutoloader*
 YiiBase::setApplication	YiiBase.txt	/*YiiBase::setApplication*
+YiiBase::setLogger	YiiBase.txt	/*YiiBase::setLogger*
 YiiBase::setPathOfAlias	YiiBase.txt	/*YiiBase::setPathOfAlias*
 YiiBase::t	YiiBase.txt	/*YiiBase::t*
 YiiBase::trace	YiiBase.txt	/*YiiBase::trace*

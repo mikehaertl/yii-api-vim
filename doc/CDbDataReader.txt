@@ -152,7 +152,7 @@ METHOD DETAILS
 >
  nextResult()
 <
-(void)
+(boolean) Returns true on success or false on failure.
 
  Advances the reader to the next result when reading the results of a batch of
  statements. This method is only useful when there are multiple result sets

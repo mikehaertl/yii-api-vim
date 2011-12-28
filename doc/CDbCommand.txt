@@ -121,7 +121,7 @@ METHOD DETAILS
 >
  __sleep()
 <
-(void)
+(array) 
 
  Set the statement to null when serializing.
 
@@ -836,7 +836,7 @@ False is returned if there is no value.
 
 *CDbCommand::select*						 public
 >
- select($columns='*')
+ select($columns='*', $option='')
 <
 (CDbCommand) the command object itself
 
@@ -848,6 +848,9 @@ False is returned if there is no value.
     user_id"). The method will automatically quote the column names unless a
     column contains some parenthesis (which means the column contains a DB
     expression).
+    [option] (string) additional option that should be appended to the
+    'SELECT' keyword. For example, in MySQL, the option 'SQL_CALC_FOUND_ROWS'
+    can be used. This parameter is supported since version 1.1.8.
 
 
 *CDbCommand::selectDistinct*					 public

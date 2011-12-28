@@ -1,5 +1,5 @@
 
-*CUrlRule*   >> |CComponent|
+*CUrlRule*   >> |CBaseUrlRule| >> |CComponent|
 ==========
 
  CUrlRule represents a URL formatting/parsing rule.
@@ -107,7 +107,7 @@ METHOD DETAILS
 (mixed) the route that consists of the controller ID and action ID or false on
 error
 
- Parases a URL based on this rule.
+ Parses a URL based on this rule.
     [manager] (CUrlManager) the URL manager
     [request] (CHttpRequest) the request object
     [pathInfo] (string) path info part of the URL

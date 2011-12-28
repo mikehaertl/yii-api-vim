@@ -92,9 +92,12 @@ PROPERTY DETAILS
 
 <duration>				*COutputCache::duration*
  (integer) number of seconds that the data can remain in cache. Defaults to 60
- seconds. If 0 or negative, it means the cache is disabled. Note, if cache
- dependency changes or cache space is limited, the data may be purged out of
- cache earlier.
+ seconds. If it is 0, existing cached content would be removed from the cache.
+ If it is a negative value, the cache will be disabled (any existing cached
+ content will remain in the cache.)
+
+ Note, if cache dependency changes or cache space is limited, the data may be
+ purged out of cache earlier.
 
 <isContentCached>			*COutputCache::isContentCached*
  (boolean) whether the content can be found from cache

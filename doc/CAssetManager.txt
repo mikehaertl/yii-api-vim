@@ -51,6 +51,16 @@ PROPERTY DETAILS
  Options FollowSymLinks
 <
 
+<newDirMode>				*CAssetManager::newDirMode*
+ (integer) the permission to be set for newly generated asset directories.
+ This value will be used by PHP chmod function. Defaults to 0777, meaning the
+ directory can be read, written and executed by all users.
+
+<newFileMode>				*CAssetManager::newFileMode*
+ (integer) the permission to be set for newly generated asset files. This
+ value will be used by PHP chmod function. Defaults to 0666, meaning the file
+ is read-writable by all users.
+
 
 
 METHOD DETAILS

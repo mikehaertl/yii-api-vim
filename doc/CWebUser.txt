@@ -125,7 +125,7 @@ METHOD DETAILS
 >
  __isset($name)
 <
-(void)
+(boolean) 
 
  PHP magic method. This method is overriden so that persistent states can also
  be checked for null value.

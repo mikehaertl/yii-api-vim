@@ -214,7 +214,7 @@ METHOD DETAILS
  by using the SQL NOT IN operator which requires the specified column value to
  be among the given list of values.
     [column] (string) the column name (or a valid SQL expression)
-    [values] (array) list of values that the column value should be in
+    [values] (array) list of values that the column value should not be in
     [operator] (string) the operator used to concatenate the new condition
     with the existing one. Defaults to 'AND'.
 

@@ -74,7 +74,7 @@
  to be a GET parameter. For example, the URL
  'http://admin.example.com/en/profile' may be parsed into GET parameters
  'user=admin' and 'lang=en'. On the other hand, rules with hostname may also
- be used to create URLs with paratermized hostnames.
+ be used to create URLs with parameterized hostnames.
 
  In order to use parameterized hostnames, simply declare URL rules with host
  info, e.g.:
@@ -83,8 +83,24 @@
      'http://<user:\w+>.example.com/<lang:\w+>/profile' => 'user/profile',
  )
 <
- CUrlManager is a default application component that may be accessed via
- |CWebApplication::getUrlManager|.
+ Starting from version 1.1.8, one can write custom URL rule classes and use
+ them for one or several URL rules. For example,
+>
+ array(
+   // a standard rule
+   '<action:(login|logout)>' => 'site/<action>',
+   // a custom rule using data in DB
+   array(
+     'class' => 'application.components.MyUrlRule',
+     'connectionID' => 'db',
+   ),
+ )
+<
+ Please note that the custom URL rule class should extend from |CBaseUrlRule|
+ and implement the following two methods,
+   |CBaseUrlRule::createUrl|
+   |CBaseUrlRule::parseUrl|CUrlManager is a default application component that
+ may be accessed via |CWebApplication::getUrlManager|.
 
 
 PROPERTY DETAILS
@@ -136,6 +152,12 @@ PROPERTY DETAILS
 
 <urlFormat>				*CUrlManager::urlFormat*
  (string) Returns the URL format.
+
+<urlRuleClass>				*CUrlManager::urlRuleClass*
+ (string) the class name or path alias for the URL rule instances. Defaults to
+ 'CUrlRule'. If you change this to something else, please make sure that the
+ new class must extend from |CBaseUrlRule| and have the same constructor
+ signature as |CUrlRule|. It must also be serializable and autoloadable.
 
 <urlSuffix>				*CUrlManager::urlSuffix*
  (string) the URL suffix used when in 'path' format. For example, ".html" can
@@ -200,7 +222,7 @@ METHOD DETAILS
 <
 (string) the constructed URL
 
- Contructs a URL based on default settings.
+ Creates a URL based on default settings.
     [route] (string) the controller and the action (e.g. article/read)
     [params] (array) list of GET parameters
     [ampersand] (string) the token separating name-value pairs in the URL.

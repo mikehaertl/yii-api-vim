@@ -1,0 +1,53 @@
+
+*CBaseUrlRule*   >> |CComponent|
+==============
+
+ CBaseUrlRule is the base class for a URL rule class.
+
+ Custom URL rule classes should extend from this class and implement two
+ methods: |CBaseUrlRule::createUrl| and |CBaseUrlRule::parseUrl|.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<hasHostInfo>				*CBaseUrlRule::hasHostInfo*
+ (boolean) whether this rule will also parse the host info part. Defaults to
+ false.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CBaseUrlRule::createUrl*					 public
+>
+ createUrl($manager, $route, $params, $ampersand)
+<
+(mixed) the constructed URL. False if this rule does not apply.
+
+ Creates a URL based on this rule.
+    [manager] (CUrlManager) the manager
+    [route] (string) the route
+    [params] (array) list of parameters (name=>value) associated with the
+    route
+    [ampersand] (string) the token separating name-value pairs in the URL.
+
+
+*CBaseUrlRule::parseUrl*					 public
+>
+ parseUrl($manager, $request, $pathInfo, $rawPathInfo)
+<
+(mixed) the route that consists of the controller ID and action ID. False if
+this rule does not apply.
+
+ Parses a URL based on this rule.
+    [manager] (CUrlManager) the URL manager
+    [request] (CHttpRequest) the request object
+    [pathInfo] (string) path info part of the URL (URL suffix is already
+    removed based on |CUrlManager::urlSuffix|)
+    [rawPathInfo] (string) path info that contains the potential URL suffix
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

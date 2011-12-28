@@ -40,7 +40,7 @@ METHOD DETAILS
 >
  create($controller, $action, $filters)
 <
-(void)
+(CFilterChain) 
 
  CFilterChain factory method. This method creates a CFilterChain instance.
     [controller] (CController) the controller who executes the action.

@@ -6,10 +6,10 @@
  information in database.
 
  The database connection is specified by |CDbAuthManager::connectionID|. And
- the database schema should be as described in
- "framework/web/auth/schema.sql". You may change the names of the three tables
- used to store the authorization data by setting |CDbAuthManager::itemTable|,
- |CDbAuthManager::itemChildTable| and |CDbAuthManager::assignmentTable|.
+ the database schema should be as described in "framework/web/auth/*.sql". You
+ may change the names of the three tables used to store the authorization data
+ by setting |CDbAuthManager::itemTable|, |CDbAuthManager::itemChildTable| and
+ |CDbAuthManager::assignmentTable|.
 
 
 PROPERTY DETAILS
@@ -25,7 +25,7 @@ PROPERTY DETAILS
 <connectionID>				*CDbAuthManager::connectionID*
  (string) the ID of the |CDbConnection| application component. Defaults to
  'db'. The database must have the tables as declared in
- "framework/web/auth/schema.sql".
+ "framework/web/auth/*.sql".
 
 <db>					*CDbAuthManager::db*
  (CDbConnection) the database connection. By default, this is initialized

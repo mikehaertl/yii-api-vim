@@ -143,8 +143,9 @@ table.
     [table] (string) the table that the new index will be created for. The
     table name will be properly quoted by the method.
     [column] (string) the column(s) that should be included in the index. If
-    there are multiple columns, please separate them by commas. The column
-    names will be properly quoted by the method.
+    there are multiple columns, please separate them by commas. Each column
+    name will be properly quoted by the method, unless a parenthesis is found
+    in the name.
     [unique] (boolean) whether to add UNIQUE constraint on the created index.
 
 

@@ -123,7 +123,7 @@ METHOD DETAILS
 >
  __sleep()
 <
-(void)
+(array) 
 
  PHP sleep magic method. This method ensures that the model meta data
  reference is set to null.
@@ -146,8 +146,8 @@ METHOD DETAILS
 <
 (void)
 
- Adds a related object to this record. This method is used internally by
- |CActiveFinder| to populate related objects.
+ Do not call this method. This method is used internally by |CActiveFinder| to
+ populate related objects. This method adds a related object to this record.
     [name] (string) attribute name
     [record] (mixed) the related record
     [index] (mixed) the index value in the related object collection. If true,
@@ -732,7 +732,7 @@ will be returned.
 >
  hasRelated($name)
 <
-(booolean) a value indicating whether the named related object(s) has been
+(boolean) a value indicating whether the named related object(s) has been
 loaded.
 
  Returns a value indicating whether the named related object(s) has been
@@ -1044,8 +1044,11 @@ data will be populated to this active record.
    'limit': limit of the rows to be selected. This option does not
    apply to BELONGS_TO relation.
    'offset': offset of the rows to be selected. This option does not
-   apply to BELONGS_TO relation.Below is an example declaring related objects
- for 'Post' active record class:
+   apply to BELONGS_TO relation.
+   'through': name of the model's relation that will be used as a
+   bridge when getting related data. Can be set only for HAS_ONE and
+   HAS_MANY. This option has been available since version 1.1.7.Below is an
+ example declaring related objects for 'Post' active record class:
 >
  return array(
      'author'=>array(self::BELONGS_TO, 'User', 'author_id'),
@@ -1116,6 +1119,24 @@ data will be populated to this active record.
     [attributes] (array) attributes to be updated. Each element represents an
     attribute name or an attribute value indexed by its name. If the latter,
     the record's attribute will be changed accordingly before saving.
+
+
+*CActiveRecord::saveCounters*					 public
+>
+ saveCounters($counters)
+<
+(boolean) whether the saving is successful
+
+ Saves one or several counter columns for the current AR object. Note that
+ this method differs from |CActiveRecord::updateCounters| in that it only
+ saves the current AR object. An example usage is as follows:
+>
+ $postRecord=Post::model()->findByPk($postID);
+ $postRecord->saveCounters(array('view_count'=>1));
+<
+ Use negative values if you want to decrease the counters.
+    [counters] (array) the counters to be updated (column name=>increment
+    value)
 
 
 *CActiveRecord::scopes* 					 public

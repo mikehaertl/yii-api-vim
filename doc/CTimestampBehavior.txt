@@ -21,10 +21,10 @@
  The |CTimestampBehavior::createAttribute| and
  |CTimestampBehavior::updateAttribute| options actually default to
  'create_time' and 'update_time' respectively, so it is not required that you
- configure them.  If you do not wish CTimestampBehavior to set a timestamp for
- record update or creation, set the corrisponding attribute option to null.
+ configure them. If you do not wish CTimestampBehavior to set a timestamp for
+ record update or creation, set the corresponding attribute option to null.
 
- By default, the update attribute is only set on record update.  If you also
+ By default, the update attribute is only set on record update. If you also
  wish it to be set on record creation, set the
  |CTimestampBehavior::setUpdateOnCreate| option to true.
 

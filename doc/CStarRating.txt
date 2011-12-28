@@ -46,7 +46,7 @@ PROPERTY DETAILS
 
 <maxRating>				*CStarRating::maxRating*
  (mixed) the maximum rating allowed. This can be either an integer or a float
- value. Defaults to 1.
+ value. Defaults to 10.
 
 <minRating>				*CStarRating::minRating*
  (mixed) the minimum rating allowed. This can be either an integer or a float

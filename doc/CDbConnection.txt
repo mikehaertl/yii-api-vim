@@ -95,6 +95,10 @@ PROPERTY DETAILS
  for MySQL and PostgreSQL databases. Defaults to null, meaning using default
  charset as specified by the database.
 
+ Note that if you're using GBK or BIG5 then it's highly recommended to update
+ to PHP 5.3.6+ and to specify charset via DSN like
+ 'mysql:dbname=mydatabase;host=127.0.0.1;charset=GBK;'.
+
 <clientVersion> 			*CDbConnection::clientVersion*
  (string) Returns the version information of the DB driver.
 
@@ -128,7 +132,8 @@ PROPERTY DETAILS
  PDO will use the native prepare support if available. For some databases
  (such as MySQL), this may need to be set true so that PDO can emulate the
  prepare support to bypass the buggy native prepare support. Note, this
- property is only effective for PHP 5.1.3 or above.
+ property is only effective for PHP 5.1.3 or above. The default value is null,
+ which will not change the ATTR_EMULATE_PREPARES value of PDO.
 
 <enableParamLogging>			*CDbConnection::enableParamLogging*
  (boolean) whether to log the values that are bound to a prepare SQL
@@ -156,6 +161,9 @@ PROPERTY DETAILS
 <password>				*CDbConnection::password*
  (string) the password for establishing DB connection. Defaults to empty
  string.
+
+<pdoClass>				*CDbConnection::pdoClass*
+ (string) Custom PDO wrapper class.
 
 <pdoInstance>				*CDbConnection::pdoInstance*
  (PDO) Returns the PDO instance.
@@ -260,7 +268,7 @@ METHOD DETAILS
 >
  __sleep()
 <
-(void)
+(array) 
 
  Close the connection when serializing.
 
