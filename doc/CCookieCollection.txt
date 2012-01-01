@@ -59,7 +59,7 @@ METHOD DETAILS
 (void)
 
  Sends a cookie.
-    [cookie] (CHttpCookie) cook to be sent
+    [cookie] (CHttpCookie) cookie to be sent
 
 
 *CCookieCollection::getCookies* 				 protected
@@ -97,7 +97,7 @@ METHOD DETAILS
 (void)
 
  Deletes a cookie.
-    [cookie] (CHttpCookie) cook to be deleted
+    [cookie] (CHttpCookie) cookie to be deleted
 
 
 

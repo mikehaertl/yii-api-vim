@@ -207,6 +207,7 @@ CActiveRelation::alias	CActiveRelation.txt	/*CActiveRelation::alias*
 CActiveRelation::joinType	CActiveRelation.txt	/*CActiveRelation::joinType*
 CActiveRelation::mergeWith	CActiveRelation.txt	/*CActiveRelation::mergeWith*
 CActiveRelation::on	CActiveRelation.txt	/*CActiveRelation::on*
+CActiveRelation::scopes	CActiveRelation.txt	/*CActiveRelation::scopes*
 CActiveRelation::together	CActiveRelation.txt	/*CActiveRelation::together*
 CActiveRelation::with	CActiveRelation.txt	/*CActiveRelation::with*
 CApcCache	CApcCache.txt	/*CApcCache*
@@ -664,6 +665,7 @@ CChoiceFormat	CChoiceFormat.txt	/*CChoiceFormat*
 CChoiceFormat::evaluate	CChoiceFormat.txt	/*CChoiceFormat::evaluate*
 CChoiceFormat::format	CChoiceFormat.txt	/*CChoiceFormat::format*
 CClientScript	CClientScript.txt	/*CClientScript*
+CClientScript::addPackage	CClientScript.txt	/*CClientScript::addPackage*
 CClientScript::corePackages	CClientScript.txt	/*CClientScript::corePackages*
 CClientScript::coreScriptPosition	CClientScript.txt	/*CClientScript::coreScriptPosition*
 CClientScript::coreScriptUrl	CClientScript.txt	/*CClientScript::coreScriptUrl*
@@ -801,7 +803,6 @@ CComponent::raiseEvent	CComponent.txt	/*CComponent::raiseEvent*
 CConfiguration	CConfiguration.txt	/*CConfiguration*
 CConfiguration::__construct	CConfiguration.txt	/*CConfiguration::__construct*
 CConfiguration::applyTo	CConfiguration.txt	/*CConfiguration::applyTo*
-CConfiguration::createObject	CConfiguration.txt	/*CConfiguration::createObject*
 CConfiguration::loadFromFile	CConfiguration.txt	/*CConfiguration::loadFromFile*
 CConfiguration::saveAsString	CConfiguration.txt	/*CConfiguration::saveAsString*
 CConsoleApplication	CConsoleApplication.txt	/*CConsoleApplication*
@@ -822,6 +823,7 @@ CConsoleCommand::afterAction	CConsoleCommand.txt	/*CConsoleCommand::afterAction*
 CConsoleCommand::beforeAction	CConsoleCommand.txt	/*CConsoleCommand::beforeAction*
 CConsoleCommand::buildFileList	CConsoleCommand.txt	/*CConsoleCommand::buildFileList*
 CConsoleCommand::commandRunner	CConsoleCommand.txt	/*CConsoleCommand::commandRunner*
+CConsoleCommand::confirm	CConsoleCommand.txt	/*CConsoleCommand::confirm*
 CConsoleCommand::copyFiles	CConsoleCommand.txt	/*CConsoleCommand::copyFiles*
 CConsoleCommand::defaultAction	CConsoleCommand.txt	/*CConsoleCommand::defaultAction*
 CConsoleCommand::ensureDirectory	CConsoleCommand.txt	/*CConsoleCommand::ensureDirectory*
@@ -834,6 +836,7 @@ CConsoleCommand::init	CConsoleCommand.txt	/*CConsoleCommand::init*
 CConsoleCommand::name	CConsoleCommand.txt	/*CConsoleCommand::name*
 CConsoleCommand::optionHelp	CConsoleCommand.txt	/*CConsoleCommand::optionHelp*
 CConsoleCommand::pluralize	CConsoleCommand.txt	/*CConsoleCommand::pluralize*
+CConsoleCommand::prompt	CConsoleCommand.txt	/*CConsoleCommand::prompt*
 CConsoleCommand::renderFile	CConsoleCommand.txt	/*CConsoleCommand::renderFile*
 CConsoleCommand::resolveRequest	CConsoleCommand.txt	/*CConsoleCommand::resolveRequest*
 CConsoleCommand::run	CConsoleCommand.txt	/*CConsoleCommand::run*
@@ -897,7 +900,6 @@ CController::loadPageStates	CController.txt	/*CController::loadPageStates*
 CController::missingAction	CController.txt	/*CController::missingAction*
 CController::module	CController.txt	/*CController::module*
 CController::pageTitle	CController.txt	/*CController::pageTitle*
-CController::paginate	CController.txt	/*CController::paginate*
 CController::processDynamicOutput	CController.txt	/*CController::processDynamicOutput*
 CController::processOutput	CController.txt	/*CController::processOutput*
 CController::recordCachingAction	CController.txt	/*CController::recordCachingAction*
@@ -1274,6 +1276,7 @@ CDbConnection::timeout	CDbConnection.txt	/*CDbConnection::timeout*
 CDbConnection::username	CDbConnection.txt	/*CDbConnection::username*
 CDbCriteria	CDbCriteria.txt	/*CDbCriteria*
 CDbCriteria::__construct	CDbCriteria.txt	/*CDbCriteria::__construct*
+CDbCriteria::__wakeup	CDbCriteria.txt	/*CDbCriteria::__wakeup*
 CDbCriteria::addBetweenCondition	CDbCriteria.txt	/*CDbCriteria::addBetweenCondition*
 CDbCriteria::addColumnCondition	CDbCriteria.txt	/*CDbCriteria::addColumnCondition*
 CDbCriteria::addCondition	CDbCriteria.txt	/*CDbCriteria::addCondition*
@@ -1399,6 +1402,7 @@ CDbMigration::dropTable	CDbMigration.txt	/*CDbMigration::dropTable*
 CDbMigration::execute	CDbMigration.txt	/*CDbMigration::execute*
 CDbMigration::getDbConnection	CDbMigration.txt	/*CDbMigration::getDbConnection*
 CDbMigration::insert	CDbMigration.txt	/*CDbMigration::insert*
+CDbMigration::refreshTableSchema	CDbMigration.txt	/*CDbMigration::refreshTableSchema*
 CDbMigration::renameColumn	CDbMigration.txt	/*CDbMigration::renameColumn*
 CDbMigration::renameTable	CDbMigration.txt	/*CDbMigration::renameTable*
 CDbMigration::safeDown	CDbMigration.txt	/*CDbMigration::safeDown*
@@ -1980,7 +1984,6 @@ CHtml::errorSummary	CHtml.txt	/*CHtml::errorSummary*
 CHtml::errorSummaryCss	CHtml.txt	/*CHtml::errorSummaryCss*
 CHtml::fileField	CHtml.txt	/*CHtml::fileField*
 CHtml::form	CHtml.txt	/*CHtml::form*
-CHtml::getActiveId	CHtml.txt	/*CHtml::getActiveId*
 CHtml::getIdByName	CHtml.txt	/*CHtml::getIdByName*
 CHtml::hiddenField	CHtml.txt	/*CHtml::hiddenField*
 CHtml::htmlButton	CHtml.txt	/*CHtml::htmlButton*
@@ -1994,6 +1997,7 @@ CHtml::linkTag	CHtml.txt	/*CHtml::linkTag*
 CHtml::listBox	CHtml.txt	/*CHtml::listBox*
 CHtml::listData	CHtml.txt	/*CHtml::listData*
 CHtml::listOptions	CHtml.txt	/*CHtml::listOptions*
+CHtml::liveEvents	CHtml.txt	/*CHtml::liveEvents*
 CHtml::mailto	CHtml.txt	/*CHtml::mailto*
 CHtml::metaTag	CHtml.txt	/*CHtml::metaTag*
 CHtml::normalizeUrl	CHtml.txt	/*CHtml::normalizeUrl*
@@ -2186,6 +2190,8 @@ CInlineFilter::create	CInlineFilter.txt	/*CInlineFilter::create*
 CInlineFilter::filter	CInlineFilter.txt	/*CInlineFilter::filter*
 CInlineFilter::name	CInlineFilter.txt	/*CInlineFilter::name*
 CInlineValidator	CInlineValidator.txt	/*CInlineValidator*
+CInlineValidator::clientValidate	CInlineValidator.txt	/*CInlineValidator::clientValidate*
+CInlineValidator::clientValidateAttribute	CInlineValidator.txt	/*CInlineValidator::clientValidateAttribute*
 CInlineValidator::method	CInlineValidator.txt	/*CInlineValidator::method*
 CInlineValidator::params	CInlineValidator.txt	/*CInlineValidator::params*
 CInlineValidator::validateAttribute	CInlineValidator.txt	/*CInlineValidator::validateAttribute*
@@ -2457,6 +2463,9 @@ CLocale::getDecimalFormat	CLocale.txt	/*CLocale::getDecimalFormat*
 CLocale::getEraName	CLocale.txt	/*CLocale::getEraName*
 CLocale::getId	CLocale.txt	/*CLocale::getId*
 CLocale::getInstance	CLocale.txt	/*CLocale::getInstance*
+CLocale::getLanguage	CLocale.txt	/*CLocale::getLanguage*
+CLocale::getLanguageID	CLocale.txt	/*CLocale::getLanguageID*
+CLocale::getLocaleDisplayName	CLocale.txt	/*CLocale::getLocaleDisplayName*
 CLocale::getLocaleIDs	CLocale.txt	/*CLocale::getLocaleIDs*
 CLocale::getMonthName	CLocale.txt	/*CLocale::getMonthName*
 CLocale::getMonthNames	CLocale.txt	/*CLocale::getMonthNames*
@@ -2467,10 +2476,15 @@ CLocale::getPMName	CLocale.txt	/*CLocale::getPMName*
 CLocale::getPercentFormat	CLocale.txt	/*CLocale::getPercentFormat*
 CLocale::getPluralRules	CLocale.txt	/*CLocale::getPluralRules*
 CLocale::getScientificFormat	CLocale.txt	/*CLocale::getScientificFormat*
+CLocale::getScript	CLocale.txt	/*CLocale::getScript*
+CLocale::getScriptID	CLocale.txt	/*CLocale::getScriptID*
+CLocale::getTerritory	CLocale.txt	/*CLocale::getTerritory*
+CLocale::getTerritoryID	CLocale.txt	/*CLocale::getTerritoryID*
 CLocale::getTimeFormat	CLocale.txt	/*CLocale::getTimeFormat*
 CLocale::getWeekDayName	CLocale.txt	/*CLocale::getWeekDayName*
 CLocale::getWeekDayNames	CLocale.txt	/*CLocale::getWeekDayNames*
 CLocale::id	CLocale.txt	/*CLocale::id*
+CLocale::localeDisplayName	CLocale.txt	/*CLocale::localeDisplayName*
 CLocale::monthNames	CLocale.txt	/*CLocale::monthNames*
 CLocale::numberFormatter	CLocale.txt	/*CLocale::numberFormatter*
 CLocale::orientation	CLocale.txt	/*CLocale::orientation*
@@ -2617,6 +2631,7 @@ CMenu::hideEmptyItems	CMenu.txt	/*CMenu::hideEmptyItems*
 CMenu::htmlOptions	CMenu.txt	/*CMenu::htmlOptions*
 CMenu::init	CMenu.txt	/*CMenu::init*
 CMenu::isItemActive	CMenu.txt	/*CMenu::isItemActive*
+CMenu::itemCssClass	CMenu.txt	/*CMenu::itemCssClass*
 CMenu::itemTemplate	CMenu.txt	/*CMenu::itemTemplate*
 CMenu::items	CMenu.txt	/*CMenu::items*
 CMenu::lastItemCssClass	CMenu.txt	/*CMenu::lastItemCssClass*
@@ -3571,6 +3586,7 @@ CWebUser::isGuest	CWebUser.txt	/*CWebUser::isGuest*
 CWebUser::loadIdentityStates	CWebUser.txt	/*CWebUser::loadIdentityStates*
 CWebUser::login	CWebUser.txt	/*CWebUser::login*
 CWebUser::loginRequired	CWebUser.txt	/*CWebUser::loginRequired*
+CWebUser::loginRequiredAjaxResponse	CWebUser.txt	/*CWebUser::loginRequiredAjaxResponse*
 CWebUser::loginUrl	CWebUser.txt	/*CWebUser::loginUrl*
 CWebUser::logout	CWebUser.txt	/*CWebUser::logout*
 CWebUser::name	CWebUser.txt	/*CWebUser::name*

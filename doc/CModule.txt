@@ -109,7 +109,7 @@ application component is disabled or does not exist.
  Retrieves the named application component.
     [id] (string) application component ID (case-sensitive)
     [createIfNull] (boolean) whether to create the component if it doesn't
-    exist yet. This parameter has been available since version 1.0.6.
+    exist yet.
 
 
 *CModule::getComponents*					 public

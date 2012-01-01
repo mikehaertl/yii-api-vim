@@ -90,8 +90,7 @@ needed)
     [category] (string) the message category
     [message] (string) the message to be translated
     [language] (string) the target language. If null (default), the
-    |CApplication::getLanguage| will be used. This parameter has been
-    available since version 1.0.3.
+    |CApplication::getLanguage| will be used.
 
 
 *CMessageSource::translateMessage*				 protected

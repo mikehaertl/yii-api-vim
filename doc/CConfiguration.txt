@@ -51,19 +51,6 @@ METHOD DETAILS
     [object] (object) object to be applied with this configuration
 
 
-*CConfiguration::createObject*					 public
->
- createObject($config)
-<
-(mixed) the created object
-
- Creates an object and initializes it based on the given configuration.
-
- NOTE: this method has been deprecated since version 1.0.1. Please use
- |YiiBase::createComponent|, instead.
-    [config] (mixed) the configuration. It can be either a string or an array.
-
-
 *CConfiguration::loadFromFile*					 public
 >
  loadFromFile($configFile)

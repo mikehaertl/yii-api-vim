@@ -71,12 +71,15 @@ PROPERTY DETAILS
    |CActiveRecord::count|Can be set to one of the following:
    One scope: $criteria->scopes='scopeName';
    Multiple scopes:
-   $criteria->scopes=array('scopeName1','scopeName1');
+   $criteria->scopes=array('scopeName1','scopeName2');
    Scope with parameters:
-   $criteria->scopes=array('scopeName'=>array($paramters));
+   $criteria->scopes=array('scopeName'=>array($params));
+   Multiple scopes with parameters:
+  
+ $criteria->scopes=array('scopeName1'=>array($params1),'scopeName2'=>array($params2));
    Multiple scopes with the same name:
   
- array(array('scopeName'=>array($paramters1)),array('scopeName'=>array($paramters2)));
+ array(array('scopeName'=>array($params1)),array('scopeName'=>array($params2)));
 
 <select>				*CDbCriteria::select*
  (mixed) the columns being selected. This refers to the SELECT clause in an
@@ -85,7 +88,8 @@ PROPERTY DETAILS
 
 <together>				*CDbCriteria::together*
  (boolean) whether the foreign tables should be joined with the primary table
- in a single SQL. This property is only used in relational AR queries.
+ in a single SQL. This property is only used in relational AR queries for
+ HAS_MANY and MANY_MANY relations.
 
  When this property is set true, only a single SQL will be executed for a
  relational AR query, even if the primary table is limited and the
@@ -94,9 +98,9 @@ PROPERTY DETAILS
  When this property is set false, a SQL statement will be executed for each
  HAS_MANY relation.
 
- When this property is not set, if the primary table is limited, a SQL
- statement will be executed for each HAS_MANY relation. Otherwise, a single
- SQL statement will be executed for all.
+ When this property is not set, if the primary table is limited or paginated,
+ a SQL statement will be executed for each HAS_MANY relation. Otherwise, a
+ single SQL statement will be executed for all.
 
 <with>					*CDbCriteria::with*
  (mixed) the relational query criteria. This is used for fetching related
@@ -125,6 +129,15 @@ METHOD DETAILS
 
  Constructor.
     [data] (array) criteria initial property values (indexed by property name)
+
+
+*CDbCriteria::__wakeup* 					 public
+>
+ __wakeup()
+<
+(void)
+
+ Remaps criteria parameters on unserialize to prevent name collisions.
 
 
 *CDbCriteria::addBetweenCondition*				 public
@@ -303,10 +316,10 @@ METHOD DETAILS
  criteria more restrictive. For example, if both criterias have conditions,
  they will be 'AND' together. Also, the criteria passed as the parameter takes
  precedence in case two options cannot be merged (e.g. LIMIT, OFFSET).
-    [criteria] (CDbCriteria) the criteria to be merged with.
+    [criteria] (mixed) the criteria to be merged with. Either an array or
+    CDbCriteria.
     [useAnd] (boolean) whether to use 'AND' to merge condition and having
-    options. If false, 'OR' will be used instead. Defaults to 'AND'. This
-    parameter has been available since version 1.0.6.
+    options. If false, 'OR' will be used instead. Defaults to 'AND'.
 
 
 *CDbCriteria::toArray*						 public

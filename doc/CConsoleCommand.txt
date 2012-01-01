@@ -105,6 +105,16 @@ METHOD DETAILS
     [baseDir] (string) base directory
 
 
+*CConsoleCommand::confirm*					 public
+>
+ confirm($message)
+<
+(bool) if user confirmed
+
+ Asks user to confirm by typing y or n.
+    [message] (string) to echo out before waiting for user input
+
+
 *CConsoleCommand::copyFiles*					 public
 >
  copyFiles($fileList)
@@ -200,6 +210,17 @@ help information for a single action.
 
  Converts a word to its plural form.
     [name] (string) the word to be pluralized
+
+
+*CConsoleCommand::prompt*					 public
+>
+ prompt($message)
+<
+(mixed) line read as a string, or false if input has been closed
+
+ Reads input via the readline PHP extension if that's available, or fgets() if
+ readline is not installed.
+    [message] (string) to echo out before waiting for user input
 
 
 *CConsoleCommand::renderFile*					 public

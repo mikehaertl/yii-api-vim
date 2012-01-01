@@ -36,6 +36,10 @@ PROPERTY DETAILS
 <id>					*CLocale::id*
  (string) the locale ID (in canonical form)
 
+<localeDisplayName>			*CLocale::localeDisplayName*
+ (string) Gets a localized name from i18n data file (one of
+ framework/i18n/data/ files).
+
 <monthNames>				*CLocale::monthNames*
  (array) Returns the month names in the specified width.
 
@@ -182,6 +186,42 @@ METHOD DETAILS
     [id] (string) the locale ID (e.g. en_US)
 
 
+*CLocale::getLanguage*						 public
+>
+ getLanguage($id)
+<
+(string) the local display name for the language. Null if the language code
+does not exist.
+
+    [id] (string) Unicode language identifier from IETF BCP 47. For example,
+    the code "en_US" represents U.S. English and "en_GB" represents British
+    English.
+
+
+*CLocale::getLanguageID*					 public
+>
+ getLanguageID($id)
+<
+(string) the language ID
+
+ Converts a locale ID to a language ID. A language ID consists of only the
+ first group of letters before an underscore or dash.
+    [id] (string) the locale ID to be converted
+
+
+*CLocale::getLocaleDisplayName* 				 public
+>
+ getLocaleDisplayName($id='', $category='languages')
+<
+(string) the localized name for the id specified. Null if data does not exist.
+
+ Gets a localized name from i18n data file (one of framework/i18n/data/
+ files).
+    [id] (string) array key from an array named by $category.
+    [category] (string) data category. One of 'languages', 'scripts' or
+    'territories'.
+
+
 *CLocale::getLocaleIDs* 					 public
 >
  getLocaleIDs()
@@ -272,6 +312,52 @@ METHOD DETAILS
 <
 (string) the scientific format
 
+
+
+*CLocale::getScript*						 public
+>
+ getScript($id)
+<
+(string) the local display name for the script. Null if the script code does
+not exist.
+
+    [id] (string) Unicode script identifier from IETF BCP 47. For example, the
+    code "en_US" represents U.S. English and "en_GB" represents British
+    English.
+
+
+*CLocale::getScriptID*						 public
+>
+ getScriptID($id)
+<
+(string) the script ID
+
+ Converts a locale ID to a script ID. A script ID consists of only the last
+ four characters after an underscore or dash.
+    [id] (string) the locale ID to be converted
+
+
+*CLocale::getTerritory* 					 public
+>
+ getTerritory($id)
+<
+(string) the local display name for the territory. Null if the territory code
+does not exist.
+
+    [id] (string) Unicode territory identifier from IETF BCP 47. For example,
+    the code "en_US" represents U.S. English and "en_GB" represents British
+    English.
+
+
+*CLocale::getTerritoryID*					 public
+>
+ getTerritoryID($id)
+<
+(string) the territory ID
+
+ Converts a locale ID to a territory ID. A territory ID consists of only the
+ last two to three letter or digits after an underscore or dash.
+    [id] (string) the locale ID to be converted
 
 
 *CLocale::getTimeFormat*					 public

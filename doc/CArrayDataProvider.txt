@@ -39,7 +39,8 @@ PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
 <keyField>				*CArrayDataProvider::keyField*
- (string) the name of key field. Defaults to 'id'.
+ (string) the name of key field. Defaults to 'id'. If it's set to false, keys
+ of $rawData array are used.
 
 <rawData>				*CArrayDataProvider::rawData*
  (array) the data that is not paginated or sorted. When pagination is enabled,

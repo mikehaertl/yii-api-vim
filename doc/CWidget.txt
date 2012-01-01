@@ -115,8 +115,8 @@ a controller.
  look for the view under the widget's |CWidget::getViewPath|. The view script
  file is named as "ViewName.php". A localized view file may be returned if
  internationalization is needed. See |CApplication::findLocalizedFile| for
- more details. Since version 1.0.2, the view name can also refer to a path
- alias if it contains dot characters.
+ more details. The view name can also refer to a path alias if it contains dot
+ characters.
     [viewName] (string) name of the view (without file extension)
 
 

@@ -23,7 +23,7 @@ PROPERTY DETAILS
  (array) Returns the children of this item.
 
 <data>					*CAuthItem::data*
- (string) the additional data associated with this item
+ (mixed) the additional data associated with this item
 
 <description>				*CAuthItem::description*
  (string) the item description
@@ -132,7 +132,7 @@ item is not assigned to the user.
 >
  getData()
 <
-(string) the additional data associated with this item
+(mixed) the additional data associated with this item
 
 
 
@@ -217,7 +217,7 @@ or 2 (role).
 <
 (void)
 
-    [value] (string) the business rule associated with this item
+    [value] (mixed) the additional data associated with this item
 
 
 *CAuthItem::setDescription*					 public

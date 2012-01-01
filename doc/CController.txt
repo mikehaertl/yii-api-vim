@@ -86,9 +86,8 @@ PROPERTY DETAILS
 <layout>				*CController::layout*
  (mixed) the name of the layout to be applied to this controller's views.
  Defaults to null, meaning the |CWebApplication::layout| is used. If it is
- false, no layout will be applied. Since version 1.0.3, the
- |CWebModule::layout| will be used if the controller belongs to a module and
- this layout property is null.
+ false, no layout will be applied. The |CWebModule::layout| will be used if
+ the controller belongs to a module and this layout property is null.
 
 <module>				*CController::module*
  (CWebModule) the module that this controller belongs to. It returns null if
@@ -108,8 +107,8 @@ PROPERTY DETAILS
  (string) Returns the directory containing view files for this controller. The
  default implementation returns 'protected/views/ControllerID'. Child classes
  may override this method to use customized view path. If the controller
- belongs to a module (since version 1.0.3), the default view path is the
- |CWebModule::getViewPath| appended with the controller ID.
+ belongs to a module, the default view path is the |CWebModule::getViewPath|
+ appended with the controller ID.
 
 
 
@@ -123,8 +122,7 @@ METHOD DETAILS
 (void)
 
     [id] (string) id of this controller
-    [module] (CWebModule) the module that this controller belongs to. This
-    parameter has been available since version 1.0.3.
+    [module] (CWebModule) the module that this controller belongs to.
 
 
 *CController::accessRules*					 public
@@ -164,8 +162,8 @@ rule specification.
  needs to merge the parent actions with child actions using functions like
  array_merge().
 
- Since version 1.0.1, you may import actions from an action provider (such as
- a widget, see |CWidget::actions|), like the following:
+ You may import actions from an action provider (such as a widget, see
+ |CWidget::actions|), like the following:
 >
  return array(
      ...other actions...
@@ -331,14 +329,12 @@ rule specification.
     [route] (string) the URL route. This should be in the format of
     'ControllerID/ActionID'. If the ControllerID is not present, the current
     controller ID will be prefixed to the route. If the route is empty, it is
-    assumed to be the current action. Since version 1.0.3, if the controller
-    belongs to a module, the |CWebModule::getId| will be prefixed to the
-    route. (If you do not want the module ID prefix, the route should start
-    with a slash '/'.)
+    assumed to be the current action. If the controller belongs to a module,
+    the |CWebModule::getId| will be prefixed to the route. (If you do not want
+    the module ID prefix, the route should start with a slash '/'.)
     [params] (array) additional GET parameters (name=>value). Both the name
     and value will be URL-encoded. If the name is '#', the corresponding value
     will be treated as an anchor and will be appended at the end of the URL.
-    This anchor feature has been available since version 1.0.1.
     [ampersand] (string) the token separating name-value pairs in the URL.
 
 
@@ -611,8 +607,8 @@ to 'protected/views/ControllerID'.
  Returns the directory containing view files for this controller. The default
  implementation returns 'protected/views/ControllerID'. Child classes may
  override this method to use customized view path. If the controller belongs
- to a module (since version 1.0.3), the default view path is the
- |CWebModule::getViewPath| appended with the controller ID.
+ to a module, the default view path is the |CWebModule::getViewPath| appended
+ with the controller ID.
 
 
 *CController::init*						 public
@@ -671,24 +667,6 @@ partition of output caches.
     [actionID] (string) the missing action name
 
 
-*CController::paginate* 					 public
->
- paginate($itemCount, $pageSize=, $pageVar='')
-<
-(CPagination) the pagination information
-
- Generates pagination information. This method can be used to generate
- pagination information given item count and page size. The pagination
- information can then be passed to |CBasePager| for corresponding rendering.
-
- Note: this method has been deprecated since version 1.0.1. You should
- directly use "new CPagination" to create a pagination object.
-    [itemCount] (integer) the total item count
-    [pageSize] (integer) the page size. See |CPagination| for default value.
-    [pageVar] (string) the name of the GET variable storing the current page
-    index. See |CPagination| for default value.
-
-
 *CController::processDynamicOutput*				 public
 >
  processDynamicOutput($output)
@@ -744,7 +722,7 @@ partition of output caches.
     calling this method
     [statusCode] (integer) the HTTP status code. Defaults to 302. See
     'http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html' for details about
-    HTTP status code. This parameter has been available since version 1.0.4.
+    HTTP status code.
 
 
 *CController::refresh*						 public
@@ -759,7 +737,7 @@ partition of output caches.
     calling this method
     [anchor] (string) the anchor that should be appended to the redirection
     URL. Defaults to empty. Make sure the anchor starts with '#' if you want
-    to specify it. The parameter has been available since version 1.0.7.
+    to specify it.
 
 
 *CController::render*						 public

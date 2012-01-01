@@ -146,7 +146,7 @@ METHOD DETAILS
 >
  validate($input, $caseSensitive)
 <
-(whether) the input is valid
+(boolean) whether the input is valid
 
  Validates the input to see if it matches the generated code.
     [input] (string) user input

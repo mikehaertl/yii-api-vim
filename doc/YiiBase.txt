@@ -102,8 +102,6 @@ created yet.
 
  Any additional parameters passed to this method will be passed to the
  constructor of the object being created.
-
- NOTE: the array-typed configuration has been supported since version 1.0.1.
     [config] (mixed) the configuration. It can be either a string or an array.
 
 
@@ -310,27 +308,26 @@ Powered-by-Yii information
 <
 (string) the translated message
 
- Translates a message to the specified language. Starting from version 1.0.2,
- this method supports choice format (see |CChoiceFormat|), i.e., the message
- returned will be chosen from a few candidates according to the given number
- value. This feature is mainly used to solve plural format issue in case a
- message has different plural forms in some languages.
+ Translates a message to the specified language. This method supports choice
+ format (see |CChoiceFormat|), i.e., the message returned will be chosen from
+ a few candidates according to the given number value. This feature is mainly
+ used to solve plural format issue in case a message has different plural
+ forms in some languages.
     [category] (string) message category. Please use only word letters. Note,
     category 'yii' is reserved for Yii framework core code use. See
     |CPhpMessageSource| for more interpretation about message category.
     [message] (string) the original message
     [params] (array) parameters to be applied to the message using 'strtr'.
-    Starting from version 1.0.2, the first parameter can be a number without
-    key. And in this case, the method will call |CChoiceFormat::format| to
-    choose an appropriate message translation. Starting from version 1.1.6 you
-    can pass parameter for |CChoiceFormat::format| or plural forms format
-    without wrapping it with array.
+    The first parameter can be a number without key. And in this case, the
+    method will call |CChoiceFormat::format| to choose an appropriate message
+    translation. Starting from version 1.1.6 you can pass parameter for
+    |CChoiceFormat::format| or plural forms format without wrapping it with
+    array.
     [source] (string) which message source application component to use.
     Defaults to null, meaning using 'coreMessages' for messages belonging to
     the 'yii' category and using 'messages' for the rest messages.
     [language] (string) the target language. If null (default), the
-    |CApplication::getLanguage| will be used. This parameter has been
-    available since version 1.0.3.
+    |CApplication::getLanguage| will be used.
 
 
 *YiiBase::trace*						 public

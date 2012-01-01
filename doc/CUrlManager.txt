@@ -48,10 +48,10 @@
    using   the &lt;ParamName:RegExp&gt; syntax. It says that if the
    user requests the URL   '/path/to/index.php/article/13', it should
    be treated as '/path/to/index.php/article/read?id=13';   and vice
-   versa applies when constructing such a URL.Starting from version 1.0.5, the
- route part may contain references to named parameters defined in the pattern
- part. This allows a rule to be applied to different routes based on matching
- criteria. For example,
+   versa applies when constructing such a URL.The route part may contain
+ references to named parameters defined in the pattern part. This allows a
+ rule to be applied to different routes based on matching criteria. For
+ example,
 >
  array(
       '<_c:(post|comment)>/<id:\d+>/<_a:(create|update|delete)>'=>'<_c>/<_a>',
@@ -69,12 +69,11 @@
  GET parameter 'id' being 123. And given the route 'post/list' and GET
  parameter 'page' being 2, we should get a URL '/index.php/posts/page/2'.
 
- Starting from version 1.0.11, it is also possible to include hostname into
- the rules for parsing and creating URLs. One may extract part of the hostname
- to be a GET parameter. For example, the URL
- 'http://admin.example.com/en/profile' may be parsed into GET parameters
- 'user=admin' and 'lang=en'. On the other hand, rules with hostname may also
- be used to create URLs with parameterized hostnames.
+ It is also possible to include hostname into the rules for parsing and
+ creating URLs. One may extract part of the hostname to be a GET parameter.
+ For example, the URL 'http://admin.example.com/en/profile' may be parsed into
+ GET parameters 'user=admin' and 'lang=en'. On the other hand, rules with
+ hostname may also be used to create URLs with parameterized hostnames.
 
  In order to use parameterized hostnames, simply declare URL rules with host
  info, e.g.:
@@ -178,13 +177,15 @@ METHOD DETAILS
 
 *CUrlManager::addRules* 					 public
 >
- addRules($rules)
+ addRules($rules, $append=true)
 <
 (void)
 
  Adds new URL rules. In order to make the new rules effective, this method
  must be called BEFORE |CWebApplication::processRequest|.
     [rules] (array) new URL rules (pattern=>route).
+    [append] (boolean) whether the new URL rules should be appended to the
+    existing ones. If false, they will be inserted at the beginning.
 
 
 *CUrlManager::createPathInfo*					 public
@@ -211,7 +212,6 @@ METHOD DETAILS
     [params] (array) list of GET parameters (name=>value). Both the name and
     value will be URL-encoded. If the name is '#', the corresponding value
     will be treated as an anchor and will be appended at the end of the URL.
-    This anchor feature has been available since version 1.0.1.
     [ampersand] (string) the token separating name-value pairs in the URL.
     Defaults to '&'.
 

@@ -19,7 +19,8 @@ PROPERTY DETAILS
 
 <controllerPath>			*CWebModule::controllerPath*
  (string) the directory that contains the controller classes. Defaults to
- 'protected/controllers'.
+ 'moduleDir/controllers' where moduleDir is the directory containing the
+ module class.
 
 <defaultController>			*CWebModule::defaultController*
  (string) the ID of the default controller for this module. Defaults to
@@ -39,7 +40,8 @@ PROPERTY DETAILS
 
 <layoutPath>				*CWebModule::layoutPath*
  (string) the root directory of layout files. Defaults to
- 'protected/views/layouts'.
+ 'moduleDir/views/layouts' where moduleDir is the directory containing the
+ module class.
 
 <name>					*CWebModule::name*
  (string) Returns the name of this module. The default implementation simply
@@ -52,7 +54,8 @@ PROPERTY DETAILS
  module.
 
 <viewPath>				*CWebModule::viewPath*
- (string) the root directory of view files. Defaults to 'protected/views'.
+ (string) the root directory of view files. Defaults to 'moduleDir/views'
+ where moduleDir is the directory containing the module class.
 
 
 
@@ -100,7 +103,8 @@ METHOD DETAILS
  getControllerPath()
 <
 (string) the directory that contains the controller classes. Defaults to
-'protected/controllers'.
+'moduleDir/controllers' where moduleDir is the directory containing the module
+class.
 
 
 
@@ -120,7 +124,8 @@ METHOD DETAILS
  getLayoutPath()
 <
 (string) the root directory of layout files. Defaults to
-'protected/views/layouts'.
+'moduleDir/views/layouts' where moduleDir is the directory containing the
+module class.
 
 
 
@@ -149,7 +154,8 @@ METHOD DETAILS
 >
  getViewPath()
 <
-(string) the root directory of view files. Defaults to 'protected/views'.
+(string) the root directory of view files. Defaults to 'moduleDir/views' where
+moduleDir is the directory containing the module class.
 
 
 

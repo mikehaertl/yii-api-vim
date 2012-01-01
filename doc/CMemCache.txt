@@ -43,8 +43,8 @@
  'http://www.php.net/manual/en/function.memcache-addserver.php' for more
  details.
 
- Since version 1.0.6, CMemCache can also be used with 'memcached'. To do so,
- set |CMemCache::useMemcached| to be true.
+ CMemCache can also be used with 'memcached'. To do so, set
+ |CMemCache::useMemcached| to be true.
 
 
 PROPERTY DETAILS

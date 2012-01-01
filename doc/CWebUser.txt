@@ -85,6 +85,19 @@ PROPERTY DETAILS
 <isGuest>				*CWebUser::isGuest*
  (boolean) whether the current application user is a guest.
 
+<loginRequiredAjaxResponse>		*CWebUser::loginRequiredAjaxResponse*
+ (string) value that will be echoed in case that user session has expired
+ during an ajax call. When a request is made and user session has expired,
+ |CWebUser::loginRequired| redirects to |CWebUser::loginUrl| for login. If
+ that happens during an ajax call, the complete HTML login page is returned as
+ the result of that ajax call. That could be a problem if the ajax call
+ expects the result to be a json array or a predefined string, as the login
+ page is ignored in that case. To solve this, set this property to the desired
+ return value.
+
+ If this property is set, this value will be returned as the result of the
+ ajax call in case that the user session has expired.
+
 <loginUrl>				*CWebUser::loginUrl*
  (string|array) the URL for login. If using array, the first element should be
  the route to the login action, and the rest name-value pairs are GET
@@ -235,13 +248,12 @@ METHOD DETAILS
     [params] (array) name-value pairs that would be passed to business rules
     associated with the tasks and roles assigned to the user.
     [allowCaching] (boolean) whether to allow caching the result of access
-    check. This parameter has been available since version 1.0.5. When this
-    parameter is true (default), if the access check of an operation was
-    performed before, its result will be directly returned when calling this
-    method to check the same operation. If this parameter is false, this
-    method will always call |CAuthManager::checkAccess| to obtain the
-    up-to-date access result. Note that this caching is effective only within
-    the same request.
+    check. When this parameter is true (default), if the access check of an
+    operation was performed before, its result will be directly returned when
+    calling this method to check the same operation. If this parameter is
+    false, this method will always call |CAuthManager::checkAccess| to obtain
+    the up-to-date access result. Note that this caching is effective only
+    within the same request.
 
 
 *CWebUser::clearStates* 					 public
@@ -276,8 +288,7 @@ METHOD DETAILS
     [defaultValue] (mixed) value to be returned if the flash message is not
     available.
     [delete] (boolean) whether to delete this flash message after accessing
-    it. Defaults to true. This parameter has been available since version
-    1.0.2.
+    it. Defaults to true.
 
 
 *CWebUser::getFlashes*						 public
@@ -405,7 +416,7 @@ data.
 >
  login($identity, $duration=0)
 <
-(void)
+(boolean) whether the user is logged in
 
  Logs in a user.
 
@@ -450,9 +461,7 @@ data.
  data. If the parameter is true, the whole session will be destroyed as well.
     [destroySession] (boolean) whether to destroy the whole session. Defaults
     to true. If false, then |CWebUser::clearStates| will be called, which
-    removes only the data stored via |CWebUser::setState|. This parameter has
-    been available since version 1.0.7. Before 1.0.7, the behavior is to
-    destroy the whole session.
+    removes only the data stored via |CWebUser::setState|.
 
 
 *CWebUser::renewCookie* 					 protected

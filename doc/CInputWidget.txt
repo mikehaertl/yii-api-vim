@@ -14,9 +14,8 @@ PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
 <attribute>				*CInputWidget::attribute*
- (string) the attribute associated with this widget. Starting from version
- 1.0.9, the name can contain square brackets (e.g. 'name[1]') which is used to
- collect tabular data input.
+ (string) the attribute associated with this widget. The name can contain
+ square brackets (e.g. 'name[1]') which is used to collect tabular data input.
 
 <htmlOptions>				*CInputWidget::htmlOptions*
  (array) additional HTML options to be rendered in the input tag

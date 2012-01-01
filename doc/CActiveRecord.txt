@@ -384,8 +384,8 @@ constructor of |CDbCriteria|.
  Deletes rows which match the specified attribute values. See
  |CActiveRecord::find| for detailed explanation about $condition and $params.
     [attributes] (array) list of attribute values (indexed by attribute names)
-    that the active records should match. Since version 1.0.8, an attribute
-    value can be an array which will be used to generate an IN condition.
+    that the active records should match. An attribute value can be an array
+    which will be used to generate an IN condition.
     [condition] (mixed) query condition or criteria.
     [params] (array) parameters to be bound to an SQL statement.
 
@@ -467,8 +467,8 @@ array is returned if none is found.
  Finds all active records that have the specified attribute values. See
  |CActiveRecord::find| for detailed explanation about $condition and $params.
     [attributes] (array) list of attribute values (indexed by attribute names)
-    that the active records should match. Since version 1.0.8, an attribute
-    value can be an array which will be used to generate an IN condition.
+    that the active records should match. An attribute value can be an array
+    which will be used to generate an IN condition.
     [condition] (mixed) query condition or criteria.
     [params] (array) parameters to be bound to an SQL statement.
 
@@ -508,8 +508,8 @@ array is returned if none is found.
  Finds a single active record that has the specified attribute values. See
  |CActiveRecord::find| for detailed explanation about $condition and $params.
     [attributes] (array) list of attribute values (indexed by attribute names)
-    that the active records should match. Since version 1.0.8, an attribute
-    value can be an array which will be used to generate an IN condition.
+    that the active records should match. An attribute value can be an array
+    which will be used to generate an IN condition.
     [condition] (mixed) query condition or criteria.
     [params] (array) parameters to be bound to an SQL statement.
 
@@ -688,8 +688,7 @@ will be returned.
     [refresh] (boolean) whether to reload the related objects from database.
     Defaults to false.
     [params] (array) additional parameters that customize the query conditions
-    as specified in the relation declaration. This parameter has been
-    available since version 1.0.5.
+    as specified in the relation declaration.
 
 
 *CActiveRecord::getTableAlias*					 public
@@ -895,7 +894,7 @@ the same as the model class. Null is returned if the input data is false.
  used by the find methods.
     [attributes] (array) attribute values (column name=>column value)
     [callAfterFind] (boolean) whether to call |CActiveRecord::afterFind| after
-    the record is populated. This parameter is added in version 1.0.3.
+    the record is populated.
 
 
 *CActiveRecord::populateRecords*				 public
@@ -908,7 +907,7 @@ the same as the model class. Null is returned if the input data is false.
  internally used by the find methods.
     [data] (array) list of attribute values for the active records.
     [callAfterFind] (boolean) whether to call |CActiveRecord::afterFind| after
-    each record is populated. This parameter is added in version 1.0.3.
+    each record is populated.
     [index] (string) the name of the attribute whose value will be used as
     indexes of the query result array. If null, it means the array will be
     indexed by zero-based integers.
@@ -998,9 +997,13 @@ data will be populated to this active record.
  self::HAS_ONE, self::HAS_MANY and self::MANY_MANY; 'className' refers to the
  name of the active record class that the related object(s) is of; and
  'foreign_key' states the foreign key that relates the two kinds of active
- record. Note, for composite foreign keys, they must be listed together,
- separated by commas; and for foreign keys used in MANY_MANY relation, the
- joining table must be declared as well (e.g. 'join_table(fk1, fk2)').
+ record. Note, for composite foreign keys, they can be either listed together,
+ separated by commas or specified as an array in format of
+ array('key1','key2'). In case you need to specify custom PK->FK association
+ you can define it as array('fk'=>'pk'). For composite keys it will be
+ array('fk_c1'=>'pk_с1','fk_c2'=>'pk_c2'). and for foreign keys used in
+ MANY_MANY relation, the joining table must be declared as well (e.g.
+ 'join_table(fk1, fk2)').
 
  Additional options may be specified as name-value pairs in the rest array
  elements:
@@ -1019,20 +1022,20 @@ data will be populated to this active record.
    by lazy loading, not eager loading.
    'joinType': type of join. Defaults to 'LEFT OUTER JOIN'.
    'alias': the alias for the table associated with this
-   relationship.   This option has been available since version
-   1.0.1. It defaults to null,   meaning the table alias is the same
-   as the relation name.
+   relationship.   It defaults to null,   meaning the table alias is
+   the same as the relation name.
    'params': the parameters to be bound to the generated SQL
    statement.   This should be given as an array of name-value pairs.
-   This option has been   available since version 1.0.3.
    'on': the ON clause. The condition specified here will be appended
-     to the joining condition using the AND operator. This option has
-   been   available since version 1.0.2.
+     to the joining condition using the AND operator.
    'index': the name of the column whose values should be used as
    keys   of the array that stores related objects. This option is
-   only available to   HAS_MANY and MANY_MANY relations. This option
-   has been available since version 1.0.7.The following options are available
- for certain relations when lazy loading:
+   only available to   HAS_MANY and MANY_MANY relations.
+   'scopes': scopes to apply. In case of a single scope can be used
+   like 'scopes'=>'scopeName',   in case of multiple scopes can be
+   used like 'scopes'=>array('scopeName1','scopeName2').   This
+   option has been available since version 1.1.9.The following options are
+ available for certain relations when lazy loading:
    'group': string, the GROUP BY clause. Defaults to empty. Note,
    column references need to   be disambiguated with prefix
    'relationName.' (e.g. relationName.age). This option only applies
@@ -1350,9 +1353,6 @@ successfully
      'comments'=>array('condition'=>'approved=1', 'order'=>'create_time'),
  ))->findAll();
 <
- Note, the possible parameters to this method have been changed since version
- 1.0.2. Previously, it was not possible to specify on-th-fly query options,
- and child-relations were specified as hierarchical arrays.
 
 
 

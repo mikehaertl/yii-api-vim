@@ -284,7 +284,7 @@ returned if either the column array or the keywords are empty.
     [prefix] (string) optional column prefix (with dot at the end). If null,
     the table name will be used as the prefix.
     [caseSensitive] (boolean) whether the search is case-sensitive. Defaults
-    to true. This parameter has been available since version 1.0.4.
+    to true.
 
 
 *CDbCommandBuilder::createSqlCommand*				 public

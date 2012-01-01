@@ -23,10 +23,10 @@ PROPERTY DETAILS
 <expression>				*CAccessRule::expression*
  (string) a PHP expression whose value indicates whether this rule should be
  applied. In this expression, you can use '$user' which refers to
- 'Yii::app()->user'. Starting from version 1.0.11, the expression can also be
- a valid PHP callback, including class method name (array(ClassName/Object,
- MethodName)), or anonymous function (PHP 5.3.0+). The function/method
- signature should be as follows:
+ 'Yii::app()->user'. The expression can also be a valid PHP callback,
+ including class method name (array(ClassName/Object, MethodName)), or
+ anonymous function (PHP 5.3.0+). The function/method signature should be as
+ follows:
 >
  function foo($user, $rule) { ... }
 <

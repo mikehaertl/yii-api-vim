@@ -5,6 +5,16 @@
  CBooleanValidator validates that the attribute value is either
  |CBooleanValidator::trueValue|  or |CBooleanValidator::falseValue|.
 
+ When using the |CBooleanValidator::message| property to define a custom error
+ message, the message may contain additional placeholders that will be
+ replaced with the actual content. In addition to the "{attribute}"
+ placeholder, recognized by all validators (see |CValidator|),
+ CBooleanValidator allows for the following placeholders to be specified:
+   {true}: replaced with value representing the true status
+   |CBooleanValidator::trueValue|.
+   {false}: replaced with value representing the false status
+   |CBooleanValidator::falseValue|.
+
 
 PROPERTY DETAILS
 ------------------------------------------------------------------------------

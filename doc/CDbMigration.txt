@@ -250,6 +250,16 @@ METHOD DETAILS
     table.
 
 
+*CDbMigration::refreshTableSchema*				 public
+>
+ refreshTableSchema($table)
+<
+(void)
+
+ Refreshed schema cache for a table
+    [table] (string) name of the table to refresh
+
+
 *CDbMigration::renameColumn*					 public
 >
  renameColumn($table, $name, $newName)

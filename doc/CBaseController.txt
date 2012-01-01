@@ -33,6 +33,12 @@
 >
  echo $this->clips['clipID'];
 <
+ Note that $this in the code above refers to current controller so, for
+ example, if you need to access clip from a widget where $this refers to
+ widget itself you need to do it the following way:
+>
+ echo $this->getController()->clips['clipID'];
+<
  To use fragment cache, do as follows,
 >
  if($this->beginCache('cacheID',array('property1'=>'value1',...))
@@ -98,8 +104,7 @@ version is available.
     belongs to a module, the default layout refers to the module's
     |CWebModule::layout|.
     [data] (array) the variables (name=>value) to be extracted and made
-    available in the decorative view. This parameter has been available since
-    version 1.0.4
+    available in the decorative view.
 
 
 *CBaseController::beginWidget*					 public

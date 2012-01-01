@@ -121,7 +121,7 @@ METHOD DETAILS
 >
  findGenerators()
 <
-(void)
+(array) 
 
  Finds all available code generators and their code templates.
 

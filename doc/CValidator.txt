@@ -69,7 +69,7 @@ PROPERTY DETAILS
  safe for massive assignment. Defaults to true.
 
 <skipOnError>				*CValidator::skipOnError*
- (boolean) whether this validation rule should be skipped if when there is
+ (boolean) whether this validation rule should be skipped when there is
  already a validation error for the current attribute. Defaults to false.
 
 

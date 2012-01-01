@@ -271,8 +271,7 @@ language.
  Returns the relative URL for the application. This is a shortcut method to
  |CHttpRequest::getBaseUrl|.
     [absolute] (boolean) whether to return an absolute URL. Defaults to false,
-    meaning returning a relative one. This parameter has been available since
-    1.0.2.
+    meaning returning a relative one.
 
 
 *CApplication::getCache*					 public

@@ -284,12 +284,14 @@ table.
 
 *CDbSchema::getTable*						 public
 >
- getTable($name)
+ getTable($name, $refresh=false)
 <
 (CDbTableSchema) table metadata. Null if the named table does not exist.
 
  Obtains the metadata for the named table.
     [name] (string) table name
+    [refresh] (boolean) if we need to refresh schema cache for a table.
+    Parameter available since 1.1.9
 
 
 *CDbSchema::getTableNames*					 public

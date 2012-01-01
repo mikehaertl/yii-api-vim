@@ -60,10 +60,10 @@
 
  Both property names and event names are case-insensitive.
 
- Starting from version 1.0.2, CComponent supports behaviors. A behavior is an
- instance of |IBehavior| which is attached to a component. The methods of the
- behavior can be invoked as if they belong to the component. Multiple
- behaviors can be attached to the same component.
+ CComponent supports behaviors. A behavior is an instance of |IBehavior| which
+ is attached to a component. The methods of the behavior can be invoked as if
+ they belong to the component. Multiple behaviors can be attached to the same
+ component.
 
  To attach a behavior to a component, call |CComponent::attachBehavior|; and
  to detach the behavior from the component, call |CComponent::detachBehavior|.
@@ -99,7 +99,7 @@ METHOD DETAILS
  __get($name)
 <
 (mixed) the property value, event handlers attached to the event, or the named
-behavior (since version 1.0.2)
+behavior
 
  Returns a property value, an event handler list or a behavior based on its
  name. Do not call this method. This is a PHP magic method that we override to

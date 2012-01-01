@@ -153,14 +153,15 @@ METHOD DETAILS
 <
 (array) the merged array (the original arrays are not changed.)
 
- Merges two arrays into one recursively. If each array has an element with the
- same string key value, the latter will overwrite the former (different from
- array_merge_recursive). Recursive merging will be conducted if both arrays
- have an element of array type and are having the same key. For integer-keyed
- elements, the elements from the latter array will be appended to the former
- array.
+ Merges two or more arrays into one recursively. If each array has an element
+ with the same string key value, the latter will overwrite the former
+ (different from array_merge_recursive). Recursive merging will be conducted
+ if both arrays have an element of array type and are having the same key. For
+ integer-keyed elements, the elements from the latter array will be appended
+ to the former array.
     [a] (array) array to be merged to
-    [b] (array) array to be merged from
+    [b] (array) array to be merged from. You can specifiy additional arrays
+    via third argument, fourth argument etc.
 
 
 *CMap::mergeWith*						 public
@@ -178,7 +179,7 @@ METHOD DETAILS
    if $a and $b both have an array indxed at the same string key, the
    arrays will be merged using this algorithm;
    any integer-indexed elements in $b will be appended to $a and
-   reindxed accordingly;
+   reindexed accordingly;
    any string-indexed elements in $b will overwrite elements in $a
    with the same index;
     [data] (mixed) the data to be merged with, must be an array or object

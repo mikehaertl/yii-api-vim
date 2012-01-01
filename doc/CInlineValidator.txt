@@ -9,6 +9,10 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<clientValidate>			*CInlineValidator::clientValidate*
+ (string) the name of the method that returns the client validation code (See
+ |CInlineValidator::clientValidateAttribute|).
+
 <method>				*CInlineValidator::method*
  (string) the name of the validation method defined in the active record class
 
@@ -19,6 +23,37 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CInlineValidator::clientValidateAttribute*			 public
+>
+ clientValidateAttribute($object, $attribute)
+<
+(string) the client-side validation script.
+
+ Returns the JavaScript code needed to perform client-side validation by
+ calling the |CInlineValidator::clientValidate| method. In the client
+ validation code, these variables are predefined:
+   {value} the current input value associated with this attribute.
+   {messages} an array that may be appended with new error messages
+   for the attribute.
+   {attribute} a data structure keeping all client-side options for
+   the attribute<b>Example</b>:
+
+ If |CInlineValidator::clientValidate| is set to "clientValidate123",
+ clientValidate123() is the name of the method that returns the client
+ validation code and can look like:
+>
+ <?php
+   public function clientValidate123($attribute)
+   {
+      $js = "if(value != '123') { messages.push('Value should be 123'); }";
+      return $js;
+   }
+ ?>
+<
+    [object] (CModel) the data object being validated
+    [attribute] (string) the name of the attribute to be validated.
+
 
 *CInlineValidator::validateAttribute*				 protected
 >

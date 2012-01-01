@@ -11,15 +11,23 @@
    <b>string</b> A string data type.
    <b>array</b> An array value.
    <b>date</b> A date data type.
-   <b>time</b> A time data type (available since version 1.0.5).
-   <b>datetime</b> A date and time data type (available since version
-   1.0.5).For <b>date</b> type, the property |CTypeValidator::dateFormat| will
- be used to determine how to parse the date string. If the given date value
- doesn't follow the format, the attribute is considered as invalid.
+   <b>time</b> A time data type.
+   <b>datetime</b> A date and time data type.For <b>date</b> type, the
+ property |CTypeValidator::dateFormat| will be used to determine how to parse
+ the date string. If the given date value doesn't follow the format, the
+ attribute is considered as invalid.
 
  Starting from version 1.1.7, we have a dedicated date validator
  |CDateValidator|. Please consider using this validator to validate a
  date-typed value.
+
+ When using the |CTypeValidator::message| property to define a custom error
+ message, the message may contain additional placeholders that will be
+ replaced with the actual content. In addition to the "{attribute}"
+ placeholder, recognized by all validators (see |CValidator|), CTypeValidator
+ allows for the following placeholders to be specified:
+   {type}: replaced with data type the attribute should be
+   |CTypeValidator::type|.
 
 
 PROPERTY DETAILS
@@ -50,8 +58,7 @@ PROPERTY DETAILS
 <type>					*CTypeValidator::type*
  (string) the data type that the attribute should be. Defaults to 'string'.
  Valid values include 'string', 'integer', 'float', 'array', 'date', 'time'
- and 'datetime'. Note that 'time' and 'datetime' have been available since
- version 1.0.5.
+ and 'datetime'.
 
 
 

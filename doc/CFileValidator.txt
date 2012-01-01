@@ -31,6 +31,25 @@
 <
  You can use |CFileValidator| to validate the file attribute.
 
+ In addition to the |CFileValidator::message| property for setting a custom
+ error message,  CFileValidator has a few custom error messages you can set
+ that correspond to different validation scenarios. When the file is too
+ large, you may use the |CFileValidator::tooLarge| property to define a custom
+ error message. Similarly for |CFileValidator::tooSmall|,
+ |CFileValidator::wrongType| and  |CFileValidator::tooMany|. The messages may
+ contain additional placeholders that will be replaced  with the actual
+ content. In addition to the "{attribute}" placeholder, recognized by all 
+ validators (see |CValidator|), CFileValidator allows for the following
+ placeholders  to be specified:
+   {file}: replaced with the name of the file.
+   {limit}: when using |CFileValidator::tooLarge|, replaced with
+   |CFileValidator::maxSize|;  when using |CFileValidator::tooSmall|,
+   replaced with |CFileValidator::maxSize|; and when using
+   |CFileValidator::tooMany|  replaced with
+   |CFileValidator::maxFiles|.
+   {extensions}: when using |CFileValidator::wrongType|, it will be
+   replaced with the allowed extensions.
+
 
 PROPERTY DETAILS
 ------------------------------------------------------------------------------

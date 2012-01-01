@@ -17,7 +17,7 @@ PROPERTY DETAILS
  'relationName.'.
 
 <foreignKey>				*CBaseActiveRelation::foreignKey*
- (string) the foreign key in this relation
+ (mixed) the foreign key in this relation
 
 <group> 				*CBaseActiveRelation::group*
  (string) GROUP BY clause. For |CActiveRelation| descendant classes, column

@@ -224,12 +224,12 @@ PROPERTY DETAILS
    {afterValidateAttribute} function, the function that will be
    invoked after performing ajax-based validation triggered by a
    single attribute input change. The expected function signature
-   should be 'beforeValidateAttribute(form, attribute, data,
-   hasError) {...}', where 'form' is the jquery representation of the
-   form object; 'attribute' refers to the js options for the
-   triggering attribute (see |CActiveForm::error|); 'data' is the
-   JSON response from the server-side validation; 'hasError' is a
-   boolean value indicating whether there is any validation error.
+   should be 'afterValidateAttribute(form, attribute, data, hasError)
+   {...}', where 'form' is the jquery representation of the form
+   object; 'attribute' refers to the js options for the triggering
+   attribute (see |CActiveForm::error|); 'data' is the JSON response
+   from the server-side validation; 'hasError' is a boolean value
+   indicating whether there is any validation error.
 
    Note that because this option refers to a js function, you should
    prefix the value with 'js:' to prevent it from being encoded as a

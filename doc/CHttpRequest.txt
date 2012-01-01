@@ -181,8 +181,7 @@ METHOD DETAILS
  |CHttpRequest::getScriptUrl| except that it does not have the script file
  name, and the ending slashes are stripped off.
     [absolute] (boolean) whether to return an absolute URL. Defaults to false,
-    meaning returning a relative one. This parameter has been available since
-    1.0.2.
+    meaning returning a relative one.
 
 
 *CHttpRequest::getBrowser*					 public
@@ -549,7 +548,7 @@ configuration (in most cases it is not decoded).
     [terminate] (boolean) whether to terminate the current application
     [statusCode] (integer) the HTTP status code. Defaults to 302. See
     'http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html' for details about
-    HTTP status code. This parameter has been available since version 1.0.4.
+    HTTP status code.
 
 
 *CHttpRequest::sendFile*					 public
@@ -705,6 +704,8 @@ configuration (in most cases it is not decoded).
       {xHeader} appropriate x-sendfile header, defaults to "X-Sendfile"
       {terminate} whether to terminate the current application after
       calling this method, defaults to true
+      {forceDownload} specifies whether the file will be downloaded or
+      shown inline. Defaults to true. (Since version 1.1.9.)
 
 
 

@@ -516,7 +516,7 @@ returned if no error.
 <
 (void)
 
- Unsets the attributes.
+ Sets the attributes to be null.
     [names] (array) list of attributes to be set null. If this parameter is
     not given, all attributes as specified by |CModel::attributeNames| will
     have their values unset.

@@ -26,7 +26,6 @@
    'actions'=>array('edit', 'delete'),
    // optional, list of controller IDs (case insensitive) that this rule
  applies to
-   // This option is available since version 1.0.3.
    'controllers'=>array('post', 'admin/user'),
    // optional, list of usernames (case insensitive) that this rule applies to
    // Use * to represent all users, ? guest users, and @ authenticated users
@@ -41,7 +40,6 @@
    'verbs'=>array('GET', 'POST'),
    // optional, a PHP expression whose value indicates whether this rule
  applies
-   // This option is available since version 1.0.3.
    'expression'=>'!$user->isGuest && $user->level==2',
    // optional, the customized error message to be displayed
    // This option is available since version 1.1.1.

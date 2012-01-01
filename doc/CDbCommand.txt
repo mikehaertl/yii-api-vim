@@ -188,8 +188,7 @@ METHOD DETAILS
 >
  bindParam($name, $value, $dataType=, $length=, $driverOptions=NULL)
 <
-(CDbCommand) the current command being executed (this is available since
-version 1.0.8)
+(CDbCommand) the current command being executed
 
  Binds a parameter to the SQL statement to be executed.
     [name] (mixed) Parameter identifier. For a prepared statement using named
@@ -209,8 +208,7 @@ version 1.0.8)
 >
  bindValue($name, $value, $dataType=)
 <
-(CDbCommand) the current command being executed (this is available since
-version 1.0.8)
+(CDbCommand) the current command being executed
 
  Binds a value to a parameter.
     [name] (mixed) Parameter identifier. For a prepared statement using named
@@ -393,7 +391,7 @@ version 1.0.8)
     parameters in this way, you cannot bind parameters or values using
     |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
     binding methods and  the input parameters this way can improve the
-    performance. This parameter has been available since version 1.0.10.
+    performance.
 
 
 *CDbCommand::from*						 public
@@ -688,7 +686,7 @@ string or an array representing multiple union parts.
     parameters in this way, you cannot bind parameters or values using
     |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
     binding methods and  the input parameters this way can improve the
-    performance. This parameter has been available since version 1.0.10.
+    performance.
 
 
 *CDbCommand::queryAll*						 public
@@ -710,7 +708,7 @@ nothing.
     parameters in this way, you cannot bind parameters or values using
     |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
     binding methods and  the input parameters this way can improve the
-    performance. This parameter has been available since version 1.0.10.
+    performance.
 
 
 *CDbCommand::queryColumn*					 public
@@ -730,7 +728,7 @@ nothing.
     parameters in this way, you cannot bind parameters or values using
     |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
     binding methods and  the input parameters this way can improve the
-    performance. This parameter has been available since version 1.0.10.
+    performance.
 
 
 *CDbCommand::queryRow*						 public
@@ -753,7 +751,7 @@ result.
     parameters in this way, you cannot bind parameters or values using
     |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
     binding methods and  the input parameters this way can improve the
-    performance. This parameter has been available since version 1.0.10.
+    performance.
 
 
 *CDbCommand::queryScalar*					 public
@@ -774,7 +772,7 @@ False is returned if there is no value.
     parameters in this way, you cannot bind parameters or values using
     |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
     binding methods and  the input parameters this way can improve the
-    performance. This parameter has been available since version 1.0.10.
+    performance.
 
 
 *CDbCommand::renameColumn*					 public

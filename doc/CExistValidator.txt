@@ -7,6 +7,13 @@
  This validator is often used to verify that a foreign key contains a value
  that can be found in the foreign table.
 
+ When using the |CExistValidator::message| property to define a custom error
+ message, the message may contain additional placeholders that will be
+ replaced with the actual content. In addition to the "{attribute}"
+ placeholder, recognized by all validators (see |CValidator|), CExistValidator
+ allows for the following placeholders to be specified:
+   {value}: replaced with value of the attribute.
+
 
 PROPERTY DETAILS
 ------------------------------------------------------------------------------

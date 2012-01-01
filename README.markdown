@@ -1,11 +1,11 @@
 # Yii API plugin for VIM
 
-This is the API manual of the PHP framework Yii as a VIM plugin.
+This is the API manual for Yii as VIM plugin.
 
 ## Installation
 
-Download the files from https://github.com/mikehaertl/yii-api-vim/tags, extract
-the package and move the `docs/` directory to your `~/.vim` directory.
+Download the files from [here](https://github.com/mikehaertl/yii-api-vim/tags),
+extract the package and move the `docs/` directory to your `~/.vim` directory.
 
 Alternatively you can use a plugin manager like [Vundle](https://github.com/gmarik/vundle) (recommended).
 
@@ -25,7 +25,6 @@ You can also manually ask for help, e.g. like
 ```vim
 :help CWebUser
 ```
-
 
 ## Create custom version
 

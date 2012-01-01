@@ -20,6 +20,11 @@ PROPERTY DETAILS
  (string) ON clause. The condition specified here will be appended to the
  joining condition using AND operator.
 
+<scopes>				*CActiveRelation::scopes*
+ (mixed) scopes to apply Can be set to the one of the following:
+   Single scope: 'scopes'=>'scopeName'.
+   Multiple scopes: 'scopes'=>array('scopeName1','scopeName2').
+
 <together>				*CActiveRelation::together*
  (boolean) whether this table should be joined with the primary table. When
  setting this property to be false, the table associated with this relation

@@ -6,6 +6,22 @@
 
  Note, this validator should only be used with string-typed attributes.
 
+ In addition to the |CStringValidator::message| property for setting a custom
+ error message, CStringValidator has a couple custom error messages you can
+ set that correspond to different validation scenarios. For defining a custom
+ message when the string is too short,  you may use the
+ |CStringValidator::tooShort| property. Similarly with
+ |CStringValidator::tooLong|. The messages may contain  placeholders that will
+ be replaced with the actual content. In addition to the "{attribute}" 
+ placeholder, recognized by all validators (see |CValidator|),
+ CStringValidator allows for the following placeholders to be specified:
+   {min}: when using |CStringValidator::tooShort|, replaced with
+   minimum length, |CStringValidator::min|, if set.
+   {max}: when using |CStringValidator::tooLong|, replaced with the
+   maximum length, |CStringValidator::max|, if set.
+   {length}: when using |CStringValidator::message|, replaced with
+   the exact required length, |CStringValidator::is|, if set.
+
 
 PROPERTY DETAILS
 ------------------------------------------------------------------------------

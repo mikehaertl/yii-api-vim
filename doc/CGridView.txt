@@ -159,7 +159,8 @@ PROPERTY DETAILS
  data column by default will display a text field at the top that users can
  fill in to filter the data. Note that in order to show an input field for
  filtering, a column must have its |CDataColumn::name| property set or have
- |CDataColumn::filter| as the HTML code for the input field.
+ |CDataColumn::filter| as the HTML code for the input field. When this
+ property is not set (null) the filtering is disabled.
 
 <filterCssClass>			*CGridView::filterCssClass*
  (string) the CSS class name for the table row element containing all filter

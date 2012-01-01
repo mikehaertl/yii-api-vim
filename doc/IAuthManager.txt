@@ -161,8 +161,7 @@ returned if there is no item assigned to the user.
 
  Returns the children of the specified item.
     [itemName] (mixed) the parent item name. This can be either a string or an
-    array. The latter represents a list of item names (available since version
-    1.0.5).
+    array. The latter represents a list of item names.
 
 
 *IAuthManager::hasItemChild*					 public
