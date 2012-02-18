@@ -162,6 +162,19 @@ METHOD DETAILS
  cookie.
 
 
+*CHttpRequest::decodePathInfo*					 protected
+>
+ decodePathInfo($pathInfo)
+<
+(string) decoded path info
+
+ Decodes the path info. This method is an improved variant of the native
+ urldecode() function and used in |CHttpRequest::getPathInfo| to decode the
+ path part of the request URI. You may override this method to change the way
+ the path info is being decoded.
+    [pathInfo] (string) encoded path info
+
+
 *CHttpRequest::getAcceptTypes*					 public
 >
  getAcceptTypes()
@@ -651,7 +664,7 @@ configuration (in most cases it is not decoded).
 >
  xSendFile($filePath, $options=array())
 <
-(boolean) false if file not found, true otherwise.
+(void)
 
  Sends existing file to a browser as a download using x-sendfile.
 
@@ -671,7 +684,7 @@ configuration (in most cases it is not decoded).
  different web servers applications:
    {Apache} 'X-Sendfile'
    Lighttpd v1.4: 'X-LIGHTTPD-send-file'
-   Lighttpd v1.5: X-Sendfile 'X-Sendfile'
+   Lighttpd v1.5: 'X-Sendfile'
    {Nginx} 'X-Accel-Redirect'
    {Cherokee} 'X-Sendfile and X-Accel-Redirect'So for this method to work the
  X-SENDFILE option/module should be enabled by the web server and a proper
@@ -688,11 +701,11 @@ configuration (in most cases it is not decoded).
  <b>Example</b>:
 >
  <?php
-   Yii::app()->request->xSendFile('/home/user/Pictures/picture1.jpg',array(
-   'saveName'=>'image1.jpg',
-   'mimeType'=>'image/jpeg',
-   'terminate'=>false,
-   ));
+    Yii::app()->request->xSendFile('/home/user/Pictures/picture1.jpg',array(
+        'saveName'=>'image1.jpg',
+        'mimeType'=>'image/jpeg',
+        'terminate'=>false,
+    ));
  ?>
 <
     [filePath] (string) file name with full path
@@ -700,12 +713,15 @@ configuration (in most cases it is not decoded).
       {saveName} file name shown to the user, if not set real file name
       will be used
       {mimeType} mime type of the file, if not set it will be guessed
-      automatically based on the file name.
+      automatically based on the file name, if set to null no
+      content-type header will be sent.
       {xHeader} appropriate x-sendfile header, defaults to "X-Sendfile"
       {terminate} whether to terminate the current application after
       calling this method, defaults to true
       {forceDownload} specifies whether the file will be downloaded or
-      shown inline. Defaults to true. (Since version 1.1.9.)
+      shown inline, defaults to true. (Since version 1.1.9.)
+      {addHeaders} an array of additional http headers in header-value
+      pairs (available since version 1.1.10)
 
 
 

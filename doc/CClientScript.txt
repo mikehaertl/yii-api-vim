@@ -123,7 +123,8 @@ METHOD DETAILS
 >
  addPackage($name, $definition)
 <
-(void)
+(CClientScript) the CClientScript object itself (to support method chaining,
+available since version 1.1.10).
 
  Adds a package to packages list.
     [name] (string) the name of the script package.

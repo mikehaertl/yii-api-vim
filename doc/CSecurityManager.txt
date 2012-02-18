@@ -150,6 +150,14 @@ set, a random one is generated and returned.
     null, meaning using |CSecurityManager::validationKey|.
 
 
+*CSecurityManager::init*					 public
+>
+ init()
+<
+(void)
+
+
+
 *CSecurityManager::openCryptModule*				 protected
 >
  openCryptModule()

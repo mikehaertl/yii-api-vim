@@ -84,6 +84,7 @@ CActiveForm::summaryID	CActiveForm.txt	/*CActiveForm::summaryID*
 CActiveForm::textArea	CActiveForm.txt	/*CActiveForm::textArea*
 CActiveForm::textField	CActiveForm.txt	/*CActiveForm::textField*
 CActiveForm::validate	CActiveForm.txt	/*CActiveForm::validate*
+CActiveForm::validateTabular	CActiveForm.txt	/*CActiveForm::validateTabular*
 CActiveRecord	CActiveRecord.txt	/*CActiveRecord*
 CActiveRecord::__call	CActiveRecord.txt	/*CActiveRecord::__call*
 CActiveRecord::__construct	CActiveRecord.txt	/*CActiveRecord::__construct*
@@ -749,6 +750,7 @@ CCodeModel::files	CCodeModel.txt	/*CCodeModel::files*
 CCodeModel::getStickyFile	CCodeModel.txt	/*CCodeModel::getStickyFile*
 CCodeModel::getTemplatePath	CCodeModel.txt	/*CCodeModel::getTemplatePath*
 CCodeModel::getTemplates	CCodeModel.txt	/*CCodeModel::getTemplates*
+CCodeModel::keywords	CCodeModel.txt	/*CCodeModel::keywords*
 CCodeModel::loadStickyAttributes	CCodeModel.txt	/*CCodeModel::loadStickyAttributes*
 CCodeModel::pluralize	CCodeModel.txt	/*CCodeModel::pluralize*
 CCodeModel::prepare	CCodeModel.txt	/*CCodeModel::prepare*
@@ -2046,6 +2048,7 @@ CHttpRequest::createCsrfCookie	CHttpRequest.txt	/*CHttpRequest::createCsrfCookie
 CHttpRequest::csrfCookie	CHttpRequest.txt	/*CHttpRequest::csrfCookie*
 CHttpRequest::csrfToken	CHttpRequest.txt	/*CHttpRequest::csrfToken*
 CHttpRequest::csrfTokenName	CHttpRequest.txt	/*CHttpRequest::csrfTokenName*
+CHttpRequest::decodePathInfo	CHttpRequest.txt	/*CHttpRequest::decodePathInfo*
 CHttpRequest::enableCookieValidation	CHttpRequest.txt	/*CHttpRequest::enableCookieValidation*
 CHttpRequest::enableCsrfValidation	CHttpRequest.txt	/*CHttpRequest::enableCsrfValidation*
 CHttpRequest::getAcceptTypes	CHttpRequest.txt	/*CHttpRequest::getAcceptTypes*
@@ -3068,6 +3071,7 @@ CSecurityManager::getValidation	CSecurityManager.txt	/*CSecurityManager::getVali
 CSecurityManager::getValidationKey	CSecurityManager.txt	/*CSecurityManager::getValidationKey*
 CSecurityManager::hashAlgorithm	CSecurityManager.txt	/*CSecurityManager::hashAlgorithm*
 CSecurityManager::hashData	CSecurityManager.txt	/*CSecurityManager::hashData*
+CSecurityManager::init	CSecurityManager.txt	/*CSecurityManager::init*
 CSecurityManager::openCryptModule	CSecurityManager.txt	/*CSecurityManager::openCryptModule*
 CSecurityManager::setEncryptionKey	CSecurityManager.txt	/*CSecurityManager::setEncryptionKey*
 CSecurityManager::setValidation	CSecurityManager.txt	/*CSecurityManager::setValidation*

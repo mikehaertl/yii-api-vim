@@ -115,8 +115,8 @@ PROPERTY DETAILS
  when |CGridView::ajaxUpdate| is not false.
 
 <baseScriptUrl> 			*CGridView::baseScriptUrl*
- (string) the base script URL for all grid view resources (e.g. javascript,
- CSS file, images). Defaults to null, meaning using the integrated grid view
+ (string) the base script URL for all grid view resources (eg javascript, CSS
+ file, images). Defaults to null, meaning using the integrated grid view
  resources (which are published as assets).
 
 <beforeAjaxUpdate>			*CGridView::beforeAjaxUpdate*

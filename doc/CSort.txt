@@ -121,7 +121,7 @@ PROPERTY DETAILS
  example,
 >
  'defaultOrder'=>array(
-     'price'=>true,
+     'price'=>CSort::SORT_DESC,
  )
 <
  Please note when using array to specify the default order, the corresponding
@@ -224,16 +224,16 @@ METHOD DETAILS
     [controller] (CController) the controller that will be used to create the
     URL.
     [directions] (array) the sort directions indexed by attribute names. The
-    sort direction is true if the corresponding attribute should be sorted in
-    descending order.
+    sort direction can be either CSort::SORT_ASC for ascending order or
+    CSort::SORT_DESC for descending order.
 
 
 *CSort::getDirection*						 public
 >
  getDirection($attribute)
 <
-(mixed) the sort direction of the attribut. True if the attribute should be
-sorted in descending order, false if in ascending order, and null if the
+(mixed) Sort direction of the attribute. Can be either CSort::SORT_ASC for
+ascending order or CSort::SORT_DESC for descending order. Value is null if the
 attribute doesn't need to be sorted.
 
  Returns the sort direction of the specified attribute in the current request.
@@ -244,8 +244,9 @@ attribute doesn't need to be sorted.
 >
  getDirections()
 <
-(array) sort directions indexed by attribute names. The sort direction is true
-if the corresponding attribute should be sorted in descending order.
+(array) sort directions indexed by attribute names. Sort direction can be
+either CSort::SORT_ASC for ascending order or CSort::SORT_DESC for descending
+order.
 
  Returns the currently requested sort information.
 

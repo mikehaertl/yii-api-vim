@@ -35,6 +35,9 @@ PROPERTY DETAILS
  generated. The |CCodeModel::prepare| method is responsible to populate this
  property.
 
+<keywords>				*CCodeModel::keywords*
+ ()
+
 <status>				*CCodeModel::status*
  (integer) the status of this model. T The value of this property is
  internally managed by |CCodeGenerator|.
