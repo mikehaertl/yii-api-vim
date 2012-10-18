@@ -10,6 +10,18 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CMssqlPdoAdapter::__construct* 				 public
+ See |PDO::__construct|
+
+
+*CMssqlPdoAdapter::__sleep*					 public
+ See |PDO::__sleep|
+
+
+*CMssqlPdoAdapter::__wakeup*					 public
+ See |PDO::__wakeup|
+
+
 *CMssqlPdoAdapter::beginTransaction*				 public
 >
  beginTransaction()
@@ -34,6 +46,30 @@ METHOD DETAILS
  support transaction
 
 
+*CMssqlPdoAdapter::errorCode*					 public
+ See |PDO::errorCode|
+
+
+*CMssqlPdoAdapter::errorInfo*					 public
+ See |PDO::errorInfo|
+
+
+*CMssqlPdoAdapter::exec*					 public
+ See |PDO::exec|
+
+
+*CMssqlPdoAdapter::getAttribute*				 public
+ See |PDO::getAttribute|
+
+
+*CMssqlPdoAdapter::getAvailableDrivers* 			 public
+ See |PDO::getAvailableDrivers|
+
+
+*CMssqlPdoAdapter::inTransaction*				 public
+ See |PDO::inTransaction|
+
+
 *CMssqlPdoAdapter::lastInsertId*				 public
 >
  lastInsertId($sequence=NULL)
@@ -43,6 +79,18 @@ METHOD DETAILS
  Get the last inserted id value MSSQL doesn't support sequence, so, argument
  is ignored
     [sequence] (string|null) sequence name. Defaults to null
+
+
+*CMssqlPdoAdapter::prepare*					 public
+ See |PDO::prepare|
+
+
+*CMssqlPdoAdapter::query*					 public
+ See |PDO::query|
+
+
+*CMssqlPdoAdapter::quote*					 public
+ See |PDO::quote|
 
 
 *CMssqlPdoAdapter::rollBack*					 public
@@ -55,6 +103,10 @@ METHOD DETAILS
 
  Is is necessary to override pdo's method, ac mssql pdo drivers does not
  support transaction
+
+
+*CMssqlPdoAdapter::setAttribute*				 public
+ See |PDO::setAttribute|
 
 
 

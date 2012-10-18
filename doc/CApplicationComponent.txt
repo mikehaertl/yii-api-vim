@@ -30,6 +30,86 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CApplicationComponent::__call* 				 public
+ See |CComponent::__call|
+
+
+*CApplicationComponent::__get*					 public
+ See |CComponent::__get|
+
+
+*CApplicationComponent::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CApplicationComponent::__set*					 public
+ See |CComponent::__set|
+
+
+*CApplicationComponent::__unset*				 public
+ See |CComponent::__unset|
+
+
+*CApplicationComponent::asa*					 public
+ See |CComponent::asa|
+
+
+*CApplicationComponent::attachBehavior* 			 public
+ See |CComponent::attachBehavior|
+
+
+*CApplicationComponent::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CApplicationComponent::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CApplicationComponent::canGetProperty* 			 public
+ See |CComponent::canGetProperty|
+
+
+*CApplicationComponent::canSetProperty* 			 public
+ See |CComponent::canSetProperty|
+
+
+*CApplicationComponent::detachBehavior* 			 public
+ See |CComponent::detachBehavior|
+
+
+*CApplicationComponent::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CApplicationComponent::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CApplicationComponent::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CApplicationComponent::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CApplicationComponent::enableBehavior* 			 public
+ See |CComponent::enableBehavior|
+
+
+*CApplicationComponent::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CApplicationComponent::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CApplicationComponent::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
 *CApplicationComponent::getIsInitialized*			 public
 >
  getIsInitialized()
@@ -38,6 +118,18 @@ METHOD DETAILS
 |CApplicationComponent::init| is invoked).
 
  Checks if this application component bas been initialized.
+
+
+*CApplicationComponent::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CApplicationComponent::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CApplicationComponent::hasProperty*				 public
+ See |CComponent::hasProperty|
 
 
 *CApplicationComponent::init*					 public
@@ -50,6 +142,10 @@ METHOD DETAILS
  |IApplicationComponent| and is invoked by application. If you override this
  method, make sure to call the parent implementation so that the application
  component can be marked as initialized.
+
+
+*CApplicationComponent::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 

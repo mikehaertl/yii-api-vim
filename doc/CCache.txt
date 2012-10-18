@@ -27,21 +27,73 @@
    |CCache::setValue|
    |CCache::addValue|
    |CCache::deleteValue|
-   |CCache::flush| (optional)CCache also implements ArrayAccess so that it can
- be used like an array.
+   |CCache::flushValues| (optional)
+   serializeValue (optional)
+   unserializeValue (optional)CCache also implements ArrayAccess so that it
+ can be used like an array.
 
 
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<behaviors>				*CCache::behaviors*
+ See |CApplicationComponent::behaviors|
+
+<hashKey>				*CCache::hashKey*
+ (boolean) whether to md5-hash the cache key for normalization purposes.
+ Defaults to true. Setting this property to false makes sure the cache key
+ will not be tampered when calling the relevant methods |CCache::get|,
+ |CCache::set|, |CCache::add| and |CCache::delete|. This is useful if a Yii
+ application as well as an external application need to access the same cache
+ pool (also see description of |CCache::keyPrefix| regarding this use case).
+ However, without normalization you should make sure the affected cache
+ backend does support the structure (charset, length, etc.) of all the
+ provided cache keys, otherwise there might be unexpected behavior.
+
+<isInitialized> 			*CCache::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
 <keyPrefix>				*CCache::keyPrefix*
  (string) a string prefixed to every cache key so that it is unique. Defaults
- to |CApplication::getId|.
+ to null which means to use the |CApplication::getId|. If different
+ applications need to access the same pool of cached data, the same prefix
+ should be set for each of the applications explicitly.
+
+<serializer>				*CCache::serializer*
+ (array|boolean) the functions used to serialize and unserialize cached data.
+ Defaults to null, meaning using the default PHP `serialize()` and
+ `unserialize()` functions. If you want to use some more efficient serializer
+ (e.g. 'igbinary'), you may configure this property with a two-element array.
+ The first element specifies the serialization function, and the second the
+ deserialization function. If this property is set false, data will be
+ directly sent to and retrieved from the underlying cache component without
+ any serialization or deserialization. You should not turn off serialization
+ if you are using |CCacheDependency|, because it relies on data serialization.
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CCache::__call*						 public
+ See |CComponent::__call|
+
+
+*CCache::__get* 						 public
+ See |CComponent::__get|
+
+
+*CCache::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CCache::__set* 						 public
+ See |CComponent::__set|
+
+
+*CCache::__unset*						 public
+ See |CComponent::__unset|
+
 
 *CCache::add*							 public
 >
@@ -75,6 +127,30 @@ METHOD DETAILS
     expire. 0 means never expire.
 
 
+*CCache::asa*							 public
+ See |CComponent::asa|
+
+
+*CCache::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CCache::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CCache::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CCache::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CCache::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CCache::delete*						 public
 >
  delete($id)
@@ -94,6 +170,38 @@ METHOD DETAILS
  Deletes a value with the specified key from cache This method should be
  implemented by child classes to delete the data from actual cache storage.
     [key] (string) the key of the value to be deleted
+
+
+*CCache::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CCache::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CCache::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CCache::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CCache::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CCache::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CCache::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CCache::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
 
 
 *CCache::flush* 						 public
@@ -120,7 +228,7 @@ METHOD DETAILS
 >
  generateUniqueKey($key)
 <
-(sring) a key generated from the provided key which ensures the uniqueness
+(string) a key generated from the provided key which ensures the uniqueness
 across applications
 
     [key] (string) a key identifying a value to be cached
@@ -135,6 +243,14 @@ expired or the dependency has changed.
 
  Retrieves a value from cache with a specified key.
     [id] (string) a key identifying the cached value
+
+
+*CCache::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CCache::getIsInitialized*					 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CCache::getValue*						 protected
@@ -164,6 +280,18 @@ expired.
     [keys] (array) a list of keys identifying the cached values
 
 
+*CCache::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CCache::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CCache::hasProperty*						 public
+ See |CComponent::hasProperty|
+
+
 *CCache::init*							 public
 >
  init()
@@ -185,7 +313,7 @@ expired, the corresponding array value will be false.
  Retrieves multiple values from cache with the specified keys. Some caches
  (such as memcache, apc) allow retrieving multiple cached values at one time,
  which may improve the performance since it reduces the communication cost. In
- case a cache doesn't support this feature natively, it will be simulated by
+ case a cache does not support this feature natively, it will be simulated by
  this method.
     [ids] (array) list of keys identifying the cached values
 
@@ -236,6 +364,10 @@ expired.
  Deletes the value with the specified key from cache This method is required
  by the interface ArrayAccess.
     [id] (string) the key of the value to be deleted
+
+
+*CCache::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 *CCache::set*							 public

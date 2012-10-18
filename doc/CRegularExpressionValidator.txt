@@ -15,18 +15,94 @@ PROPERTY DETAILS
  (boolean) whether the attribute value can be null or empty. Defaults to true,
  meaning that if the attribute is empty, it is considered valid.
 
+<attributes>				*CRegularExpressionValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CRegularExpressionValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
+<enableClientValidation>		*CRegularExpressionValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CRegularExpressionValidator::except*
+ See |CValidator::except|
+
+<message>				*CRegularExpressionValidator::message*
+ See |CValidator::message|
+
 <not>					*CRegularExpressionValidator::not*
  (boolean) whether to invert the validation logic. Defaults to false. If set
  to true, the regular expression defined via
  |CRegularExpressionValidator::pattern| should NOT match the attribute value.
 
+<on>					*CRegularExpressionValidator::on*
+ See |CValidator::on|
+
 <pattern>				*CRegularExpressionValidator::pattern*
  (string) the regular expression to be matched with
+
+<safe>					*CRegularExpressionValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CRegularExpressionValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CRegularExpressionValidator::__call*				 public
+ See |CComponent::__call|
+
+
+*CRegularExpressionValidator::__get*				 public
+ See |CComponent::__get|
+
+
+*CRegularExpressionValidator::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CRegularExpressionValidator::__set*				 public
+ See |CComponent::__set|
+
+
+*CRegularExpressionValidator::__unset*				 public
+ See |CComponent::__unset|
+
+
+*CRegularExpressionValidator::addError* 			 protected
+ See |CValidator::addError|
+
+
+*CRegularExpressionValidator::applyTo*				 public
+ See |CValidator::applyTo|
+
+
+*CRegularExpressionValidator::asa*				 public
+ See |CComponent::asa|
+
+
+*CRegularExpressionValidator::attachBehavior*			 public
+ See |CComponent::attachBehavior|
+
+
+*CRegularExpressionValidator::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CRegularExpressionValidator::attachEventHandler*		 public
+ See |CComponent::attachEventHandler|
+
+
+*CRegularExpressionValidator::canGetProperty*			 public
+ See |CComponent::canGetProperty|
+
+
+*CRegularExpressionValidator::canSetProperty*			 public
+ See |CComponent::canSetProperty|
+
 
 *CRegularExpressionValidator::clientValidateAttribute*		 public
 >
@@ -37,6 +113,70 @@ METHOD DETAILS
  Returns the JavaScript needed for performing client-side validation.
     [object] (CModel) the data object being validated
     [attribute] (string) the name of the attribute to be validated.
+
+
+*CRegularExpressionValidator::createValidator*			 public
+ See |CValidator::createValidator|
+
+
+*CRegularExpressionValidator::detachBehavior*			 public
+ See |CComponent::detachBehavior|
+
+
+*CRegularExpressionValidator::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CRegularExpressionValidator::detachEventHandler*		 public
+ See |CComponent::detachEventHandler|
+
+
+*CRegularExpressionValidator::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CRegularExpressionValidator::disableBehaviors* 		 public
+ See |CComponent::disableBehaviors|
+
+
+*CRegularExpressionValidator::enableBehavior*			 public
+ See |CComponent::enableBehavior|
+
+
+*CRegularExpressionValidator::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CRegularExpressionValidator::evaluateExpression*		 public
+ See |CComponent::evaluateExpression|
+
+
+*CRegularExpressionValidator::getEventHandlers* 		 public
+ See |CComponent::getEventHandlers|
+
+
+*CRegularExpressionValidator::hasEvent* 			 public
+ See |CComponent::hasEvent|
+
+
+*CRegularExpressionValidator::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CRegularExpressionValidator::hasProperty*			 public
+ See |CComponent::hasProperty|
+
+
+*CRegularExpressionValidator::isEmpty*				 protected
+ See |CValidator::isEmpty|
+
+
+*CRegularExpressionValidator::raiseEvent*			 public
+ See |CComponent::raiseEvent|
+
+
+*CRegularExpressionValidator::validate* 			 public
+ See |CValidator::validate|
 
 
 *CRegularExpressionValidator::validateAttribute*		 protected

@@ -12,13 +12,85 @@ PROPERTY DETAILS
 <columnTypes>				*CMysqlSchema::columnTypes*
  (array) the abstract column types mapped to physical column types.
 
+<commandBuilder>			*CMysqlSchema::commandBuilder*
+ See |CDbSchema::commandBuilder|
+
+<dbConnection>				*CMysqlSchema::dbConnection*
+ See |CDbSchema::dbConnection|
+
 <serverVersion> 			*CMysqlSchema::serverVersion*
  (float) server version.
+
+<tableNames>				*CMysqlSchema::tableNames*
+ See |CDbSchema::tableNames|
+
+<tables>				*CMysqlSchema::tables*
+ See |CDbSchema::tables|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CMysqlSchema::__call*						 public
+ See |CComponent::__call|
+
+
+*CMysqlSchema::__construct*					 public
+ See |CDbSchema::__construct|
+
+
+*CMysqlSchema::__get*						 public
+ See |CComponent::__get|
+
+
+*CMysqlSchema::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CMysqlSchema::__set*						 public
+ See |CComponent::__set|
+
+
+*CMysqlSchema::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CMysqlSchema::addColumn*					 public
+ See |CDbSchema::addColumn|
+
+
+*CMysqlSchema::addForeignKey*					 public
+ See |CDbSchema::addForeignKey|
+
+
+*CMysqlSchema::alterColumn*					 public
+ See |CDbSchema::alterColumn|
+
+
+*CMysqlSchema::asa*						 public
+ See |CComponent::asa|
+
+
+*CMysqlSchema::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CMysqlSchema::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CMysqlSchema::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CMysqlSchema::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CMysqlSchema::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
 
 *CMysqlSchema::checkIntegrity*					 public
 >
@@ -54,6 +126,42 @@ METHOD DETAILS
     [column] (array) column metadata
 
 
+*CMysqlSchema::createCommandBuilder*				 protected
+ See |CDbSchema::createCommandBuilder|
+
+
+*CMysqlSchema::createIndex*					 public
+ See |CDbSchema::createIndex|
+
+
+*CMysqlSchema::createTable*					 public
+ See |CDbSchema::createTable|
+
+
+*CMysqlSchema::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CMysqlSchema::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CMysqlSchema::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CMysqlSchema::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CMysqlSchema::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CMysqlSchema::dropColumn*					 public
+ See |CDbSchema::dropColumn|
+
+
 *CMysqlSchema::dropForeignKey*					 public
 >
  dropForeignKey($name, $table)
@@ -65,6 +173,26 @@ METHOD DETAILS
     name will be properly quoted by the method.
     [table] (string) the table whose foreign is to be dropped. The name will
     be properly quoted by the method.
+
+
+*CMysqlSchema::dropIndex*					 public
+ See |CDbSchema::dropIndex|
+
+
+*CMysqlSchema::dropTable*					 public
+ See |CDbSchema::dropTable|
+
+
+*CMysqlSchema::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CMysqlSchema::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CMysqlSchema::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CMysqlSchema::findColumns*					 protected
@@ -99,12 +227,52 @@ METHOD DETAILS
     names will be prefixed with the schema name.
 
 
+*CMysqlSchema::getColumnType*					 public
+ See |CDbSchema::getColumnType|
+
+
+*CMysqlSchema::getCommandBuilder*				 public
+ See |CDbSchema::getCommandBuilder|
+
+
+*CMysqlSchema::getDbConnection* 				 public
+ See |CDbSchema::getDbConnection|
+
+
+*CMysqlSchema::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
 *CMysqlSchema::getServerVersion*				 protected
 >
  getServerVersion()
 <
 (float) server version.
 
+
+
+*CMysqlSchema::getTable*					 public
+ See |CDbSchema::getTable|
+
+
+*CMysqlSchema::getTableNames*					 public
+ See |CDbSchema::getTableNames|
+
+
+*CMysqlSchema::getTables*					 public
+ See |CDbSchema::getTables|
+
+
+*CMysqlSchema::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CMysqlSchema::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CMysqlSchema::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CMysqlSchema::loadTable*					 protected
@@ -116,6 +284,10 @@ not exist.
 
  Loads the metadata for the specified table.
     [name] (string) table name
+
+
+*CMysqlSchema::quoteColumnName* 				 public
+ See |CDbSchema::quoteColumnName|
 
 
 *CMysqlSchema::quoteSimpleColumnName*				 public
@@ -140,6 +312,18 @@ not exist.
     [name] (string) table name
 
 
+*CMysqlSchema::quoteTableName*					 public
+ See |CDbSchema::quoteTableName|
+
+
+*CMysqlSchema::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CMysqlSchema::refresh* 					 public
+ See |CDbSchema::refresh|
+
+
 *CMysqlSchema::renameColumn*					 public
 >
  renameColumn($table, $name, $newName)
@@ -153,6 +337,10 @@ not exist.
     quoted by the method.
     [newName] (string) the new name of the column. The name will be properly
     quoted by the method.
+
+
+*CMysqlSchema::renameTable*					 public
+ See |CDbSchema::renameTable|
 
 
 *CMysqlSchema::resetSequence*					 public
@@ -180,6 +368,10 @@ not exist.
  Generates various kinds of table names.
     [table] (CMysqlTableSchema) the table instance
     [name] (string) the unquoted table name
+
+
+*CMysqlSchema::truncateTable*					 public
+ See |CDbSchema::truncateTable|
 
 
 

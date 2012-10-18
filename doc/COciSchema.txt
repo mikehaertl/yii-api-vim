@@ -12,13 +12,57 @@ PROPERTY DETAILS
 <columnTypes>				*COciSchema::columnTypes*
  (array) the abstract column types mapped to physical column types.
 
+<commandBuilder>			*COciSchema::commandBuilder*
+ See |CDbSchema::commandBuilder|
+
+<dbConnection>				*COciSchema::dbConnection*
+ See |CDbSchema::dbConnection|
+
 <defaultSchema> 			*COciSchema::defaultSchema*
  (string) default schema.
+
+<tableNames>				*COciSchema::tableNames*
+ See |CDbSchema::tableNames|
+
+<tables>				*COciSchema::tables*
+ See |CDbSchema::tables|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*COciSchema::__call*						 public
+ See |CComponent::__call|
+
+
+*COciSchema::__construct*					 public
+ See |CDbSchema::__construct|
+
+
+*COciSchema::__get*						 public
+ See |CComponent::__get|
+
+
+*COciSchema::__isset*						 public
+ See |CComponent::__isset|
+
+
+*COciSchema::__set*						 public
+ See |CComponent::__set|
+
+
+*COciSchema::__unset*						 public
+ See |CComponent::__unset|
+
+
+*COciSchema::addColumn* 					 public
+ See |CDbSchema::addColumn|
+
+
+*COciSchema::addForeignKey*					 public
+ See |CDbSchema::addForeignKey|
+
 
 *COciSchema::alterColumn*					 public
 >
@@ -37,6 +81,38 @@ METHOD DETAILS
     kept in the generated SQL. For example, 'string' will be turned into
     'varchar(255)', while 'string not null' will become 'varchar(255) not
     null'.
+
+
+*COciSchema::asa*						 public
+ See |CComponent::asa|
+
+
+*COciSchema::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*COciSchema::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*COciSchema::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*COciSchema::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*COciSchema::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*COciSchema::checkIntegrity*					 public
+ See |CDbSchema::checkIntegrity|
+
+
+*COciSchema::compareTableNames* 				 public
+ See |CDbSchema::compareTableNames|
 
 
 *COciSchema::createColumn*					 protected
@@ -59,6 +135,42 @@ METHOD DETAILS
  child classes to create a DBMS-specific command builder.
 
 
+*COciSchema::createIndex*					 public
+ See |CDbSchema::createIndex|
+
+
+*COciSchema::createTable*					 public
+ See |CDbSchema::createTable|
+
+
+*COciSchema::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*COciSchema::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*COciSchema::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*COciSchema::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*COciSchema::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*COciSchema::dropColumn*					 public
+ See |CDbSchema::dropColumn|
+
+
+*COciSchema::dropForeignKey*					 public
+ See |CDbSchema::dropForeignKey|
+
+
 *COciSchema::dropIndex* 					 public
 >
  dropIndex($name, $table)
@@ -70,6 +182,22 @@ METHOD DETAILS
     properly quoted by the method.
     [table] (string) the table whose index is to be dropped. The name will be
     properly quoted by the method.
+
+
+*COciSchema::dropTable* 					 public
+ See |CDbSchema::dropTable|
+
+
+*COciSchema::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*COciSchema::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*COciSchema::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *COciSchema::findColumns*					 protected
@@ -104,12 +232,28 @@ METHOD DETAILS
     names will be prefixed with the schema name.
 
 
+*COciSchema::getColumnType*					 public
+ See |CDbSchema::getColumnType|
+
+
+*COciSchema::getCommandBuilder* 				 public
+ See |CDbSchema::getCommandBuilder|
+
+
+*COciSchema::getDbConnection*					 public
+ See |CDbSchema::getDbConnection|
+
+
 *COciSchema::getDefaultSchema*					 public
 >
  getDefaultSchema()
 <
 (string) default schema.
 
+
+
+*COciSchema::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *COciSchema::getSchemaTableName*				 protected
@@ -122,6 +266,30 @@ METHOD DETAILS
     schema name prefix is not provided.
 
 
+*COciSchema::getTable*						 public
+ See |CDbSchema::getTable|
+
+
+*COciSchema::getTableNames*					 public
+ See |CDbSchema::getTableNames|
+
+
+*COciSchema::getTables* 					 public
+ See |CDbSchema::getTables|
+
+
+*COciSchema::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*COciSchema::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*COciSchema::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *COciSchema::loadTable* 					 protected
 >
  loadTable($name)
@@ -130,6 +298,10 @@ METHOD DETAILS
 
  Loads the metadata for the specified table.
     [name] (string) table name
+
+
+*COciSchema::quoteColumnName*					 public
+ See |CDbSchema::quoteColumnName|
 
 
 *COciSchema::quoteSimpleColumnName*				 public
@@ -154,6 +326,22 @@ METHOD DETAILS
     [name] (string) table name
 
 
+*COciSchema::quoteTableName*					 public
+ See |CDbSchema::quoteTableName|
+
+
+*COciSchema::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*COciSchema::refresh*						 public
+ See |CDbSchema::refresh|
+
+
+*COciSchema::renameColumn*					 public
+ See |CDbSchema::renameColumn|
+
+
 *COciSchema::renameTable*					 public
 >
  renameTable($table, $newName)
@@ -165,6 +353,10 @@ METHOD DETAILS
     by the method.
     [newName] (string) the new table name. The name will be properly quoted by
     the method.
+
+
+*COciSchema::resetSequence*					 public
+ See |CDbSchema::resetSequence|
 
 
 *COciSchema::resolveTableNames* 				 protected
@@ -185,6 +377,10 @@ METHOD DETAILS
 (void)
 
     [schema] (string) default schema.
+
+
+*COciSchema::truncateTable*					 public
+ See |CDbSchema::truncateTable|
 
 
 

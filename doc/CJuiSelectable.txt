@@ -28,6 +28,21 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CJuiSelectable::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CJuiSelectable::controller*
+ See |CWidget::controller|
+
+<cssFile>				*CJuiSelectable::cssFile*
+ See |CJuiWidget::cssFile|
+
+<htmlOptions>				*CJuiSelectable::htmlOptions*
+ See |CJuiWidget::htmlOptions|
+
+<id>					*CJuiSelectable::id*
+ See |CWidget::id|
+
 <itemTemplate>				*CJuiSelectable::itemTemplate*
  (string) the template that is used to generated every selectable item. The
  token "{content}" in the template will be replaced with the item content,
@@ -37,14 +52,226 @@ PROPERTY DETAILS
  (array) list of selectable items (id=>item content). Note that the item
  contents will not be HTML-encoded.
 
+<options>				*CJuiSelectable::options*
+ See |CJuiWidget::options|
+
+<owner> 				*CJuiSelectable::owner*
+ See |CWidget::owner|
+
+<scriptFile>				*CJuiSelectable::scriptFile*
+ See |CJuiWidget::scriptFile|
+
+<scriptUrl>				*CJuiSelectable::scriptUrl*
+ See |CJuiWidget::scriptUrl|
+
+<skin>					*CJuiSelectable::skin*
+ See |CWidget::skin|
+
 <tagName>				*CJuiSelectable::tagName*
  (string) the name of the container element that contains all items. Defaults
  to 'ol'.
+
+<theme> 				*CJuiSelectable::theme*
+ See |CJuiWidget::theme|
+
+<themeUrl>				*CJuiSelectable::themeUrl*
+ See |CJuiWidget::themeUrl|
+
+<viewPath>				*CJuiSelectable::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CJuiSelectable::__call*					 public
+ See |CComponent::__call|
+
+
+*CJuiSelectable::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CJuiSelectable::__get* 					 public
+ See |CComponent::__get|
+
+
+*CJuiSelectable::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CJuiSelectable::__set* 					 public
+ See |CComponent::__set|
+
+
+*CJuiSelectable::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CJuiSelectable::actions*					 public
+ See |CWidget::actions|
+
+
+*CJuiSelectable::asa*						 public
+ See |CComponent::asa|
+
+
+*CJuiSelectable::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CJuiSelectable::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CJuiSelectable::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CJuiSelectable::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CJuiSelectable::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CJuiSelectable::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CJuiSelectable::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CJuiSelectable::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CJuiSelectable::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CJuiSelectable::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CJuiSelectable::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CJuiSelectable::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CJuiSelectable::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CJuiSelectable::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CJuiSelectable::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CJuiSelectable::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CJuiSelectable::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CJuiSelectable::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CJuiSelectable::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CJuiSelectable::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CJuiSelectable::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CJuiSelectable::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CJuiSelectable::getController* 				 public
+ See |CWidget::getController|
+
+
+*CJuiSelectable::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CJuiSelectable::getId* 					 public
+ See |CWidget::getId|
+
+
+*CJuiSelectable::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CJuiSelectable::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CJuiSelectable::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CJuiSelectable::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CJuiSelectable::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CJuiSelectable::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CJuiSelectable::init*						 public
+ See |CJuiWidget::init|
+
+
+*CJuiSelectable::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CJuiSelectable::registerCoreScripts*				 protected
+ See |CJuiWidget::registerCoreScripts|
+
+
+*CJuiSelectable::registerScriptFile*				 protected
+ See |CJuiWidget::registerScriptFile|
+
+
+*CJuiSelectable::render*					 public
+ See |CWidget::render|
+
+
+*CJuiSelectable::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CJuiSelectable::renderInternal*				 public
+ See |CBaseController::renderInternal|
+
+
+*CJuiSelectable::resolvePackagePath*				 protected
+ See |CJuiWidget::resolvePackagePath|
+
 
 *CJuiSelectable::run*						 public
 >
@@ -54,6 +281,14 @@ METHOD DETAILS
 
  Run this widget. This method registers necessary javascript and renders the
  needed HTML code.
+
+
+*CJuiSelectable::setId* 					 public
+ See |CWidget::setId|
+
+
+*CJuiSelectable::widget*					 public
+ See |CBaseController::widget|
 
 
 

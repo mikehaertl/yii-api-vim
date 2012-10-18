@@ -28,6 +28,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<attributes>				*CFormButtonElement::attributes*
+ See |CFormElement::attributes|
+
 <coreTypes>				*CFormButtonElement::coreTypes*
  (array) Core button types (alias=>CHtml method name)
 
@@ -45,15 +48,109 @@ PROPERTY DETAILS
  be found in this value, will the button be visible. See |CModel::scenario|
  for more information about model scenarios.
 
+<parent>				*CFormButtonElement::parent*
+ See |CFormElement::parent|
+
 <type>					*CFormButtonElement::type*
  (string) the type of this button. This can be a class name, a path alias of a
  class name, or a button type alias (submit, button, image, reset, link,
  htmlButton, htmlSubmit, htmlReset).
 
+<visible>				*CFormButtonElement::visible*
+ See |CFormElement::visible|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CFormButtonElement::__call*					 public
+ See |CComponent::__call|
+
+
+*CFormButtonElement::__construct*				 public
+ See |CFormElement::__construct|
+
+
+*CFormButtonElement::__get*					 public
+ See |CFormElement::__get|
+
+
+*CFormButtonElement::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CFormButtonElement::__set*					 public
+ See |CFormElement::__set|
+
+
+*CFormButtonElement::__toString*				 public
+ See |CFormElement::__toString|
+
+
+*CFormButtonElement::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CFormButtonElement::asa*					 public
+ See |CComponent::asa|
+
+
+*CFormButtonElement::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CFormButtonElement::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CFormButtonElement::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CFormButtonElement::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CFormButtonElement::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CFormButtonElement::configure* 				 public
+ See |CFormElement::configure|
+
+
+*CFormButtonElement::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CFormButtonElement::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CFormButtonElement::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CFormButtonElement::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CFormButtonElement::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CFormButtonElement::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CFormButtonElement::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CFormButtonElement::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
 
 *CFormButtonElement::evaluateVisible*				 protected
 >
@@ -64,6 +161,10 @@ METHOD DETAILS
  Evaluates the visibility of this element. This method will check the
  |CFormButtonElement::on| property to see if the model is in a scenario that
  should have this string displayed.
+
+
+*CFormButtonElement::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CFormButtonElement::getOn*					 public
@@ -77,6 +178,30 @@ METHOD DETAILS
  Otherwise, only when the model is in the scenario whose name can be found in
  this value, will the button be visible. See |CModel::scenario| for more
  information about model scenarios.
+
+
+*CFormButtonElement::getParent* 				 public
+ See |CFormElement::getParent|
+
+
+*CFormButtonElement::getVisible*				 public
+ See |CFormElement::getVisible|
+
+
+*CFormButtonElement::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CFormButtonElement::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CFormButtonElement::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CFormButtonElement::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 *CFormButtonElement::render*					 public
@@ -95,6 +220,10 @@ METHOD DETAILS
 (void)
 
     [value] (string) scenario names separated by commas.
+
+
+*CFormButtonElement::setVisible*				 public
+ See |CFormElement::setVisible|
 
 
 

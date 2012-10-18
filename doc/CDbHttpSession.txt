@@ -16,9 +16,11 @@
  (
      id CHAR(32) PRIMARY KEY,
      expire INTEGER,
-     data TEXT
+     data BLOB
  )
 <
+ Where 'BLOB' refers to the BLOB-type of your preffered database.
+
  CDbHttpSession relies on 'PDO' to access database.
 
  By default, it will use an SQLite3 database named 'session-YiiVersion.db'
@@ -40,13 +42,52 @@ PROPERTY DETAILS
  (boolean) whether the session DB table should be automatically created if not
  exists. Defaults to true.
 
+<autoStart>				*CDbHttpSession::autoStart*
+ See |CHttpSession::autoStart|
+
+<behaviors>				*CDbHttpSession::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <connectionID>				*CDbHttpSession::connectionID*
  (string) the ID of a |CDbConnection| application component. If not set, a
  SQLite database will be automatically created and used. The SQLite database
  file is is 'protected/runtime/session-YiiVersion.db'.
 
+<cookieMode>				*CDbHttpSession::cookieMode*
+ See |CHttpSession::cookieMode|
+
+<cookieParams>				*CDbHttpSession::cookieParams*
+ See |CHttpSession::cookieParams|
+
+<count> 				*CDbHttpSession::count*
+ See |CHttpSession::count|
+
 <dbConnection>				*CDbHttpSession::dbConnection*
  (CDbConnection) the DB connection instance
+
+<gCProbability> 			*CDbHttpSession::gCProbability*
+ See |CHttpSession::gCProbability|
+
+<isInitialized> 			*CDbHttpSession::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
+<isStarted>				*CDbHttpSession::isStarted*
+ See |CHttpSession::isStarted|
+
+<iterator>				*CDbHttpSession::iterator*
+ See |CHttpSession::iterator|
+
+<keys>					*CDbHttpSession::keys*
+ See |CHttpSession::keys|
+
+<savePath>				*CDbHttpSession::savePath*
+ See |CHttpSession::savePath|
+
+<sessionID>				*CDbHttpSession::sessionID*
+ See |CHttpSession::sessionID|
+
+<sessionName>				*CDbHttpSession::sessionName*
+ See |CHttpSession::sessionName|
 
 <sessionTableName>			*CDbHttpSession::sessionTableName*
  (string) the name of the DB table to store session content. Note, if
@@ -54,17 +95,91 @@ PROPERTY DETAILS
  DB table manually by yourself, you need to make sure the DB table is of the
  following structure:
 >
- (id CHAR(32) PRIMARY KEY, expire INTEGER, data TEXT)
+ (id CHAR(32) PRIMARY KEY, expire INTEGER, data BLOB)
 <
+
+<timeout>				*CDbHttpSession::timeout*
+ See |CHttpSession::timeout|
 
 <useCustomStorage>			*CDbHttpSession::useCustomStorage*
  (boolean) Returns a value indicating whether to use custom session storage.
  This method overrides the parent implementation and always returns true.
 
+<useTransparentSessionID>		*CDbHttpSession::useTransparentSessionID*
+ See |CHttpSession::useTransparentSessionID|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CDbHttpSession::__call*					 public
+ See |CComponent::__call|
+
+
+*CDbHttpSession::__get* 					 public
+ See |CComponent::__get|
+
+
+*CDbHttpSession::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDbHttpSession::__set* 					 public
+ See |CComponent::__set|
+
+
+*CDbHttpSession::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDbHttpSession::add*						 public
+ See |CHttpSession::add|
+
+
+*CDbHttpSession::asa*						 public
+ See |CComponent::asa|
+
+
+*CDbHttpSession::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CDbHttpSession::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbHttpSession::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbHttpSession::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CDbHttpSession::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CDbHttpSession::clear* 					 public
+ See |CHttpSession::clear|
+
+
+*CDbHttpSession::close* 					 public
+ See |CHttpSession::close|
+
+
+*CDbHttpSession::closeSession*					 public
+ See |CHttpSession::closeSession|
+
+
+*CDbHttpSession::contains*					 public
+ See |CHttpSession::contains|
+
+
+*CDbHttpSession::count* 					 public
+ See |CHttpSession::count|
+
 
 *CDbHttpSession::createSessionTable*				 protected
 >
@@ -77,6 +192,10 @@ METHOD DETAILS
     [tableName] (string) the name of the table to be created
 
 
+*CDbHttpSession::destroy*					 public
+ See |CHttpSession::destroy|
+
+
 *CDbHttpSession::destroySession*				 public
 >
  destroySession($id)
@@ -85,6 +204,38 @@ METHOD DETAILS
 
  Session destroy handler. Do not call this method directly.
     [id] (string) session ID
+
+
+*CDbHttpSession::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CDbHttpSession::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbHttpSession::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbHttpSession::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbHttpSession::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbHttpSession::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CDbHttpSession::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbHttpSession::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CDbHttpSession::gcSession*					 public
@@ -98,12 +249,68 @@ METHOD DETAILS
     seen as 'garbage' and cleaned up.
 
 
+*CDbHttpSession::get*						 public
+ See |CHttpSession::get|
+
+
+*CDbHttpSession::getCookieMode* 				 public
+ See |CHttpSession::getCookieMode|
+
+
+*CDbHttpSession::getCookieParams*				 public
+ See |CHttpSession::getCookieParams|
+
+
+*CDbHttpSession::getCount*					 public
+ See |CHttpSession::getCount|
+
+
 *CDbHttpSession::getDbConnection*				 protected
 >
  getDbConnection()
 <
 (CDbConnection) the DB connection instance
 
+
+
+*CDbHttpSession::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDbHttpSession::getGCProbability*				 public
+ See |CHttpSession::getGCProbability|
+
+
+*CDbHttpSession::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
+*CDbHttpSession::getIsStarted*					 public
+ See |CHttpSession::getIsStarted|
+
+
+*CDbHttpSession::getIterator*					 public
+ See |CHttpSession::getIterator|
+
+
+*CDbHttpSession::getKeys*					 public
+ See |CHttpSession::getKeys|
+
+
+*CDbHttpSession::getSavePath*					 public
+ See |CHttpSession::getSavePath|
+
+
+*CDbHttpSession::getSessionID*					 public
+ See |CHttpSession::getSessionID|
+
+
+*CDbHttpSession::getSessionName*				 public
+ See |CHttpSession::getSessionName|
+
+
+*CDbHttpSession::getTimeout*					 public
+ See |CHttpSession::getTimeout|
 
 
 *CDbHttpSession::getUseCustomStorage*				 public
@@ -116,6 +323,50 @@ METHOD DETAILS
  overrides the parent implementation and always returns true.
 
 
+*CDbHttpSession::getUseTransparentSessionID*			 public
+ See |CHttpSession::getUseTransparentSessionID|
+
+
+*CDbHttpSession::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbHttpSession::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbHttpSession::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CDbHttpSession::init*						 public
+ See |CHttpSession::init|
+
+
+*CDbHttpSession::itemAt*					 public
+ See |CHttpSession::itemAt|
+
+
+*CDbHttpSession::offsetExists*					 public
+ See |CHttpSession::offsetExists|
+
+
+*CDbHttpSession::offsetGet*					 public
+ See |CHttpSession::offsetGet|
+
+
+*CDbHttpSession::offsetSet*					 public
+ See |CHttpSession::offsetSet|
+
+
+*CDbHttpSession::offsetUnset*					 public
+ See |CHttpSession::offsetUnset|
+
+
+*CDbHttpSession::open*						 public
+ See |CHttpSession::open|
+
+
 *CDbHttpSession::openSession*					 public
 >
  openSession($savePath, $sessionName)
@@ -125,6 +376,10 @@ METHOD DETAILS
  Session open handler. Do not call this method directly.
     [savePath] (string) session save path
     [sessionName] (string) session name
+
+
+*CDbHttpSession::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CDbHttpSession::readSession*					 public
@@ -147,6 +402,46 @@ METHOD DETAILS
  'http://php.net/session_regenerate_id' for more details.
     [deleteOldSession] (boolean) Whether to delete the old associated session
     file or not.
+
+
+*CDbHttpSession::remove*					 public
+ See |CHttpSession::remove|
+
+
+*CDbHttpSession::setCookieMode* 				 public
+ See |CHttpSession::setCookieMode|
+
+
+*CDbHttpSession::setCookieParams*				 public
+ See |CHttpSession::setCookieParams|
+
+
+*CDbHttpSession::setGCProbability*				 public
+ See |CHttpSession::setGCProbability|
+
+
+*CDbHttpSession::setSavePath*					 public
+ See |CHttpSession::setSavePath|
+
+
+*CDbHttpSession::setSessionID*					 public
+ See |CHttpSession::setSessionID|
+
+
+*CDbHttpSession::setSessionName*				 public
+ See |CHttpSession::setSessionName|
+
+
+*CDbHttpSession::setTimeout*					 public
+ See |CHttpSession::setTimeout|
+
+
+*CDbHttpSession::setUseTransparentSessionID*			 public
+ See |CHttpSession::setUseTransparentSessionID|
+
+
+*CDbHttpSession::toArray*					 public
+ See |CHttpSession::toArray|
 
 
 *CDbHttpSession::writeSession*					 public

@@ -14,6 +14,15 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<dependentData> 			*CGlobalStateCacheDependency::dependentData*
+ See |CCacheDependency::dependentData|
+
+<hasChanged>				*CGlobalStateCacheDependency::hasChanged*
+ See |CCacheDependency::hasChanged|
+
+<reuseDependentData>			*CGlobalStateCacheDependency::reuseDependentData*
+ See |CCacheDependency::reuseDependentData|
+
 <stateName>				*CGlobalStateCacheDependency::stateName*
  (string) the name of the global state whose value is to check if the
  dependency has changed.
@@ -22,6 +31,10 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CGlobalStateCacheDependency::__call*				 public
+ See |CComponent::__call|
+
 
 *CGlobalStateCacheDependency::__construct*			 public
 >
@@ -33,6 +46,82 @@ METHOD DETAILS
     [name] (string) the name of the global state
 
 
+*CGlobalStateCacheDependency::__get*				 public
+ See |CComponent::__get|
+
+
+*CGlobalStateCacheDependency::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CGlobalStateCacheDependency::__set*				 public
+ See |CComponent::__set|
+
+
+*CGlobalStateCacheDependency::__unset*				 public
+ See |CComponent::__unset|
+
+
+*CGlobalStateCacheDependency::asa*				 public
+ See |CComponent::asa|
+
+
+*CGlobalStateCacheDependency::attachBehavior*			 public
+ See |CComponent::attachBehavior|
+
+
+*CGlobalStateCacheDependency::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CGlobalStateCacheDependency::attachEventHandler*		 public
+ See |CComponent::attachEventHandler|
+
+
+*CGlobalStateCacheDependency::canGetProperty*			 public
+ See |CComponent::canGetProperty|
+
+
+*CGlobalStateCacheDependency::canSetProperty*			 public
+ See |CComponent::canSetProperty|
+
+
+*CGlobalStateCacheDependency::detachBehavior*			 public
+ See |CComponent::detachBehavior|
+
+
+*CGlobalStateCacheDependency::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CGlobalStateCacheDependency::detachEventHandler*		 public
+ See |CComponent::detachEventHandler|
+
+
+*CGlobalStateCacheDependency::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CGlobalStateCacheDependency::disableBehaviors* 		 public
+ See |CComponent::disableBehaviors|
+
+
+*CGlobalStateCacheDependency::enableBehavior*			 public
+ See |CComponent::enableBehavior|
+
+
+*CGlobalStateCacheDependency::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CGlobalStateCacheDependency::evaluateDependency*		 public
+ See |CCacheDependency::evaluateDependency|
+
+
+*CGlobalStateCacheDependency::evaluateExpression*		 public
+ See |CComponent::evaluateExpression|
+
+
 *CGlobalStateCacheDependency::generateDependentData*		 protected
 >
  generateDependentData()
@@ -41,6 +130,34 @@ METHOD DETAILS
 
  Generates the data needed to determine if dependency has been changed. This
  method returns the value of the global state.
+
+
+*CGlobalStateCacheDependency::getDependentData* 		 public
+ See |CCacheDependency::getDependentData|
+
+
+*CGlobalStateCacheDependency::getEventHandlers* 		 public
+ See |CComponent::getEventHandlers|
+
+
+*CGlobalStateCacheDependency::getHasChanged*			 public
+ See |CCacheDependency::getHasChanged|
+
+
+*CGlobalStateCacheDependency::hasEvent* 			 public
+ See |CComponent::hasEvent|
+
+
+*CGlobalStateCacheDependency::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CGlobalStateCacheDependency::hasProperty*			 public
+ See |CComponent::hasProperty|
+
+
+*CGlobalStateCacheDependency::raiseEvent*			 public
+ See |CComponent::raiseEvent|
 
 
 

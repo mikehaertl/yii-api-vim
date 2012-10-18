@@ -9,13 +9,59 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<dbConnection>				*COciCommandBuilder::dbConnection*
+ See |CDbCommandBuilder::dbConnection|
+
 <returnID>				*COciCommandBuilder::returnID*
  (integer) the last insertion ID
+
+<schema>				*COciCommandBuilder::schema*
+ See |CDbCommandBuilder::schema|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*COciCommandBuilder::__call*					 public
+ See |CComponent::__call|
+
+
+*COciCommandBuilder::__construct*				 public
+ See |CDbCommandBuilder::__construct|
+
+
+*COciCommandBuilder::__get*					 public
+ See |CComponent::__get|
+
+
+*COciCommandBuilder::__isset*					 public
+ See |CComponent::__isset|
+
+
+*COciCommandBuilder::__set*					 public
+ See |CComponent::__set|
+
+
+*COciCommandBuilder::__unset*					 public
+ See |CComponent::__unset|
+
+
+*COciCommandBuilder::applyCondition*				 public
+ See |CDbCommandBuilder::applyCondition|
+
+
+*COciCommandBuilder::applyGroup*				 public
+ See |CDbCommandBuilder::applyGroup|
+
+
+*COciCommandBuilder::applyHaving*				 public
+ See |CDbCommandBuilder::applyHaving|
+
+
+*COciCommandBuilder::applyJoin* 				 public
+ See |CDbCommandBuilder::applyJoin|
+
 
 *COciCommandBuilder::applyLimit*				 public
 >
@@ -28,6 +74,66 @@ METHOD DETAILS
     [sql] (string) SQL query string without LIMIT and OFFSET.
     [limit] (integer) maximum number of rows, -1 to ignore limit.
     [offset] (integer) row offset, -1 to ignore offset.
+
+
+*COciCommandBuilder::applyOrder*				 public
+ See |CDbCommandBuilder::applyOrder|
+
+
+*COciCommandBuilder::asa*					 public
+ See |CComponent::asa|
+
+
+*COciCommandBuilder::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*COciCommandBuilder::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*COciCommandBuilder::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*COciCommandBuilder::bindValues*				 public
+ See |CDbCommandBuilder::bindValues|
+
+
+*COciCommandBuilder::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*COciCommandBuilder::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*COciCommandBuilder::createColumnCriteria*			 public
+ See |CDbCommandBuilder::createColumnCriteria|
+
+
+*COciCommandBuilder::createCompositeInCondition*		 protected
+ See |CDbCommandBuilder::createCompositeInCondition|
+
+
+*COciCommandBuilder::createCountCommand*			 public
+ See |CDbCommandBuilder::createCountCommand|
+
+
+*COciCommandBuilder::createCriteria*				 public
+ See |CDbCommandBuilder::createCriteria|
+
+
+*COciCommandBuilder::createDeleteCommand*			 public
+ See |CDbCommandBuilder::createDeleteCommand|
+
+
+*COciCommandBuilder::createFindCommand* 			 public
+ See |CDbCommandBuilder::createFindCommand|
+
+
+*COciCommandBuilder::createInCondition* 			 public
+ See |CDbCommandBuilder::createInCondition|
 
 
 *COciCommandBuilder::createInsertCommand*			 public
@@ -43,6 +149,74 @@ METHOD DETAILS
     is not a valid column name, the corresponding value will be ignored.
 
 
+*COciCommandBuilder::createPkCondition* 			 public
+ See |CDbCommandBuilder::createPkCondition|
+
+
+*COciCommandBuilder::createPkCriteria*				 public
+ See |CDbCommandBuilder::createPkCriteria|
+
+
+*COciCommandBuilder::createSearchCondition*			 public
+ See |CDbCommandBuilder::createSearchCondition|
+
+
+*COciCommandBuilder::createSqlCommand*				 public
+ See |CDbCommandBuilder::createSqlCommand|
+
+
+*COciCommandBuilder::createUpdateCommand*			 public
+ See |CDbCommandBuilder::createUpdateCommand|
+
+
+*COciCommandBuilder::createUpdateCounterCommand*		 public
+ See |CDbCommandBuilder::createUpdateCounterCommand|
+
+
+*COciCommandBuilder::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*COciCommandBuilder::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*COciCommandBuilder::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*COciCommandBuilder::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*COciCommandBuilder::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*COciCommandBuilder::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*COciCommandBuilder::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*COciCommandBuilder::ensureTable*				 protected
+ See |CDbCommandBuilder::ensureTable|
+
+
+*COciCommandBuilder::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*COciCommandBuilder::getDbConnection*				 public
+ See |CDbCommandBuilder::getDbConnection|
+
+
+*COciCommandBuilder::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
 *COciCommandBuilder::getLastInsertID*				 public
 >
  getLastInsertID($table)
@@ -52,6 +226,26 @@ METHOD DETAILS
  Returns the last insertion ID for the specified table.
     [table] (mixed) the table schema (|CDbTableSchema|) or the table name
     (string).
+
+
+*COciCommandBuilder::getSchema* 				 public
+ See |CDbCommandBuilder::getSchema|
+
+
+*COciCommandBuilder::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*COciCommandBuilder::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*COciCommandBuilder::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*COciCommandBuilder::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 

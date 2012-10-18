@@ -29,9 +29,114 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<abbr_desciptions>			*CMarkdownParser::abbr_desciptions*
+ See |MarkdownExtra_Parser::abbr_desciptions|
+
+<abbr_word_re>				*CMarkdownParser::abbr_word_re*
+ See |MarkdownExtra_Parser::abbr_word_re|
+
+<auto_close_tags_re>			*CMarkdownParser::auto_close_tags_re*
+ See |MarkdownExtra_Parser::auto_close_tags_re|
+
+<block_gamut>				*CMarkdownParser::block_gamut*
+ See |Markdown_Parser::block_gamut|
+
+<block_tags_re> 			*CMarkdownParser::block_tags_re*
+ See |MarkdownExtra_Parser::block_tags_re|
+
+<clean_tags_re> 			*CMarkdownParser::clean_tags_re*
+ See |MarkdownExtra_Parser::clean_tags_re|
+
+<contain_span_tags_re>			*CMarkdownParser::contain_span_tags_re*
+ See |MarkdownExtra_Parser::contain_span_tags_re|
+
+<context_block_tags_re> 		*CMarkdownParser::context_block_tags_re*
+ See |MarkdownExtra_Parser::context_block_tags_re|
+
+<document_gamut>			*CMarkdownParser::document_gamut*
+ See |Markdown_Parser::document_gamut|
+
+<em_relist>				*CMarkdownParser::em_relist*
+ See |MarkdownExtra_Parser::em_relist|
+
+<em_strong_prepared_relist>		*CMarkdownParser::em_strong_prepared_relist*
+ See |Markdown_Parser::em_strong_prepared_relist|
+
+<em_strong_relist>			*CMarkdownParser::em_strong_relist*
+ See |MarkdownExtra_Parser::em_strong_relist|
+
+<empty_element_suffix>			*CMarkdownParser::empty_element_suffix*
+ See |Markdown_Parser::empty_element_suffix|
+
+<escape_chars>				*CMarkdownParser::escape_chars*
+ See |Markdown_Parser::escape_chars|
+
+<escape_chars_re>			*CMarkdownParser::escape_chars_re*
+ See |Markdown_Parser::escape_chars_re|
+
+<fn_backlink_class>			*CMarkdownParser::fn_backlink_class*
+ See |MarkdownExtra_Parser::fn_backlink_class|
+
+<fn_backlink_title>			*CMarkdownParser::fn_backlink_title*
+ See |MarkdownExtra_Parser::fn_backlink_title|
+
+<fn_id_prefix>				*CMarkdownParser::fn_id_prefix*
+ See |MarkdownExtra_Parser::fn_id_prefix|
+
+<fn_link_class> 			*CMarkdownParser::fn_link_class*
+ See |MarkdownExtra_Parser::fn_link_class|
+
+<fn_link_title> 			*CMarkdownParser::fn_link_title*
+ See |MarkdownExtra_Parser::fn_link_title|
+
+<footnote_counter>			*CMarkdownParser::footnote_counter*
+ See |MarkdownExtra_Parser::footnote_counter|
+
+<footnotes>				*CMarkdownParser::footnotes*
+ See |MarkdownExtra_Parser::footnotes|
+
+<footnotes_ordered>			*CMarkdownParser::footnotes_ordered*
+ See |MarkdownExtra_Parser::footnotes_ordered|
+
 <highlightCssClass>			*CMarkdownParser::highlightCssClass*
  (string) the css class for the div element containing the code block that is
  highlighted. Defaults to 'hl-code'.
+
+<html_hashes>				*CMarkdownParser::html_hashes*
+ See |Markdown_Parser::html_hashes|
+
+<in_anchor>				*CMarkdownParser::in_anchor*
+ See |Markdown_Parser::in_anchor|
+
+<list_level>				*CMarkdownParser::list_level*
+ See |Markdown_Parser::list_level|
+
+<nested_brackets_depth> 		*CMarkdownParser::nested_brackets_depth*
+ See |Markdown_Parser::nested_brackets_depth|
+
+<nested_brackets_re>			*CMarkdownParser::nested_brackets_re*
+ See |Markdown_Parser::nested_brackets_re|
+
+<nested_url_parenthesis_depth>		*CMarkdownParser::nested_url_parenthesis_depth*
+ See |Markdown_Parser::nested_url_parenthesis_depth|
+
+<nested_url_parenthesis_re>		*CMarkdownParser::nested_url_parenthesis_re*
+ See |Markdown_Parser::nested_url_parenthesis_re|
+
+<no_entities>				*CMarkdownParser::no_entities*
+ See |Markdown_Parser::no_entities|
+
+<no_markup>				*CMarkdownParser::no_markup*
+ See |Markdown_Parser::no_markup|
+
+<predef_abbr>				*CMarkdownParser::predef_abbr*
+ See |MarkdownExtra_Parser::predef_abbr|
+
+<predef_titles> 			*CMarkdownParser::predef_titles*
+ See |Markdown_Parser::predef_titles|
+
+<predef_urls>				*CMarkdownParser::predef_urls*
+ See |Markdown_Parser::predef_urls|
 
 <purifierOptions>			*CMarkdownParser::purifierOptions*
  (mixed) the options to be passed to 'HTML Purifier'. This can be a
@@ -39,10 +144,68 @@ PROPERTY DETAILS
  Value) or the filename of an ini file. This property is used only when
  |CMarkdownParser::safeTransform| is invoked.
 
+<span_gamut>				*CMarkdownParser::span_gamut*
+ See |Markdown_Parser::span_gamut|
+
+<strong_relist> 			*CMarkdownParser::strong_relist*
+ See |MarkdownExtra_Parser::strong_relist|
+
+<tab_width>				*CMarkdownParser::tab_width*
+ See |Markdown_Parser::tab_width|
+
+<titles>				*CMarkdownParser::titles*
+ See |Markdown_Parser::titles|
+
+<urls>					*CMarkdownParser::urls*
+ See |Markdown_Parser::urls|
+
+<utf8_strlen>				*CMarkdownParser::utf8_strlen*
+ See |Markdown_Parser::utf8_strlen|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CMarkdownParser::__construct*					 public
+ See |MarkdownExtra_Parser::__construct|
+
+
+*CMarkdownParser::_appendFootnotes_callback*			 public
+ See |MarkdownExtra_Parser::_appendFootnotes_callback|
+
+
+*CMarkdownParser::_detab_callback*				 public
+ See |Markdown_Parser::_detab_callback|
+
+
+*CMarkdownParser::_doAbbreviations_callback*			 public
+ See |MarkdownExtra_Parser::_doAbbreviations_callback|
+
+
+*CMarkdownParser::_doAnchors_inline_callback*			 public
+ See |Markdown_Parser::_doAnchors_inline_callback|
+
+
+*CMarkdownParser::_doAnchors_reference_callback*		 public
+ See |Markdown_Parser::_doAnchors_reference_callback|
+
+
+*CMarkdownParser::_doAutoLinks_email_callback*			 public
+ See |Markdown_Parser::_doAutoLinks_email_callback|
+
+
+*CMarkdownParser::_doAutoLinks_url_callback*			 public
+ See |Markdown_Parser::_doAutoLinks_url_callback|
+
+
+*CMarkdownParser::_doBlockQuotes_callback*			 public
+ See |Markdown_Parser::_doBlockQuotes_callback|
+
+
+*CMarkdownParser::_doBlockQuotes_callback2*			 public
+ See |Markdown_Parser::_doBlockQuotes_callback2|
+
 
 *CMarkdownParser::_doCodeBlocks_callback*			 public
 >
@@ -52,6 +215,10 @@ METHOD DETAILS
 
  Callback function when a code block is matched.
     [matches] (array) matches
+
+
+*CMarkdownParser::_doDefLists_callback* 			 public
+ See |MarkdownExtra_Parser::_doDefLists_callback|
 
 
 *CMarkdownParser::_doFencedCodeBlocks_callback* 		 public
@@ -64,6 +231,94 @@ METHOD DETAILS
     [matches] (array) matches
 
 
+*CMarkdownParser::_doFencedCodeBlocks_newlines* 		 public
+ See |MarkdownExtra_Parser::_doFencedCodeBlocks_newlines|
+
+
+*CMarkdownParser::_doHardBreaks_callback*			 public
+ See |Markdown_Parser::_doHardBreaks_callback|
+
+
+*CMarkdownParser::_doHeaders_attr*				 public
+ See |MarkdownExtra_Parser::_doHeaders_attr|
+
+
+*CMarkdownParser::_doHeaders_callback_atx*			 public
+ See |MarkdownExtra_Parser::_doHeaders_callback_atx|
+
+
+*CMarkdownParser::_doHeaders_callback_setext*			 public
+ See |MarkdownExtra_Parser::_doHeaders_callback_setext|
+
+
+*CMarkdownParser::_doImages_inline_callback*			 public
+ See |Markdown_Parser::_doImages_inline_callback|
+
+
+*CMarkdownParser::_doImages_reference_callback* 		 public
+ See |Markdown_Parser::_doImages_reference_callback|
+
+
+*CMarkdownParser::_doLists_callback*				 public
+ See |Markdown_Parser::_doLists_callback|
+
+
+*CMarkdownParser::_doTable_callback*				 public
+ See |MarkdownExtra_Parser::_doTable_callback|
+
+
+*CMarkdownParser::_doTable_leadingPipe_callback*		 public
+ See |MarkdownExtra_Parser::_doTable_leadingPipe_callback|
+
+
+*CMarkdownParser::_hashHTMLBlocks_callback*			 public
+ See |Markdown_Parser::_hashHTMLBlocks_callback|
+
+
+*CMarkdownParser::_hashHTMLBlocks_inHTML*			 public
+ See |MarkdownExtra_Parser::_hashHTMLBlocks_inHTML|
+
+
+*CMarkdownParser::_hashHTMLBlocks_inMarkdown*			 public
+ See |MarkdownExtra_Parser::_hashHTMLBlocks_inMarkdown|
+
+
+*CMarkdownParser::_initDetab*					 public
+ See |Markdown_Parser::_initDetab|
+
+
+*CMarkdownParser::_processDefListItems_callback_dd*		 public
+ See |MarkdownExtra_Parser::_processDefListItems_callback_dd|
+
+
+*CMarkdownParser::_processDefListItems_callback_dt*		 public
+ See |MarkdownExtra_Parser::_processDefListItems_callback_dt|
+
+
+*CMarkdownParser::_processListItems_callback*			 public
+ See |Markdown_Parser::_processListItems_callback|
+
+
+*CMarkdownParser::_stripAbbreviations_callback* 		 public
+ See |MarkdownExtra_Parser::_stripAbbreviations_callback|
+
+
+*CMarkdownParser::_stripFootnotes_callback*			 public
+ See |MarkdownExtra_Parser::_stripFootnotes_callback|
+
+
+*CMarkdownParser::_stripLinkDefinitions_callback*		 public
+ See |Markdown_Parser::_stripLinkDefinitions_callback|
+
+
+*CMarkdownParser::_unhash_callback*				 public
+ See |Markdown_Parser::_unhash_callback|
+
+
+*CMarkdownParser::appendFootnotes*				 public
+ See |MarkdownExtra_Parser::appendFootnotes|
+
+
 *CMarkdownParser::createHighLighter*				 protected
 >
  createHighLighter($options)
@@ -74,12 +329,102 @@ METHOD DETAILS
     [options] (string) the user-entered options
 
 
+*CMarkdownParser::detab*					 public
+ See |Markdown_Parser::detab|
+
+
+*CMarkdownParser::doAbbreviations*				 public
+ See |MarkdownExtra_Parser::doAbbreviations|
+
+
+*CMarkdownParser::doAnchors*					 public
+ See |Markdown_Parser::doAnchors|
+
+
+*CMarkdownParser::doAutoLinks*					 public
+ See |Markdown_Parser::doAutoLinks|
+
+
+*CMarkdownParser::doBlockQuotes*				 public
+ See |Markdown_Parser::doBlockQuotes|
+
+
+*CMarkdownParser::doCodeBlocks* 				 public
+ See |Markdown_Parser::doCodeBlocks|
+
+
+*CMarkdownParser::doDefLists*					 public
+ See |MarkdownExtra_Parser::doDefLists|
+
+
+*CMarkdownParser::doFencedCodeBlocks*				 public
+ See |MarkdownExtra_Parser::doFencedCodeBlocks|
+
+
+*CMarkdownParser::doFootnotes*					 public
+ See |MarkdownExtra_Parser::doFootnotes|
+
+
+*CMarkdownParser::doHardBreaks* 				 public
+ See |Markdown_Parser::doHardBreaks|
+
+
+*CMarkdownParser::doHeaders*					 public
+ See |MarkdownExtra_Parser::doHeaders|
+
+
+*CMarkdownParser::doHorizontalRules*				 public
+ See |Markdown_Parser::doHorizontalRules|
+
+
+*CMarkdownParser::doImages*					 public
+ See |Markdown_Parser::doImages|
+
+
+*CMarkdownParser::doItalicsAndBold*				 public
+ See |Markdown_Parser::doItalicsAndBold|
+
+
+*CMarkdownParser::doLists*					 public
+ See |Markdown_Parser::doLists|
+
+
+*CMarkdownParser::doTables*					 public
+ See |MarkdownExtra_Parser::doTables|
+
+
+*CMarkdownParser::encodeAmpsAndAngles*				 public
+ See |Markdown_Parser::encodeAmpsAndAngles|
+
+
+*CMarkdownParser::encodeAttribute*				 public
+ See |Markdown_Parser::encodeAttribute|
+
+
+*CMarkdownParser::encodeEmailAddress*				 public
+ See |Markdown_Parser::encodeEmailAddress|
+
+
+*CMarkdownParser::formParagraphs*				 public
+ See |MarkdownExtra_Parser::formParagraphs|
+
+
 *CMarkdownParser::getDefaultCssFile*				 public
 >
  getDefaultCssFile()
 <
 (string) the default CSS file that is used to highlight code blocks.
 
+
+
+*CMarkdownParser::getHighlightConfig*				 public
+>
+ getHighlightConfig($options)
+<
+(array) the highlighter config
+
+ Generates the config for the highlighter.
+    [options] (string) user-entered options
 
 
 *CMarkdownParser::getHighlightTag*				 protected
@@ -96,10 +441,9 @@ METHOD DETAILS
 >
  getHiglightConfig($options)
 <
-(array) the highlighter config
+(void)
 
- Generates the config for the highlighter.
-    [options] (string) user-entered options
+    [options] () 
 
 
 *CMarkdownParser::getInlineOption*				 protected
@@ -114,6 +458,26 @@ METHOD DETAILS
     [defaultValue] (mixed) default value if the configuration is not present
 
 
+*CMarkdownParser::handleSpanToken*				 public
+ See |Markdown_Parser::handleSpanToken|
+
+
+*CMarkdownParser::hashBlock*					 public
+ See |Markdown_Parser::hashBlock|
+
+
+*CMarkdownParser::hashClean*					 public
+ See |MarkdownExtra_Parser::hashClean|
+
+
+*CMarkdownParser::hashHTMLBlocks*				 public
+ See |MarkdownExtra_Parser::hashHTMLBlocks|
+
+
+*CMarkdownParser::hashPart*					 public
+ See |Markdown_Parser::hashPart|
+
+
 *CMarkdownParser::highlightCodeBlock*				 protected
 >
  highlightCodeBlock($codeblock)
@@ -123,6 +487,42 @@ highlighted
 
  Highlights the code block.
     [codeblock] (string) the code block
+
+
+*CMarkdownParser::makeCodeSpan* 				 public
+ See |Markdown_Parser::makeCodeSpan|
+
+
+*CMarkdownParser::outdent*					 public
+ See |Markdown_Parser::outdent|
+
+
+*CMarkdownParser::parseSpan*					 public
+ See |Markdown_Parser::parseSpan|
+
+
+*CMarkdownParser::prepareItalicsAndBold*			 public
+ See |Markdown_Parser::prepareItalicsAndBold|
+
+
+*CMarkdownParser::processDefListItems*				 public
+ See |MarkdownExtra_Parser::processDefListItems|
+
+
+*CMarkdownParser::processListItems*				 public
+ See |Markdown_Parser::processListItems|
+
+
+*CMarkdownParser::runBasicBlockGamut*				 public
+ See |Markdown_Parser::runBasicBlockGamut|
+
+
+*CMarkdownParser::runBlockGamut*				 public
+ See |Markdown_Parser::runBlockGamut|
+
+
+*CMarkdownParser::runSpanGamut* 				 public
+ See |Markdown_Parser::runSpanGamut|
 
 
 *CMarkdownParser::safeTransform*				 public
@@ -135,6 +535,34 @@ highlighted
  transform() method to convert markdown content into HTML content. It then
  uses |CHtmlPurifier| to purify the HTML content to avoid XSS attacks.
     [content] (string) the markdown content
+
+
+*CMarkdownParser::setup*					 public
+ See |MarkdownExtra_Parser::setup|
+
+
+*CMarkdownParser::stripAbbreviations*				 public
+ See |MarkdownExtra_Parser::stripAbbreviations|
+
+
+*CMarkdownParser::stripFootnotes*				 public
+ See |MarkdownExtra_Parser::stripFootnotes|
+
+
+*CMarkdownParser::stripLinkDefinitions* 			 public
+ See |Markdown_Parser::stripLinkDefinitions|
+
+
+*CMarkdownParser::teardown*					 public
+ See |MarkdownExtra_Parser::teardown|
+
+
+*CMarkdownParser::transform*					 public
+ See |Markdown_Parser::transform|
+
+
+*CMarkdownParser::unhash*					 public
+ See |Markdown_Parser::unhash|
 
 
 

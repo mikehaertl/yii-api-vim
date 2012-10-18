@@ -12,10 +12,23 @@ PROPERTY DETAILS
 <exception>				*CExceptionEvent::exception*
  (CException) the exception that this event is about.
 
+<handled>				*CExceptionEvent::handled*
+ See |CEvent::handled|
+
+<params>				*CExceptionEvent::params*
+ See |CEvent::params|
+
+<sender>				*CExceptionEvent::sender*
+ See |CEvent::sender|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CExceptionEvent::__call*					 public
+ See |CComponent::__call|
+
 
 *CExceptionEvent::__construct*					 public
 >
@@ -26,6 +39,98 @@ METHOD DETAILS
  Constructor.
     [sender] (mixed) sender of the event
     [exception] (CException) the exception
+
+
+*CExceptionEvent::__get*					 public
+ See |CComponent::__get|
+
+
+*CExceptionEvent::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CExceptionEvent::__set*					 public
+ See |CComponent::__set|
+
+
+*CExceptionEvent::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CExceptionEvent::asa*						 public
+ See |CComponent::asa|
+
+
+*CExceptionEvent::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CExceptionEvent::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CExceptionEvent::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CExceptionEvent::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CExceptionEvent::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CExceptionEvent::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CExceptionEvent::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CExceptionEvent::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CExceptionEvent::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CExceptionEvent::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CExceptionEvent::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CExceptionEvent::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CExceptionEvent::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CExceptionEvent::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CExceptionEvent::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CExceptionEvent::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CExceptionEvent::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CExceptionEvent::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

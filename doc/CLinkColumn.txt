@@ -15,14 +15,35 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<cssClassExpression>			*CLinkColumn::cssClassExpression*
+ See |CGridColumn::cssClassExpression|
+
+<filterHtmlOptions>			*CLinkColumn::filterHtmlOptions*
+ See |CGridColumn::filterHtmlOptions|
+
+<footer>				*CLinkColumn::footer*
+ See |CGridColumn::footer|
+
 <footerHtmlOptions>			*CLinkColumn::footerHtmlOptions*
  (array) the HTML options for the footer cell tag.
+
+<grid>					*CLinkColumn::grid*
+ See |CGridColumn::grid|
+
+<hasFooter>				*CLinkColumn::hasFooter*
+ See |CGridColumn::hasFooter|
+
+<header>				*CLinkColumn::header*
+ See |CGridColumn::header|
 
 <headerHtmlOptions>			*CLinkColumn::headerHtmlOptions*
  (array) the HTML options for the header cell tag.
 
 <htmlOptions>				*CLinkColumn::htmlOptions*
  (array) the HTML options for the data cell tags.
+
+<id>					*CLinkColumn::id*
+ See |CGridColumn::id|
 
 <imageUrl>				*CLinkColumn::imageUrl*
  (string) the URL to the image. If this is set, an image link will be
@@ -52,10 +73,125 @@ PROPERTY DETAILS
  In this expression, the variable '$row' the row number (zero-based); '$data'
  the data model for the row; and '$this' the column object.
 
+<visible>				*CLinkColumn::visible*
+ See |CGridColumn::visible|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CLinkColumn::__call*						 public
+ See |CComponent::__call|
+
+
+*CLinkColumn::__construct*					 public
+ See |CGridColumn::__construct|
+
+
+*CLinkColumn::__get*						 public
+ See |CComponent::__get|
+
+
+*CLinkColumn::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CLinkColumn::__set*						 public
+ See |CComponent::__set|
+
+
+*CLinkColumn::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CLinkColumn::asa*						 public
+ See |CComponent::asa|
+
+
+*CLinkColumn::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CLinkColumn::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CLinkColumn::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CLinkColumn::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CLinkColumn::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CLinkColumn::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CLinkColumn::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CLinkColumn::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CLinkColumn::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CLinkColumn::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CLinkColumn::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CLinkColumn::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CLinkColumn::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CLinkColumn::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
+*CLinkColumn::getHasFooter*					 public
+ See |CGridColumn::getHasFooter|
+
+
+*CLinkColumn::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CLinkColumn::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CLinkColumn::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CLinkColumn::init*						 public
+ See |CGridColumn::init|
+
+
+*CLinkColumn::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CLinkColumn::renderDataCell*					 public
+ See |CGridColumn::renderDataCell|
+
 
 *CLinkColumn::renderDataCellContent*				 protected
 >
@@ -67,6 +203,30 @@ METHOD DETAILS
  cell.
     [row] (integer) the row number (zero-based)
     [data] (mixed) the data associated with the row
+
+
+*CLinkColumn::renderFilterCell* 				 public
+ See |CGridColumn::renderFilterCell|
+
+
+*CLinkColumn::renderFilterCellContent*				 protected
+ See |CGridColumn::renderFilterCellContent|
+
+
+*CLinkColumn::renderFooterCell* 				 public
+ See |CGridColumn::renderFooterCell|
+
+
+*CLinkColumn::renderFooterCellContent*				 protected
+ See |CGridColumn::renderFooterCellContent|
+
+
+*CLinkColumn::renderHeaderCell* 				 public
+ See |CGridColumn::renderHeaderCell|
+
+
+*CLinkColumn::renderHeaderCellContent*				 protected
+ See |CGridColumn::renderHeaderCellContent|
 
 
 

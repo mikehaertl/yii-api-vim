@@ -13,12 +13,21 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CInputWidget::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <attribute>				*CInputWidget::attribute*
  (string) the attribute associated with this widget. The name can contain
  square brackets (e.g. 'name[1]') which is used to collect tabular data input.
 
+<controller>				*CInputWidget::controller*
+ See |CWidget::controller|
+
 <htmlOptions>				*CInputWidget::htmlOptions*
  (array) additional HTML options to be rendered in the input tag
+
+<id>					*CInputWidget::id*
+ See |CWidget::id|
 
 <model> 				*CInputWidget::model*
  (CModel) the data model associated with this widget.
@@ -27,13 +36,174 @@ PROPERTY DETAILS
  (string) the input name. This must be set if |CInputWidget::model| is not
  set.
 
+<owner> 				*CInputWidget::owner*
+ See |CWidget::owner|
+
+<skin>					*CInputWidget::skin*
+ See |CWidget::skin|
+
 <value> 				*CInputWidget::value*
  (string) the input value
+
+<viewPath>				*CInputWidget::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CInputWidget::__call*						 public
+ See |CComponent::__call|
+
+
+*CInputWidget::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CInputWidget::__get*						 public
+ See |CComponent::__get|
+
+
+*CInputWidget::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CInputWidget::__set*						 public
+ See |CComponent::__set|
+
+
+*CInputWidget::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CInputWidget::actions* 					 public
+ See |CWidget::actions|
+
+
+*CInputWidget::asa*						 public
+ See |CComponent::asa|
+
+
+*CInputWidget::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CInputWidget::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CInputWidget::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CInputWidget::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CInputWidget::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CInputWidget::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CInputWidget::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CInputWidget::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CInputWidget::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CInputWidget::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CInputWidget::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CInputWidget::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CInputWidget::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CInputWidget::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CInputWidget::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CInputWidget::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CInputWidget::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CInputWidget::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CInputWidget::endClip* 					 public
+ See |CBaseController::endClip|
+
+
+*CInputWidget::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CInputWidget::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CInputWidget::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CInputWidget::getController*					 public
+ See |CWidget::getController|
+
+
+*CInputWidget::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CInputWidget::getId*						 public
+ See |CWidget::getId|
+
+
+*CInputWidget::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CInputWidget::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CInputWidget::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CInputWidget::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CInputWidget::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
 
 *CInputWidget::hasModel*					 protected
 >
@@ -43,12 +213,48 @@ METHOD DETAILS
 
 
 
+*CInputWidget::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CInputWidget::init*						 public
+ See |CWidget::init|
+
+
+*CInputWidget::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CInputWidget::render*						 public
+ See |CWidget::render|
+
+
+*CInputWidget::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CInputWidget::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
 *CInputWidget::resolveNameID*					 protected
 >
  resolveNameID()
 <
 (array) the name and the ID of the input.
 
+
+
+*CInputWidget::run*						 public
+ See |CWidget::run|
+
+
+*CInputWidget::setId*						 public
+ See |CWidget::setId|
+
+
+*CInputWidget::widget*						 public
+ See |CBaseController::widget|
 
 
 

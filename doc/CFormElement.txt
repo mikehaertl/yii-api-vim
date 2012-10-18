@@ -28,6 +28,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CFormElement::__call*						 public
+ See |CComponent::__call|
+
+
 *CFormElement::__construct*					 public
 >
  __construct($config, $parent)
@@ -53,6 +57,10 @@ METHOD DETAILS
  $value=$element->attributeName;
 <
     [name] (string) the property or attribute name
+
+
+*CFormElement::__isset* 					 public
+ See |CComponent::__isset|
 
 
 *CFormElement::__set*						 public
@@ -83,6 +91,34 @@ METHOD DETAILS
  result.
 
 
+*CFormElement::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CFormElement::asa*						 public
+ See |CComponent::asa|
+
+
+*CFormElement::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CFormElement::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CFormElement::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CFormElement::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CFormElement::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CFormElement::configure*					 public
 >
  configure($config)
@@ -96,6 +132,38 @@ METHOD DETAILS
     configuration array.
 
 
+*CFormElement::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CFormElement::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CFormElement::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CFormElement::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CFormElement::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CFormElement::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CFormElement::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CFormElement::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CFormElement::evaluateVisible* 				 protected
 >
  evaluateVisible()
@@ -104,6 +172,10 @@ METHOD DETAILS
 
  Evaluates the visibility of this element. Child classes should override this
  method to implement the actual algorithm for determining the visibility.
+
+
+*CFormElement::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CFormElement::getParent*					 public
@@ -124,6 +196,22 @@ object or a |CBaseController| object (a controller or a widget).
  Returns a value indicating whether this element is visible and should be
  rendered. This method will call |CFormElement::evaluateVisible| to determine
  the visibility of this element.
+
+
+*CFormElement::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CFormElement::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CFormElement::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CFormElement::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CFormElement::render*						 public

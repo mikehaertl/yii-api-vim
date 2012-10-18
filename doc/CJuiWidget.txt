@@ -8,6 +8,12 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CJuiWidget::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CJuiWidget::controller*
+ See |CWidget::controller|
+
 <cssFile>				*CJuiWidget::cssFile*
  (mixed) the theme CSS file name. Defaults to 'jquery-ui.css'. Note the file
  must exist under the URL specified by
@@ -22,9 +28,15 @@ PROPERTY DETAILS
  (array) the HTML attributes that should be rendered in the HTML tag
  representing the JUI widget.
 
+<id>					*CJuiWidget::id*
+ See |CWidget::id|
+
 <options>				*CJuiWidget::options*
  (array) the initial JavaScript options that should be passed to the JUI
  plugin.
+
+<owner> 				*CJuiWidget::owner*
+ See |CWidget::owner|
 
 <scriptFile>				*CJuiWidget::scriptFile*
  (mixed) the main JUI JavaScript file. Defaults to 'jquery-ui.min.js'. Note
@@ -45,6 +57,9 @@ PROPERTY DETAILS
  whose name is specified by |CJuiWidget::scriptFile|. Do not append any slash
  character to the URL.
 
+<skin>					*CJuiWidget::skin*
+ See |CWidget::skin|
+
 <theme> 				*CJuiWidget::theme*
  (string) the JUI theme name. Defaults to 'base'. Make sure that under
  |CJuiWidget::themeUrl| there is a directory whose name is the same as this
@@ -59,10 +74,169 @@ PROPERTY DETAILS
  name is specified by |CJuiWidget::theme|. Do not append any slash character
  to the URL.
 
+<viewPath>				*CJuiWidget::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CJuiWidget::__call*						 public
+ See |CComponent::__call|
+
+
+*CJuiWidget::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CJuiWidget::__get*						 public
+ See |CComponent::__get|
+
+
+*CJuiWidget::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CJuiWidget::__set*						 public
+ See |CComponent::__set|
+
+
+*CJuiWidget::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CJuiWidget::actions*						 public
+ See |CWidget::actions|
+
+
+*CJuiWidget::asa*						 public
+ See |CComponent::asa|
+
+
+*CJuiWidget::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CJuiWidget::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CJuiWidget::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CJuiWidget::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CJuiWidget::beginClip* 					 public
+ See |CBaseController::beginClip|
+
+
+*CJuiWidget::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CJuiWidget::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CJuiWidget::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CJuiWidget::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CJuiWidget::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CJuiWidget::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CJuiWidget::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CJuiWidget::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CJuiWidget::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CJuiWidget::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CJuiWidget::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CJuiWidget::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CJuiWidget::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CJuiWidget::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CJuiWidget::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CJuiWidget::endWidget* 					 public
+ See |CBaseController::endWidget|
+
+
+*CJuiWidget::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CJuiWidget::getController*					 public
+ See |CWidget::getController|
+
+
+*CJuiWidget::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CJuiWidget::getId*						 public
+ See |CWidget::getId|
+
+
+*CJuiWidget::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CJuiWidget::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CJuiWidget::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CJuiWidget::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CJuiWidget::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CJuiWidget::hasProperty*					 public
+ See |CComponent::hasProperty|
+
 
 *CJuiWidget::init*						 public
 >
@@ -73,6 +247,10 @@ METHOD DETAILS
  Initializes the widget. This method will publish JUI assets if necessary. It
  will also register jquery and JUI JavaScript files and the theme CSS file. If
  you override this method, make sure you call the parent implementation first.
+
+
+*CJuiWidget::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CJuiWidget::registerCoreScripts*				 protected
@@ -105,6 +283,18 @@ METHOD DETAILS
       body section.
 
 
+*CJuiWidget::render*						 public
+ See |CWidget::render|
+
+
+*CJuiWidget::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CJuiWidget::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
 *CJuiWidget::resolvePackagePath*				 protected
 >
  resolvePackagePath()
@@ -115,6 +305,18 @@ METHOD DETAILS
  JavaScript root URL and theme root URL. If they are not explicitly specified,
  it will publish the included JUI package and use that to resolve the needed
  paths.
+
+
+*CJuiWidget::run*						 public
+ See |CWidget::run|
+
+
+*CJuiWidget::setId*						 public
+ See |CWidget::setId|
+
+
+*CJuiWidget::widget*						 public
+ See |CBaseController::widget|
 
 
 

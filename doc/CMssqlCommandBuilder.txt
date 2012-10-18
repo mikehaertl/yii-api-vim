@@ -10,6 +10,46 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CMssqlCommandBuilder::__call*					 public
+ See |CComponent::__call|
+
+
+*CMssqlCommandBuilder::__construct*				 public
+ See |CDbCommandBuilder::__construct|
+
+
+*CMssqlCommandBuilder::__get*					 public
+ See |CComponent::__get|
+
+
+*CMssqlCommandBuilder::__isset* 				 public
+ See |CComponent::__isset|
+
+
+*CMssqlCommandBuilder::__set*					 public
+ See |CComponent::__set|
+
+
+*CMssqlCommandBuilder::__unset* 				 public
+ See |CComponent::__unset|
+
+
+*CMssqlCommandBuilder::applyCondition*				 public
+ See |CDbCommandBuilder::applyCondition|
+
+
+*CMssqlCommandBuilder::applyGroup*				 public
+ See |CDbCommandBuilder::applyGroup|
+
+
+*CMssqlCommandBuilder::applyHaving*				 public
+ See |CDbCommandBuilder::applyHaving|
+
+
+*CMssqlCommandBuilder::applyJoin*				 public
+ See |CDbCommandBuilder::applyJoin|
+
+
 *CMssqlCommandBuilder::applyLimit*				 public
 >
  applyLimit($sql, $limit, $offset)
@@ -44,6 +84,38 @@ METHOD DETAILS
     [offset] (integer) row offset, -1 to ignore offset.
 
 
+*CMssqlCommandBuilder::applyOrder*				 public
+ See |CDbCommandBuilder::applyOrder|
+
+
+*CMssqlCommandBuilder::asa*					 public
+ See |CComponent::asa|
+
+
+*CMssqlCommandBuilder::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CMssqlCommandBuilder::attachBehaviors* 			 public
+ See |CComponent::attachBehaviors|
+
+
+*CMssqlCommandBuilder::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CMssqlCommandBuilder::bindValues*				 public
+ See |CDbCommandBuilder::bindValues|
+
+
+*CMssqlCommandBuilder::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CMssqlCommandBuilder::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CMssqlCommandBuilder::checkCriteria*				 protected
 >
  checkCriteria($table, $criteria)
@@ -55,6 +127,10 @@ METHOD DETAILS
  when querying with an offset If not, order it by pk.
     [table] (CMssqlTableSchema) table schema
     [criteria] (CDbCriteria) criteria
+
+
+*CMssqlCommandBuilder::createColumnCriteria*			 public
+ See |CDbCommandBuilder::createColumnCriteria|
 
 
 *CMssqlCommandBuilder::createCompositeInCondition*		 protected
@@ -83,6 +159,10 @@ METHOD DETAILS
     [alias] (string) the alias name of the primary table. Defaults to 't'.
 
 
+*CMssqlCommandBuilder::createCriteria*				 public
+ See |CDbCommandBuilder::createCriteria|
+
+
 *CMssqlCommandBuilder::createDeleteCommand*			 public
 >
  createDeleteCommand($table, $criteria)
@@ -106,6 +186,30 @@ METHOD DETAILS
     [table] (CDbTableSchema) the table metadata
     [criteria] (CDbCriteria) the query criteria
     [alias] (string) the alias name of the primary table. Defaults to 't'.
+
+
+*CMssqlCommandBuilder::createInCondition*			 public
+ See |CDbCommandBuilder::createInCondition|
+
+
+*CMssqlCommandBuilder::createInsertCommand*			 public
+ See |CDbCommandBuilder::createInsertCommand|
+
+
+*CMssqlCommandBuilder::createPkCondition*			 public
+ See |CDbCommandBuilder::createPkCondition|
+
+
+*CMssqlCommandBuilder::createPkCriteria*			 public
+ See |CDbCommandBuilder::createPkCriteria|
+
+
+*CMssqlCommandBuilder::createSearchCondition*			 public
+ See |CDbCommandBuilder::createSearchCondition|
+
+
+*CMssqlCommandBuilder::createSqlCommand*			 public
+ See |CDbCommandBuilder::createSqlCommand|
 
 
 *CMssqlCommandBuilder::createUpdateCommand*			 public
@@ -136,6 +240,42 @@ METHOD DETAILS
     indexed by column names.)
 
 
+*CMssqlCommandBuilder::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CMssqlCommandBuilder::detachBehaviors* 			 public
+ See |CComponent::detachBehaviors|
+
+
+*CMssqlCommandBuilder::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CMssqlCommandBuilder::disableBehavior* 			 public
+ See |CComponent::disableBehavior|
+
+
+*CMssqlCommandBuilder::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CMssqlCommandBuilder::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CMssqlCommandBuilder::enableBehaviors* 			 public
+ See |CComponent::enableBehaviors|
+
+
+*CMssqlCommandBuilder::ensureTable*				 protected
+ See |CDbCommandBuilder::ensureTable|
+
+
+*CMssqlCommandBuilder::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
 *CMssqlCommandBuilder::findOrdering*				 protected
 >
  findOrdering($sql)
@@ -147,6 +287,34 @@ METHOD DETAILS
     [sql] (string) $sql
 
 
+*CMssqlCommandBuilder::getDbConnection* 			 public
+ See |CDbCommandBuilder::getDbConnection|
+
+
+*CMssqlCommandBuilder::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CMssqlCommandBuilder::getLastInsertID* 			 public
+ See |CDbCommandBuilder::getLastInsertID|
+
+
+*CMssqlCommandBuilder::getSchema*				 public
+ See |CDbCommandBuilder::getSchema|
+
+
+*CMssqlCommandBuilder::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CMssqlCommandBuilder::hasEventHandler* 			 public
+ See |CComponent::hasEventHandler|
+
+
+*CMssqlCommandBuilder::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
 *CMssqlCommandBuilder::joinOrdering*				 protected
 >
  joinOrdering($orders, $newPrefix)
@@ -155,6 +323,10 @@ METHOD DETAILS
 
     [orders] (array) ordering obtained from findOrdering()
     [newPrefix] (string) new table prefix to the ordering columns
+
+
+*CMssqlCommandBuilder::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 *CMssqlCommandBuilder::reverseDirection*			 protected

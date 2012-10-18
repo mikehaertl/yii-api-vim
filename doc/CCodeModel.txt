@@ -30,13 +30,28 @@ PROPERTY DETAILS
  the newly generated ones. The value of this property is internally managed by
  this class and |CCodeGenerator|.
 
+<attributes>				*CCodeModel::attributes*
+ See |CModel::attributes|
+
+<errors>				*CCodeModel::errors*
+ See |CModel::errors|
+
 <files> 				*CCodeModel::files*
  (array) a list of |CCodeFile| objects that represent the code files to be
  generated. The |CCodeModel::prepare| method is responsible to populate this
  property.
 
+<iterator>				*CCodeModel::iterator*
+ See |CModel::iterator|
+
 <keywords>				*CCodeModel::keywords*
  ()
+
+<safeAttributeNames>			*CCodeModel::safeAttributeNames*
+ See |CModel::safeAttributeNames|
+
+<scenario>				*CCodeModel::scenario*
+ See |CModel::scenario|
 
 <status>				*CCodeModel::status*
  (integer) the status of this model. T The value of this property is
@@ -56,10 +71,72 @@ PROPERTY DETAILS
  (array) Returns a list of available code templates (name=>directory). This
  method simply returns the |CCodeGenerator::templates| property value.
 
+<validatorList> 			*CCodeModel::validatorList*
+ See |CModel::validatorList|
+
+<validators>				*CCodeModel::validators*
+ See |CModel::validators|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CCodeModel::__call*						 public
+ See |CComponent::__call|
+
+
+*CCodeModel::__construct*					 public
+ See |CFormModel::__construct|
+
+
+*CCodeModel::__get*						 public
+ See |CComponent::__get|
+
+
+*CCodeModel::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CCodeModel::__set*						 public
+ See |CComponent::__set|
+
+
+*CCodeModel::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CCodeModel::addError*						 public
+ See |CModel::addError|
+
+
+*CCodeModel::addErrors* 					 public
+ See |CModel::addErrors|
+
+
+*CCodeModel::afterConstruct*					 protected
+ See |CModel::afterConstruct|
+
+
+*CCodeModel::afterValidate*					 protected
+ See |CModel::afterValidate|
+
+
+*CCodeModel::asa*						 public
+ See |CComponent::asa|
+
+
+*CCodeModel::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CCodeModel::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CCodeModel::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
 
 *CCodeModel::attributeLabels*					 public
 >
@@ -74,6 +151,26 @@ METHOD DETAILS
      ...labels for the child class attributes...
  ));
 <
+
+
+*CCodeModel::attributeNames*					 public
+ See |CFormModel::attributeNames|
+
+
+*CCodeModel::beforeValidate*					 protected
+ See |CModel::beforeValidate|
+
+
+*CCodeModel::behaviors* 					 public
+ See |CModel::behaviors|
+
+
+*CCodeModel::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CCodeModel::canSetProperty*					 public
+ See |CComponent::canSetProperty|
 
 
 *CCodeModel::class2id*						 public
@@ -121,6 +218,10 @@ METHOD DETAILS
     [name] (string) class name to be checked
 
 
+*CCodeModel::clearErrors*					 public
+ See |CModel::clearErrors|
+
+
 *CCodeModel::confirmed* 					 public
 >
  confirmed($file)
@@ -128,6 +229,38 @@ METHOD DETAILS
 (void)
 
     [file] (CCodeFile) whether the code file should be saved
+
+
+*CCodeModel::createValidators*					 public
+ See |CModel::createValidators|
+
+
+*CCodeModel::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CCodeModel::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CCodeModel::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CCodeModel::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CCodeModel::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CCodeModel::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CCodeModel::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
 
 
 *CCodeModel::errorMessage*					 public
@@ -140,6 +273,46 @@ saving.
  Returns the message to be displayed when some error occurred during code file
  saving. Child classes should override this method if the message needs to be
  customized.
+
+
+*CCodeModel::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CCodeModel::generateAttributeLabel*				 public
+ See |CModel::generateAttributeLabel|
+
+
+*CCodeModel::getAttributeLabel* 				 public
+ See |CModel::getAttributeLabel|
+
+
+*CCodeModel::getAttributes*					 public
+ See |CModel::getAttributes|
+
+
+*CCodeModel::getError*						 public
+ See |CModel::getError|
+
+
+*CCodeModel::getErrors* 					 public
+ See |CModel::getErrors|
+
+
+*CCodeModel::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CCodeModel::getIterator*					 public
+ See |CModel::getIterator|
+
+
+*CCodeModel::getSafeAttributeNames*				 public
+ See |CModel::getSafeAttributeNames|
+
+
+*CCodeModel::getScenario*					 public
+ See |CModel::getScenario|
 
 
 *CCodeModel::getStickyFile*					 public
@@ -168,6 +341,42 @@ saving.
  simply returns the |CCodeGenerator::templates| property value.
 
 
+*CCodeModel::getValidatorList*					 public
+ See |CModel::getValidatorList|
+
+
+*CCodeModel::getValidators*					 public
+ See |CModel::getValidators|
+
+
+*CCodeModel::hasErrors* 					 public
+ See |CModel::hasErrors|
+
+
+*CCodeModel::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CCodeModel::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CCodeModel::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CCodeModel::init*						 public
+ See |CFormModel::init|
+
+
+*CCodeModel::isAttributeRequired*				 public
+ See |CModel::isAttributeRequired|
+
+
+*CCodeModel::isAttributeSafe*					 public
+ See |CModel::isAttributeSafe|
+
+
 *CCodeModel::loadStickyAttributes*				 public
 >
  loadStickyAttributes()
@@ -175,6 +384,38 @@ saving.
 (void)
 
  Loads sticky attributes from a file and populates them into the model.
+
+
+*CCodeModel::offsetExists*					 public
+ See |CModel::offsetExists|
+
+
+*CCodeModel::offsetGet* 					 public
+ See |CModel::offsetGet|
+
+
+*CCodeModel::offsetSet* 					 public
+ See |CModel::offsetSet|
+
+
+*CCodeModel::offsetUnset*					 public
+ See |CModel::offsetUnset|
+
+
+*CCodeModel::onAfterConstruct*					 public
+ See |CModel::onAfterConstruct|
+
+
+*CCodeModel::onAfterValidate*					 public
+ See |CModel::onAfterValidate|
+
+
+*CCodeModel::onBeforeValidate*					 public
+ See |CModel::onBeforeValidate|
+
+
+*CCodeModel::onUnsafeAttribute* 				 public
+ See |CModel::onUnsafeAttribute|
 
 
 *CCodeModel::pluralize* 					 public
@@ -197,6 +438,10 @@ saving.
  Prepares the code files to be generated. This is the main method that child
  classes should implement. It should contain the logic that populates the
  |CCodeModel::files| property with a list of code files to be generated.
+
+
+*CCodeModel::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CCodeModel::render*						 public
@@ -264,6 +509,14 @@ relative to |CCodeModel::templatePath|.
  Saves sticky attributes into a file.
 
 
+*CCodeModel::setAttributes*					 public
+ See |CModel::setAttributes|
+
+
+*CCodeModel::setScenario*					 public
+ See |CModel::setScenario|
+
+
 *CCodeModel::sticky*						 public
 >
  sticky($attribute, $params)
@@ -287,6 +540,14 @@ successfully.
  Returns the message to be displayed when the newly generated code is saved
  successfully. Child classes should override this method if the message needs
  to be customized.
+
+
+*CCodeModel::unsetAttributes*					 public
+ See |CModel::unsetAttributes|
+
+
+*CCodeModel::validate*						 public
+ See |CModel::validate|
 
 
 *CCodeModel::validateReservedWord*				 public

@@ -20,13 +20,157 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<attributes>				*CFilterValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CFilterValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
+<enableClientValidation>		*CFilterValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CFilterValidator::except*
+ See |CValidator::except|
+
 <filter>				*CFilterValidator::filter*
  (callback) the filter method
+
+<message>				*CFilterValidator::message*
+ See |CValidator::message|
+
+<on>					*CFilterValidator::on*
+ See |CValidator::on|
+
+<safe>					*CFilterValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CFilterValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CFilterValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CFilterValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CFilterValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CFilterValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CFilterValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CFilterValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CFilterValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CFilterValidator::asa* 					 public
+ See |CComponent::asa|
+
+
+*CFilterValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CFilterValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CFilterValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CFilterValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CFilterValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CFilterValidator::clientValidateAttribute*			 public
+ See |CValidator::clientValidateAttribute|
+
+
+*CFilterValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CFilterValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CFilterValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CFilterValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CFilterValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CFilterValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CFilterValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CFilterValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CFilterValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CFilterValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CFilterValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CFilterValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CFilterValidator::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*CFilterValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CFilterValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CFilterValidator::validate*					 public
+ See |CValidator::validate|
+
 
 *CFilterValidator::validateAttribute*				 protected
 >

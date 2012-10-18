@@ -70,8 +70,14 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<behaviors>				*CWidgetFactory::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <enableSkin>				*CWidgetFactory::enableSkin*
  (boolean) whether to enable widget skinning. Defaults to false.
+
+<isInitialized> 			*CWidgetFactory::isInitialized*
+ See |CApplicationComponent::isInitialized|
 
 <skinPath>				*CWidgetFactory::skinPath*
  (string) the directory containing all the skin files. Defaults to null,
@@ -110,6 +116,50 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CWidgetFactory::__call*					 public
+ See |CComponent::__call|
+
+
+*CWidgetFactory::__get* 					 public
+ See |CComponent::__get|
+
+
+*CWidgetFactory::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CWidgetFactory::__set* 					 public
+ See |CComponent::__set|
+
+
+*CWidgetFactory::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CWidgetFactory::asa*						 public
+ See |CComponent::asa|
+
+
+*CWidgetFactory::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CWidgetFactory::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CWidgetFactory::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CWidgetFactory::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CWidgetFactory::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CWidgetFactory::createWidget*					 public
 >
  createWidget($owner, $className, $properties=array())
@@ -125,6 +175,46 @@ the given values.
     widget.
 
 
+*CWidgetFactory::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CWidgetFactory::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CWidgetFactory::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CWidgetFactory::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CWidgetFactory::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CWidgetFactory::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CWidgetFactory::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CWidgetFactory::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CWidgetFactory::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CWidgetFactory::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
 *CWidgetFactory::getSkin*					 protected
 >
  getSkin($className, $skinName)
@@ -136,6 +226,18 @@ the given values.
     [skinName] (string) the widget skin name
 
 
+*CWidgetFactory::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CWidgetFactory::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CWidgetFactory::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CWidgetFactory::init*						 public
 >
  init()
@@ -144,6 +246,10 @@ the given values.
 
  Initializes the application component. This method overrides the parent
  implementation by resolving the skin path.
+
+
+*CWidgetFactory::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

@@ -27,6 +27,8 @@
      }
  }
 <
+ Since version 1.1.11 the return value of action methods will be used as
+ application exit code if it is an integer value.
 
 
 PROPERTY DETAILS
@@ -55,6 +57,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CConsoleCommand::__call*					 public
+ See |CComponent::__call|
+
+
 *CConsoleCommand::__construct*					 public
 >
  __construct($name, $runner)
@@ -66,16 +72,51 @@ METHOD DETAILS
     [runner] (CConsoleCommandRunner) the command runner
 
 
+*CConsoleCommand::__get*					 public
+ See |CComponent::__get|
+
+
+*CConsoleCommand::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CConsoleCommand::__set*					 public
+ See |CComponent::__set|
+
+
+*CConsoleCommand::__unset*					 public
+ See |CComponent::__unset|
+
+
 *CConsoleCommand::afterAction*					 protected
 >
- afterAction($action, $params)
+ afterAction($action, $params, $exitCode=0)
 <
-(void)
+(integer) application exit code (return value is available since version
+1.1.11)
 
  This method is invoked right after an action finishes execution. You may
  override this method to do some postprocessing for the action.
     [action] (string) the action name
     [params] (array) the parameters to be passed to the action method.
+    [exitCode] (integer) the application exit code returned by the action
+    method.
+
+
+*CConsoleCommand::asa*						 public
+ See |CComponent::asa|
+
+
+*CConsoleCommand::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CConsoleCommand::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CConsoleCommand::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
 
 
 *CConsoleCommand::beforeAction* 				 protected
@@ -90,9 +131,33 @@ METHOD DETAILS
     [params] (array) the parameters to be passed to the action method.
 
 
+*CConsoleCommand::behaviors*					 public
+>
+ behaviors()
+<
+(array) the behavior configurations (behavior name=>behavior configuration)
+
+ Returns a list of behaviors that this command should behave as. The return
+ value should be an array of behavior configurations indexed by behavior
+ names. Each behavior configuration can be either a string specifying the
+ behavior class or an array of the following structure:
+>
+ 'behaviorName'=>array(
+     'class'=>'path.to.BehaviorClass',
+     'property1'=>'value1',
+     'property2'=>'value2',
+ )
+<
+ Note, the behavior classes must implement |IBehavior| or extend from
+ |CBehavior|. Behaviors declared in this method will be attached to the
+ controller when it is instantiated.
+
+ For more details about behaviors, see |CComponent|.
+
+
 *CConsoleCommand::buildFileList*				 public
 >
- buildFileList($sourceDir, $targetDir, $baseDir='')
+ buildFileList($sourceDir, $targetDir, $baseDir='', $ignoreFiles=array(), $renameMap=array())
 <
 (array) the file list (see |CConsoleCommand::copyFiles|)
 
@@ -103,16 +168,31 @@ METHOD DETAILS
     [sourceDir] (string) the source directory
     [targetDir] (string) the target directory
     [baseDir] (string) base directory
+    [ignoreFiles] (array) list of the names of files that should be ignored in
+    list building process. Argument available since 1.1.11.
+    [renameMap] (array) hash array of file names that should be renamed.
+    Example value: array('1.old.txt'=>'2.new.txt'). Argument available since
+    1.1.11.
+
+
+*CConsoleCommand::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CConsoleCommand::canSetProperty*				 public
+ See |CComponent::canSetProperty|
 
 
 *CConsoleCommand::confirm*					 public
 >
- confirm($message)
+ confirm($message, $default=false)
 <
 (bool) if user confirmed
 
  Asks user to confirm by typing y or n.
     [message] (string) to echo out before waiting for user input
+    [default] (bool) this value is returned if no selection is made. This
+    parameter has been available since version 1.1.11.
 
 
 *CConsoleCommand::copyFiles*					 public
@@ -142,6 +222,34 @@ METHOD DETAILS
       {params} optional, the parameters to be passed to the callback
 
 
+*CConsoleCommand::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CConsoleCommand::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CConsoleCommand::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CConsoleCommand::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CConsoleCommand::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CConsoleCommand::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CConsoleCommand::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
 *CConsoleCommand::ensureDirectory*				 public
 >
  ensureDirectory($directory)
@@ -152,12 +260,20 @@ METHOD DETAILS
     [directory] (string) the directory to be checked
 
 
+*CConsoleCommand::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CConsoleCommand::getCommandRunner*				 public
 >
  getCommandRunner()
 <
 (CConsoleCommandRunner) the command runner instance
 
+
+
+*CConsoleCommand::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CConsoleCommand::getHelp*					 public
@@ -191,6 +307,18 @@ help information for a single action.
  information.
 
 
+*CConsoleCommand::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CConsoleCommand::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CConsoleCommand::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CConsoleCommand::init* 					 public
 >
  init()
@@ -200,6 +328,26 @@ help information for a single action.
  Initializes the command object. This method is invoked after a command object
  is created and initialized with configurations. You may override this method
  to further customize the command before it executes.
+
+
+*CConsoleCommand::onAfterAction*				 public
+>
+ onAfterAction($event)
+<
+(void)
+
+ This event is raised after an action finishes execution.
+    [event] (CConsoleCommandEvent) the event parameter
+
+
+*CConsoleCommand::onBeforeAction*				 public
+>
+ onBeforeAction($event)
+<
+(void)
+
+ This event is raised before an action is to be executed.
+    [event] (CConsoleCommandEvent) the event parameter
 
 
 *CConsoleCommand::pluralize*					 public
@@ -214,13 +362,20 @@ help information for a single action.
 
 *CConsoleCommand::prompt*					 public
 >
- prompt($message)
+ prompt($message, $default='')
 <
 (mixed) line read as a string, or false if input has been closed
 
  Reads input via the readline PHP extension if that's available, or fgets() if
  readline is not installed.
     [message] (string) to echo out before waiting for user input
+    [default] (string) the default string to be returned when user does not
+    write anything. Defaults to null, means that default string is disabled.
+    This parameter is available since version 1.1.11.
+
+
+*CConsoleCommand::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CConsoleCommand::renderFile*					 public
@@ -250,7 +405,9 @@ help information for a single action.
 >
  run($args)
 <
-(void)
+(integer) application exit code, which is returned by the invoked action. 0 if
+the action did not return anything. (return value is available since version
+1.1.11)
 
  Executes the command. The default implementation will parse the input
  parameters and dispatch the command request to an appropriate action with the

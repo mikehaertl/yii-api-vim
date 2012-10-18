@@ -35,6 +35,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<behaviors>				*CDbMessageSource::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <cacheID>				*CDbMessageSource::cacheID*
  (string) the ID of the cache application component that is used to cache the
  messages. Defaults to 'cache' which refers to the primary cache application
@@ -52,6 +55,15 @@ PROPERTY DETAILS
 <dbConnection>				*CDbMessageSource::dbConnection*
  (CDbConnection) Returns the DB connection used for the message source.
 
+<forceTranslation>			*CDbMessageSource::forceTranslation*
+ See |CMessageSource::forceTranslation|
+
+<isInitialized> 			*CDbMessageSource::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
+<language>				*CDbMessageSource::language*
+ See |CMessageSource::language|
+
 <sourceMessageTable>			*CDbMessageSource::sourceMessageTable*
  (string) the name of the source message table. Defaults to 'SourceMessage'.
 
@@ -63,6 +75,82 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDbMessageSource::__call*					 public
+ See |CComponent::__call|
+
+
+*CDbMessageSource::__get*					 public
+ See |CComponent::__get|
+
+
+*CDbMessageSource::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDbMessageSource::__set*					 public
+ See |CComponent::__set|
+
+
+*CDbMessageSource::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDbMessageSource::asa* 					 public
+ See |CComponent::asa|
+
+
+*CDbMessageSource::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CDbMessageSource::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbMessageSource::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbMessageSource::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CDbMessageSource::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CDbMessageSource::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CDbMessageSource::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbMessageSource::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbMessageSource::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbMessageSource::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbMessageSource::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CDbMessageSource::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbMessageSource::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CDbMessageSource::getDbConnection*				 public
 >
  getDbConnection()
@@ -70,6 +158,34 @@ METHOD DETAILS
 (CDbConnection) the DB connection used for the message source.
 
  Returns the DB connection used for the message source.
+
+
+*CDbMessageSource::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDbMessageSource::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
+*CDbMessageSource::getLanguage* 				 public
+ See |CMessageSource::getLanguage|
+
+
+*CDbMessageSource::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbMessageSource::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbMessageSource::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*CDbMessageSource::init*					 public
+ See |CApplicationComponent::init|
 
 
 *CDbMessageSource::loadMessages*				 protected
@@ -93,6 +209,26 @@ METHOD DETAILS
  the message storage in the database.
     [category] (string) the message category
     [language] (string) the target language
+
+
+*CDbMessageSource::onMissingTranslation*			 public
+ See |CMessageSource::onMissingTranslation|
+
+
+*CDbMessageSource::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CDbMessageSource::setLanguage* 				 public
+ See |CMessageSource::setLanguage|
+
+
+*CDbMessageSource::translate*					 public
+ See |CMessageSource::translate|
+
+
+*CDbMessageSource::translateMessage*				 protected
+ See |CMessageSource::translateMessage|
 
 
 

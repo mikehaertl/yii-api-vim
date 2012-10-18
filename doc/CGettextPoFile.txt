@@ -9,6 +9,50 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CGettextPoFile::__call*					 public
+ See |CComponent::__call|
+
+
+*CGettextPoFile::__get* 					 public
+ See |CComponent::__get|
+
+
+*CGettextPoFile::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CGettextPoFile::__set* 					 public
+ See |CComponent::__set|
+
+
+*CGettextPoFile::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CGettextPoFile::asa*						 public
+ See |CComponent::asa|
+
+
+*CGettextPoFile::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CGettextPoFile::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CGettextPoFile::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CGettextPoFile::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CGettextPoFile::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CGettextPoFile::decode*					 protected
 >
  decode($string)
@@ -17,6 +61,34 @@ METHOD DETAILS
 
  Decodes special characters in a message.
     [string] (string) message to be decoded
+
+
+*CGettextPoFile::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CGettextPoFile::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CGettextPoFile::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CGettextPoFile::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CGettextPoFile::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CGettextPoFile::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CGettextPoFile::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
 
 
 *CGettextPoFile::encode*					 protected
@@ -29,6 +101,26 @@ METHOD DETAILS
     [string] (string) message to be encoded
 
 
+*CGettextPoFile::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CGettextPoFile::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CGettextPoFile::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CGettextPoFile::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CGettextPoFile::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CGettextPoFile::load*						 public
 >
  load($file, $context)
@@ -38,6 +130,10 @@ METHOD DETAILS
  Loads messages from a PO file.
     [file] (string) file path
     [context] (string) message context
+
+
+*CGettextPoFile::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CGettextPoFile::save*						 public

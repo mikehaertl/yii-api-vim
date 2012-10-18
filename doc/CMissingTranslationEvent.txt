@@ -12,16 +12,29 @@ PROPERTY DETAILS
 <category>				*CMissingTranslationEvent::category*
  (string) the category that the message belongs to
 
+<handled>				*CMissingTranslationEvent::handled*
+ See |CEvent::handled|
+
 <language>				*CMissingTranslationEvent::language*
  (string) the ID of the language that the message is to be translated to
 
 <message>				*CMissingTranslationEvent::message*
  (string) the message to be translated
 
+<params>				*CMissingTranslationEvent::params*
+ See |CEvent::params|
+
+<sender>				*CMissingTranslationEvent::sender*
+ See |CEvent::sender|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CMissingTranslationEvent::__call*				 public
+ See |CComponent::__call|
+
 
 *CMissingTranslationEvent::__construct* 			 public
 >
@@ -35,6 +48,98 @@ METHOD DETAILS
     [message] (string) the message to be translated
     [language] (string) the ID of the language that the message is to be
     translated to
+
+
+*CMissingTranslationEvent::__get*				 public
+ See |CComponent::__get|
+
+
+*CMissingTranslationEvent::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CMissingTranslationEvent::__set*				 public
+ See |CComponent::__set|
+
+
+*CMissingTranslationEvent::__unset*				 public
+ See |CComponent::__unset|
+
+
+*CMissingTranslationEvent::asa* 				 public
+ See |CComponent::asa|
+
+
+*CMissingTranslationEvent::attachBehavior*			 public
+ See |CComponent::attachBehavior|
+
+
+*CMissingTranslationEvent::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CMissingTranslationEvent::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CMissingTranslationEvent::canGetProperty*			 public
+ See |CComponent::canGetProperty|
+
+
+*CMissingTranslationEvent::canSetProperty*			 public
+ See |CComponent::canSetProperty|
+
+
+*CMissingTranslationEvent::detachBehavior*			 public
+ See |CComponent::detachBehavior|
+
+
+*CMissingTranslationEvent::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CMissingTranslationEvent::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CMissingTranslationEvent::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CMissingTranslationEvent::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CMissingTranslationEvent::enableBehavior*			 public
+ See |CComponent::enableBehavior|
+
+
+*CMissingTranslationEvent::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CMissingTranslationEvent::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CMissingTranslationEvent::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CMissingTranslationEvent::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CMissingTranslationEvent::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CMissingTranslationEvent::hasProperty* 			 public
+ See |CComponent::hasProperty|
+
+
+*CMissingTranslationEvent::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 

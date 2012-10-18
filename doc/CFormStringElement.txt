@@ -8,6 +8,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<attributes>				*CFormStringElement::attributes*
+ See |CFormElement::attributes|
+
 <content>				*CFormStringElement::content*
  (string) the string content
 
@@ -18,10 +21,104 @@ PROPERTY DETAILS
  be found in this value, will the string be visible. See |CModel::scenario|
  for more information about model scenarios.
 
+<parent>				*CFormStringElement::parent*
+ See |CFormElement::parent|
+
+<visible>				*CFormStringElement::visible*
+ See |CFormElement::visible|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CFormStringElement::__call*					 public
+ See |CComponent::__call|
+
+
+*CFormStringElement::__construct*				 public
+ See |CFormElement::__construct|
+
+
+*CFormStringElement::__get*					 public
+ See |CFormElement::__get|
+
+
+*CFormStringElement::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CFormStringElement::__set*					 public
+ See |CFormElement::__set|
+
+
+*CFormStringElement::__toString*				 public
+ See |CFormElement::__toString|
+
+
+*CFormStringElement::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CFormStringElement::asa*					 public
+ See |CComponent::asa|
+
+
+*CFormStringElement::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CFormStringElement::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CFormStringElement::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CFormStringElement::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CFormStringElement::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CFormStringElement::configure* 				 public
+ See |CFormElement::configure|
+
+
+*CFormStringElement::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CFormStringElement::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CFormStringElement::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CFormStringElement::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CFormStringElement::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CFormStringElement::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CFormStringElement::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CFormStringElement::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
 
 *CFormStringElement::evaluateVisible*				 protected
 >
@@ -32,6 +129,10 @@ METHOD DETAILS
  Evaluates the visibility of this element. This method will check the
  |CFormStringElement::on| property to see if the model is in a scenario that
  should have this string displayed.
+
+
+*CFormStringElement::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CFormStringElement::getOn*					 public
@@ -45,6 +146,30 @@ METHOD DETAILS
  Otherwise, only when the model is in the scenario whose name can be found in
  this value, will the string be visible. See |CModel::scenario| for more
  information about model scenarios.
+
+
+*CFormStringElement::getParent* 				 public
+ See |CFormElement::getParent|
+
+
+*CFormStringElement::getVisible*				 public
+ See |CFormElement::getVisible|
+
+
+*CFormStringElement::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CFormStringElement::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CFormStringElement::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CFormStringElement::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 *CFormStringElement::render*					 public
@@ -64,6 +189,10 @@ METHOD DETAILS
 (void)
 
     [value] (string) scenario names separated by commas.
+
+
+*CFormStringElement::setVisible*				 public
+ See |CFormElement::setVisible|
 
 
 

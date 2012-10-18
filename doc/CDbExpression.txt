@@ -31,6 +31,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDbExpression::__call* 					 public
+ See |CComponent::__call|
+
+
 *CDbExpression::__construct*					 public
 >
  __construct($expression, $params=array())
@@ -42,6 +46,18 @@ METHOD DETAILS
     [params] (array) parameters
 
 
+*CDbExpression::__get*						 public
+ See |CComponent::__get|
+
+
+*CDbExpression::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDbExpression::__set*						 public
+ See |CComponent::__set|
+
+
 *CDbExpression::__toString*					 public
 >
  __toString()
@@ -49,6 +65,86 @@ METHOD DETAILS
 (string) the DB expression
 
  String magic method
+
+
+*CDbExpression::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDbExpression::asa*						 public
+ See |CComponent::asa|
+
+
+*CDbExpression::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CDbExpression::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbExpression::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbExpression::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CDbExpression::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CDbExpression::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CDbExpression::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbExpression::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbExpression::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbExpression::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbExpression::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CDbExpression::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbExpression::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CDbExpression::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDbExpression::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbExpression::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbExpression::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CDbExpression::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

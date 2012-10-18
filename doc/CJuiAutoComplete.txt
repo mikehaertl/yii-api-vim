@@ -35,12 +35,51 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CJuiAutoComplete::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<attribute>				*CJuiAutoComplete::attribute*
+ See |CJuiInputWidget::attribute|
+
+<controller>				*CJuiAutoComplete::controller*
+ See |CWidget::controller|
+
+<cssFile>				*CJuiAutoComplete::cssFile*
+ See |CJuiWidget::cssFile|
+
+<htmlOptions>				*CJuiAutoComplete::htmlOptions*
+ See |CJuiWidget::htmlOptions|
+
+<id>					*CJuiAutoComplete::id*
+ See |CWidget::id|
+
+<model> 				*CJuiAutoComplete::model*
+ See |CJuiInputWidget::model|
+
+<name>					*CJuiAutoComplete::name*
+ See |CJuiInputWidget::name|
+
+<options>				*CJuiAutoComplete::options*
+ See |CJuiWidget::options|
+
+<owner> 				*CJuiAutoComplete::owner*
+ See |CWidget::owner|
+
+<scriptFile>				*CJuiAutoComplete::scriptFile*
+ See |CJuiWidget::scriptFile|
+
+<scriptUrl>				*CJuiAutoComplete::scriptUrl*
+ See |CJuiWidget::scriptUrl|
+
+<skin>					*CJuiAutoComplete::skin*
+ See |CWidget::skin|
+
 <source>				*CJuiAutoComplete::source*
  (mixed) the entries that the autocomplete should choose from. This can be
    an Array with local data
    a String, specifying a URL that returns JSON data as the entries.
-   a javascript callback. Please make sure you prefix the callback
-   name with "js:" in this case.
+   a javascript callback. Please make sure you wrap the callback with
+   |CJavaScriptExpression| in this case.
 
 <sourceUrl>				*CJuiAutoComplete::sourceUrl*
  (mixed) the URL that will return JSON data as the autocomplete items.
@@ -48,10 +87,218 @@ PROPERTY DETAILS
  property into a proper URL. When this property is set, the
  |CJuiAutoComplete::source| property will be ignored.
 
+<theme> 				*CJuiAutoComplete::theme*
+ See |CJuiWidget::theme|
+
+<themeUrl>				*CJuiAutoComplete::themeUrl*
+ See |CJuiWidget::themeUrl|
+
+<value> 				*CJuiAutoComplete::value*
+ See |CJuiInputWidget::value|
+
+<viewPath>				*CJuiAutoComplete::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CJuiAutoComplete::__call*					 public
+ See |CComponent::__call|
+
+
+*CJuiAutoComplete::__construct* 				 public
+ See |CWidget::__construct|
+
+
+*CJuiAutoComplete::__get*					 public
+ See |CComponent::__get|
+
+
+*CJuiAutoComplete::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CJuiAutoComplete::__set*					 public
+ See |CComponent::__set|
+
+
+*CJuiAutoComplete::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CJuiAutoComplete::actions*					 public
+ See |CWidget::actions|
+
+
+*CJuiAutoComplete::asa* 					 public
+ See |CComponent::asa|
+
+
+*CJuiAutoComplete::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CJuiAutoComplete::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CJuiAutoComplete::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CJuiAutoComplete::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CJuiAutoComplete::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CJuiAutoComplete::beginContent*				 public
+ See |CBaseController::beginContent|
+
+
+*CJuiAutoComplete::beginWidget* 				 public
+ See |CBaseController::beginWidget|
+
+
+*CJuiAutoComplete::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CJuiAutoComplete::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CJuiAutoComplete::createWidget*				 public
+ See |CBaseController::createWidget|
+
+
+*CJuiAutoComplete::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CJuiAutoComplete::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CJuiAutoComplete::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CJuiAutoComplete::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CJuiAutoComplete::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CJuiAutoComplete::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CJuiAutoComplete::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CJuiAutoComplete::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CJuiAutoComplete::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CJuiAutoComplete::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CJuiAutoComplete::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CJuiAutoComplete::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CJuiAutoComplete::getController*				 public
+ See |CWidget::getController|
+
+
+*CJuiAutoComplete::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CJuiAutoComplete::getId*					 public
+ See |CWidget::getId|
+
+
+*CJuiAutoComplete::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CJuiAutoComplete::getViewFile* 				 public
+ See |CWidget::getViewFile|
+
+
+*CJuiAutoComplete::getViewPath* 				 public
+ See |CWidget::getViewPath|
+
+
+*CJuiAutoComplete::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CJuiAutoComplete::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CJuiAutoComplete::hasModel*					 protected
+ See |CJuiInputWidget::hasModel|
+
+
+*CJuiAutoComplete::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*CJuiAutoComplete::init*					 public
+ See |CJuiWidget::init|
+
+
+*CJuiAutoComplete::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CJuiAutoComplete::registerCoreScripts* 			 protected
+ See |CJuiWidget::registerCoreScripts|
+
+
+*CJuiAutoComplete::registerScriptFile*				 protected
+ See |CJuiWidget::registerScriptFile|
+
+
+*CJuiAutoComplete::render*					 public
+ See |CWidget::render|
+
+
+*CJuiAutoComplete::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CJuiAutoComplete::renderInternal*				 public
+ See |CBaseController::renderInternal|
+
+
+*CJuiAutoComplete::resolveNameID*				 protected
+ See |CJuiInputWidget::resolveNameID|
+
+
+*CJuiAutoComplete::resolvePackagePath*				 protected
+ See |CJuiWidget::resolvePackagePath|
+
 
 *CJuiAutoComplete::run* 					 public
 >
@@ -61,6 +308,14 @@ METHOD DETAILS
 
  Run this widget. This method registers necessary javascript and renders the
  needed HTML code.
+
+
+*CJuiAutoComplete::setId*					 public
+ See |CWidget::setId|
+
+
+*CJuiAutoComplete::widget*					 public
+ See |CBaseController::widget|
 
 
 

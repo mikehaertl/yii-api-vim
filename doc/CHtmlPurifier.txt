@@ -32,15 +32,211 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CHtmlPurifier::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CHtmlPurifier::controller*
+ See |CWidget::controller|
+
+<id>					*CHtmlPurifier::id*
+ See |CWidget::id|
+
+<isFilter>				*CHtmlPurifier::isFilter*
+ See |CFilterWidget::isFilter|
+
 <options>				*CHtmlPurifier::options*
  (mixed) the options to be passed to HTML Purifier instance. This can be a
  HTMLPurifier_Config object,  an array of directives (Namespace.Directive =>
  Value) or the filename of an ini file.
 
+<owner> 				*CHtmlPurifier::owner*
+ See |CWidget::owner|
+
+<skin>					*CHtmlPurifier::skin*
+ See |CWidget::skin|
+
+<stopAction>				*CHtmlPurifier::stopAction*
+ See |CFilterWidget::stopAction|
+
+<viewPath>				*CHtmlPurifier::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CHtmlPurifier::__call* 					 public
+ See |CComponent::__call|
+
+
+*CHtmlPurifier::__construct*					 public
+ See |CFilterWidget::__construct|
+
+
+*CHtmlPurifier::__get*						 public
+ See |CComponent::__get|
+
+
+*CHtmlPurifier::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CHtmlPurifier::__set*						 public
+ See |CComponent::__set|
+
+
+*CHtmlPurifier::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CHtmlPurifier::actions*					 public
+ See |CWidget::actions|
+
+
+*CHtmlPurifier::asa*						 public
+ See |CComponent::asa|
+
+
+*CHtmlPurifier::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CHtmlPurifier::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CHtmlPurifier::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CHtmlPurifier::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CHtmlPurifier::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CHtmlPurifier::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CHtmlPurifier::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CHtmlPurifier::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CHtmlPurifier::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CHtmlPurifier::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CHtmlPurifier::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CHtmlPurifier::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CHtmlPurifier::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CHtmlPurifier::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CHtmlPurifier::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CHtmlPurifier::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CHtmlPurifier::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CHtmlPurifier::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CHtmlPurifier::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CHtmlPurifier::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CHtmlPurifier::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CHtmlPurifier::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CHtmlPurifier::filter* 					 public
+ See |CFilterWidget::filter|
+
+
+*CHtmlPurifier::getController*					 public
+ See |CWidget::getController|
+
+
+*CHtmlPurifier::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CHtmlPurifier::getId*						 public
+ See |CWidget::getId|
+
+
+*CHtmlPurifier::getIsFilter*					 public
+ See |CFilterWidget::getIsFilter|
+
+
+*CHtmlPurifier::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CHtmlPurifier::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CHtmlPurifier::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CHtmlPurifier::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CHtmlPurifier::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CHtmlPurifier::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CHtmlPurifier::init*						 public
+ See |COutputProcessor::init|
+
+
+*CHtmlPurifier::onProcessOutput*				 public
+ See |COutputProcessor::onProcessOutput|
+
 
 *CHtmlPurifier::processOutput*					 public
 >
@@ -61,6 +257,34 @@ METHOD DETAILS
 
  Purifies the HTML content by removing malicious code.
     [content] (string) the content to be purified.
+
+
+*CHtmlPurifier::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CHtmlPurifier::render* 					 public
+ See |CWidget::render|
+
+
+*CHtmlPurifier::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CHtmlPurifier::renderInternal* 				 public
+ See |CBaseController::renderInternal|
+
+
+*CHtmlPurifier::run*						 public
+ See |COutputProcessor::run|
+
+
+*CHtmlPurifier::setId*						 public
+ See |CWidget::setId|
+
+
+*CHtmlPurifier::widget* 					 public
+ See |CBaseController::widget|
 
 
 

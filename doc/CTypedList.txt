@@ -12,6 +12,10 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CTypedList::__call*						 public
+ See |CComponent::__call|
+
+
 *CTypedList::__construct*					 public
 >
  __construct($type)
@@ -20,6 +24,130 @@ METHOD DETAILS
 
  Constructor.
     [type] (string) class type
+
+
+*CTypedList::__get*						 public
+ See |CComponent::__get|
+
+
+*CTypedList::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CTypedList::__set*						 public
+ See |CComponent::__set|
+
+
+*CTypedList::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CTypedList::add*						 public
+ See |CList::add|
+
+
+*CTypedList::asa*						 public
+ See |CComponent::asa|
+
+
+*CTypedList::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CTypedList::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CTypedList::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CTypedList::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CTypedList::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CTypedList::clear*						 public
+ See |CList::clear|
+
+
+*CTypedList::contains*						 public
+ See |CList::contains|
+
+
+*CTypedList::copyFrom*						 public
+ See |CList::copyFrom|
+
+
+*CTypedList::count*						 public
+ See |CList::count|
+
+
+*CTypedList::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CTypedList::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CTypedList::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CTypedList::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CTypedList::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CTypedList::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CTypedList::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CTypedList::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CTypedList::getCount*						 public
+ See |CList::getCount|
+
+
+*CTypedList::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CTypedList::getIterator*					 public
+ See |CList::getIterator|
+
+
+*CTypedList::getReadOnly*					 public
+ See |CList::getReadOnly|
+
+
+*CTypedList::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CTypedList::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CTypedList::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CTypedList::indexOf*						 public
+ See |CList::indexOf|
 
 
 *CTypedList::insertAt*						 public
@@ -32,6 +160,50 @@ METHOD DETAILS
  implementation by checking the item to be inserted is of certain type.
     [index] (integer) the specified position.
     [item] (mixed) new item
+
+
+*CTypedList::itemAt*						 public
+ See |CList::itemAt|
+
+
+*CTypedList::mergeWith* 					 public
+ See |CList::mergeWith|
+
+
+*CTypedList::offsetExists*					 public
+ See |CList::offsetExists|
+
+
+*CTypedList::offsetGet* 					 public
+ See |CList::offsetGet|
+
+
+*CTypedList::offsetSet* 					 public
+ See |CList::offsetSet|
+
+
+*CTypedList::offsetUnset*					 public
+ See |CList::offsetUnset|
+
+
+*CTypedList::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CTypedList::remove*						 public
+ See |CList::remove|
+
+
+*CTypedList::removeAt*						 public
+ See |CList::removeAt|
+
+
+*CTypedList::setReadOnly*					 protected
+ See |CList::setReadOnly|
+
+
+*CTypedList::toArray*						 public
+ See |CList::toArray|
 
 
 

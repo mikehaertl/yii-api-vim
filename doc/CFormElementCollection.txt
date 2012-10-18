@@ -22,6 +22,10 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CFormElementCollection::__call*				 public
+ See |CComponent::__call|
+
+
 *CFormElementCollection::__construct*				 public
 >
  __construct($form, $forButtons=false)
@@ -31,6 +35,22 @@ METHOD DETAILS
  Constructor.
     [form] (CForm) the form object that owns this collection
     [forButtons] (boolean) whether this collection is used to store buttons.
+
+
+*CFormElementCollection::__get* 				 public
+ See |CComponent::__get|
+
+
+*CFormElementCollection::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CFormElementCollection::__set* 				 public
+ See |CComponent::__set|
+
+
+*CFormElementCollection::__unset*				 public
+ See |CComponent::__unset|
 
 
 *CFormElementCollection::add*					 public
@@ -46,6 +66,142 @@ METHOD DETAILS
     [value] (mixed) value
 
 
+*CFormElementCollection::asa*					 public
+ See |CComponent::asa|
+
+
+*CFormElementCollection::attachBehavior*			 public
+ See |CComponent::attachBehavior|
+
+
+*CFormElementCollection::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CFormElementCollection::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CFormElementCollection::canGetProperty*			 public
+ See |CComponent::canGetProperty|
+
+
+*CFormElementCollection::canSetProperty*			 public
+ See |CComponent::canSetProperty|
+
+
+*CFormElementCollection::clear* 				 public
+ See |CMap::clear|
+
+
+*CFormElementCollection::contains*				 public
+ See |CMap::contains|
+
+
+*CFormElementCollection::copyFrom*				 public
+ See |CMap::copyFrom|
+
+
+*CFormElementCollection::count* 				 public
+ See |CMap::count|
+
+
+*CFormElementCollection::detachBehavior*			 public
+ See |CComponent::detachBehavior|
+
+
+*CFormElementCollection::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CFormElementCollection::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CFormElementCollection::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CFormElementCollection::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CFormElementCollection::enableBehavior*			 public
+ See |CComponent::enableBehavior|
+
+
+*CFormElementCollection::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CFormElementCollection::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CFormElementCollection::getCount*				 public
+ See |CMap::getCount|
+
+
+*CFormElementCollection::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CFormElementCollection::getIterator*				 public
+ See |CMap::getIterator|
+
+
+*CFormElementCollection::getKeys*				 public
+ See |CMap::getKeys|
+
+
+*CFormElementCollection::getReadOnly*				 public
+ See |CMap::getReadOnly|
+
+
+*CFormElementCollection::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CFormElementCollection::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CFormElementCollection::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CFormElementCollection::itemAt*				 public
+ See |CMap::itemAt|
+
+
+*CFormElementCollection::mergeArray*				 public
+ See |CMap::mergeArray|
+
+
+*CFormElementCollection::mergeWith*				 public
+ See |CMap::mergeWith|
+
+
+*CFormElementCollection::offsetExists*				 public
+ See |CMap::offsetExists|
+
+
+*CFormElementCollection::offsetGet*				 public
+ See |CMap::offsetGet|
+
+
+*CFormElementCollection::offsetSet*				 public
+ See |CMap::offsetSet|
+
+
+*CFormElementCollection::offsetUnset*				 public
+ See |CMap::offsetUnset|
+
+
+*CFormElementCollection::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
 *CFormElementCollection::remove*				 public
 >
  remove($key)
@@ -54,6 +210,14 @@ METHOD DETAILS
 
  Removes the specified element by key.
     [key] (string) the name of the element to be removed from the collection
+
+
+*CFormElementCollection::setReadOnly*				 protected
+ See |CMap::setReadOnly|
+
+
+*CFormElementCollection::toArray*				 public
+ See |CMap::toArray|
 
 
 

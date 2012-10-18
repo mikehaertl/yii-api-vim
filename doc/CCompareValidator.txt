@@ -34,11 +34,29 @@ PROPERTY DETAILS
  false. If this is true, it means the attribute is considered valid when it is
  empty.
 
+<attributes>				*CCompareValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CCompareValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
 <compareAttribute>			*CCompareValidator::compareAttribute*
  (string) the name of the attribute to be compared with
 
 <compareValue>				*CCompareValidator::compareValue*
  (string) the constant value to be compared with
+
+<enableClientValidation>		*CCompareValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CCompareValidator::except*
+ See |CValidator::except|
+
+<message>				*CCompareValidator::message*
+ See |CValidator::message|
+
+<on>					*CCompareValidator::on*
+ See |CValidator::on|
 
 <operator>				*CCompareValidator::operator*
  (string) the operator for comparison. Defaults to '='. The followings are
@@ -58,6 +76,12 @@ PROPERTY DETAILS
    '<=': validates to see if the value being validated is less than
    or equal to the value being compared with.
 
+<safe>					*CCompareValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CCompareValidator::skipOnError*
+ See |CValidator::skipOnError|
+
 <strict>				*CCompareValidator::strict*
  (boolean) whether the comparison is strict (both value and type must be the
  same.) Defaults to false.
@@ -66,6 +90,58 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CCompareValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CCompareValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CCompareValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CCompareValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CCompareValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CCompareValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CCompareValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CCompareValidator::asa*					 public
+ See |CComponent::asa|
+
+
+*CCompareValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CCompareValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CCompareValidator::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
+*CCompareValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CCompareValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
 
 *CCompareValidator::clientValidateAttribute*			 public
 >
@@ -76,6 +152,70 @@ METHOD DETAILS
  Returns the JavaScript needed for performing client-side validation.
     [object] (CModel) the data object being validated
     [attribute] (string) the name of the attribute to be validated.
+
+
+*CCompareValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CCompareValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CCompareValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CCompareValidator::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CCompareValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CCompareValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CCompareValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CCompareValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CCompareValidator::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
+*CCompareValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CCompareValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CCompareValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CCompareValidator::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CCompareValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CCompareValidator::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
+
+
+*CCompareValidator::validate*					 public
+ See |CValidator::validate|
 
 
 *CCompareValidator::validateAttribute*				 protected

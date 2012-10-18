@@ -76,6 +76,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CUrlRule::__call*						 public
+ See |CComponent::__call|
+
+
 *CUrlRule::__construct* 					 public
 >
  __construct($route, $pattern)
@@ -85,6 +89,46 @@ METHOD DETAILS
  Constructor.
     [route] (string) the route of the URL (controller/action)
     [pattern] (string) the pattern for matching the URL
+
+
+*CUrlRule::__get*						 public
+ See |CComponent::__get|
+
+
+*CUrlRule::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CUrlRule::__set*						 public
+ See |CComponent::__set|
+
+
+*CUrlRule::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CUrlRule::asa* 						 public
+ See |CComponent::asa|
+
+
+*CUrlRule::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CUrlRule::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CUrlRule::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CUrlRule::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CUrlRule::canSetProperty*					 public
+ See |CComponent::canSetProperty|
 
 
 *CUrlRule::createUrl*						 public
@@ -100,6 +144,54 @@ METHOD DETAILS
     [ampersand] (string) the token separating name-value pairs in the URL.
 
 
+*CUrlRule::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CUrlRule::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CUrlRule::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CUrlRule::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CUrlRule::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CUrlRule::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CUrlRule::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CUrlRule::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
+*CUrlRule::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CUrlRule::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CUrlRule::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CUrlRule::hasProperty* 					 public
+ See |CComponent::hasProperty|
+
+
 *CUrlRule::parseUrl*						 public
 >
  parseUrl($manager, $request, $pathInfo, $rawPathInfo)
@@ -112,6 +204,10 @@ error
     [request] (CHttpRequest) the request object
     [pathInfo] (string) path info part of the URL
     [rawPathInfo] (string) path info that contains the potential URL suffix
+
+
+*CUrlRule::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 

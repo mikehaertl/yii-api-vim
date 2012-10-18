@@ -27,6 +27,16 @@ PROPERTY DETAILS
  for the attribute value being validated. Defaults to null, meaning using the
  name of the attribute being validated.
 
+<attributes>				*CExistValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CExistValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
+<caseSensitive> 			*CExistValidator::caseSensitive*
+ (boolean) whether the comparison is case sensitive. Defaults to true. Note,
+ by setting it to false, you are assuming the attribute type is string.
+
 <className>				*CExistValidator::className*
  (string) the ActiveRecord class name that should be used to look for the
  attribute value being validated. Defaults to null, meaning using the
@@ -34,14 +44,153 @@ PROPERTY DETAILS
  to reference a class name here.
 
 <criteria>				*CExistValidator::criteria*
- (array) additional query criteria. This will be combined with the condition
- that checks if the attribute value exists in the corresponding table column.
- This array will be used to instantiate a |CDbCriteria| object.
+ (mixed) additional query criteria. Either an array or CDbCriteria. This will
+ be combined with the condition that checks if the attribute value exists in
+ the corresponding table column. This array will be used to instantiate a
+ |CDbCriteria| object.
+
+<enableClientValidation>		*CExistValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CExistValidator::except*
+ See |CValidator::except|
+
+<message>				*CExistValidator::message*
+ See |CValidator::message|
+
+<on>					*CExistValidator::on*
+ See |CValidator::on|
+
+<safe>					*CExistValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CExistValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CExistValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CExistValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CExistValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CExistValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CExistValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CExistValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CExistValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CExistValidator::asa*						 public
+ See |CComponent::asa|
+
+
+*CExistValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CExistValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CExistValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CExistValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CExistValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CExistValidator::clientValidateAttribute*			 public
+ See |CValidator::clientValidateAttribute|
+
+
+*CExistValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CExistValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CExistValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CExistValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CExistValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CExistValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CExistValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CExistValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CExistValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CExistValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CExistValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CExistValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CExistValidator::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CExistValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CExistValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CExistValidator::validate*					 public
+ See |CValidator::validate|
+
 
 *CExistValidator::validateAttribute*				 protected
 >

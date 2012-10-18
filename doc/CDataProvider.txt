@@ -42,6 +42,42 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDataProvider::__call* 					 public
+ See |CComponent::__call|
+
+
+*CDataProvider::__get*						 public
+ See |CComponent::__get|
+
+
+*CDataProvider::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDataProvider::__set*						 public
+ See |CComponent::__set|
+
+
+*CDataProvider::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDataProvider::asa*						 public
+ See |CComponent::asa|
+
+
+*CDataProvider::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CDataProvider::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDataProvider::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
 *CDataProvider::calculateTotalItemCount*			 protected
 >
  calculateTotalItemCount()
@@ -49,6 +85,46 @@ METHOD DETAILS
 (integer) the total number of data items.
 
  Calculates the total number of data items.
+
+
+*CDataProvider::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CDataProvider::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CDataProvider::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CDataProvider::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDataProvider::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDataProvider::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDataProvider::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDataProvider::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CDataProvider::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDataProvider::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CDataProvider::fetchData*					 protected
@@ -78,6 +154,10 @@ METHOD DETAILS
  Returns the data items currently available.
     [refresh] (boolean) whether the data should be re-fetched from persistent
     storage.
+
+
+*CDataProvider::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CDataProvider::getId*						 public
@@ -145,6 +225,22 @@ disabled.
  set false, this returns the same value as |CDataProvider::itemCount|.
     [refresh] (boolean) whether the total number of data items should be
     re-calculated.
+
+
+*CDataProvider::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDataProvider::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDataProvider::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CDataProvider::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CDataProvider::setData*					 public

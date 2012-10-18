@@ -26,12 +26,19 @@
  range. In this mode, |CJuiSliderInput::attribute| and
  |CJuiSliderInput::maxAttribute| will define the attribute names for the
  minimum and maximum range values, respectively. For example:
-
- <pre> $this->widget('zii.widgets.jui.CJuiSliderInput', array(    
- 'model'=>$model,     'attribute'=>'timeMin',     'maxAttribute'=>'timeMax,   
-  // additional javascript options for the slider plugin     'options'=>array(
-         'range'=>true,         'min'=>0,         'max'=>24,     ), ));
-
+>
+ $this->widget('zii.widgets.jui.CJuiSliderInput', array(
+     'model'=>$model,
+     'attribute'=>'timeMin',
+     'maxAttribute'=>'timeMax',
+     // additional javascript options for the slider plugin
+     'options'=>array(
+         'range'=>true,
+         'min'=>0,
+         'max'=>24,
+     ),
+ ));
+<
  If you need to use the slider event, please change the event value for 'stop'
  or 'change'.
 
@@ -43,26 +50,270 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CJuiSliderInput::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<attribute>				*CJuiSliderInput::attribute*
+ See |CJuiInputWidget::attribute|
+
+<controller>				*CJuiSliderInput::controller*
+ See |CWidget::controller|
+
+<cssFile>				*CJuiSliderInput::cssFile*
+ See |CJuiWidget::cssFile|
+
 <event> 				*CJuiSliderInput::event*
  (string) the name of the event where the input will be attached to the
  slider. It can be 'slide', 'stop' or 'change'. If you want to use 'slide'
  event change $event property to 'change'
 
+<htmlOptions>				*CJuiSliderInput::htmlOptions*
+ See |CJuiWidget::htmlOptions|
+
+<id>					*CJuiSliderInput::id*
+ See |CWidget::id|
+
 <maxAttribute>				*CJuiSliderInput::maxAttribute*
  (string) name of attribute for max value if slider is used in range mode
+
+<model> 				*CJuiSliderInput::model*
+ See |CJuiInputWidget::model|
+
+<name>					*CJuiSliderInput::name*
+ See |CJuiInputWidget::name|
+
+<options>				*CJuiSliderInput::options*
+ See |CJuiWidget::options|
+
+<owner> 				*CJuiSliderInput::owner*
+ See |CWidget::owner|
+
+<scriptFile>				*CJuiSliderInput::scriptFile*
+ See |CJuiWidget::scriptFile|
+
+<scriptUrl>				*CJuiSliderInput::scriptUrl*
+ See |CJuiWidget::scriptUrl|
+
+<skin>					*CJuiSliderInput::skin*
+ See |CWidget::skin|
 
 <tagName>				*CJuiSliderInput::tagName*
  (string) the name of the container element that contains the slider. Defaults
  to 'div'.
 
+<theme> 				*CJuiSliderInput::theme*
+ See |CJuiWidget::theme|
+
+<themeUrl>				*CJuiSliderInput::themeUrl*
+ See |CJuiWidget::themeUrl|
+
 <value> 				*CJuiSliderInput::value*
  (integer) determines the value of the slider, if there's only one handle. If
  there is more than one handle, determines the value of the first handle.
+
+<viewPath>				*CJuiSliderInput::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CJuiSliderInput::__call*					 public
+ See |CComponent::__call|
+
+
+*CJuiSliderInput::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CJuiSliderInput::__get*					 public
+ See |CComponent::__get|
+
+
+*CJuiSliderInput::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CJuiSliderInput::__set*					 public
+ See |CComponent::__set|
+
+
+*CJuiSliderInput::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CJuiSliderInput::actions*					 public
+ See |CWidget::actions|
+
+
+*CJuiSliderInput::asa*						 public
+ See |CComponent::asa|
+
+
+*CJuiSliderInput::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CJuiSliderInput::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CJuiSliderInput::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CJuiSliderInput::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CJuiSliderInput::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CJuiSliderInput::beginContent* 				 public
+ See |CBaseController::beginContent|
+
+
+*CJuiSliderInput::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CJuiSliderInput::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CJuiSliderInput::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CJuiSliderInput::createWidget* 				 public
+ See |CBaseController::createWidget|
+
+
+*CJuiSliderInput::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CJuiSliderInput::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CJuiSliderInput::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CJuiSliderInput::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CJuiSliderInput::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CJuiSliderInput::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CJuiSliderInput::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CJuiSliderInput::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CJuiSliderInput::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CJuiSliderInput::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CJuiSliderInput::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CJuiSliderInput::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CJuiSliderInput::getController*				 public
+ See |CWidget::getController|
+
+
+*CJuiSliderInput::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CJuiSliderInput::getId*					 public
+ See |CWidget::getId|
+
+
+*CJuiSliderInput::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CJuiSliderInput::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CJuiSliderInput::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CJuiSliderInput::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CJuiSliderInput::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CJuiSliderInput::hasModel*					 protected
+ See |CJuiInputWidget::hasModel|
+
+
+*CJuiSliderInput::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CJuiSliderInput::init* 					 public
+ See |CJuiWidget::init|
+
+
+*CJuiSliderInput::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CJuiSliderInput::registerCoreScripts*				 protected
+ See |CJuiWidget::registerCoreScripts|
+
+
+*CJuiSliderInput::registerScriptFile*				 protected
+ See |CJuiWidget::registerScriptFile|
+
+
+*CJuiSliderInput::render*					 public
+ See |CWidget::render|
+
+
+*CJuiSliderInput::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CJuiSliderInput::renderInternal*				 public
+ See |CBaseController::renderInternal|
+
+
+*CJuiSliderInput::resolveNameID*				 protected
+ See |CJuiInputWidget::resolveNameID|
+
+
+*CJuiSliderInput::resolvePackagePath*				 protected
+ See |CJuiWidget::resolvePackagePath|
+
 
 *CJuiSliderInput::run*						 public
 >
@@ -72,6 +323,14 @@ METHOD DETAILS
 
  Run this widget. This method registers necessary javascript and renders the
  needed HTML code.
+
+
+*CJuiSliderInput::setId*					 public
+ See |CWidget::setId|
+
+
+*CJuiSliderInput::widget*					 public
+ See |CBaseController::widget|
 
 
 

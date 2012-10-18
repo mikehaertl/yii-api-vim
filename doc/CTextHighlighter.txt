@@ -15,15 +15,27 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CTextHighlighter::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <containerOptions>			*CTextHighlighter::containerOptions*
  (array) the HTML attributes to be applied to the container element. The
  highlighted content is contained in a DIV element.
+
+<controller>				*CTextHighlighter::controller*
+ See |CWidget::controller|
 
 <cssFile>				*CTextHighlighter::cssFile*
  (mixed) the CSS file used for the widget. Defaults to null, meaning using the
  default CSS file included together with the widget. If false, no CSS file
  will be used. Otherwise, the specified CSS file will be included when using
  this widget.
+
+<id>					*CTextHighlighter::id*
+ See |CWidget::id|
+
+<isFilter>				*CTextHighlighter::isFilter*
+ See |CFilterWidget::isFilter|
 
 <language>				*CTextHighlighter::language*
  (string) the language whose syntax is to be used for highlighting. Valid
@@ -37,17 +49,193 @@ PROPERTY DETAILS
  (string) the style of line number display. It can be either 'list' or
  'table'. Defaults to 'list'.
 
+<owner> 				*CTextHighlighter::owner*
+ See |CWidget::owner|
+
 <showLineNumbers>			*CTextHighlighter::showLineNumbers*
  (boolean) whether to show line numbers in the highlighted result. Defaults to
  false.
 
+<skin>					*CTextHighlighter::skin*
+ See |CWidget::skin|
+
+<stopAction>				*CTextHighlighter::stopAction*
+ See |CFilterWidget::stopAction|
+
 <tabSize>				*CTextHighlighter::tabSize*
  (integer) tab size. Defaults to 4.
+
+<viewPath>				*CTextHighlighter::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CTextHighlighter::__call*					 public
+ See |CComponent::__call|
+
+
+*CTextHighlighter::__construct* 				 public
+ See |CFilterWidget::__construct|
+
+
+*CTextHighlighter::__get*					 public
+ See |CComponent::__get|
+
+
+*CTextHighlighter::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CTextHighlighter::__set*					 public
+ See |CComponent::__set|
+
+
+*CTextHighlighter::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CTextHighlighter::actions*					 public
+ See |CWidget::actions|
+
+
+*CTextHighlighter::asa* 					 public
+ See |CComponent::asa|
+
+
+*CTextHighlighter::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CTextHighlighter::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CTextHighlighter::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CTextHighlighter::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CTextHighlighter::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CTextHighlighter::beginContent*				 public
+ See |CBaseController::beginContent|
+
+
+*CTextHighlighter::beginWidget* 				 public
+ See |CBaseController::beginWidget|
+
+
+*CTextHighlighter::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CTextHighlighter::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CTextHighlighter::createWidget*				 public
+ See |CBaseController::createWidget|
+
+
+*CTextHighlighter::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CTextHighlighter::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CTextHighlighter::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CTextHighlighter::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CTextHighlighter::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CTextHighlighter::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CTextHighlighter::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CTextHighlighter::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CTextHighlighter::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CTextHighlighter::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CTextHighlighter::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CTextHighlighter::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CTextHighlighter::filter*					 public
+ See |CFilterWidget::filter|
+
+
+*CTextHighlighter::getController*				 public
+ See |CWidget::getController|
+
+
+*CTextHighlighter::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CTextHighlighter::getId*					 public
+ See |CWidget::getId|
+
+
+*CTextHighlighter::getIsFilter* 				 public
+ See |CFilterWidget::getIsFilter|
+
+
+*CTextHighlighter::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CTextHighlighter::getViewFile* 				 public
+ See |CWidget::getViewFile|
+
+
+*CTextHighlighter::getViewPath* 				 public
+ See |CWidget::getViewPath|
+
+
+*CTextHighlighter::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CTextHighlighter::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CTextHighlighter::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
 
 *CTextHighlighter::highlight*					 public
 >
@@ -59,6 +247,14 @@ METHOD DETAILS
     [content] (string) the content to be highlighted.
 
 
+*CTextHighlighter::init*					 public
+ See |COutputProcessor::init|
+
+
+*CTextHighlighter::onProcessOutput*				 public
+ See |COutputProcessor::onProcessOutput|
+
+
 *CTextHighlighter::processOutput*				 public
 >
  processOutput($output)
@@ -68,6 +264,10 @@ METHOD DETAILS
  Processes the captured output. This method highlights the output according to
  the syntax of the specified |CTextHighlighter::language|.
     [output] (string) the captured output to be processed
+
+
+*CTextHighlighter::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CTextHighlighter::registerClientScript*			 public
@@ -87,6 +287,30 @@ METHOD DETAILS
 
  Registers the needed CSS file.
     [url] (string) the CSS URL. If null, a default CSS URL will be used.
+
+
+*CTextHighlighter::render*					 public
+ See |CWidget::render|
+
+
+*CTextHighlighter::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CTextHighlighter::renderInternal*				 public
+ See |CBaseController::renderInternal|
+
+
+*CTextHighlighter::run* 					 public
+ See |COutputProcessor::run|
+
+
+*CTextHighlighter::setId*					 public
+ See |CWidget::setId|
+
+
+*CTextHighlighter::widget*					 public
+ See |CBaseController::widget|
 
 
 

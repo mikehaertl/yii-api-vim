@@ -4,11 +4,12 @@
 
  CCheckBoxColumn represents a grid view column of checkboxes.
 
- CCheckBoxColumn supports no selection (read-only), single selection and
- multiple selection. The mode is determined according to
- |CCheckBoxColumn::selectableRows|. When in multiple selection mode, the
- header cell will display an additional checkbox, clicking on which will check
- or uncheck all of the checkboxes in the data cells.
+ CCheckBoxColumn supports no checking (read-only), single check and multiple
+ checking. The mode is determined according to
+ |CCheckBoxColumn::selectableRows|. When in multiple checking mode, the header
+ cell will display an additional checkbox, clicking on which will check or
+ uncheck all of the checkboxes in the data cells. The header cell can be
+ customized by |CCheckBoxColumn::headerTemplate|.
 
  Additionally selecting a checkbox can select a grid view row (depending on
  |CGridView::selectableRows| value) if |CCheckBoxColumn::selectableRows| is
@@ -31,14 +32,43 @@ PROPERTY DETAILS
  this expression, the variable '$row' the row number (zero-based); '$data' the
  data model for the row; and '$this' the column object.
 
+<cssClassExpression>			*CCheckBoxColumn::cssClassExpression*
+ See |CGridColumn::cssClassExpression|
+
+<filterHtmlOptions>			*CCheckBoxColumn::filterHtmlOptions*
+ See |CGridColumn::filterHtmlOptions|
+
+<footer>				*CCheckBoxColumn::footer*
+ See |CGridColumn::footer|
+
 <footerHtmlOptions>			*CCheckBoxColumn::footerHtmlOptions*
  (array) the HTML options for the footer cell tag.
+
+<grid>					*CCheckBoxColumn::grid*
+ See |CGridColumn::grid|
+
+<hasFooter>				*CCheckBoxColumn::hasFooter*
+ See |CGridColumn::hasFooter|
+
+<header>				*CCheckBoxColumn::header*
+ See |CGridColumn::header|
 
 <headerHtmlOptions>			*CCheckBoxColumn::headerHtmlOptions*
  (array) the HTML options for the header cell tag.
 
+<headerTemplate>			*CCheckBoxColumn::headerTemplate*
+ (string) the template to be used to control the layout of the header cell.
+ The token "{item}" is recognized and it will be replaced with a "check all"
+ checkbox. By default if in multiple checking mode, the header cell will
+ display an additional checkbox,  clicking on which will check or uncheck all
+ of the checkboxes in the data cells. See |CCheckBoxColumn::selectableRows|
+ for more details.
+
 <htmlOptions>				*CCheckBoxColumn::htmlOptions*
  (array) the HTML options for the data cell tags.
+
+<id>					*CCheckBoxColumn::id*
+ See |CGridColumn::id|
 
 <name>					*CCheckBoxColumn::name*
  (string) the attribute name of the data model. The corresponding attribute
@@ -64,10 +94,113 @@ PROPERTY DETAILS
  this expression, the variable '$row' the row number (zero-based); '$data' the
  data model for the row; and '$this' the column object.
 
+<visible>				*CCheckBoxColumn::visible*
+ See |CGridColumn::visible|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CCheckBoxColumn::__call*					 public
+ See |CComponent::__call|
+
+
+*CCheckBoxColumn::__construct*					 public
+ See |CGridColumn::__construct|
+
+
+*CCheckBoxColumn::__get*					 public
+ See |CComponent::__get|
+
+
+*CCheckBoxColumn::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CCheckBoxColumn::__set*					 public
+ See |CComponent::__set|
+
+
+*CCheckBoxColumn::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CCheckBoxColumn::asa*						 public
+ See |CComponent::asa|
+
+
+*CCheckBoxColumn::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CCheckBoxColumn::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CCheckBoxColumn::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CCheckBoxColumn::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CCheckBoxColumn::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CCheckBoxColumn::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CCheckBoxColumn::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CCheckBoxColumn::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CCheckBoxColumn::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CCheckBoxColumn::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CCheckBoxColumn::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CCheckBoxColumn::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CCheckBoxColumn::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CCheckBoxColumn::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CCheckBoxColumn::getHasFooter* 				 public
+ See |CGridColumn::getHasFooter|
+
+
+*CCheckBoxColumn::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CCheckBoxColumn::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CCheckBoxColumn::hasProperty*					 public
+ See |CComponent::hasProperty|
+
 
 *CCheckBoxColumn::init* 					 public
 >
@@ -77,6 +210,14 @@ METHOD DETAILS
 
  Initializes the column. This method registers necessary client script for the
  checkbox column.
+
+
+*CCheckBoxColumn::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CCheckBoxColumn::renderDataCell*				 public
+ See |CGridColumn::renderDataCell|
 
 
 *CCheckBoxColumn::renderDataCellContent*			 protected
@@ -89,6 +230,26 @@ METHOD DETAILS
  cell.
     [row] (integer) the row number (zero-based)
     [data] (mixed) the data associated with the row
+
+
+*CCheckBoxColumn::renderFilterCell*				 public
+ See |CGridColumn::renderFilterCell|
+
+
+*CCheckBoxColumn::renderFilterCellContent*			 protected
+ See |CGridColumn::renderFilterCellContent|
+
+
+*CCheckBoxColumn::renderFooterCell*				 public
+ See |CGridColumn::renderFooterCell|
+
+
+*CCheckBoxColumn::renderFooterCellContent*			 protected
+ See |CGridColumn::renderFooterCellContent|
+
+
+*CCheckBoxColumn::renderHeaderCell*				 public
+ See |CGridColumn::renderHeaderCell|
 
 
 *CCheckBoxColumn::renderHeaderCellContent*			 protected

@@ -29,15 +29,45 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CJuiTabs::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <contentTemplate>			*CJuiTabs::contentTemplate*
  (string) the template that is used to generated every tab content. The token
  "{content}" in the template will be replaced with the panel content and the
  token "{id}" with the tab ID.
 
+<controller>				*CJuiTabs::controller*
+ See |CWidget::controller|
+
+<cssFile>				*CJuiTabs::cssFile*
+ See |CJuiWidget::cssFile|
+
 <headerTemplate>			*CJuiTabs::headerTemplate*
  (string) the template that is used to generated every panel title. The token
  "{title}" in the template will be replaced with the panel title and the token
  "{url}" will be replaced with "#TabID" or with the url of the ajax request.
+
+<htmlOptions>				*CJuiTabs::htmlOptions*
+ See |CJuiWidget::htmlOptions|
+
+<id>					*CJuiTabs::id*
+ See |CWidget::id|
+
+<options>				*CJuiTabs::options*
+ See |CJuiWidget::options|
+
+<owner> 				*CJuiTabs::owner*
+ See |CWidget::owner|
+
+<scriptFile>				*CJuiTabs::scriptFile*
+ See |CJuiWidget::scriptFile|
+
+<scriptUrl>				*CJuiTabs::scriptUrl*
+ See |CJuiWidget::scriptUrl|
+
+<skin>					*CJuiTabs::skin*
+ See |CWidget::skin|
 
 <tabs>					*CJuiTabs::tabs*
  (array) list of tabs (tab title=>tab content). Note that the tab title will
@@ -56,10 +86,183 @@ PROPERTY DETAILS
  (string) the name of the container element that contains all panels. Defaults
  to 'div'.
 
+<theme> 				*CJuiTabs::theme*
+ See |CJuiWidget::theme|
+
+<themeUrl>				*CJuiTabs::themeUrl*
+ See |CJuiWidget::themeUrl|
+
+<viewPath>				*CJuiTabs::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CJuiTabs::__call*						 public
+ See |CComponent::__call|
+
+
+*CJuiTabs::__construct* 					 public
+ See |CWidget::__construct|
+
+
+*CJuiTabs::__get*						 public
+ See |CComponent::__get|
+
+
+*CJuiTabs::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CJuiTabs::__set*						 public
+ See |CComponent::__set|
+
+
+*CJuiTabs::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CJuiTabs::actions*						 public
+ See |CWidget::actions|
+
+
+*CJuiTabs::asa* 						 public
+ See |CComponent::asa|
+
+
+*CJuiTabs::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CJuiTabs::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CJuiTabs::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CJuiTabs::beginCache*						 public
+ See |CBaseController::beginCache|
+
+
+*CJuiTabs::beginClip*						 public
+ See |CBaseController::beginClip|
+
+
+*CJuiTabs::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CJuiTabs::beginWidget* 					 public
+ See |CBaseController::beginWidget|
+
+
+*CJuiTabs::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CJuiTabs::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CJuiTabs::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CJuiTabs::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CJuiTabs::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CJuiTabs::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CJuiTabs::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CJuiTabs::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CJuiTabs::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CJuiTabs::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CJuiTabs::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CJuiTabs::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CJuiTabs::endContent*						 public
+ See |CBaseController::endContent|
+
+
+*CJuiTabs::endWidget*						 public
+ See |CBaseController::endWidget|
+
+
+*CJuiTabs::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
+*CJuiTabs::getController*					 public
+ See |CWidget::getController|
+
+
+*CJuiTabs::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CJuiTabs::getId*						 public
+ See |CWidget::getId|
+
+
+*CJuiTabs::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CJuiTabs::getViewFile* 					 public
+ See |CWidget::getViewFile|
+
+
+*CJuiTabs::getViewPath* 					 public
+ See |CWidget::getViewPath|
+
+
+*CJuiTabs::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CJuiTabs::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CJuiTabs::hasProperty* 					 public
+ See |CComponent::hasProperty|
+
+
+*CJuiTabs::init*						 public
+ See |CJuiWidget::init|
+
+
+*CJuiTabs::raiseEvent*						 public
+ See |CComponent::raiseEvent|
+
 
 *CJuiTabs::registerCoreScripts* 				 protected
 >
@@ -71,6 +274,26 @@ METHOD DETAILS
  implementation by registering the cookie plugin when cookie option is used.
 
 
+*CJuiTabs::registerScriptFile*					 protected
+ See |CJuiWidget::registerScriptFile|
+
+
+*CJuiTabs::render*						 public
+ See |CWidget::render|
+
+
+*CJuiTabs::renderFile*						 public
+ See |CBaseController::renderFile|
+
+
+*CJuiTabs::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
+*CJuiTabs::resolvePackagePath*					 protected
+ See |CJuiWidget::resolvePackagePath|
+
+
 *CJuiTabs::run* 						 public
 >
  run()
@@ -79,6 +302,14 @@ METHOD DETAILS
 
  Run this widget. This method registers necessary javascript and renders the
  needed HTML code.
+
+
+*CJuiTabs::setId*						 public
+ See |CWidget::setId|
+
+
+*CJuiTabs::widget*						 public
+ See |CBaseController::widget|
 
 
 

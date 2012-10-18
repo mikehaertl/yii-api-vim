@@ -77,10 +77,89 @@ PROPERTY DETAILS
  (string) the name of the generated WSDL. If not set, it defaults to
  "urn:{$className}wsdl".
 
+<typeMap>				*CWsdlGenerator::typeMap*
+ ()
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CWsdlGenerator::__call*					 public
+ See |CComponent::__call|
+
+
+*CWsdlGenerator::__get* 					 public
+ See |CComponent::__get|
+
+
+*CWsdlGenerator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CWsdlGenerator::__set* 					 public
+ See |CComponent::__set|
+
+
+*CWsdlGenerator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CWsdlGenerator::asa*						 public
+ See |CComponent::asa|
+
+
+*CWsdlGenerator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CWsdlGenerator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CWsdlGenerator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CWsdlGenerator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CWsdlGenerator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CWsdlGenerator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CWsdlGenerator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CWsdlGenerator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CWsdlGenerator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CWsdlGenerator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CWsdlGenerator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CWsdlGenerator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CWsdlGenerator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
 
 *CWsdlGenerator::generateWsdl*					 public
 >
@@ -92,6 +171,26 @@ METHOD DETAILS
     [className] (string) class name
     [serviceUrl] (string) Web service URL
     [encoding] (string) encoding of the WSDL. Defaults to 'UTF-8'.
+
+
+*CWsdlGenerator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CWsdlGenerator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CWsdlGenerator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CWsdlGenerator::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CWsdlGenerator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

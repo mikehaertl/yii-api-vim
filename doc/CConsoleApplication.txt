@@ -15,9 +15,9 @@
    The command processes the user request with the specified
    parameters.The command classes reside in the directory
  |CConsoleApplication::getCommandPath|. The name of the class follows the
- pattern: &lt;command-name&gt;Command, and its file name is the same the class
- name. For example, the 'ShellCommand' class defines a 'shell' command and the
- class file name is 'ShellCommand.php'.
+ pattern: &lt;command-name&gt;Command, and its file name is the same as the
+ class name. For example, the 'ShellCommand' class defines a 'shell' command
+ and the class file name is 'ShellCommand.php'.
 
  To run the console application, enter the following on the command line:
 >
@@ -31,6 +31,21 @@
 
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
+
+<basePath>				*CConsoleApplication::basePath*
+ See |CApplication::basePath|
+
+<baseUrl>				*CConsoleApplication::baseUrl*
+ See |CApplication::baseUrl|
+
+<behaviors>				*CConsoleApplication::behaviors*
+ See |CModule::behaviors|
+
+<cache> 				*CConsoleApplication::cache*
+ See |CApplication::cache|
+
+<charset>				*CConsoleApplication::charset*
+ See |CApplication::charset|
 
 <commandMap>				*CConsoleApplication::commandMap*
  (array) mapping from command name to command configurations. Each command
@@ -56,10 +71,151 @@ PROPERTY DETAILS
 <commandRunner> 			*CConsoleApplication::commandRunner*
  (CConsoleCommandRunner) Returns the command runner.
 
+<components>				*CConsoleApplication::components*
+ See |CModule::components|
+
+<controller>				*CConsoleApplication::controller*
+ See |CApplication::controller|
+
+<coreMessages>				*CConsoleApplication::coreMessages*
+ See |CApplication::coreMessages|
+
+<dateFormatter> 			*CConsoleApplication::dateFormatter*
+ See |CApplication::dateFormatter|
+
+<db>					*CConsoleApplication::db*
+ See |CApplication::db|
+
+<errorHandler>				*CConsoleApplication::errorHandler*
+ See |CApplication::errorHandler|
+
+<extensionPath> 			*CConsoleApplication::extensionPath*
+ See |CApplication::extensionPath|
+
+<homeUrl>				*CConsoleApplication::homeUrl*
+ See |CApplication::homeUrl|
+
+<id>					*CConsoleApplication::id*
+ See |CApplication::id|
+
+<language>				*CConsoleApplication::language*
+ See |CApplication::language|
+
+<locale>				*CConsoleApplication::locale*
+ See |CApplication::locale|
+
+<localeDataPath>			*CConsoleApplication::localeDataPath*
+ See |CApplication::localeDataPath|
+
+<messages>				*CConsoleApplication::messages*
+ See |CApplication::messages|
+
+<modulePath>				*CConsoleApplication::modulePath*
+ See |CModule::modulePath|
+
+<modules>				*CConsoleApplication::modules*
+ See |CModule::modules|
+
+<name>					*CConsoleApplication::name*
+ See |CApplication::name|
+
+<numberFormatter>			*CConsoleApplication::numberFormatter*
+ See |CApplication::numberFormatter|
+
+<params>				*CConsoleApplication::params*
+ See |CModule::params|
+
+<parentModule>				*CConsoleApplication::parentModule*
+ See |CModule::parentModule|
+
+<preload>				*CConsoleApplication::preload*
+ See |CModule::preload|
+
+<request>				*CConsoleApplication::request*
+ See |CApplication::request|
+
+<runtimePath>				*CConsoleApplication::runtimePath*
+ See |CApplication::runtimePath|
+
+<securityManager>			*CConsoleApplication::securityManager*
+ See |CApplication::securityManager|
+
+<sourceLanguage>			*CConsoleApplication::sourceLanguage*
+ See |CApplication::sourceLanguage|
+
+<statePersister>			*CConsoleApplication::statePersister*
+ See |CApplication::statePersister|
+
+<timeZone>				*CConsoleApplication::timeZone*
+ See |CApplication::timeZone|
+
+<urlManager>				*CConsoleApplication::urlManager*
+ See |CApplication::urlManager|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CConsoleApplication::__call*					 public
+ See |CComponent::__call|
+
+
+*CConsoleApplication::__construct*				 public
+ See |CApplication::__construct|
+
+
+*CConsoleApplication::__get*					 public
+ See |CModule::__get|
+
+
+*CConsoleApplication::__isset*					 public
+ See |CModule::__isset|
+
+
+*CConsoleApplication::__set*					 public
+ See |CComponent::__set|
+
+
+*CConsoleApplication::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CConsoleApplication::asa*					 public
+ See |CComponent::asa|
+
+
+*CConsoleApplication::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CConsoleApplication::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CConsoleApplication::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CConsoleApplication::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CConsoleApplication::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CConsoleApplication::clearGlobalState* 			 public
+ See |CApplication::clearGlobalState|
+
+
+*CConsoleApplication::configure*				 public
+ See |CModule::configure|
+
+
+*CConsoleApplication::createAbsoluteUrl*			 public
+ See |CApplication::createAbsoluteUrl|
+
 
 *CConsoleApplication::createCommandRunner*			 protected
 >
@@ -68,6 +224,30 @@ METHOD DETAILS
 (CConsoleCommandRunner) the command runner
 
  Creates the command runner instance.
+
+
+*CConsoleApplication::createUrl*				 public
+ See |CApplication::createUrl|
+
+
+*CConsoleApplication::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CConsoleApplication::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CConsoleApplication::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CConsoleApplication::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CConsoleApplication::disableBehaviors* 			 public
+ See |CComponent::disableBehaviors|
 
 
 *CConsoleApplication::displayError*				 public
@@ -95,6 +275,38 @@ METHOD DETAILS
     [exception] (Exception) the uncaught exception
 
 
+*CConsoleApplication::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CConsoleApplication::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CConsoleApplication::end*					 public
+ See |CApplication::end|
+
+
+*CConsoleApplication::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CConsoleApplication::findLocalizedFile*			 public
+ See |CApplication::findLocalizedFile|
+
+
+*CConsoleApplication::getBasePath*				 public
+ See |CApplication::getBasePath|
+
+
+*CConsoleApplication::getBaseUrl*				 public
+ See |CApplication::getBaseUrl|
+
+
+*CConsoleApplication::getCache* 				 public
+ See |CApplication::getCache|
+
+
 *CConsoleApplication::getCommandPath*				 public
 >
  getCommandPath()
@@ -113,6 +325,146 @@ METHOD DETAILS
  Returns the command runner.
 
 
+*CConsoleApplication::getComponent*				 public
+ See |CModule::getComponent|
+
+
+*CConsoleApplication::getComponents*				 public
+ See |CModule::getComponents|
+
+
+*CConsoleApplication::getController*				 public
+ See |CApplication::getController|
+
+
+*CConsoleApplication::getCoreMessages*				 public
+ See |CApplication::getCoreMessages|
+
+
+*CConsoleApplication::getDateFormatter* 			 public
+ See |CApplication::getDateFormatter|
+
+
+*CConsoleApplication::getDb*					 public
+ See |CApplication::getDb|
+
+
+*CConsoleApplication::getErrorHandler*				 public
+ See |CApplication::getErrorHandler|
+
+
+*CConsoleApplication::getEventHandlers* 			 public
+ See |CComponent::getEventHandlers|
+
+
+*CConsoleApplication::getExtensionPath* 			 public
+ See |CApplication::getExtensionPath|
+
+
+*CConsoleApplication::getGlobalState*				 public
+ See |CApplication::getGlobalState|
+
+
+*CConsoleApplication::getHomeUrl*				 public
+ See |CApplication::getHomeUrl|
+
+
+*CConsoleApplication::getId*					 public
+ See |CApplication::getId|
+
+
+*CConsoleApplication::getLanguage*				 public
+ See |CApplication::getLanguage|
+
+
+*CConsoleApplication::getLocale*				 public
+ See |CApplication::getLocale|
+
+
+*CConsoleApplication::getLocaleDataPath*			 public
+ See |CApplication::getLocaleDataPath|
+
+
+*CConsoleApplication::getMessages*				 public
+ See |CApplication::getMessages|
+
+
+*CConsoleApplication::getModule*				 public
+ See |CModule::getModule|
+
+
+*CConsoleApplication::getModulePath*				 public
+ See |CModule::getModulePath|
+
+
+*CConsoleApplication::getModules*				 public
+ See |CModule::getModules|
+
+
+*CConsoleApplication::getNumberFormatter*			 public
+ See |CApplication::getNumberFormatter|
+
+
+*CConsoleApplication::getParams*				 public
+ See |CModule::getParams|
+
+
+*CConsoleApplication::getParentModule*				 public
+ See |CModule::getParentModule|
+
+
+*CConsoleApplication::getRequest*				 public
+ See |CApplication::getRequest|
+
+
+*CConsoleApplication::getRuntimePath*				 public
+ See |CApplication::getRuntimePath|
+
+
+*CConsoleApplication::getSecurityManager*			 public
+ See |CApplication::getSecurityManager|
+
+
+*CConsoleApplication::getStatePersister*			 public
+ See |CApplication::getStatePersister|
+
+
+*CConsoleApplication::getTimeZone*				 public
+ See |CApplication::getTimeZone|
+
+
+*CConsoleApplication::getUrlManager*				 public
+ See |CApplication::getUrlManager|
+
+
+*CConsoleApplication::handleError*				 public
+ See |CApplication::handleError|
+
+
+*CConsoleApplication::handleException*				 public
+ See |CApplication::handleException|
+
+
+*CConsoleApplication::hasComponent*				 public
+ See |CModule::hasComponent|
+
+
+*CConsoleApplication::hasEvent* 				 public
+ See |CComponent::hasEvent|
+
+
+*CConsoleApplication::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CConsoleApplication::hasModule*				 public
+ See |CModule::hasModule|
+
+
+*CConsoleApplication::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
 *CConsoleApplication::init*					 protected
 >
  init()
@@ -122,14 +474,71 @@ METHOD DETAILS
  Initializes the application by creating the command runner.
 
 
+*CConsoleApplication::initSystemHandlers*			 protected
+ See |CApplication::initSystemHandlers|
+
+
+*CConsoleApplication::loadGlobalState*				 public
+ See |CApplication::loadGlobalState|
+
+
+*CConsoleApplication::onBeginRequest*				 public
+ See |CApplication::onBeginRequest|
+
+
+*CConsoleApplication::onEndRequest*				 public
+ See |CApplication::onEndRequest|
+
+
+*CConsoleApplication::onError*					 public
+ See |CApplication::onError|
+
+
+*CConsoleApplication::onException*				 public
+ See |CApplication::onException|
+
+
+*CConsoleApplication::preinit*					 protected
+ See |CModule::preinit|
+
+
+*CConsoleApplication::preloadComponents*			 protected
+ See |CModule::preloadComponents|
+
+
 *CConsoleApplication::processRequest*				 public
 >
  processRequest()
 <
 (void)
 
- Processes the user request. This method creates a console command runner to
- handle the particular user command.
+ Processes the user request. This method uses a console command runner to
+ handle the particular user command. Since version 1.1.11 this method will
+ exit application with an exit code if one is returned by the user command.
+
+
+*CConsoleApplication::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CConsoleApplication::registerCoreComponents*			 protected
+ See |CApplication::registerCoreComponents|
+
+
+*CConsoleApplication::run*					 public
+ See |CApplication::run|
+
+
+*CConsoleApplication::saveGlobalState*				 public
+ See |CApplication::saveGlobalState|
+
+
+*CConsoleApplication::setAliases*				 public
+ See |CModule::setAliases|
+
+
+*CConsoleApplication::setBasePath*				 public
+ See |CApplication::setBasePath|
 
 
 *CConsoleApplication::setCommandPath*				 public
@@ -139,6 +548,62 @@ METHOD DETAILS
 (void)
 
     [value] (string) the directory that contains the command classes.
+
+
+*CConsoleApplication::setComponent*				 public
+ See |CModule::setComponent|
+
+
+*CConsoleApplication::setComponents*				 public
+ See |CModule::setComponents|
+
+
+*CConsoleApplication::setExtensionPath* 			 public
+ See |CApplication::setExtensionPath|
+
+
+*CConsoleApplication::setGlobalState*				 public
+ See |CApplication::setGlobalState|
+
+
+*CConsoleApplication::setHomeUrl*				 public
+ See |CApplication::setHomeUrl|
+
+
+*CConsoleApplication::setId*					 public
+ See |CApplication::setId|
+
+
+*CConsoleApplication::setImport*				 public
+ See |CModule::setImport|
+
+
+*CConsoleApplication::setLanguage*				 public
+ See |CApplication::setLanguage|
+
+
+*CConsoleApplication::setLocaleDataPath*			 public
+ See |CApplication::setLocaleDataPath|
+
+
+*CConsoleApplication::setModulePath*				 public
+ See |CModule::setModulePath|
+
+
+*CConsoleApplication::setModules*				 public
+ See |CModule::setModules|
+
+
+*CConsoleApplication::setParams*				 public
+ See |CModule::setParams|
+
+
+*CConsoleApplication::setRuntimePath*				 public
+ See |CApplication::setRuntimePath|
+
+
+*CConsoleApplication::setTimeZone*				 public
+ See |CApplication::setTimeZone|
 
 
 

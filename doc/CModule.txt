@@ -44,6 +44,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CModule::__call*						 public
+ See |CComponent::__call|
+
+
 *CModule::__construct*						 public
 >
  __construct($id, $parent, $config=NULL)
@@ -79,6 +83,38 @@ METHOD DETAILS
     [name] (string) the property name or the event name
 
 
+*CModule::__set*						 public
+ See |CComponent::__set|
+
+
+*CModule::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CModule::asa*							 public
+ See |CComponent::asa|
+
+
+*CModule::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CModule::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CModule::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CModule::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CModule::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CModule::configure*						 public
 >
  configure($config)
@@ -87,6 +123,38 @@ METHOD DETAILS
 
  Configures the module with the specified configuration.
     [config] (array) the configuration array
+
+
+*CModule::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CModule::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CModule::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CModule::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CModule::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CModule::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CModule::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CModule::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
 
 
 *CModule::getBasePath*						 public
@@ -124,6 +192,10 @@ application component is disabled or does not exist.
     be returned, whether they are loaded or not. Loaded components will be
     returned as objects, while unloaded components as configuration arrays.
     This parameter has been available since version 1.1.3.
+
+
+*CModule::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CModule::getId*						 public
@@ -197,6 +269,14 @@ loaded and disabled.)
     [id] (string) application component ID
 
 
+*CModule::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CModule::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
 *CModule::hasModule*						 public
 >
  hasModule($id)
@@ -205,6 +285,10 @@ loaded and disabled.)
 
  Returns a value indicating whether the specified module is installed.
     [id] (string) the module ID
+
+
+*CModule::hasProperty*						 public
+ See |CComponent::hasProperty|
 
 
 *CModule::init* 						 protected
@@ -238,6 +322,10 @@ loaded and disabled.)
 (void)
 
  Loads static application components.
+
+
+*CModule::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 *CModule::setAliases*						 public

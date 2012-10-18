@@ -59,10 +59,90 @@ PROPERTY DETAILS
  array with each element being array($token,$category,$time). If a filter is
  specified, the results would be an array of timings.
 
+ Since 1.1.11, filtering results by category supports the same format used for
+ filtering logs in |CLogger::getLogs|, and similarly supports filtering by
+ multiple categories and wildcard.
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CLogger::__call*						 public
+ See |CComponent::__call|
+
+
+*CLogger::__get*						 public
+ See |CComponent::__get|
+
+
+*CLogger::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CLogger::__set*						 public
+ See |CComponent::__set|
+
+
+*CLogger::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CLogger::asa*							 public
+ See |CComponent::asa|
+
+
+*CLogger::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CLogger::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CLogger::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CLogger::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CLogger::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CLogger::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CLogger::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CLogger::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CLogger::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CLogger::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CLogger::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CLogger::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CLogger::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
 
 *CLogger::flush*						 public
 >
@@ -75,6 +155,10 @@ METHOD DETAILS
  messages before they are removed.
     [dumpLogs] (boolean) whether to process the logs immediately as they are
     passed to log route
+
+
+*CLogger::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CLogger::getExecutionTime*					 public
@@ -94,7 +178,7 @@ METHOD DETAILS
 >
  getLogs($levels='', $categories='')
 <
-(array) list of messages. Each array elements represents one message with the
+(array) list of messages. Each array element represents one message with the
 following structure: array(   [0] => message (string)   [1] => level (string) 
  [2] => category (string)   [3] => timestamp (float, obtained by
 microtime(true));
@@ -130,7 +214,7 @@ microtime(true));
 
 *CLogger::getProfilingResults*					 public
 >
- getProfilingResults($token='', $category='', $refresh=false)
+ getProfilingResults($token='', $categories='', $refresh=false)
 <
 (array) the profiling results.
 
@@ -138,13 +222,29 @@ microtime(true));
  category. If no filter is specified, the returned results would be an array
  with each element being array($token,$category,$time). If a filter is
  specified, the results would be an array of timings.
+
+ Since 1.1.11, filtering results by category supports the same format used for
+ filtering logs in |CLogger::getLogs|, and similarly supports filtering by
+ multiple categories and wildcard.
     [token] (string) token filter. Defaults to null, meaning not filtered by
     token.
-    [category] (string) category filter. Defaults to null, meaning not
+    [categories] (string) category filter. Defaults to null, meaning not
     filtered by category.
     [refresh] (boolean) whether to refresh the internal timing calculations.
     If false, only the first time calling this method will the timings be
     calculated internally.
+
+
+*CLogger::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CLogger::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CLogger::hasProperty*						 public
+ See |CComponent::hasProperty|
 
 
 *CLogger::log*							 public
@@ -170,6 +270,10 @@ microtime(true));
 
  Raises an 'onFlush' event.
     [event] (CEvent) the event parameter
+
+
+*CLogger::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 

@@ -1,0 +1,226 @@
+
+*CHttpCacheFilter*   >> |CFilter| >> |CComponent|
+==================
+
+ CHttpCacheFilter implements http caching. It works a lot like |COutputCache|
+ as a filter, except that content caching is being done on the client side.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<cacheControl>				*CHttpCacheFilter::cacheControl*
+ (string) Http cache control headers
+
+<etagSeed>				*CHttpCacheFilter::etagSeed*
+ (mixed) Seed for the ETag. Can be anything that passes through 'serialize()'.
+
+<etagSeedExpression>			*CHttpCacheFilter::etagSeedExpression*
+ (string|callback) Expression for the ETag seed. If set, this takes precedence
+ over etag.
+
+<etagValue>				*CHttpCacheFilter::etagValue*
+ (string|boolean) Gets the ETag out of either
+ |CHttpCacheFilter::etagSeedExpression| or |CHttpCacheFilter::etagSeed|
+
+<lastModified>				*CHttpCacheFilter::lastModified*
+ (string|integer) Timestamp for the last modification date. Must be either a
+ string parsable by  'strtotime()' or an integer representing a unix
+ timestamp.
+
+<lastModifiedExpression>		*CHttpCacheFilter::lastModifiedExpression*
+ (string|callback) Expression for the last modification date. If set, this
+ takes precedence over |CHttpCacheFilter::lastModified|.
+
+<lastModifiedValue>			*CHttpCacheFilter::lastModifiedValue*
+ (integer|boolean) Gets the last modified value from either
+ |CHttpCacheFilter::lastModifiedExpression| or {@lastModified} and converts it
+ into a unix timestamp if necessary
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CHttpCacheFilter::__call*					 public
+ See |CComponent::__call|
+
+
+*CHttpCacheFilter::__get*					 public
+ See |CComponent::__get|
+
+
+*CHttpCacheFilter::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CHttpCacheFilter::__set*					 public
+ See |CComponent::__set|
+
+
+*CHttpCacheFilter::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CHttpCacheFilter::asa* 					 public
+ See |CComponent::asa|
+
+
+*CHttpCacheFilter::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CHttpCacheFilter::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CHttpCacheFilter::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CHttpCacheFilter::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CHttpCacheFilter::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CHttpCacheFilter::checkEtag*					 protected
+>
+ checkEtag($etag)
+<
+(boolean) true if the supplied etag matches $etag
+
+ Check if the etag supplied by the client matches our generated one
+    [etag] (string) 
+
+
+*CHttpCacheFilter::checkLastModified*				 protected
+>
+ checkLastModified($lastModified)
+<
+(boolean) true if the last modified date sent by the client is newer or equal
+to $lastModified
+
+ Checks if the last modified date supplied by the client is still up to date
+    [lastModified] (integer) 
+
+
+*CHttpCacheFilter::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CHttpCacheFilter::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CHttpCacheFilter::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CHttpCacheFilter::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CHttpCacheFilter::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CHttpCacheFilter::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CHttpCacheFilter::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CHttpCacheFilter::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CHttpCacheFilter::filter*					 public
+ See |CFilter::filter|
+
+
+*CHttpCacheFilter::generateEtag*				 protected
+>
+ generateEtag($seed)
+<
+(void)
+
+ Generates a quoted string out of the seed
+    [seed] (mixed) Seed for the ETag
+
+
+*CHttpCacheFilter::getEtagValue*				 protected
+>
+ getEtagValue()
+<
+(string|boolean) Either a quoted string serving as ETag or false if neither
+etagSeed nor etagSeedExpression have been set
+
+ Gets the ETag out of either |CHttpCacheFilter::etagSeedExpression| or
+ |CHttpCacheFilter::etagSeed|
+
+
+*CHttpCacheFilter::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CHttpCacheFilter::getLastModifiedValue*			 protected
+>
+ getLastModifiedValue()
+<
+(integer|boolean) A unix timestamp or false if neither lastModified nor
+lastModifiedExpression have been set
+
+ Gets the last modified value from either
+ |CHttpCacheFilter::lastModifiedExpression| or {@lastModified} and converts it
+ into a unix timestamp if necessary
+
+
+*CHttpCacheFilter::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CHttpCacheFilter::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CHttpCacheFilter::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*CHttpCacheFilter::init*					 public
+ See |CFilter::init|
+
+
+*CHttpCacheFilter::postFilter*					 protected
+ See |CFilter::postFilter|
+
+
+*CHttpCacheFilter::preFilter*					 public
+>
+ preFilter($filterChain)
+<
+(void)
+
+    [filterChain] () 
+
+
+*CHttpCacheFilter::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CHttpCacheFilter::send304Header*				 protected
+>
+ send304Header()
+<
+(void)
+
+ Sends the 304 HTTP status code to the client
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

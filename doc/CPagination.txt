@@ -15,14 +15,14 @@
  Controller action:
 >
  function actionIndex(){
-     $criteria = new CDbCriteria();
+     $criteria=new CDbCriteria();
      $count=Article::model()->count($criteria);
      $pages=new CPagination($count);
 
      // results per page
      $pages->pageSize=10;
      $pages->applyLimit($criteria);
-     $models = Post::model()->findAll($criteria);
+     $models=Article::model()->findAll($criteria);
 
      $this->render('index', array(
      'models' => $models,
@@ -97,6 +97,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CPagination::__call*						 public
+ See |CComponent::__call|
+
+
 *CPagination::__construct*					 public
 >
  __construct($itemCount=0)
@@ -105,6 +109,22 @@ METHOD DETAILS
 
  Constructor.
     [itemCount] (integer) total number of items.
+
+
+*CPagination::__get*						 public
+ See |CComponent::__get|
+
+
+*CPagination::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CPagination::__set*						 public
+ See |CComponent::__set|
+
+
+*CPagination::__unset*						 public
+ See |CComponent::__unset|
 
 
 *CPagination::applyLimit*					 public
@@ -116,6 +136,30 @@ METHOD DETAILS
  Applies LIMIT and OFFSET to the specified query criteria.
     [criteria] (CDbCriteria) the query criteria that should be applied with
     the limit
+
+
+*CPagination::asa*						 public
+ See |CComponent::asa|
+
+
+*CPagination::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CPagination::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CPagination::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CPagination::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CPagination::canSetProperty*					 public
+ See |CComponent::canSetProperty|
 
 
 *CPagination::createPageUrl*					 public
@@ -134,6 +178,38 @@ METHOD DETAILS
     zero-based index.
 
 
+*CPagination::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CPagination::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CPagination::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CPagination::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CPagination::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CPagination::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CPagination::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CPagination::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CPagination::getCurrentPage*					 public
 >
  getCurrentPage($recalculate=true)
@@ -142,6 +218,10 @@ METHOD DETAILS
 
     [recalculate] (boolean) whether to recalculate the current page based on
     the page size and item count.
+
+
+*CPagination::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
 
 
 *CPagination::getItemCount*					 public
@@ -185,6 +265,22 @@ a SQL statement for fetching the current page of data.
 <
 (integer) number of items in each page. Defaults to 10.
 
+
+
+*CPagination::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CPagination::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CPagination::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CPagination::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CPagination::setCurrentPage*					 public

@@ -73,6 +73,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CLocale::__call*						 public
+ See |CComponent::__call|
+
+
 *CLocale::__construct*						 protected
 >
  __construct($id)
@@ -82,6 +86,78 @@ METHOD DETAILS
  Constructor. Since the constructor is protected, please use
  |CLocale::getInstance| to obtain an instance of the specified locale.
     [id] (string) the locale ID (e.g. en_US)
+
+
+*CLocale::__get*						 public
+ See |CComponent::__get|
+
+
+*CLocale::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CLocale::__set*						 public
+ See |CComponent::__set|
+
+
+*CLocale::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CLocale::asa*							 public
+ See |CComponent::asa|
+
+
+*CLocale::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CLocale::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CLocale::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CLocale::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CLocale::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CLocale::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CLocale::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CLocale::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CLocale::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CLocale::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CLocale::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CLocale::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CLocale::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
 
 
 *CLocale::getAMName*						 public
@@ -164,6 +240,10 @@ METHOD DETAILS
     [era] (integer) era (0,1)
     [width] (string) era name width.  It can be 'wide', 'abbreviated' or
     'narrow'.
+
+
+*CLocale::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CLocale::getId*						 public
@@ -395,6 +475,22 @@ Monday, etc.)
     'narrow'.
     [standAlone] (boolean) whether the week day name should be returned in
     stand-alone format
+
+
+*CLocale::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CLocale::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CLocale::hasProperty*						 public
+ See |CComponent::hasProperty|
+
+
+*CLocale::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 

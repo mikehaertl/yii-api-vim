@@ -53,6 +53,42 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CBaseController::__call*					 public
+ See |CComponent::__call|
+
+
+*CBaseController::__get*					 public
+ See |CComponent::__get|
+
+
+*CBaseController::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CBaseController::__set*					 public
+ See |CComponent::__set|
+
+
+*CBaseController::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CBaseController::asa*						 public
+ See |CComponent::asa|
+
+
+*CBaseController::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CBaseController::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CBaseController::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
 *CBaseController::beginCache*					 public
 >
  beginCache($id, $properties=array())
@@ -122,6 +158,14 @@ version is available.
     (Property Name => Property Value)
 
 
+*CBaseController::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CBaseController::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CBaseController::createWidget* 				 public
 >
  createWidget($className, $properties=array())
@@ -135,6 +179,34 @@ version is available.
  use the factory to create the widget, instead.
     [className] (string) class name (can be in path alias format)
     [properties] (array) initial property values
+
+
+*CBaseController::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CBaseController::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CBaseController::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CBaseController::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CBaseController::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CBaseController::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CBaseController::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
 
 
 *CBaseController::endCache*					 public
@@ -177,6 +249,14 @@ version is available.
     purpose.
 
 
+*CBaseController::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CBaseController::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
 *CBaseController::getViewFile*					 public
 >
  getViewFile($viewName)
@@ -186,6 +266,22 @@ version is available.
  Returns the view script file according to the specified view name. This
  method must be implemented by child classes.
     [viewName] (string) view name
+
+
+*CBaseController::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CBaseController::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CBaseController::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CBaseController::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CBaseController::renderFile*					 public

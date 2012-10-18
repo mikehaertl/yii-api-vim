@@ -37,6 +37,12 @@ PROPERTY DETAILS
  (boolean) whether the attribute value can be null or empty. Defaults to true,
  meaning that if the attribute is empty, it is considered valid.
 
+<attributes>				*CTypeValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CTypeValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
 <dateFormat>				*CTypeValidator::dateFormat*
  (string) the format pattern that the date value should follow. Defaults to
  'MM/dd/yyyy'. Please see |CDateTimeParser| for details about how to specify a
@@ -48,6 +54,24 @@ PROPERTY DETAILS
  to 'MM/dd/yyyy hh:mm'. Please see |CDateTimeParser| for details about how to
  specify a datetime format. This property is effective only when
  |CTypeValidator::type| is 'datetime'.
+
+<enableClientValidation>		*CTypeValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CTypeValidator::except*
+ See |CValidator::except|
+
+<message>				*CTypeValidator::message*
+ See |CValidator::message|
+
+<on>					*CTypeValidator::on*
+ See |CValidator::on|
+
+<safe>					*CTypeValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CTypeValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 <timeFormat>				*CTypeValidator::timeFormat*
  (string) the format pattern that the time value should follow. Defaults to
@@ -64,6 +88,126 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CTypeValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CTypeValidator::__get* 					 public
+ See |CComponent::__get|
+
+
+*CTypeValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CTypeValidator::__set* 					 public
+ See |CComponent::__set|
+
+
+*CTypeValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CTypeValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CTypeValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CTypeValidator::asa*						 public
+ See |CComponent::asa|
+
+
+*CTypeValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CTypeValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CTypeValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CTypeValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CTypeValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CTypeValidator::clientValidateAttribute*			 public
+ See |CValidator::clientValidateAttribute|
+
+
+*CTypeValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CTypeValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CTypeValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CTypeValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CTypeValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CTypeValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CTypeValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CTypeValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CTypeValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CTypeValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CTypeValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CTypeValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CTypeValidator::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CTypeValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CTypeValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CTypeValidator::validate*					 public
+ See |CValidator::validate|
+
 
 *CTypeValidator::validateAttribute*				 protected
 >

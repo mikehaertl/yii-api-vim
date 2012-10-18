@@ -22,9 +22,15 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CStarRating::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <allowEmpty>				*CStarRating::allowEmpty*
  (boolean) whether the rating value can be empty (not set). Defaults to true.
  When this is true, a reset button will be displayed in front of stars.
+
+<attribute>				*CStarRating::attribute*
+ See |CInputWidget::attribute|
 
 <blur>					*CStarRating::blur*
  (string) Callback when the stars are not focused.
@@ -35,6 +41,9 @@ PROPERTY DETAILS
 <clientOptions> 			*CStarRating::clientOptions*
  (array) the javascript options for the star rating
 
+<controller>				*CStarRating::controller*
+ See |CWidget::controller|
+
 <cssFile>				*CStarRating::cssFile*
  (mixed) the CSS file used for the widget. Defaults to null, meaning using the
  default CSS file included together with the widget. If false, no CSS file
@@ -44,6 +53,12 @@ PROPERTY DETAILS
 <focus> 				*CStarRating::focus*
  (string) Callback when the stars are focused.
 
+<htmlOptions>				*CStarRating::htmlOptions*
+ See |CInputWidget::htmlOptions|
+
+<id>					*CStarRating::id*
+ See |CWidget::id|
+
 <maxRating>				*CStarRating::maxRating*
  (mixed) the maximum rating allowed. This can be either an integer or a float
  value. Defaults to 10.
@@ -51,6 +66,15 @@ PROPERTY DETAILS
 <minRating>				*CStarRating::minRating*
  (mixed) the minimum rating allowed. This can be either an integer or a float
  value. Defaults to 1.
+
+<model> 				*CStarRating::model*
+ See |CInputWidget::model|
+
+<name>					*CStarRating::name*
+ See |CInputWidget::name|
+
+<owner> 				*CStarRating::owner*
+ See |CWidget::owner|
 
 <ratingStepSize>			*CStarRating::ratingStepSize*
  (mixed) the step size of rating. This is the minimum difference between two
@@ -68,6 +92,9 @@ PROPERTY DETAILS
  (string) the value taken when the rating is cleared. Defaults to null,
  meaning using the system-defined value (which is '').
 
+<skin>					*CStarRating::skin*
+ See |CWidget::skin|
+
 <starCount>				*CStarRating::starCount*
  (integer) the number of stars. Defaults to 5.
 
@@ -80,10 +107,136 @@ PROPERTY DETAILS
  and the values are the corresponding titles. Defaults to null, meaning using
  the rating value as the title.
 
+<value> 				*CStarRating::value*
+ See |CInputWidget::value|
+
+<viewPath>				*CStarRating::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CStarRating::__call*						 public
+ See |CComponent::__call|
+
+
+*CStarRating::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CStarRating::__get*						 public
+ See |CComponent::__get|
+
+
+*CStarRating::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CStarRating::__set*						 public
+ See |CComponent::__set|
+
+
+*CStarRating::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CStarRating::actions*						 public
+ See |CWidget::actions|
+
+
+*CStarRating::asa*						 public
+ See |CComponent::asa|
+
+
+*CStarRating::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CStarRating::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CStarRating::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CStarRating::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CStarRating::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CStarRating::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CStarRating::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CStarRating::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CStarRating::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CStarRating::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CStarRating::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CStarRating::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CStarRating::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CStarRating::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CStarRating::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CStarRating::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CStarRating::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CStarRating::endCache* 					 public
+ See |CBaseController::endCache|
+
+
+*CStarRating::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CStarRating::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CStarRating::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CStarRating::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
 
 *CStarRating::getClientOptions* 				 protected
 >
@@ -91,6 +244,54 @@ METHOD DETAILS
 <
 (array) the javascript options for the star rating
 
+
+
+*CStarRating::getController*					 public
+ See |CWidget::getController|
+
+
+*CStarRating::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
+*CStarRating::getId*						 public
+ See |CWidget::getId|
+
+
+*CStarRating::getOwner* 					 public
+ See |CWidget::getOwner|
+
+
+*CStarRating::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CStarRating::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CStarRating::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CStarRating::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CStarRating::hasModel* 					 protected
+ See |CInputWidget::hasModel|
+
+
+*CStarRating::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CStarRating::init*						 public
+ See |CWidget::init|
+
+
+*CStarRating::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CStarRating::registerClientScript*				 public
@@ -113,6 +314,18 @@ METHOD DETAILS
     [url] (string) the CSS URL. If null, a default CSS URL will be used.
 
 
+*CStarRating::render*						 public
+ See |CWidget::render|
+
+
+*CStarRating::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CStarRating::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
 *CStarRating::renderStars*					 protected
 >
  renderStars($id, $name)
@@ -124,6 +337,10 @@ METHOD DETAILS
     [name] (string) the name of the input
 
 
+*CStarRating::resolveNameID*					 protected
+ See |CInputWidget::resolveNameID|
+
+
 *CStarRating::run*						 public
 >
  run()
@@ -132,6 +349,14 @@ METHOD DETAILS
 
  Executes the widget. This method registers all needed client scripts and
  renders the text field.
+
+
+*CStarRating::setId*						 public
+ See |CWidget::setId|
+
+
+*CStarRating::widget*						 public
+ See |CBaseController::widget|
 
 
 

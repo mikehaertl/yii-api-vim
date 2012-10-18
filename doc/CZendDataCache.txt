@@ -16,6 +16,30 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CZendDataCache::__call*					 public
+ See |CComponent::__call|
+
+
+*CZendDataCache::__get* 					 public
+ See |CComponent::__get|
+
+
+*CZendDataCache::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CZendDataCache::__set* 					 public
+ See |CComponent::__set|
+
+
+*CZendDataCache::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CZendDataCache::add*						 public
+ See |CCache::add|
+
+
 *CZendDataCache::addValue*					 protected
 >
  addValue($key, $value, $expire)
@@ -31,6 +55,34 @@ METHOD DETAILS
     expire. 0 means never expire.
 
 
+*CZendDataCache::asa*						 public
+ See |CComponent::asa|
+
+
+*CZendDataCache::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CZendDataCache::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CZendDataCache::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CZendDataCache::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CZendDataCache::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CZendDataCache::delete*					 public
+ See |CCache::delete|
+
+
 *CZendDataCache::deleteValue*					 protected
 >
  deleteValue($key)
@@ -42,6 +94,42 @@ METHOD DETAILS
     [key] (string) the key of the value to be deleted
 
 
+*CZendDataCache::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CZendDataCache::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CZendDataCache::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CZendDataCache::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CZendDataCache::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CZendDataCache::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CZendDataCache::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CZendDataCache::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CZendDataCache::flush* 					 public
+ See |CCache::flush|
+
+
 *CZendDataCache::flushValues*					 protected
 >
  flushValues()
@@ -50,6 +138,22 @@ METHOD DETAILS
 
  Deletes all values from cache. This is the implementation of the method
  declared in the parent class.
+
+
+*CZendDataCache::generateUniqueKey*				 protected
+ See |CCache::generateUniqueKey|
+
+
+*CZendDataCache::get*						 public
+ See |CCache::get|
+
+
+*CZendDataCache::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CZendDataCache::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CZendDataCache::getValue*					 protected
@@ -64,6 +168,22 @@ expired.
     [key] (string) a unique key identifying the cached value
 
 
+*CZendDataCache::getValues*					 protected
+ See |CCache::getValues|
+
+
+*CZendDataCache::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CZendDataCache::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CZendDataCache::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CZendDataCache::init*						 public
 >
  init()
@@ -73,6 +193,34 @@ expired.
  Initializes this application component. This method is required by the
  |IApplicationComponent| interface. It checks the availability of Zend Data
  Cache.
+
+
+*CZendDataCache::mget*						 public
+ See |CCache::mget|
+
+
+*CZendDataCache::offsetExists*					 public
+ See |CCache::offsetExists|
+
+
+*CZendDataCache::offsetGet*					 public
+ See |CCache::offsetGet|
+
+
+*CZendDataCache::offsetSet*					 public
+ See |CCache::offsetSet|
+
+
+*CZendDataCache::offsetUnset*					 public
+ See |CCache::offsetUnset|
+
+
+*CZendDataCache::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CZendDataCache::set*						 public
+ See |CCache::set|
 
 
 *CZendDataCache::setValue*					 protected

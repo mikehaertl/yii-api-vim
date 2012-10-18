@@ -40,8 +40,14 @@ PROPERTY DETAILS
  (mixed) The name of the attribute to store the creation time.  Set to null to
  not use a timstamp for the creation attribute.  Defaults to 'create_time'
 
+<enabled>				*CTimestampBehavior::enabled*
+ See |CBehavior::enabled|
+
 <map>					*CTimestampBehavior::map*
  (array) Maps column types to database method
+
+<owner> 				*CTimestampBehavior::owner*
+ See |CBehavior::owner|
 
 <setUpdateOnCreate>			*CTimestampBehavior::setUpdateOnCreate*
  (bool) Whether to set the update attribute to the creation timestamp upon
@@ -66,6 +72,74 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CTimestampBehavior::__call*					 public
+ See |CComponent::__call|
+
+
+*CTimestampBehavior::__get*					 public
+ See |CComponent::__get|
+
+
+*CTimestampBehavior::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CTimestampBehavior::__set*					 public
+ See |CComponent::__set|
+
+
+*CTimestampBehavior::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CTimestampBehavior::afterConstruct*				 public
+ See |CModelBehavior::afterConstruct|
+
+
+*CTimestampBehavior::afterDelete*				 public
+ See |CActiveRecordBehavior::afterDelete|
+
+
+*CTimestampBehavior::afterFind* 				 public
+ See |CActiveRecordBehavior::afterFind|
+
+
+*CTimestampBehavior::afterSave* 				 public
+ See |CActiveRecordBehavior::afterSave|
+
+
+*CTimestampBehavior::afterValidate*				 public
+ See |CModelBehavior::afterValidate|
+
+
+*CTimestampBehavior::asa*					 public
+ See |CComponent::asa|
+
+
+*CTimestampBehavior::attach*					 public
+ See |CBehavior::attach|
+
+
+*CTimestampBehavior::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CTimestampBehavior::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CTimestampBehavior::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CTimestampBehavior::beforeDelete*				 public
+ See |CActiveRecordBehavior::beforeDelete|
+
+
+*CTimestampBehavior::beforeFind*				 public
+ See |CActiveRecordBehavior::beforeFind|
+
+
 *CTimestampBehavior::beforeSave*				 public
 >
  beforeSave($event)
@@ -75,6 +149,70 @@ METHOD DETAILS
  Responds to CModel::onBeforeSave event. Sets the values of the creation or
  modified attributes as configured
     [event] (CModelEvent) event parameter
+
+
+*CTimestampBehavior::beforeValidate*				 public
+ See |CModelBehavior::beforeValidate|
+
+
+*CTimestampBehavior::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CTimestampBehavior::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CTimestampBehavior::detach*					 public
+ See |CBehavior::detach|
+
+
+*CTimestampBehavior::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CTimestampBehavior::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CTimestampBehavior::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CTimestampBehavior::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CTimestampBehavior::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CTimestampBehavior::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CTimestampBehavior::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CTimestampBehavior::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CTimestampBehavior::events*					 public
+ See |CActiveRecordBehavior::events|
+
+
+*CTimestampBehavior::getEnabled*				 public
+ See |CBehavior::getEnabled|
+
+
+*CTimestampBehavior::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CTimestampBehavior::getOwner*					 public
+ See |CBehavior::getOwner|
 
 
 *CTimestampBehavior::getTimestampByAttribute*			 protected
@@ -95,6 +233,26 @@ METHOD DETAILS
 
  Returns the approprate timestamp depending on $columnType
     [columnType] (string) $columnType
+
+
+*CTimestampBehavior::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CTimestampBehavior::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CTimestampBehavior::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CTimestampBehavior::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CTimestampBehavior::setEnabled*				 public
+ See |CBehavior::setEnabled|
 
 
 

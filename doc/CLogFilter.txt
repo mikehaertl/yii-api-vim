@@ -40,6 +40,82 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CLogFilter::__call*						 public
+ See |CComponent::__call|
+
+
+*CLogFilter::__get*						 public
+ See |CComponent::__get|
+
+
+*CLogFilter::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CLogFilter::__set*						 public
+ See |CComponent::__set|
+
+
+*CLogFilter::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CLogFilter::asa*						 public
+ See |CComponent::asa|
+
+
+*CLogFilter::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CLogFilter::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CLogFilter::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CLogFilter::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CLogFilter::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CLogFilter::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CLogFilter::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CLogFilter::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CLogFilter::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CLogFilter::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CLogFilter::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CLogFilter::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CLogFilter::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CLogFilter::filter*						 public
 >
  filter($logs)
@@ -73,6 +149,26 @@ information.
 
  Generates the context information to be logged. The default implementation
  will dump user information, system variables, etc.
+
+
+*CLogFilter::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CLogFilter::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CLogFilter::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CLogFilter::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CLogFilter::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

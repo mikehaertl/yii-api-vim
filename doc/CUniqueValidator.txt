@@ -25,6 +25,12 @@ PROPERTY DETAILS
  for the attribute value being validated. Defaults to null, meaning using the
  name of the attribute being validated.
 
+<attributes>				*CUniqueValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CUniqueValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
 <caseSensitive> 			*CUniqueValidator::caseSensitive*
  (boolean) whether the comparison is case sensitive. Defaults to true. Note,
  by setting it to false, you are assuming the attribute type is string.
@@ -36,14 +42,27 @@ PROPERTY DETAILS
  class name here.
 
 <criteria>				*CUniqueValidator::criteria*
- (array) additional query criteria. This will be combined with the condition
- that checks if the attribute value exists in the corresponding table column.
- This array will be used to instantiate a |CDbCriteria| object.
+ (mixed) additional query criteria. Either an array or CDbCriteria. This will
+ be combined with the condition that checks if the attribute value exists in
+ the corresponding table column. This array will be used to instantiate a
+ |CDbCriteria| object.
+
+<enableClientValidation>		*CUniqueValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CUniqueValidator::except*
+ See |CValidator::except|
 
 <message>				*CUniqueValidator::message*
  (string) the user-defined error message. The placeholders "{attribute}" and
  "{value}" are recognized, which will be replaced with the actual attribute
  name and value, respectively.
+
+<on>					*CUniqueValidator::on*
+ See |CValidator::on|
+
+<safe>					*CUniqueValidator::safe*
+ See |CValidator::safe|
 
 <skipOnError>				*CUniqueValidator::skipOnError*
  (boolean) whether this validation rule should be skipped if when there is
@@ -53,6 +72,126 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CUniqueValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CUniqueValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CUniqueValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CUniqueValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CUniqueValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CUniqueValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CUniqueValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CUniqueValidator::asa* 					 public
+ See |CComponent::asa|
+
+
+*CUniqueValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CUniqueValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CUniqueValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CUniqueValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CUniqueValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CUniqueValidator::clientValidateAttribute*			 public
+ See |CValidator::clientValidateAttribute|
+
+
+*CUniqueValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CUniqueValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CUniqueValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CUniqueValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CUniqueValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CUniqueValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CUniqueValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CUniqueValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CUniqueValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CUniqueValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CUniqueValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CUniqueValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CUniqueValidator::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*CUniqueValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CUniqueValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CUniqueValidator::validate*					 public
+ See |CValidator::validate|
+
 
 *CUniqueValidator::validateAttribute*				 protected
 >

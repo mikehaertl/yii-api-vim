@@ -20,6 +20,13 @@ PROPERTY DETAILS
  (array) list of controler IDs that this rule applies to. The comparison is
  case-insensitive.
 
+<deniedCallback>			*CAccessRule::deniedCallback*
+ (mixed) the denied method callback that will be called once the access is
+ denied. It replaces the behavior that shows an error message. It can be a
+ valid PHP callback including class method name (array(ClassName/Object,
+ MethodName)), or anonymous function (PHP 5.3.0+). For more information, on
+ different options, check
+
 <expression>				*CAccessRule::expression*
  (string) a PHP expression whose value indicates whether this rule should be
  applied. In this expression, you can use '$user' which refers to
@@ -58,6 +65,98 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CAccessRule::__call*						 public
+ See |CComponent::__call|
+
+
+*CAccessRule::__get*						 public
+ See |CComponent::__get|
+
+
+*CAccessRule::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CAccessRule::__set*						 public
+ See |CComponent::__set|
+
+
+*CAccessRule::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CAccessRule::asa*						 public
+ See |CComponent::asa|
+
+
+*CAccessRule::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CAccessRule::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CAccessRule::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CAccessRule::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CAccessRule::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CAccessRule::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CAccessRule::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CAccessRule::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CAccessRule::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CAccessRule::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CAccessRule::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CAccessRule::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CAccessRule::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CAccessRule::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
+*CAccessRule::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CAccessRule::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CAccessRule::hasProperty*					 public
+ See |CComponent::hasProperty|
+
 
 *CAccessRule::isActionMatched*					 protected
 >
@@ -135,6 +234,10 @@ does not apply to the user
 (boolean) whether the rule applies to the request
 
     [verb] (string) the request method
+
+
+*CAccessRule::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

@@ -40,6 +40,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CAuthItem::__call*						 public
+ See |CComponent::__call|
+
+
 *CAuthItem::__construct*					 public
 >
  __construct($auth, $name, $type, $description='', $bizRule='', $data=NULL)
@@ -56,6 +60,22 @@ METHOD DETAILS
     [data] (mixed) additional data for this item
 
 
+*CAuthItem::__get*						 public
+ See |CComponent::__get|
+
+
+*CAuthItem::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CAuthItem::__set*						 public
+ See |CComponent::__set|
+
+
+*CAuthItem::__unset*						 public
+ See |CComponent::__unset|
+
+
 *CAuthItem::addChild*						 public
 >
  addChild($name)
@@ -64,6 +84,10 @@ METHOD DETAILS
 
  Adds a child item.
     [name] (string) the name of the child item
+
+
+*CAuthItem::asa*						 public
+ See |CComponent::asa|
 
 
 *CAuthItem::assign*						 public
@@ -79,6 +103,26 @@ METHOD DETAILS
     [data] (mixed) additional data associated with this assignment
 
 
+*CAuthItem::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CAuthItem::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CAuthItem::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CAuthItem::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CAuthItem::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CAuthItem::checkAccess*					 public
 >
  checkAccess($itemName, $params=array())
@@ -87,9 +131,42 @@ METHOD DETAILS
 this item.
 
  Checks to see if the specified item is within the hierarchy starting from
- this item. This method is internally used by |IAuthManager::checkAccess|.
+ this item. This method is expected to be internally used by the actual
+ implementations of the |IAuthManager::checkAccess|.
     [itemName] (string) the name of the item to be checked
     [params] (array) the parameters to be passed to business rule evaluation
+
+
+*CAuthItem::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CAuthItem::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CAuthItem::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CAuthItem::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CAuthItem::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CAuthItem::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CAuthItem::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CAuthItem::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
 
 
 *CAuthItem::getAssignment*					 public
@@ -144,6 +221,10 @@ item is not assigned to the user.
 
 
 
+*CAuthItem::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
 *CAuthItem::getName*						 public
 >
  getName()
@@ -171,6 +252,18 @@ or 2 (role).
     [name] (string) the child item name
 
 
+*CAuthItem::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CAuthItem::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CAuthItem::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CAuthItem::isAssigned* 					 public
 >
  isAssigned($userId)
@@ -179,6 +272,10 @@ or 2 (role).
 
  Returns a value indicating whether this item has been assigned to the user.
     [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CAuthItem::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
 
 
 *CAuthItem::removeChild*					 public

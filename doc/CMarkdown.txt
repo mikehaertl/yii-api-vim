@@ -18,25 +18,117 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CMarkdown::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CMarkdown::controller*
+ See |CWidget::controller|
+
 <cssFile>				*CMarkdown::cssFile*
  (mixed) the CSS file used for the widget. Defaults to null, meaning using the
  default CSS file included together with the widget. If false, no CSS file
  will be used. Otherwise, the specified CSS file will be included when using
  this widget.
 
+<id>					*CMarkdown::id*
+ See |CWidget::id|
+
+<isFilter>				*CMarkdown::isFilter*
+ See |CFilterWidget::isFilter|
+
 <markdownParser>			*CMarkdown::markdownParser*
  (CMarkdownParser) Returns the markdown parser instance. This method calls
  |CMarkdown::createMarkdownParser| to create the parser instance. Call this
  method multipe times will only return the same instance.
 
+<owner> 				*CMarkdown::owner*
+ See |CWidget::owner|
+
 <purifyOutput>				*CMarkdown::purifyOutput*
  (boolean) whether to use |CHtmlPurifier| to purify the generated HTML code.
  Defaults to false.
+
+<skin>					*CMarkdown::skin*
+ See |CWidget::skin|
+
+<stopAction>				*CMarkdown::stopAction*
+ See |CFilterWidget::stopAction|
+
+<viewPath>				*CMarkdown::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CMarkdown::__call*						 public
+ See |CComponent::__call|
+
+
+*CMarkdown::__construct*					 public
+ See |CFilterWidget::__construct|
+
+
+*CMarkdown::__get*						 public
+ See |CComponent::__get|
+
+
+*CMarkdown::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CMarkdown::__set*						 public
+ See |CComponent::__set|
+
+
+*CMarkdown::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CMarkdown::actions*						 public
+ See |CWidget::actions|
+
+
+*CMarkdown::asa*						 public
+ See |CComponent::asa|
+
+
+*CMarkdown::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CMarkdown::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CMarkdown::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CMarkdown::beginCache* 					 public
+ See |CBaseController::beginCache|
+
+
+*CMarkdown::beginClip*						 public
+ See |CBaseController::beginClip|
+
+
+*CMarkdown::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CMarkdown::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CMarkdown::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CMarkdown::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
 
 *CMarkdown::createMarkdownParser*				 protected
 >
@@ -46,6 +138,78 @@ METHOD DETAILS
 
  Creates a markdown parser. By default, this method creates a
  |CMarkdownParser| instance.
+
+
+*CMarkdown::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CMarkdown::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CMarkdown::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CMarkdown::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CMarkdown::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CMarkdown::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CMarkdown::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CMarkdown::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CMarkdown::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CMarkdown::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CMarkdown::endContent* 					 public
+ See |CBaseController::endContent|
+
+
+*CMarkdown::endWidget*						 public
+ See |CBaseController::endWidget|
+
+
+*CMarkdown::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
+
+
+*CMarkdown::filter*						 public
+ See |CFilterWidget::filter|
+
+
+*CMarkdown::getController*					 public
+ See |CWidget::getController|
+
+
+*CMarkdown::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CMarkdown::getId*						 public
+ See |CWidget::getId|
+
+
+*CMarkdown::getIsFilter*					 public
+ See |CFilterWidget::getIsFilter|
 
 
 *CMarkdown::getMarkdownParser*					 public
@@ -59,6 +223,38 @@ METHOD DETAILS
  method multipe times will only return the same instance.
 
 
+*CMarkdown::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CMarkdown::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CMarkdown::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CMarkdown::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CMarkdown::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CMarkdown::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CMarkdown::init*						 public
+ See |COutputProcessor::init|
+
+
+*CMarkdown::onProcessOutput*					 public
+ See |COutputProcessor::onProcessOutput|
+
+
 *CMarkdown::processOutput*					 public
 >
  processOutput($output)
@@ -69,6 +265,10 @@ METHOD DETAILS
  syntax to HTML code. If |CMarkdown::purifyOutput| is true, the HTML code will
  also be purified.
     [output] (string) the captured output to be processed
+
+
+*CMarkdown::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
 
 
 *CMarkdown::registerClientScript*				 public
@@ -90,6 +290,26 @@ METHOD DETAILS
     [url] (string) the CSS URL. If null, a default CSS URL will be used.
 
 
+*CMarkdown::render*						 public
+ See |CWidget::render|
+
+
+*CMarkdown::renderFile* 					 public
+ See |CBaseController::renderFile|
+
+
+*CMarkdown::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
+*CMarkdown::run*						 public
+ See |COutputProcessor::run|
+
+
+*CMarkdown::setId*						 public
+ See |CWidget::setId|
+
+
 *CMarkdown::transform*						 public
 >
  transform($output)
@@ -99,6 +319,10 @@ METHOD DETAILS
  Converts the content in markdown syntax to HTML code. This method uses
  |CMarkdownParser| to do the conversion.
     [output] (string) the content to be converted
+
+
+*CMarkdown::widget*						 public
+ See |CBaseController::widget|
 
 
 

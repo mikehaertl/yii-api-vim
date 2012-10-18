@@ -16,11 +16,26 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<categories>				*CFileLogRoute::categories*
+ See |CLogRoute::categories|
+
+<enabled>				*CFileLogRoute::enabled*
+ See |CLogRoute::enabled|
+
+<filter>				*CFileLogRoute::filter*
+ See |CLogRoute::filter|
+
+<levels>				*CFileLogRoute::levels*
+ See |CLogRoute::levels|
+
 <logFile>				*CFileLogRoute::logFile*
  (string) log file name. Defaults to 'application.log'.
 
 <logPath>				*CFileLogRoute::logPath*
  (string) directory storing log files. Defaults to application runtime path.
+
+<logs>					*CFileLogRoute::logs*
+ See |CLogRoute::logs|
 
 <maxFileSize>				*CFileLogRoute::maxFileSize*
  (integer) maximum log file size in kilo-bytes (KB). Defaults to 1024 (1MB).
@@ -32,6 +47,94 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CFileLogRoute::__call* 					 public
+ See |CComponent::__call|
+
+
+*CFileLogRoute::__get*						 public
+ See |CComponent::__get|
+
+
+*CFileLogRoute::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CFileLogRoute::__set*						 public
+ See |CComponent::__set|
+
+
+*CFileLogRoute::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CFileLogRoute::asa*						 public
+ See |CComponent::asa|
+
+
+*CFileLogRoute::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CFileLogRoute::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CFileLogRoute::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CFileLogRoute::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CFileLogRoute::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CFileLogRoute::collectLogs*					 public
+ See |CLogRoute::collectLogs|
+
+
+*CFileLogRoute::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CFileLogRoute::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CFileLogRoute::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CFileLogRoute::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CFileLogRoute::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CFileLogRoute::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CFileLogRoute::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CFileLogRoute::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CFileLogRoute::formatLogMessage*				 protected
+ See |CLogRoute::formatLogMessage|
+
+
+*CFileLogRoute::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
 
 *CFileLogRoute::getLogFile*					 public
 >
@@ -65,6 +168,18 @@ METHOD DETAILS
 
 
 
+*CFileLogRoute::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CFileLogRoute::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CFileLogRoute::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CFileLogRoute::init*						 public
 >
  init()
@@ -83,6 +198,10 @@ METHOD DETAILS
 
  Saves log messages in files.
     [logs] (array) list of log messages
+
+
+*CFileLogRoute::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CFileLogRoute::rotateFiles*					 protected

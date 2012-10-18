@@ -11,6 +11,30 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CActiveRecordBehavior::__call* 				 public
+ See |CComponent::__call|
+
+
+*CActiveRecordBehavior::__get*					 public
+ See |CComponent::__get|
+
+
+*CActiveRecordBehavior::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CActiveRecordBehavior::__set*					 public
+ See |CComponent::__set|
+
+
+*CActiveRecordBehavior::__unset*				 public
+ See |CComponent::__unset|
+
+
+*CActiveRecordBehavior::afterConstruct* 			 public
+ See |CModelBehavior::afterConstruct|
+
+
 *CActiveRecordBehavior::afterDelete*				 public
 >
  afterDelete($event)
@@ -42,6 +66,30 @@ METHOD DETAILS
  Responds to |CActiveRecord::onAfterSave| event. Overrides this method if you
  want to handle the corresponding event of the |CBehavior::owner|.
     [event] (CModelEvent) event parameter
+
+
+*CActiveRecordBehavior::afterValidate*				 public
+ See |CModelBehavior::afterValidate|
+
+
+*CActiveRecordBehavior::asa*					 public
+ See |CComponent::asa|
+
+
+*CActiveRecordBehavior::attach* 				 public
+ See |CBehavior::attach|
+
+
+*CActiveRecordBehavior::attachBehavior* 			 public
+ See |CComponent::attachBehavior|
+
+
+*CActiveRecordBehavior::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CActiveRecordBehavior::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
 
 
 *CActiveRecordBehavior::beforeDelete*				 public
@@ -79,6 +127,54 @@ METHOD DETAILS
     [event] (CModelEvent) event parameter
 
 
+*CActiveRecordBehavior::beforeValidate* 			 public
+ See |CModelBehavior::beforeValidate|
+
+
+*CActiveRecordBehavior::canGetProperty* 			 public
+ See |CComponent::canGetProperty|
+
+
+*CActiveRecordBehavior::canSetProperty* 			 public
+ See |CComponent::canSetProperty|
+
+
+*CActiveRecordBehavior::detach* 				 public
+ See |CBehavior::detach|
+
+
+*CActiveRecordBehavior::detachBehavior* 			 public
+ See |CComponent::detachBehavior|
+
+
+*CActiveRecordBehavior::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CActiveRecordBehavior::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CActiveRecordBehavior::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CActiveRecordBehavior::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CActiveRecordBehavior::enableBehavior* 			 public
+ See |CComponent::enableBehavior|
+
+
+*CActiveRecordBehavior::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CActiveRecordBehavior::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
 *CActiveRecordBehavior::events* 				 public
 >
  events()
@@ -88,6 +184,38 @@ values).
 
  Declares events and the corresponding event handler methods. If you override
  this method, make sure you merge the parent result to the return value.
+
+
+*CActiveRecordBehavior::getEnabled*				 public
+ See |CBehavior::getEnabled|
+
+
+*CActiveRecordBehavior::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CActiveRecordBehavior::getOwner*				 public
+ See |CBehavior::getOwner|
+
+
+*CActiveRecordBehavior::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CActiveRecordBehavior::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CActiveRecordBehavior::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CActiveRecordBehavior::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CActiveRecordBehavior::setEnabled*				 public
+ See |CBehavior::setEnabled|
 
 
 

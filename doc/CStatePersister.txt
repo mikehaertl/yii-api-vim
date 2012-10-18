@@ -31,11 +31,17 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<behaviors>				*CStatePersister::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <cacheID>				*CStatePersister::cacheID*
  (string) the ID of the cache application component that is used to cache the
  state values. Defaults to 'cache' which refers to the primary cache
  application component. Set this property to false if you want to disable
  caching state values.
+
+<isInitialized> 			*CStatePersister::isInitialized*
+ See |CApplicationComponent::isInitialized|
 
 <stateFile>				*CStatePersister::stateFile*
  (string) the file path storing the state data. Make sure the directory
@@ -46,6 +52,102 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CStatePersister::__call*					 public
+ See |CComponent::__call|
+
+
+*CStatePersister::__get*					 public
+ See |CComponent::__get|
+
+
+*CStatePersister::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CStatePersister::__set*					 public
+ See |CComponent::__set|
+
+
+*CStatePersister::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CStatePersister::asa*						 public
+ See |CComponent::asa|
+
+
+*CStatePersister::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CStatePersister::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CStatePersister::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CStatePersister::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CStatePersister::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CStatePersister::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CStatePersister::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CStatePersister::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CStatePersister::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CStatePersister::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CStatePersister::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CStatePersister::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CStatePersister::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CStatePersister::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CStatePersister::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
+*CStatePersister::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CStatePersister::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CStatePersister::hasProperty*					 public
+ See |CComponent::hasProperty|
+
 
 *CStatePersister::init* 					 public
 >
@@ -64,6 +166,10 @@ METHOD DETAILS
 (mixed) state data. Null if no state data available.
 
  Loads state data from persistent storage.
+
+
+*CStatePersister::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CStatePersister::save* 					 public

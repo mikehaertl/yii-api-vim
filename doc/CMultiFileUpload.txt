@@ -40,8 +40,17 @@ PROPERTY DETAILS
  (string) the file types that are allowed (eg "gif|jpg"). Note, the server
  side still needs to check if the uploaded files have allowed types.
 
+<actionPrefix>				*CMultiFileUpload::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<attribute>				*CMultiFileUpload::attribute*
+ See |CInputWidget::attribute|
+
 <clientOptions> 			*CMultiFileUpload::clientOptions*
  (array) the javascript options
+
+<controller>				*CMultiFileUpload::controller*
+ See |CWidget::controller|
 
 <denied>				*CMultiFileUpload::denied*
  (string) message that is displayed when a file type is not allowed.
@@ -52,13 +61,28 @@ PROPERTY DETAILS
 <file>					*CMultiFileUpload::file*
  (string) the message template for displaying the uploaded file name
 
+<htmlOptions>				*CMultiFileUpload::htmlOptions*
+ See |CInputWidget::htmlOptions|
+
+<id>					*CMultiFileUpload::id*
+ See |CWidget::id|
+
 <max>					*CMultiFileUpload::max*
  (integer) the maximum number of files that can be uploaded. If -1, it means
  no limits. Defaults to -1.
 
+<model> 				*CMultiFileUpload::model*
+ See |CInputWidget::model|
+
+<name>					*CMultiFileUpload::name*
+ See |CInputWidget::name|
+
 <options>				*CMultiFileUpload::options*
  (array) additional options that can be passed to the constructor of the
  multifile js object.
+
+<owner> 				*CMultiFileUpload::owner*
+ See |CWidget::owner|
 
 <remove>				*CMultiFileUpload::remove*
  (string) the label for the remove button. Defaults to "Remove".
@@ -66,10 +90,139 @@ PROPERTY DETAILS
 <selected>				*CMultiFileUpload::selected*
  (string) message that is displayed when a file is selected.
 
+<skin>					*CMultiFileUpload::skin*
+ See |CWidget::skin|
+
+<value> 				*CMultiFileUpload::value*
+ See |CInputWidget::value|
+
+<viewPath>				*CMultiFileUpload::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CMultiFileUpload::__call*					 public
+ See |CComponent::__call|
+
+
+*CMultiFileUpload::__construct* 				 public
+ See |CWidget::__construct|
+
+
+*CMultiFileUpload::__get*					 public
+ See |CComponent::__get|
+
+
+*CMultiFileUpload::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CMultiFileUpload::__set*					 public
+ See |CComponent::__set|
+
+
+*CMultiFileUpload::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CMultiFileUpload::actions*					 public
+ See |CWidget::actions|
+
+
+*CMultiFileUpload::asa* 					 public
+ See |CComponent::asa|
+
+
+*CMultiFileUpload::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CMultiFileUpload::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CMultiFileUpload::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CMultiFileUpload::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CMultiFileUpload::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CMultiFileUpload::beginContent*				 public
+ See |CBaseController::beginContent|
+
+
+*CMultiFileUpload::beginWidget* 				 public
+ See |CBaseController::beginWidget|
+
+
+*CMultiFileUpload::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CMultiFileUpload::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CMultiFileUpload::createWidget*				 public
+ See |CBaseController::createWidget|
+
+
+*CMultiFileUpload::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CMultiFileUpload::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CMultiFileUpload::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CMultiFileUpload::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CMultiFileUpload::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CMultiFileUpload::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CMultiFileUpload::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CMultiFileUpload::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CMultiFileUpload::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CMultiFileUpload::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CMultiFileUpload::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CMultiFileUpload::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
 
 *CMultiFileUpload::getClientOptions*				 protected
 >
@@ -77,6 +230,54 @@ METHOD DETAILS
 <
 (array) the javascript options
 
+
+
+*CMultiFileUpload::getController*				 public
+ See |CWidget::getController|
+
+
+*CMultiFileUpload::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CMultiFileUpload::getId*					 public
+ See |CWidget::getId|
+
+
+*CMultiFileUpload::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CMultiFileUpload::getViewFile* 				 public
+ See |CWidget::getViewFile|
+
+
+*CMultiFileUpload::getViewPath* 				 public
+ See |CWidget::getViewPath|
+
+
+*CMultiFileUpload::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CMultiFileUpload::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CMultiFileUpload::hasModel*					 protected
+ See |CInputWidget::hasModel|
+
+
+*CMultiFileUpload::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*CMultiFileUpload::init*					 public
+ See |CWidget::init|
+
+
+*CMultiFileUpload::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CMultiFileUpload::registerClientScript*			 public
@@ -88,6 +289,22 @@ METHOD DETAILS
  Registers the needed CSS and JavaScript.
 
 
+*CMultiFileUpload::render*					 public
+ See |CWidget::render|
+
+
+*CMultiFileUpload::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CMultiFileUpload::renderInternal*				 public
+ See |CBaseController::renderInternal|
+
+
+*CMultiFileUpload::resolveNameID*				 protected
+ See |CInputWidget::resolveNameID|
+
+
 *CMultiFileUpload::run* 					 public
 >
  run()
@@ -96,6 +313,14 @@ METHOD DETAILS
 
  Runs the widget. This method registers all needed client scripts and renders
  the multiple file uploader.
+
+
+*CMultiFileUpload::setId*					 public
+ See |CWidget::setId|
+
+
+*CMultiFileUpload::widget*					 public
+ See |CBaseController::widget|
 
 
 

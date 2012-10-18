@@ -12,7 +12,7 @@ METHOD DETAILS
 
 *CJavaScript::encode*						 public
 >
- encode($value)
+ encode($value, $safe=false)
 <
 (string) the encoded string
 
@@ -27,7 +27,13 @@ METHOD DETAILS
 <
  For highly complex data structures use |CJavaScript::jsonEncode| and
  |CJavaScript::jsonDecode| to serialize and unserialize.
+
+ If you are encoding user input, make sure $safe is set to true.
     [value] (mixed) PHP variable to be encoded
+    [safe] (boolean) If true, 'js:' will not be allowed. In case of wrapping
+    code with |CJavaScriptExpression| JavaScript expression will stay as is no
+    matter what value this parameter is set to. Default is false. This
+    parameter is available since 1.1.11.
 
 
 *CJavaScript::jsonDecode*					 public

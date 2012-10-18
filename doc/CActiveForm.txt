@@ -132,6 +132,9 @@ PROPERTY DETAILS
  (mixed) the form action URL (see |CHtml::normalizeUrl| for details about this
  parameter). If not set, the current page URL is used.
 
+<actionPrefix>				*CActiveForm::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <attributes>				*CActiveForm::attributes*
  (array) the javascript options for model attributes (input ID => options)
 
@@ -194,8 +197,9 @@ PROPERTY DETAILS
    function is NOT true, the validation will be cancelled.
 
    Note that because this option refers to a js function, you should
-   prefix the value with 'js:' to prevent it from being encoded as a
-   string. This option has been available since version 1.1.3.
+   wrap the value with CJavaScriptExpressoin to prevent it from being
+   encoded as a string. This option has been available since version
+   1.1.3.
    {afterValidate} function, the function that will be invoked after
    performing ajax-based validation triggered by form submission
    action (available only when validateOnSubmit is set true). The
@@ -207,8 +211,9 @@ PROPERTY DETAILS
    NOT true, the normal form submission will be cancelled.
 
    Note that because this option refers to a js function, you should
-   prefix the value with 'js:' to prevent it from being encoded as a
-   string. This option has been available since version 1.1.3.
+   wrap the value with CJavaScriptExpressoin to prevent it from being
+   encoded as a string. This option has been available since version
+   1.1.3.
    {beforeValidateAttribute} function, the function that will be
    invoked before performing ajax-based validation triggered by a
    single attribute input change. The expected function signature
@@ -219,8 +224,9 @@ PROPERTY DETAILS
    is NOT true, the validation will be cancelled.
 
    Note that because this option refers to a js function, you should
-   prefix the value with 'js:' to prevent it from being encoded as a
-   string. This option has been available since version 1.1.3.
+   wrap the value with CJavaScriptExpressoin to prevent it from being
+   encoded as a string. This option has been available since version
+   1.1.3.
    {afterValidateAttribute} function, the function that will be
    invoked after performing ajax-based validation triggered by a
    single attribute input change. The expected function signature
@@ -232,12 +238,16 @@ PROPERTY DETAILS
    indicating whether there is any validation error.
 
    Note that because this option refers to a js function, you should
-   prefix the value with 'js:' to prevent it from being encoded as a
-   string. This option has been available since version 1.1.3.Some of the
- above options may be overridden in individual calls of |CActiveForm::error|.
- They include: validationDelay, validateOnChange, validateOnType,
- hideErrorMessage, inputContainer, errorCssClass, successCssClass,
- validatingCssClass, beforeValidateAttribute, afterValidateAttribute.
+   wrap the value with CJavaScriptExpressoin to prevent it from being
+   encoded as a string. This option has been available since version
+   1.1.3.Some of the above options may be overridden in individual calls of
+ |CActiveForm::error|. They include: validationDelay, validateOnChange,
+ validateOnType, hideErrorMessage, inputContainer, errorCssClass,
+ successCssClass, validatingCssClass, beforeValidateAttribute,
+ afterValidateAttribute.
+
+<controller>				*CActiveForm::controller*
+ See |CWidget::controller|
 
 <enableAjaxValidation>			*CActiveForm::enableAjaxValidation*
  (boolean) whether to enable data validation via AJAX. Defaults to false. When
@@ -290,9 +300,18 @@ PROPERTY DETAILS
 <htmlOptions>				*CActiveForm::htmlOptions*
  (array) additional HTML attributes that should be rendered for the form tag.
 
+<id>					*CActiveForm::id*
+ See |CWidget::id|
+
 <method>				*CActiveForm::method*
  (string) the form submission method. This should be either 'post' or 'get'.
  Defaults to 'post'.
+
+<owner> 				*CActiveForm::owner*
+ See |CWidget::owner|
+
+<skin>					*CActiveForm::skin*
+ See |CWidget::skin|
 
 <stateful>				*CActiveForm::stateful*
  (boolean) whether to generate a stateful form (See |CHtml::statefulForm|).
@@ -301,10 +320,81 @@ PROPERTY DETAILS
 <summaryID>				*CActiveForm::summaryID*
  (string) the ID of the container element for error summary
 
+<viewPath>				*CActiveForm::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CActiveForm::__call*						 public
+ See |CComponent::__call|
+
+
+*CActiveForm::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CActiveForm::__get*						 public
+ See |CComponent::__get|
+
+
+*CActiveForm::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CActiveForm::__set*						 public
+ See |CComponent::__set|
+
+
+*CActiveForm::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CActiveForm::actions*						 public
+ See |CWidget::actions|
+
+
+*CActiveForm::asa*						 public
+ See |CComponent::asa|
+
+
+*CActiveForm::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CActiveForm::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CActiveForm::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CActiveForm::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CActiveForm::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CActiveForm::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CActiveForm::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CActiveForm::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CActiveForm::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
 
 *CActiveForm::checkBox* 					 public
 >
@@ -335,6 +425,44 @@ METHOD DETAILS
     [htmlOptions] (array) addtional HTML options.
 
 
+*CActiveForm::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CActiveForm::dateField*					 public
+>
+ dateField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Renders an number field for a model attribute. This method is a wrapper of
+ |CHtml::activeDateField|. Please check |CHtml::activeDateField| for detailed
+ information about the parameters for this method.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes.
+
+
+*CActiveForm::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CActiveForm::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CActiveForm::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CActiveForm::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CActiveForm::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
 *CActiveForm::dropDownList*					 public
 >
  dropDownList($model, $attribute, $data, $htmlOptions=array())
@@ -348,6 +476,44 @@ METHOD DETAILS
     [attribute] (string) the attribute
     [data] (array) data for generating the list options (value=>display)
     [htmlOptions] (array) additional HTML attributes.
+
+
+*CActiveForm::emailField*					 public
+>
+ emailField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Renders an email field for a model attribute. This method is a wrapper of
+ |CHtml::activeEmailField|. Please check |CHtml::activeEmailField| for
+ detailed information about the parameters for this method.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes.
+
+
+*CActiveForm::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CActiveForm::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CActiveForm::endCache* 					 public
+ See |CBaseController::endCache|
+
+
+*CActiveForm::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CActiveForm::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CActiveForm::endWidget*					 public
+ See |CBaseController::endWidget|
 
 
 *CActiveForm::error*						 public
@@ -416,6 +582,10 @@ METHOD DETAILS
     container div tag.
 
 
+*CActiveForm::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CActiveForm::fileField*					 public
 >
  fileField($model, $attribute, $htmlOptions=array())
@@ -428,6 +598,42 @@ METHOD DETAILS
     [model] (CModel) the data model
     [attribute] (string) the attribute
     [htmlOptions] (array) additional HTML attributes
+
+
+*CActiveForm::getController*					 public
+ See |CWidget::getController|
+
+
+*CActiveForm::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
+*CActiveForm::getId*						 public
+ See |CWidget::getId|
+
+
+*CActiveForm::getOwner* 					 public
+ See |CWidget::getOwner|
+
+
+*CActiveForm::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CActiveForm::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CActiveForm::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CActiveForm::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CActiveForm::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CActiveForm::hiddenField*					 public
@@ -496,6 +702,20 @@ METHOD DETAILS
     [htmlOptions] (array) additional HTML attributes.
 
 
+*CActiveForm::numberField*					 public
+>
+ numberField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Renders an number field for a model attribute. This method is a wrapper of
+ |CHtml::activeNumberField|. Please check |CHtml::activeNumberField| for
+ detailed information about the parameters for this method.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes.
+
+
 *CActiveForm::passwordField*					 public
 >
  passwordField($model, $attribute, $htmlOptions=array())
@@ -540,6 +760,36 @@ METHOD DETAILS
     [htmlOptions] (array) addtional HTML options.
 
 
+*CActiveForm::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CActiveForm::rangeField*					 public
+>
+ rangeField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Renders an number field for a model attribute. This method is a wrapper of
+ |CHtml::activeRangeField|. Please check |CHtml::activeRangeField| for
+ detailed information about the parameters for this method.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes.
+
+
+*CActiveForm::render*						 public
+ See |CWidget::render|
+
+
+*CActiveForm::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CActiveForm::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
 *CActiveForm::run*						 public
 >
  run()
@@ -548,6 +798,10 @@ METHOD DETAILS
 
  Runs the widget. This registers the necessary javascript code and renders the
  form close tag.
+
+
+*CActiveForm::setId*						 public
+ See |CWidget::setId|
 
 
 *CActiveForm::textArea* 					 public
@@ -572,6 +826,20 @@ METHOD DETAILS
 
  Renders a text field for a model attribute. This method is a wrapper of
  |CHtml::activeTextField|. Please check |CHtml::activeTextField| for detailed
+ information about the parameters for this method.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes.
+
+
+*CActiveForm::urlField* 					 public
+>
+ urlField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Renders a url field for a model attribute. This method is a wrapper of
+ |CHtml::activeUrlField|. Please check |CHtml::activeUrlField| for detailed
  information about the parameters for this method.
     [model] (CModel) the data model
     [attribute] (string) the attribute
@@ -613,6 +881,10 @@ METHOD DETAILS
     [loadInput] (boolean) whether to load the data from $_POST array in this
     method. If this is true, the model will be populated from
     '$_POST[ModelClass][$i]'.
+
+
+*CActiveForm::widget*						 public
+ See |CBaseController::widget|
 
 
 

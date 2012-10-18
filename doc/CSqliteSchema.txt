@@ -12,10 +12,50 @@ PROPERTY DETAILS
 <columnTypes>				*CSqliteSchema::columnTypes*
  (array) the abstract column types mapped to physical column types.
 
+<commandBuilder>			*CSqliteSchema::commandBuilder*
+ See |CDbSchema::commandBuilder|
+
+<dbConnection>				*CSqliteSchema::dbConnection*
+ See |CDbSchema::dbConnection|
+
+<tableNames>				*CSqliteSchema::tableNames*
+ See |CDbSchema::tableNames|
+
+<tables>				*CSqliteSchema::tables*
+ See |CDbSchema::tables|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CSqliteSchema::__call* 					 public
+ See |CComponent::__call|
+
+
+*CSqliteSchema::__construct*					 public
+ See |CDbSchema::__construct|
+
+
+*CSqliteSchema::__get*						 public
+ See |CComponent::__get|
+
+
+*CSqliteSchema::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CSqliteSchema::__set*						 public
+ See |CComponent::__set|
+
+
+*CSqliteSchema::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CSqliteSchema::addColumn*					 public
+ See |CDbSchema::addColumn|
+
 
 *CSqliteSchema::addForeignKey*					 public
 >
@@ -62,6 +102,30 @@ table.
     null'.
 
 
+*CSqliteSchema::asa*						 public
+ See |CComponent::asa|
+
+
+*CSqliteSchema::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CSqliteSchema::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CSqliteSchema::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CSqliteSchema::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CSqliteSchema::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
 *CSqliteSchema::checkIntegrity* 				 public
 >
  checkIntegrity($check=true, $schema='')
@@ -72,6 +136,10 @@ table.
     [check] (boolean) whether to turn on or off the integrity check.
     [schema] (string) the schema of the tables. Defaults to empty string,
     meaning the current or default schema.
+
+
+*CSqliteSchema::compareTableNames*				 public
+ See |CDbSchema::compareTableNames|
 
 
 *CSqliteSchema::createColumn*					 protected
@@ -91,6 +159,34 @@ table.
 (CSqliteCommandBuilder) command builder instance
 
  Creates a command builder for the database.
+
+
+*CSqliteSchema::createIndex*					 public
+ See |CDbSchema::createIndex|
+
+
+*CSqliteSchema::createTable*					 public
+ See |CDbSchema::createTable|
+
+
+*CSqliteSchema::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CSqliteSchema::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CSqliteSchema::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CSqliteSchema::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CSqliteSchema::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
 
 
 *CSqliteSchema::dropColumn*					 public
@@ -135,6 +231,22 @@ table.
     properly quoted by the method.
 
 
+*CSqliteSchema::dropTable*					 public
+ See |CDbSchema::dropTable|
+
+
+*CSqliteSchema::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CSqliteSchema::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CSqliteSchema::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CSqliteSchema::findColumns*					 protected
 >
  findColumns($table)
@@ -166,6 +278,46 @@ table.
     database.
 
 
+*CSqliteSchema::getColumnType*					 public
+ See |CDbSchema::getColumnType|
+
+
+*CSqliteSchema::getCommandBuilder*				 public
+ See |CDbSchema::getCommandBuilder|
+
+
+*CSqliteSchema::getDbConnection*				 public
+ See |CDbSchema::getDbConnection|
+
+
+*CSqliteSchema::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CSqliteSchema::getTable*					 public
+ See |CDbSchema::getTable|
+
+
+*CSqliteSchema::getTableNames*					 public
+ See |CDbSchema::getTableNames|
+
+
+*CSqliteSchema::getTables*					 public
+ See |CDbSchema::getTables|
+
+
+*CSqliteSchema::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CSqliteSchema::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CSqliteSchema::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CSqliteSchema::loadTable*					 protected
 >
  loadTable($name)
@@ -175,6 +327,30 @@ exist.
 
  Loads the metadata for the specified table.
     [name] (string) table name
+
+
+*CSqliteSchema::quoteColumnName*				 public
+ See |CDbSchema::quoteColumnName|
+
+
+*CSqliteSchema::quoteSimpleColumnName*				 public
+ See |CDbSchema::quoteSimpleColumnName|
+
+
+*CSqliteSchema::quoteSimpleTableName*				 public
+ See |CDbSchema::quoteSimpleTableName|
+
+
+*CSqliteSchema::quoteTableName* 				 public
+ See |CDbSchema::quoteTableName|
+
+
+*CSqliteSchema::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CSqliteSchema::refresh*					 public
+ See |CDbSchema::refresh|
 
 
 *CSqliteSchema::renameColumn*					 public
@@ -191,6 +367,10 @@ exist.
     quoted by the method.
     [newName] (string) the new name of the column. The name will be properly
     quoted by the method.
+
+
+*CSqliteSchema::renameTable*					 public
+ See |CDbSchema::renameTable|
 
 
 *CSqliteSchema::resetSequence*					 public

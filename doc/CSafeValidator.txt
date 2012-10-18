@@ -10,6 +10,126 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CSafeValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CSafeValidator::__get* 					 public
+ See |CComponent::__get|
+
+
+*CSafeValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CSafeValidator::__set* 					 public
+ See |CComponent::__set|
+
+
+*CSafeValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CSafeValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CSafeValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CSafeValidator::asa*						 public
+ See |CComponent::asa|
+
+
+*CSafeValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CSafeValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CSafeValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CSafeValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CSafeValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CSafeValidator::clientValidateAttribute*			 public
+ See |CValidator::clientValidateAttribute|
+
+
+*CSafeValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CSafeValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CSafeValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CSafeValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CSafeValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CSafeValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CSafeValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CSafeValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CSafeValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CSafeValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CSafeValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CSafeValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CSafeValidator::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CSafeValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CSafeValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CSafeValidator::validate*					 public
+ See |CValidator::validate|
+
+
 *CSafeValidator::validateAttribute*				 protected
 >
  validateAttribute($object, $attribute)

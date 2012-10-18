@@ -37,6 +37,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CMap::__call*							 public
+ See |CComponent::__call|
+
+
 *CMap::__construct*						 public
 >
  __construct($data=NULL, $readOnly=false)
@@ -49,6 +53,22 @@ METHOD DETAILS
     [readOnly] (boolean) whether the list is read-only
 
 
+*CMap::__get*							 public
+ See |CComponent::__get|
+
+
+*CMap::__isset* 						 public
+ See |CComponent::__isset|
+
+
+*CMap::__set*							 public
+ See |CComponent::__set|
+
+
+*CMap::__unset* 						 public
+ See |CComponent::__unset|
+
+
 *CMap::add*							 public
 >
  add($key, $value)
@@ -59,6 +79,30 @@ METHOD DETAILS
  value will be overwritten.
     [key] (mixed) key
     [value] (mixed) value
+
+
+*CMap::asa*							 public
+ See |CComponent::asa|
+
+
+*CMap::attachBehavior*						 public
+ See |CComponent::attachBehavior|
+
+
+*CMap::attachBehaviors* 					 public
+ See |CComponent::attachBehaviors|
+
+
+*CMap::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CMap::canGetProperty*						 public
+ See |CComponent::canGetProperty|
+
+
+*CMap::canSetProperty*						 public
+ See |CComponent::canSetProperty|
 
 
 *CMap::clear*							 public
@@ -101,6 +145,38 @@ METHOD DETAILS
  interface.
 
 
+*CMap::detachBehavior*						 public
+ See |CComponent::detachBehavior|
+
+
+*CMap::detachBehaviors* 					 public
+ See |CComponent::detachBehaviors|
+
+
+*CMap::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CMap::disableBehavior* 					 public
+ See |CComponent::disableBehavior|
+
+
+*CMap::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CMap::enableBehavior*						 public
+ See |CComponent::enableBehavior|
+
+
+*CMap::enableBehaviors* 					 public
+ See |CComponent::enableBehaviors|
+
+
+*CMap::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
 *CMap::getCount*						 public
 >
  getCount()
@@ -108,6 +184,10 @@ METHOD DETAILS
 (integer) the number of items in the map
 
  Returns the number of items in the map.
+
+
+*CMap::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CMap::getIterator*						 public
@@ -134,6 +214,18 @@ METHOD DETAILS
 <
 (boolean) whether this map is read-only or not. Defaults to false.
 
+
+
+*CMap::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CMap::hasEventHandler* 					 public
+ See |CComponent::hasEventHandler|
+
+
+*CMap::hasProperty*						 public
+ See |CComponent::hasProperty|
 
 
 *CMap::itemAt*							 public
@@ -230,6 +322,10 @@ METHOD DETAILS
  Unsets the element at the specified offset. This method is required by the
  interface ArrayAccess.
     [offset] (mixed) the offset to unset element
+
+
+*CMap::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 *CMap::remove*							 public

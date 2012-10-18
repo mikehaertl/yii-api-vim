@@ -9,14 +9,155 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<attributes>				*CUnsafeValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CUnsafeValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
+<enableClientValidation>		*CUnsafeValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CUnsafeValidator::except*
+ See |CValidator::except|
+
+<message>				*CUnsafeValidator::message*
+ See |CValidator::message|
+
+<on>					*CUnsafeValidator::on*
+ See |CValidator::on|
+
 <safe>					*CUnsafeValidator::safe*
  (boolean) whether attributes listed with this validator should be considered
  safe for massive assignment. Defaults to false.
+
+<skipOnError>				*CUnsafeValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CUnsafeValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CUnsafeValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CUnsafeValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CUnsafeValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CUnsafeValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CUnsafeValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CUnsafeValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CUnsafeValidator::asa* 					 public
+ See |CComponent::asa|
+
+
+*CUnsafeValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CUnsafeValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CUnsafeValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CUnsafeValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CUnsafeValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CUnsafeValidator::clientValidateAttribute*			 public
+ See |CValidator::clientValidateAttribute|
+
+
+*CUnsafeValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CUnsafeValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CUnsafeValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CUnsafeValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CUnsafeValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CUnsafeValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CUnsafeValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CUnsafeValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CUnsafeValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CUnsafeValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CUnsafeValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CUnsafeValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CUnsafeValidator::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*CUnsafeValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CUnsafeValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CUnsafeValidator::validate*					 public
+ See |CValidator::validate|
+
 
 *CUnsafeValidator::validateAttribute*				 protected
 >

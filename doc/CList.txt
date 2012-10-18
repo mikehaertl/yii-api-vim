@@ -39,6 +39,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CList::__call* 						 public
+ See |CComponent::__call|
+
+
 *CList::__construct*						 public
 >
  __construct($data=NULL, $readOnly=false)
@@ -51,6 +55,22 @@ METHOD DETAILS
     [readOnly] (boolean) whether the list is read-only
 
 
+*CList::__get*							 public
+ See |CComponent::__get|
+
+
+*CList::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CList::__set*							 public
+ See |CComponent::__set|
+
+
+*CList::__unset*						 public
+ See |CComponent::__unset|
+
+
 *CList::add*							 public
 >
  add($item)
@@ -59,6 +79,30 @@ METHOD DETAILS
 
  Appends an item at the end of the list.
     [item] (mixed) new item
+
+
+*CList::asa*							 public
+ See |CComponent::asa|
+
+
+*CList::attachBehavior* 					 public
+ See |CComponent::attachBehavior|
+
+
+*CList::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CList::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CList::canGetProperty* 					 public
+ See |CComponent::canGetProperty|
+
+
+*CList::canSetProperty* 					 public
+ See |CComponent::canSetProperty|
 
 
 *CList::clear*							 public
@@ -101,6 +145,38 @@ METHOD DETAILS
  interface.
 
 
+*CList::detachBehavior* 					 public
+ See |CComponent::detachBehavior|
+
+
+*CList::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CList::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CList::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CList::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CList::enableBehavior* 					 public
+ See |CComponent::enableBehavior|
+
+
+*CList::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CList::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
 *CList::getCount*						 public
 >
  getCount()
@@ -108,6 +184,10 @@ METHOD DETAILS
 (integer) the number of items in the list
 
  Returns the number of items in the list.
+
+
+*CList::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CList::getIterator*						 public
@@ -126,6 +206,18 @@ METHOD DETAILS
 <
 (boolean) whether this list is read-only or not. Defaults to false.
 
+
+
+*CList::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CList::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CList::hasProperty*						 public
+ See |CComponent::hasProperty|
 
 
 *CList::indexOf*						 public
@@ -215,6 +307,10 @@ METHOD DETAILS
  Unsets the item at the specified offset. This method is required by the
  interface ArrayAccess.
     [offset] (integer) the offset to unset item
+
+
+*CList::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 *CList::remove* 						 public

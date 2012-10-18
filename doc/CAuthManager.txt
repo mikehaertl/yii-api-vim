@@ -28,6 +28,12 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<authItems>				*CAuthManager::authItems*
+ See |IAuthManager::authItems|
+
+<behaviors>				*CAuthManager::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <defaultRoles>				*CAuthManager::defaultRoles*
  (array) list of role names that are assigned to all users implicitly. These
  roles do not need to be explicitly assigned to any user. When calling
@@ -37,6 +43,9 @@ PROPERTY DETAILS
  with a biz rule which checks if the current user is authenticated. And then
  declare 'authenticated' in this property so that it can be applied to every
  authenticated user.
+
+<isInitialized> 			*CAuthManager::isInitialized*
+ See |CApplicationComponent::isInitialized|
 
 <operations>				*CAuthManager::operations*
  (array) Returns operations. This is a shortcut method to
@@ -58,6 +67,62 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CAuthManager::__call*						 public
+ See |CComponent::__call|
+
+
+*CAuthManager::__get*						 public
+ See |CComponent::__get|
+
+
+*CAuthManager::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CAuthManager::__set*						 public
+ See |CComponent::__set|
+
+
+*CAuthManager::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CAuthManager::addItemChild*					 public
+ See |IAuthManager::addItemChild|
+
+
+*CAuthManager::asa*						 public
+ See |CComponent::asa|
+
+
+*CAuthManager::assign*						 public
+ See |IAuthManager::assign|
+
+
+*CAuthManager::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CAuthManager::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CAuthManager::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CAuthManager::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CAuthManager::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CAuthManager::checkAccess*					 public
+ See |IAuthManager::checkAccess|
+
+
 *CAuthManager::checkItemChildType*				 protected
 >
  checkItemChildType($parentType, $childType)
@@ -67,6 +132,18 @@ METHOD DETAILS
  Checks the item types to make sure a child can be added to a parent.
     [parentType] (integer) parent item type
     [childType] (integer) child item type
+
+
+*CAuthManager::clearAll*					 public
+ See |IAuthManager::clearAll|
+
+
+*CAuthManager::clearAuthAssignments*				 public
+ See |IAuthManager::clearAuthAssignments|
+
+
+*CAuthManager::createAuthItem*					 public
+ See |IAuthManager::createAuthItem|
 
 
 *CAuthManager::createOperation* 				 public
@@ -112,6 +189,38 @@ METHOD DETAILS
     rule
 
 
+*CAuthManager::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CAuthManager::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CAuthManager::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CAuthManager::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CAuthManager::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CAuthManager::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CAuthManager::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CAuthManager::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CAuthManager::executeBizRule*					 public
 >
  executeBizRule($bizRule, $params, $data)
@@ -124,6 +233,34 @@ empty, it will still return true.
     [params] (array) parameters passed to |IAuthManager::checkAccess|.
     [data] (mixed) additional data associated with the authorization item or
     assignment.
+
+
+*CAuthManager::getAuthAssignment*				 public
+ See |IAuthManager::getAuthAssignment|
+
+
+*CAuthManager::getAuthAssignments*				 public
+ See |IAuthManager::getAuthAssignments|
+
+
+*CAuthManager::getAuthItem*					 public
+ See |IAuthManager::getAuthItem|
+
+
+*CAuthManager::getAuthItems*					 public
+ See |IAuthManager::getAuthItems|
+
+
+*CAuthManager::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CAuthManager::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
+*CAuthManager::getItemChildren* 				 public
+ See |IAuthManager::getItemChildren|
 
 
 *CAuthManager::getOperations*					 public
@@ -161,6 +298,58 @@ empty, it will still return true.
     [userId] (mixed) the user ID. If not null, only the tasks directly
     assigned to the user will be returned. Otherwise, all tasks will be
     returned.
+
+
+*CAuthManager::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CAuthManager::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CAuthManager::hasItemChild*					 public
+ See |IAuthManager::hasItemChild|
+
+
+*CAuthManager::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CAuthManager::init*						 public
+ See |CApplicationComponent::init|
+
+
+*CAuthManager::isAssigned*					 public
+ See |IAuthManager::isAssigned|
+
+
+*CAuthManager::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CAuthManager::removeAuthItem*					 public
+ See |IAuthManager::removeAuthItem|
+
+
+*CAuthManager::removeItemChild* 				 public
+ See |IAuthManager::removeItemChild|
+
+
+*CAuthManager::revoke*						 public
+ See |IAuthManager::revoke|
+
+
+*CAuthManager::save*						 public
+ See |IAuthManager::save|
+
+
+*CAuthManager::saveAuthAssignment*				 public
+ See |IAuthManager::saveAuthAssignment|
+
+
+*CAuthManager::saveAuthItem*					 public
+ See |IAuthManager::saveAuthItem|
 
 
 

@@ -58,6 +58,82 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CPradoViewRenderer::__call*					 public
+ See |CComponent::__call|
+
+
+*CPradoViewRenderer::__get*					 public
+ See |CComponent::__get|
+
+
+*CPradoViewRenderer::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CPradoViewRenderer::__set*					 public
+ See |CComponent::__set|
+
+
+*CPradoViewRenderer::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CPradoViewRenderer::asa*					 public
+ See |CComponent::asa|
+
+
+*CPradoViewRenderer::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CPradoViewRenderer::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CPradoViewRenderer::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CPradoViewRenderer::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CPradoViewRenderer::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CPradoViewRenderer::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CPradoViewRenderer::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CPradoViewRenderer::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CPradoViewRenderer::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CPradoViewRenderer::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CPradoViewRenderer::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CPradoViewRenderer::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CPradoViewRenderer::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
 *CPradoViewRenderer::generateViewFile*				 protected
 >
  generateViewFile($sourceFile, $viewFile)
@@ -68,6 +144,42 @@ METHOD DETAILS
  method is required by the parent class.
     [sourceFile] (string) the source view file path
     [viewFile] (string) the resulting view file path
+
+
+*CPradoViewRenderer::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CPradoViewRenderer::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
+*CPradoViewRenderer::getViewFile*				 protected
+ See |CViewRenderer::getViewFile|
+
+
+*CPradoViewRenderer::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CPradoViewRenderer::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CPradoViewRenderer::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CPradoViewRenderer::init*					 public
+ See |CApplicationComponent::init|
+
+
+*CPradoViewRenderer::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CPradoViewRenderer::renderFile*				 public
+ See |CViewRenderer::renderFile|
 
 
 

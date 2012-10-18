@@ -18,13 +18,141 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<commandRunner> 			*CHelpCommand::commandRunner*
+ See |CConsoleCommand::commandRunner|
+
+<defaultAction> 			*CHelpCommand::defaultAction*
+ See |CConsoleCommand::defaultAction|
+
 <help>					*CHelpCommand::help*
  (string) Provides the command description.
+
+<name>					*CHelpCommand::name*
+ See |CConsoleCommand::name|
+
+<optionHelp>				*CHelpCommand::optionHelp*
+ See |CConsoleCommand::optionHelp|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CHelpCommand::__call*						 public
+ See |CComponent::__call|
+
+
+*CHelpCommand::__construct*					 public
+ See |CConsoleCommand::__construct|
+
+
+*CHelpCommand::__get*						 public
+ See |CComponent::__get|
+
+
+*CHelpCommand::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CHelpCommand::__set*						 public
+ See |CComponent::__set|
+
+
+*CHelpCommand::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CHelpCommand::afterAction*					 protected
+ See |CConsoleCommand::afterAction|
+
+
+*CHelpCommand::asa*						 public
+ See |CComponent::asa|
+
+
+*CHelpCommand::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CHelpCommand::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CHelpCommand::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CHelpCommand::beforeAction*					 protected
+ See |CConsoleCommand::beforeAction|
+
+
+*CHelpCommand::behaviors*					 public
+ See |CConsoleCommand::behaviors|
+
+
+*CHelpCommand::buildFileList*					 public
+ See |CConsoleCommand::buildFileList|
+
+
+*CHelpCommand::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CHelpCommand::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CHelpCommand::confirm* 					 public
+ See |CConsoleCommand::confirm|
+
+
+*CHelpCommand::copyFiles*					 public
+ See |CConsoleCommand::copyFiles|
+
+
+*CHelpCommand::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CHelpCommand::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CHelpCommand::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CHelpCommand::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CHelpCommand::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CHelpCommand::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CHelpCommand::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CHelpCommand::ensureDirectory* 				 public
+ See |CConsoleCommand::ensureDirectory|
+
+
+*CHelpCommand::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CHelpCommand::getCommandRunner*				 public
+ See |CConsoleCommand::getCommandRunner|
+
+
+*CHelpCommand::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
 
 *CHelpCommand::getHelp* 					 public
 >
@@ -35,14 +163,70 @@ METHOD DETAILS
  Provides the command description.
 
 
+*CHelpCommand::getName* 					 public
+ See |CConsoleCommand::getName|
+
+
+*CHelpCommand::getOptionHelp*					 public
+ See |CConsoleCommand::getOptionHelp|
+
+
+*CHelpCommand::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CHelpCommand::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CHelpCommand::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CHelpCommand::init*						 public
+ See |CConsoleCommand::init|
+
+
+*CHelpCommand::onAfterAction*					 public
+ See |CConsoleCommand::onAfterAction|
+
+
+*CHelpCommand::onBeforeAction*					 public
+ See |CConsoleCommand::onBeforeAction|
+
+
+*CHelpCommand::pluralize*					 public
+ See |CConsoleCommand::pluralize|
+
+
+*CHelpCommand::prompt*						 public
+ See |CConsoleCommand::prompt|
+
+
+*CHelpCommand::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CHelpCommand::renderFile*					 public
+ See |CConsoleCommand::renderFile|
+
+
+*CHelpCommand::resolveRequest*					 protected
+ See |CConsoleCommand::resolveRequest|
+
+
 *CHelpCommand::run*						 public
 >
  run($args)
 <
-(void)
+(integer) non zero application exit code after printing help
 
  Execute the action.
     [args] (array) command line parameters specific for this command
+
+
+*CHelpCommand::usageError*					 public
+ See |CConsoleCommand::usageError|
 
 
 

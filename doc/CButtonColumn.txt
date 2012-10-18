@@ -63,6 +63,9 @@ PROPERTY DETAILS
  |CButtonColumn::template| property needs to be configured so that the
  corresponding button IDs appear as tokens in the template.
 
+<cssClassExpression>			*CButtonColumn::cssClassExpression*
+ See |CGridColumn::cssClassExpression|
+
 <deleteButtonImageUrl>			*CButtonColumn::deleteButtonImageUrl*
  (string) the image URL for the delete button. If not set, an integrated image
  will be used. You may set this property to be false to render a text link
@@ -87,14 +90,32 @@ PROPERTY DETAILS
  be displayed. This property is used only if
  '$this->buttons['delete']['click']' is not set.
 
+<filterHtmlOptions>			*CButtonColumn::filterHtmlOptions*
+ See |CGridColumn::filterHtmlOptions|
+
+<footer>				*CButtonColumn::footer*
+ See |CGridColumn::footer|
+
 <footerHtmlOptions>			*CButtonColumn::footerHtmlOptions*
  (array) the HTML options for the footer cell tag.
+
+<grid>					*CButtonColumn::grid*
+ See |CGridColumn::grid|
+
+<hasFooter>				*CButtonColumn::hasFooter*
+ See |CGridColumn::hasFooter|
+
+<header>				*CButtonColumn::header*
+ See |CGridColumn::header|
 
 <headerHtmlOptions>			*CButtonColumn::headerHtmlOptions*
  (array) the HTML options for the header cell tag.
 
 <htmlOptions>				*CButtonColumn::htmlOptions*
  (array) the HTML options for the data cell tags.
+
+<id>					*CButtonColumn::id*
+ See |CGridColumn::id|
 
 <template>				*CButtonColumn::template*
  (string) the template that is used to render the content in each data cell.
@@ -140,10 +161,113 @@ PROPERTY DETAILS
  variable '$row' the row number (zero-based); '$data' the data model for the
  row; and '$this' the column object.
 
+<visible>				*CButtonColumn::visible*
+ See |CGridColumn::visible|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CButtonColumn::__call* 					 public
+ See |CComponent::__call|
+
+
+*CButtonColumn::__construct*					 public
+ See |CGridColumn::__construct|
+
+
+*CButtonColumn::__get*						 public
+ See |CComponent::__get|
+
+
+*CButtonColumn::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CButtonColumn::__set*						 public
+ See |CComponent::__set|
+
+
+*CButtonColumn::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CButtonColumn::asa*						 public
+ See |CComponent::asa|
+
+
+*CButtonColumn::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CButtonColumn::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CButtonColumn::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CButtonColumn::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CButtonColumn::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CButtonColumn::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CButtonColumn::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CButtonColumn::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CButtonColumn::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CButtonColumn::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CButtonColumn::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CButtonColumn::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CButtonColumn::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CButtonColumn::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CButtonColumn::getHasFooter*					 public
+ See |CGridColumn::getHasFooter|
+
+
+*CButtonColumn::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CButtonColumn::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CButtonColumn::hasProperty*					 public
+ See |CComponent::hasProperty|
+
 
 *CButtonColumn::init*						 public
 >
@@ -162,6 +286,10 @@ METHOD DETAILS
 (void)
 
  Initializes the default buttons (view, update and delete).
+
+
+*CButtonColumn::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CButtonColumn::registerClientScript*				 protected
@@ -188,6 +316,10 @@ METHOD DETAILS
     [data] (mixed) the data object associated with the row
 
 
+*CButtonColumn::renderDataCell* 				 public
+ See |CGridColumn::renderDataCell|
+
+
 *CButtonColumn::renderDataCellContent*				 protected
 >
  renderDataCellContent($row, $data)
@@ -198,6 +330,30 @@ METHOD DETAILS
  delete buttons in the data cell.
     [row] (integer) the row number (zero-based)
     [data] (mixed) the data associated with the row
+
+
+*CButtonColumn::renderFilterCell*				 public
+ See |CGridColumn::renderFilterCell|
+
+
+*CButtonColumn::renderFilterCellContent*			 protected
+ See |CGridColumn::renderFilterCellContent|
+
+
+*CButtonColumn::renderFooterCell*				 public
+ See |CGridColumn::renderFooterCell|
+
+
+*CButtonColumn::renderFooterCellContent*			 protected
+ See |CGridColumn::renderFooterCellContent|
+
+
+*CButtonColumn::renderHeaderCell*				 public
+ See |CGridColumn::renderHeaderCell|
+
+
+*CButtonColumn::renderHeaderCellContent*			 protected
+ See |CGridColumn::renderHeaderCellContent|
 
 
 

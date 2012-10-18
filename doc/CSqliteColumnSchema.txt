@@ -9,6 +9,82 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CSqliteColumnSchema::__call*					 public
+ See |CComponent::__call|
+
+
+*CSqliteColumnSchema::__get*					 public
+ See |CComponent::__get|
+
+
+*CSqliteColumnSchema::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CSqliteColumnSchema::__set*					 public
+ See |CComponent::__set|
+
+
+*CSqliteColumnSchema::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CSqliteColumnSchema::asa*					 public
+ See |CComponent::asa|
+
+
+*CSqliteColumnSchema::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CSqliteColumnSchema::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CSqliteColumnSchema::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CSqliteColumnSchema::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CSqliteColumnSchema::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CSqliteColumnSchema::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CSqliteColumnSchema::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CSqliteColumnSchema::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CSqliteColumnSchema::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CSqliteColumnSchema::disableBehaviors* 			 public
+ See |CComponent::disableBehaviors|
+
+
+*CSqliteColumnSchema::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CSqliteColumnSchema::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CSqliteColumnSchema::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
 *CSqliteColumnSchema::extractDefault*				 protected
 >
  extractDefault($defaultValue)
@@ -18,6 +94,42 @@ METHOD DETAILS
  Extracts the default value for the column. The value is typecasted to correct
  PHP type.
     [defaultValue] (mixed) the default value obtained from metadata
+
+
+*CSqliteColumnSchema::extractLimit*				 protected
+ See |CDbColumnSchema::extractLimit|
+
+
+*CSqliteColumnSchema::extractType*				 protected
+ See |CDbColumnSchema::extractType|
+
+
+*CSqliteColumnSchema::getEventHandlers* 			 public
+ See |CComponent::getEventHandlers|
+
+
+*CSqliteColumnSchema::hasEvent* 				 public
+ See |CComponent::hasEvent|
+
+
+*CSqliteColumnSchema::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CSqliteColumnSchema::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CSqliteColumnSchema::init*					 public
+ See |CDbColumnSchema::init|
+
+
+*CSqliteColumnSchema::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CSqliteColumnSchema::typecast* 				 public
+ See |CDbColumnSchema::typecast|
 
 
 

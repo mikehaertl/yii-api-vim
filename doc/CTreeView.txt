@@ -18,6 +18,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CTreeView::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <animated>				*CTreeView::animated*
  (string|integer) animation speed. This can be one of the three predefined
  speeds ("slow", "normal", or "fast") or the number of milliseconds to run the
@@ -37,6 +40,9 @@ PROPERTY DETAILS
  tree; while the third hyperlink will toggle the tree. The property should be
  a valid jQuery selector (e.g. '#treecontrol' where 'treecontrol' is the ID of
  the 'div' element containing the hyperlinks.)
+
+<controller>				*CTreeView::controller*
+ See |CWidget::controller|
 
 <cookieId>				*CTreeView::cookieId*
  (string) The cookie name to use when persisting via persist:"cookie".
@@ -77,9 +83,15 @@ PROPERTY DETAILS
    treeview-famfamfam
    filetree
 
+<id>					*CTreeView::id*
+ See |CWidget::id|
+
 <options>				*CTreeView::options*
  (array) additional options that can be passed to the constructor of the
  treeview js object.
+
+<owner> 				*CTreeView::owner*
+ See |CWidget::owner|
 
 <persist>				*CTreeView::persist*
  (string) Persist the tree state in cookies or the page location. If set to
@@ -91,6 +103,9 @@ PROPERTY DETAILS
 <prerendered>				*CTreeView::prerendered*
  (boolean) Set to skip rendering of classes and hitarea divs, assuming that is
  done by the serverside. Defaults to false.
+
+<skin>					*CTreeView::skin*
+ See |CWidget::skin|
 
 <toggle>				*CTreeView::toggle*
  (string) Callback when toggling a branch. Arguments: "this" refers to the UL
@@ -112,10 +127,133 @@ PROPERTY DETAILS
  this case, the value of the 'root' GET parameter is the 'id' property of the
  node.
 
+<viewPath>				*CTreeView::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CTreeView::__call*						 public
+ See |CComponent::__call|
+
+
+*CTreeView::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CTreeView::__get*						 public
+ See |CComponent::__get|
+
+
+*CTreeView::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CTreeView::__set*						 public
+ See |CComponent::__set|
+
+
+*CTreeView::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CTreeView::actions*						 public
+ See |CWidget::actions|
+
+
+*CTreeView::asa*						 public
+ See |CComponent::asa|
+
+
+*CTreeView::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CTreeView::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CTreeView::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CTreeView::beginCache* 					 public
+ See |CBaseController::beginCache|
+
+
+*CTreeView::beginClip*						 public
+ See |CBaseController::beginClip|
+
+
+*CTreeView::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CTreeView::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CTreeView::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CTreeView::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CTreeView::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CTreeView::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CTreeView::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CTreeView::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CTreeView::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CTreeView::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CTreeView::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CTreeView::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CTreeView::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CTreeView::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CTreeView::endContent* 					 public
+ See |CBaseController::endContent|
+
+
+*CTreeView::endWidget*						 public
+ See |CBaseController::endWidget|
+
+
+*CTreeView::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
+
 
 *CTreeView::getClientOptions*					 protected
 >
@@ -123,6 +261,42 @@ METHOD DETAILS
 <
 (array) the javascript options
 
+
+
+*CTreeView::getController*					 public
+ See |CWidget::getController|
+
+
+*CTreeView::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CTreeView::getId*						 public
+ See |CWidget::getId|
+
+
+*CTreeView::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CTreeView::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CTreeView::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CTreeView::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CTreeView::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CTreeView::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CTreeView::init*						 public
@@ -133,6 +307,22 @@ METHOD DETAILS
 
  Initializes the widget. This method registers all needed client scripts and
  renders the tree view content.
+
+
+*CTreeView::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
+
+
+*CTreeView::render*						 public
+ See |CWidget::render|
+
+
+*CTreeView::renderFile* 					 public
+ See |CBaseController::renderFile|
+
+
+*CTreeView::renderInternal*					 public
+ See |CBaseController::renderInternal|
 
 
 *CTreeView::run*						 public
@@ -166,6 +356,14 @@ METHOD DETAILS
  dynamic tree view data.
     [data] (array) the data for the tree view (see |CTreeView::data| for
     possible data structure).
+
+
+*CTreeView::setId*						 public
+ See |CWidget::setId|
+
+
+*CTreeView::widget*						 public
+ See |CBaseController::widget|
 
 
 

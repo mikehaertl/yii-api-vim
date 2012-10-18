@@ -9,6 +9,82 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CMysqlColumnSchema::__call*					 public
+ See |CComponent::__call|
+
+
+*CMysqlColumnSchema::__get*					 public
+ See |CComponent::__get|
+
+
+*CMysqlColumnSchema::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CMysqlColumnSchema::__set*					 public
+ See |CComponent::__set|
+
+
+*CMysqlColumnSchema::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CMysqlColumnSchema::asa*					 public
+ See |CComponent::asa|
+
+
+*CMysqlColumnSchema::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CMysqlColumnSchema::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CMysqlColumnSchema::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CMysqlColumnSchema::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CMysqlColumnSchema::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CMysqlColumnSchema::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CMysqlColumnSchema::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CMysqlColumnSchema::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CMysqlColumnSchema::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CMysqlColumnSchema::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CMysqlColumnSchema::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CMysqlColumnSchema::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CMysqlColumnSchema::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
 *CMysqlColumnSchema::extractDefault*				 protected
 >
  extractDefault($defaultValue)
@@ -38,6 +114,34 @@ METHOD DETAILS
 
  Extracts the PHP type from DB type.
     [dbType] (string) DB type
+
+
+*CMysqlColumnSchema::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CMysqlColumnSchema::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CMysqlColumnSchema::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CMysqlColumnSchema::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CMysqlColumnSchema::init*					 public
+ See |CDbColumnSchema::init|
+
+
+*CMysqlColumnSchema::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CMysqlColumnSchema::typecast*					 public
+ See |CDbColumnSchema::typecast|
 
 
 

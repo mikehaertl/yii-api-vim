@@ -28,6 +28,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDbSchema::__call*						 public
+ See |CComponent::__call|
+
+
 *CDbSchema::__construct*					 public
 >
  __construct($conn)
@@ -36,6 +40,22 @@ METHOD DETAILS
 
  Constructor.
     [conn] (CDbConnection) database connection.
+
+
+*CDbSchema::__get*						 public
+ See |CComponent::__get|
+
+
+*CDbSchema::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CDbSchema::__set*						 public
+ See |CComponent::__set|
+
+
+*CDbSchema::__unset*						 public
+ See |CComponent::__unset|
 
 
 *CDbSchema::addColumn*						 public
@@ -95,6 +115,30 @@ table.
     one. Anything that is not recognized as abstract type will be kept in the
     generated SQL. For example, 'string' will be turned into 'varchar(255)',
     while 'string not null' will become 'varchar(255) not null'.
+
+
+*CDbSchema::asa*						 public
+ See |CComponent::asa|
+
+
+*CDbSchema::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CDbSchema::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbSchema::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbSchema::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CDbSchema::canSetProperty*					 public
+ See |CComponent::canSetProperty|
 
 
 *CDbSchema::checkIntegrity*					 public
@@ -172,6 +216,26 @@ table.
     generated SQL.
 
 
+*CDbSchema::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CDbSchema::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbSchema::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbSchema::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CDbSchema::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
 *CDbSchema::dropColumn* 					 public
 >
  dropColumn($table, $column)
@@ -220,6 +284,18 @@ table.
  Builds a SQL statement for dropping a DB table.
     [table] (string) the table to be dropped. The name will be properly quoted
     by the method.
+
+
+*CDbSchema::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CDbSchema::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbSchema::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
 
 
 *CDbSchema::findTableNames*					 protected
@@ -282,6 +358,10 @@ table.
 
 
 
+*CDbSchema::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
 *CDbSchema::getTable*						 public
 >
  getTable($name, $refresh=false)
@@ -317,6 +397,18 @@ names.
  Returns the metadata for all tables in the database.
     [schema] (string) the schema of the tables. Defaults to empty string,
     meaning the current or default schema.
+
+
+*CDbSchema::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CDbSchema::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbSchema::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CDbSchema::loadTable*						 protected
@@ -372,6 +464,10 @@ exist.
  Quotes a table name for use in a query. If the table name contains schema
  prefix, the prefix will also be properly quoted.
     [name] (string) table name
+
+
+*CDbSchema::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
 
 
 *CDbSchema::refresh*						 public

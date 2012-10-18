@@ -23,8 +23,32 @@ PROPERTY DETAILS
  (boolean) whether the attribute value can be null or empty. Defaults to true,
  meaning that if the attribute is empty, it is considered valid.
 
+<attributes>				*CBooleanValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CBooleanValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
+<enableClientValidation>		*CBooleanValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CBooleanValidator::except*
+ See |CValidator::except|
+
 <falseValue>				*CBooleanValidator::falseValue*
  (mixed) the value representing false status. Defaults to '0'.
+
+<message>				*CBooleanValidator::message*
+ See |CValidator::message|
+
+<on>					*CBooleanValidator::on*
+ See |CValidator::on|
+
+<safe>					*CBooleanValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CBooleanValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 <strict>				*CBooleanValidator::strict*
  (boolean) whether the comparison to |CBooleanValidator::trueValue| and
@@ -41,6 +65,58 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CBooleanValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CBooleanValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CBooleanValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CBooleanValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CBooleanValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CBooleanValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CBooleanValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CBooleanValidator::asa*					 public
+ See |CComponent::asa|
+
+
+*CBooleanValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CBooleanValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CBooleanValidator::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
+*CBooleanValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CBooleanValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CBooleanValidator::clientValidateAttribute*			 public
 >
  clientValidateAttribute($object, $attribute)
@@ -50,6 +126,70 @@ METHOD DETAILS
  Returns the JavaScript needed for performing client-side validation.
     [object] (CModel) the data object being validated
     [attribute] (string) the name of the attribute to be validated.
+
+
+*CBooleanValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CBooleanValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CBooleanValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CBooleanValidator::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CBooleanValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CBooleanValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CBooleanValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CBooleanValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CBooleanValidator::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
+*CBooleanValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CBooleanValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CBooleanValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CBooleanValidator::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CBooleanValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CBooleanValidator::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
+
+
+*CBooleanValidator::validate*					 public
+ See |CValidator::validate|
 
 
 *CBooleanValidator::validateAttribute*				 protected

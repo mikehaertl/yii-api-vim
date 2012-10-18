@@ -16,6 +16,12 @@ PROPERTY DETAILS
  (boolean) whether to allow name in the email address (e.g. "Qiang Xue
  <qiang.xue@gmail.com>"). Defaults to false.
 
+<attributes>				*CEmailValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CEmailValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
 <checkMX>				*CEmailValidator::checkMX*
  (boolean) whether to check the MX record for the email address. Defaults to
  false. To enable it, you need to make sure the PHP function 'checkdnsrr'
@@ -23,19 +29,102 @@ PROPERTY DETAILS
 
 <checkPort>				*CEmailValidator::checkPort*
  (boolean) whether to check port 25 for the email address. Defaults to false.
+ To enable it, ensure that the PHP functions 'dns_get_record' and 'fsockopen'
+ are available in your PHP installation.
+
+<enableClientValidation>		*CEmailValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CEmailValidator::except*
+ See |CValidator::except|
 
 <fullPattern>				*CEmailValidator::fullPattern*
  (string) the regular expression used to validate email addresses with the
  name part. This property is used only when |CEmailValidator::allowName| is
  true.
 
+<message>				*CEmailValidator::message*
+ See |CValidator::message|
+
+<on>					*CEmailValidator::on*
+ See |CValidator::on|
+
 <pattern>				*CEmailValidator::pattern*
  (string) the regular expression used to validate the attribute value.
+
+<safe>					*CEmailValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CEmailValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CEmailValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CEmailValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CEmailValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CEmailValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CEmailValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CEmailValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CEmailValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CEmailValidator::asa*						 public
+ See |CComponent::asa|
+
+
+*CEmailValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CEmailValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CEmailValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CEmailValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CEmailValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CEmailValidator::checkMxPorts* 				 protected
+>
+ checkMxPorts($domain)
+<
+(boolean) true if a reachable MX server has been found
+
+ Retrieves the list of MX records for $domain and checks if port 25 is opened
+ on any of these.
+    [domain] (string) domain to be checked
+
 
 *CEmailValidator::clientValidateAttribute*			 public
 >
@@ -46,6 +135,82 @@ METHOD DETAILS
  Returns the JavaScript needed for performing client-side validation.
     [object] (CModel) the data object being validated
     [attribute] (string) the name of the attribute to be validated.
+
+
+*CEmailValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CEmailValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CEmailValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CEmailValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CEmailValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CEmailValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CEmailValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CEmailValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CEmailValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CEmailValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CEmailValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CEmailValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CEmailValidator::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CEmailValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CEmailValidator::mxSort*					 protected
+>
+ mxSort($a, $b)
+<
+(boolean) 
+
+ Determines if one MX record has higher priority as another (i.e. 'pri' is
+ lower). Used by |CEmailValidator::checkMxPorts|.
+    [a] (mixed) 
+    [b] (mixed) 
+
+
+*CEmailValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CEmailValidator::validate*					 public
+ See |CValidator::validate|
 
 
 *CEmailValidator::validateAttribute*				 protected

@@ -8,9 +8,30 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<columnNames>				*COciTableSchema::columnNames*
+ See |CDbTableSchema::columnNames|
+
+<columns>				*COciTableSchema::columns*
+ See |CDbTableSchema::columns|
+
+<foreignKeys>				*COciTableSchema::foreignKeys*
+ See |CDbTableSchema::foreignKeys|
+
+<name>					*COciTableSchema::name*
+ See |CDbTableSchema::name|
+
+<primaryKey>				*COciTableSchema::primaryKey*
+ See |CDbTableSchema::primaryKey|
+
+<rawName>				*COciTableSchema::rawName*
+ See |CDbTableSchema::rawName|
+
 <schemaName>				*COciTableSchema::schemaName*
  (string) name of the schema (database) that this table belongs to. Defaults
  to null, meaning no schema (or the current database).
+
+<sequenceName>				*COciTableSchema::sequenceName*
+ See |CDbTableSchema::sequenceName|
 
 
 

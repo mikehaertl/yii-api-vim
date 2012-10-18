@@ -18,7 +18,7 @@
  }
  catch(Exception $e)
  {
-    $transaction->rollBack();
+    $transaction->rollback();
  }
 <
 
@@ -37,6 +37,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDbTransaction::__call*					 public
+ See |CComponent::__call|
+
+
 *CDbTransaction::__construct*					 public
 >
  __construct($connection)
@@ -48,6 +52,46 @@ METHOD DETAILS
     transaction
 
 
+*CDbTransaction::__get* 					 public
+ See |CComponent::__get|
+
+
+*CDbTransaction::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDbTransaction::__set* 					 public
+ See |CComponent::__set|
+
+
+*CDbTransaction::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDbTransaction::asa*						 public
+ See |CComponent::asa|
+
+
+*CDbTransaction::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CDbTransaction::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbTransaction::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbTransaction::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CDbTransaction::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CDbTransaction::commit*					 public
 >
  commit()
@@ -55,6 +99,38 @@ METHOD DETAILS
 (void)
 
  Commits a transaction.
+
+
+*CDbTransaction::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CDbTransaction::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbTransaction::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbTransaction::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbTransaction::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbTransaction::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CDbTransaction::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbTransaction::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CDbTransaction::getActive*					 public
@@ -71,6 +147,26 @@ METHOD DETAILS
 <
 (CDbConnection) the DB connection for this transaction
 
+
+
+*CDbTransaction::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDbTransaction::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbTransaction::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbTransaction::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CDbTransaction::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CDbTransaction::rollback*					 public

@@ -14,16 +14,29 @@ PROPERTY DETAILS
 <file>					*CErrorEvent::file*
  (string) error message
 
+<handled>				*CErrorEvent::handled*
+ See |CEvent::handled|
+
 <line>					*CErrorEvent::line*
  (string) error file
 
 <message>				*CErrorEvent::message*
  (string) error message
 
+<params>				*CErrorEvent::params*
+ See |CEvent::params|
+
+<sender>				*CErrorEvent::sender*
+ See |CEvent::sender|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CErrorEvent::__call*						 public
+ See |CComponent::__call|
+
 
 *CErrorEvent::__construct*					 public
 >
@@ -37,6 +50,98 @@ METHOD DETAILS
     [message] (string) error message
     [file] (string) error file
     [line] (integer) error line
+
+
+*CErrorEvent::__get*						 public
+ See |CComponent::__get|
+
+
+*CErrorEvent::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CErrorEvent::__set*						 public
+ See |CComponent::__set|
+
+
+*CErrorEvent::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CErrorEvent::asa*						 public
+ See |CComponent::asa|
+
+
+*CErrorEvent::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CErrorEvent::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CErrorEvent::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CErrorEvent::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CErrorEvent::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CErrorEvent::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CErrorEvent::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CErrorEvent::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CErrorEvent::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CErrorEvent::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CErrorEvent::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CErrorEvent::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CErrorEvent::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CErrorEvent::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
+*CErrorEvent::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CErrorEvent::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CErrorEvent::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CErrorEvent::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

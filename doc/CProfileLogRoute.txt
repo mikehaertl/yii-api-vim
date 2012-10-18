@@ -17,19 +17,63 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<categories>				*CProfileLogRoute::categories*
+ See |CLogRoute::categories|
+
+<enabled>				*CProfileLogRoute::enabled*
+ See |CLogRoute::enabled|
+
+<filter>				*CProfileLogRoute::filter*
+ See |CLogRoute::filter|
+
 <groupByToken>				*CProfileLogRoute::groupByToken*
  (boolean) whether to aggregate results according to profiling tokens. If
  false, the results will be aggregated by categories. Defaults to true. Note
  that this property only affects the summary report that is enabled when
  |CProfileLogRoute::report| is 'summary'.
 
+<ignoreAjaxInFireBug>			*CProfileLogRoute::ignoreAjaxInFireBug*
+ See |CWebLogRoute::ignoreAjaxInFireBug|
+
+<ignoreFlashInFireBug>			*CProfileLogRoute::ignoreFlashInFireBug*
+ See |CWebLogRoute::ignoreFlashInFireBug|
+
+<levels>				*CProfileLogRoute::levels*
+ See |CLogRoute::levels|
+
+<logs>					*CProfileLogRoute::logs*
+ See |CLogRoute::logs|
+
 <report>				*CProfileLogRoute::report*
  (string) the type of the profiling report to display. Defaults to 'summary'.
+
+<showInFireBug> 			*CProfileLogRoute::showInFireBug*
+ See |CWebLogRoute::showInFireBug|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CProfileLogRoute::__call*					 public
+ See |CComponent::__call|
+
+
+*CProfileLogRoute::__get*					 public
+ See |CComponent::__get|
+
+
+*CProfileLogRoute::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CProfileLogRoute::__set*					 public
+ See |CComponent::__set|
+
+
+*CProfileLogRoute::__unset*					 public
+ See |CComponent::__unset|
+
 
 *CProfileLogRoute::aggregateResult*				 protected
 >
@@ -40,6 +84,54 @@ METHOD DETAILS
  Aggregates the report result.
     [result] (array) log result for this code block
     [delta] (float) time spent for this code block
+
+
+*CProfileLogRoute::asa* 					 public
+ See |CComponent::asa|
+
+
+*CProfileLogRoute::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CProfileLogRoute::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CProfileLogRoute::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CProfileLogRoute::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CProfileLogRoute::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CProfileLogRoute::collectLogs* 				 public
+ See |CLogRoute::collectLogs|
+
+
+*CProfileLogRoute::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CProfileLogRoute::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CProfileLogRoute::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CProfileLogRoute::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CProfileLogRoute::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
 
 
 *CProfileLogRoute::displayCallstack*				 protected
@@ -62,12 +154,44 @@ METHOD DETAILS
     [logs] (array) list of logs
 
 
+*CProfileLogRoute::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CProfileLogRoute::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CProfileLogRoute::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CProfileLogRoute::formatLogMessage*				 protected
+ See |CLogRoute::formatLogMessage|
+
+
+*CProfileLogRoute::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
 *CProfileLogRoute::getReport*					 public
 >
  getReport()
 <
 (string) the type of the profiling report to display. Defaults to 'summary'.
 
+
+
+*CProfileLogRoute::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CProfileLogRoute::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CProfileLogRoute::hasProperty* 				 public
+ See |CComponent::hasProperty|
 
 
 *CProfileLogRoute::init*					 public
@@ -88,6 +212,14 @@ METHOD DETAILS
 
  Displays the log messages.
     [logs] (array) list of log messages
+
+
+*CProfileLogRoute::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CProfileLogRoute::render*					 protected
+ See |CWebLogRoute::render|
 
 
 *CProfileLogRoute::setReport*					 public

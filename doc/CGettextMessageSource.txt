@@ -25,6 +25,9 @@ PROPERTY DETAILS
  the "messages" subdirectory of the application directory (e.g.
  "protected/messages").
 
+<behaviors>				*CGettextMessageSource::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <cacheID>				*CGettextMessageSource::cacheID*
  (string) the ID of the cache application component that is used to cache the
  messages. Defaults to 'cache' which refers to the primary cache application
@@ -40,6 +43,15 @@ PROPERTY DETAILS
  (without extension) that stores the translated messages. Defaults to
  'messages'.
 
+<forceTranslation>			*CGettextMessageSource::forceTranslation*
+ See |CMessageSource::forceTranslation|
+
+<isInitialized> 			*CGettextMessageSource::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
+<language>				*CGettextMessageSource::language*
+ See |CMessageSource::language|
+
 <useBigEndian>				*CGettextMessageSource::useBigEndian*
  (boolean) whether to use Big Endian to read and write MO files. Defaults to
  false. This property is only used when |CGettextMessageSource::useMoFile| is
@@ -53,6 +65,106 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CGettextMessageSource::__call* 				 public
+ See |CComponent::__call|
+
+
+*CGettextMessageSource::__get*					 public
+ See |CComponent::__get|
+
+
+*CGettextMessageSource::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CGettextMessageSource::__set*					 public
+ See |CComponent::__set|
+
+
+*CGettextMessageSource::__unset*				 public
+ See |CComponent::__unset|
+
+
+*CGettextMessageSource::asa*					 public
+ See |CComponent::asa|
+
+
+*CGettextMessageSource::attachBehavior* 			 public
+ See |CComponent::attachBehavior|
+
+
+*CGettextMessageSource::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CGettextMessageSource::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CGettextMessageSource::canGetProperty* 			 public
+ See |CComponent::canGetProperty|
+
+
+*CGettextMessageSource::canSetProperty* 			 public
+ See |CComponent::canSetProperty|
+
+
+*CGettextMessageSource::detachBehavior* 			 public
+ See |CComponent::detachBehavior|
+
+
+*CGettextMessageSource::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CGettextMessageSource::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CGettextMessageSource::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CGettextMessageSource::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CGettextMessageSource::enableBehavior* 			 public
+ See |CComponent::enableBehavior|
+
+
+*CGettextMessageSource::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CGettextMessageSource::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CGettextMessageSource::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CGettextMessageSource::getIsInitialized*			 public
+ See |CApplicationComponent::getIsInitialized|
+
+
+*CGettextMessageSource::getLanguage*				 public
+ See |CMessageSource::getLanguage|
+
+
+*CGettextMessageSource::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CGettextMessageSource::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CGettextMessageSource::hasProperty*				 public
+ See |CComponent::hasProperty|
+
 
 *CGettextMessageSource::init*					 public
 >
@@ -73,6 +185,26 @@ METHOD DETAILS
  Loads the message translation for the specified language and category.
     [category] (string) the message category
     [language] (string) the target language
+
+
+*CGettextMessageSource::onMissingTranslation*			 public
+ See |CMessageSource::onMissingTranslation|
+
+
+*CGettextMessageSource::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CGettextMessageSource::setLanguage*				 public
+ See |CMessageSource::setLanguage|
+
+
+*CGettextMessageSource::translate*				 public
+ See |CMessageSource::translate|
+
+
+*CGettextMessageSource::translateMessage*			 protected
+ See |CMessageSource::translateMessage|
 
 
 

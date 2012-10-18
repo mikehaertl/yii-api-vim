@@ -15,19 +15,46 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<action>				*CCodeGenerator::action*
+ See |CController::action|
+
+<actionParams>				*CCodeGenerator::actionParams*
+ See |CController::actionParams|
+
+<cachingStack>				*CCodeGenerator::cachingStack*
+ See |CController::cachingStack|
+
+<clips> 				*CCodeGenerator::clips*
+ See |CController::clips|
+
 <codeModel>				*CCodeGenerator::codeModel*
  (string) the code model class. This can be either a class name (if it can be
  autoloaded) or a path alias referring to the class file. Child classes must
  configure this property with a concrete value.
 
+<defaultAction> 			*CCodeGenerator::defaultAction*
+ See |CController::defaultAction|
+
+<id>					*CCodeGenerator::id*
+ See |CController::id|
+
 <layout>				*CCodeGenerator::layout*
  (string) the layout to be used by the generator. Defaults to 'generator'.
+
+<module>				*CCodeGenerator::module*
+ See |CController::module|
 
 <pageTitle>				*CCodeGenerator::pageTitle*
  (string) the page title
 
+<route> 				*CCodeGenerator::route*
+ See |CController::route|
+
 <templates>				*CCodeGenerator::templates*
  (array) a list of available code templates (name=>path)
+
+<uniqueId>				*CCodeGenerator::uniqueId*
+ See |CController::uniqueId|
 
 <viewPath>				*CCodeGenerator::viewPath*
  (string) Returns the view path of the generator. The "views" directory under
@@ -37,6 +64,34 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CCodeGenerator::__call*					 public
+ See |CComponent::__call|
+
+
+*CCodeGenerator::__construct*					 public
+ See |CController::__construct|
+
+
+*CCodeGenerator::__get* 					 public
+ See |CComponent::__get|
+
+
+*CCodeGenerator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CCodeGenerator::__set* 					 public
+ See |CComponent::__set|
+
+
+*CCodeGenerator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CCodeGenerator::accessRules*					 public
+ See |CController::accessRules|
+
 
 *CCodeGenerator::actionCode*					 public
 >
@@ -68,12 +123,216 @@ METHOD DETAILS
  for collecting user parameters for code generation.
 
 
+*CCodeGenerator::actions*					 public
+ See |CController::actions|
+
+
+*CCodeGenerator::afterAction*					 protected
+ See |CController::afterAction|
+
+
+*CCodeGenerator::afterRender*					 protected
+ See |CController::afterRender|
+
+
+*CCodeGenerator::asa*						 public
+ See |CComponent::asa|
+
+
+*CCodeGenerator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CCodeGenerator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CCodeGenerator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CCodeGenerator::beforeAction*					 protected
+ See |CController::beforeAction|
+
+
+*CCodeGenerator::beforeRender*					 protected
+ See |CController::beforeRender|
+
+
+*CCodeGenerator::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CCodeGenerator::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CCodeGenerator::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CCodeGenerator::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CCodeGenerator::behaviors*					 public
+ See |CController::behaviors|
+
+
+*CCodeGenerator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CCodeGenerator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CCodeGenerator::clearPageStates*				 public
+ See |CController::clearPageStates|
+
+
+*CCodeGenerator::createAbsoluteUrl*				 public
+ See |CController::createAbsoluteUrl|
+
+
+*CCodeGenerator::createAction*					 public
+ See |CController::createAction|
+
+
+*CCodeGenerator::createActionFromMap*				 protected
+ See |CController::createActionFromMap|
+
+
+*CCodeGenerator::createUrl*					 public
+ See |CController::createUrl|
+
+
+*CCodeGenerator::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CCodeGenerator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CCodeGenerator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CCodeGenerator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CCodeGenerator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CCodeGenerator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CCodeGenerator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CCodeGenerator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CCodeGenerator::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CCodeGenerator::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CCodeGenerator::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CCodeGenerator::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CCodeGenerator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CCodeGenerator::filterAccessControl*				 public
+ See |CController::filterAccessControl|
+
+
+*CCodeGenerator::filterAjaxOnly*				 public
+ See |CController::filterAjaxOnly|
+
+
+*CCodeGenerator::filterPostOnly*				 public
+ See |CController::filterPostOnly|
+
+
+*CCodeGenerator::filters*					 public
+ See |CController::filters|
+
+
+*CCodeGenerator::forward*					 public
+ See |CController::forward|
+
+
+*CCodeGenerator::getAction*					 public
+ See |CController::getAction|
+
+
+*CCodeGenerator::getActionParams*				 public
+ See |CController::getActionParams|
+
+
+*CCodeGenerator::getCachingStack*				 public
+ See |CController::getCachingStack|
+
+
+*CCodeGenerator::getClips*					 public
+ See |CController::getClips|
+
+
+*CCodeGenerator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CCodeGenerator::getId* 					 public
+ See |CController::getId|
+
+
+*CCodeGenerator::getLayoutFile* 				 public
+ See |CController::getLayoutFile|
+
+
+*CCodeGenerator::getModule*					 public
+ See |CController::getModule|
+
+
+*CCodeGenerator::getPageState*					 public
+ See |CController::getPageState|
+
+
 *CCodeGenerator::getPageTitle*					 public
 >
  getPageTitle()
 <
 (string) the page title
 
+
+
+*CCodeGenerator::getRoute*					 public
+ See |CController::getRoute|
+
+
+*CCodeGenerator::getUniqueId*					 public
+ See |CController::getUniqueId|
+
+
+*CCodeGenerator::getViewFile*					 public
+ See |CController::getViewFile|
 
 
 *CCodeGenerator::getViewPath*					 public
@@ -86,6 +345,38 @@ METHOD DETAILS
  directory containing the generator class file will be returned.
 
 
+*CCodeGenerator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CCodeGenerator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CCodeGenerator::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CCodeGenerator::init*						 public
+ See |CController::init|
+
+
+*CCodeGenerator::invalidActionParams*				 public
+ See |CController::invalidActionParams|
+
+
+*CCodeGenerator::isCachingStackEmpty*				 public
+ See |CController::isCachingStackEmpty|
+
+
+*CCodeGenerator::loadPageStates*				 protected
+ See |CController::loadPageStates|
+
+
+*CCodeGenerator::missingAction* 				 public
+ See |CController::missingAction|
+
+
 *CCodeGenerator::prepare*					 protected
 >
  prepare()
@@ -95,6 +386,98 @@ METHOD DETAILS
  Prepares the code model.
 
 
+*CCodeGenerator::processDynamicOutput*				 public
+ See |CController::processDynamicOutput|
+
+
+*CCodeGenerator::processOutput* 				 public
+ See |CController::processOutput|
+
+
+*CCodeGenerator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CCodeGenerator::recordCachingAction*				 public
+ See |CController::recordCachingAction|
+
+
+*CCodeGenerator::redirect*					 public
+ See |CController::redirect|
+
+
+*CCodeGenerator::refresh*					 public
+ See |CController::refresh|
+
+
+*CCodeGenerator::render*					 public
+ See |CController::render|
+
+
+*CCodeGenerator::renderClip*					 public
+ See |CController::renderClip|
+
+
+*CCodeGenerator::renderDynamic* 				 public
+ See |CController::renderDynamic|
+
+
+*CCodeGenerator::renderDynamicInternal* 			 public
+ See |CController::renderDynamicInternal|
+
+
+*CCodeGenerator::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CCodeGenerator::renderInternal*				 public
+ See |CBaseController::renderInternal|
+
+
+*CCodeGenerator::renderPartial* 				 public
+ See |CController::renderPartial|
+
+
+*CCodeGenerator::renderText*					 public
+ See |CController::renderText|
+
+
+*CCodeGenerator::replaceDynamicOutput*				 protected
+ See |CController::replaceDynamicOutput|
+
+
+*CCodeGenerator::resolveViewFile*				 public
+ See |CController::resolveViewFile|
+
+
+*CCodeGenerator::run*						 public
+ See |CController::run|
+
+
+*CCodeGenerator::runAction*					 public
+ See |CController::runAction|
+
+
+*CCodeGenerator::runActionWithFilters*				 public
+ See |CController::runActionWithFilters|
+
+
+*CCodeGenerator::savePageStates*				 protected
+ See |CController::savePageStates|
+
+
+*CCodeGenerator::setAction*					 public
+ See |CController::setAction|
+
+
+*CCodeGenerator::setPageState*					 public
+ See |CController::setPageState|
+
+
+*CCodeGenerator::setPageTitle*					 public
+ See |CController::setPageTitle|
+
+
 *CCodeGenerator::setViewPath*					 public
 >
  setViewPath($value)
@@ -102,6 +485,10 @@ METHOD DETAILS
 (void)
 
     [value] (string) the view path of the generator.
+
+
+*CCodeGenerator::widget*					 public
+ See |CBaseController::widget|
 
 
 

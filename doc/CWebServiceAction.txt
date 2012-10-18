@@ -25,6 +25,12 @@ PROPERTY DETAILS
  This should be an array with WSDL types as keys and names of PHP classes as
  values. A PHP class can also be specified as a path alias.
 
+<controller>				*CWebServiceAction::controller*
+ See |CAction::controller|
+
+<id>					*CWebServiceAction::id*
+ See |CAction::id|
+
 <provider>				*CWebServiceAction::provider*
  (mixed) the Web service provider object or class name. If specified as a
  class name, it can be a path alias. Defaults to null, meaning the current
@@ -62,6 +68,54 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CWebServiceAction::__call*					 public
+ See |CComponent::__call|
+
+
+*CWebServiceAction::__construct*				 public
+ See |CAction::__construct|
+
+
+*CWebServiceAction::__get*					 public
+ See |CComponent::__get|
+
+
+*CWebServiceAction::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CWebServiceAction::__set*					 public
+ See |CComponent::__set|
+
+
+*CWebServiceAction::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CWebServiceAction::asa*					 public
+ See |CComponent::asa|
+
+
+*CWebServiceAction::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CWebServiceAction::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CWebServiceAction::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
+*CWebServiceAction::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CWebServiceAction::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CWebServiceAction::createWebService*				 protected
 >
  createWebService($provider, $wsdlUrl, $serviceUrl)
@@ -75,6 +129,50 @@ METHOD DETAILS
     [serviceUrl] (string) the URL for the Web service.
 
 
+*CWebServiceAction::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CWebServiceAction::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CWebServiceAction::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CWebServiceAction::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CWebServiceAction::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CWebServiceAction::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CWebServiceAction::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CWebServiceAction::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
+*CWebServiceAction::getController*				 public
+ See |CAction::getController|
+
+
+*CWebServiceAction::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CWebServiceAction::getId*					 public
+ See |CAction::getId|
+
+
 *CWebServiceAction::getService* 				 public
 >
  getService()
@@ -82,6 +180,22 @@ METHOD DETAILS
 (CWebService) the Web service instance
 
  Returns the Web service instance currently being used.
+
+
+*CWebServiceAction::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CWebServiceAction::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CWebServiceAction::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CWebServiceAction::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
 
 
 *CWebServiceAction::run*					 public
@@ -93,6 +207,14 @@ METHOD DETAILS
  Runs the action. If the GET parameter |CWebServiceAction::serviceVar| exists,
  the action handle the remote method invocation. If not, the action will serve
  WSDL content;
+
+
+*CWebServiceAction::runWithParams*				 public
+ See |CAction::runWithParams|
+
+
+*CWebServiceAction::runWithParamsInternal*			 protected
+ See |CAction::runWithParamsInternal|
 
 
 

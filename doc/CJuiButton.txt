@@ -13,7 +13,7 @@
  		'name'=>'submit',
  		'caption'=>'Save',
  		'options'=>array(
-         'onclick'=>'js:function(){alert("Yes");}',
+         'onclick'=>new CJavaScriptExpression('function(){alert("Yes");}'),
      ),
  ));
 <
@@ -24,8 +24,8 @@
  		'name'=>'button',
  			'caption'=>'Save',
  		'value'=>'asd',
- 		'onclick'=>'js:function(){alert("Save button clicked"); this.blur(); return
- false;}',
+ 		'onclick'=>new CJavaScriptExpression('function(){alert("Save button
+ clicked"); this.blur(); return false;}'),
  		)
  );
 <
@@ -37,6 +37,12 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CJuiButton::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<attribute>				*CJuiButton::attribute*
+ See |CJuiInputWidget::attribute|
+
 <buttonType>				*CJuiButton::buttonType*
  (string) The button type (possible types: submit, button, link, radio,
  checkbox, buttonset). "submit" is used as default.
@@ -44,23 +50,227 @@ PROPERTY DETAILS
 <caption>				*CJuiButton::caption*
  (string) The button text
 
+<controller>				*CJuiButton::controller*
+ See |CWidget::controller|
+
+<cssFile>				*CJuiButton::cssFile*
+ See |CJuiWidget::cssFile|
+
+<htmlOptions>				*CJuiButton::htmlOptions*
+ See |CJuiWidget::htmlOptions|
+
 <htmlTag>				*CJuiButton::htmlTag*
  (string) The default html tag for the buttonset
+
+<id>					*CJuiButton::id*
+ See |CWidget::id|
+
+<model> 				*CJuiButton::model*
+ See |CJuiInputWidget::model|
+
+<name>					*CJuiButton::name*
+ See |CJuiInputWidget::name|
 
 <onclick>				*CJuiButton::onclick*
  (string) The javascript function to be raised when this item is clicked
  (client event).
 
+<options>				*CJuiButton::options*
+ See |CJuiWidget::options|
+
+<owner> 				*CJuiButton::owner*
+ See |CWidget::owner|
+
+<scriptFile>				*CJuiButton::scriptFile*
+ See |CJuiWidget::scriptFile|
+
+<scriptUrl>				*CJuiButton::scriptUrl*
+ See |CJuiWidget::scriptUrl|
+
+<skin>					*CJuiButton::skin*
+ See |CWidget::skin|
+
+<theme> 				*CJuiButton::theme*
+ See |CJuiWidget::theme|
+
+<themeUrl>				*CJuiButton::themeUrl*
+ See |CJuiWidget::themeUrl|
+
 <url>					*CJuiButton::url*
- (string) The url used when a buttonType "link" is selected.
+ (mixed) a URL or an action route that can be used to create a URL. Used when
+ a buttonType "link" is selected. See normalizeUrl for more details about how
+ to specify this parameter.
 
 <value> 				*CJuiButton::value*
  (mixed) The value of the current item. Used only for "radio" and "checkbox"
+
+<viewPath>				*CJuiButton::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CJuiButton::__call*						 public
+ See |CComponent::__call|
+
+
+*CJuiButton::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CJuiButton::__get*						 public
+ See |CComponent::__get|
+
+
+*CJuiButton::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CJuiButton::__set*						 public
+ See |CComponent::__set|
+
+
+*CJuiButton::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CJuiButton::actions*						 public
+ See |CWidget::actions|
+
+
+*CJuiButton::asa*						 public
+ See |CComponent::asa|
+
+
+*CJuiButton::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CJuiButton::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CJuiButton::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CJuiButton::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CJuiButton::beginClip* 					 public
+ See |CBaseController::beginClip|
+
+
+*CJuiButton::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CJuiButton::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CJuiButton::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CJuiButton::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CJuiButton::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CJuiButton::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CJuiButton::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CJuiButton::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CJuiButton::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CJuiButton::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CJuiButton::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CJuiButton::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CJuiButton::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CJuiButton::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CJuiButton::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CJuiButton::endWidget* 					 public
+ See |CBaseController::endWidget|
+
+
+*CJuiButton::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CJuiButton::getController*					 public
+ See |CWidget::getController|
+
+
+*CJuiButton::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CJuiButton::getId*						 public
+ See |CWidget::getId|
+
+
+*CJuiButton::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CJuiButton::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CJuiButton::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CJuiButton::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CJuiButton::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CJuiButton::hasModel*						 protected
+ See |CJuiInputWidget::hasModel|
+
+
+*CJuiButton::hasProperty*					 public
+ See |CComponent::hasProperty|
+
 
 *CJuiButton::init*						 public
 >
@@ -71,6 +281,38 @@ METHOD DETAILS
  (non-PHPdoc)
 
 
+*CJuiButton::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CJuiButton::registerCoreScripts*				 protected
+ See |CJuiWidget::registerCoreScripts|
+
+
+*CJuiButton::registerScriptFile*				 protected
+ See |CJuiWidget::registerScriptFile|
+
+
+*CJuiButton::render*						 public
+ See |CWidget::render|
+
+
+*CJuiButton::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CJuiButton::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
+*CJuiButton::resolveNameID*					 protected
+ See |CJuiInputWidget::resolveNameID|
+
+
+*CJuiButton::resolvePackagePath*				 protected
+ See |CJuiWidget::resolvePackagePath|
+
+
 *CJuiButton::run*						 public
 >
  run()
@@ -78,6 +320,14 @@ METHOD DETAILS
 (void)
 
  (non-PHPdoc)
+
+
+*CJuiButton::setId*						 public
+ See |CWidget::setId|
+
+
+*CJuiButton::widget*						 public
+ See |CBaseController::widget|
 
 
 

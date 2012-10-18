@@ -9,6 +9,98 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CGettextFile::__call*						 public
+ See |CComponent::__call|
+
+
+*CGettextFile::__get*						 public
+ See |CComponent::__get|
+
+
+*CGettextFile::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CGettextFile::__set*						 public
+ See |CComponent::__set|
+
+
+*CGettextFile::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CGettextFile::asa*						 public
+ See |CComponent::asa|
+
+
+*CGettextFile::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CGettextFile::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CGettextFile::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CGettextFile::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CGettextFile::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CGettextFile::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CGettextFile::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CGettextFile::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CGettextFile::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CGettextFile::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CGettextFile::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CGettextFile::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CGettextFile::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CGettextFile::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CGettextFile::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CGettextFile::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CGettextFile::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CGettextFile::load*						 public
 >
  load($file, $context)
@@ -18,6 +110,10 @@ METHOD DETAILS
  Loads messages from a file.
     [file] (string) file path
     [context] (string) message context
+
+
+*CGettextFile::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CGettextFile::save*						 public

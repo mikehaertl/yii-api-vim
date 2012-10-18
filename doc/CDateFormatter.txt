@@ -24,6 +24,10 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDateFormatter::__call*					 public
+ See |CComponent::__call|
+
+
 *CDateFormatter::__construct*					 public
 >
  __construct($locale)
@@ -34,11 +38,84 @@ METHOD DETAILS
     [locale] (mixed) locale ID (string) or CLocale instance
 
 
+*CDateFormatter::__get* 					 public
+ See |CComponent::__get|
+
+
+*CDateFormatter::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDateFormatter::__set* 					 public
+ See |CComponent::__set|
+
+
+*CDateFormatter::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDateFormatter::asa*						 public
+ See |CComponent::asa|
+
+
+*CDateFormatter::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CDateFormatter::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDateFormatter::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDateFormatter::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CDateFormatter::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CDateFormatter::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CDateFormatter::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDateFormatter::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDateFormatter::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDateFormatter::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDateFormatter::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CDateFormatter::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDateFormatter::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CDateFormatter::format*					 public
 >
  format($pattern, $time)
 <
-(string) formatted date time.
+(string) formatted date time. Null if $time is null. (the null value check is
+available since Yii 1.1.11)
 
  Formats a date according to a customized pattern.
     [pattern] (string) the pattern (See
@@ -262,6 +339,22 @@ METHOD DETAILS
     [date] (array) result of |CTimestamp::getdate|.
 
 
+*CDateFormatter::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDateFormatter::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDateFormatter::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDateFormatter::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CDateFormatter::parseFormat*					 protected
 >
  parseFormat($pattern)
@@ -270,6 +363,10 @@ METHOD DETAILS
 
  Parses the datetime format pattern.
     [pattern] (string) the pattern to be parsed
+
+
+*CDateFormatter::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

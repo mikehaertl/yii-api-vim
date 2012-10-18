@@ -17,6 +17,10 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CFormModel::__call*						 public
+ See |CComponent::__call|
+
+
 *CFormModel::__construct*					 public
 >
  __construct($scenario='')
@@ -26,6 +30,58 @@ METHOD DETAILS
  Constructor.
     [scenario] (string) name of the scenario that this model is used in. See
     |CModel::scenario| on how scenario is used by models.
+
+
+*CFormModel::__get*						 public
+ See |CComponent::__get|
+
+
+*CFormModel::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CFormModel::__set*						 public
+ See |CComponent::__set|
+
+
+*CFormModel::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CFormModel::addError*						 public
+ See |CModel::addError|
+
+
+*CFormModel::addErrors* 					 public
+ See |CModel::addErrors|
+
+
+*CFormModel::afterConstruct*					 protected
+ See |CModel::afterConstruct|
+
+
+*CFormModel::afterValidate*					 protected
+ See |CModel::afterValidate|
+
+
+*CFormModel::asa*						 public
+ See |CComponent::asa|
+
+
+*CFormModel::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CFormModel::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CFormModel::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CFormModel::attributeLabels*					 public
+ See |CModel::attributeLabels|
 
 
 *CFormModel::attributeNames*					 public
@@ -40,6 +96,122 @@ class.
  default.
 
 
+*CFormModel::beforeValidate*					 protected
+ See |CModel::beforeValidate|
+
+
+*CFormModel::behaviors* 					 public
+ See |CModel::behaviors|
+
+
+*CFormModel::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CFormModel::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CFormModel::clearErrors*					 public
+ See |CModel::clearErrors|
+
+
+*CFormModel::createValidators*					 public
+ See |CModel::createValidators|
+
+
+*CFormModel::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CFormModel::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CFormModel::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CFormModel::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CFormModel::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CFormModel::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CFormModel::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CFormModel::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CFormModel::generateAttributeLabel*				 public
+ See |CModel::generateAttributeLabel|
+
+
+*CFormModel::getAttributeLabel* 				 public
+ See |CModel::getAttributeLabel|
+
+
+*CFormModel::getAttributes*					 public
+ See |CModel::getAttributes|
+
+
+*CFormModel::getError*						 public
+ See |CModel::getError|
+
+
+*CFormModel::getErrors* 					 public
+ See |CModel::getErrors|
+
+
+*CFormModel::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CFormModel::getIterator*					 public
+ See |CModel::getIterator|
+
+
+*CFormModel::getSafeAttributeNames*				 public
+ See |CModel::getSafeAttributeNames|
+
+
+*CFormModel::getScenario*					 public
+ See |CModel::getScenario|
+
+
+*CFormModel::getValidatorList*					 public
+ See |CModel::getValidatorList|
+
+
+*CFormModel::getValidators*					 public
+ See |CModel::getValidators|
+
+
+*CFormModel::hasErrors* 					 public
+ See |CModel::hasErrors|
+
+
+*CFormModel::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CFormModel::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CFormModel::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CFormModel::init*						 public
 >
  init()
@@ -50,6 +222,70 @@ class.
  |CFormModel::scenario| is set. You may override this method to provide code
  that is needed to initialize the model (e.g. setting initial property
  values.)
+
+
+*CFormModel::isAttributeRequired*				 public
+ See |CModel::isAttributeRequired|
+
+
+*CFormModel::isAttributeSafe*					 public
+ See |CModel::isAttributeSafe|
+
+
+*CFormModel::offsetExists*					 public
+ See |CModel::offsetExists|
+
+
+*CFormModel::offsetGet* 					 public
+ See |CModel::offsetGet|
+
+
+*CFormModel::offsetSet* 					 public
+ See |CModel::offsetSet|
+
+
+*CFormModel::offsetUnset*					 public
+ See |CModel::offsetUnset|
+
+
+*CFormModel::onAfterConstruct*					 public
+ See |CModel::onAfterConstruct|
+
+
+*CFormModel::onAfterValidate*					 public
+ See |CModel::onAfterValidate|
+
+
+*CFormModel::onBeforeValidate*					 public
+ See |CModel::onBeforeValidate|
+
+
+*CFormModel::onUnsafeAttribute* 				 public
+ See |CModel::onUnsafeAttribute|
+
+
+*CFormModel::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CFormModel::rules*						 public
+ See |CModel::rules|
+
+
+*CFormModel::setAttributes*					 public
+ See |CModel::setAttributes|
+
+
+*CFormModel::setScenario*					 public
+ See |CModel::setScenario|
+
+
+*CFormModel::unsetAttributes*					 public
+ See |CModel::unsetAttributes|
+
+
+*CFormModel::validate*						 public
+ See |CModel::validate|
 
 
 

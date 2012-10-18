@@ -56,6 +56,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CBaseActiveRelation::__call*					 public
+ See |CComponent::__call|
+
+
 *CBaseActiveRelation::__construct*				 public
 >
  __construct($name, $className, $foreignKey, $options=array())
@@ -70,6 +74,94 @@ METHOD DETAILS
     property names of this class.
 
 
+*CBaseActiveRelation::__get*					 public
+ See |CComponent::__get|
+
+
+*CBaseActiveRelation::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CBaseActiveRelation::__set*					 public
+ See |CComponent::__set|
+
+
+*CBaseActiveRelation::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CBaseActiveRelation::asa*					 public
+ See |CComponent::asa|
+
+
+*CBaseActiveRelation::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CBaseActiveRelation::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CBaseActiveRelation::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CBaseActiveRelation::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CBaseActiveRelation::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CBaseActiveRelation::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CBaseActiveRelation::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CBaseActiveRelation::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CBaseActiveRelation::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CBaseActiveRelation::disableBehaviors* 			 public
+ See |CComponent::disableBehaviors|
+
+
+*CBaseActiveRelation::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CBaseActiveRelation::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CBaseActiveRelation::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CBaseActiveRelation::getEventHandlers* 			 public
+ See |CComponent::getEventHandlers|
+
+
+*CBaseActiveRelation::hasEvent* 				 public
+ See |CComponent::hasEvent|
+
+
+*CBaseActiveRelation::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CBaseActiveRelation::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
 *CBaseActiveRelation::mergeWith*				 public
 >
  mergeWith($criteria, $fromScope=false)
@@ -79,6 +171,10 @@ METHOD DETAILS
  Merges this relation with a criteria specified dynamically.
     [criteria] (array) the dynamically specified criteria
     [fromScope] (boolean) whether the criteria to be merged is from scopes
+
+
+*CBaseActiveRelation::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 

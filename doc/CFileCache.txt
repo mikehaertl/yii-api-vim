@@ -16,6 +16,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<behaviors>				*CFileCache::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <cacheFileSuffix>			*CFileCache::cacheFileSuffix*
  (string) cache file suffix. Defaults to '.bin'.
 
@@ -35,10 +38,46 @@ PROPERTY DETAILS
  should be performed when storing a piece of data in the cache. Defaults to
  100, meaning 0.01% chance.
 
+<hashKey>				*CFileCache::hashKey*
+ See |CCache::hashKey|
+
+<isInitialized> 			*CFileCache::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
+<keyPrefix>				*CFileCache::keyPrefix*
+ See |CCache::keyPrefix|
+
+<serializer>				*CFileCache::serializer*
+ See |CCache::serializer|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CFileCache::__call*						 public
+ See |CComponent::__call|
+
+
+*CFileCache::__get*						 public
+ See |CComponent::__get|
+
+
+*CFileCache::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CFileCache::__set*						 public
+ See |CComponent::__set|
+
+
+*CFileCache::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CFileCache::add*						 public
+ See |CCache::add|
+
 
 *CFileCache::addValue*						 protected
 >
@@ -55,6 +94,34 @@ METHOD DETAILS
     expire. 0 means never expire.
 
 
+*CFileCache::asa*						 public
+ See |CComponent::asa|
+
+
+*CFileCache::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CFileCache::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CFileCache::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CFileCache::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CFileCache::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CFileCache::delete*						 public
+ See |CCache::delete|
+
+
 *CFileCache::deleteValue*					 protected
 >
  deleteValue($key)
@@ -64,6 +131,42 @@ METHOD DETAILS
  Deletes a value with the specified key from cache This is the implementation
  of the method declared in the parent class.
     [key] (string) the key of the value to be deleted
+
+
+*CFileCache::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CFileCache::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CFileCache::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CFileCache::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CFileCache::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CFileCache::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CFileCache::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CFileCache::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CFileCache::flush*						 public
+ See |CCache::flush|
 
 
 *CFileCache::flushValues*					 protected
@@ -83,10 +186,19 @@ METHOD DETAILS
 (void)
 
  Removes expired cache files.
-    [expiredOnly] (boolean) whether to removed expired cache files only. If
-    true, all cache files under |CFileCache::cachePath| will be removed.
+    [expiredOnly] (boolean) whether only expired cache files should be
+    removed. If false, all cache files under |CFileCache::cachePath| will be
+    removed.
     [path] (string) the path to clean with. If null, it will be
     |CFileCache::cachePath|.
+
+
+*CFileCache::generateUniqueKey* 				 protected
+ See |CCache::generateUniqueKey|
+
+
+*CFileCache::get*						 public
+ See |CCache::get|
 
 
 *CFileCache::getCacheFile*					 protected
@@ -99,6 +211,10 @@ METHOD DETAILS
     [key] (string) cache key
 
 
+*CFileCache::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
 *CFileCache::getGCProbability*					 public
 >
  getGCProbability()
@@ -107,6 +223,10 @@ METHOD DETAILS
 should be performed when storing a piece of data in the cache. Defaults to
 100, meaning 0.01% chance.
 
+
+
+*CFileCache::getIsInitialized*					 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CFileCache::getValue*						 protected
@@ -121,6 +241,22 @@ expired.
     [key] (string) a unique key identifying the cached value
 
 
+*CFileCache::getValues* 					 protected
+ See |CCache::getValues|
+
+
+*CFileCache::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CFileCache::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CFileCache::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CFileCache::init*						 public
 >
  init()
@@ -128,7 +264,35 @@ expired.
 (void)
 
  Initializes this application component. This method is required by the
- |IApplicationComponent| interface. It checks the availability of memcache.
+ |IApplicationComponent| interface.
+
+
+*CFileCache::mget*						 public
+ See |CCache::mget|
+
+
+*CFileCache::offsetExists*					 public
+ See |CCache::offsetExists|
+
+
+*CFileCache::offsetGet* 					 public
+ See |CCache::offsetGet|
+
+
+*CFileCache::offsetSet* 					 public
+ See |CCache::offsetSet|
+
+
+*CFileCache::offsetUnset*					 public
+ See |CCache::offsetUnset|
+
+
+*CFileCache::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CFileCache::set*						 public
+ See |CCache::set|
 
 
 *CFileCache::setGCProbability*					 public

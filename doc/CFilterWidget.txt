@@ -16,18 +16,40 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CFilterWidget::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CFilterWidget::controller*
+ See |CWidget::controller|
+
+<id>					*CFilterWidget::id*
+ See |CWidget::id|
+
 <isFilter>				*CFilterWidget::isFilter*
  (boolean) whether this widget is used as a filter.
+
+<owner> 				*CFilterWidget::owner*
+ See |CWidget::owner|
+
+<skin>					*CFilterWidget::skin*
+ See |CWidget::skin|
 
 <stopAction>				*CFilterWidget::stopAction*
  (boolean) whether to stop the action execution when this widget is used as a
  filter. This property should be changed only in |CWidget::init| method.
  Defaults to false, meaning the action should be executed.
 
+<viewPath>				*CFilterWidget::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CFilterWidget::__call* 					 public
+ See |CComponent::__call|
+
 
 *CFilterWidget::__construct*					 public
 >
@@ -38,6 +60,118 @@ METHOD DETAILS
  Constructor.
     [owner] (CBaseController) owner/creator of this widget. It could be either
     a widget or a controller.
+
+
+*CFilterWidget::__get*						 public
+ See |CComponent::__get|
+
+
+*CFilterWidget::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CFilterWidget::__set*						 public
+ See |CComponent::__set|
+
+
+*CFilterWidget::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CFilterWidget::actions*					 public
+ See |CWidget::actions|
+
+
+*CFilterWidget::asa*						 public
+ See |CComponent::asa|
+
+
+*CFilterWidget::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CFilterWidget::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CFilterWidget::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CFilterWidget::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CFilterWidget::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CFilterWidget::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CFilterWidget::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CFilterWidget::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CFilterWidget::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CFilterWidget::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CFilterWidget::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CFilterWidget::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CFilterWidget::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CFilterWidget::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CFilterWidget::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CFilterWidget::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CFilterWidget::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CFilterWidget::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CFilterWidget::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CFilterWidget::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CFilterWidget::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CFilterWidget::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CFilterWidget::filter* 					 public
@@ -52,12 +186,80 @@ METHOD DETAILS
     [filterChain] (CFilterChain) the filter chain that the filter is on.
 
 
+*CFilterWidget::getController*					 public
+ See |CWidget::getController|
+
+
+*CFilterWidget::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CFilterWidget::getId*						 public
+ See |CWidget::getId|
+
+
 *CFilterWidget::getIsFilter*					 public
 >
  getIsFilter()
 <
 (boolean) whether this widget is used as a filter.
 
+
+
+*CFilterWidget::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CFilterWidget::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CFilterWidget::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CFilterWidget::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CFilterWidget::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CFilterWidget::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CFilterWidget::init*						 public
+ See |CWidget::init|
+
+
+*CFilterWidget::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CFilterWidget::render* 					 public
+ See |CWidget::render|
+
+
+*CFilterWidget::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CFilterWidget::renderInternal* 				 public
+ See |CBaseController::renderInternal|
+
+
+*CFilterWidget::run*						 public
+ See |CWidget::run|
+
+
+*CFilterWidget::setId*						 public
+ See |CWidget::setId|
+
+
+*CFilterWidget::widget* 					 public
+ See |CBaseController::widget|
 
 
 

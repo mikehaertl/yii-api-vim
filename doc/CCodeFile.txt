@@ -32,6 +32,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CCodeFile::__call*						 public
+ See |CComponent::__call|
+
+
 *CCodeFile::__construct*					 public
 >
  __construct($path, $content)
@@ -41,6 +45,82 @@ METHOD DETAILS
  Constructor.
     [path] (string) the file path that the new code should be saved to.
     [content] (string) the newly generated code
+
+
+*CCodeFile::__get*						 public
+ See |CComponent::__get|
+
+
+*CCodeFile::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CCodeFile::__set*						 public
+ See |CComponent::__set|
+
+
+*CCodeFile::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CCodeFile::asa*						 public
+ See |CComponent::asa|
+
+
+*CCodeFile::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CCodeFile::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CCodeFile::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CCodeFile::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CCodeFile::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CCodeFile::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CCodeFile::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CCodeFile::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CCodeFile::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CCodeFile::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CCodeFile::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CCodeFile::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CCodeFile::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
+
+
+*CCodeFile::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CCodeFile::getRelativePath*					 public
@@ -57,6 +137,22 @@ METHOD DETAILS
 <
 (string) the code file extension (e.g. php, txt)
 
+
+
+*CCodeFile::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CCodeFile::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CCodeFile::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CCodeFile::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
 
 
 *CCodeFile::save*						 public

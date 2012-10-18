@@ -13,6 +13,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CFlexWidget::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <align> 				*CFlexWidget::align*
  (string) align of the application region. Defaults to 'middle'.
 
@@ -34,6 +37,9 @@ PROPERTY DETAILS
  (string) background color of the application region. Defaults to '#FFFFFF',
  meaning white.
 
+<controller>				*CFlexWidget::controller*
+ See |CWidget::controller|
+
 <enableHistory> 			*CFlexWidget::enableHistory*
  (boolean) whether history should be enabled. Defaults to true.
 
@@ -46,12 +52,24 @@ PROPERTY DETAILS
 <height>				*CFlexWidget::height*
  (string) height of the application region. Defaults to 300.
 
+<id>					*CFlexWidget::id*
+ See |CWidget::id|
+
 <name>					*CFlexWidget::name*
  (string) name of the Flex application. This should be the SWF file name
  without the ".swf" suffix.
 
+<owner> 				*CFlexWidget::owner*
+ See |CWidget::owner|
+
 <quality>				*CFlexWidget::quality*
  (string) quality of the animation. Defaults to 'high'.
+
+<skin>					*CFlexWidget::skin*
+ See |CWidget::skin|
+
+<viewPath>				*CFlexWidget::viewPath*
+ See |CWidget::viewPath|
 
 <width> 				*CFlexWidget::width*
  (string) width of the application region. Defaults to 450.
@@ -61,6 +79,134 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CFlexWidget::__call*						 public
+ See |CComponent::__call|
+
+
+*CFlexWidget::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CFlexWidget::__get*						 public
+ See |CComponent::__get|
+
+
+*CFlexWidget::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CFlexWidget::__set*						 public
+ See |CComponent::__set|
+
+
+*CFlexWidget::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CFlexWidget::actions*						 public
+ See |CWidget::actions|
+
+
+*CFlexWidget::asa*						 public
+ See |CComponent::asa|
+
+
+*CFlexWidget::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CFlexWidget::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CFlexWidget::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CFlexWidget::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CFlexWidget::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CFlexWidget::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CFlexWidget::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CFlexWidget::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CFlexWidget::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CFlexWidget::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CFlexWidget::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CFlexWidget::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CFlexWidget::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CFlexWidget::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CFlexWidget::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CFlexWidget::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CFlexWidget::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CFlexWidget::endCache* 					 public
+ See |CBaseController::endCache|
+
+
+*CFlexWidget::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CFlexWidget::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CFlexWidget::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CFlexWidget::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CFlexWidget::getController*					 public
+ See |CWidget::getController|
+
+
+*CFlexWidget::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
 *CFlexWidget::getFlashVarsAsString*				 public
 >
  getFlashVarsAsString()
@@ -68,6 +214,42 @@ METHOD DETAILS
 (string) the flash parameter string.
 
  Generates the properly quoted flash parameter string.
+
+
+*CFlexWidget::getId*						 public
+ See |CWidget::getId|
+
+
+*CFlexWidget::getOwner* 					 public
+ See |CWidget::getOwner|
+
+
+*CFlexWidget::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CFlexWidget::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CFlexWidget::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CFlexWidget::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CFlexWidget::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CFlexWidget::init*						 public
+ See |CWidget::init|
+
+
+*CFlexWidget::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CFlexWidget::registerClientScript*				 public
@@ -79,6 +261,18 @@ METHOD DETAILS
  Registers the needed CSS and JavaScript.
 
 
+*CFlexWidget::render*						 public
+ See |CWidget::render|
+
+
+*CFlexWidget::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CFlexWidget::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
 *CFlexWidget::run*						 public
 >
  run()
@@ -86,6 +280,14 @@ METHOD DETAILS
 (void)
 
  Renders the widget.
+
+
+*CFlexWidget::setId*						 public
+ See |CWidget::setId|
+
+
+*CFlexWidget::widget*						 public
+ See |CBaseController::widget|
 
 
 

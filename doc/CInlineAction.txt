@@ -11,6 +11,114 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CInlineAction::__call* 					 public
+ See |CComponent::__call|
+
+
+*CInlineAction::__construct*					 public
+ See |CAction::__construct|
+
+
+*CInlineAction::__get*						 public
+ See |CComponent::__get|
+
+
+*CInlineAction::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CInlineAction::__set*						 public
+ See |CComponent::__set|
+
+
+*CInlineAction::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CInlineAction::asa*						 public
+ See |CComponent::asa|
+
+
+*CInlineAction::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CInlineAction::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CInlineAction::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CInlineAction::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CInlineAction::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CInlineAction::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CInlineAction::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CInlineAction::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CInlineAction::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CInlineAction::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CInlineAction::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CInlineAction::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CInlineAction::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CInlineAction::getController*					 public
+ See |CAction::getController|
+
+
+*CInlineAction::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CInlineAction::getId*						 public
+ See |CAction::getId|
+
+
+*CInlineAction::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CInlineAction::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CInlineAction::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CInlineAction::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
 *CInlineAction::run*						 public
 >
  run()
@@ -30,6 +138,10 @@ METHOD DETAILS
  Runs the action with the supplied request parameters. This method is
  internally called by |CController::runAction|.
     [params] (array) the request parameters (name=>value)
+
+
+*CInlineAction::runWithParamsInternal*				 protected
+ See |CAction::runWithParamsInternal|
 
 
 

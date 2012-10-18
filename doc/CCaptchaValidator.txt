@@ -15,16 +15,92 @@ PROPERTY DETAILS
  (boolean) whether the attribute value can be null or empty. Defaults to
  false, meaning the attribute is invalid if it is empty.
 
+<attributes>				*CCaptchaValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CCaptchaValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
 <captchaAction> 			*CCaptchaValidator::captchaAction*
  (CCaptchaAction) Returns the CAPTCHA action object.
 
 <caseSensitive> 			*CCaptchaValidator::caseSensitive*
  (boolean) whether the comparison is case sensitive. Defaults to false.
 
+<enableClientValidation>		*CCaptchaValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CCaptchaValidator::except*
+ See |CValidator::except|
+
+<message>				*CCaptchaValidator::message*
+ See |CValidator::message|
+
+<on>					*CCaptchaValidator::on*
+ See |CValidator::on|
+
+<safe>					*CCaptchaValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CCaptchaValidator::skipOnError*
+ See |CValidator::skipOnError|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CCaptchaValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CCaptchaValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CCaptchaValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CCaptchaValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CCaptchaValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CCaptchaValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CCaptchaValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CCaptchaValidator::asa*					 public
+ See |CComponent::asa|
+
+
+*CCaptchaValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CCaptchaValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CCaptchaValidator::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
+*CCaptchaValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CCaptchaValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
 
 *CCaptchaValidator::clientValidateAttribute*			 public
 >
@@ -37,6 +113,42 @@ METHOD DETAILS
     [attribute] (string) the name of the attribute to be validated.
 
 
+*CCaptchaValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CCaptchaValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CCaptchaValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CCaptchaValidator::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CCaptchaValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CCaptchaValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CCaptchaValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CCaptchaValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CCaptchaValidator::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
 *CCaptchaValidator::getCaptchaAction*				 protected
 >
  getCaptchaAction()
@@ -44,6 +156,34 @@ METHOD DETAILS
 (CCaptchaAction) the action object
 
  Returns the CAPTCHA action object.
+
+
+*CCaptchaValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CCaptchaValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CCaptchaValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CCaptchaValidator::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CCaptchaValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CCaptchaValidator::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
+
+
+*CCaptchaValidator::validate*					 public
+ See |CValidator::validate|
 
 
 *CCaptchaValidator::validateAttribute*				 protected

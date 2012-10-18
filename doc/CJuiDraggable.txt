@@ -26,13 +26,208 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CJuiDraggable::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CJuiDraggable::controller*
+ See |CWidget::controller|
+
+<cssFile>				*CJuiDraggable::cssFile*
+ See |CJuiWidget::cssFile|
+
+<htmlOptions>				*CJuiDraggable::htmlOptions*
+ See |CJuiWidget::htmlOptions|
+
+<id>					*CJuiDraggable::id*
+ See |CWidget::id|
+
+<options>				*CJuiDraggable::options*
+ See |CJuiWidget::options|
+
+<owner> 				*CJuiDraggable::owner*
+ See |CWidget::owner|
+
+<scriptFile>				*CJuiDraggable::scriptFile*
+ See |CJuiWidget::scriptFile|
+
+<scriptUrl>				*CJuiDraggable::scriptUrl*
+ See |CJuiWidget::scriptUrl|
+
+<skin>					*CJuiDraggable::skin*
+ See |CWidget::skin|
+
 <tagName>				*CJuiDraggable::tagName*
  (string) the name of the Draggable element. Defaults to 'div'.
+
+<theme> 				*CJuiDraggable::theme*
+ See |CJuiWidget::theme|
+
+<themeUrl>				*CJuiDraggable::themeUrl*
+ See |CJuiWidget::themeUrl|
+
+<viewPath>				*CJuiDraggable::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CJuiDraggable::__call* 					 public
+ See |CComponent::__call|
+
+
+*CJuiDraggable::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CJuiDraggable::__get*						 public
+ See |CComponent::__get|
+
+
+*CJuiDraggable::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CJuiDraggable::__set*						 public
+ See |CComponent::__set|
+
+
+*CJuiDraggable::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CJuiDraggable::actions*					 public
+ See |CWidget::actions|
+
+
+*CJuiDraggable::asa*						 public
+ See |CComponent::asa|
+
+
+*CJuiDraggable::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CJuiDraggable::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CJuiDraggable::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CJuiDraggable::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CJuiDraggable::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CJuiDraggable::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CJuiDraggable::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CJuiDraggable::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CJuiDraggable::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CJuiDraggable::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CJuiDraggable::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CJuiDraggable::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CJuiDraggable::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CJuiDraggable::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CJuiDraggable::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CJuiDraggable::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CJuiDraggable::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CJuiDraggable::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CJuiDraggable::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CJuiDraggable::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CJuiDraggable::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CJuiDraggable::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CJuiDraggable::getController*					 public
+ See |CWidget::getController|
+
+
+*CJuiDraggable::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CJuiDraggable::getId*						 public
+ See |CWidget::getId|
+
+
+*CJuiDraggable::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CJuiDraggable::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CJuiDraggable::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CJuiDraggable::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CJuiDraggable::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CJuiDraggable::hasProperty*					 public
+ See |CComponent::hasProperty|
+
 
 *CJuiDraggable::init*						 public
 >
@@ -44,6 +239,34 @@ METHOD DETAILS
  the necessary javascript code.
 
 
+*CJuiDraggable::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CJuiDraggable::registerCoreScripts*				 protected
+ See |CJuiWidget::registerCoreScripts|
+
+
+*CJuiDraggable::registerScriptFile*				 protected
+ See |CJuiWidget::registerScriptFile|
+
+
+*CJuiDraggable::render* 					 public
+ See |CWidget::render|
+
+
+*CJuiDraggable::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CJuiDraggable::renderInternal* 				 public
+ See |CBaseController::renderInternal|
+
+
+*CJuiDraggable::resolvePackagePath*				 protected
+ See |CJuiWidget::resolvePackagePath|
+
+
 *CJuiDraggable::run*						 public
 >
  run()
@@ -51,6 +274,14 @@ METHOD DETAILS
 (void)
 
  Renders the close tag of the draggable element.
+
+
+*CJuiDraggable::setId*						 public
+ See |CWidget::setId|
+
+
+*CJuiDraggable::widget* 					 public
+ See |CBaseController::widget|
 
 
 

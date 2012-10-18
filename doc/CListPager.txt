@@ -9,6 +9,15 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CListPager::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CListPager::controller*
+ See |CWidget::controller|
+
+<currentPage>				*CListPager::currentPage*
+ See |CBasePager::currentPage|
+
 <footer>				*CListPager::footer*
  (string) the text shown after page buttons.
 
@@ -18,18 +27,170 @@ PROPERTY DETAILS
 <htmlOptions>				*CListPager::htmlOptions*
  (array) HTML attributes for the enclosing 'div' tag.
 
+<id>					*CListPager::id*
+ See |CWidget::id|
+
+<itemCount>				*CListPager::itemCount*
+ See |CBasePager::itemCount|
+
+<owner> 				*CListPager::owner*
+ See |CWidget::owner|
+
+<pageCount>				*CListPager::pageCount*
+ See |CBasePager::pageCount|
+
+<pageSize>				*CListPager::pageSize*
+ See |CBasePager::pageSize|
+
 <pageTextFormat>			*CListPager::pageTextFormat*
  (string) the format string used to generate page selection text. The sprintf
  function will be used to perform the formatting.
+
+<pages> 				*CListPager::pages*
+ See |CBasePager::pages|
 
 <promptText>				*CListPager::promptText*
  (string) the text displayed as a prompt option in the dropdown list. Defaults
  to null, meaning no prompt.
 
+<skin>					*CListPager::skin*
+ See |CWidget::skin|
+
+<viewPath>				*CListPager::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CListPager::__call*						 public
+ See |CComponent::__call|
+
+
+*CListPager::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CListPager::__get*						 public
+ See |CComponent::__get|
+
+
+*CListPager::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CListPager::__set*						 public
+ See |CComponent::__set|
+
+
+*CListPager::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CListPager::actions*						 public
+ See |CWidget::actions|
+
+
+*CListPager::asa*						 public
+ See |CComponent::asa|
+
+
+*CListPager::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CListPager::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CListPager::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CListPager::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CListPager::beginClip* 					 public
+ See |CBaseController::beginClip|
+
+
+*CListPager::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CListPager::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CListPager::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CListPager::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CListPager::createPageUrl*					 protected
+ See |CBasePager::createPageUrl|
+
+
+*CListPager::createPages*					 protected
+ See |CBasePager::createPages|
+
+
+*CListPager::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CListPager::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CListPager::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CListPager::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CListPager::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CListPager::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CListPager::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CListPager::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CListPager::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CListPager::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CListPager::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CListPager::endWidget* 					 public
+ See |CBaseController::endWidget|
+
+
+*CListPager::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
 
 *CListPager::generatePageText*					 protected
 >
@@ -42,6 +203,62 @@ METHOD DETAILS
     [page] (integer) zero-based page number
 
 
+*CListPager::getController*					 public
+ See |CWidget::getController|
+
+
+*CListPager::getCurrentPage*					 public
+ See |CBasePager::getCurrentPage|
+
+
+*CListPager::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CListPager::getId*						 public
+ See |CWidget::getId|
+
+
+*CListPager::getItemCount*					 public
+ See |CBasePager::getItemCount|
+
+
+*CListPager::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CListPager::getPageCount*					 public
+ See |CBasePager::getPageCount|
+
+
+*CListPager::getPageSize*					 public
+ See |CBasePager::getPageSize|
+
+
+*CListPager::getPages*						 public
+ See |CBasePager::getPages|
+
+
+*CListPager::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CListPager::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CListPager::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CListPager::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CListPager::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CListPager::init*						 public
 >
  init()
@@ -49,6 +266,22 @@ METHOD DETAILS
 (void)
 
  Initializes the pager by setting some default property values.
+
+
+*CListPager::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CListPager::render*						 public
+ See |CWidget::render|
+
+
+*CListPager::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CListPager::renderInternal*					 public
+ See |CBaseController::renderInternal|
 
 
 *CListPager::run*						 public
@@ -59,6 +292,30 @@ METHOD DETAILS
 
  Executes the widget. This overrides the parent implementation by displaying
  the generated page buttons.
+
+
+*CListPager::setCurrentPage*					 public
+ See |CBasePager::setCurrentPage|
+
+
+*CListPager::setId*						 public
+ See |CWidget::setId|
+
+
+*CListPager::setItemCount*					 public
+ See |CBasePager::setItemCount|
+
+
+*CListPager::setPageSize*					 public
+ See |CBasePager::setPageSize|
+
+
+*CListPager::setPages*						 public
+ See |CBasePager::setPages|
+
+
+*CListPager::widget*						 public
+ See |CBaseController::widget|
 
 
 

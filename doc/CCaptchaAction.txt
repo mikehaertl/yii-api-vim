@@ -31,6 +31,9 @@ PROPERTY DETAILS
  (integer) the background color. For example, 0x55FF00. Defaults to 0xFFFFFF,
  meaning white color.
 
+<controller>				*CCaptchaAction::controller*
+ See |CAction::controller|
+
 <fixedVerifyCode>			*CCaptchaAction::fixedVerifyCode*
  (string) the fixed verification code. When this is property is set,
  |CCaptchaAction::getVerifyCode| will always return this value. This is mainly
@@ -48,6 +51,9 @@ PROPERTY DETAILS
 
 <height>				*CCaptchaAction::height*
  (integer) the height of the generated CAPTCHA image. Defaults to 50.
+
+<id>					*CCaptchaAction::id*
+ See |CAction::id|
 
 <maxLength>				*CCaptchaAction::maxLength*
  (integer) the maximum length for randomly generated word. Defaults to 7.
@@ -84,6 +90,86 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CCaptchaAction::__call*					 public
+ See |CComponent::__call|
+
+
+*CCaptchaAction::__construct*					 public
+ See |CAction::__construct|
+
+
+*CCaptchaAction::__get* 					 public
+ See |CComponent::__get|
+
+
+*CCaptchaAction::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CCaptchaAction::__set* 					 public
+ See |CComponent::__set|
+
+
+*CCaptchaAction::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CCaptchaAction::asa*						 public
+ See |CComponent::asa|
+
+
+*CCaptchaAction::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CCaptchaAction::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CCaptchaAction::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CCaptchaAction::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CCaptchaAction::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CCaptchaAction::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CCaptchaAction::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CCaptchaAction::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CCaptchaAction::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CCaptchaAction::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CCaptchaAction::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CCaptchaAction::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CCaptchaAction::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CCaptchaAction::generateValidationHash*			 public
 >
  generateValidationHash($code)
@@ -101,6 +187,18 @@ METHOD DETAILS
 (string) the generated verification code
 
  Generates a new verification code.
+
+
+*CCaptchaAction::getController* 				 public
+ See |CAction::getController|
+
+
+*CCaptchaAction::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CCaptchaAction::getId* 					 public
+ See |CAction::getId|
 
 
 *CCaptchaAction::getSessionKey* 				 protected
@@ -123,6 +221,22 @@ METHOD DETAILS
     regenerated.
 
 
+*CCaptchaAction::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CCaptchaAction::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CCaptchaAction::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CCaptchaAction::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
 *CCaptchaAction::renderImage*					 protected
 >
  renderImage($code)
@@ -140,6 +254,14 @@ METHOD DETAILS
 (void)
 
  Runs the action.
+
+
+*CCaptchaAction::runWithParams* 				 public
+ See |CAction::runWithParams|
+
+
+*CCaptchaAction::runWithParamsInternal* 			 protected
+ See |CAction::runWithParamsInternal|
 
 
 *CCaptchaAction::validate*					 public

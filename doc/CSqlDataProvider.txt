@@ -41,23 +41,48 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<data>					*CSqlDataProvider::data*
+ See |CDataProvider::data|
+
 <db>					*CSqlDataProvider::db*
  (CDbConnection) the database connection to be used in the queries. Defaults
  to null, meaning using Yii::app()->db.
 
+<id>					*CSqlDataProvider::id*
+ See |CDataProvider::id|
+
+<itemCount>				*CSqlDataProvider::itemCount*
+ See |CDataProvider::itemCount|
+
 <keyField>				*CSqlDataProvider::keyField*
  (string) the name of key field. Defaults to 'id'.
+
+<keys>					*CSqlDataProvider::keys*
+ See |CDataProvider::keys|
+
+<pagination>				*CSqlDataProvider::pagination*
+ See |CDataProvider::pagination|
 
 <params>				*CSqlDataProvider::params*
  (array) parameters (name=>value) to be bound to the SQL statement.
 
+<sort>					*CSqlDataProvider::sort*
+ See |CDataProvider::sort|
+
 <sql>					*CSqlDataProvider::sql*
  (string) the SQL statement to be used for fetching data rows.
+
+<totalItemCount>			*CSqlDataProvider::totalItemCount*
+ See |CDataProvider::totalItemCount|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CSqlDataProvider::__call*					 public
+ See |CComponent::__call|
+
 
 *CSqlDataProvider::__construct* 				 public
 >
@@ -71,6 +96,38 @@ METHOD DETAILS
     property values of this class.
 
 
+*CSqlDataProvider::__get*					 public
+ See |CComponent::__get|
+
+
+*CSqlDataProvider::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CSqlDataProvider::__set*					 public
+ See |CComponent::__set|
+
+
+*CSqlDataProvider::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CSqlDataProvider::asa* 					 public
+ See |CComponent::asa|
+
+
+*CSqlDataProvider::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CSqlDataProvider::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CSqlDataProvider::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
 *CSqlDataProvider::calculateTotalItemCount*			 protected
 >
  calculateTotalItemCount()
@@ -82,6 +139,46 @@ METHOD DETAILS
  |CSqlDataProvider::totalItemCount| is not set previously. The default
  implementation simply returns 0. You may override this method to return
  accurate total number of data items.
+
+
+*CSqlDataProvider::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CSqlDataProvider::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CSqlDataProvider::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CSqlDataProvider::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CSqlDataProvider::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CSqlDataProvider::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CSqlDataProvider::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CSqlDataProvider::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CSqlDataProvider::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CSqlDataProvider::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CSqlDataProvider::fetchData*					 protected
@@ -100,6 +197,78 @@ METHOD DETAILS
 (array) list of data item keys.
 
  Fetches the data item keys from the persistent data storage.
+
+
+*CSqlDataProvider::getData*					 public
+ See |CDataProvider::getData|
+
+
+*CSqlDataProvider::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CSqlDataProvider::getId*					 public
+ See |CDataProvider::getId|
+
+
+*CSqlDataProvider::getItemCount*				 public
+ See |CDataProvider::getItemCount|
+
+
+*CSqlDataProvider::getKeys*					 public
+ See |CDataProvider::getKeys|
+
+
+*CSqlDataProvider::getPagination*				 public
+ See |CDataProvider::getPagination|
+
+
+*CSqlDataProvider::getSort*					 public
+ See |CDataProvider::getSort|
+
+
+*CSqlDataProvider::getTotalItemCount*				 public
+ See |CDataProvider::getTotalItemCount|
+
+
+*CSqlDataProvider::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CSqlDataProvider::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CSqlDataProvider::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*CSqlDataProvider::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CSqlDataProvider::setData*					 public
+ See |CDataProvider::setData|
+
+
+*CSqlDataProvider::setId*					 public
+ See |CDataProvider::setId|
+
+
+*CSqlDataProvider::setKeys*					 public
+ See |CDataProvider::setKeys|
+
+
+*CSqlDataProvider::setPagination*				 public
+ See |CDataProvider::setPagination|
+
+
+*CSqlDataProvider::setSort*					 public
+ See |CDataProvider::setSort|
+
+
+*CSqlDataProvider::setTotalItemCount*				 public
+ See |CDataProvider::setTotalItemCount|
 
 
 

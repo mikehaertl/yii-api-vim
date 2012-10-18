@@ -13,11 +13,26 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<categories>				*CEmailLogRoute::categories*
+ See |CLogRoute::categories|
+
 <emails>				*CEmailLogRoute::emails*
  (array) list of destination email addresses
 
+<enabled>				*CEmailLogRoute::enabled*
+ See |CLogRoute::enabled|
+
+<filter>				*CEmailLogRoute::filter*
+ See |CLogRoute::filter|
+
 <headers>				*CEmailLogRoute::headers*
  (array) additional headers to use when sending an email.
+
+<levels>				*CEmailLogRoute::levels*
+ See |CLogRoute::levels|
+
+<logs>					*CEmailLogRoute::logs*
+ See |CLogRoute::logs|
 
 <sentFrom>				*CEmailLogRoute::sentFrom*
  (string) send from address of the email
@@ -30,12 +45,100 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CEmailLogRoute::__call*					 public
+ See |CComponent::__call|
+
+
+*CEmailLogRoute::__get* 					 public
+ See |CComponent::__get|
+
+
+*CEmailLogRoute::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CEmailLogRoute::__set* 					 public
+ See |CComponent::__set|
+
+
+*CEmailLogRoute::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CEmailLogRoute::asa*						 public
+ See |CComponent::asa|
+
+
+*CEmailLogRoute::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CEmailLogRoute::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CEmailLogRoute::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CEmailLogRoute::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CEmailLogRoute::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CEmailLogRoute::collectLogs*					 public
+ See |CLogRoute::collectLogs|
+
+
+*CEmailLogRoute::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CEmailLogRoute::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CEmailLogRoute::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CEmailLogRoute::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CEmailLogRoute::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CEmailLogRoute::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CEmailLogRoute::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CEmailLogRoute::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CEmailLogRoute::formatLogMessage*				 protected
+ See |CLogRoute::formatLogMessage|
+
+
 *CEmailLogRoute::getEmails*					 public
 >
  getEmails()
 <
 (array) list of destination email addresses
 
+
+
+*CEmailLogRoute::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CEmailLogRoute::getHeaders*					 public
@@ -62,6 +165,22 @@ METHOD DETAILS
 
 
 
+*CEmailLogRoute::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CEmailLogRoute::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CEmailLogRoute::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CEmailLogRoute::init*						 public
+ See |CLogRoute::init|
+
+
 *CEmailLogRoute::processLogs*					 protected
 >
  processLogs($logs)
@@ -70,6 +189,10 @@ METHOD DETAILS
 
  Sends log messages to specified email addresses.
     [logs] (array) list of log messages
+
+
+*CEmailLogRoute::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CEmailLogRoute::sendEmail*					 protected

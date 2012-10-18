@@ -33,6 +33,9 @@ PROPERTY DETAILS
  (string) the base path containing all fixtures. Defaults to null, meaning the
  path 'protected/tests/fixtures'.
 
+<behaviors>				*CDbFixtureManager::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <connectionID>				*CDbFixtureManager::connectionID*
  (string) the ID of the database connection. Defaults to 'db'. Note, data in
  this database may be deleted or modified during testing. Make sure you have a
@@ -57,6 +60,9 @@ PROPERTY DETAILS
  associated with such a script whose name is TableName suffixed this property
  value, then the script will be executed each time before the table is reset.
 
+<isInitialized> 			*CDbFixtureManager::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
 <schemas>				*CDbFixtureManager::schemas*
  (array) list of database schemas that the test tables may reside in. Defaults
  to array(''), meaning using the default schema (an empty string refers to the
@@ -69,6 +75,50 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDbFixtureManager::__call*					 public
+ See |CComponent::__call|
+
+
+*CDbFixtureManager::__get*					 public
+ See |CComponent::__get|
+
+
+*CDbFixtureManager::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDbFixtureManager::__set*					 public
+ See |CComponent::__set|
+
+
+*CDbFixtureManager::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDbFixtureManager::asa*					 public
+ See |CComponent::asa|
+
+
+*CDbFixtureManager::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CDbFixtureManager::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbFixtureManager::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbFixtureManager::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CDbFixtureManager::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CDbFixtureManager::checkIntegrity*				 public
 >
  checkIntegrity($check)
@@ -80,6 +130,38 @@ METHOD DETAILS
     [check] (boolean) whether to enable database integrity check
 
 
+*CDbFixtureManager::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CDbFixtureManager::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbFixtureManager::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbFixtureManager::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbFixtureManager::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbFixtureManager::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CDbFixtureManager::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbFixtureManager::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
 *CDbFixtureManager::getDbConnection*				 public
 >
  getDbConnection()
@@ -87,6 +169,10 @@ METHOD DETAILS
 (CDbConnection) the database connection
 
  Returns the database connection used to load fixtures.
+
+
+*CDbFixtureManager::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CDbFixtureManager::getFixtures*				 public
@@ -99,6 +185,10 @@ METHOD DETAILS
  for all PHP files under |CDbFixtureManager::basePath|. If a file's name is
  the same as a table name, it is considered to be the fixture data for that
  table.
+
+
+*CDbFixtureManager::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CDbFixtureManager::getRecord*					 public
@@ -123,6 +213,18 @@ data.
  Returns the fixture data rows. The rows will have updated primary key values
  if the primary key is auto-incremental.
     [name] (string) the fixture name
+
+
+*CDbFixtureManager::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbFixtureManager::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbFixtureManager::hasProperty*				 public
+ See |CComponent::hasProperty|
 
 
 *CDbFixtureManager::init*					 public
@@ -177,6 +279,10 @@ returned if the table does not have a fixture.
  Prepares the fixtures for the whole test. This method is invoked in
  |CDbFixtureManager::init|. It executes the database init script if it exists.
  Otherwise, it will load all available fixtures.
+
+
+*CDbFixtureManager::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
 
 
 *CDbFixtureManager::resetTable* 				 public

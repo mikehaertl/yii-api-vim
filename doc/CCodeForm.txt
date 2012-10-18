@@ -8,13 +8,256 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<action>				*CCodeForm::action*
+ See |CActiveForm::action|
+
+<actionPrefix>				*CCodeForm::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<attributes>				*CCodeForm::attributes*
+ See |CActiveForm::attributes|
+
+<clientOptions> 			*CCodeForm::clientOptions*
+ See |CActiveForm::clientOptions|
+
+<controller>				*CCodeForm::controller*
+ See |CWidget::controller|
+
+<enableAjaxValidation>			*CCodeForm::enableAjaxValidation*
+ See |CActiveForm::enableAjaxValidation|
+
+<enableClientValidation>		*CCodeForm::enableClientValidation*
+ See |CActiveForm::enableClientValidation|
+
+<errorMessageCssClass>			*CCodeForm::errorMessageCssClass*
+ See |CActiveForm::errorMessageCssClass|
+
+<focus> 				*CCodeForm::focus*
+ See |CActiveForm::focus|
+
+<htmlOptions>				*CCodeForm::htmlOptions*
+ See |CActiveForm::htmlOptions|
+
+<id>					*CCodeForm::id*
+ See |CWidget::id|
+
+<method>				*CCodeForm::method*
+ See |CActiveForm::method|
+
 <model> 				*CCodeForm::model*
  (CCodeModel) the code model associated with the form
+
+<owner> 				*CCodeForm::owner*
+ See |CWidget::owner|
+
+<skin>					*CCodeForm::skin*
+ See |CWidget::skin|
+
+<stateful>				*CCodeForm::stateful*
+ See |CActiveForm::stateful|
+
+<summaryID>				*CCodeForm::summaryID*
+ See |CActiveForm::summaryID|
+
+<viewPath>				*CCodeForm::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CCodeForm::__call*						 public
+ See |CComponent::__call|
+
+
+*CCodeForm::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CCodeForm::__get*						 public
+ See |CComponent::__get|
+
+
+*CCodeForm::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CCodeForm::__set*						 public
+ See |CComponent::__set|
+
+
+*CCodeForm::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CCodeForm::actions*						 public
+ See |CWidget::actions|
+
+
+*CCodeForm::asa*						 public
+ See |CComponent::asa|
+
+
+*CCodeForm::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CCodeForm::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CCodeForm::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CCodeForm::beginCache* 					 public
+ See |CBaseController::beginCache|
+
+
+*CCodeForm::beginClip*						 public
+ See |CBaseController::beginClip|
+
+
+*CCodeForm::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CCodeForm::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CCodeForm::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CCodeForm::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CCodeForm::checkBox*						 public
+ See |CActiveForm::checkBox|
+
+
+*CCodeForm::checkBoxList*					 public
+ See |CActiveForm::checkBoxList|
+
+
+*CCodeForm::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CCodeForm::dateField*						 public
+ See |CActiveForm::dateField|
+
+
+*CCodeForm::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CCodeForm::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CCodeForm::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CCodeForm::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CCodeForm::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CCodeForm::dropDownList*					 public
+ See |CActiveForm::dropDownList|
+
+
+*CCodeForm::emailField* 					 public
+ See |CActiveForm::emailField|
+
+
+*CCodeForm::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CCodeForm::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CCodeForm::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CCodeForm::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CCodeForm::endContent* 					 public
+ See |CBaseController::endContent|
+
+
+*CCodeForm::endWidget*						 public
+ See |CBaseController::endWidget|
+
+
+*CCodeForm::error*						 public
+ See |CActiveForm::error|
+
+
+*CCodeForm::errorSummary*					 public
+ See |CActiveForm::errorSummary|
+
+
+*CCodeForm::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
+
+
+*CCodeForm::fileField*						 public
+ See |CActiveForm::fileField|
+
+
+*CCodeForm::getController*					 public
+ See |CWidget::getController|
+
+
+*CCodeForm::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CCodeForm::getId*						 public
+ See |CWidget::getId|
+
+
+*CCodeForm::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CCodeForm::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CCodeForm::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CCodeForm::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CCodeForm::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CCodeForm::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CCodeForm::hiddenField*					 public
+ See |CActiveForm::hiddenField|
+
 
 *CCodeForm::init*						 public
 >
@@ -25,6 +268,54 @@ METHOD DETAILS
  Initializes the widget. This renders the form open tag.
 
 
+*CCodeForm::label*						 public
+ See |CActiveForm::label|
+
+
+*CCodeForm::labelEx*						 public
+ See |CActiveForm::labelEx|
+
+
+*CCodeForm::listBox*						 public
+ See |CActiveForm::listBox|
+
+
+*CCodeForm::numberField*					 public
+ See |CActiveForm::numberField|
+
+
+*CCodeForm::passwordField*					 public
+ See |CActiveForm::passwordField|
+
+
+*CCodeForm::radioButton*					 public
+ See |CActiveForm::radioButton|
+
+
+*CCodeForm::radioButtonList*					 public
+ See |CActiveForm::radioButtonList|
+
+
+*CCodeForm::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
+
+
+*CCodeForm::rangeField* 					 public
+ See |CActiveForm::rangeField|
+
+
+*CCodeForm::render*						 public
+ See |CWidget::render|
+
+
+*CCodeForm::renderFile* 					 public
+ See |CBaseController::renderFile|
+
+
+*CCodeForm::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
 *CCodeForm::run*						 public
 >
  run()
@@ -32,6 +323,34 @@ METHOD DETAILS
 (void)
 
  Runs the widget.
+
+
+*CCodeForm::setId*						 public
+ See |CWidget::setId|
+
+
+*CCodeForm::textArea*						 public
+ See |CActiveForm::textArea|
+
+
+*CCodeForm::textField*						 public
+ See |CActiveForm::textField|
+
+
+*CCodeForm::urlField*						 public
+ See |CActiveForm::urlField|
+
+
+*CCodeForm::validate*						 public
+ See |CActiveForm::validate|
+
+
+*CCodeForm::validateTabular*					 public
+ See |CActiveForm::validateTabular|
+
+
+*CCodeForm::widget*						 public
+ See |CBaseController::widget|
 
 
 

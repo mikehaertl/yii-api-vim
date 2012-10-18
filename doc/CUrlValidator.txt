@@ -13,15 +13,39 @@ PROPERTY DETAILS
  (boolean) whether the attribute value can be null or empty. Defaults to true,
  meaning that if the attribute is empty, it is considered valid.
 
+<attributes>				*CUrlValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CUrlValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
 <defaultScheme> 			*CUrlValidator::defaultScheme*
  (string) the default URI scheme. If the input doesn't contain the scheme
  part, the default scheme will be prepended to it (thus changing the input).
  Defaults to null, meaning a URL must contain the scheme part.
 
+<enableClientValidation>		*CUrlValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CUrlValidator::except*
+ See |CValidator::except|
+
+<message>				*CUrlValidator::message*
+ See |CValidator::message|
+
+<on>					*CUrlValidator::on*
+ See |CValidator::on|
+
 <pattern>				*CUrlValidator::pattern*
  (string) the regular expression used to validate the attribute value. Since
  version 1.1.7 the pattern may contain a {schemes} token that will be replaced
  by a regular expression which represents the {@see validSchemes}.
+
+<safe>					*CUrlValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CUrlValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 <validSchemes>				*CUrlValidator::validSchemes*
  (array) list of URI schemes which should be considered valid. By default,
@@ -32,6 +56,58 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CUrlValidator::__call* 					 public
+ See |CComponent::__call|
+
+
+*CUrlValidator::__get*						 public
+ See |CComponent::__get|
+
+
+*CUrlValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CUrlValidator::__set*						 public
+ See |CComponent::__set|
+
+
+*CUrlValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CUrlValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CUrlValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CUrlValidator::asa*						 public
+ See |CComponent::asa|
+
+
+*CUrlValidator::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CUrlValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CUrlValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CUrlValidator::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CUrlValidator::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
 *CUrlValidator::clientValidateAttribute*			 public
 >
  clientValidateAttribute($object, $attribute)
@@ -41,6 +117,70 @@ METHOD DETAILS
  Returns the JavaScript needed for performing client-side validation.
     [object] (CModel) the data object being validated
     [attribute] (string) the name of the attribute to be validated.
+
+
+*CUrlValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CUrlValidator::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CUrlValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CUrlValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CUrlValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CUrlValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CUrlValidator::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CUrlValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CUrlValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CUrlValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CUrlValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CUrlValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CUrlValidator::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CUrlValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CUrlValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CUrlValidator::validate*					 public
+ See |CValidator::validate|
 
 
 *CUrlValidator::validateAttribute*				 protected

@@ -12,9 +12,30 @@ PROPERTY DETAILS
  (string) name of the catalog (database) that this table belongs to. Defaults
  to null, meaning no schema (or the current database).
 
+<columnNames>				*CMssqlTableSchema::columnNames*
+ See |CDbTableSchema::columnNames|
+
+<columns>				*CMssqlTableSchema::columns*
+ See |CDbTableSchema::columns|
+
+<foreignKeys>				*CMssqlTableSchema::foreignKeys*
+ See |CDbTableSchema::foreignKeys|
+
+<name>					*CMssqlTableSchema::name*
+ See |CDbTableSchema::name|
+
+<primaryKey>				*CMssqlTableSchema::primaryKey*
+ See |CDbTableSchema::primaryKey|
+
+<rawName>				*CMssqlTableSchema::rawName*
+ See |CDbTableSchema::rawName|
+
 <schemaName>				*CMssqlTableSchema::schemaName*
  (string) name of the schema that this table belongs to. Defaults to null,
  meaning no schema (or the current database owner).
+
+<sequenceName>				*CMssqlTableSchema::sequenceName*
+ See |CDbTableSchema::sequenceName|
 
 
 

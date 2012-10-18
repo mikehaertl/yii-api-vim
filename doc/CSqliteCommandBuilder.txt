@@ -10,6 +10,86 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CSqliteCommandBuilder::__call* 				 public
+ See |CComponent::__call|
+
+
+*CSqliteCommandBuilder::__construct*				 public
+ See |CDbCommandBuilder::__construct|
+
+
+*CSqliteCommandBuilder::__get*					 public
+ See |CComponent::__get|
+
+
+*CSqliteCommandBuilder::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CSqliteCommandBuilder::__set*					 public
+ See |CComponent::__set|
+
+
+*CSqliteCommandBuilder::__unset*				 public
+ See |CComponent::__unset|
+
+
+*CSqliteCommandBuilder::applyCondition* 			 public
+ See |CDbCommandBuilder::applyCondition|
+
+
+*CSqliteCommandBuilder::applyGroup*				 public
+ See |CDbCommandBuilder::applyGroup|
+
+
+*CSqliteCommandBuilder::applyHaving*				 public
+ See |CDbCommandBuilder::applyHaving|
+
+
+*CSqliteCommandBuilder::applyJoin*				 public
+ See |CDbCommandBuilder::applyJoin|
+
+
+*CSqliteCommandBuilder::applyLimit*				 public
+ See |CDbCommandBuilder::applyLimit|
+
+
+*CSqliteCommandBuilder::applyOrder*				 public
+ See |CDbCommandBuilder::applyOrder|
+
+
+*CSqliteCommandBuilder::asa*					 public
+ See |CComponent::asa|
+
+
+*CSqliteCommandBuilder::attachBehavior* 			 public
+ See |CComponent::attachBehavior|
+
+
+*CSqliteCommandBuilder::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CSqliteCommandBuilder::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CSqliteCommandBuilder::bindValues*				 public
+ See |CDbCommandBuilder::bindValues|
+
+
+*CSqliteCommandBuilder::canGetProperty* 			 public
+ See |CComponent::canGetProperty|
+
+
+*CSqliteCommandBuilder::canSetProperty* 			 public
+ See |CComponent::canSetProperty|
+
+
+*CSqliteCommandBuilder::createColumnCriteria*			 public
+ See |CDbCommandBuilder::createColumnCriteria|
+
+
 *CSqliteCommandBuilder::createCompositeInCondition*		 protected
 >
  createCompositeInCondition($table, $values, $prefix)
@@ -22,6 +102,122 @@ METHOD DETAILS
     [table] (CDbTableSchema) the table schema
     [values] (array) list of primary key values to be selected within
     [prefix] (string) column prefix (ended with dot)
+
+
+*CSqliteCommandBuilder::createCountCommand*			 public
+ See |CDbCommandBuilder::createCountCommand|
+
+
+*CSqliteCommandBuilder::createCriteria* 			 public
+ See |CDbCommandBuilder::createCriteria|
+
+
+*CSqliteCommandBuilder::createDeleteCommand*			 public
+ See |CDbCommandBuilder::createDeleteCommand|
+
+
+*CSqliteCommandBuilder::createFindCommand*			 public
+ See |CDbCommandBuilder::createFindCommand|
+
+
+*CSqliteCommandBuilder::createInCondition*			 public
+ See |CDbCommandBuilder::createInCondition|
+
+
+*CSqliteCommandBuilder::createInsertCommand*			 public
+ See |CDbCommandBuilder::createInsertCommand|
+
+
+*CSqliteCommandBuilder::createPkCondition*			 public
+ See |CDbCommandBuilder::createPkCondition|
+
+
+*CSqliteCommandBuilder::createPkCriteria*			 public
+ See |CDbCommandBuilder::createPkCriteria|
+
+
+*CSqliteCommandBuilder::createSearchCondition*			 public
+ See |CDbCommandBuilder::createSearchCondition|
+
+
+*CSqliteCommandBuilder::createSqlCommand*			 public
+ See |CDbCommandBuilder::createSqlCommand|
+
+
+*CSqliteCommandBuilder::createUpdateCommand*			 public
+ See |CDbCommandBuilder::createUpdateCommand|
+
+
+*CSqliteCommandBuilder::createUpdateCounterCommand*		 public
+ See |CDbCommandBuilder::createUpdateCounterCommand|
+
+
+*CSqliteCommandBuilder::detachBehavior* 			 public
+ See |CComponent::detachBehavior|
+
+
+*CSqliteCommandBuilder::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CSqliteCommandBuilder::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CSqliteCommandBuilder::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CSqliteCommandBuilder::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CSqliteCommandBuilder::enableBehavior* 			 public
+ See |CComponent::enableBehavior|
+
+
+*CSqliteCommandBuilder::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CSqliteCommandBuilder::ensureTable*				 protected
+ See |CDbCommandBuilder::ensureTable|
+
+
+*CSqliteCommandBuilder::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CSqliteCommandBuilder::getDbConnection*			 public
+ See |CDbCommandBuilder::getDbConnection|
+
+
+*CSqliteCommandBuilder::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CSqliteCommandBuilder::getLastInsertID*			 public
+ See |CDbCommandBuilder::getLastInsertID|
+
+
+*CSqliteCommandBuilder::getSchema*				 public
+ See |CDbCommandBuilder::getSchema|
+
+
+*CSqliteCommandBuilder::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CSqliteCommandBuilder::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CSqliteCommandBuilder::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CSqliteCommandBuilder::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 

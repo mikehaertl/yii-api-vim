@@ -19,6 +19,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDbCommandBuilder::__call*					 public
+ See |CComponent::__call|
+
+
 *CDbCommandBuilder::__construct*				 public
 >
  __construct($schema)
@@ -26,6 +30,22 @@ METHOD DETAILS
 (void)
 
     [schema] (CDbSchema) the schema for this command builder
+
+
+*CDbCommandBuilder::__get*					 public
+ See |CComponent::__get|
+
+
+*CDbCommandBuilder::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDbCommandBuilder::__set*					 public
+ See |CComponent::__set|
+
+
+*CDbCommandBuilder::__unset*					 public
+ See |CComponent::__unset|
 
 
 *CDbCommandBuilder::applyCondition*				 public
@@ -97,6 +117,22 @@ METHOD DETAILS
     [orderBy] (string) column ordering
 
 
+*CDbCommandBuilder::asa*					 public
+ See |CComponent::asa|
+
+
+*CDbCommandBuilder::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CDbCommandBuilder::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbCommandBuilder::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
 *CDbCommandBuilder::bindValues* 				 public
 >
  bindValues($command, $values)
@@ -107,6 +143,14 @@ METHOD DETAILS
     [command] (CDbCommand) database command
     [values] (array) values for binding (integer-indexed array for question
     mark placeholders, string-indexed array for named placeholders)
+
+
+*CDbCommandBuilder::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CDbCommandBuilder::canSetProperty*				 public
+ See |CComponent::canSetProperty|
 
 
 *CDbCommandBuilder::createColumnCriteria*			 public
@@ -325,6 +369,34 @@ returned if either the column array or the keywords are empty.
     [criteria] (CDbCriteria) the query criteria
 
 
+*CDbCommandBuilder::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CDbCommandBuilder::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbCommandBuilder::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbCommandBuilder::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbCommandBuilder::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbCommandBuilder::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CDbCommandBuilder::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
 *CDbCommandBuilder::ensureTable*				 protected
 >
  ensureTable($table)
@@ -338,12 +410,20 @@ returned if either the column array or the keywords are empty.
     the corresponding table schema.
 
 
+*CDbCommandBuilder::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
 *CDbCommandBuilder::getDbConnection*				 public
 >
  getDbConnection()
 <
 (CDbConnection) database connection.
 
+
+
+*CDbCommandBuilder::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CDbCommandBuilder::getLastInsertID*				 public
@@ -363,6 +443,22 @@ returned if either the column array or the keywords are empty.
 <
 (CDbSchema) the schema for this command builder.
 
+
+
+*CDbCommandBuilder::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbCommandBuilder::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbCommandBuilder::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CDbCommandBuilder::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
 
 
 

@@ -19,10 +19,89 @@ PROPERTY DETAILS
 <hasChanged>				*CCacheDependency::hasChanged*
  (boolean) whether the dependency has changed.
 
+<reuseDependentData>			*CCacheDependency::reuseDependentData*
+ (boolean) Whether this dependency is reusable or not. If set to true,
+ dependent data for this cache dependency will only be generated once per
+ request. You can then use the same cache dependency for multiple separate
+ cache calls on the same page without the overhead of re-evaluating the
+ dependency each time. Defaults to false;
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CCacheDependency::__call*					 public
+ See |CComponent::__call|
+
+
+*CCacheDependency::__get*					 public
+ See |CComponent::__get|
+
+
+*CCacheDependency::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CCacheDependency::__set*					 public
+ See |CComponent::__set|
+
+
+*CCacheDependency::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CCacheDependency::asa* 					 public
+ See |CComponent::asa|
+
+
+*CCacheDependency::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CCacheDependency::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CCacheDependency::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CCacheDependency::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CCacheDependency::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CCacheDependency::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CCacheDependency::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CCacheDependency::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CCacheDependency::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CCacheDependency::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CCacheDependency::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CCacheDependency::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
 
 *CCacheDependency::evaluateDependency*				 public
 >
@@ -32,6 +111,10 @@ METHOD DETAILS
 
  Evaluates the dependency by generating and saving the data related with
  dependency. This method is invoked by cache before writing data into it.
+
+
+*CCacheDependency::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CCacheDependency::generateDependentData*			 protected
@@ -54,12 +137,32 @@ is available after |CCacheDependency::evaluateDependency| is called.
 
 
 
+*CCacheDependency::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
 *CCacheDependency::getHasChanged*				 public
 >
  getHasChanged()
 <
 (boolean) whether the dependency has changed.
 
+
+
+*CCacheDependency::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CCacheDependency::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CCacheDependency::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*CCacheDependency::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

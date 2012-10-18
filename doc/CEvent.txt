@@ -29,6 +29,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CEvent::__call*						 public
+ See |CComponent::__call|
+
+
 *CEvent::__construct*						 public
 >
  __construct($sender=NULL, $params=NULL)
@@ -38,6 +42,98 @@ METHOD DETAILS
  Constructor.
     [sender] (mixed) sender of the event
     [params] (mixed) additional parameters for the event
+
+
+*CEvent::__get* 						 public
+ See |CComponent::__get|
+
+
+*CEvent::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CEvent::__set* 						 public
+ See |CComponent::__set|
+
+
+*CEvent::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CEvent::asa*							 public
+ See |CComponent::asa|
+
+
+*CEvent::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CEvent::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CEvent::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CEvent::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CEvent::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CEvent::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CEvent::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CEvent::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CEvent::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CEvent::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CEvent::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CEvent::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CEvent::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
+*CEvent::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CEvent::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CEvent::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CEvent::hasProperty*						 public
+ See |CComponent::hasProperty|
+
+
+*CEvent::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 

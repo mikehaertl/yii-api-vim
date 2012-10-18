@@ -48,6 +48,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<behaviors>				*CFormatter::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <booleanFormat> 			*CFormatter::booleanFormat*
  (array) the text to be displayed when formatting a boolean value. The first
  element corresponds to the text display for false, the second element for
@@ -64,12 +67,21 @@ PROPERTY DETAILS
 <htmlPurifier>				*CFormatter::htmlPurifier*
  (CHtmlPurifier) the HTML purifier instance
 
+<isInitialized> 			*CFormatter::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
 <numberFormat>				*CFormatter::numberFormat*
  (array) the format used to format a number with PHP number_format() function.
  Three elements may be specified: "decimals", "decimalSeparator" and
  "thousandSeparator". They correspond to the number of digits after the
  decimal point, the character displayed as the decimal point, and the
  thousands separator character.
+
+<sizeFormat>				*CFormatter::sizeFormat*
+ (array) the format used to format size (bytes). Two elements may be
+ specified: "base" and "decimals". They correspond to the base at which
+ KiloByte is calculated (1000 or 1024) bytes per KiloByte and the number of
+ digits after decimal point.
 
 <timeFormat>				*CFormatter::timeFormat*
  (string) the format string to be used to format a time using PHP date()
@@ -90,6 +102,78 @@ METHOD DETAILS
  method that we override to implement the shortcut format methods.
     [name] (string) the method name
     [parameters] (array) method parameters
+
+
+*CFormatter::__get*						 public
+ See |CComponent::__get|
+
+
+*CFormatter::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CFormatter::__set*						 public
+ See |CComponent::__set|
+
+
+*CFormatter::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CFormatter::asa*						 public
+ See |CComponent::asa|
+
+
+*CFormatter::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CFormatter::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CFormatter::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CFormatter::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CFormatter::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CFormatter::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CFormatter::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CFormatter::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CFormatter::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CFormatter::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CFormatter::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CFormatter::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CFormatter::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CFormatter::format*						 public
@@ -197,6 +281,19 @@ METHOD DETAILS
     [value] (mixed) the value to be formatted
 
 
+*CFormatter::formatSize*					 public
+>
+ formatSize($value, $verbose=false)
+<
+(string) the formatted result
+
+ Formats the value in bytes as a size in human readable form.
+    [value] (integer) value in bytes to be formatted
+    [verbose] (boolean) if full names should be used (e.g. Bytes, KiloBytes,
+    ...). Defaults to false meaning that short names will be used (e.g. B, KB,
+    ...).
+
+
 *CFormatter::formatText*					 public
 >
  formatText($value)
@@ -227,12 +324,40 @@ METHOD DETAILS
     [value] (mixed) the value to be formatted
 
 
+*CFormatter::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
 *CFormatter::getHtmlPurifier*					 public
 >
  getHtmlPurifier()
 <
 (CHtmlPurifier) the HTML purifier instance
 
+
+
+*CFormatter::getIsInitialized*					 public
+ See |CApplicationComponent::getIsInitialized|
+
+
+*CFormatter::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CFormatter::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CFormatter::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CFormatter::init*						 public
+ See |CApplicationComponent::init|
+
+
+*CFormatter::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

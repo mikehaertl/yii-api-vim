@@ -1,0 +1,165 @@
+
+*CConsoleCommandBehavior*   >> |CBehavior| >> |CComponent|
+=========================
+
+ CConsoleCommandBehavior is a base class for behaviors that are attached to a
+ console command component.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CConsoleCommandBehavior::__call*				 public
+ See |CComponent::__call|
+
+
+*CConsoleCommandBehavior::__get*				 public
+ See |CComponent::__get|
+
+
+*CConsoleCommandBehavior::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CConsoleCommandBehavior::__set*				 public
+ See |CComponent::__set|
+
+
+*CConsoleCommandBehavior::__unset*				 public
+ See |CComponent::__unset|
+
+
+*CConsoleCommandBehavior::afterAction*				 protected
+>
+ afterAction($event)
+<
+(void)
+
+ Responds to |CConsoleCommand::onAfterAction| event. Overrides this method if
+ you want to handle the corresponding event of the |CBehavior::owner|.
+    [event] (CConsoleCommandEvent) event parameter
+
+
+*CConsoleCommandBehavior::asa*					 public
+ See |CComponent::asa|
+
+
+*CConsoleCommandBehavior::attach*				 public
+ See |CBehavior::attach|
+
+
+*CConsoleCommandBehavior::attachBehavior*			 public
+ See |CComponent::attachBehavior|
+
+
+*CConsoleCommandBehavior::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CConsoleCommandBehavior::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CConsoleCommandBehavior::beforeAction* 			 protected
+>
+ beforeAction($event)
+<
+(void)
+
+ Responds to |CConsoleCommand::onBeforeAction| event. Overrides this method
+ if you want to handle the corresponding event of the |CBehavior::owner|.
+    [event] (CConsoleCommandEvent) event parameter
+
+
+*CConsoleCommandBehavior::canGetProperty*			 public
+ See |CComponent::canGetProperty|
+
+
+*CConsoleCommandBehavior::canSetProperty*			 public
+ See |CComponent::canSetProperty|
+
+
+*CConsoleCommandBehavior::detach*				 public
+ See |CBehavior::detach|
+
+
+*CConsoleCommandBehavior::detachBehavior*			 public
+ See |CComponent::detachBehavior|
+
+
+*CConsoleCommandBehavior::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CConsoleCommandBehavior::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CConsoleCommandBehavior::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CConsoleCommandBehavior::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CConsoleCommandBehavior::enableBehavior*			 public
+ See |CComponent::enableBehavior|
+
+
+*CConsoleCommandBehavior::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CConsoleCommandBehavior::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CConsoleCommandBehavior::events*				 public
+>
+ events()
+<
+(array) events (array keys) and the corresponding event handler methods (array
+values).
+
+ Declares events and the corresponding event handler methods. The default
+ implementation returns 'onAfterConstruct', 'onBeforeValidate' and
+ 'onAfterValidate' events and handlers. If you override this method, make
+ sure you merge the parent result to the return value.
+
+
+*CConsoleCommandBehavior::getEnabled*				 public
+ See |CBehavior::getEnabled|
+
+
+*CConsoleCommandBehavior::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CConsoleCommandBehavior::getOwner*				 public
+ See |CBehavior::getOwner|
+
+
+*CConsoleCommandBehavior::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CConsoleCommandBehavior::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CConsoleCommandBehavior::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CConsoleCommandBehavior::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CConsoleCommandBehavior::setEnabled*				 public
+ See |CBehavior::setEnabled|
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

@@ -30,6 +30,15 @@ PROPERTY DETAILS
  (boolean) whether the attribute value can be null or empty. Defaults to true,
  meaning that if the attribute is empty, it is considered valid.
 
+<attributes>				*CStringValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CStringValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
+<enableClientValidation>		*CStringValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
 <encoding>				*CStringValidator::encoding*
  (string) the encoding of the string value to be validated (e.g. 'UTF-8').
  This property is used only when mbstring PHP extension is enabled. The value
@@ -38,14 +47,29 @@ PROPERTY DETAILS
  If this property is set false, then strlen() will be used even if mbstring is
  enabled.
 
+<except>				*CStringValidator::except*
+ See |CValidator::except|
+
 <is>					*CStringValidator::is*
  (integer) exact length. Defaults to null, meaning no exact length limit.
 
 <max>					*CStringValidator::max*
  (integer) maximum length. Defaults to null, meaning no maximum limit.
 
+<message>				*CStringValidator::message*
+ See |CValidator::message|
+
 <min>					*CStringValidator::min*
  (integer) minimum length. Defaults to null, meaning no minimum limit.
+
+<on>					*CStringValidator::on*
+ See |CValidator::on|
+
+<safe>					*CStringValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CStringValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 <tooLong>				*CStringValidator::tooLong*
  (string) user-defined error message used when the value is too long.
@@ -58,6 +82,58 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CStringValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CStringValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CStringValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CStringValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CStringValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CStringValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CStringValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CStringValidator::asa* 					 public
+ See |CComponent::asa|
+
+
+*CStringValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CStringValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CStringValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CStringValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CStringValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CStringValidator::clientValidateAttribute*			 public
 >
  clientValidateAttribute($object, $attribute)
@@ -67,6 +143,70 @@ METHOD DETAILS
  Returns the JavaScript needed for performing client-side validation.
     [object] (CModel) the data object being validated
     [attribute] (string) the name of the attribute to be validated.
+
+
+*CStringValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CStringValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CStringValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CStringValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CStringValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CStringValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CStringValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CStringValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CStringValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CStringValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CStringValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CStringValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CStringValidator::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*CStringValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CStringValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CStringValidator::validate*					 public
+ See |CValidator::validate|
 
 
 *CStringValidator::validateAttribute*				 protected

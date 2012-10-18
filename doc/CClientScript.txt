@@ -8,6 +8,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<behaviors>				*CClientScript::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <corePackages>				*CClientScript::corePackages*
  (array) list of core script packages (name=>package spec). Please refer to
  |CClientScript::packages| for details about package spec.
@@ -40,11 +43,25 @@ PROPERTY DETAILS
 <cssFiles>				*CClientScript::cssFiles*
  (array) the registered CSS files (CSS URL=>media type).
 
+<defaultScriptFilePosition>		*CClientScript::defaultScriptFilePosition*
+ (integer) Where the scripts registered using
+ |CClientScript::registerScriptFile| will be inserted in the page. This can be
+ one of the CClientScript::POS_* constants. Defaults to
+ CClientScript::POS_HEAD.
+
+<defaultScriptPosition> 		*CClientScript::defaultScriptPosition*
+ (integer) Where the scripts registered using |CClientScript::registerScript|
+ will be inserted in the page. This can be one of the CClientScript::POS_*
+ constants. Defaults to CClientScript::POS_READY.
+
 <enableJavaScript>			*CClientScript::enableJavaScript*
  (boolean) whether JavaScript should be enabled. Defaults to true.
 
 <hasScripts>				*CClientScript::hasScripts*
  (boolean) whether there are any javascript or css to be rendered.
+
+<isInitialized> 			*CClientScript::isInitialized*
+ See |CApplicationComponent::isInitialized|
 
 <linkTags>				*CClientScript::linkTags*
  (array) the registered head link tags. Each array element represents an
@@ -119,6 +136,26 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CClientScript::__call* 					 public
+ See |CComponent::__call|
+
+
+*CClientScript::__get*						 public
+ See |CComponent::__get|
+
+
+*CClientScript::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CClientScript::__set*						 public
+ See |CComponent::__set|
+
+
+*CClientScript::__unset*					 public
+ See |CComponent::__unset|
+
+
 *CClientScript::addPackage*					 public
 >
  addPackage($name, $definition)
@@ -129,6 +166,62 @@ available since version 1.1.10).
  Adds a package to packages list.
     [name] (string) the name of the script package.
     [definition] (array) the definition array of the script package,
+
+
+*CClientScript::asa*						 public
+ See |CComponent::asa|
+
+
+*CClientScript::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CClientScript::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CClientScript::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CClientScript::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CClientScript::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CClientScript::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CClientScript::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CClientScript::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CClientScript::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CClientScript::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CClientScript::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CClientScript::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CClientScript::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CClientScript::getCoreScriptUrl*				 public
@@ -142,6 +235,14 @@ available since version 1.1.10).
  'framework/web/js/source' and return the corresponding URL.
 
 
+*CClientScript::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CClientScript::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
 *CClientScript::getPackageBaseUrl*				 public
 >
  getPackageBaseUrl($name)
@@ -153,6 +254,22 @@ is not registered yet.
  needed, this method may publish the assets of the package and returns the
  published base URL.
     [name] (string) the package name
+
+
+*CClientScript::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CClientScript::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CClientScript::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CClientScript::init*						 public
+ See |CApplicationComponent::init|
 
 
 *CClientScript::isCssFileRegistered*				 public
@@ -213,6 +330,10 @@ is not registered yet.
       window.onload() function.
       {CClientScript}:POS_READY : the script is inserted in the jQuery's
       ready function.
+
+
+*CClientScript::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CClientScript::recordCachingAction*				 protected
@@ -332,7 +453,7 @@ available since version 1.1.5).
 
 *CClientScript::registerScript* 				 public
 >
- registerScript($id, $script, $position=4)
+ registerScript($id, $script, $position=)
 <
 (CClientScript) the CClientScript object itself (to support method chaining,
 available since version 1.1.5).
@@ -356,7 +477,7 @@ available since version 1.1.5).
 
 *CClientScript::registerScriptFile*				 public
 >
- registerScriptFile($url, $position=0)
+ registerScriptFile($url, $position=)
 <
 (CClientScript) the CClientScript object itself (to support method chaining,
 available since version 1.1.5).

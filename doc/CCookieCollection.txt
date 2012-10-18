@@ -11,7 +11,12 @@
 >
  $cookies[$name]=new CHttpCookie($name,$value); // sends a cookie
  $value=$cookies[$name]->value; // reads a cookie value
- unset($cookies[$name]);  // removes a cookie
+ unset($cookies[$name]); // removes a cookie
+<
+ Additionally (since Yii 1.1.11) a cookie can be added as an object, without
+ setting the cookie name twice:
+>
+ $cookies->add(new CHttpCookie($name, $value)); // sends a cookie
 <
 
 
@@ -21,6 +26,18 @@ PROPERTY DETAILS
 <cookies>				*CCookieCollection::cookies*
  (array) list of validated cookies
 
+<count> 				*CCookieCollection::count*
+ See |CMap::count|
+
+<iterator>				*CCookieCollection::iterator*
+ See |CMap::iterator|
+
+<keys>					*CCookieCollection::keys*
+ See |CMap::keys|
+
+<readOnly>				*CCookieCollection::readOnly*
+ See |CMap::readOnly|
+
 <request>				*CCookieCollection::request*
  (CHttpRequest) the request instance
 
@@ -28,6 +45,10 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CCookieCollection::__call*					 public
+ See |CComponent::__call|
+
 
 *CCookieCollection::__construct*				 public
 >
@@ -39,17 +60,41 @@ METHOD DETAILS
     [request] (CHttpRequest) owner of this collection.
 
 
+*CCookieCollection::__get*					 public
+ See |CComponent::__get|
+
+
+*CCookieCollection::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CCookieCollection::__set*					 public
+ See |CComponent::__set|
+
+
+*CCookieCollection::__unset*					 public
+ See |CComponent::__unset|
+
+
 *CCookieCollection::add*					 public
 >
- add($name, $cookie)
+ add($name, $cookie=NULL)
 <
 (void)
 
  Adds a cookie with the specified name. This overrides the parent
  implementation by performing additional operations for each newly added
- CHttpCookie object.
-    [name] (mixed) Cookie name.
-    [cookie] (CHttpCookie) Cookie object.
+ CHttpCookie object. This method provides the following two options to add a
+ cookie:
+>
+ // Array access style - note that cookie name should be used twice here
+ Yii::app()->request->cookies['name']=new CHttpCookie('name',$value);
+ // Object style - note that cookie name is used only once here
+ Yii::app()->request->cookies->add(new CHttpCookie('name', $value));
+<
+    [name] (mixed) Cookie name or an instance of |CHttpCookie|.
+    [cookie] (CHttpCookie) An instance of HttpCookie, only used if the first
+    parameter is not an instance of |CHttpCookie|. Defaults to null.
 
 
 *CCookieCollection::addCookie*					 protected
@@ -62,12 +107,104 @@ METHOD DETAILS
     [cookie] (CHttpCookie) cookie to be sent
 
 
+*CCookieCollection::asa*					 public
+ See |CComponent::asa|
+
+
+*CCookieCollection::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CCookieCollection::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CCookieCollection::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
+*CCookieCollection::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CCookieCollection::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CCookieCollection::clear*					 public
+ See |CMap::clear|
+
+
+*CCookieCollection::contains*					 public
+ See |CMap::contains|
+
+
+*CCookieCollection::copyFrom*					 public
+ See |CMap::copyFrom|
+
+
+*CCookieCollection::count*					 public
+ See |CMap::count|
+
+
+*CCookieCollection::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CCookieCollection::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CCookieCollection::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CCookieCollection::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CCookieCollection::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CCookieCollection::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CCookieCollection::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CCookieCollection::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
 *CCookieCollection::getCookies* 				 protected
 >
  getCookies()
 <
 (array) list of validated cookies
 
+
+
+*CCookieCollection::getCount*					 public
+ See |CMap::getCount|
+
+
+*CCookieCollection::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CCookieCollection::getIterator*				 public
+ See |CMap::getIterator|
+
+
+*CCookieCollection::getKeys*					 public
+ See |CMap::getKeys|
+
+
+*CCookieCollection::getReadOnly*				 public
+ See |CMap::getReadOnly|
 
 
 *CCookieCollection::getRequest* 				 public
@@ -78,16 +215,71 @@ METHOD DETAILS
 
 
 
+*CCookieCollection::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CCookieCollection::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CCookieCollection::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CCookieCollection::itemAt*					 public
+ See |CMap::itemAt|
+
+
+*CCookieCollection::mergeArray* 				 public
+ See |CMap::mergeArray|
+
+
+*CCookieCollection::mergeWith*					 public
+ See |CMap::mergeWith|
+
+
+*CCookieCollection::offsetExists*				 public
+ See |CMap::offsetExists|
+
+
+*CCookieCollection::offsetGet*					 public
+ See |CMap::offsetGet|
+
+
+*CCookieCollection::offsetSet*					 public
+ See |CMap::offsetSet|
+
+
+*CCookieCollection::offsetUnset*				 public
+ See |CMap::offsetUnset|
+
+
+*CCookieCollection::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
+
+
 *CCookieCollection::remove*					 public
 >
- remove($name)
+ remove($name, $options=array())
 <
 (CHttpCookie) The removed cookie object.
 
  Removes a cookie with the specified name. This overrides the parent
  implementation by performing additional cleanup work when removing a
- CHttpCookie object.
+ CHttpCookie object. Since version 1.1.11, the second parameter is available
+ that can be used to specify the options of the CHttpCookie being removed. For
+ example, this may be useful when dealing with ".domain.tld" where multiple
+ subdomains are expected to be able to manage cookies:
+>
+ $options=array('domain'=>'.domain.tld');
+ Yii::app()->request->cookies['foo']=new
+ CHttpCookie('cookie','value',$options);
+ Yii::app()->request->cookies->remove('cookie',$options);
+<
     [name] (mixed) Cookie name.
+    [options] (array) Cookie configuration array consisting of name-value
+    pairs, available since 1.1.11.
 
 
 *CCookieCollection::removeCookie*				 protected
@@ -98,6 +290,14 @@ METHOD DETAILS
 
  Deletes a cookie.
     [cookie] (CHttpCookie) cookie to be deleted
+
+
+*CCookieCollection::setReadOnly*				 protected
+ See |CMap::setReadOnly|
+
+
+*CCookieCollection::toArray*					 public
+ See |CMap::toArray|
 
 
 

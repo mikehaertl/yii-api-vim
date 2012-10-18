@@ -18,6 +18,9 @@ PROPERTY DETAILS
  (boolean) whether the log DB table should be automatically created if not
  exists. Defaults to true.
 
+<categories>				*CDbLogRoute::categories*
+ See |CLogRoute::categories|
+
 <connectionID>				*CDbLogRoute::connectionID*
  (string) the ID of CDbConnection application component. If not set, a SQLite
  database will be automatically created and used. The SQLite database file is
@@ -25,6 +28,15 @@ PROPERTY DETAILS
 
 <dbConnection>				*CDbLogRoute::dbConnection*
  (CDbConnection) the DB connection instance
+
+<enabled>				*CDbLogRoute::enabled*
+ See |CLogRoute::enabled|
+
+<filter>				*CDbLogRoute::filter*
+ See |CLogRoute::filter|
+
+<levels>				*CDbLogRoute::levels*
+ See |CLogRoute::levels|
 
 <logTableName>				*CDbLogRoute::logTableName*
  (string) the name of the DB table that stores log content. Defaults to
@@ -44,10 +56,61 @@ PROPERTY DETAILS
  MySQL, this means it should be 'id INTEGER NOT NULL AUTO_INCREMENT PRIMARY
  KEY'; In PostgreSQL, it is 'id SERIAL PRIMARY KEY'.
 
+<logs>					*CDbLogRoute::logs*
+ See |CLogRoute::logs|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CDbLogRoute::__call*						 public
+ See |CComponent::__call|
+
+
+*CDbLogRoute::__get*						 public
+ See |CComponent::__get|
+
+
+*CDbLogRoute::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CDbLogRoute::__set*						 public
+ See |CComponent::__set|
+
+
+*CDbLogRoute::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CDbLogRoute::asa*						 public
+ See |CComponent::asa|
+
+
+*CDbLogRoute::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CDbLogRoute::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbLogRoute::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbLogRoute::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CDbLogRoute::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CDbLogRoute::collectLogs*					 public
+ See |CLogRoute::collectLogs|
+
 
 *CDbLogRoute::createLogTable*					 protected
 >
@@ -60,12 +123,64 @@ METHOD DETAILS
     [tableName] (string) the name of the table to be created
 
 
+*CDbLogRoute::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CDbLogRoute::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbLogRoute::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbLogRoute::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CDbLogRoute::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbLogRoute::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CDbLogRoute::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbLogRoute::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CDbLogRoute::formatLogMessage* 				 protected
+ See |CLogRoute::formatLogMessage|
+
+
 *CDbLogRoute::getDbConnection*					 protected
 >
  getDbConnection()
 <
 (CDbConnection) the DB connection instance
 
+
+
+*CDbLogRoute::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDbLogRoute::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CDbLogRoute::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbLogRoute::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CDbLogRoute::init*						 public
@@ -86,6 +201,10 @@ METHOD DETAILS
 
  Stores log messages into database.
     [logs] (array) list of log messages
+
+
+*CDbLogRoute::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

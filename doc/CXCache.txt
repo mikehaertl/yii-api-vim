@@ -5,6 +5,8 @@
  CXCache implements a cache application module based on 'xcache'.
 
  To use this application component, the XCache PHP extension must be loaded.
+ Flush functionality will only work correctly if "xcache.admin.enable_auth" is
+ set to "Off" in php.ini.
 
  See |CCache| manual for common cache operations that are supported by
  CXCache.
@@ -13,6 +15,30 @@
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CXCache::__call*						 public
+ See |CComponent::__call|
+
+
+*CXCache::__get*						 public
+ See |CComponent::__get|
+
+
+*CXCache::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CXCache::__set*						 public
+ See |CComponent::__set|
+
+
+*CXCache::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CXCache::add*							 public
+ See |CCache::add|
+
 
 *CXCache::addValue*						 protected
 >
@@ -29,6 +55,34 @@ METHOD DETAILS
     expire. 0 means never expire.
 
 
+*CXCache::asa*							 public
+ See |CComponent::asa|
+
+
+*CXCache::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CXCache::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CXCache::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CXCache::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CXCache::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CXCache::delete*						 public
+ See |CCache::delete|
+
+
 *CXCache::deleteValue*						 protected
 >
  deleteValue($key)
@@ -40,6 +94,42 @@ METHOD DETAILS
     [key] (string) the key of the value to be deleted
 
 
+*CXCache::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CXCache::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CXCache::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CXCache::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CXCache::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CXCache::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CXCache::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CXCache::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
+*CXCache::flush*						 public
+ See |CCache::flush|
+
+
 *CXCache::flushValues*						 protected
 >
  flushValues()
@@ -48,6 +138,22 @@ METHOD DETAILS
 
  Deletes all values from cache. This is the implementation of the method
  declared in the parent class.
+
+
+*CXCache::generateUniqueKey*					 protected
+ See |CCache::generateUniqueKey|
+
+
+*CXCache::get*							 public
+ See |CCache::get|
+
+
+*CXCache::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CXCache::getIsInitialized*					 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CXCache::getValue*						 protected
@@ -62,6 +168,22 @@ expired.
     [key] (string) a unique key identifying the cached value
 
 
+*CXCache::getValues*						 protected
+ See |CCache::getValues|
+
+
+*CXCache::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CXCache::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CXCache::hasProperty*						 public
+ See |CComponent::hasProperty|
+
+
 *CXCache::init* 						 public
 >
  init()
@@ -70,6 +192,34 @@ expired.
 
  Initializes this application component. This method is required by the
  |IApplicationComponent| interface. It checks the availability of memcache.
+
+
+*CXCache::mget* 						 public
+ See |CCache::mget|
+
+
+*CXCache::offsetExists* 					 public
+ See |CCache::offsetExists|
+
+
+*CXCache::offsetGet*						 public
+ See |CCache::offsetGet|
+
+
+*CXCache::offsetSet*						 public
+ See |CCache::offsetSet|
+
+
+*CXCache::offsetUnset*						 public
+ See |CCache::offsetUnset|
+
+
+*CXCache::raiseEvent*						 public
+ See |CComponent::raiseEvent|
+
+
+*CXCache::set*							 public
+ See |CCache::set|
 
 
 *CXCache::setValue*						 protected

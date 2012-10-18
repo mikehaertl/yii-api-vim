@@ -27,6 +27,9 @@ PROPERTY DETAILS
  does not exist. Defaults to true. If you already have the table created, it
  is recommended you set this property to be false to improve performance.
 
+<behaviors>				*CDbCache::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <cacheTableName>			*CDbCache::cacheTableName*
  (string) name of the DB table to store cache content. Defaults to 'YiiCache'.
  Note, if |CDbCache::autoCreateCacheTable| is false and you want to create the
@@ -52,10 +55,46 @@ PROPERTY DETAILS
  should be performed when storing a piece of data in the cache. Defaults to
  100, meaning 0.01% chance.
 
+<hashKey>				*CDbCache::hashKey*
+ See |CCache::hashKey|
+
+<isInitialized> 			*CDbCache::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
+<keyPrefix>				*CDbCache::keyPrefix*
+ See |CCache::keyPrefix|
+
+<serializer>				*CDbCache::serializer*
+ See |CCache::serializer|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CDbCache::__call*						 public
+ See |CComponent::__call|
+
+
+*CDbCache::__get*						 public
+ See |CComponent::__get|
+
+
+*CDbCache::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CDbCache::__set*						 public
+ See |CComponent::__set|
+
+
+*CDbCache::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CDbCache::add* 						 public
+ See |CCache::add|
+
 
 *CDbCache::addValue*						 protected
 >
@@ -72,6 +111,30 @@ METHOD DETAILS
     expire. 0 means never expire.
 
 
+*CDbCache::asa* 						 public
+ See |CComponent::asa|
+
+
+*CDbCache::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CDbCache::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbCache::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbCache::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CDbCache::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CDbCache::createCacheTable*					 protected
 >
  createCacheTable($db, $tableName)
@@ -83,6 +146,10 @@ METHOD DETAILS
     [tableName] (string) the name of the table to be created
 
 
+*CDbCache::delete*						 public
+ See |CCache::delete|
+
+
 *CDbCache::deleteValue* 					 protected
 >
  deleteValue($key)
@@ -92,6 +159,42 @@ METHOD DETAILS
  Deletes a value with the specified key from cache This is the implementation
  of the method declared in the parent class.
     [key] (string) the key of the value to be deleted
+
+
+*CDbCache::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CDbCache::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbCache::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbCache::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CDbCache::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbCache::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CDbCache::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbCache::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
+*CDbCache::flush*						 public
+ See |CCache::flush|
 
 
 *CDbCache::flushValues* 					 protected
@@ -113,12 +216,24 @@ METHOD DETAILS
  Removes the expired data values.
 
 
+*CDbCache::generateUniqueKey*					 protected
+ See |CCache::generateUniqueKey|
+
+
+*CDbCache::get* 						 public
+ See |CCache::get|
+
+
 *CDbCache::getDbConnection*					 public
 >
  getDbConnection()
 <
 (CDbConnection) the DB connection instance
 
+
+
+*CDbCache::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CDbCache::getGCProbability*					 public
@@ -129,6 +244,10 @@ METHOD DETAILS
 should be performed when storing a piece of data in the cache. Defaults to
 100, meaning 0.01% chance.
 
+
+
+*CDbCache::getIsInitialized*					 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CDbCache::getValue*						 protected
@@ -153,6 +272,18 @@ expired.
     [keys] (array) a list of keys identifying the cached values
 
 
+*CDbCache::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CDbCache::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbCache::hasProperty* 					 public
+ See |CComponent::hasProperty|
+
+
 *CDbCache::init*						 public
 >
  init()
@@ -164,6 +295,34 @@ expired.
  This method is required by the |IApplicationComponent| interface. It ensures
  the existence of the cache DB table. It also removes expired data items from
  the cache.
+
+
+*CDbCache::mget*						 public
+ See |CCache::mget|
+
+
+*CDbCache::offsetExists*					 public
+ See |CCache::offsetExists|
+
+
+*CDbCache::offsetGet*						 public
+ See |CCache::offsetGet|
+
+
+*CDbCache::offsetSet*						 public
+ See |CCache::offsetSet|
+
+
+*CDbCache::offsetUnset* 					 public
+ See |CCache::offsetUnset|
+
+
+*CDbCache::raiseEvent*						 public
+ See |CComponent::raiseEvent|
+
+
+*CDbCache::set* 						 public
+ See |CCache::set|
 
 
 *CDbCache::setDbConnection*					 public

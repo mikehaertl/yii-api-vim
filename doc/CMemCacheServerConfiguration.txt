@@ -38,6 +38,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CMemCacheServerConfiguration::__call*				 public
+ See |CComponent::__call|
+
+
 *CMemCacheServerConfiguration::__construct*			 public
 >
  __construct($config)
@@ -46,6 +50,98 @@ METHOD DETAILS
 
  Constructor.
     [config] (array) list of memcache server configurations.
+
+
+*CMemCacheServerConfiguration::__get*				 public
+ See |CComponent::__get|
+
+
+*CMemCacheServerConfiguration::__isset* 			 public
+ See |CComponent::__isset|
+
+
+*CMemCacheServerConfiguration::__set*				 public
+ See |CComponent::__set|
+
+
+*CMemCacheServerConfiguration::__unset* 			 public
+ See |CComponent::__unset|
+
+
+*CMemCacheServerConfiguration::asa*				 public
+ See |CComponent::asa|
+
+
+*CMemCacheServerConfiguration::attachBehavior*			 public
+ See |CComponent::attachBehavior|
+
+
+*CMemCacheServerConfiguration::attachBehaviors* 		 public
+ See |CComponent::attachBehaviors|
+
+
+*CMemCacheServerConfiguration::attachEventHandler*		 public
+ See |CComponent::attachEventHandler|
+
+
+*CMemCacheServerConfiguration::canGetProperty*			 public
+ See |CComponent::canGetProperty|
+
+
+*CMemCacheServerConfiguration::canSetProperty*			 public
+ See |CComponent::canSetProperty|
+
+
+*CMemCacheServerConfiguration::detachBehavior*			 public
+ See |CComponent::detachBehavior|
+
+
+*CMemCacheServerConfiguration::detachBehaviors* 		 public
+ See |CComponent::detachBehaviors|
+
+
+*CMemCacheServerConfiguration::detachEventHandler*		 public
+ See |CComponent::detachEventHandler|
+
+
+*CMemCacheServerConfiguration::disableBehavior* 		 public
+ See |CComponent::disableBehavior|
+
+
+*CMemCacheServerConfiguration::disableBehaviors*		 public
+ See |CComponent::disableBehaviors|
+
+
+*CMemCacheServerConfiguration::enableBehavior*			 public
+ See |CComponent::enableBehavior|
+
+
+*CMemCacheServerConfiguration::enableBehaviors* 		 public
+ See |CComponent::enableBehaviors|
+
+
+*CMemCacheServerConfiguration::evaluateExpression*		 public
+ See |CComponent::evaluateExpression|
+
+
+*CMemCacheServerConfiguration::getEventHandlers*		 public
+ See |CComponent::getEventHandlers|
+
+
+*CMemCacheServerConfiguration::hasEvent*			 public
+ See |CComponent::hasEvent|
+
+
+*CMemCacheServerConfiguration::hasEventHandler* 		 public
+ See |CComponent::hasEventHandler|
+
+
+*CMemCacheServerConfiguration::hasProperty*			 public
+ See |CComponent::hasProperty|
+
+
+*CMemCacheServerConfiguration::raiseEvent*			 public
+ See |CComponent::raiseEvent|
 
 
 

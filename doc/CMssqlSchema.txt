@@ -12,10 +12,54 @@ PROPERTY DETAILS
 <columnTypes>				*CMssqlSchema::columnTypes*
  (array) the abstract column types mapped to physical column types.
 
+<commandBuilder>			*CMssqlSchema::commandBuilder*
+ See |CDbSchema::commandBuilder|
+
+<dbConnection>				*CMssqlSchema::dbConnection*
+ See |CDbSchema::dbConnection|
+
+<tableNames>				*CMssqlSchema::tableNames*
+ See |CDbSchema::tableNames|
+
+<tables>				*CMssqlSchema::tables*
+ See |CDbSchema::tables|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CMssqlSchema::__call*						 public
+ See |CComponent::__call|
+
+
+*CMssqlSchema::__construct*					 public
+ See |CDbSchema::__construct|
+
+
+*CMssqlSchema::__get*						 public
+ See |CComponent::__get|
+
+
+*CMssqlSchema::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CMssqlSchema::__set*						 public
+ See |CComponent::__set|
+
+
+*CMssqlSchema::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CMssqlSchema::addColumn*					 public
+ See |CDbSchema::addColumn|
+
+
+*CMssqlSchema::addForeignKey*					 public
+ See |CDbSchema::addForeignKey|
+
 
 *CMssqlSchema::alterColumn*					 public
 >
@@ -34,6 +78,30 @@ METHOD DETAILS
     kept in the generated SQL. For example, 'string' will be turned into
     'varchar(255)', while 'string not null' will become 'varchar(255) not
     null'.
+
+
+*CMssqlSchema::asa*						 public
+ See |CComponent::asa|
+
+
+*CMssqlSchema::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CMssqlSchema::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CMssqlSchema::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CMssqlSchema::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CMssqlSchema::canSetProperty*					 public
+ See |CComponent::canSetProperty|
 
 
 *CMssqlSchema::checkIntegrity*					 public
@@ -78,6 +146,62 @@ METHOD DETAILS
 
  Creates a command builder for the database. This method overrides parent
  implementation in order to create a MSSQL specific command builder
+
+
+*CMssqlSchema::createIndex*					 public
+ See |CDbSchema::createIndex|
+
+
+*CMssqlSchema::createTable*					 public
+ See |CDbSchema::createTable|
+
+
+*CMssqlSchema::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CMssqlSchema::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CMssqlSchema::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CMssqlSchema::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CMssqlSchema::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CMssqlSchema::dropColumn*					 public
+ See |CDbSchema::dropColumn|
+
+
+*CMssqlSchema::dropForeignKey*					 public
+ See |CDbSchema::dropForeignKey|
+
+
+*CMssqlSchema::dropIndex*					 public
+ See |CDbSchema::dropIndex|
+
+
+*CMssqlSchema::dropTable*					 public
+ See |CDbSchema::dropTable|
+
+
+*CMssqlSchema::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CMssqlSchema::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CMssqlSchema::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CMssqlSchema::findColumns*					 protected
@@ -125,6 +249,46 @@ composite pk)
     to true.
 
 
+*CMssqlSchema::getColumnType*					 public
+ See |CDbSchema::getColumnType|
+
+
+*CMssqlSchema::getCommandBuilder*				 public
+ See |CDbSchema::getCommandBuilder|
+
+
+*CMssqlSchema::getDbConnection* 				 public
+ See |CDbSchema::getDbConnection|
+
+
+*CMssqlSchema::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CMssqlSchema::getTable*					 public
+ See |CDbSchema::getTable|
+
+
+*CMssqlSchema::getTableNames*					 public
+ See |CDbSchema::getTableNames|
+
+
+*CMssqlSchema::getTables*					 public
+ See |CDbSchema::getTables|
+
+
+*CMssqlSchema::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CMssqlSchema::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CMssqlSchema::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CMssqlSchema::loadTable*					 protected
 >
  loadTable($name)
@@ -134,6 +298,10 @@ not exist.
 
  Loads the metadata for the specified table.
     [name] (string) table name
+
+
+*CMssqlSchema::quoteColumnName* 				 public
+ See |CDbSchema::quoteColumnName|
 
 
 *CMssqlSchema::quoteSimpleColumnName*				 public
@@ -156,6 +324,18 @@ not exist.
  Quotes a table name for use in a query. A simple table name does not schema
  prefix.
     [name] (string) table name
+
+
+*CMssqlSchema::quoteTableName*					 public
+ See |CDbSchema::quoteTableName|
+
+
+*CMssqlSchema::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CMssqlSchema::refresh* 					 public
+ See |CDbSchema::refresh|
 
 
 *CMssqlSchema::renameColumn*					 public
@@ -211,6 +391,10 @@ not exist.
  Generates various kinds of table names.
     [table] (CMssqlTableSchema) the table instance
     [name] (string) the unquoted table name
+
+
+*CMssqlSchema::truncateTable*					 public
+ See |CDbSchema::truncateTable|
 
 
 

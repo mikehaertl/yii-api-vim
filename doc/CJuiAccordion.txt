@@ -29,9 +29,18 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CJuiAccordion::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <contentTemplate>			*CJuiAccordion::contentTemplate*
  (string) the template that is used to generated every panel content. The
  token "{content}" in the template will be replaced with the panel content.
+
+<controller>				*CJuiAccordion::controller*
+ See |CWidget::controller|
+
+<cssFile>				*CJuiAccordion::cssFile*
+ See |CJuiWidget::cssFile|
 
 <headerTemplate>			*CJuiAccordion::headerTemplate*
  (string) the template that is used to generated every panel header. The token
@@ -39,18 +48,236 @@ PROPERTY DETAILS
  you make change to this template, you may also need to adjust the 'header'
  setting in |CJuiAccordion::options|.
 
+<htmlOptions>				*CJuiAccordion::htmlOptions*
+ See |CJuiWidget::htmlOptions|
+
+<id>					*CJuiAccordion::id*
+ See |CWidget::id|
+
+<options>				*CJuiAccordion::options*
+ See |CJuiWidget::options|
+
+<owner> 				*CJuiAccordion::owner*
+ See |CWidget::owner|
+
 <panels>				*CJuiAccordion::panels*
  (array) list of panels (panel title=>panel content). Note that neither panel
  title nor panel content will be HTML-encoded.
+
+<scriptFile>				*CJuiAccordion::scriptFile*
+ See |CJuiWidget::scriptFile|
+
+<scriptUrl>				*CJuiAccordion::scriptUrl*
+ See |CJuiWidget::scriptUrl|
+
+<skin>					*CJuiAccordion::skin*
+ See |CWidget::skin|
 
 <tagName>				*CJuiAccordion::tagName*
  (string) the name of the container element that contains all panels. Defaults
  to 'div'.
 
+<theme> 				*CJuiAccordion::theme*
+ See |CJuiWidget::theme|
+
+<themeUrl>				*CJuiAccordion::themeUrl*
+ See |CJuiWidget::themeUrl|
+
+<viewPath>				*CJuiAccordion::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CJuiAccordion::__call* 					 public
+ See |CComponent::__call|
+
+
+*CJuiAccordion::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CJuiAccordion::__get*						 public
+ See |CComponent::__get|
+
+
+*CJuiAccordion::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CJuiAccordion::__set*						 public
+ See |CComponent::__set|
+
+
+*CJuiAccordion::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CJuiAccordion::actions*					 public
+ See |CWidget::actions|
+
+
+*CJuiAccordion::asa*						 public
+ See |CComponent::asa|
+
+
+*CJuiAccordion::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CJuiAccordion::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CJuiAccordion::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CJuiAccordion::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CJuiAccordion::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CJuiAccordion::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CJuiAccordion::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CJuiAccordion::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CJuiAccordion::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CJuiAccordion::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CJuiAccordion::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CJuiAccordion::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CJuiAccordion::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CJuiAccordion::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CJuiAccordion::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CJuiAccordion::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CJuiAccordion::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CJuiAccordion::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CJuiAccordion::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CJuiAccordion::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CJuiAccordion::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CJuiAccordion::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CJuiAccordion::getController*					 public
+ See |CWidget::getController|
+
+
+*CJuiAccordion::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CJuiAccordion::getId*						 public
+ See |CWidget::getId|
+
+
+*CJuiAccordion::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CJuiAccordion::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CJuiAccordion::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CJuiAccordion::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CJuiAccordion::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CJuiAccordion::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CJuiAccordion::init*						 public
+ See |CJuiWidget::init|
+
+
+*CJuiAccordion::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CJuiAccordion::registerCoreScripts*				 protected
+ See |CJuiWidget::registerCoreScripts|
+
+
+*CJuiAccordion::registerScriptFile*				 protected
+ See |CJuiWidget::registerScriptFile|
+
+
+*CJuiAccordion::render* 					 public
+ See |CWidget::render|
+
+
+*CJuiAccordion::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CJuiAccordion::renderInternal* 				 public
+ See |CBaseController::renderInternal|
+
+
+*CJuiAccordion::resolvePackagePath*				 protected
+ See |CJuiWidget::resolvePackagePath|
+
 
 *CJuiAccordion::run*						 public
 >
@@ -60,6 +287,14 @@ METHOD DETAILS
 
  Run this widget. This method registers necessary javascript and renders the
  needed HTML code.
+
+
+*CJuiAccordion::setId*						 public
+ See |CWidget::setId|
+
+
+*CJuiAccordion::widget* 					 public
+ See |CBaseController::widget|
 
 
 

@@ -64,6 +64,9 @@ PROPERTY DETAILS
  ensuring a flash message is deleted after usage. (This can be achieved by
  calling |CWebUser::getFlash| with the 3rd parameter being true).
 
+<behaviors>				*CWebUser::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <flashes>				*CWebUser::flashes*
  (array) Returns all flash messages. This method is similar to
  |CWebUser::getFlash| except that it returns all currently available flash
@@ -74,8 +77,7 @@ PROPERTY DETAILS
  |CWebUser::getName| when the current user is a guest (not authenticated).
 
 <id>					*CWebUser::id*
- (mixed) the unique identifier for the user. If null, it means the user is a
- guest.
+ (mixed) Returns a value that uniquely represents the user.
 
 <identityCookie>			*CWebUser::identityCookie*
  (array) the property values (in name-value pairs) used to initialize the
@@ -83,7 +85,11 @@ PROPERTY DETAILS
  property is effective only when |CWebUser::allowAutoLogin| is true.
 
 <isGuest>				*CWebUser::isGuest*
- (boolean) whether the current application user is a guest.
+ (boolean) Returns a value indicating whether the user is a guest (not
+ authenticated).
+
+<isInitialized> 			*CWebUser::isInitialized*
+ See |CApplicationComponent::isInitialized|
 
 <loginRequiredAjaxResponse>		*CWebUser::loginRequiredAjaxResponse*
  (string) value that will be echoed in case that user session has expired
@@ -122,6 +128,10 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CWebUser::__call*						 public
+ See |CComponent::__call|
+
 
 *CWebUser::__get*						 public
 >
@@ -190,6 +200,22 @@ METHOD DETAILS
  this method to do some extra cleanup work for the user.
 
 
+*CWebUser::asa* 						 public
+ See |CComponent::asa|
+
+
+*CWebUser::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CWebUser::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CWebUser::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
 *CWebUser::beforeLogin* 					 protected
 >
  beforeLogin($id, $states, $fromCookie)
@@ -220,6 +246,14 @@ METHOD DETAILS
  override this method to provide additional check before logging out a user.
 
 
+*CWebUser::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CWebUser::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CWebUser::changeIdentity*					 protected
 >
  changeIdentity($id, $name, $states)
@@ -246,14 +280,17 @@ METHOD DETAILS
  Performs access check for this user.
     [operation] (string) the name of the operation that need access check.
     [params] (array) name-value pairs that would be passed to business rules
-    associated with the tasks and roles assigned to the user.
+    associated with the tasks and roles assigned to the user. Since version
+    1.1.11 a param with name 'userId' is added to this array, which holds the
+    value of |CWebUser::getId| when |CDbAuthManager| or |CPhpAuthManager| is
+    used.
     [allowCaching] (boolean) whether to allow caching the result of access
     check. When this parameter is true (default), if the access check of an
     operation was performed before, its result will be directly returned when
     calling this method to check the same operation. If this parameter is
     false, this method will always call |CAuthManager::checkAccess| to obtain
     the up-to-date access result. Note that this caching is effective only
-    within the same request.
+    within the same request and only works when '$params=array()'.
 
 
 *CWebUser::clearStates* 					 public
@@ -274,6 +311,42 @@ METHOD DETAILS
 
  Creates a cookie to store identity information.
     [name] (string) the cookie name
+
+
+*CWebUser::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CWebUser::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CWebUser::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CWebUser::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CWebUser::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CWebUser::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CWebUser::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CWebUser::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
+*CWebUser::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CWebUser::getFlash*						 public
@@ -310,6 +383,7 @@ METHOD DETAILS
 (mixed) the unique identifier for the user. If null, it means the user is a
 guest.
 
+ Returns a value that uniquely represents the user.
 
 
 *CWebUser::getIsGuest*						 public
@@ -318,6 +392,11 @@ guest.
 <
 (boolean) whether the current application user is a guest.
 
+ Returns a value indicating whether the user is a guest (not authenticated).
+
+
+*CWebUser::getIsInitialized*					 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CWebUser::getName*						 public
@@ -372,6 +451,14 @@ data.
 
 
 
+*CWebUser::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CWebUser::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
 *CWebUser::hasFlash*						 public
 >
  hasFlash($key)
@@ -379,6 +466,10 @@ data.
 (boolean) whether the specified flash message exists
 
     [key] (string) key identifying the flash message
+
+
+*CWebUser::hasProperty* 					 public
+ See |CComponent::hasProperty|
 
 
 *CWebUser::hasState*						 public
@@ -462,6 +553,10 @@ data.
     [destroySession] (boolean) whether to destroy the whole session. Defaults
     to true. If false, then |CWebUser::clearStates| will be called, which
     removes only the data stored via |CWebUser::setState|.
+
+
+*CWebUser::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 *CWebUser::renewCookie* 					 protected

@@ -87,6 +87,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDbCommand::__call*						 public
+ See |CComponent::__call|
+
+
 *CDbCommand::__construct*					 public
 >
  __construct($connection, $query=NULL)
@@ -117,6 +121,18 @@ METHOD DETAILS
     more details.
 
 
+*CDbCommand::__get*						 public
+ See |CComponent::__get|
+
+
+*CDbCommand::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CDbCommand::__set*						 public
+ See |CComponent::__set|
+
+
 *CDbCommand::__sleep*						 public
 >
  __sleep()
@@ -124,6 +140,10 @@ METHOD DETAILS
 (array) 
 
  Set the statement to null when serializing.
+
+
+*CDbCommand::__unset*						 public
+ See |CComponent::__unset|
 
 
 *CDbCommand::addColumn* 					 public
@@ -182,6 +202,22 @@ METHOD DETAILS
     Anything that is not recognized as abstract type will be kept in the
     generated SQL. For example, 'string' will be turned into 'varchar(255)',
     while 'string not null' will become 'varchar(255) not null'.
+
+
+*CDbCommand::asa*						 public
+ See |CComponent::asa|
+
+
+*CDbCommand::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CDbCommand::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbCommand::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
 
 
 *CDbCommand::bindParam* 					 public
@@ -247,6 +283,14 @@ METHOD DETAILS
     |CDbCommand::from|, |CDbCommand::where|, |CDbCommand::join|,
     |CDbCommand::group|, |CDbCommand::having|, |CDbCommand::order|,
     |CDbCommand::limit|, |CDbCommand::offset| and |CDbCommand::union|.
+
+
+*CDbCommand::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CDbCommand::canSetProperty*					 public
+ See |CComponent::canSetProperty|
 
 
 *CDbCommand::cancel*						 public
@@ -326,6 +370,26 @@ METHOD DETAILS
     [params] (array) the parameters to be bound to the query.
 
 
+*CDbCommand::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CDbCommand::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbCommand::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbCommand::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CDbCommand::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
 *CDbCommand::dropColumn*					 public
 >
  dropColumn($table, $column)
@@ -374,6 +438,18 @@ METHOD DETAILS
  Builds and executes a SQL statement for dropping a DB table.
     [table] (string) the table to be dropped. The name will be properly quoted
     by the method.
+
+
+*CDbCommand::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CDbCommand::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbCommand::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CDbCommand::execute*						 public
@@ -425,6 +501,10 @@ METHOD DETAILS
 (boolean) a value indicating whether SELECT DISTINCT should be used.
 
  Returns a value indicating whether SELECT DISTINCT should be used.
+
+
+*CDbCommand::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CDbCommand::getFrom*						 public
@@ -549,6 +629,18 @@ string or an array representing multiple union parts.
     'name')). The method will automatically quote the column names unless a
     column contains some parenthesis (which means the column contains a DB
     expression).
+
+
+*CDbCommand::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CDbCommand::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbCommand::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CDbCommand::having*						 public
@@ -773,6 +865,10 @@ False is returned if there is no value.
     |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
     binding methods and  the input parameters this way can improve the
     performance.
+
+
+*CDbCommand::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CDbCommand::renameColumn*					 public

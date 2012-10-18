@@ -9,9 +9,24 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CJuiInputWidget::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <attribute>				*CJuiInputWidget::attribute*
  (string) the attribute associated with this widget. The name can contain
  square brackets (e.g. 'name[1]') which is used to collect tabular data input.
+
+<controller>				*CJuiInputWidget::controller*
+ See |CWidget::controller|
+
+<cssFile>				*CJuiInputWidget::cssFile*
+ See |CJuiWidget::cssFile|
+
+<htmlOptions>				*CJuiInputWidget::htmlOptions*
+ See |CJuiWidget::htmlOptions|
+
+<id>					*CJuiInputWidget::id*
+ See |CWidget::id|
 
 <model> 				*CJuiInputWidget::model*
  (CModel) the data model associated with this widget.
@@ -20,13 +35,189 @@ PROPERTY DETAILS
  (string) the input name. This must be set if |CJuiInputWidget::model| is not
  set.
 
+<options>				*CJuiInputWidget::options*
+ See |CJuiWidget::options|
+
+<owner> 				*CJuiInputWidget::owner*
+ See |CWidget::owner|
+
+<scriptFile>				*CJuiInputWidget::scriptFile*
+ See |CJuiWidget::scriptFile|
+
+<scriptUrl>				*CJuiInputWidget::scriptUrl*
+ See |CJuiWidget::scriptUrl|
+
+<skin>					*CJuiInputWidget::skin*
+ See |CWidget::skin|
+
+<theme> 				*CJuiInputWidget::theme*
+ See |CJuiWidget::theme|
+
+<themeUrl>				*CJuiInputWidget::themeUrl*
+ See |CJuiWidget::themeUrl|
+
 <value> 				*CJuiInputWidget::value*
  (string) the input value
+
+<viewPath>				*CJuiInputWidget::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CJuiInputWidget::__call*					 public
+ See |CComponent::__call|
+
+
+*CJuiInputWidget::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CJuiInputWidget::__get*					 public
+ See |CComponent::__get|
+
+
+*CJuiInputWidget::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CJuiInputWidget::__set*					 public
+ See |CComponent::__set|
+
+
+*CJuiInputWidget::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CJuiInputWidget::actions*					 public
+ See |CWidget::actions|
+
+
+*CJuiInputWidget::asa*						 public
+ See |CComponent::asa|
+
+
+*CJuiInputWidget::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CJuiInputWidget::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CJuiInputWidget::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CJuiInputWidget::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CJuiInputWidget::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CJuiInputWidget::beginContent* 				 public
+ See |CBaseController::beginContent|
+
+
+*CJuiInputWidget::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CJuiInputWidget::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CJuiInputWidget::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CJuiInputWidget::createWidget* 				 public
+ See |CBaseController::createWidget|
+
+
+*CJuiInputWidget::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CJuiInputWidget::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CJuiInputWidget::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CJuiInputWidget::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CJuiInputWidget::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CJuiInputWidget::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CJuiInputWidget::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CJuiInputWidget::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CJuiInputWidget::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CJuiInputWidget::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CJuiInputWidget::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CJuiInputWidget::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CJuiInputWidget::getController*				 public
+ See |CWidget::getController|
+
+
+*CJuiInputWidget::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CJuiInputWidget::getId*					 public
+ See |CWidget::getId|
+
+
+*CJuiInputWidget::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CJuiInputWidget::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CJuiInputWidget::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CJuiInputWidget::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CJuiInputWidget::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
 
 *CJuiInputWidget::hasModel*					 protected
 >
@@ -36,12 +227,60 @@ METHOD DETAILS
 
 
 
+*CJuiInputWidget::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CJuiInputWidget::init* 					 public
+ See |CJuiWidget::init|
+
+
+*CJuiInputWidget::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CJuiInputWidget::registerCoreScripts*				 protected
+ See |CJuiWidget::registerCoreScripts|
+
+
+*CJuiInputWidget::registerScriptFile*				 protected
+ See |CJuiWidget::registerScriptFile|
+
+
+*CJuiInputWidget::render*					 public
+ See |CWidget::render|
+
+
+*CJuiInputWidget::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CJuiInputWidget::renderInternal*				 public
+ See |CBaseController::renderInternal|
+
+
 *CJuiInputWidget::resolveNameID*				 protected
 >
  resolveNameID()
 <
 (array) the name and the ID of the input.
 
+
+
+*CJuiInputWidget::resolvePackagePath*				 protected
+ See |CJuiWidget::resolvePackagePath|
+
+
+*CJuiInputWidget::run*						 public
+ See |CWidget::run|
+
+
+*CJuiInputWidget::setId*					 public
+ See |CWidget::setId|
+
+
+*CJuiInputWidget::widget*					 public
+ See |CBaseController::widget|
 
 
 

@@ -50,9 +50,24 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<behaviors>				*CMemCache::behaviors*
+ See |CApplicationComponent::behaviors|
+
+<hashKey>				*CMemCache::hashKey*
+ See |CCache::hashKey|
+
+<isInitialized> 			*CMemCache::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
+<keyPrefix>				*CMemCache::keyPrefix*
+ See |CCache::keyPrefix|
+
 <memCache>				*CMemCache::memCache*
- (mixed) the memcache instance (or memcached if |CMemCache::useMemcached| is
- true) used by this component.
+ (Memcache|Memcached) the memcache instance (or memcached if
+ |CMemCache::useMemcached| is true) used by this component.
+
+<serializer>				*CMemCache::serializer*
+ See |CCache::serializer|
 
 <servers>				*CMemCache::servers*
  (array) list of memcache server configurations. Each element is a
@@ -67,6 +82,30 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CMemCache::__call*						 public
+ See |CComponent::__call|
+
+
+*CMemCache::__get*						 public
+ See |CComponent::__get|
+
+
+*CMemCache::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CMemCache::__set*						 public
+ See |CComponent::__set|
+
+
+*CMemCache::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CMemCache::add*						 public
+ See |CCache::add|
+
 
 *CMemCache::addValue*						 protected
 >
@@ -83,6 +122,34 @@ METHOD DETAILS
     expire. 0 means never expire.
 
 
+*CMemCache::asa*						 public
+ See |CComponent::asa|
+
+
+*CMemCache::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CMemCache::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CMemCache::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CMemCache::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CMemCache::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CMemCache::delete*						 public
+ See |CCache::delete|
+
+
 *CMemCache::deleteValue*					 protected
 >
  deleteValue($key)
@@ -92,6 +159,42 @@ METHOD DETAILS
  Deletes a value with the specified key from cache This is the implementation
  of the method declared in the parent class.
     [key] (string) the key of the value to be deleted
+
+
+*CMemCache::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CMemCache::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CMemCache::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CMemCache::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CMemCache::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CMemCache::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CMemCache::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CMemCache::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
+
+
+*CMemCache::flush*						 public
+ See |CCache::flush|
 
 
 *CMemCache::flushValues*					 protected
@@ -104,12 +207,28 @@ METHOD DETAILS
  declared in the parent class.
 
 
+*CMemCache::generateUniqueKey*					 protected
+ See |CCache::generateUniqueKey|
+
+
+*CMemCache::get*						 public
+ See |CCache::get|
+
+
+*CMemCache::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CMemCache::getIsInitialized*					 public
+ See |CApplicationComponent::getIsInitialized|
+
+
 *CMemCache::getMemCache*					 public
 >
  getMemCache()
 <
-(mixed) the memcache instance (or memcached if |CMemCache::useMemcached| is
-true) used by this component.
+(Memcache|Memcached) the memcache instance (or memcached if
+|CMemCache::useMemcached| is true) used by this component.
 
 
 
@@ -144,6 +263,18 @@ expired.
     [keys] (array) a list of keys identifying the cached values
 
 
+*CMemCache::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CMemCache::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CMemCache::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CMemCache::init*						 public
 >
  init()
@@ -153,6 +284,34 @@ expired.
  Initializes this application component. This method is required by the
  |IApplicationComponent| interface. It creates the memcache instance and adds
  memcache servers.
+
+
+*CMemCache::mget*						 public
+ See |CCache::mget|
+
+
+*CMemCache::offsetExists*					 public
+ See |CCache::offsetExists|
+
+
+*CMemCache::offsetGet*						 public
+ See |CCache::offsetGet|
+
+
+*CMemCache::offsetSet*						 public
+ See |CCache::offsetSet|
+
+
+*CMemCache::offsetUnset*					 public
+ See |CCache::offsetUnset|
+
+
+*CMemCache::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
+
+
+*CMemCache::set*						 public
+ See |CCache::set|
 
 
 *CMemCache::setServers* 					 public

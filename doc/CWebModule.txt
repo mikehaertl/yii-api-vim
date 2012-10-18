@@ -13,9 +13,22 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<basePath>				*CWebModule::basePath*
+ See |CModule::basePath|
+
+<behaviors>				*CWebModule::behaviors*
+ See |CModule::behaviors|
+
+<components>				*CWebModule::components*
+ See |CModule::components|
+
 <controllerMap> 			*CWebModule::controllerMap*
  (array) mapping from controller ID to controller configurations. Pleaser
  refer to |CWebApplication::controllerMap| for more details.
+
+<controllerNamespace>			*CWebModule::controllerNamespace*
+ (string) Namespace that should be used when loading controllers. Default is
+ to use global namespace.
 
 <controllerPath>			*CWebModule::controllerPath*
  (string) the directory that contains the controller classes. Defaults to
@@ -31,6 +44,9 @@ PROPERTY DETAILS
  returns an empty string. You may override this method to customize the
  description of this module.
 
+<id>					*CWebModule::id*
+ See |CModule::id|
+
 <layout>				*CWebModule::layout*
  (mixed) the layout that is shared by the controllers inside this module. If a
  controller has explicitly declared its own |CController::layout|, this
@@ -43,10 +59,25 @@ PROPERTY DETAILS
  'moduleDir/views/layouts' where moduleDir is the directory containing the
  module class.
 
+<modulePath>				*CWebModule::modulePath*
+ See |CModule::modulePath|
+
+<modules>				*CWebModule::modules*
+ See |CModule::modules|
+
 <name>					*CWebModule::name*
  (string) Returns the name of this module. The default implementation simply
  returns |CWebModule::id|. You may override this method to customize the name
  of this module.
+
+<params>				*CWebModule::params*
+ See |CModule::params|
+
+<parentModule>				*CWebModule::parentModule*
+ See |CModule::parentModule|
+
+<preload>				*CWebModule::preload*
+ See |CModule::preload|
 
 <version>				*CWebModule::version*
  (string) Returns the version of this module. The default implementation
@@ -62,6 +93,30 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CWebModule::__call*						 public
+ See |CComponent::__call|
+
+
+*CWebModule::__construct*					 public
+ See |CModule::__construct|
+
+
+*CWebModule::__get*						 public
+ See |CModule::__get|
+
+
+*CWebModule::__isset*						 public
+ See |CModule::__isset|
+
+
+*CWebModule::__set*						 public
+ See |CComponent::__set|
+
+
+*CWebModule::__unset*						 public
+ See |CComponent::__unset|
+
+
 *CWebModule::afterControllerAction*				 public
 >
  afterControllerAction($controller, $action)
@@ -74,6 +129,22 @@ METHOD DETAILS
  end.
     [controller] (CController) the controller
     [action] (CAction) the action
+
+
+*CWebModule::asa*						 public
+ See |CComponent::asa|
+
+
+*CWebModule::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CWebModule::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CWebModule::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
 
 
 *CWebModule::beforeControllerAction*				 public
@@ -98,6 +169,62 @@ METHOD DETAILS
     [action] (CAction) the action
 
 
+*CWebModule::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CWebModule::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CWebModule::configure* 					 public
+ See |CModule::configure|
+
+
+*CWebModule::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CWebModule::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CWebModule::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CWebModule::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CWebModule::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CWebModule::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CWebModule::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CWebModule::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CWebModule::getBasePath*					 public
+ See |CModule::getBasePath|
+
+
+*CWebModule::getComponent*					 public
+ See |CModule::getComponent|
+
+
+*CWebModule::getComponents*					 public
+ See |CModule::getComponents|
+
+
 *CWebModule::getControllerPath* 				 public
 >
  getControllerPath()
@@ -119,6 +246,14 @@ class.
  this module.
 
 
+*CWebModule::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CWebModule::getId*						 public
+ See |CModule::getId|
+
+
 *CWebModule::getLayoutPath*					 public
 >
  getLayoutPath()
@@ -127,6 +262,18 @@ class.
 'moduleDir/views/layouts' where moduleDir is the directory containing the
 module class.
 
+
+
+*CWebModule::getModule* 					 public
+ See |CModule::getModule|
+
+
+*CWebModule::getModulePath*					 public
+ See |CModule::getModulePath|
+
+
+*CWebModule::getModules*					 public
+ See |CModule::getModules|
 
 
 *CWebModule::getName*						 public
@@ -138,6 +285,14 @@ module class.
  Returns the name of this module. The default implementation simply returns
  |CWebModule::id|. You may override this method to customize the name of this
  module.
+
+
+*CWebModule::getParams* 					 public
+ See |CModule::getParams|
+
+
+*CWebModule::getParentModule*					 public
+ See |CModule::getParentModule|
 
 
 *CWebModule::getVersion*					 public
@@ -159,6 +314,58 @@ moduleDir is the directory containing the module class.
 
 
 
+*CWebModule::hasComponent*					 public
+ See |CModule::hasComponent|
+
+
+*CWebModule::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CWebModule::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CWebModule::hasModule* 					 public
+ See |CModule::hasModule|
+
+
+*CWebModule::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CWebModule::init*						 protected
+ See |CModule::init|
+
+
+*CWebModule::preinit*						 protected
+ See |CModule::preinit|
+
+
+*CWebModule::preloadComponents* 				 protected
+ See |CModule::preloadComponents|
+
+
+*CWebModule::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CWebModule::setAliases*					 public
+ See |CModule::setAliases|
+
+
+*CWebModule::setBasePath*					 public
+ See |CModule::setBasePath|
+
+
+*CWebModule::setComponent*					 public
+ See |CModule::setComponent|
+
+
+*CWebModule::setComponents*					 public
+ See |CModule::setComponents|
+
+
 *CWebModule::setControllerPath* 				 public
 >
  setControllerPath($value)
@@ -168,6 +375,14 @@ moduleDir is the directory containing the module class.
     [value] (string) the directory that contains the controller classes.
 
 
+*CWebModule::setId*						 public
+ See |CModule::setId|
+
+
+*CWebModule::setImport* 					 public
+ See |CModule::setImport|
+
+
 *CWebModule::setLayoutPath*					 public
 >
  setLayoutPath($path)
@@ -175,6 +390,18 @@ moduleDir is the directory containing the module class.
 (void)
 
     [path] (string) the root directory of layout files.
+
+
+*CWebModule::setModulePath*					 public
+ See |CModule::setModulePath|
+
+
+*CWebModule::setModules*					 public
+ See |CModule::setModules|
+
+
+*CWebModule::setParams* 					 public
+ See |CModule::setParams|
 
 
 *CWebModule::setViewPath*					 public

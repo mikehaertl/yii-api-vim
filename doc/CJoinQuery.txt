@@ -61,7 +61,7 @@ METHOD DETAILS
 >
  createCommand($builder)
 <
-(string) the SQL statement
+(CDbCommand) DB command instance representing the SQL statement
 
  Creates the SQL statement.
     [builder] (CDbCommandBuilder) the command builder

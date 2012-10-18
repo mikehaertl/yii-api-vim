@@ -14,14 +14,27 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<dependentData> 			*CFileCacheDependency::dependentData*
+ See |CCacheDependency::dependentData|
+
 <fileName>				*CFileCacheDependency::fileName*
  (string) the name of the file whose last modification time is used to check
  if the dependency has been changed.
+
+<hasChanged>				*CFileCacheDependency::hasChanged*
+ See |CCacheDependency::hasChanged|
+
+<reuseDependentData>			*CFileCacheDependency::reuseDependentData*
+ See |CCacheDependency::reuseDependentData|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CFileCacheDependency::__call*					 public
+ See |CComponent::__call|
+
 
 *CFileCacheDependency::__construct*				 public
 >
@@ -33,6 +46,82 @@ METHOD DETAILS
     [fileName] (string) name of the file whose change is to be checked.
 
 
+*CFileCacheDependency::__get*					 public
+ See |CComponent::__get|
+
+
+*CFileCacheDependency::__isset* 				 public
+ See |CComponent::__isset|
+
+
+*CFileCacheDependency::__set*					 public
+ See |CComponent::__set|
+
+
+*CFileCacheDependency::__unset* 				 public
+ See |CComponent::__unset|
+
+
+*CFileCacheDependency::asa*					 public
+ See |CComponent::asa|
+
+
+*CFileCacheDependency::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CFileCacheDependency::attachBehaviors* 			 public
+ See |CComponent::attachBehaviors|
+
+
+*CFileCacheDependency::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CFileCacheDependency::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CFileCacheDependency::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CFileCacheDependency::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CFileCacheDependency::detachBehaviors* 			 public
+ See |CComponent::detachBehaviors|
+
+
+*CFileCacheDependency::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CFileCacheDependency::disableBehavior* 			 public
+ See |CComponent::disableBehavior|
+
+
+*CFileCacheDependency::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CFileCacheDependency::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CFileCacheDependency::enableBehaviors* 			 public
+ See |CComponent::enableBehaviors|
+
+
+*CFileCacheDependency::evaluateDependency*			 public
+ See |CCacheDependency::evaluateDependency|
+
+
+*CFileCacheDependency::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
 *CFileCacheDependency::generateDependentData*			 protected
 >
  generateDependentData()
@@ -41,6 +130,34 @@ METHOD DETAILS
 
  Generates the data needed to determine if dependency has been changed. This
  method returns the file's last modification time.
+
+
+*CFileCacheDependency::getDependentData*			 public
+ See |CCacheDependency::getDependentData|
+
+
+*CFileCacheDependency::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CFileCacheDependency::getHasChanged*				 public
+ See |CCacheDependency::getHasChanged|
+
+
+*CFileCacheDependency::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CFileCacheDependency::hasEventHandler* 			 public
+ See |CComponent::hasEventHandler|
+
+
+*CFileCacheDependency::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CFileCacheDependency::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 

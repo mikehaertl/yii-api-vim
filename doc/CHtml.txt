@@ -32,16 +32,16 @@ PROPERTY DETAILS
 <liveEvents>				*CHtml::liveEvents*
  () Sets the default style for attaching jQuery event handlers.
 
- If set to true (default), live/delegated style is used. Event handlers  are
- attached to the document body and can process events from descendant 
+ If set to true (default), event handlers are delegated.  Event handlers are
+ attached to the document body and can process events  from descendant
  elements that are added to the document at a later time.
 
- If set to false, direct style is used. Event handlers are attached directly 
- to the DOM element, that must already exist on the page. Elements injected 
- into the page at a later time will not be processed.
+ If set to false, event handlers are directly bound.  Event handlers are
+ attached directly to the DOM element, that must already exist on the page.
+ Elements injected into the page at a later time will not be processed.
 
  You can override this setting for a particular element by setting the
- htmlOptions live attribute (see |CHtml::clientChange|).
+ htmlOptions delegate attribute (see |CHtml::clientChange|).
 
  For more information about attaching jQuery event handler see
  'http://api.jquery.com/on/'
@@ -117,6 +117,22 @@ METHOD DETAILS
     there will be no hidden field rendered.
 
 
+*CHtml::activeDateField*					 public
+>
+ activeDateField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a date field input for a model attribute. If the attribute has
+ input error, the input field's CSS class will be appended with
+ |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
 *CHtml::activeDropDownList*					 public
 >
  activeDropDownList($model, $attribute, $data, $htmlOptions=array())
@@ -156,6 +172,22 @@ METHOD DETAILS
             'value2'=>array('label'=>'value 2'),
         );
 <
+
+
+*CHtml::activeEmailField*					 public
+>
+ activeEmailField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates an email field input for a model attribute. If the attribute has
+ input error, the input field's CSS class will be appended with
+ |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
 
 
 *CHtml::activeFileField*					 public
@@ -307,6 +339,22 @@ METHOD DETAILS
     [attribute] (string) the attribute
 
 
+*CHtml::activeNumberField*					 public
+>
+ activeNumberField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a number field input for a model attribute. If the attribute has
+ input error, the input field's CSS class will be appended with
+ |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
 *CHtml::activePasswordField*					 public
 >
  activePasswordField($model, $attribute, $htmlOptions=array())
@@ -375,6 +423,22 @@ METHOD DETAILS
     'uncheckValue' is set as NULL, the hidden field will not be rendered.
 
 
+*CHtml::activeRangeField*					 public
+>
+ activeRangeField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a range field input for a model attribute. If the attribute has
+ input error, the input field's CSS class will be appended with
+ |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
 *CHtml::activeTextArea* 					 public
 >
  activeTextArea($model, $attribute, $htmlOptions=array())
@@ -399,6 +463,21 @@ METHOD DETAILS
  Generates a text field input for a model attribute. If the attribute has
  input error, the input field's CSS class will be appended with
  |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::activeUrlField* 					 public
+>
+ activeUrlField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a url field input for a model attribute. If the attribute has input
+ error, the input field's CSS class will be appended with |CHtml::errorCss|.
     [model] (CModel) the data model
     [attribute] (string) the attribute
     [htmlOptions] (array) additional HTML attributes. Besides normal HTML
@@ -584,6 +663,9 @@ METHOD DETAILS
       will be displayed at the beginning of the checkbox list.
       {labelOptions} array, specifies the additional HTML attributes to
       be rendered for every label tag in the list.
+      {container} string, specifies the checkboxes enclosing tag.
+      Defaults to 'span'. If the value is an empty string, no enclosing
+      tag will be generated
 
 
 *CHtml::clientChange*						 protected
@@ -612,10 +694,10 @@ METHOD DETAILS
       {confirm} string, specifies the message that should show in a
       pop-up confirmation dialog.
       {ajax} array, specifies the AJAX options (see |CHtml::ajax|).
-      {live} boolean, whether the event handler should be attached with
-      live/delegate or direct style. If not set, |CHtml::liveEvents|
-      will be used. This option has been available since version 1.1.6.This
-    parameter has been available since version 1.1.1.
+      {live} boolean, whether the event handler should be delegated or
+      directly bound. If not set, |CHtml::liveEvents| will be used. This
+      option has been available since version 1.1.11.This parameter has been
+    available since version 1.1.1.
 
 
 *CHtml::closeTag*						 public
@@ -1186,6 +1268,9 @@ METHOD DETAILS
       ).
       {labelOptions} array, specifies the additional HTML attributes to
       be rendered for every label tag in the list.
+      {container} string, specifies the radio buttons enclosing tag.
+      Defaults to 'span'. If the value is an empty string, no enclosing
+      tag will be generated
 
 
 *CHtml::refresh*						 public

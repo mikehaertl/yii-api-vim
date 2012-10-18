@@ -58,6 +58,26 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CModel::__call*						 public
+ See |CComponent::__call|
+
+
+*CModel::__get* 						 public
+ See |CComponent::__get|
+
+
+*CModel::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CModel::__set* 						 public
+ See |CComponent::__set|
+
+
+*CModel::__unset*						 public
+ See |CComponent::__unset|
+
+
 *CModel::addError*						 public
 >
  addError($attribute, $error)
@@ -104,6 +124,22 @@ METHOD DETAILS
  calls |CModel::onAfterValidate| to raise an event. You may override this
  method to do postprocessing after validation. Make sure the parent
  implementation is invoked so that the event can be raised.
+
+
+*CModel::asa*							 public
+ See |CComponent::asa|
+
+
+*CModel::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CModel::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CModel::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
 
 
 *CModel::attributeLabels*					 public
@@ -168,6 +204,14 @@ returned, the validation will stop and the model is considered invalid.
  For more details about behaviors, see |CComponent|.
 
 
+*CModel::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CModel::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CModel::clearErrors*						 public
 >
  clearErrors($attribute='')
@@ -187,6 +231,38 @@ returned, the validation will stop and the model is considered invalid.
 
  Creates validator objects based on the specification in |CModel::rules|. This
  method is mainly used internally.
+
+
+*CModel::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CModel::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CModel::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CModel::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CModel::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CModel::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CModel::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CModel::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
 
 
 *CModel::generateAttributeLabel*				 public
@@ -245,6 +321,10 @@ returned if no error.
  Returns the errors for all attribute or a single attribute.
     [attribute] (string) attribute name. Use null to retrieve errors for all
     attributes.
+
+
+*CModel::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CModel::getIterator*						 public
@@ -324,6 +404,18 @@ returned if no error.
 
  Returns a value indicating whether there is any validation error.
     [attribute] (string) attribute name. Use null to check all attributes.
+
+
+*CModel::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CModel::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CModel::hasProperty*						 public
+ See |CComponent::hasProperty|
 
 
 *CModel::isAttributeRequired*					 public
@@ -435,6 +527,10 @@ returned if no error.
  does nothing otherwise.
     [name] (string) the unsafe attribute name
     [value] (mixed) the attribute value
+
+
+*CModel::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 *CModel::rules* 						 public

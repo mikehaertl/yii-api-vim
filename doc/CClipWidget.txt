@@ -14,14 +14,188 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CClipWidget::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CClipWidget::controller*
+ See |CWidget::controller|
+
+<id>					*CClipWidget::id*
+ See |CWidget::id|
+
+<owner> 				*CClipWidget::owner*
+ See |CWidget::owner|
+
 <renderClip>				*CClipWidget::renderClip*
  (boolean) whether to render the clip content in place. Defaults to false,
  meaning the captured clip will not be displayed.
+
+<skin>					*CClipWidget::skin*
+ See |CWidget::skin|
+
+<viewPath>				*CClipWidget::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CClipWidget::__call*						 public
+ See |CComponent::__call|
+
+
+*CClipWidget::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CClipWidget::__get*						 public
+ See |CComponent::__get|
+
+
+*CClipWidget::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CClipWidget::__set*						 public
+ See |CComponent::__set|
+
+
+*CClipWidget::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CClipWidget::actions*						 public
+ See |CWidget::actions|
+
+
+*CClipWidget::asa*						 public
+ See |CComponent::asa|
+
+
+*CClipWidget::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CClipWidget::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CClipWidget::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CClipWidget::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CClipWidget::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CClipWidget::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CClipWidget::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CClipWidget::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CClipWidget::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CClipWidget::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CClipWidget::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CClipWidget::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CClipWidget::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CClipWidget::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CClipWidget::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CClipWidget::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CClipWidget::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CClipWidget::endCache* 					 public
+ See |CBaseController::endCache|
+
+
+*CClipWidget::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CClipWidget::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CClipWidget::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CClipWidget::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CClipWidget::getController*					 public
+ See |CWidget::getController|
+
+
+*CClipWidget::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
+*CClipWidget::getId*						 public
+ See |CWidget::getId|
+
+
+*CClipWidget::getOwner* 					 public
+ See |CWidget::getOwner|
+
+
+*CClipWidget::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CClipWidget::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CClipWidget::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CClipWidget::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CClipWidget::hasProperty*					 public
+ See |CComponent::hasProperty|
+
 
 *CClipWidget::init*						 public
 >
@@ -32,6 +206,22 @@ METHOD DETAILS
  Starts recording a clip.
 
 
+*CClipWidget::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CClipWidget::render*						 public
+ See |CWidget::render|
+
+
+*CClipWidget::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CClipWidget::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
 *CClipWidget::run*						 public
 >
  run()
@@ -40,6 +230,14 @@ METHOD DETAILS
 
  Ends recording a clip. This method stops output buffering and saves the
  rendering result as a named clip in the controller.
+
+
+*CClipWidget::setId*						 public
+ See |CWidget::setId|
+
+
+*CClipWidget::widget*						 public
+ See |CBaseController::widget|
 
 
 

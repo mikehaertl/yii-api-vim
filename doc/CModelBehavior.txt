@@ -10,6 +10,26 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CModelBehavior::__call*					 public
+ See |CComponent::__call|
+
+
+*CModelBehavior::__get* 					 public
+ See |CComponent::__get|
+
+
+*CModelBehavior::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CModelBehavior::__set* 					 public
+ See |CComponent::__set|
+
+
+*CModelBehavior::__unset*					 public
+ See |CComponent::__unset|
+
+
 *CModelBehavior::afterConstruct*				 public
 >
  afterConstruct($event)
@@ -32,6 +52,26 @@ METHOD DETAILS
     [event] (CEvent) event parameter
 
 
+*CModelBehavior::asa*						 public
+ See |CComponent::asa|
+
+
+*CModelBehavior::attach*					 public
+ See |CBehavior::attach|
+
+
+*CModelBehavior::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CModelBehavior::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CModelBehavior::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
 *CModelBehavior::beforeValidate*				 public
 >
  beforeValidate($event)
@@ -42,6 +82,50 @@ METHOD DETAILS
  want to handle the corresponding event of the |CModelBehavior::owner|. You
  may set |CModelEvent::isValid| to be false to quit the validation process.
     [event] (CModelEvent) event parameter
+
+
+*CModelBehavior::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CModelBehavior::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CModelBehavior::detach*					 public
+ See |CBehavior::detach|
+
+
+*CModelBehavior::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CModelBehavior::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CModelBehavior::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CModelBehavior::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CModelBehavior::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CModelBehavior::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CModelBehavior::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CModelBehavior::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CModelBehavior::events*					 public
@@ -55,6 +139,38 @@ values).
  implementation returns 'onAfterConstruct', 'onBeforeValidate' and
  'onAfterValidate' events and handlers. If you override this method, make sure
  you merge the parent result to the return value.
+
+
+*CModelBehavior::getEnabled*					 public
+ See |CBehavior::getEnabled|
+
+
+*CModelBehavior::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CModelBehavior::getOwner*					 public
+ See |CBehavior::getOwner|
+
+
+*CModelBehavior::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CModelBehavior::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CModelBehavior::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CModelBehavior::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CModelBehavior::setEnabled*					 public
+ See |CBehavior::setEnabled|
 
 
 

@@ -42,6 +42,54 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CBaseUserIdentity::__call*					 public
+ See |CComponent::__call|
+
+
+*CBaseUserIdentity::__get*					 public
+ See |CComponent::__get|
+
+
+*CBaseUserIdentity::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CBaseUserIdentity::__set*					 public
+ See |CComponent::__set|
+
+
+*CBaseUserIdentity::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CBaseUserIdentity::asa*					 public
+ See |CComponent::asa|
+
+
+*CBaseUserIdentity::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CBaseUserIdentity::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CBaseUserIdentity::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
+*CBaseUserIdentity::authenticate*				 public
+ See |IUserIdentity::authenticate|
+
+
+*CBaseUserIdentity::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CBaseUserIdentity::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CBaseUserIdentity::clearState* 				 public
 >
  clearState($name)
@@ -50,6 +98,42 @@ METHOD DETAILS
 
  Removes the specified state.
     [name] (string) the name of the state
+
+
+*CBaseUserIdentity::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CBaseUserIdentity::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CBaseUserIdentity::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CBaseUserIdentity::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CBaseUserIdentity::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CBaseUserIdentity::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CBaseUserIdentity::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CBaseUserIdentity::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
+*CBaseUserIdentity::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CBaseUserIdentity::getId*					 public
@@ -102,6 +186,22 @@ returns empty string.
     [name] (string) the name of the state
     [defaultValue] (mixed) the default value to be returned if the named state
     does not exist
+
+
+*CBaseUserIdentity::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CBaseUserIdentity::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CBaseUserIdentity::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CBaseUserIdentity::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
 
 
 *CBaseUserIdentity::setPersistentStates*			 public

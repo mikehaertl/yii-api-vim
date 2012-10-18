@@ -23,10 +23,30 @@ PROPERTY DETAILS
 <caseSensitive> 			*CAttributeCollection::caseSensitive*
  (boolean) whether the keys are case-sensitive. Defaults to false.
 
+<count> 				*CAttributeCollection::count*
+ See |CMap::count|
+
+<iterator>				*CAttributeCollection::iterator*
+ See |CMap::iterator|
+
+<keys>					*CAttributeCollection::keys*
+ See |CMap::keys|
+
+<readOnly>				*CAttributeCollection::readOnly*
+ See |CMap::readOnly|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CAttributeCollection::__call*					 public
+ See |CComponent::__call|
+
+
+*CAttributeCollection::__construct*				 public
+ See |CMap::__construct|
+
 
 *CAttributeCollection::__get*					 public
 >
@@ -88,6 +108,22 @@ METHOD DETAILS
     [value] (mixed) value
 
 
+*CAttributeCollection::asa*					 public
+ See |CComponent::asa|
+
+
+*CAttributeCollection::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CAttributeCollection::attachBehaviors* 			 public
+ See |CComponent::attachBehaviors|
+
+
+*CAttributeCollection::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
 *CAttributeCollection::canGetProperty*				 public
 >
  canGetProperty($name)
@@ -111,6 +147,10 @@ METHOD DETAILS
     [name] (string) the property name
 
 
+*CAttributeCollection::clear*					 public
+ See |CMap::clear|
+
+
 *CAttributeCollection::contains*				 public
 >
  contains($key)
@@ -121,6 +161,74 @@ METHOD DETAILS
  implementation by converting the key to lower case first if
  |CAttributeCollection::caseSensitive| is false.
     [key] (mixed) the key
+
+
+*CAttributeCollection::copyFrom*				 public
+ See |CMap::copyFrom|
+
+
+*CAttributeCollection::count*					 public
+ See |CMap::count|
+
+
+*CAttributeCollection::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CAttributeCollection::detachBehaviors* 			 public
+ See |CComponent::detachBehaviors|
+
+
+*CAttributeCollection::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CAttributeCollection::disableBehavior* 			 public
+ See |CComponent::disableBehavior|
+
+
+*CAttributeCollection::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CAttributeCollection::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CAttributeCollection::enableBehaviors* 			 public
+ See |CComponent::enableBehaviors|
+
+
+*CAttributeCollection::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CAttributeCollection::getCount*				 public
+ See |CMap::getCount|
+
+
+*CAttributeCollection::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CAttributeCollection::getIterator*				 public
+ See |CMap::getIterator|
+
+
+*CAttributeCollection::getKeys* 				 public
+ See |CMap::getKeys|
+
+
+*CAttributeCollection::getReadOnly*				 public
+ See |CMap::getReadOnly|
+
+
+*CAttributeCollection::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CAttributeCollection::hasEventHandler* 			 public
+ See |CComponent::hasEventHandler|
 
 
 *CAttributeCollection::hasProperty*				 public
@@ -146,6 +254,53 @@ METHOD DETAILS
     [key] (mixed) the key
 
 
+*CAttributeCollection::mergeArray*				 public
+ See |CMap::mergeArray|
+
+
+*CAttributeCollection::mergeWith*				 public
+>
+ mergeWith($data, $recursive=true)
+<
+(void)
+
+ Merges iterable data into the map.
+
+ Existing elements in the map will be overwritten if their keys are the same
+ as those in the source. If the merge is recursive, the following algorithm is
+ performed:
+   the map data is saved as $a, and the source data is saved as $b;
+   if $a and $b both have an array indexed at the same string key,
+   the arrays will be merged using this algorithm;
+   any integer-indexed elements in $b will be appended to $a and
+   reindexed accordingly;
+   any string-indexed elements in $b will overwrite elements in $a
+   with the same index;
+    [data] (mixed) the data to be merged with, must be an array or object
+    implementing Traversable
+    [recursive] (boolean) whether the merging should be recursive.
+
+
+*CAttributeCollection::offsetExists*				 public
+ See |CMap::offsetExists|
+
+
+*CAttributeCollection::offsetGet*				 public
+ See |CMap::offsetGet|
+
+
+*CAttributeCollection::offsetSet*				 public
+ See |CMap::offsetSet|
+
+
+*CAttributeCollection::offsetUnset*				 public
+ See |CMap::offsetUnset|
+
+
+*CAttributeCollection::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
 *CAttributeCollection::remove*					 public
 >
  remove($key)
@@ -156,6 +311,14 @@ METHOD DETAILS
  implementation by converting the key to lower case first if
  |CAttributeCollection::caseSensitive| is false.
     [key] (mixed) the key of the item to be removed
+
+
+*CAttributeCollection::setReadOnly*				 protected
+ See |CMap::setReadOnly|
+
+
+*CAttributeCollection::toArray* 				 public
+ See |CMap::toArray|
 
 
 

@@ -27,6 +27,18 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CJuiDatePicker::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<attribute>				*CJuiDatePicker::attribute*
+ See |CJuiInputWidget::attribute|
+
+<controller>				*CJuiDatePicker::controller*
+ See |CWidget::controller|
+
+<cssFile>				*CJuiDatePicker::cssFile*
+ See |CJuiWidget::cssFile|
+
 <defaultOptions>			*CJuiDatePicker::defaultOptions*
  (array) The default options called just one time per request. This options
  will alter every other CJuiDatePicker instance in the page. It has to be set
@@ -36,9 +48,15 @@ PROPERTY DETAILS
  (boolean) If true, shows the widget as an inline calendar and the input as a
  hidden field. Use the onSelect event to update the hidden field
 
+<htmlOptions>				*CJuiDatePicker::htmlOptions*
+ See |CJuiWidget::htmlOptions|
+
 <i18nScriptFile>			*CJuiDatePicker::i18nScriptFile*
  (string) The i18n Jquery UI script file. It uses scriptUrl property as base
  url.
+
+<id>					*CJuiDatePicker::id*
+ See |CWidget::id|
 
 <language>				*CJuiDatePicker::language*
  (string) the locale ID (eg 'fr', 'de') for the language to be used by the
@@ -46,10 +64,239 @@ PROPERTY DETAILS
  the date picker will show in English. You can force English language by
  setting the language attribute as '' (empty string)
 
+<model> 				*CJuiDatePicker::model*
+ See |CJuiInputWidget::model|
+
+<name>					*CJuiDatePicker::name*
+ See |CJuiInputWidget::name|
+
+<options>				*CJuiDatePicker::options*
+ See |CJuiWidget::options|
+
+<owner> 				*CJuiDatePicker::owner*
+ See |CWidget::owner|
+
+<scriptFile>				*CJuiDatePicker::scriptFile*
+ See |CJuiWidget::scriptFile|
+
+<scriptUrl>				*CJuiDatePicker::scriptUrl*
+ See |CJuiWidget::scriptUrl|
+
+<skin>					*CJuiDatePicker::skin*
+ See |CWidget::skin|
+
+<theme> 				*CJuiDatePicker::theme*
+ See |CJuiWidget::theme|
+
+<themeUrl>				*CJuiDatePicker::themeUrl*
+ See |CJuiWidget::themeUrl|
+
+<value> 				*CJuiDatePicker::value*
+ See |CJuiInputWidget::value|
+
+<viewPath>				*CJuiDatePicker::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CJuiDatePicker::__call*					 public
+ See |CComponent::__call|
+
+
+*CJuiDatePicker::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CJuiDatePicker::__get* 					 public
+ See |CComponent::__get|
+
+
+*CJuiDatePicker::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CJuiDatePicker::__set* 					 public
+ See |CComponent::__set|
+
+
+*CJuiDatePicker::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CJuiDatePicker::actions*					 public
+ See |CWidget::actions|
+
+
+*CJuiDatePicker::asa*						 public
+ See |CComponent::asa|
+
+
+*CJuiDatePicker::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CJuiDatePicker::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CJuiDatePicker::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CJuiDatePicker::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CJuiDatePicker::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CJuiDatePicker::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CJuiDatePicker::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CJuiDatePicker::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CJuiDatePicker::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CJuiDatePicker::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CJuiDatePicker::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CJuiDatePicker::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CJuiDatePicker::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CJuiDatePicker::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CJuiDatePicker::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CJuiDatePicker::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CJuiDatePicker::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CJuiDatePicker::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CJuiDatePicker::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CJuiDatePicker::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CJuiDatePicker::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CJuiDatePicker::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CJuiDatePicker::getController* 				 public
+ See |CWidget::getController|
+
+
+*CJuiDatePicker::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CJuiDatePicker::getId* 					 public
+ See |CWidget::getId|
+
+
+*CJuiDatePicker::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CJuiDatePicker::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CJuiDatePicker::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CJuiDatePicker::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CJuiDatePicker::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CJuiDatePicker::hasModel*					 protected
+ See |CJuiInputWidget::hasModel|
+
+
+*CJuiDatePicker::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CJuiDatePicker::init*						 public
+ See |CJuiWidget::init|
+
+
+*CJuiDatePicker::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CJuiDatePicker::registerCoreScripts*				 protected
+ See |CJuiWidget::registerCoreScripts|
+
+
+*CJuiDatePicker::registerScriptFile*				 protected
+ See |CJuiWidget::registerScriptFile|
+
+
+*CJuiDatePicker::render*					 public
+ See |CWidget::render|
+
+
+*CJuiDatePicker::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CJuiDatePicker::renderInternal*				 public
+ See |CBaseController::renderInternal|
+
+
+*CJuiDatePicker::resolveNameID* 				 protected
+ See |CJuiInputWidget::resolveNameID|
+
+
+*CJuiDatePicker::resolvePackagePath*				 protected
+ See |CJuiWidget::resolvePackagePath|
+
 
 *CJuiDatePicker::run*						 public
 >
@@ -59,6 +306,14 @@ METHOD DETAILS
 
  Run this widget. This method registers necessary javascript and renders the
  needed HTML code.
+
+
+*CJuiDatePicker::setId* 					 public
+ See |CWidget::setId|
+
+
+*CJuiDatePicker::widget*					 public
+ See |CBaseController::widget|
 
 
 

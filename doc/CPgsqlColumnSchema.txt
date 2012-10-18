@@ -10,6 +10,82 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CPgsqlColumnSchema::__call*					 public
+ See |CComponent::__call|
+
+
+*CPgsqlColumnSchema::__get*					 public
+ See |CComponent::__get|
+
+
+*CPgsqlColumnSchema::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CPgsqlColumnSchema::__set*					 public
+ See |CComponent::__set|
+
+
+*CPgsqlColumnSchema::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CPgsqlColumnSchema::asa*					 public
+ See |CComponent::asa|
+
+
+*CPgsqlColumnSchema::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CPgsqlColumnSchema::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CPgsqlColumnSchema::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CPgsqlColumnSchema::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CPgsqlColumnSchema::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CPgsqlColumnSchema::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CPgsqlColumnSchema::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CPgsqlColumnSchema::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CPgsqlColumnSchema::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CPgsqlColumnSchema::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CPgsqlColumnSchema::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CPgsqlColumnSchema::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CPgsqlColumnSchema::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
 *CPgsqlColumnSchema::extractDefault*				 protected
 >
  extractDefault($defaultValue)
@@ -21,6 +97,10 @@ METHOD DETAILS
     [defaultValue] (mixed) the default value obtained from metadata
 
 
+*CPgsqlColumnSchema::extractLimit*				 protected
+ See |CDbColumnSchema::extractLimit|
+
+
 *CPgsqlColumnSchema::extractType*				 protected
 >
  extractType($dbType)
@@ -29,6 +109,34 @@ METHOD DETAILS
 
  Extracts the PHP type from DB type.
     [dbType] (string) DB type
+
+
+*CPgsqlColumnSchema::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CPgsqlColumnSchema::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CPgsqlColumnSchema::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CPgsqlColumnSchema::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CPgsqlColumnSchema::init*					 public
+ See |CDbColumnSchema::init|
+
+
+*CPgsqlColumnSchema::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CPgsqlColumnSchema::typecast*					 public
+ See |CDbColumnSchema::typecast|
 
 
 

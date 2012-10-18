@@ -1,0 +1,40 @@
+
+*CJavaScriptExpression*  
+=======================
+
+ CJavaScriptExpression represents a JavaScript expression that does not need
+ escaping. It can be passed to |CJavaScript::encode| and the code will stay as
+ is.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<code>					*CJavaScriptExpression::code*
+ ()
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CJavaScriptExpression::__construct*				 public
+>
+ __construct($code)
+<
+(void)
+
+    [code] ($code) 
+
+
+*CJavaScriptExpression::__toString*				 public
+>
+ __toString()
+<
+(string) the DB expression
+
+ String magic method
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

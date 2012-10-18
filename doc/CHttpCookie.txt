@@ -41,15 +41,137 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CHttpCookie::__call*						 public
+ See |CComponent::__call|
+
+
 *CHttpCookie::__construct*					 public
 >
- __construct($name, $value)
+ __construct($name, $value, $options=array())
 <
 (void)
 
  Constructor.
     [name] (string) name of this cookie
     [value] (string) value of this cookie
+    [options] (array) the configuration array consisting of name-value pairs 
+    that are used to configure this cookie
+
+
+*CHttpCookie::__get*						 public
+ See |CComponent::__get|
+
+
+*CHttpCookie::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CHttpCookie::__set*						 public
+ See |CComponent::__set|
+
+
+*CHttpCookie::__toString*					 public
+>
+ __toString()
+<
+(string) The value of the cookie. If the value property is null an empty
+string will be returned.
+
+ Magic method to use the cookie object as a string without having to call
+ value property first. ' $value = (string)$cookies['name']; ' Note, that you
+ still have to check if the cookie exists.
+
+
+*CHttpCookie::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CHttpCookie::asa*						 public
+ See |CComponent::asa|
+
+
+*CHttpCookie::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CHttpCookie::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CHttpCookie::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CHttpCookie::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CHttpCookie::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CHttpCookie::configure*					 public
+>
+ configure($options=array())
+<
+(void)
+
+ This method can be used to configure the CookieObject with an array Note: you
+ cannot use this method to set the name and/or the value of the cookie
+    [options] (array) the configuration array consisting of name-value pairs 
+    that are used to configure this cookie
+
+
+*CHttpCookie::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CHttpCookie::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CHttpCookie::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CHttpCookie::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CHttpCookie::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CHttpCookie::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CHttpCookie::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CHttpCookie::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CHttpCookie::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
+*CHttpCookie::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CHttpCookie::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CHttpCookie::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CHttpCookie::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

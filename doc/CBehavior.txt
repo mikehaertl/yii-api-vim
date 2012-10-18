@@ -19,6 +19,30 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CBehavior::__call*						 public
+ See |CComponent::__call|
+
+
+*CBehavior::__get*						 public
+ See |CComponent::__get|
+
+
+*CBehavior::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CBehavior::__set*						 public
+ See |CComponent::__set|
+
+
+*CBehavior::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CBehavior::asa*						 public
+ See |CComponent::asa|
+
+
 *CBehavior::attach*						 public
 >
  attach($owner)
@@ -33,6 +57,26 @@ METHOD DETAILS
     to.
 
 
+*CBehavior::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CBehavior::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CBehavior::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CBehavior::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CBehavior::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CBehavior::detach*						 public
 >
  detach($owner)
@@ -45,6 +89,38 @@ METHOD DETAILS
  override this method.
     [owner] (CComponent) the component that this behavior is to be detached
     from.
+
+
+*CBehavior::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CBehavior::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CBehavior::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CBehavior::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CBehavior::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CBehavior::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CBehavior::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CBehavior::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
 
 
 *CBehavior::events*						 public
@@ -70,12 +146,32 @@ values).
 
 
 
+*CBehavior::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
 *CBehavior::getOwner*						 public
 >
  getOwner()
 <
 (CComponent) the owner component that this behavior is attached to.
 
+
+
+*CBehavior::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CBehavior::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CBehavior::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CBehavior::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
 
 
 *CBehavior::setEnabled* 					 public

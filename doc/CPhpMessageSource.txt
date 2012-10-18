@@ -41,6 +41,9 @@ PROPERTY DETAILS
  the "messages" subdirectory of the application directory (e.g.
  "protected/messages").
 
+<behaviors>				*CPhpMessageSource::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <cacheID>				*CPhpMessageSource::cacheID*
  (string) the ID of the cache application component that is used to cache the
  messages. Defaults to 'cache' which refers to the primary cache application
@@ -51,10 +54,107 @@ PROPERTY DETAILS
  (integer) the time in seconds that the messages can remain valid in cache.
  Defaults to 0, meaning the caching is disabled.
 
+<forceTranslation>			*CPhpMessageSource::forceTranslation*
+ See |CMessageSource::forceTranslation|
+
+<isInitialized> 			*CPhpMessageSource::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
+<language>				*CPhpMessageSource::language*
+ See |CMessageSource::language|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CPhpMessageSource::__call*					 public
+ See |CComponent::__call|
+
+
+*CPhpMessageSource::__get*					 public
+ See |CComponent::__get|
+
+
+*CPhpMessageSource::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CPhpMessageSource::__set*					 public
+ See |CComponent::__set|
+
+
+*CPhpMessageSource::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CPhpMessageSource::asa*					 public
+ See |CComponent::asa|
+
+
+*CPhpMessageSource::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CPhpMessageSource::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CPhpMessageSource::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
+*CPhpMessageSource::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CPhpMessageSource::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CPhpMessageSource::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CPhpMessageSource::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CPhpMessageSource::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CPhpMessageSource::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CPhpMessageSource::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CPhpMessageSource::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CPhpMessageSource::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CPhpMessageSource::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
+*CPhpMessageSource::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CPhpMessageSource::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
+*CPhpMessageSource::getLanguage*				 public
+ See |CMessageSource::getLanguage|
+
 
 *CPhpMessageSource::getMessageFile*				 protected
 >
@@ -70,6 +170,18 @@ METHOD DETAILS
  |CPhpMessageSource::basePath|.
     [category] (string) category name
     [language] (string) language ID
+
+
+*CPhpMessageSource::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CPhpMessageSource::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CPhpMessageSource::hasProperty*				 public
+ See |CComponent::hasProperty|
 
 
 *CPhpMessageSource::init*					 public
@@ -91,6 +203,26 @@ METHOD DETAILS
  Loads the message translation for the specified language and category.
     [category] (string) the message category
     [language] (string) the target language
+
+
+*CPhpMessageSource::onMissingTranslation*			 public
+ See |CMessageSource::onMissingTranslation|
+
+
+*CPhpMessageSource::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
+
+
+*CPhpMessageSource::setLanguage*				 public
+ See |CMessageSource::setLanguage|
+
+
+*CPhpMessageSource::translate*					 public
+ See |CMessageSource::translate|
+
+
+*CPhpMessageSource::translateMessage*				 protected
+ See |CMessageSource::translateMessage|
 
 
 

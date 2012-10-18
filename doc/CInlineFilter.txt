@@ -21,6 +21,50 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CInlineFilter::__call* 					 public
+ See |CComponent::__call|
+
+
+*CInlineFilter::__get*						 public
+ See |CComponent::__get|
+
+
+*CInlineFilter::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CInlineFilter::__set*						 public
+ See |CComponent::__set|
+
+
+*CInlineFilter::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CInlineFilter::asa*						 public
+ See |CComponent::asa|
+
+
+*CInlineFilter::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CInlineFilter::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CInlineFilter::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CInlineFilter::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CInlineFilter::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
 *CInlineFilter::create* 					 public
 >
  create($controller, $filterName)
@@ -34,6 +78,38 @@ METHOD DETAILS
     [filterName] (string) the filter name
 
 
+*CInlineFilter::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CInlineFilter::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CInlineFilter::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CInlineFilter::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CInlineFilter::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CInlineFilter::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CInlineFilter::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CInlineFilter::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CInlineFilter::filter* 					 public
 >
  filter($filterChain)
@@ -43,6 +119,38 @@ METHOD DETAILS
  Performs the filtering. This method calls the filter method defined in the
  controller class.
     [filterChain] (CFilterChain) the filter chain that the filter is on.
+
+
+*CInlineFilter::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CInlineFilter::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CInlineFilter::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CInlineFilter::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CInlineFilter::init*						 public
+ See |CFilter::init|
+
+
+*CInlineFilter::postFilter*					 protected
+ See |CFilter::postFilter|
+
+
+*CInlineFilter::preFilter*					 protected
+ See |CFilter::preFilter|
+
+
+*CInlineFilter::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

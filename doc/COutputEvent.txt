@@ -12,14 +12,27 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<handled>				*COutputEvent::handled*
+ See |CEvent::handled|
+
 <output>				*COutputEvent::output*
  (string) the output to be processed. The processed output should be stored
  back to this property.
+
+<params>				*COutputEvent::params*
+ See |CEvent::params|
+
+<sender>				*COutputEvent::sender*
+ See |CEvent::sender|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*COutputEvent::__call*						 public
+ See |CComponent::__call|
+
 
 *COutputEvent::__construct*					 public
 >
@@ -30,6 +43,98 @@ METHOD DETAILS
  Constructor.
     [sender] (mixed) sender of the event
     [output] (string) the output to be processed
+
+
+*COutputEvent::__get*						 public
+ See |CComponent::__get|
+
+
+*COutputEvent::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*COutputEvent::__set*						 public
+ See |CComponent::__set|
+
+
+*COutputEvent::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*COutputEvent::asa*						 public
+ See |CComponent::asa|
+
+
+*COutputEvent::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*COutputEvent::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*COutputEvent::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*COutputEvent::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*COutputEvent::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*COutputEvent::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*COutputEvent::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*COutputEvent::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*COutputEvent::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*COutputEvent::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*COutputEvent::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*COutputEvent::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*COutputEvent::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*COutputEvent::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*COutputEvent::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*COutputEvent::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*COutputEvent::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*COutputEvent::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

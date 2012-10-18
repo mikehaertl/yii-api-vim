@@ -32,6 +32,8 @@
    'users'=>array('thomas', 'kevin'),
    // optional, list of roles (case sensitive!) that this rule applies to.
    'roles'=>array('admin', 'editor'),
+   // since version 1.1.11 you can pass parameters for RBAC bizRules
+   'roles'=>array('updateTopic'=>array('topic'=>$topic))
    // optional, list of IP address/patterns that this rule applies to
    // e.g. 127.0.0.1, 127.0.0.*
    'ips'=>array('127.0.0.1'),
@@ -44,6 +46,18 @@
    // optional, the customized error message to be displayed
    // This option is available since version 1.1.1.
    'message'=>'Access Denied.',
+   // optional, the denied method callback name, that will be called once the
+  // access is denied, instead of showing the customized error message. It can
+ also be
+   // a valid PHP callback, including class method name
+ (array(ClassName/Object, MethodName)),
+  // or anonymous function (PHP 5.3.0+). The function/method signature should
+ be as follows:
+  // function foo($user, $rule) { ... }
+  // where $user is the current application user object and $rule is this
+ access rule.
+   // This option is available since version 1.1.11.
+   'deniedCallback'=>'redirectToDeniedMethod',
  )
 <
 
@@ -65,6 +79,26 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CAccessControlFilter::__call*					 public
+ See |CComponent::__call|
+
+
+*CAccessControlFilter::__get*					 public
+ See |CComponent::__get|
+
+
+*CAccessControlFilter::__isset* 				 public
+ See |CComponent::__isset|
+
+
+*CAccessControlFilter::__set*					 public
+ See |CComponent::__set|
+
+
+*CAccessControlFilter::__unset* 				 public
+ See |CComponent::__unset|
+
+
 *CAccessControlFilter::accessDenied*				 protected
 >
  accessDenied($user, $message)
@@ -77,12 +111,96 @@ METHOD DETAILS
     [message] (string) the error message to be displayed
 
 
+*CAccessControlFilter::asa*					 public
+ See |CComponent::asa|
+
+
+*CAccessControlFilter::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CAccessControlFilter::attachBehaviors* 			 public
+ See |CComponent::attachBehaviors|
+
+
+*CAccessControlFilter::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CAccessControlFilter::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CAccessControlFilter::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CAccessControlFilter::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CAccessControlFilter::detachBehaviors* 			 public
+ See |CComponent::detachBehaviors|
+
+
+*CAccessControlFilter::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CAccessControlFilter::disableBehavior* 			 public
+ See |CComponent::disableBehavior|
+
+
+*CAccessControlFilter::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CAccessControlFilter::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CAccessControlFilter::enableBehaviors* 			 public
+ See |CComponent::enableBehaviors|
+
+
+*CAccessControlFilter::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CAccessControlFilter::filter*					 public
+ See |CFilter::filter|
+
+
+*CAccessControlFilter::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
 *CAccessControlFilter::getRules*				 public
 >
  getRules()
 <
 (array) list of access rules.
 
+
+
+*CAccessControlFilter::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CAccessControlFilter::hasEventHandler* 			 public
+ See |CComponent::hasEventHandler|
+
+
+*CAccessControlFilter::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CAccessControlFilter::init*					 public
+ See |CFilter::init|
+
+
+*CAccessControlFilter::postFilter*				 protected
+ See |CFilter::postFilter|
 
 
 *CAccessControlFilter::preFilter*				 protected
@@ -94,6 +212,10 @@ be executed.
 
  Performs the pre-action filtering.
     [filterChain] (CFilterChain) the filter chain that the filter is on.
+
+
+*CAccessControlFilter::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 *CAccessControlFilter::resolveErrorMessage*			 protected

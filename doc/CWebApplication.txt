@@ -45,6 +45,18 @@ PROPERTY DETAILS
 <authManager>				*CWebApplication::authManager*
  (IAuthManager) the authorization manager component
 
+<basePath>				*CWebApplication::basePath*
+ See |CApplication::basePath|
+
+<baseUrl>				*CWebApplication::baseUrl*
+ See |CApplication::baseUrl|
+
+<behaviors>				*CWebApplication::behaviors*
+ See |CModule::behaviors|
+
+<cache> 				*CWebApplication::cache*
+ See |CApplication::cache|
+
 <catchAllRequest>			*CWebApplication::catchAllRequest*
  (array) the configuration specifying a controller which should handle all
  user requests. This is mainly used when the application is in maintenance
@@ -60,8 +72,14 @@ PROPERTY DETAILS
 <
  Defaults to null, meaning catch-all is not effective.
 
+<charset>				*CWebApplication::charset*
+ See |CApplication::charset|
+
 <clientScript>				*CWebApplication::clientScript*
  (CClientScript) Returns the client script manager.
+
+<components>				*CWebApplication::components*
+ See |CModule::components|
 
 <controller>				*CWebApplication::controller*
  (CController) the currently active controller
@@ -89,13 +107,41 @@ PROPERTY DETAILS
  map. If not, a controller will be searched for under the
  |CWebApplication::getControllerPath|.
 
+<controllerNamespace>			*CWebApplication::controllerNamespace*
+ (string) Namespace that should be used when loading controllers. Default is
+ to use global namespace.
+
 <controllerPath>			*CWebApplication::controllerPath*
  (string) the directory that contains the controller classes. Defaults to
  'protected/controllers'.
 
+<coreMessages>				*CWebApplication::coreMessages*
+ See |CApplication::coreMessages|
+
+<dateFormatter> 			*CWebApplication::dateFormatter*
+ See |CApplication::dateFormatter|
+
+<db>					*CWebApplication::db*
+ See |CApplication::db|
+
 <defaultController>			*CWebApplication::defaultController*
  (string) the route of the default controller, action or module. Defaults to
  'site'.
+
+<errorHandler>				*CWebApplication::errorHandler*
+ See |CApplication::errorHandler|
+
+<extensionPath> 			*CWebApplication::extensionPath*
+ See |CApplication::extensionPath|
+
+<homeUrl>				*CWebApplication::homeUrl*
+ See |CApplication::homeUrl|
+
+<id>					*CWebApplication::id*
+ See |CApplication::id|
+
+<language>				*CWebApplication::language*
+ See |CApplication::language|
 
 <layout>				*CWebApplication::layout*
  (mixed) the application-wide layout. Defaults to 'main' (relative to
@@ -106,8 +152,53 @@ PROPERTY DETAILS
  (string) the root directory of layout files. Defaults to
  'protected/views/layouts'.
 
+<locale>				*CWebApplication::locale*
+ See |CApplication::locale|
+
+<localeDataPath>			*CWebApplication::localeDataPath*
+ See |CApplication::localeDataPath|
+
+<messages>				*CWebApplication::messages*
+ See |CApplication::messages|
+
+<modulePath>				*CWebApplication::modulePath*
+ See |CModule::modulePath|
+
+<modules>				*CWebApplication::modules*
+ See |CModule::modules|
+
+<name>					*CWebApplication::name*
+ See |CApplication::name|
+
+<numberFormatter>			*CWebApplication::numberFormatter*
+ See |CApplication::numberFormatter|
+
+<params>				*CWebApplication::params*
+ See |CModule::params|
+
+<parentModule>				*CWebApplication::parentModule*
+ See |CModule::parentModule|
+
+<preload>				*CWebApplication::preload*
+ See |CModule::preload|
+
+<request>				*CWebApplication::request*
+ See |CApplication::request|
+
+<runtimePath>				*CWebApplication::runtimePath*
+ See |CApplication::runtimePath|
+
+<securityManager>			*CWebApplication::securityManager*
+ See |CApplication::securityManager|
+
 <session>				*CWebApplication::session*
  (CHttpSession) the session component
+
+<sourceLanguage>			*CWebApplication::sourceLanguage*
+ See |CApplication::sourceLanguage|
+
+<statePersister>			*CWebApplication::statePersister*
+ See |CApplication::statePersister|
 
 <systemViewPath>			*CWebApplication::systemViewPath*
  (string) the root directory of system view files. Defaults to
@@ -118,6 +209,12 @@ PROPERTY DETAILS
 
 <themeManager>				*CWebApplication::themeManager*
  (CThemeManager) the theme manager.
+
+<timeZone>				*CWebApplication::timeZone*
+ See |CApplication::timeZone|
+
+<urlManager>				*CWebApplication::urlManager*
+ See |CApplication::urlManager|
 
 <user>					*CWebApplication::user*
  (CWebUser) the user session information
@@ -138,6 +235,30 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CWebApplication::__call*					 public
+ See |CComponent::__call|
+
+
+*CWebApplication::__construct*					 public
+ See |CApplication::__construct|
+
+
+*CWebApplication::__get*					 public
+ See |CModule::__get|
+
+
+*CWebApplication::__isset*					 public
+ See |CModule::__isset|
+
+
+*CWebApplication::__set*					 public
+ See |CComponent::__set|
+
+
+*CWebApplication::__unset*					 public
+ See |CComponent::__unset|
+
+
 *CWebApplication::afterControllerAction*			 public
 >
  afterControllerAction($controller, $action)
@@ -152,6 +273,22 @@ METHOD DETAILS
     [action] (CAction) the action
 
 
+*CWebApplication::asa*						 public
+ See |CComponent::asa|
+
+
+*CWebApplication::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CWebApplication::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CWebApplication::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
 *CWebApplication::beforeControllerAction*			 public
 >
  beforeControllerAction($controller, $action)
@@ -164,6 +301,26 @@ METHOD DETAILS
  controller actions.
     [controller] (CController) the controller
     [action] (CAction) the action
+
+
+*CWebApplication::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CWebApplication::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CWebApplication::clearGlobalState*				 public
+ See |CApplication::clearGlobalState|
+
+
+*CWebApplication::configure*					 public
+ See |CModule::configure|
+
+
+*CWebApplication::createAbsoluteUrl*				 public
+ See |CApplication::createAbsoluteUrl|
 
 
 *CWebApplication::createController*				 public
@@ -196,6 +353,58 @@ class does not exist or the route is invalid.
     Defaults to null, meaning the application instance is the owner.
 
 
+*CWebApplication::createUrl*					 public
+ See |CApplication::createUrl|
+
+
+*CWebApplication::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CWebApplication::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CWebApplication::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CWebApplication::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CWebApplication::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CWebApplication::displayError* 				 public
+ See |CApplication::displayError|
+
+
+*CWebApplication::displayException*				 public
+ See |CApplication::displayException|
+
+
+*CWebApplication::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CWebApplication::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CWebApplication::end*						 public
+ See |CApplication::end|
+
+
+*CWebApplication::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CWebApplication::findLocalizedFile*				 public
+ See |CApplication::findLocalizedFile|
+
+
 *CWebApplication::findModule*					 public
 >
  findModule($id)
@@ -223,6 +432,18 @@ class does not exist or the route is invalid.
 
 
 
+*CWebApplication::getBasePath*					 public
+ See |CApplication::getBasePath|
+
+
+*CWebApplication::getBaseUrl*					 public
+ See |CApplication::getBaseUrl|
+
+
+*CWebApplication::getCache*					 public
+ See |CApplication::getCache|
+
+
 *CWebApplication::getClientScript*				 public
 >
  getClientScript()
@@ -230,6 +451,14 @@ class does not exist or the route is invalid.
 (CClientScript) the client script manager
 
  Returns the client script manager.
+
+
+*CWebApplication::getComponent* 				 public
+ See |CModule::getComponent|
+
+
+*CWebApplication::getComponents*				 public
+ See |CModule::getComponents|
 
 
 *CWebApplication::getController*				 public
@@ -249,6 +478,46 @@ class does not exist or the route is invalid.
 
 
 
+*CWebApplication::getCoreMessages*				 public
+ See |CApplication::getCoreMessages|
+
+
+*CWebApplication::getDateFormatter*				 public
+ See |CApplication::getDateFormatter|
+
+
+*CWebApplication::getDb*					 public
+ See |CApplication::getDb|
+
+
+*CWebApplication::getErrorHandler*				 public
+ See |CApplication::getErrorHandler|
+
+
+*CWebApplication::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CWebApplication::getExtensionPath*				 public
+ See |CApplication::getExtensionPath|
+
+
+*CWebApplication::getGlobalState*				 public
+ See |CApplication::getGlobalState|
+
+
+*CWebApplication::getHomeUrl*					 public
+ See |CApplication::getHomeUrl|
+
+
+*CWebApplication::getId*					 public
+ See |CApplication::getId|
+
+
+*CWebApplication::getLanguage*					 public
+ See |CApplication::getLanguage|
+
+
 *CWebApplication::getLayoutPath*				 public
 >
  getLayoutPath()
@@ -258,12 +527,64 @@ class does not exist or the route is invalid.
 
 
 
+*CWebApplication::getLocale*					 public
+ See |CApplication::getLocale|
+
+
+*CWebApplication::getLocaleDataPath*				 public
+ See |CApplication::getLocaleDataPath|
+
+
+*CWebApplication::getMessages*					 public
+ See |CApplication::getMessages|
+
+
+*CWebApplication::getModule*					 public
+ See |CModule::getModule|
+
+
+*CWebApplication::getModulePath*				 public
+ See |CModule::getModulePath|
+
+
+*CWebApplication::getModules*					 public
+ See |CModule::getModules|
+
+
+*CWebApplication::getNumberFormatter*				 public
+ See |CApplication::getNumberFormatter|
+
+
+*CWebApplication::getParams*					 public
+ See |CModule::getParams|
+
+
+*CWebApplication::getParentModule*				 public
+ See |CModule::getParentModule|
+
+
+*CWebApplication::getRequest*					 public
+ See |CApplication::getRequest|
+
+
+*CWebApplication::getRuntimePath*				 public
+ See |CApplication::getRuntimePath|
+
+
+*CWebApplication::getSecurityManager*				 public
+ See |CApplication::getSecurityManager|
+
+
 *CWebApplication::getSession*					 public
 >
  getSession()
 <
 (CHttpSession) the session component
 
+
+
+*CWebApplication::getStatePersister*				 public
+ See |CApplication::getStatePersister|
 
 
 *CWebApplication::getSystemViewPath*				 public
@@ -289,6 +610,14 @@ class does not exist or the route is invalid.
 <
 (CThemeManager) the theme manager.
 
+
+
+*CWebApplication::getTimeZone*					 public
+ See |CApplication::getTimeZone|
+
+
+*CWebApplication::getUrlManager*				 public
+ See |CApplication::getUrlManager|
 
 
 *CWebApplication::getUser*					 public
@@ -327,6 +656,34 @@ class does not exist or the route is invalid.
  Returns the widget factory.
 
 
+*CWebApplication::handleError*					 public
+ See |CApplication::handleError|
+
+
+*CWebApplication::handleException*				 public
+ See |CApplication::handleException|
+
+
+*CWebApplication::hasComponent* 				 public
+ See |CModule::hasComponent|
+
+
+*CWebApplication::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CWebApplication::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CWebApplication::hasModule*					 public
+ See |CModule::hasModule|
+
+
+*CWebApplication::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CWebApplication::init* 					 protected
 >
  init()
@@ -335,6 +692,30 @@ class does not exist or the route is invalid.
 
  Initializes the application. This method overrides the parent implementation
  by preloading the 'request' component.
+
+
+*CWebApplication::initSystemHandlers*				 protected
+ See |CApplication::initSystemHandlers|
+
+
+*CWebApplication::loadGlobalState*				 public
+ See |CApplication::loadGlobalState|
+
+
+*CWebApplication::onBeginRequest*				 public
+ See |CApplication::onBeginRequest|
+
+
+*CWebApplication::onEndRequest* 				 public
+ See |CApplication::onEndRequest|
+
+
+*CWebApplication::onError*					 public
+ See |CApplication::onError|
+
+
+*CWebApplication::onException*					 public
+ See |CApplication::onException|
 
 
 *CWebApplication::parseActionParams*				 protected
@@ -347,6 +728,14 @@ class does not exist or the route is invalid.
     [pathInfo] (string) path info
 
 
+*CWebApplication::preinit*					 protected
+ See |CModule::preinit|
+
+
+*CWebApplication::preloadComponents*				 protected
+ See |CModule::preloadComponents|
+
+
 *CWebApplication::processRequest*				 public
 >
  processRequest()
@@ -355,6 +744,10 @@ class does not exist or the route is invalid.
 
  Processes the current request. It first resolves the request into controller
  and action, and then creates the controller to perform the action.
+
+
+*CWebApplication::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CWebApplication::registerCoreComponents*			 protected
@@ -367,6 +760,10 @@ class does not exist or the route is invalid.
  implementation by registering additional core components.
 
 
+*CWebApplication::run*						 public
+ See |CApplication::run|
+
+
 *CWebApplication::runController*				 public
 >
  runController($route)
@@ -376,6 +773,26 @@ class does not exist or the route is invalid.
  Creates the controller and performs the specified action.
     [route] (string) the route of the current request. See
     |CWebApplication::createController| for more details.
+
+
+*CWebApplication::saveGlobalState*				 public
+ See |CApplication::saveGlobalState|
+
+
+*CWebApplication::setAliases*					 public
+ See |CModule::setAliases|
+
+
+*CWebApplication::setBasePath*					 public
+ See |CApplication::setBasePath|
+
+
+*CWebApplication::setComponent* 				 public
+ See |CModule::setComponent|
+
+
+*CWebApplication::setComponents*				 public
+ See |CModule::setComponents|
 
 
 *CWebApplication::setController*				 public
@@ -396,6 +813,30 @@ class does not exist or the route is invalid.
     [value] (string) the directory that contains the controller classes.
 
 
+*CWebApplication::setExtensionPath*				 public
+ See |CApplication::setExtensionPath|
+
+
+*CWebApplication::setGlobalState*				 public
+ See |CApplication::setGlobalState|
+
+
+*CWebApplication::setHomeUrl*					 public
+ See |CApplication::setHomeUrl|
+
+
+*CWebApplication::setId*					 public
+ See |CApplication::setId|
+
+
+*CWebApplication::setImport*					 public
+ See |CModule::setImport|
+
+
+*CWebApplication::setLanguage*					 public
+ See |CApplication::setLanguage|
+
+
 *CWebApplication::setLayoutPath*				 public
 >
  setLayoutPath($path)
@@ -403,6 +844,26 @@ class does not exist or the route is invalid.
 (void)
 
     [path] (string) the root directory of layout files.
+
+
+*CWebApplication::setLocaleDataPath*				 public
+ See |CApplication::setLocaleDataPath|
+
+
+*CWebApplication::setModulePath*				 public
+ See |CModule::setModulePath|
+
+
+*CWebApplication::setModules*					 public
+ See |CModule::setModules|
+
+
+*CWebApplication::setParams*					 public
+ See |CModule::setParams|
+
+
+*CWebApplication::setRuntimePath*				 public
+ See |CApplication::setRuntimePath|
 
 
 *CWebApplication::setSystemViewPath*				 public
@@ -421,6 +882,10 @@ class does not exist or the route is invalid.
 (void)
 
     [value] (string) the theme name
+
+
+*CWebApplication::setTimeZone*					 public
+ See |CApplication::setTimeZone|
 
 
 *CWebApplication::setViewPath*					 public

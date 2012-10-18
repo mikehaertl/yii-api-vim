@@ -52,5 +52,19 @@ value).
  Returns the display name for the identity (e.g. username).
 
 
+*IWebUser::loginRequired*					 public
+>
+ loginRequired()
+<
+(void)
+
+ Redirects the user browser to the login page. Before the redirection, the
+ current URL (if it's not an AJAX url) will be kept in returnUrl so that the
+ user browser may be redirected back to the current page after successful
+ login. Make sure you set loginUrl so that the user browser can be redirected
+ to the specified login URL after calling this method. After calling this
+ method, the current request processing will be terminated.
+
+
 
  vim:tw=78:ts=8:ft=help:norl:

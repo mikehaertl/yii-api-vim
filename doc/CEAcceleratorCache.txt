@@ -20,6 +20,30 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CEAcceleratorCache::__call*					 public
+ See |CComponent::__call|
+
+
+*CEAcceleratorCache::__get*					 public
+ See |CComponent::__get|
+
+
+*CEAcceleratorCache::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CEAcceleratorCache::__set*					 public
+ See |CComponent::__set|
+
+
+*CEAcceleratorCache::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CEAcceleratorCache::add*					 public
+ See |CCache::add|
+
+
 *CEAcceleratorCache::addValue*					 protected
 >
  addValue($key, $value, $expire)
@@ -35,6 +59,34 @@ METHOD DETAILS
     expire. 0 means never expire.
 
 
+*CEAcceleratorCache::asa*					 public
+ See |CComponent::asa|
+
+
+*CEAcceleratorCache::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CEAcceleratorCache::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CEAcceleratorCache::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CEAcceleratorCache::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CEAcceleratorCache::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CEAcceleratorCache::delete*					 public
+ See |CCache::delete|
+
+
 *CEAcceleratorCache::deleteValue*				 protected
 >
  deleteValue($key)
@@ -46,6 +98,42 @@ METHOD DETAILS
     [key] (string) the key of the value to be deleted
 
 
+*CEAcceleratorCache::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CEAcceleratorCache::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CEAcceleratorCache::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CEAcceleratorCache::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CEAcceleratorCache::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CEAcceleratorCache::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CEAcceleratorCache::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CEAcceleratorCache::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CEAcceleratorCache::flush*					 public
+ See |CCache::flush|
+
+
 *CEAcceleratorCache::flushValues*				 protected
 >
  flushValues()
@@ -54,6 +142,22 @@ METHOD DETAILS
 
  Deletes all values from cache. This is the implementation of the method
  declared in the parent class.
+
+
+*CEAcceleratorCache::generateUniqueKey* 			 protected
+ See |CCache::generateUniqueKey|
+
+
+*CEAcceleratorCache::get*					 public
+ See |CCache::get|
+
+
+*CEAcceleratorCache::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CEAcceleratorCache::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CEAcceleratorCache::getValue*					 protected
@@ -68,6 +172,22 @@ expired.
     [key] (string) a unique key identifying the cached value
 
 
+*CEAcceleratorCache::getValues* 				 protected
+ See |CCache::getValues|
+
+
+*CEAcceleratorCache::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CEAcceleratorCache::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CEAcceleratorCache::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
 *CEAcceleratorCache::init*					 public
 >
  init()
@@ -77,6 +197,34 @@ expired.
  Initializes this application component. This method is required by the
  |IApplicationComponent| interface. It checks the availability of
  eAccelerator.
+
+
+*CEAcceleratorCache::mget*					 public
+ See |CCache::mget|
+
+
+*CEAcceleratorCache::offsetExists*				 public
+ See |CCache::offsetExists|
+
+
+*CEAcceleratorCache::offsetGet* 				 public
+ See |CCache::offsetGet|
+
+
+*CEAcceleratorCache::offsetSet* 				 public
+ See |CCache::offsetSet|
+
+
+*CEAcceleratorCache::offsetUnset*				 public
+ See |CCache::offsetUnset|
+
+
+*CEAcceleratorCache::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CEAcceleratorCache::set*					 public
+ See |CCache::set|
 
 
 *CEAcceleratorCache::setValue*					 protected

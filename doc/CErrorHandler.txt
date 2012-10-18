@@ -47,6 +47,9 @@ PROPERTY DETAILS
  link). It is displayed in error pages to end users. Defaults to 'the
  webmaster'.
 
+<behaviors>				*CErrorHandler::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <discardOutput> 			*CErrorHandler::discardOutput*
  (boolean) whether to discard any existing page output before error display.
  Defaults to true.
@@ -68,6 +71,9 @@ PROPERTY DETAILS
  information by Yii::app()->errorHandler->error. This property defaults to
  null, meaning CErrorHandler will handle the error display.
 
+<isInitialized> 			*CErrorHandler::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
 <maxSourceLines>			*CErrorHandler::maxSourceLines*
  (integer) maximum number of source code lines to be displayed. Defaults to
  25.
@@ -85,6 +91,26 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CErrorHandler::__call* 					 public
+ See |CComponent::__call|
+
+
+*CErrorHandler::__get*						 public
+ See |CComponent::__get|
+
+
+*CErrorHandler::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CErrorHandler::__set*						 public
+ See |CComponent::__set|
+
+
+*CErrorHandler::__unset*					 public
+ See |CComponent::__unset|
+
+
 *CErrorHandler::argumentsToString*				 protected
 >
  argumentsToString($args)
@@ -93,6 +119,62 @@ METHOD DETAILS
 
  Converts arguments array to its string representation
     [args] (array) arguments array to be converted
+
+
+*CErrorHandler::asa*						 public
+ See |CComponent::asa|
+
+
+*CErrorHandler::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CErrorHandler::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CErrorHandler::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CErrorHandler::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CErrorHandler::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CErrorHandler::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CErrorHandler::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CErrorHandler::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CErrorHandler::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CErrorHandler::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CErrorHandler::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CErrorHandler::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CErrorHandler::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CErrorHandler::getError*					 public
@@ -112,6 +194,10 @@ METHOD DETAILS
    source - the context source code where the error occurs
 
 
+*CErrorHandler::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
 *CErrorHandler::getExactTrace*					 protected
 >
  getExactTrace($exception)
@@ -120,6 +206,23 @@ METHOD DETAILS
 
  Returns the exact trace where the problem occurs.
     [exception] (Exception) the uncaught exception
+
+
+*CErrorHandler::getHttpHeader*					 protected
+>
+ getHttpHeader($httpCode, $replacement='')
+<
+(string) the textual representation of the given error code or the replacement
+string if the error code is unknown
+
+ Return correct message for each known http error code
+    [httpCode] (integer) error code to map
+    [replacement] (string) replacement error string that is returned if code
+    is unknown
+
+
+*CErrorHandler::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CErrorHandler::getVersionInfo* 				 protected
@@ -187,6 +290,22 @@ METHOD DETAILS
     [exception] (Exception) the exception captured
 
 
+*CErrorHandler::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CErrorHandler::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CErrorHandler::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CErrorHandler::init*						 public
+ See |CApplicationComponent::init|
+
+
 *CErrorHandler::isAjaxRequest*					 protected
 >
  isAjaxRequest()
@@ -204,6 +323,10 @@ METHOD DETAILS
 
  Returns a value indicating whether the call stack is from application code.
     [trace] (array) the trace data
+
+
+*CErrorHandler::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CErrorHandler::render* 					 protected

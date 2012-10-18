@@ -50,11 +50,17 @@ PROPERTY DETAILS
  (string) Returns the relative URL for the application. This is a shortcut
  method to |CHttpRequest::getBaseUrl|.
 
+<behaviors>				*CApplication::behaviors*
+ See |CModule::behaviors|
+
 <cache> 				*CApplication::cache*
  (CCache) Returns the cache component.
 
 <charset>				*CApplication::charset*
  (string) the charset currently used for the application. Defaults to 'UTF-8'.
+
+<components>				*CApplication::components*
+ See |CModule::components|
 
 <controller>				*CApplication::controller*
  (CController) the currently active controller. Null is returned in this base
@@ -94,12 +100,27 @@ PROPERTY DETAILS
 <messages>				*CApplication::messages*
  (CMessageSource) Returns the application message translations component.
 
+<modulePath>				*CApplication::modulePath*
+ See |CModule::modulePath|
+
+<modules>				*CApplication::modules*
+ See |CModule::modules|
+
 <name>					*CApplication::name*
  (string) the application name. Defaults to 'My Application'.
 
 <numberFormatter>			*CApplication::numberFormatter*
  (CNumberFormatter) the locale-dependent number formatter. The current
  |CApplication::getLocale| will be used.
+
+<params>				*CApplication::params*
+ See |CModule::params|
+
+<parentModule>				*CApplication::parentModule*
+ See |CModule::parentModule|
+
+<preload>				*CApplication::preload*
+ See |CModule::preload|
 
 <request>				*CApplication::request*
  (CHttpRequest) Returns the request component.
@@ -130,6 +151,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CApplication::__call*						 public
+ See |CComponent::__call|
+
+
 *CApplication::__construct*					 public
 >
  __construct($config=NULL)
@@ -145,6 +170,46 @@ METHOD DETAILS
     data. If not, the directory will be defaulted to 'protected'.
 
 
+*CApplication::__get*						 public
+ See |CModule::__get|
+
+
+*CApplication::__isset* 					 public
+ See |CModule::__isset|
+
+
+*CApplication::__set*						 public
+ See |CComponent::__set|
+
+
+*CApplication::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CApplication::asa*						 public
+ See |CComponent::asa|
+
+
+*CApplication::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CApplication::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CApplication::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CApplication::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CApplication::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CApplication::clearGlobalState*				 public
 >
  clearGlobalState($key)
@@ -156,6 +221,10 @@ METHOD DETAILS
  The value cleared will no longer be available in this request and the
  following requests.
     [key] (string) the name of the value to be cleared
+
+
+*CApplication::configure*					 public
+ See |CModule::configure|
 
 
 *CApplication::createAbsoluteUrl*				 public
@@ -188,6 +257,26 @@ METHOD DETAILS
     [ampersand] (string) the token separating name-value pairs in the URL.
 
 
+*CApplication::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CApplication::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CApplication::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CApplication::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CApplication::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
 *CApplication::displayError*					 public
 >
  displayError($code, $message, $file, $line)
@@ -213,6 +302,14 @@ METHOD DETAILS
     [exception] (Exception) the uncaught exception
 
 
+*CApplication::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CApplication::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
 *CApplication::end*						 public
 >
  end($status=0, $exit=true)
@@ -226,6 +323,10 @@ METHOD DETAILS
     [exit] (boolean) whether to exit the current request. This parameter has
     been available since version 1.1.5. It defaults to true, meaning the PHP's
     exit() function will be called at the end of this method.
+
+
+*CApplication::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CApplication::findLocalizedFile*				 public
@@ -284,6 +385,14 @@ enabled.
  Returns the cache component.
 
 
+*CApplication::getComponent*					 public
+ See |CModule::getComponent|
+
+
+*CApplication::getComponents*					 public
+ See |CModule::getComponents|
+
+
 *CApplication::getController*					 public
 >
  getController()
@@ -328,6 +437,10 @@ class.
 (CErrorHandler) the error handler application component.
 
  Returns the error handler component.
+
+
+*CApplication::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CApplication::getExtensionPath*				 public
@@ -412,6 +525,18 @@ targeted to. Defaults to the |CApplication::sourceLanguage|.
  Returns the application message translations component.
 
 
+*CApplication::getModule*					 public
+ See |CModule::getModule|
+
+
+*CApplication::getModulePath*					 public
+ See |CModule::getModulePath|
+
+
+*CApplication::getModules*					 public
+ See |CModule::getModules|
+
+
 *CApplication::getNumberFormatter*				 public
 >
  getNumberFormatter()
@@ -419,6 +544,14 @@ targeted to. Defaults to the |CApplication::sourceLanguage|.
 (CNumberFormatter) the locale-dependent number formatter. The current
 |CApplication::getLocale| will be used.
 
+
+
+*CApplication::getParams*					 public
+ See |CModule::getParams|
+
+
+*CApplication::getParentModule* 				 public
+ See |CModule::getParentModule|
 
 
 *CApplication::getRequest*					 public
@@ -518,6 +651,30 @@ targeted to. Defaults to the |CApplication::sourceLanguage|.
     [exception] (Exception) exception that is not caught
 
 
+*CApplication::hasComponent*					 public
+ See |CModule::hasComponent|
+
+
+*CApplication::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CApplication::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CApplication::hasModule*					 public
+ See |CModule::hasModule|
+
+
+*CApplication::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CApplication::init*						 protected
+ See |CModule::init|
+
+
 *CApplication::initSystemHandlers*				 protected
 >
  initSystemHandlers()
@@ -586,6 +743,14 @@ targeted to. Defaults to the |CApplication::sourceLanguage|.
     [event] (CExceptionEvent) event parameter
 
 
+*CApplication::preinit* 					 protected
+ See |CModule::preinit|
+
+
+*CApplication::preloadComponents*				 protected
+ See |CModule::preloadComponents|
+
+
 *CApplication::processRequest*					 public
 >
  processRequest()
@@ -594,6 +759,10 @@ targeted to. Defaults to the |CApplication::sourceLanguage|.
 
  Processes the request. This is the place where the actual request processing
  work is done. Derived classes should override this method.
+
+
+*CApplication::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CApplication::registerCoreComponents*				 protected
@@ -626,6 +795,10 @@ targeted to. Defaults to the |CApplication::sourceLanguage|.
  Saves the global state data into persistent storage.
 
 
+*CApplication::setAliases*					 public
+ See |CModule::setAliases|
+
+
 *CApplication::setBasePath*					 public
 >
  setBasePath($path)
@@ -635,6 +808,14 @@ targeted to. Defaults to the |CApplication::sourceLanguage|.
  Sets the root directory of the application. This method can only be invoked
  at the begin of the constructor.
     [path] (string) the root directory of the application.
+
+
+*CApplication::setComponent*					 public
+ See |CModule::setComponent|
+
+
+*CApplication::setComponents*					 public
+ See |CModule::setComponents|
 
 
 *CApplication::setExtensionPath*				 public
@@ -682,6 +863,10 @@ targeted to. Defaults to the |CApplication::sourceLanguage|.
     [id] (string) the unique identifier for the application.
 
 
+*CApplication::setImport*					 public
+ See |CModule::setImport|
+
+
 *CApplication::setLanguage*					 public
 >
  setLanguage($language)
@@ -707,6 +892,18 @@ targeted to. Defaults to the |CApplication::sourceLanguage|.
 
  Sets the directory that contains the locale data.
     [value] (string) the directory that contains the locale data.
+
+
+*CApplication::setModulePath*					 public
+ See |CModule::setModulePath|
+
+
+*CApplication::setModules*					 public
+ See |CModule::setModules|
+
+
+*CApplication::setParams*					 public
+ See |CModule::setParams|
 
 
 *CApplication::setRuntimePath*					 public

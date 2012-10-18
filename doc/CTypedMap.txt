@@ -12,6 +12,10 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CTypedMap::__call*						 public
+ See |CComponent::__call|
+
+
 *CTypedMap::__construct*					 public
 >
  __construct($type)
@@ -20,6 +24,22 @@ METHOD DETAILS
 
  Constructor.
     [type] (string) class type
+
+
+*CTypedMap::__get*						 public
+ See |CComponent::__get|
+
+
+*CTypedMap::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CTypedMap::__set*						 public
+ See |CComponent::__set|
+
+
+*CTypedMap::__unset*						 public
+ See |CComponent::__unset|
 
 
 *CTypedMap::add*						 public
@@ -32,6 +52,154 @@ METHOD DETAILS
  checking the item to be inserted is of certain type.
     [index] (integer) the specified position.
     [item] (mixed) new item
+
+
+*CTypedMap::asa*						 public
+ See |CComponent::asa|
+
+
+*CTypedMap::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CTypedMap::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CTypedMap::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CTypedMap::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CTypedMap::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CTypedMap::clear*						 public
+ See |CMap::clear|
+
+
+*CTypedMap::contains*						 public
+ See |CMap::contains|
+
+
+*CTypedMap::copyFrom*						 public
+ See |CMap::copyFrom|
+
+
+*CTypedMap::count*						 public
+ See |CMap::count|
+
+
+*CTypedMap::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CTypedMap::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CTypedMap::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CTypedMap::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CTypedMap::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CTypedMap::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CTypedMap::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CTypedMap::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
+
+
+*CTypedMap::getCount*						 public
+ See |CMap::getCount|
+
+
+*CTypedMap::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CTypedMap::getIterator*					 public
+ See |CMap::getIterator|
+
+
+*CTypedMap::getKeys*						 public
+ See |CMap::getKeys|
+
+
+*CTypedMap::getReadOnly*					 public
+ See |CMap::getReadOnly|
+
+
+*CTypedMap::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CTypedMap::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CTypedMap::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CTypedMap::itemAt*						 public
+ See |CMap::itemAt|
+
+
+*CTypedMap::mergeArray* 					 public
+ See |CMap::mergeArray|
+
+
+*CTypedMap::mergeWith*						 public
+ See |CMap::mergeWith|
+
+
+*CTypedMap::offsetExists*					 public
+ See |CMap::offsetExists|
+
+
+*CTypedMap::offsetGet*						 public
+ See |CMap::offsetGet|
+
+
+*CTypedMap::offsetSet*						 public
+ See |CMap::offsetSet|
+
+
+*CTypedMap::offsetUnset*					 public
+ See |CMap::offsetUnset|
+
+
+*CTypedMap::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
+
+
+*CTypedMap::remove*						 public
+ See |CMap::remove|
+
+
+*CTypedMap::setReadOnly*					 protected
+ See |CMap::setReadOnly|
+
+
+*CTypedMap::toArray*						 public
+ See |CMap::toArray|
 
 
 

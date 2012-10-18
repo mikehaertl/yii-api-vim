@@ -124,6 +124,9 @@ PROPERTY DETAILS
      'price'=>CSort::SORT_DESC,
  )
 <
+ `SORT_DESC` and `SORT_ASC` are available since 1.1.10. In earlier Yii
+ versions you should use `true` and `false` respectively.
+
  Please note when using array to specify the default order, the corresponding
  attributes will be put into |CSort::directions| and thus affect how the sort
  links are rendered (e.g. an arrow may be displayed next to the currently
@@ -175,6 +178,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CSort::__call* 						 public
+ See |CComponent::__call|
+
+
 *CSort::__construct*						 public
 >
  __construct($modelClass='')
@@ -184,6 +191,22 @@ METHOD DETAILS
  Constructor.
     [modelClass] (string) the class name of data models that need to be
     sorted. This should be a child class of |CActiveRecord|.
+
+
+*CSort::__get*							 public
+ See |CComponent::__get|
+
+
+*CSort::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CSort::__set*							 public
+ See |CComponent::__set|
+
+
+*CSort::__unset*						 public
+ See |CComponent::__unset|
 
 
 *CSort::applyOrder*						 public
@@ -198,6 +221,30 @@ METHOD DETAILS
  has non-empty |CDbCriteria::order| value, the new value will be appended to
  it.
     [criteria] (CDbCriteria) the query criteria
+
+
+*CSort::asa*							 public
+ See |CComponent::asa|
+
+
+*CSort::attachBehavior* 					 public
+ See |CComponent::attachBehavior|
+
+
+*CSort::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CSort::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CSort::canGetProperty* 					 public
+ See |CComponent::canGetProperty|
+
+
+*CSort::canSetProperty* 					 public
+ See |CComponent::canSetProperty|
 
 
 *CSort::createLink*						 protected
@@ -228,6 +275,38 @@ METHOD DETAILS
     CSort::SORT_DESC for descending order.
 
 
+*CSort::detachBehavior* 					 public
+ See |CComponent::detachBehavior|
+
+
+*CSort::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CSort::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CSort::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CSort::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CSort::enableBehavior* 					 public
+ See |CComponent::enableBehavior|
+
+
+*CSort::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CSort::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
 *CSort::getDirection*						 public
 >
  getDirection($attribute)
@@ -251,13 +330,30 @@ order.
  Returns the currently requested sort information.
 
 
+*CSort::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
 *CSort::getOrderBy*						 public
 >
- getOrderBy()
+ getOrderBy($criteria=NULL)
 <
 (string) the order-by columns represented by this sort object. This can be put
 in the ORDER BY clause of a SQL statement.
 
+    [criteria] (CDbCriteria) the query criteria
+
+
+*CSort::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CSort::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CSort::hasProperty*						 public
+ See |CComponent::hasProperty|
 
 
 *CSort::link*							 public
@@ -274,6 +370,10 @@ in the ORDER BY clause of a SQL statement.
     [label] (string) the link label. If null, the label will be determined
     according to the attribute (see |CSort::resolveLabel|).
     [htmlOptions] (array) additional HTML attributes for the hyperlink tag
+
+
+*CSort::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 *CSort::resolveAttribute*					 public

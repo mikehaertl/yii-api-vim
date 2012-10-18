@@ -66,6 +66,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CGridView::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <afterAjaxUpdate>			*CGridView::afterAjaxUpdate*
  (string) a javascript function that will be invoked after a successful AJAX
  response is received. The function signature is 'function(id, data)' where
@@ -148,10 +151,33 @@ PROPERTY DETAILS
  classes are provided: |CDataColumn|, |CLinkColumn|, |CButtonColumn| and
  |CCheckBoxColumn|.
 
+<controller>				*CGridView::controller*
+ See |CWidget::controller|
+
 <cssFile>				*CGridView::cssFile*
  (string) the URL of the CSS file used by this grid view. Defaults to null,
  meaning using the integrated CSS file. If this is set false, you are
  responsible to explicitly include the necessary CSS file in your page.
+
+<dataProvider>				*CGridView::dataProvider*
+ See |CBaseListView::dataProvider|
+
+<emptyText>				*CGridView::emptyText*
+ See |CBaseListView::emptyText|
+
+<enableHistory> 			*CGridView::enableHistory*
+ (boolean) whether to leverage the DOM history object.  Set this property to
+ true to persist state of grid across page revisits.  Note, there are two
+ limitations for this feature: - this feature is only compatible with browsers
+ that support HTML5. - expect unexpected functionality (e.g. multiple ajax
+ calls) if there is more than one grid/list on a single page with
+ enableHistory turned on.
+
+<enablePagination>			*CGridView::enablePagination*
+ See |CBaseListView::enablePagination|
+
+<enableSorting> 			*CGridView::enableSorting*
+ See |CBaseListView::enableSorting|
 
 <filter>				*CGridView::filter*
  (CModel) the model instance that keeps the user-entered filter data. When
@@ -189,6 +215,15 @@ PROPERTY DETAILS
  header cells will not be rendered, which means the grid cannot be sorted
  anymore since the sort links are located in the header. Defaults to false.
 
+<htmlOptions>				*CGridView::htmlOptions*
+ See |CBaseListView::htmlOptions|
+
+<id>					*CGridView::id*
+ See |CWidget::id|
+
+<itemsCssClass> 			*CGridView::itemsCssClass*
+ See |CBaseListView::itemsCssClass|
+
 <loadingCssClass>			*CGridView::loadingCssClass*
  (string) the CSS class name that will be assigned to the widget container
  element when the widget is updating its content via AJAX. Defaults to
@@ -198,6 +233,15 @@ PROPERTY DETAILS
  (string) the text to be displayed in a data cell when a data value is null.
  This property will NOT be HTML-encoded when rendering. Defaults to an HTML
  blank.
+
+<owner> 				*CGridView::owner*
+ See |CWidget::owner|
+
+<pager> 				*CGridView::pager*
+ See |CBaseListView::pager|
+
+<pagerCssClass> 			*CGridView::pagerCssClass*
+ See |CBaseListView::pagerCssClass|
 
 <rowCssClass>				*CGridView::rowCssClass*
  (array) the CSS class names for the table body rows. If multiple CSS class
@@ -231,15 +275,113 @@ PROPERTY DETAILS
  to true. The |CGridView::emptyText| will be displayed to indicate there is no
  data.
 
+<skin>					*CGridView::skin*
+ See |CWidget::skin|
+
+<summaryCssClass>			*CGridView::summaryCssClass*
+ See |CBaseListView::summaryCssClass|
+
+<summaryText>				*CGridView::summaryText*
+ See |CBaseListView::summaryText|
+
+<tagName>				*CGridView::tagName*
+ See |CBaseListView::tagName|
+
+<template>				*CGridView::template*
+ See |CBaseListView::template|
+
 <updateSelector>			*CGridView::updateSelector*
  (string) the jQuery selector of the HTML elements that may trigger AJAX
- updates when they are clicked. If not set, the pagination links and the
- sorting links will trigger AJAX updates.
+ updates when they are clicked. These tokens are recognized: {page} and
+ {sort}. They will be replaced with the pagination and sorting links
+ selectors. Defaults to '{page}, {sort}', that means that the pagination links
+ and the sorting links will trigger AJAX updates. Tokens are available from
+ 1.1.11
+
+ Note: if this value is empty an exception will be thrown.
+
+ Example (adding a custom selector to the default ones):
+>
+  ...
+  'updateSelector'=>'{page}, {sort}, #mybutton',
+  ...
+<
+
+<viewPath>				*CGridView::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CGridView::__call*						 public
+ See |CComponent::__call|
+
+
+*CGridView::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CGridView::__get*						 public
+ See |CComponent::__get|
+
+
+*CGridView::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CGridView::__set*						 public
+ See |CComponent::__set|
+
+
+*CGridView::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CGridView::actions*						 public
+ See |CWidget::actions|
+
+
+*CGridView::asa*						 public
+ See |CComponent::asa|
+
+
+*CGridView::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CGridView::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CGridView::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CGridView::beginCache* 					 public
+ See |CBaseController::beginCache|
+
+
+*CGridView::beginClip*						 public
+ See |CBaseController::beginClip|
+
+
+*CGridView::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CGridView::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CGridView::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CGridView::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
 
 *CGridView::createDataColumn*					 protected
 >
@@ -249,6 +391,66 @@ METHOD DETAILS
 
  Creates a |CDataColumn| based on a shortcut column specification string.
     [text] (string) the column specification string
+
+
+*CGridView::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CGridView::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CGridView::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CGridView::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CGridView::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CGridView::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CGridView::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CGridView::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CGridView::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CGridView::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CGridView::endContent* 					 public
+ See |CBaseController::endContent|
+
+
+*CGridView::endWidget*						 public
+ See |CBaseController::endWidget|
+
+
+*CGridView::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
+
+
+*CGridView::getController*					 public
+ See |CWidget::getController|
+
+
+*CGridView::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CGridView::getFormatter*					 public
@@ -267,6 +469,34 @@ component.
 (boolean) whether the table should render a footer. This is true if any of the
 |CGridView::columns| has a true |CGridColumn::hasFooter| value.
 
+
+
+*CGridView::getId*						 public
+ See |CWidget::getId|
+
+
+*CGridView::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CGridView::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CGridView::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CGridView::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CGridView::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CGridView::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CGridView::init*						 public
@@ -288,6 +518,10 @@ component.
  Creates column objects and initializes them.
 
 
+*CGridView::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
+
+
 *CGridView::registerClientScript*				 public
 >
  registerClientScript()
@@ -295,6 +529,22 @@ component.
 (void)
 
  Registers necessary client scripts.
+
+
+*CGridView::render*						 public
+ See |CWidget::render|
+
+
+*CGridView::renderContent*					 public
+ See |CBaseListView::renderContent|
+
+
+*CGridView::renderEmptyText*					 public
+ See |CBaseListView::renderEmptyText|
+
+
+*CGridView::renderFile* 					 public
+ See |CBaseController::renderFile|
 
 
 *CGridView::renderFilter*					 public
@@ -306,6 +556,10 @@ component.
  Renders the filter.
 
 
+*CGridView::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
 *CGridView::renderItems*					 public
 >
  renderItems()
@@ -313,6 +567,22 @@ component.
 (void)
 
  Renders the data items for the grid view.
+
+
+*CGridView::renderKeys* 					 public
+ See |CBaseListView::renderKeys|
+
+
+*CGridView::renderPager*					 public
+ See |CBaseListView::renderPager|
+
+
+*CGridView::renderSection*					 protected
+ See |CBaseListView::renderSection|
+
+
+*CGridView::renderSummary*					 public
+ See |CBaseListView::renderSummary|
 
 
 *CGridView::renderTableBody*					 public
@@ -352,6 +622,10 @@ component.
     [row] (integer) the row number (zero-based).
 
 
+*CGridView::run*						 public
+ See |CBaseListView::run|
+
+
 *CGridView::setFormatter*					 public
 >
  setFormatter($value)
@@ -359,6 +633,14 @@ component.
 (void)
 
     [value] (CFormatter) the formatter instance
+
+
+*CGridView::setId*						 public
+ See |CWidget::setId|
+
+
+*CGridView::widget*						 public
+ See |CBaseController::widget|
 
 
 

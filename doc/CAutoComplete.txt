@@ -14,6 +14,12 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CAutoComplete::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<attribute>				*CAutoComplete::attribute*
+ See |CInputWidget::attribute|
+
 <autoFill>				*CAutoComplete::autoFill*
  (boolean) fill the textinput while still selecting a value, replacing the
  value if more is typed or something else is selected. Defaults to false.
@@ -24,6 +30,9 @@ PROPERTY DETAILS
 
 <clientOptions> 			*CAutoComplete::clientOptions*
  (array) the javascript options
+
+<controller>				*CAutoComplete::controller*
+ See |CWidget::controller|
 
 <cssFile>				*CAutoComplete::cssFile*
  (mixed) the CSS file used for the widget. Defaults to null, meaning using the
@@ -75,6 +84,12 @@ PROPERTY DETAILS
  must return the formatted value. Defaults to Wraps the search term in a
  &lt;strong&gt; element.
 
+<htmlOptions>				*CAutoComplete::htmlOptions*
+ See |CInputWidget::htmlOptions|
+
+<id>					*CAutoComplete::id*
+ See |CWidget::id|
+
 <inputClass>				*CAutoComplete::inputClass*
  (string) the CSS class for the input element. Defaults to "ac_input".
 
@@ -111,6 +126,9 @@ PROPERTY DETAILS
  (integer) the minimum number of characters a user has to type before the
  autocompleter activates. Defaults to 1.
 
+<model> 				*CAutoComplete::model*
+ See |CInputWidget::model|
+
 <multiple>				*CAutoComplete::multiple*
  (boolean) whether to allow more than one autocompleted-value to enter.
  Defaults to false.
@@ -124,13 +142,19 @@ PROPERTY DETAILS
  presented by the backend. Note that illegal values result in an empty input
  box. Defaults to false.
 
+<name>					*CAutoComplete::name*
+ See |CInputWidget::name|
+
 <options>				*CAutoComplete::options*
  (array) additional options that can be passed to the constructor of the
  autocomplete js object. This allows you to override existing functions of the
  autocomplete js class (e.g. the parse() function)
 
- If you want to provide JavaScript native code, you have to prefix the string
- with js: otherwise it will be enclosed by quotes.
+ If you want to provide JavaScript native code, you have to wrap the string
+ with |CJavaScriptExpression| otherwise it will be enclosed by quotes.
+
+<owner> 				*CAutoComplete::owner*
+ See |CWidget::owner|
 
 <resultsClass>				*CAutoComplete::resultsClass*
  (string) the CSS class for the dropdown list. Defaults to "ac_results".
@@ -148,6 +172,9 @@ PROPERTY DETAILS
  keyboard or mouse action. If there is a handpicked (highlighted) result, that
  result will take precedence. Defaults to true.
 
+<skin>					*CAutoComplete::skin*
+ See |CWidget::skin|
+
 <textArea>				*CAutoComplete::textArea*
  (boolean) whether to show the autocomplete using a text area. Defaults to
  false, meaning a text field is used.
@@ -161,6 +188,12 @@ PROPERTY DETAILS
  requested URL is used. This property will be ignored if |CAutoComplete::data|
  is set.
 
+<value> 				*CAutoComplete::value*
+ See |CInputWidget::value|
+
+<viewPath>				*CAutoComplete::viewPath*
+ See |CWidget::viewPath|
+
 <width> 				*CAutoComplete::width*
  (integer) specify a custom width for the select box. Defaults to the width of
  the input element.
@@ -170,12 +203,172 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CAutoComplete::__call* 					 public
+ See |CComponent::__call|
+
+
+*CAutoComplete::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CAutoComplete::__get*						 public
+ See |CComponent::__get|
+
+
+*CAutoComplete::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CAutoComplete::__set*						 public
+ See |CComponent::__set|
+
+
+*CAutoComplete::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CAutoComplete::actions*					 public
+ See |CWidget::actions|
+
+
+*CAutoComplete::asa*						 public
+ See |CComponent::asa|
+
+
+*CAutoComplete::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CAutoComplete::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CAutoComplete::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CAutoComplete::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CAutoComplete::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CAutoComplete::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CAutoComplete::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CAutoComplete::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CAutoComplete::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CAutoComplete::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CAutoComplete::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CAutoComplete::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CAutoComplete::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CAutoComplete::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CAutoComplete::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CAutoComplete::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CAutoComplete::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CAutoComplete::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CAutoComplete::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CAutoComplete::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CAutoComplete::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CAutoComplete::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CAutoComplete::getClientOptions*				 protected
 >
  getClientOptions()
 <
 (array) the javascript options
 
+
+
+*CAutoComplete::getController*					 public
+ See |CWidget::getController|
+
+
+*CAutoComplete::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CAutoComplete::getId*						 public
+ See |CWidget::getId|
+
+
+*CAutoComplete::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CAutoComplete::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CAutoComplete::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CAutoComplete::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CAutoComplete::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CAutoComplete::hasModel*					 protected
+ See |CInputWidget::hasModel|
+
+
+*CAutoComplete::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CAutoComplete::init*						 public
@@ -186,6 +379,10 @@ METHOD DETAILS
 
  Initializes the widget. This method registers all needed client scripts and
  renders the autocomplete input.
+
+
+*CAutoComplete::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CAutoComplete::registerClientScript*				 public
@@ -205,6 +402,34 @@ METHOD DETAILS
 
  Registers the needed CSS file.
     [url] (string) the CSS URL. If null, a default CSS URL will be used.
+
+
+*CAutoComplete::render* 					 public
+ See |CWidget::render|
+
+
+*CAutoComplete::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CAutoComplete::renderInternal* 				 public
+ See |CBaseController::renderInternal|
+
+
+*CAutoComplete::resolveNameID*					 protected
+ See |CInputWidget::resolveNameID|
+
+
+*CAutoComplete::run*						 public
+ See |CWidget::run|
+
+
+*CAutoComplete::setId*						 public
+ See |CWidget::setId|
+
+
+*CAutoComplete::widget* 					 public
+ See |CBaseController::widget|
 
 
 

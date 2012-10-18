@@ -22,6 +22,9 @@ PROPERTY DETAILS
 <authItems>				*CDbAuthManager::authItems*
  (array) Returns the authorization items of the specific type and user.
 
+<behaviors>				*CDbAuthManager::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <connectionID>				*CDbAuthManager::connectionID*
  (string) the ID of the |CDbConnection| application component. Defaults to
  'db'. The database must have the tables as declared in
@@ -35,6 +38,12 @@ PROPERTY DETAILS
 <dbConnection>				*CDbAuthManager::dbConnection*
  (CDbConnection) the DB connection instance
 
+<defaultRoles>				*CDbAuthManager::defaultRoles*
+ See |CAuthManager::defaultRoles|
+
+<isInitialized> 			*CDbAuthManager::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
 <itemChildTable>			*CDbAuthManager::itemChildTable*
  (string) the name of the table storing authorization item hierarchy. Defaults
  to 'AuthItemChild'.
@@ -43,10 +52,42 @@ PROPERTY DETAILS
  (string) the name of the table storing authorization items. Defaults to
  'AuthItem'.
 
+<operations>				*CDbAuthManager::operations*
+ See |CAuthManager::operations|
+
+<roles> 				*CDbAuthManager::roles*
+ See |CAuthManager::roles|
+
+<showErrors>				*CDbAuthManager::showErrors*
+ See |CAuthManager::showErrors|
+
+<tasks> 				*CDbAuthManager::tasks*
+ See |CAuthManager::tasks|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CDbAuthManager::__call*					 public
+ See |CComponent::__call|
+
+
+*CDbAuthManager::__get* 					 public
+ See |CComponent::__get|
+
+
+*CDbAuthManager::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDbAuthManager::__set* 					 public
+ See |CComponent::__set|
+
+
+*CDbAuthManager::__unset*					 public
+ See |CComponent::__unset|
+
 
 *CDbAuthManager::addItemChild*					 public
 >
@@ -57,6 +98,10 @@ METHOD DETAILS
  Adds an item as a child of another item.
     [itemName] (string) the parent item name
     [childName] (string) the child item name
+
+
+*CDbAuthManager::asa*						 public
+ See |CComponent::asa|
 
 
 *CDbAuthManager::assign*					 public
@@ -74,6 +119,26 @@ METHOD DETAILS
     [data] (mixed) additional data associated with this assignment
 
 
+*CDbAuthManager::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CDbAuthManager::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbAuthManager::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbAuthManager::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CDbAuthManager::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CDbAuthManager::checkAccess*					 public
 >
  checkAccess($itemName, $userId, $params=array())
@@ -86,7 +151,9 @@ METHOD DETAILS
     string representing the unique identifier of a user. See
     |IWebUser::getId|.
     [params] (array) name-value pairs that would be passed to biz rules
-    associated with the tasks and roles assigned to the user.
+    associated with the tasks and roles assigned to the user. Since version
+    1.1.11 a param with name 'userId' is added to this array, which holds the
+    value of '$userId'.
 
 
 *CDbAuthManager::checkAccessRecursive*				 protected
@@ -102,8 +169,14 @@ METHOD DETAILS
     string representing the unique identifier of a user. See
     |IWebUser::getId|.
     [params] (array) name-value pairs that would be passed to biz rules
-    associated with the tasks and roles assigned to the user.
+    associated with the tasks and roles assigned to the user. Since version
+    1.1.11 a param with name 'userId' is added to this array, which holds the
+    value of '$userId'.
     [assignments] (array) the assignments to the specified user
+
+
+*CDbAuthManager::checkItemChildType*				 protected
+ See |CAuthManager::checkItemChildType|
 
 
 *CDbAuthManager::clearAll*					 public
@@ -143,6 +216,30 @@ METHOD DETAILS
     [data] (mixed) additional data associated with the item.
 
 
+*CDbAuthManager::createOperation*				 public
+ See |CAuthManager::createOperation|
+
+
+*CDbAuthManager::createRole*					 public
+ See |CAuthManager::createRole|
+
+
+*CDbAuthManager::createTask*					 public
+ See |CAuthManager::createTask|
+
+
+*CDbAuthManager::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CDbAuthManager::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbAuthManager::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
 *CDbAuthManager::detectLoop*					 protected
 >
  detectLoop($itemName, $childName)
@@ -153,6 +250,30 @@ METHOD DETAILS
     [itemName] (string) parent item name
     [childName] (string) the name of the child item that is to be added to the
     hierarchy
+
+
+*CDbAuthManager::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbAuthManager::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbAuthManager::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CDbAuthManager::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbAuthManager::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CDbAuthManager::executeBizRule*				 public
+ See |CAuthManager::executeBizRule|
 
 
 *CDbAuthManager::getAuthAssignment*				 public
@@ -209,6 +330,14 @@ returned if there is no item assigned to the user.
 
 
 
+*CDbAuthManager::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDbAuthManager::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
 *CDbAuthManager::getItemChildren*				 public
 >
  getItemChildren($names)
@@ -220,6 +349,26 @@ returned if there is no item assigned to the user.
     array. The latter represents a list of item names.
 
 
+*CDbAuthManager::getOperations* 				 public
+ See |CAuthManager::getOperations|
+
+
+*CDbAuthManager::getRoles*					 public
+ See |CAuthManager::getRoles|
+
+
+*CDbAuthManager::getTasks*					 public
+ See |CAuthManager::getTasks|
+
+
+*CDbAuthManager::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbAuthManager::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
 *CDbAuthManager::hasItemChild*					 public
 >
  hasItemChild($itemName, $childName)
@@ -229,6 +378,10 @@ returned if there is no item assigned to the user.
  Returns a value indicating whether a child exists within a parent.
     [itemName] (string) the parent item name
     [childName] (string) the child item name
+
+
+*CDbAuthManager::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CDbAuthManager::init*						 public
@@ -250,6 +403,10 @@ returned if there is no item assigned to the user.
  Returns a value indicating whether the item has been assigned to the user.
     [itemName] (string) the item name
     [userId] (mixed) the user ID (see |IWebUser::getId|)
+
+
+*CDbAuthManager::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CDbAuthManager::removeAuthItem*				 public

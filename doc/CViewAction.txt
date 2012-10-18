@@ -28,10 +28,16 @@ PROPERTY DETAILS
  'pages/tutorial/chap1', assuming the base path is 'pages'. The actual view
  file is determined by |CController::getViewFile|.
 
+<controller>				*CViewAction::controller*
+ See |CAction::controller|
+
 <defaultView>				*CViewAction::defaultView*
  (string) the name of the default view when |CViewAction::viewParam| GET
  parameter is not provided by user. Defaults to 'index'. This should be in the
  format of 'path.to.view', similar to that given in the GET parameter.
+
+<id>					*CViewAction::id*
+ See |CAction::id|
 
 <layout>				*CViewAction::layout*
  (mixed) the name of the layout to be applied to the views. This will be
@@ -60,6 +66,98 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CViewAction::__call*						 public
+ See |CComponent::__call|
+
+
+*CViewAction::__construct*					 public
+ See |CAction::__construct|
+
+
+*CViewAction::__get*						 public
+ See |CComponent::__get|
+
+
+*CViewAction::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CViewAction::__set*						 public
+ See |CComponent::__set|
+
+
+*CViewAction::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CViewAction::asa*						 public
+ See |CComponent::asa|
+
+
+*CViewAction::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CViewAction::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CViewAction::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CViewAction::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CViewAction::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CViewAction::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CViewAction::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CViewAction::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CViewAction::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CViewAction::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CViewAction::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CViewAction::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CViewAction::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CViewAction::getController*					 public
+ See |CAction::getController|
+
+
+*CViewAction::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
+*CViewAction::getId*						 public
+ See |CAction::getId|
+
+
 *CViewAction::getRequestedView* 				 public
 >
  getRequestedView()
@@ -69,6 +167,18 @@ METHOD DETAILS
 
  Returns the name of the view requested by the user. If the user doesn't
  specify any view, the |CViewAction::defaultView| will be returned.
+
+
+*CViewAction::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CViewAction::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CViewAction::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CViewAction::onAfterRender*					 public
@@ -92,6 +202,10 @@ METHOD DETAILS
     [event] (CEvent) event parameter
 
 
+*CViewAction::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
 *CViewAction::resolveView*					 protected
 >
  resolveView($viewPath)
@@ -109,6 +223,14 @@ METHOD DETAILS
 (void)
 
  Runs the action. This method displays the view requested by the user.
+
+
+*CViewAction::runWithParams*					 public
+ See |CAction::runWithParams|
+
+
+*CViewAction::runWithParamsInternal*				 protected
+ See |CAction::runWithParamsInternal|
 
 
 

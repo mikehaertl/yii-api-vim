@@ -41,6 +41,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDbDataReader::__call* 					 public
+ See |CComponent::__call|
+
+
 *CDbDataReader::__construct*					 public
 >
  __construct($command)
@@ -49,6 +53,38 @@ METHOD DETAILS
 
  Constructor.
     [command] (CDbCommand) the command generating the query result
+
+
+*CDbDataReader::__get*						 public
+ See |CComponent::__get|
+
+
+*CDbDataReader::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDbDataReader::__set*						 public
+ See |CComponent::__set|
+
+
+*CDbDataReader::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDbDataReader::asa*						 public
+ See |CComponent::asa|
+
+
+*CDbDataReader::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CDbDataReader::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbDataReader::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
 
 
 *CDbDataReader::bindColumn*					 public
@@ -66,6 +102,14 @@ METHOD DETAILS
     [value] (mixed) Name of the PHP variable to which the column will be
     bound.
     [dataType] (integer) Data type of the parameter
+
+
+*CDbDataReader::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CDbDataReader::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
 
 
 *CDbDataReader::close*						 public
@@ -98,6 +142,38 @@ METHOD DETAILS
  Returns the current row. This method is required by the interface Iterator.
 
 
+*CDbDataReader::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CDbDataReader::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbDataReader::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbDataReader::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbDataReader::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbDataReader::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CDbDataReader::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbDataReader::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CDbDataReader::getColumnCount* 				 public
 >
  getColumnCount()
@@ -106,6 +182,10 @@ METHOD DETAILS
 
  Returns the number of columns in the result set. Note, even there's no row in
  the reader, this still gives correct column number.
+
+
+*CDbDataReader::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CDbDataReader::getIsClosed*					 public
@@ -126,6 +206,18 @@ METHOD DETAILS
  Returns the number of rows in the result set. Note, most DBMS may not give a
  meaningful count. In this case, use "SELECT COUNT(*) FROM tableName" to
  obtain the number of rows.
+
+
+*CDbDataReader::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbDataReader::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbDataReader::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CDbDataReader::key*						 public
@@ -157,6 +249,10 @@ METHOD DETAILS
  Advances the reader to the next result when reading the results of a batch of
  statements. This method is only useful when there are multiple result sets
  returned by the query. Not all DBMS support this feature.
+
+
+*CDbDataReader::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CDbDataReader::read*						 public

@@ -28,18 +28,245 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CJuiSlider::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CJuiSlider::controller*
+ See |CWidget::controller|
+
+<cssFile>				*CJuiSlider::cssFile*
+ See |CJuiWidget::cssFile|
+
+<htmlOptions>				*CJuiSlider::htmlOptions*
+ See |CJuiWidget::htmlOptions|
+
+<id>					*CJuiSlider::id*
+ See |CWidget::id|
+
+<options>				*CJuiSlider::options*
+ See |CJuiWidget::options|
+
+<owner> 				*CJuiSlider::owner*
+ See |CWidget::owner|
+
+<scriptFile>				*CJuiSlider::scriptFile*
+ See |CJuiWidget::scriptFile|
+
+<scriptUrl>				*CJuiSlider::scriptUrl*
+ See |CJuiWidget::scriptUrl|
+
+<skin>					*CJuiSlider::skin*
+ See |CWidget::skin|
+
 <tagName>				*CJuiSlider::tagName*
  (string) the name of the container element that contains the slider. Defaults
  to 'div'.
+
+<theme> 				*CJuiSlider::theme*
+ See |CJuiWidget::theme|
+
+<themeUrl>				*CJuiSlider::themeUrl*
+ See |CJuiWidget::themeUrl|
 
 <value> 				*CJuiSlider::value*
  (integer) determines the value of the slider, if there's only one handle. If
  there is more than one handle, determines the value of the first handle.
 
+<viewPath>				*CJuiSlider::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CJuiSlider::__call*						 public
+ See |CComponent::__call|
+
+
+*CJuiSlider::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CJuiSlider::__get*						 public
+ See |CComponent::__get|
+
+
+*CJuiSlider::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CJuiSlider::__set*						 public
+ See |CComponent::__set|
+
+
+*CJuiSlider::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CJuiSlider::actions*						 public
+ See |CWidget::actions|
+
+
+*CJuiSlider::asa*						 public
+ See |CComponent::asa|
+
+
+*CJuiSlider::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CJuiSlider::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CJuiSlider::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CJuiSlider::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CJuiSlider::beginClip* 					 public
+ See |CBaseController::beginClip|
+
+
+*CJuiSlider::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CJuiSlider::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CJuiSlider::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CJuiSlider::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CJuiSlider::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CJuiSlider::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CJuiSlider::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CJuiSlider::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CJuiSlider::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CJuiSlider::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CJuiSlider::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CJuiSlider::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CJuiSlider::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CJuiSlider::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CJuiSlider::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CJuiSlider::endWidget* 					 public
+ See |CBaseController::endWidget|
+
+
+*CJuiSlider::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CJuiSlider::getController*					 public
+ See |CWidget::getController|
+
+
+*CJuiSlider::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CJuiSlider::getId*						 public
+ See |CWidget::getId|
+
+
+*CJuiSlider::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CJuiSlider::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CJuiSlider::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CJuiSlider::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CJuiSlider::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CJuiSlider::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CJuiSlider::init*						 public
+ See |CJuiWidget::init|
+
+
+*CJuiSlider::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CJuiSlider::registerCoreScripts*				 protected
+ See |CJuiWidget::registerCoreScripts|
+
+
+*CJuiSlider::registerScriptFile*				 protected
+ See |CJuiWidget::registerScriptFile|
+
+
+*CJuiSlider::render*						 public
+ See |CWidget::render|
+
+
+*CJuiSlider::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CJuiSlider::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
+*CJuiSlider::resolvePackagePath*				 protected
+ See |CJuiWidget::resolvePackagePath|
+
 
 *CJuiSlider::run*						 public
 >
@@ -49,6 +276,14 @@ METHOD DETAILS
 
  Run this widget. This method registers necessary javascript and renders the
  needed HTML code.
+
+
+*CJuiSlider::setId*						 public
+ See |CWidget::setId|
+
+
+*CJuiSlider::widget*						 public
+ See |CBaseController::widget|
 
 
 

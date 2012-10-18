@@ -54,6 +54,9 @@ PROPERTY DETAILS
  (boolean) whether the session should be automatically started when the
  session application component is initialized, defaults to true.
 
+<behaviors>				*CHttpSession::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <cookieMode>				*CHttpSession::cookieMode*
  (string) how to use cookie to store session ID. Defaults to 'Allow'.
 
@@ -67,6 +70,9 @@ PROPERTY DETAILS
  (integer) the probability (percentage) that the gc (garbage collection)
  process is started on every session initialization, defaults to 1 meaning 1%
  chance.
+
+<isInitialized> 			*CHttpSession::isInitialized*
+ See |CApplicationComponent::isInitialized|
 
 <isStarted>				*CHttpSession::isStarted*
  (boolean) whether the session has started
@@ -110,6 +116,26 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CHttpSession::__call*						 public
+ See |CComponent::__call|
+
+
+*CHttpSession::__get*						 public
+ See |CComponent::__get|
+
+
+*CHttpSession::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CHttpSession::__set*						 public
+ See |CComponent::__set|
+
+
+*CHttpSession::__unset* 					 public
+ See |CComponent::__unset|
+
+
 *CHttpSession::add*						 public
 >
  add($key, $value)
@@ -120,6 +146,30 @@ METHOD DETAILS
  value will be removed first.
     [key] (mixed) session variable name
     [value] (mixed) session variable value
+
+
+*CHttpSession::asa*						 public
+ See |CComponent::asa|
+
+
+*CHttpSession::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CHttpSession::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CHttpSession::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CHttpSession::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CHttpSession::canSetProperty*					 public
+ See |CComponent::canSetProperty|
 
 
 *CHttpSession::clear*						 public
@@ -191,6 +241,38 @@ METHOD DETAILS
     [id] (string) session ID
 
 
+*CHttpSession::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CHttpSession::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CHttpSession::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CHttpSession::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CHttpSession::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CHttpSession::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CHttpSession::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CHttpSession::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CHttpSession::gcSession*					 public
 >
  gcSession($maxLifetime)
@@ -245,6 +327,10 @@ does not exist.
  Returns the number of items in the session.
 
 
+*CHttpSession::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
 *CHttpSession::getGCProbability*				 public
 >
  getGCProbability()
@@ -253,6 +339,10 @@ does not exist.
 process is started on every session initialization, defaults to 1 meaning 1%
 chance.
 
+
+
+*CHttpSession::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CHttpSession::getIsStarted*					 public
@@ -339,6 +429,18 @@ false.
 
 
 
+*CHttpSession::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CHttpSession::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CHttpSession::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CHttpSession::init*						 public
 >
  init()
@@ -421,6 +523,10 @@ false.
  directly.
     [savePath] (string) session save path
     [sessionName] (string) session name
+
+
+*CHttpSession::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CHttpSession::readSession*					 public

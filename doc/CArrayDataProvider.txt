@@ -38,19 +38,44 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<data>					*CArrayDataProvider::data*
+ See |CDataProvider::data|
+
+<id>					*CArrayDataProvider::id*
+ See |CDataProvider::id|
+
+<itemCount>				*CArrayDataProvider::itemCount*
+ See |CDataProvider::itemCount|
+
 <keyField>				*CArrayDataProvider::keyField*
  (string) the name of key field. Defaults to 'id'. If it's set to false, keys
  of $rawData array are used.
+
+<keys>					*CArrayDataProvider::keys*
+ See |CDataProvider::keys|
+
+<pagination>				*CArrayDataProvider::pagination*
+ See |CDataProvider::pagination|
 
 <rawData>				*CArrayDataProvider::rawData*
  (array) the data that is not paginated or sorted. When pagination is enabled,
  this property usually contains more elements than |CArrayDataProvider::data|.
  The array elements must use zero-based integer keys.
 
+<sort>					*CArrayDataProvider::sort*
+ See |CDataProvider::sort|
+
+<totalItemCount>			*CArrayDataProvider::totalItemCount*
+ See |CDataProvider::totalItemCount|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CArrayDataProvider::__call*					 public
+ See |CComponent::__call|
+
 
 *CArrayDataProvider::__construct*				 public
 >
@@ -65,6 +90,38 @@ METHOD DETAILS
     property values of this class.
 
 
+*CArrayDataProvider::__get*					 public
+ See |CComponent::__get|
+
+
+*CArrayDataProvider::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CArrayDataProvider::__set*					 public
+ See |CComponent::__set|
+
+
+*CArrayDataProvider::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CArrayDataProvider::asa*					 public
+ See |CComponent::asa|
+
+
+*CArrayDataProvider::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CArrayDataProvider::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CArrayDataProvider::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
 *CArrayDataProvider::calculateTotalItemCount*			 protected
 >
  calculateTotalItemCount()
@@ -73,6 +130,46 @@ METHOD DETAILS
 
  Calculates the total number of data items. This method simply returns the
  number of elements in |CArrayDataProvider::rawData|.
+
+
+*CArrayDataProvider::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CArrayDataProvider::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CArrayDataProvider::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CArrayDataProvider::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CArrayDataProvider::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CArrayDataProvider::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CArrayDataProvider::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CArrayDataProvider::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CArrayDataProvider::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CArrayDataProvider::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
 
 
 *CArrayDataProvider::fetchData* 				 protected
@@ -93,6 +190,34 @@ METHOD DETAILS
  Fetches the data item keys from the persistent data storage.
 
 
+*CArrayDataProvider::getData*					 public
+ See |CDataProvider::getData|
+
+
+*CArrayDataProvider::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CArrayDataProvider::getId*					 public
+ See |CDataProvider::getId|
+
+
+*CArrayDataProvider::getItemCount*				 public
+ See |CDataProvider::getItemCount|
+
+
+*CArrayDataProvider::getKeys*					 public
+ See |CDataProvider::getKeys|
+
+
+*CArrayDataProvider::getPagination*				 public
+ See |CDataProvider::getPagination|
+
+
+*CArrayDataProvider::getSort*					 public
+ See |CDataProvider::getSort|
+
+
 *CArrayDataProvider::getSortDirections* 			 protected
 >
  getSortDirections($order)
@@ -102,6 +227,61 @@ METHOD DETAILS
  Converts the "ORDER BY" clause into an array representing the sorting
  directions.
     [order] (string) the "ORDER BY" clause.
+
+
+*CArrayDataProvider::getSortingFieldValue*			 protected
+>
+ getSortingFieldValue($data, $fields)
+<
+(mixed) $data sorting field value
+
+ Get field for sorting, using dot like delimiter in query.
+    [data] (mixed) array or object
+    [fields] (array) sorting fields in $data
+
+
+*CArrayDataProvider::getTotalItemCount* 			 public
+ See |CDataProvider::getTotalItemCount|
+
+
+*CArrayDataProvider::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CArrayDataProvider::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CArrayDataProvider::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CArrayDataProvider::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CArrayDataProvider::setData*					 public
+ See |CDataProvider::setData|
+
+
+*CArrayDataProvider::setId*					 public
+ See |CDataProvider::setId|
+
+
+*CArrayDataProvider::setKeys*					 public
+ See |CDataProvider::setKeys|
+
+
+*CArrayDataProvider::setPagination*				 public
+ See |CDataProvider::setPagination|
+
+
+*CArrayDataProvider::setSort*					 public
+ See |CDataProvider::setSort|
+
+
+*CArrayDataProvider::setTotalItemCount* 			 public
+ See |CDataProvider::setTotalItemCount|
 
 
 *CArrayDataProvider::sortData*					 protected

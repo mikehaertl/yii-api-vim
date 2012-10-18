@@ -35,6 +35,17 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CBreadcrumbs::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<activeLinkTemplate>			*CBreadcrumbs::activeLinkTemplate*
+ (string) String, specifies how each active item is rendered. Defaults to
+ "'{label}'", where "{label}" will be replaced by the corresponding item label
+ while "{url}" will be replaced by the URL of the item.
+
+<controller>				*CBreadcrumbs::controller*
+ See |CWidget::controller|
+
 <encodeLabel>				*CBreadcrumbs::encodeLabel*
  (boolean) whether to HTML encode the link labels. Defaults to true.
 
@@ -46,6 +57,14 @@ PROPERTY DETAILS
 
 <htmlOptions>				*CBreadcrumbs::htmlOptions*
  (array) the HTML attributes for the breadcrumbs container tag.
+
+<id>					*CBreadcrumbs::id*
+ See |CWidget::id|
+
+<inactiveLinkTemplate>			*CBreadcrumbs::inactiveLinkTemplate*
+ (string) String, specifies how each inactive item is rendered. Defaults to
+ "<span>{label}</span>", where "{label}" will be replaced by the corresponding
+ item label. Note that inactive template does not have "{url}" parameter.
 
 <links> 				*CBreadcrumbs::links*
  (array) list of hyperlinks to appear in the breadcrumbs. If this property is
@@ -67,17 +86,202 @@ PROPERTY DETAILS
  )
 <
 
+<owner> 				*CBreadcrumbs::owner*
+ See |CWidget::owner|
+
 <separator>				*CBreadcrumbs::separator*
  (string) the separator between links in the breadcrumbs. Defaults to '
  &raquo; '.
 
+<skin>					*CBreadcrumbs::skin*
+ See |CWidget::skin|
+
 <tagName>				*CBreadcrumbs::tagName*
  (string) the tag name for the breadcrumbs container tag. Defaults to 'div'.
+
+<viewPath>				*CBreadcrumbs::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CBreadcrumbs::__call*						 public
+ See |CComponent::__call|
+
+
+*CBreadcrumbs::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CBreadcrumbs::__get*						 public
+ See |CComponent::__get|
+
+
+*CBreadcrumbs::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CBreadcrumbs::__set*						 public
+ See |CComponent::__set|
+
+
+*CBreadcrumbs::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CBreadcrumbs::actions* 					 public
+ See |CWidget::actions|
+
+
+*CBreadcrumbs::asa*						 public
+ See |CComponent::asa|
+
+
+*CBreadcrumbs::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CBreadcrumbs::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CBreadcrumbs::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CBreadcrumbs::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CBreadcrumbs::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CBreadcrumbs::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CBreadcrumbs::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CBreadcrumbs::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CBreadcrumbs::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CBreadcrumbs::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CBreadcrumbs::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CBreadcrumbs::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CBreadcrumbs::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CBreadcrumbs::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CBreadcrumbs::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CBreadcrumbs::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CBreadcrumbs::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CBreadcrumbs::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CBreadcrumbs::endClip* 					 public
+ See |CBaseController::endClip|
+
+
+*CBreadcrumbs::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CBreadcrumbs::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CBreadcrumbs::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CBreadcrumbs::getController*					 public
+ See |CWidget::getController|
+
+
+*CBreadcrumbs::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CBreadcrumbs::getId*						 public
+ See |CWidget::getId|
+
+
+*CBreadcrumbs::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CBreadcrumbs::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CBreadcrumbs::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CBreadcrumbs::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CBreadcrumbs::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CBreadcrumbs::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CBreadcrumbs::init*						 public
+ See |CWidget::init|
+
+
+*CBreadcrumbs::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CBreadcrumbs::render*						 public
+ See |CWidget::render|
+
+
+*CBreadcrumbs::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CBreadcrumbs::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
 
 *CBreadcrumbs::run*						 public
 >
@@ -86,6 +290,14 @@ METHOD DETAILS
 (void)
 
  Renders the content of the portlet.
+
+
+*CBreadcrumbs::setId*						 public
+ See |CWidget::setId|
+
+
+*CBreadcrumbs::widget*						 public
+ See |CBaseController::widget|
 
 
 

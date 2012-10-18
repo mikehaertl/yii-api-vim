@@ -50,6 +50,82 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDbTableSchema::__call*					 public
+ See |CComponent::__call|
+
+
+*CDbTableSchema::__get* 					 public
+ See |CComponent::__get|
+
+
+*CDbTableSchema::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDbTableSchema::__set* 					 public
+ See |CComponent::__set|
+
+
+*CDbTableSchema::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDbTableSchema::asa*						 public
+ See |CComponent::asa|
+
+
+*CDbTableSchema::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CDbTableSchema::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbTableSchema::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbTableSchema::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CDbTableSchema::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CDbTableSchema::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CDbTableSchema::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbTableSchema::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbTableSchema::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbTableSchema::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbTableSchema::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CDbTableSchema::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbTableSchema::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CDbTableSchema::getColumn*					 public
 >
  getColumn($name)
@@ -68,6 +144,26 @@ not exist.
 <
 (array) list of column names
 
+
+
+*CDbTableSchema::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDbTableSchema::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbTableSchema::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbTableSchema::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CDbTableSchema::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

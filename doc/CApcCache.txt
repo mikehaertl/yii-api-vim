@@ -15,6 +15,30 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CApcCache::__call*						 public
+ See |CComponent::__call|
+
+
+*CApcCache::__get*						 public
+ See |CComponent::__get|
+
+
+*CApcCache::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CApcCache::__set*						 public
+ See |CComponent::__set|
+
+
+*CApcCache::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CApcCache::add*						 public
+ See |CCache::add|
+
+
 *CApcCache::addValue*						 protected
 >
  addValue($key, $value, $expire)
@@ -30,6 +54,34 @@ METHOD DETAILS
     expire. 0 means never expire.
 
 
+*CApcCache::asa*						 public
+ See |CComponent::asa|
+
+
+*CApcCache::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CApcCache::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CApcCache::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CApcCache::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CApcCache::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CApcCache::delete*						 public
+ See |CCache::delete|
+
+
 *CApcCache::deleteValue*					 protected
 >
  deleteValue($key)
@@ -41,6 +93,42 @@ METHOD DETAILS
     [key] (string) the key of the value to be deleted
 
 
+*CApcCache::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CApcCache::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CApcCache::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CApcCache::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CApcCache::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CApcCache::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CApcCache::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CApcCache::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
+
+
+*CApcCache::flush*						 public
+ See |CCache::flush|
+
+
 *CApcCache::flushValues*					 protected
 >
  flushValues()
@@ -49,6 +137,22 @@ METHOD DETAILS
 
  Deletes all values from cache. This is the implementation of the method
  declared in the parent class.
+
+
+*CApcCache::generateUniqueKey*					 protected
+ See |CCache::generateUniqueKey|
+
+
+*CApcCache::get*						 public
+ See |CCache::get|
+
+
+*CApcCache::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CApcCache::getIsInitialized*					 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CApcCache::getValue*						 protected
@@ -73,6 +177,18 @@ expired.
     [keys] (array) a list of keys identifying the cached values
 
 
+*CApcCache::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CApcCache::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CApcCache::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CApcCache::init*						 public
 >
  init()
@@ -80,7 +196,35 @@ expired.
 (void)
 
  Initializes this application component. This method is required by the
- |IApplicationComponent| interface. It checks the availability of memcache.
+ |IApplicationComponent| interface. It checks the availability of APC.
+
+
+*CApcCache::mget*						 public
+ See |CCache::mget|
+
+
+*CApcCache::offsetExists*					 public
+ See |CCache::offsetExists|
+
+
+*CApcCache::offsetGet*						 public
+ See |CCache::offsetGet|
+
+
+*CApcCache::offsetSet*						 public
+ See |CCache::offsetSet|
+
+
+*CApcCache::offsetUnset*					 public
+ See |CCache::offsetUnset|
+
+
+*CApcCache::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
+
+
+*CApcCache::set*						 public
+ See |CCache::set|
 
 
 *CApcCache::setValue*						 protected

@@ -21,9 +21,18 @@ PROPERTY DETAILS
 <dbConnection>				*CDbCacheDependency::dbConnection*
  (CDbConnection) the DB connection instance
 
+<dependentData> 			*CDbCacheDependency::dependentData*
+ See |CCacheDependency::dependentData|
+
+<hasChanged>				*CDbCacheDependency::hasChanged*
+ See |CCacheDependency::hasChanged|
+
 <params>				*CDbCacheDependency::params*
  (array) parameters (name=>value) to be bound to the SQL statement specified
  by |CDbCacheDependency::sql|.
+
+<reuseDependentData>			*CDbCacheDependency::reuseDependentData*
+ See |CCacheDependency::reuseDependentData|
 
 <sql>					*CDbCacheDependency::sql*
  (string) the SQL statement whose result is used to determine if the
@@ -34,6 +43,10 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CDbCacheDependency::__call*					 public
+ See |CComponent::__call|
+
 
 *CDbCacheDependency::__construct*				 public
 >
@@ -46,6 +59,18 @@ METHOD DETAILS
     dependency has been changed.
 
 
+*CDbCacheDependency::__get*					 public
+ See |CComponent::__get|
+
+
+*CDbCacheDependency::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDbCacheDependency::__set*					 public
+ See |CComponent::__set|
+
+
 *CDbCacheDependency::__sleep*					 public
 >
  __sleep()
@@ -54,6 +79,70 @@ METHOD DETAILS
 
  PHP sleep magic method. This method ensures that the database instance is set
  null because it contains resource handles.
+
+
+*CDbCacheDependency::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDbCacheDependency::asa*					 public
+ See |CComponent::asa|
+
+
+*CDbCacheDependency::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CDbCacheDependency::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbCacheDependency::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbCacheDependency::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CDbCacheDependency::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CDbCacheDependency::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CDbCacheDependency::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbCacheDependency::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbCacheDependency::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbCacheDependency::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbCacheDependency::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CDbCacheDependency::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbCacheDependency::evaluateDependency*			 public
+ See |CCacheDependency::evaluateDependency|
+
+
+*CDbCacheDependency::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
 
 
 *CDbCacheDependency::generateDependentData*			 protected
@@ -72,6 +161,34 @@ METHOD DETAILS
 <
 (CDbConnection) the DB connection instance
 
+
+
+*CDbCacheDependency::getDependentData*				 public
+ See |CCacheDependency::getDependentData|
+
+
+*CDbCacheDependency::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDbCacheDependency::getHasChanged*				 public
+ See |CCacheDependency::getHasChanged|
+
+
+*CDbCacheDependency::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbCacheDependency::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbCacheDependency::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CDbCacheDependency::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 

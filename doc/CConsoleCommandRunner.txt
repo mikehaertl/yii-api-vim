@@ -34,6 +34,26 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CConsoleCommandRunner::__call* 				 public
+ See |CComponent::__call|
+
+
+*CConsoleCommandRunner::__get*					 public
+ See |CComponent::__get|
+
+
+*CConsoleCommandRunner::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CConsoleCommandRunner::__set*					 public
+ See |CComponent::__set|
+
+
+*CConsoleCommandRunner::__unset*				 public
+ See |CComponent::__unset|
+
+
 *CConsoleCommandRunner::addCommands*				 public
 >
  addCommands($path)
@@ -46,6 +66,30 @@ METHOD DETAILS
     files.
 
 
+*CConsoleCommandRunner::asa*					 public
+ See |CComponent::asa|
+
+
+*CConsoleCommandRunner::attachBehavior* 			 public
+ See |CComponent::attachBehavior|
+
+
+*CConsoleCommandRunner::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CConsoleCommandRunner::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CConsoleCommandRunner::canGetProperty* 			 public
+ See |CComponent::canGetProperty|
+
+
+*CConsoleCommandRunner::canSetProperty* 			 public
+ See |CComponent::canSetProperty|
+
+
 *CConsoleCommandRunner::createCommand*				 public
 >
  createCommand($name)
@@ -53,6 +97,38 @@ METHOD DETAILS
 (CConsoleCommand) the command object. Null if the name is invalid.
 
     [name] (string) command name (case-insensitive)
+
+
+*CConsoleCommandRunner::detachBehavior* 			 public
+ See |CComponent::detachBehavior|
+
+
+*CConsoleCommandRunner::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CConsoleCommandRunner::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CConsoleCommandRunner::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CConsoleCommandRunner::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CConsoleCommandRunner::enableBehavior* 			 public
+ See |CComponent::enableBehavior|
+
+
+*CConsoleCommandRunner::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CConsoleCommandRunner::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
 
 
 *CConsoleCommandRunner::findCommands*				 public
@@ -65,6 +141,10 @@ METHOD DETAILS
     [path] (string) the directory containing the command class files.
 
 
+*CConsoleCommandRunner::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
 *CConsoleCommandRunner::getScriptName*				 public
 >
  getScriptName()
@@ -73,11 +153,30 @@ METHOD DETAILS
 
 
 
+*CConsoleCommandRunner::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CConsoleCommandRunner::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CConsoleCommandRunner::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CConsoleCommandRunner::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
 *CConsoleCommandRunner::run*					 public
 >
  run($args)
 <
-(void)
+(integer|null) application exit code returned by the command. if null is
+returned, application will not exit explicitly. See also
+|CConsoleApplication::processRequest|. (return value is available since
+version 1.1.11)
 
  Executes the requested command.
     [args] (array) list of user supplied parameters (including the entry

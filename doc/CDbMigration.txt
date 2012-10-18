@@ -38,6 +38,26 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDbMigration::__call*						 public
+ See |CComponent::__call|
+
+
+*CDbMigration::__get*						 public
+ See |CComponent::__get|
+
+
+*CDbMigration::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CDbMigration::__set*						 public
+ See |CComponent::__set|
+
+
+*CDbMigration::__unset* 					 public
+ See |CComponent::__unset|
+
+
 *CDbMigration::addColumn*					 public
 >
  addColumn($table, $column, $type)
@@ -96,6 +116,30 @@ METHOD DETAILS
     while 'string not null' will become 'varchar(255) not null'.
 
 
+*CDbMigration::asa*						 public
+ See |CComponent::asa|
+
+
+*CDbMigration::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CDbMigration::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbMigration::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbMigration::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CDbMigration::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CDbMigration::createIndex*					 public
 >
  createIndex($name, $table, $column, $unique=false)
@@ -147,6 +191,26 @@ METHOD DETAILS
     [conditions] (mixed) the conditions that will be put in the WHERE part.
     Please refer to |CDbCommand::where| on how to specify conditions.
     [params] (array) the parameters to be bound to the query.
+
+
+*CDbMigration::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CDbMigration::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbMigration::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbMigration::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbMigration::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
 
 
 *CDbMigration::down*						 public
@@ -211,6 +275,18 @@ METHOD DETAILS
     by the method.
 
 
+*CDbMigration::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CDbMigration::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbMigration::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CDbMigration::execute* 					 public
 >
  execute($sql, $params=array())
@@ -237,6 +313,22 @@ METHOD DETAILS
  this database connection to perform DB queries.
 
 
+*CDbMigration::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDbMigration::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbMigration::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbMigration::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CDbMigration::insert*						 public
 >
  insert($table, $columns)
@@ -248,6 +340,10 @@ METHOD DETAILS
     [table] (string) the table that new rows will be inserted into.
     [columns] (array) the column data (name=>value) to be inserted into the
     table.
+
+
+*CDbMigration::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CDbMigration::refreshTableSchema*				 public

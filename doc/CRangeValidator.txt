@@ -14,13 +14,37 @@ PROPERTY DETAILS
  (boolean) whether the attribute value can be null or empty. Defaults to true,
  meaning that if the attribute is empty, it is considered valid.
 
+<attributes>				*CRangeValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CRangeValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
+<enableClientValidation>		*CRangeValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CRangeValidator::except*
+ See |CValidator::except|
+
+<message>				*CRangeValidator::message*
+ See |CValidator::message|
+
 <not>					*CRangeValidator::not*
  (boolean) whether to invert the validation logic. Defaults to false. If set
  to true, the attribute value should NOT be among the list of values defined
  via |CRangeValidator::range|.
 
+<on>					*CRangeValidator::on*
+ See |CValidator::on|
+
 <range> 				*CRangeValidator::range*
  (array) list of valid values that the attribute value should be among
+
+<safe>					*CRangeValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CRangeValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 <strict>				*CRangeValidator::strict*
  (boolean) whether the comparison is strict (both type and value must be the
@@ -31,6 +55,58 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CRangeValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CRangeValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CRangeValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CRangeValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CRangeValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CRangeValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CRangeValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CRangeValidator::asa*						 public
+ See |CComponent::asa|
+
+
+*CRangeValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CRangeValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CRangeValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CRangeValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CRangeValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CRangeValidator::clientValidateAttribute*			 public
 >
  clientValidateAttribute($object, $attribute)
@@ -40,6 +116,70 @@ METHOD DETAILS
  Returns the JavaScript needed for performing client-side validation.
     [object] (CModel) the data object being validated
     [attribute] (string) the name of the attribute to be validated.
+
+
+*CRangeValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CRangeValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CRangeValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CRangeValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CRangeValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CRangeValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CRangeValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CRangeValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CRangeValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CRangeValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CRangeValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CRangeValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CRangeValidator::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CRangeValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CRangeValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CRangeValidator::validate*					 public
+ See |CValidator::validate|
 
 
 *CRangeValidator::validateAttribute*				 protected

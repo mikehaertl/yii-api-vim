@@ -33,6 +33,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CDetailView::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <attributes>				*CDetailView::attributes*
  (array) a list of attributes to be displayed in the detail view. Each array
  element represents the specification for displaying one particular attribute.
@@ -85,6 +88,9 @@ PROPERTY DETAILS
  CSS file, images). Defaults to null, meaning using the integrated detail view
  resources (which are published as assets).
 
+<controller>				*CDetailView::controller*
+ See |CWidget::controller|
+
 <cssFile>				*CDetailView::cssFile*
  (string) the URL of the CSS file used by this detail view. Defaults to null,
  meaning using the integrated CSS file. If this is set false, you are
@@ -102,6 +108,9 @@ PROPERTY DETAILS
 <htmlOptions>				*CDetailView::htmlOptions*
  (array) the HTML options used for |CDetailView::tagName|
 
+<id>					*CDetailView::id*
+ See |CWidget::id|
+
 <itemCssClass>				*CDetailView::itemCssClass*
  (array) the CSS class names for the items displaying attribute values. If
  multiple CSS class names are given, they will be assigned to the items
@@ -117,14 +126,151 @@ PROPERTY DETAILS
  (string) the text to be displayed when an attribute value is null. Defaults
  to "Not set".
 
+<owner> 				*CDetailView::owner*
+ See |CWidget::owner|
+
+<skin>					*CDetailView::skin*
+ See |CWidget::skin|
+
 <tagName>				*CDetailView::tagName*
  (string) the name of the tag for rendering the detail view. Defaults to
- 'table'.
+ 'table'. If set to null, no tag will be rendered.
+
+<viewPath>				*CDetailView::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CDetailView::__call*						 public
+ See |CComponent::__call|
+
+
+*CDetailView::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CDetailView::__get*						 public
+ See |CComponent::__get|
+
+
+*CDetailView::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CDetailView::__set*						 public
+ See |CComponent::__set|
+
+
+*CDetailView::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CDetailView::actions*						 public
+ See |CWidget::actions|
+
+
+*CDetailView::asa*						 public
+ See |CComponent::asa|
+
+
+*CDetailView::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CDetailView::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CDetailView::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDetailView::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CDetailView::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CDetailView::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CDetailView::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CDetailView::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CDetailView::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CDetailView::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CDetailView::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CDetailView::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CDetailView::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDetailView::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CDetailView::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDetailView::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CDetailView::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CDetailView::endCache* 					 public
+ See |CBaseController::endCache|
+
+
+*CDetailView::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CDetailView::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CDetailView::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CDetailView::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CDetailView::getController*					 public
+ See |CWidget::getController|
+
+
+*CDetailView::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
 
 *CDetailView::getFormatter*					 public
 >
@@ -135,6 +281,34 @@ component.
 
 
 
+*CDetailView::getId*						 public
+ See |CWidget::getId|
+
+
+*CDetailView::getOwner* 					 public
+ See |CWidget::getOwner|
+
+
+*CDetailView::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CDetailView::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CDetailView::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CDetailView::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CDetailView::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CDetailView::init*						 public
 >
  init()
@@ -143,6 +317,35 @@ component.
 
  Initializes the detail view. This method will initialize required property
  values.
+
+
+*CDetailView::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CDetailView::render*						 public
+ See |CWidget::render|
+
+
+*CDetailView::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CDetailView::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
+*CDetailView::renderItem*					 protected
+>
+ renderItem($options, $templateData)
+<
+(void)
+
+ This method is used by run() to render item row
+    [options] (array) config options for this item/attribute from
+    |CDetailView::attributes|
+    [templateData] (string) data that will be inserted into
+    |CDetailView::itemTemplate|
 
 
 *CDetailView::run*						 public
@@ -162,6 +365,14 @@ component.
 (void)
 
     [value] (CFormatter) the formatter instance
+
+
+*CDetailView::setId*						 public
+ See |CWidget::setId|
+
+
+*CDetailView::widget*						 public
+ See |CBaseController::widget|
 
 
 

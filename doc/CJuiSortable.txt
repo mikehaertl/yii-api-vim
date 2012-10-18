@@ -24,12 +24,27 @@
  options that need to be passed to the JUI Sortable plugin. Please refer to
  the 'JUI Sortable' documentation for possible options (name-value pairs).
 
- If you are using javascript code anywhere in the code, please add "js:" at
- the start of the js code definition and Yii will use this string as js code.
+ If you are using JavaScript expressions anywhere in the code, please wrap it
+ with |CJavaScriptExpression| and Yii will use it as code.
 
 
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
+
+<actionPrefix>				*CJuiSortable::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CJuiSortable::controller*
+ See |CWidget::controller|
+
+<cssFile>				*CJuiSortable::cssFile*
+ See |CJuiWidget::cssFile|
+
+<htmlOptions>				*CJuiSortable::htmlOptions*
+ See |CJuiWidget::htmlOptions|
+
+<id>					*CJuiSortable::id*
+ See |CWidget::id|
 
 <itemTemplate>				*CJuiSortable::itemTemplate*
  (string) the template that is used to generated every sortable item. The
@@ -40,14 +55,226 @@ PROPERTY DETAILS
  (array) list of sortable items (id=>item content). Note that the item
  contents will not be HTML-encoded.
 
+<options>				*CJuiSortable::options*
+ See |CJuiWidget::options|
+
+<owner> 				*CJuiSortable::owner*
+ See |CWidget::owner|
+
+<scriptFile>				*CJuiSortable::scriptFile*
+ See |CJuiWidget::scriptFile|
+
+<scriptUrl>				*CJuiSortable::scriptUrl*
+ See |CJuiWidget::scriptUrl|
+
+<skin>					*CJuiSortable::skin*
+ See |CWidget::skin|
+
 <tagName>				*CJuiSortable::tagName*
  (string) the name of the container element that contains all items. Defaults
  to 'ul'.
+
+<theme> 				*CJuiSortable::theme*
+ See |CJuiWidget::theme|
+
+<themeUrl>				*CJuiSortable::themeUrl*
+ See |CJuiWidget::themeUrl|
+
+<viewPath>				*CJuiSortable::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CJuiSortable::__call*						 public
+ See |CComponent::__call|
+
+
+*CJuiSortable::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CJuiSortable::__get*						 public
+ See |CComponent::__get|
+
+
+*CJuiSortable::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CJuiSortable::__set*						 public
+ See |CComponent::__set|
+
+
+*CJuiSortable::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CJuiSortable::actions* 					 public
+ See |CWidget::actions|
+
+
+*CJuiSortable::asa*						 public
+ See |CComponent::asa|
+
+
+*CJuiSortable::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CJuiSortable::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CJuiSortable::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CJuiSortable::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CJuiSortable::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CJuiSortable::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CJuiSortable::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CJuiSortable::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CJuiSortable::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CJuiSortable::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CJuiSortable::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CJuiSortable::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CJuiSortable::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CJuiSortable::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CJuiSortable::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CJuiSortable::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CJuiSortable::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CJuiSortable::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CJuiSortable::endClip* 					 public
+ See |CBaseController::endClip|
+
+
+*CJuiSortable::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CJuiSortable::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CJuiSortable::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CJuiSortable::getController*					 public
+ See |CWidget::getController|
+
+
+*CJuiSortable::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CJuiSortable::getId*						 public
+ See |CWidget::getId|
+
+
+*CJuiSortable::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CJuiSortable::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CJuiSortable::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CJuiSortable::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CJuiSortable::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CJuiSortable::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CJuiSortable::init*						 public
+ See |CJuiWidget::init|
+
+
+*CJuiSortable::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CJuiSortable::registerCoreScripts*				 protected
+ See |CJuiWidget::registerCoreScripts|
+
+
+*CJuiSortable::registerScriptFile*				 protected
+ See |CJuiWidget::registerScriptFile|
+
+
+*CJuiSortable::render*						 public
+ See |CWidget::render|
+
+
+*CJuiSortable::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CJuiSortable::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
+*CJuiSortable::resolvePackagePath*				 protected
+ See |CJuiWidget::resolvePackagePath|
+
 
 *CJuiSortable::run*						 public
 >
@@ -57,6 +284,14 @@ METHOD DETAILS
 
  Run this widget. This method registers necessary javascript and renders the
  needed HTML code.
+
+
+*CJuiSortable::setId*						 public
+ See |CWidget::setId|
+
+
+*CJuiSortable::widget*						 public
+ See |CBaseController::widget|
 
 
 

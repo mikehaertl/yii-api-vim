@@ -11,12 +11,66 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<backupGlobals> 			*CWebTestCase::backupGlobals*
+ See |PHPUnit_Framework_TestCase::backupGlobals|
+
+<backupGlobalsBlacklist>		*CWebTestCase::backupGlobalsBlacklist*
+ See |PHPUnit_Framework_TestCase::backupGlobalsBlacklist|
+
+<backupStaticAttributes>		*CWebTestCase::backupStaticAttributes*
+ See |PHPUnit_Framework_TestCase::backupStaticAttributes|
+
+<backupStaticAttributesBlacklist>	*CWebTestCase::backupStaticAttributesBlacklist*
+ See |PHPUnit_Framework_TestCase::backupStaticAttributesBlacklist|
+
+<browserName>				*CWebTestCase::browserName*
+ See |PHPUnit_Extensions_SeleniumTestCase::browserName|
+
+<browsers>				*CWebTestCase::browsers*
+ See |PHPUnit_Extensions_SeleniumTestCase::browsers|
+
+<captureScreenshotOnFailure>		*CWebTestCase::captureScreenshotOnFailure*
+ See |PHPUnit_Extensions_SeleniumTestCase::captureScreenshotOnFailure|
+
+<collectCodeCoverageInformation>	*CWebTestCase::collectCodeCoverageInformation*
+ See |PHPUnit_Extensions_SeleniumTestCase::collectCodeCoverageInformation|
+
+<coverageScriptUrl>			*CWebTestCase::coverageScriptUrl*
+ See |PHPUnit_Extensions_SeleniumTestCase::coverageScriptUrl|
+
+<drivers>				*CWebTestCase::drivers*
+ See |PHPUnit_Extensions_SeleniumTestCase::drivers|
+
 <fixtures>				*CWebTestCase::fixtures*
  (array) a list of fixtures that should be loaded before each test method
  executes. The array keys are fixture names, and the array values are either
  AR class names or table names. If table names, they must begin with a colon
  character (e.g. 'Post' means an AR class, while ':Post' means a table name).
  Defaults to false, meaning fixtures will not be used at all.
+
+<inDefaultAssertions>			*CWebTestCase::inDefaultAssertions*
+ See |PHPUnit_Extensions_SeleniumTestCase::inDefaultAssertions|
+
+<preserveGlobalState>			*CWebTestCase::preserveGlobalState*
+ See |PHPUnit_Framework_TestCase::preserveGlobalState|
+
+<runTestInSeparateProcess>		*CWebTestCase::runTestInSeparateProcess*
+ See |PHPUnit_Framework_TestCase::runTestInSeparateProcess|
+
+<screenshotPath>			*CWebTestCase::screenshotPath*
+ See |PHPUnit_Extensions_SeleniumTestCase::screenshotPath|
+
+<screenshotUrl> 			*CWebTestCase::screenshotUrl*
+ See |PHPUnit_Extensions_SeleniumTestCase::screenshotUrl|
+
+<serverConnectionTimeOut>		*CWebTestCase::serverConnectionTimeOut*
+ See |PHPUnit_Extensions_SeleniumTestCase::serverConnectionTimeOut|
+
+<testId>				*CWebTestCase::testId*
+ See |PHPUnit_Extensions_SeleniumTestCase::testId|
+
+<verificationErrors>			*CWebTestCase::verificationErrors*
+ See |PHPUnit_Extensions_SeleniumTestCase::verificationErrors|
 
 
 
@@ -35,6 +89,14 @@ METHOD DETAILS
     [params] (string) method parameters
 
 
+*CWebTestCase::__construct*					 public
+ See |PHPUnit_Extensions_SeleniumTestCase::__construct|
+
+
+*CWebTestCase::__destruct*					 public
+ See |PHPUnit_Extensions_SeleniumTestCase::__destruct|
+
+
 *CWebTestCase::__get*						 public
 >
  __get($name)
@@ -44,6 +106,522 @@ METHOD DETAILS
  PHP magic method. This method is overridden so that named fixture data can be
  accessed like a normal property.
     [name] (string) the property name
+
+
+*CWebTestCase::addToAssertionCount*				 public
+ See |PHPUnit_Framework_TestCase::addToAssertionCount|
+
+
+*CWebTestCase::any*						 public
+ See |PHPUnit_Framework_TestCase::any|
+
+
+*CWebTestCase::anything*					 public
+ See |PHPUnit_Framework_Assert::anything|
+
+
+*CWebTestCase::arrayHasKey*					 public
+ See |PHPUnit_Framework_Assert::arrayHasKey|
+
+
+*CWebTestCase::assertArrayHasKey*				 public
+ See |PHPUnit_Framework_Assert::assertArrayHasKey|
+
+
+*CWebTestCase::assertArrayNotHasKey*				 public
+ See |PHPUnit_Framework_Assert::assertArrayNotHasKey|
+
+
+*CWebTestCase::assertAttributeContains* 			 public
+ See |PHPUnit_Framework_Assert::assertAttributeContains|
+
+
+*CWebTestCase::assertAttributeContainsOnly*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeContainsOnly|
+
+
+*CWebTestCase::assertAttributeCount*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeCount|
+
+
+*CWebTestCase::assertAttributeEmpty*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeEmpty|
+
+
+*CWebTestCase::assertAttributeEquals*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeEquals|
+
+
+*CWebTestCase::assertAttributeGreaterThan*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeGreaterThan|
+
+
+*CWebTestCase::assertAttributeGreaterThanOrEqual*		 public
+ See |PHPUnit_Framework_Assert::assertAttributeGreaterThanOrEqual|
+
+
+*CWebTestCase::assertAttributeInstanceOf*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeInstanceOf|
+
+
+*CWebTestCase::assertAttributeInternalType*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeInternalType|
+
+
+*CWebTestCase::assertAttributeLessThan* 			 public
+ See |PHPUnit_Framework_Assert::assertAttributeLessThan|
+
+
+*CWebTestCase::assertAttributeLessThanOrEqual*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeLessThanOrEqual|
+
+
+*CWebTestCase::assertAttributeNotContains*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotContains|
+
+
+*CWebTestCase::assertAttributeNotContainsOnly*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotContainsOnly|
+
+
+*CWebTestCase::assertAttributeNotCount* 			 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotCount|
+
+
+*CWebTestCase::assertAttributeNotEmpty* 			 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotEmpty|
+
+
+*CWebTestCase::assertAttributeNotEquals*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotEquals|
+
+
+*CWebTestCase::assertAttributeNotInstanceOf*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotInstanceOf|
+
+
+*CWebTestCase::assertAttributeNotInternalType*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotInternalType|
+
+
+*CWebTestCase::assertAttributeNotSame*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotSame|
+
+
+*CWebTestCase::assertAttributeSame*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeSame|
+
+
+*CWebTestCase::assertClassHasAttribute* 			 public
+ See |PHPUnit_Framework_Assert::assertClassHasAttribute|
+
+
+*CWebTestCase::assertClassHasStaticAttribute*			 public
+ See |PHPUnit_Framework_Assert::assertClassHasStaticAttribute|
+
+
+*CWebTestCase::assertClassNotHasAttribute*			 public
+ See |PHPUnit_Framework_Assert::assertClassNotHasAttribute|
+
+
+*CWebTestCase::assertClassNotHasStaticAttribute*		 public
+ See |PHPUnit_Framework_Assert::assertClassNotHasStaticAttribute|
+
+
+*CWebTestCase::assertContains*					 public
+ See |PHPUnit_Framework_Assert::assertContains|
+
+
+*CWebTestCase::assertContainsOnly*				 public
+ See |PHPUnit_Framework_Assert::assertContainsOnly|
+
+
+*CWebTestCase::assertCount*					 public
+ See |PHPUnit_Framework_Assert::assertCount|
+
+
+*CWebTestCase::assertElementContainsText*			 public
+ See |PHPUnit_Extensions_SeleniumTestCase::assertElementContainsText|
+
+
+*CWebTestCase::assertElementNotContainsText*			 public
+ See |PHPUnit_Extensions_SeleniumTestCase::assertElementNotContainsText|
+
+
+*CWebTestCase::assertElementValueContains*			 public
+ See |PHPUnit_Extensions_SeleniumTestCase::assertElementValueContains|
+
+
+*CWebTestCase::assertElementValueEquals*			 public
+ See |PHPUnit_Extensions_SeleniumTestCase::assertElementValueEquals|
+
+
+*CWebTestCase::assertElementValueNotContains*			 public
+ See |PHPUnit_Extensions_SeleniumTestCase::assertElementValueNotContains|
+
+
+*CWebTestCase::assertElementValueNotEquals*			 public
+ See |PHPUnit_Extensions_SeleniumTestCase::assertElementValueNotEquals|
+
+
+*CWebTestCase::assertEmpty*					 public
+ See |PHPUnit_Framework_Assert::assertEmpty|
+
+
+*CWebTestCase::assertEqualXMLStructure* 			 public
+ See |PHPUnit_Framework_Assert::assertEqualXMLStructure|
+
+
+*CWebTestCase::assertEquals*					 public
+ See |PHPUnit_Framework_Assert::assertEquals|
+
+
+*CWebTestCase::assertFalse*					 public
+ See |PHPUnit_Framework_Assert::assertFalse|
+
+
+*CWebTestCase::assertFileEquals*				 public
+ See |PHPUnit_Framework_Assert::assertFileEquals|
+
+
+*CWebTestCase::assertFileExists*				 public
+ See |PHPUnit_Framework_Assert::assertFileExists|
+
+
+*CWebTestCase::assertFileNotEquals*				 public
+ See |PHPUnit_Framework_Assert::assertFileNotEquals|
+
+
+*CWebTestCase::assertFileNotExists*				 public
+ See |PHPUnit_Framework_Assert::assertFileNotExists|
+
+
+*CWebTestCase::assertGreaterThan*				 public
+ See |PHPUnit_Framework_Assert::assertGreaterThan|
+
+
+*CWebTestCase::assertGreaterThanOrEqual*			 public
+ See |PHPUnit_Framework_Assert::assertGreaterThanOrEqual|
+
+
+*CWebTestCase::assertInstanceOf*				 public
+ See |PHPUnit_Framework_Assert::assertInstanceOf|
+
+
+*CWebTestCase::assertInternalType*				 public
+ See |PHPUnit_Framework_Assert::assertInternalType|
+
+
+*CWebTestCase::assertIsNotSelected*				 public
+ See |PHPUnit_Extensions_SeleniumTestCase::assertIsNotSelected|
+
+
+*CWebTestCase::assertIsSelected*				 public
+ See |PHPUnit_Extensions_SeleniumTestCase::assertIsSelected|
+
+
+*CWebTestCase::assertLessThan*					 public
+ See |PHPUnit_Framework_Assert::assertLessThan|
+
+
+*CWebTestCase::assertLessThanOrEqual*				 public
+ See |PHPUnit_Framework_Assert::assertLessThanOrEqual|
+
+
+*CWebTestCase::assertNotContains*				 public
+ See |PHPUnit_Framework_Assert::assertNotContains|
+
+
+*CWebTestCase::assertNotContainsOnly*				 public
+ See |PHPUnit_Framework_Assert::assertNotContainsOnly|
+
+
+*CWebTestCase::assertNotCount*					 public
+ See |PHPUnit_Framework_Assert::assertNotCount|
+
+
+*CWebTestCase::assertNotEmpty*					 public
+ See |PHPUnit_Framework_Assert::assertNotEmpty|
+
+
+*CWebTestCase::assertNotEquals* 				 public
+ See |PHPUnit_Framework_Assert::assertNotEquals|
+
+
+*CWebTestCase::assertNotInstanceOf*				 public
+ See |PHPUnit_Framework_Assert::assertNotInstanceOf|
+
+
+*CWebTestCase::assertNotInternalType*				 public
+ See |PHPUnit_Framework_Assert::assertNotInternalType|
+
+
+*CWebTestCase::assertNotNull*					 public
+ See |PHPUnit_Framework_Assert::assertNotNull|
+
+
+*CWebTestCase::assertNotRegExp* 				 public
+ See |PHPUnit_Framework_Assert::assertNotRegExp|
+
+
+*CWebTestCase::assertNotSame*					 public
+ See |PHPUnit_Framework_Assert::assertNotSame|
+
+
+*CWebTestCase::assertNotSameSize*				 public
+ See |PHPUnit_Framework_Assert::assertNotSameSize|
+
+
+*CWebTestCase::assertNotSelected*				 public
+ See |PHPUnit_Extensions_SeleniumTestCase::assertNotSelected|
+
+
+*CWebTestCase::assertNotTag*					 public
+ See |PHPUnit_Framework_Assert::assertNotTag|
+
+
+*CWebTestCase::assertNull*					 public
+ See |PHPUnit_Framework_Assert::assertNull|
+
+
+*CWebTestCase::assertObjectHasAttribute*			 public
+ See |PHPUnit_Framework_Assert::assertObjectHasAttribute|
+
+
+*CWebTestCase::assertObjectNotHasAttribute*			 public
+ See |PHPUnit_Framework_Assert::assertObjectNotHasAttribute|
+
+
+*CWebTestCase::assertPostConditions*				 protected
+ See |PHPUnit_Framework_TestCase::assertPostConditions|
+
+
+*CWebTestCase::assertPreConditions*				 protected
+ See |PHPUnit_Framework_TestCase::assertPreConditions|
+
+
+*CWebTestCase::assertRegExp*					 public
+ See |PHPUnit_Framework_Assert::assertRegExp|
+
+
+*CWebTestCase::assertSame*					 public
+ See |PHPUnit_Framework_Assert::assertSame|
+
+
+*CWebTestCase::assertSameSize*					 public
+ See |PHPUnit_Framework_Assert::assertSameSize|
+
+
+*CWebTestCase::assertSelectCount*				 public
+ See |PHPUnit_Framework_Assert::assertSelectCount|
+
+
+*CWebTestCase::assertSelectEquals*				 public
+ See |PHPUnit_Framework_Assert::assertSelectEquals|
+
+
+*CWebTestCase::assertSelectHasOption*				 public
+ See |PHPUnit_Extensions_SeleniumTestCase::assertSelectHasOption|
+
+
+*CWebTestCase::assertSelectNotHasOption*			 public
+ See |PHPUnit_Extensions_SeleniumTestCase::assertSelectNotHasOption|
+
+
+*CWebTestCase::assertSelectRegExp*				 public
+ See |PHPUnit_Framework_Assert::assertSelectRegExp|
+
+
+*CWebTestCase::assertSelected*					 public
+ See |PHPUnit_Extensions_SeleniumTestCase::assertSelected|
+
+
+*CWebTestCase::assertStringEndsNotWith* 			 public
+ See |PHPUnit_Framework_Assert::assertStringEndsNotWith|
+
+
+*CWebTestCase::assertStringEndsWith*				 public
+ See |PHPUnit_Framework_Assert::assertStringEndsWith|
+
+
+*CWebTestCase::assertStringEqualsFile*				 public
+ See |PHPUnit_Framework_Assert::assertStringEqualsFile|
+
+
+*CWebTestCase::assertStringMatchesFormat*			 public
+ See |PHPUnit_Framework_Assert::assertStringMatchesFormat|
+
+
+*CWebTestCase::assertStringMatchesFormatFile*			 public
+ See |PHPUnit_Framework_Assert::assertStringMatchesFormatFile|
+
+
+*CWebTestCase::assertStringNotEqualsFile*			 public
+ See |PHPUnit_Framework_Assert::assertStringNotEqualsFile|
+
+
+*CWebTestCase::assertStringNotMatchesFormat*			 public
+ See |PHPUnit_Framework_Assert::assertStringNotMatchesFormat|
+
+
+*CWebTestCase::assertStringNotMatchesFormatFile*		 public
+ See |PHPUnit_Framework_Assert::assertStringNotMatchesFormatFile|
+
+
+*CWebTestCase::assertStringStartsNotWith*			 public
+ See |PHPUnit_Framework_Assert::assertStringStartsNotWith|
+
+
+*CWebTestCase::assertStringStartsWith*				 public
+ See |PHPUnit_Framework_Assert::assertStringStartsWith|
+
+
+*CWebTestCase::assertTag*					 public
+ See |PHPUnit_Framework_Assert::assertTag|
+
+
+*CWebTestCase::assertThat*					 public
+ See |PHPUnit_Framework_Assert::assertThat|
+
+
+*CWebTestCase::assertTrue*					 public
+ See |PHPUnit_Framework_Assert::assertTrue|
+
+
+*CWebTestCase::assertXmlFileEqualsXmlFile*			 public
+ See |PHPUnit_Framework_Assert::assertXmlFileEqualsXmlFile|
+
+
+*CWebTestCase::assertXmlFileNotEqualsXmlFile*			 public
+ See |PHPUnit_Framework_Assert::assertXmlFileNotEqualsXmlFile|
+
+
+*CWebTestCase::assertXmlStringEqualsXmlFile*			 public
+ See |PHPUnit_Framework_Assert::assertXmlStringEqualsXmlFile|
+
+
+*CWebTestCase::assertXmlStringEqualsXmlString*			 public
+ See |PHPUnit_Framework_Assert::assertXmlStringEqualsXmlString|
+
+
+*CWebTestCase::assertXmlStringNotEqualsXmlFile* 		 public
+ See |PHPUnit_Framework_Assert::assertXmlStringNotEqualsXmlFile|
+
+
+*CWebTestCase::assertXmlStringNotEqualsXmlString*		 public
+ See |PHPUnit_Framework_Assert::assertXmlStringNotEqualsXmlString|
+
+
+*CWebTestCase::at*						 public
+ See |PHPUnit_Framework_TestCase::at|
+
+
+*CWebTestCase::atLeastOnce*					 public
+ See |PHPUnit_Framework_TestCase::atLeastOnce|
+
+
+*CWebTestCase::attribute*					 public
+ See |PHPUnit_Framework_Assert::attribute|
+
+
+*CWebTestCase::attributeEqualTo*				 public
+ See |PHPUnit_Framework_Assert::attributeEqualTo|
+
+
+*CWebTestCase::checkRequirements*				 protected
+ See |PHPUnit_Framework_TestCase::checkRequirements|
+
+
+*CWebTestCase::classHasAttribute*				 public
+ See |PHPUnit_Framework_Assert::classHasAttribute|
+
+
+*CWebTestCase::classHasStaticAttribute* 			 public
+ See |PHPUnit_Framework_Assert::classHasStaticAttribute|
+
+
+*CWebTestCase::contains*					 public
+ See |PHPUnit_Framework_Assert::contains|
+
+
+*CWebTestCase::containsOnly*					 public
+ See |PHPUnit_Framework_Assert::containsOnly|
+
+
+*CWebTestCase::count*						 public
+ See |PHPUnit_Framework_TestCase::count|
+
+
+*CWebTestCase::createResult*					 protected
+ See |PHPUnit_Framework_TestCase::createResult|
+
+
+*CWebTestCase::dataToString*					 protected
+ See |PHPUnit_Framework_TestCase::dataToString|
+
+
+*CWebTestCase::defaultAssertions*				 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::defaultAssertions|
+
+
+*CWebTestCase::equalTo* 					 public
+ See |PHPUnit_Framework_Assert::equalTo|
+
+
+*CWebTestCase::exactly* 					 public
+ See |PHPUnit_Framework_TestCase::exactly|
+
+
+*CWebTestCase::expectOutputRegex*				 public
+ See |PHPUnit_Framework_TestCase::expectOutputRegex|
+
+
+*CWebTestCase::expectOutputString*				 public
+ See |PHPUnit_Framework_TestCase::expectOutputString|
+
+
+*CWebTestCase::explodeDirectories*				 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::explodeDirectories|
+
+
+*CWebTestCase::fail*						 public
+ See |PHPUnit_Framework_Assert::fail|
+
+
+*CWebTestCase::fileExists*					 public
+ See |PHPUnit_Framework_Assert::fileExists|
+
+
+*CWebTestCase::findDirectorySeparator*				 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::findDirectorySeparator|
+
+
+*CWebTestCase::getActualOutput* 				 public
+ See |PHPUnit_Framework_TestCase::getActualOutput|
+
+
+*CWebTestCase::getAnnotations*					 public
+ See |PHPUnit_Framework_TestCase::getAnnotations|
+
+
+*CWebTestCase::getCodeCoverage* 				 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::getCodeCoverage|
+
+
+*CWebTestCase::getCount*					 public
+ See |PHPUnit_Framework_Assert::getCount|
+
+
+*CWebTestCase::getDataSetAsString*				 protected
+ See |PHPUnit_Framework_TestCase::getDataSetAsString|
+
+
+*CWebTestCase::getDriver*					 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::getDriver|
+
+
+*CWebTestCase::getExpectedException*				 public
+ See |PHPUnit_Framework_TestCase::getExpectedException|
 
 
 *CWebTestCase::getFixtureData*					 public
@@ -77,6 +655,302 @@ record cannot be found.
     [alias] (string) the alias of the fixture data row
 
 
+*CWebTestCase::getMock* 					 public
+ See |PHPUnit_Framework_TestCase::getMock|
+
+
+*CWebTestCase::getMockBuilder*					 public
+ See |PHPUnit_Framework_TestCase::getMockBuilder|
+
+
+*CWebTestCase::getMockClass*					 protected
+ See |PHPUnit_Framework_TestCase::getMockClass|
+
+
+*CWebTestCase::getMockForAbstractClass* 			 public
+ See |PHPUnit_Framework_TestCase::getMockForAbstractClass|
+
+
+*CWebTestCase::getMockFromWsdl* 				 protected
+ See |PHPUnit_Framework_TestCase::getMockFromWsdl|
+
+
+*CWebTestCase::getName* 					 public
+ See |PHPUnit_Framework_TestCase::getName|
+
+
+*CWebTestCase::getNumAssertions*				 public
+ See |PHPUnit_Framework_TestCase::getNumAssertions|
+
+
+*CWebTestCase::getObjectForTrait*				 protected
+ See |PHPUnit_Framework_TestCase::getObjectForTrait|
+
+
+*CWebTestCase::getResult*					 public
+ See |PHPUnit_Framework_TestCase::getResult|
+
+
+*CWebTestCase::getScreenshotPath*				 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::getScreenshotPath|
+
+
+*CWebTestCase::getSeleneseFiles*				 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::getSeleneseFiles|
+
+
+*CWebTestCase::getSize* 					 public
+ See |PHPUnit_Framework_TestCase::getSize|
+
+
+*CWebTestCase::getStatus*					 public
+ See |PHPUnit_Framework_TestCase::getStatus|
+
+
+*CWebTestCase::getStatusMessage*				 public
+ See |PHPUnit_Framework_TestCase::getStatusMessage|
+
+
+*CWebTestCase::getTestResultObject*				 public
+ See |PHPUnit_Framework_TestCase::getTestResultObject|
+
+
+*CWebTestCase::greaterThan*					 public
+ See |PHPUnit_Framework_Assert::greaterThan|
+
+
+*CWebTestCase::greaterThanOrEqual*				 public
+ See |PHPUnit_Framework_Assert::greaterThanOrEqual|
+
+
+*CWebTestCase::handleDependencies*				 protected
+ See |PHPUnit_Framework_TestCase::handleDependencies|
+
+
+*CWebTestCase::hasFailed*					 public
+ See |PHPUnit_Framework_TestCase::hasFailed|
+
+
+*CWebTestCase::hasOutput*					 public
+ See |PHPUnit_Framework_TestCase::hasOutput|
+
+
+*CWebTestCase::hasPerformedExpectationsOnOutput*		 public
+ See |PHPUnit_Framework_TestCase::hasPerformedExpectationsOnOutput|
+
+
+*CWebTestCase::identicalTo*					 public
+ See |PHPUnit_Framework_Assert::identicalTo|
+
+
+*CWebTestCase::iniSet*						 protected
+ See |PHPUnit_Framework_TestCase::iniSet|
+
+
+*CWebTestCase::isEmpty* 					 public
+ See |PHPUnit_Framework_Assert::isEmpty|
+
+
+*CWebTestCase::isFalse* 					 public
+ See |PHPUnit_Framework_Assert::isFalse|
+
+
+*CWebTestCase::isInstanceOf*					 public
+ See |PHPUnit_Framework_Assert::isInstanceOf|
+
+
+*CWebTestCase::isNull*						 public
+ See |PHPUnit_Framework_Assert::isNull|
+
+
+*CWebTestCase::isTrue*						 public
+ See |PHPUnit_Framework_Assert::isTrue|
+
+
+*CWebTestCase::isType*						 public
+ See |PHPUnit_Framework_Assert::isType|
+
+
+*CWebTestCase::lessThan*					 public
+ See |PHPUnit_Framework_Assert::lessThan|
+
+
+*CWebTestCase::lessThanOrEqual* 				 public
+ See |PHPUnit_Framework_Assert::lessThanOrEqual|
+
+
+*CWebTestCase::logicalAnd*					 public
+ See |PHPUnit_Framework_Assert::logicalAnd|
+
+
+*CWebTestCase::logicalNot*					 public
+ See |PHPUnit_Framework_Assert::logicalNot|
+
+
+*CWebTestCase::logicalOr*					 public
+ See |PHPUnit_Framework_Assert::logicalOr|
+
+
+*CWebTestCase::logicalXor*					 public
+ See |PHPUnit_Framework_Assert::logicalXor|
+
+
+*CWebTestCase::markTestIncomplete*				 public
+ See |PHPUnit_Framework_Assert::markTestIncomplete|
+
+
+*CWebTestCase::markTestSkipped* 				 public
+ See |PHPUnit_Framework_Assert::markTestSkipped|
+
+
+*CWebTestCase::matchLocalAndRemotePaths*			 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::matchLocalAndRemotePaths|
+
+
+*CWebTestCase::matches* 					 public
+ See |PHPUnit_Framework_Assert::matches|
+
+
+*CWebTestCase::matchesRegularExpression*			 public
+ See |PHPUnit_Framework_Assert::matchesRegularExpression|
+
+
+*CWebTestCase::never*						 public
+ See |PHPUnit_Framework_TestCase::never|
+
+
+*CWebTestCase::objectHasAttribute*				 public
+ See |PHPUnit_Framework_Assert::objectHasAttribute|
+
+
+*CWebTestCase::onConsecutiveCalls*				 public
+ See |PHPUnit_Framework_TestCase::onConsecutiveCalls|
+
+
+*CWebTestCase::onNotSuccessfulTest*				 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::onNotSuccessfulTest|
+
+
+*CWebTestCase::once*						 public
+ See |PHPUnit_Framework_TestCase::once|
+
+
+*CWebTestCase::prepareTemplate* 				 protected
+ See |PHPUnit_Framework_TestCase::prepareTemplate|
+
+
+*CWebTestCase::prepareTestSession*				 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::prepareTestSession|
+
+
+*CWebTestCase::readAttribute*					 public
+ See |PHPUnit_Framework_Assert::readAttribute|
+
+
+*CWebTestCase::resetCount*					 public
+ See |PHPUnit_Framework_Assert::resetCount|
+
+
+*CWebTestCase::returnArgument*					 public
+ See |PHPUnit_Framework_TestCase::returnArgument|
+
+
+*CWebTestCase::returnCallback*					 public
+ See |PHPUnit_Framework_TestCase::returnCallback|
+
+
+*CWebTestCase::returnSelf*					 public
+ See |PHPUnit_Framework_TestCase::returnSelf|
+
+
+*CWebTestCase::returnValue*					 public
+ See |PHPUnit_Framework_TestCase::returnValue|
+
+
+*CWebTestCase::returnValueMap*					 public
+ See |PHPUnit_Framework_TestCase::returnValueMap|
+
+
+*CWebTestCase::run*						 public
+ See |PHPUnit_Extensions_SeleniumTestCase::run|
+
+
+*CWebTestCase::runBare* 					 public
+ See |PHPUnit_Framework_TestCase::runBare|
+
+
+*CWebTestCase::runDefaultAssertions*				 public
+ See |PHPUnit_Extensions_SeleniumTestCase::runDefaultAssertions|
+
+
+*CWebTestCase::runSelenese*					 public
+ See |PHPUnit_Extensions_SeleniumTestCase::runSelenese|
+
+
+*CWebTestCase::runTest* 					 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::runTest|
+
+
+*CWebTestCase::setBackupGlobals*				 public
+ See |PHPUnit_Framework_TestCase::setBackupGlobals|
+
+
+*CWebTestCase::setBackupStaticAttributes*			 public
+ See |PHPUnit_Framework_TestCase::setBackupStaticAttributes|
+
+
+*CWebTestCase::setDependencies* 				 public
+ See |PHPUnit_Framework_TestCase::setDependencies|
+
+
+*CWebTestCase::setDependencyInput*				 public
+ See |PHPUnit_Framework_TestCase::setDependencyInput|
+
+
+*CWebTestCase::setExpectedException*				 public
+ See |PHPUnit_Framework_TestCase::setExpectedException|
+
+
+*CWebTestCase::setExpectedExceptionFromAnnotation*		 protected
+ See |PHPUnit_Framework_TestCase::setExpectedExceptionFromAnnotation|
+
+
+*CWebTestCase::setInIsolation*					 public
+ See |PHPUnit_Framework_TestCase::setInIsolation|
+
+
+*CWebTestCase::setLocale*					 protected
+ See |PHPUnit_Framework_TestCase::setLocale|
+
+
+*CWebTestCase::setName* 					 public
+ See |PHPUnit_Framework_TestCase::setName|
+
+
+*CWebTestCase::setOutputCallback*				 public
+ See |PHPUnit_Framework_TestCase::setOutputCallback|
+
+
+*CWebTestCase::setPreserveGlobalState*				 public
+ See |PHPUnit_Framework_TestCase::setPreserveGlobalState|
+
+
+*CWebTestCase::setRequirementsFromAnnotation*			 protected
+ See |PHPUnit_Framework_TestCase::setRequirementsFromAnnotation|
+
+
+*CWebTestCase::setResult*					 public
+ See |PHPUnit_Framework_TestCase::setResult|
+
+
+*CWebTestCase::setRunTestInSeparateProcess*			 public
+ See |PHPUnit_Framework_TestCase::setRunTestInSeparateProcess|
+
+
+*CWebTestCase::setTestResultObject*				 public
+ See |PHPUnit_Framework_TestCase::setTestResultObject|
+
+
 *CWebTestCase::setUp*						 protected
 >
  setUp()
@@ -86,6 +960,78 @@ record cannot be found.
  Sets up the fixture before executing a test method. If you override this
  method, make sure the parent implementation is invoked. Otherwise, the
  database fixtures will not be managed properly.
+
+
+*CWebTestCase::setUpBeforeClass*				 public
+ See |PHPUnit_Framework_TestCase::setUpBeforeClass|
+
+
+*CWebTestCase::setUseErrorHandler*				 public
+ See |PHPUnit_Framework_TestCase::setUseErrorHandler|
+
+
+*CWebTestCase::setUseErrorHandlerFromAnnotation*		 protected
+ See |PHPUnit_Framework_TestCase::setUseErrorHandlerFromAnnotation|
+
+
+*CWebTestCase::setUseOutputBuffering*				 public
+ See |PHPUnit_Framework_TestCase::setUseOutputBuffering|
+
+
+*CWebTestCase::setUseOutputBufferingFromAnnotation*		 protected
+ See |PHPUnit_Framework_TestCase::setUseOutputBufferingFromAnnotation|
+
+
+*CWebTestCase::setupSpecificBrowser*				 public
+ See |PHPUnit_Extensions_SeleniumTestCase::setupSpecificBrowser|
+
+
+*CWebTestCase::shareSession*					 public
+ See |PHPUnit_Extensions_SeleniumTestCase::shareSession|
+
+
+*CWebTestCase::skipWithNoServerRunning* 			 public
+ See |PHPUnit_Extensions_SeleniumTestCase::skipWithNoServerRunning|
+
+
+*CWebTestCase::stringContains*					 public
+ See |PHPUnit_Framework_Assert::stringContains|
+
+
+*CWebTestCase::stringEndsWith*					 public
+ See |PHPUnit_Framework_Assert::stringEndsWith|
+
+
+*CWebTestCase::stringStartsWith*				 public
+ See |PHPUnit_Framework_Assert::stringStartsWith|
+
+
+*CWebTestCase::suite*						 public
+ See |PHPUnit_Extensions_SeleniumTestCase::suite|
+
+
+*CWebTestCase::takeScreenshot*					 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::takeScreenshot|
+
+
+*CWebTestCase::tearDown*					 protected
+ See |PHPUnit_Framework_TestCase::tearDown|
+
+
+*CWebTestCase::tearDownAfterClass*				 public
+ See |PHPUnit_Framework_TestCase::tearDownAfterClass|
+
+
+*CWebTestCase::throwException*					 public
+ See |PHPUnit_Framework_TestCase::throwException|
+
+
+*CWebTestCase::toString*					 public
+ See |PHPUnit_Extensions_SeleniumTestCase::toString|
+
+
+*CWebTestCase::verifyMockObjects*				 protected
+ See |PHPUnit_Framework_TestCase::verifyMockObjects|
 
 
 

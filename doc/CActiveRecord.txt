@@ -32,8 +32,14 @@ PROPERTY DETAILS
 <dbCriteria>				*CActiveRecord::dbCriteria*
  (CDbCriteria) Returns the query criteria associated with this model.
 
+<errors>				*CActiveRecord::errors*
+ See |CModel::errors|
+
 <isNewRecord>				*CActiveRecord::isNewRecord*
  (boolean) Returns if the current record is new.
+
+<iterator>				*CActiveRecord::iterator*
+ See |CModel::iterator|
 
 <metaData>				*CActiveRecord::metaData*
  (CActiveRecordMetaData) Returns the meta-data for this AR
@@ -47,6 +53,12 @@ PROPERTY DETAILS
 <primaryKey>				*CActiveRecord::primaryKey*
  (mixed) Returns the primary key value.
 
+<safeAttributeNames>			*CActiveRecord::safeAttributeNames*
+ See |CModel::safeAttributeNames|
+
+<scenario>				*CActiveRecord::scenario*
+ See |CModel::scenario|
+
 <tableAlias>				*CActiveRecord::tableAlias*
  (string) Returns the table alias to be used by the find methods. In
  relational queries, the returned table alias may vary according to the
@@ -55,6 +67,12 @@ PROPERTY DETAILS
 
 <tableSchema>				*CActiveRecord::tableSchema*
  (CDbTableSchema) Returns the metadata of the table that this AR belongs to
+
+<validatorList> 			*CActiveRecord::validatorList*
+ See |CModel::validatorList|
+
+<validators>				*CActiveRecord::validators*
+ See |CModel::validators|
 
 
 
@@ -140,6 +158,14 @@ METHOD DETAILS
     [name] (string) the property name or the event name
 
 
+*CActiveRecord::addError*					 public
+ See |CModel::addError|
+
+
+*CActiveRecord::addErrors*					 public
+ See |CModel::addErrors|
+
+
 *CActiveRecord::addRelatedRecord*				 public
 >
  addRelatedRecord($name, $record, $index)
@@ -153,6 +179,10 @@ METHOD DETAILS
     [index] (mixed) the index value in the related object collection. If true,
     it means using zero-based integer index. If false, it means a HAS_ONE or
     BELONGS_TO object and no index is needed.
+
+
+*CActiveRecord::afterConstruct* 				 protected
+ See |CModel::afterConstruct|
 
 
 *CActiveRecord::afterDelete*					 protected
@@ -201,6 +231,10 @@ METHOD DETAILS
  call the parent implementation so that the event is raised properly.
 
 
+*CActiveRecord::afterValidate*					 protected
+ See |CModel::afterValidate|
+
+
 *CActiveRecord::applyScopes*					 public
 >
  applyScopes($criteria)
@@ -212,6 +246,26 @@ METHOD DETAILS
  |CActiveRecord::dbCriteria| to be null.
     [criteria] (CDbCriteria) the query criteria. This parameter may be
     modified by merging |CActiveRecord::dbCriteria|.
+
+
+*CActiveRecord::asa*						 public
+ See |CComponent::asa|
+
+
+*CActiveRecord::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CActiveRecord::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CActiveRecord::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CActiveRecord::attributeLabels*				 public
+ See |CModel::attributeLabels|
 
 
 *CActiveRecord::attributeNames* 				 public
@@ -250,10 +304,6 @@ METHOD DETAILS
  you override this method, make sure you call the parent implementation so
  that the event is raised properly.
 
- Starting from version 1.1.5, this method may be called with a hidden
- |CDbCriteria| parameter which represents the current query criteria as passed
- to a find method of AR.
-
 
 *CActiveRecord::beforeFindInternal*				 public
 >
@@ -278,6 +328,14 @@ METHOD DETAILS
  event is raised properly.
 
 
+*CActiveRecord::beforeValidate* 				 protected
+ See |CModel::beforeValidate|
+
+
+*CActiveRecord::behaviors*					 public
+ See |CModel::behaviors|
+
+
 *CActiveRecord::cache*						 public
 >
  cache($duration, $dependency=NULL, $queryCount=1)
@@ -294,6 +352,18 @@ METHOD DETAILS
     [queryCount] (integer) number of SQL queries that need to be cached after
     calling this method. Defaults to 1, meaning that the next SQL query will
     be cached.
+
+
+*CActiveRecord::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CActiveRecord::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CActiveRecord::clearErrors*					 public
+ See |CModel::clearErrors|
 
 
 *CActiveRecord::count*						 public
@@ -337,6 +407,10 @@ string to keep max. precision.
  parameters.
     [sql] (string) the SQL statement
     [params] (array) parameters to be bound to the SQL statement
+
+
+*CActiveRecord::createValidators*				 public
+ See |CModel::createValidators|
 
 
 *CActiveRecord::defaultScope*					 public
@@ -405,6 +479,34 @@ constructor of |CDbCriteria|.
     [params] (array) parameters to be bound to an SQL statement.
 
 
+*CActiveRecord::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CActiveRecord::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CActiveRecord::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CActiveRecord::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CActiveRecord::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CActiveRecord::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CActiveRecord::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
 *CActiveRecord::equals* 					 public
 >
  equals($record)
@@ -415,6 +517,10 @@ table.
  Compares current active record with another one. The comparison is made by
  comparing table name and the primary key values of the two active records.
     [record] (CActiveRecord) record to compare to
+
+
+*CActiveRecord::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CActiveRecord::exists* 					 public
@@ -540,6 +646,10 @@ array is returned if none is found.
     [params] (array) parameters to be bound to the SQL statement
 
 
+*CActiveRecord::generateAttributeLabel* 			 public
+ See |CModel::generateAttributeLabel|
+
+
 *CActiveRecord::getActiveRelation*				 public
 >
  getActiveRelation($name)
@@ -627,6 +737,18 @@ different criteria specifications.
     not exist. Defaults to true.
 
 
+*CActiveRecord::getError*					 public
+ See |CModel::getError|
+
+
+*CActiveRecord::getErrors*					 public
+ See |CModel::getErrors|
+
+
+*CActiveRecord::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
 *CActiveRecord::getIsNewRecord* 				 public
 >
  getIsNewRecord()
@@ -637,6 +759,10 @@ different criteria specifications.
 if the instance is created using the new operator.
 
  Returns if the current record is new.
+
+
+*CActiveRecord::getIterator*					 public
+ See |CModel::getIterator|
 
 
 *CActiveRecord::getMetaData*					 public
@@ -687,8 +813,17 @@ will be returned.
     [name] (string) the relation name (see |CActiveRecord::relations|)
     [refresh] (boolean) whether to reload the related objects from database.
     Defaults to false.
-    [params] (array) additional parameters that customize the query conditions
-    as specified in the relation declaration.
+    [params] (mixed) array or CDbCriteria object with additional parameters
+    that customize the query conditions as specified in the relation
+    declaration.
+
+
+*CActiveRecord::getSafeAttributeNames*				 public
+ See |CModel::getSafeAttributeNames|
+
+
+*CActiveRecord::getScenario*					 public
+ See |CModel::getScenario|
 
 
 *CActiveRecord::getTableAlias*					 public
@@ -717,6 +852,14 @@ will be returned.
  Returns the metadata of the table that this AR belongs to
 
 
+*CActiveRecord::getValidatorList*				 public
+ See |CModel::getValidatorList|
+
+
+*CActiveRecord::getValidators*					 public
+ See |CModel::getValidators|
+
+
 *CActiveRecord::hasAttribute*					 public
 >
  hasAttribute($name)
@@ -725,6 +868,22 @@ will be returned.
 
  Checks whether this AR has the named attribute
     [name] (string) attribute name
+
+
+*CActiveRecord::hasErrors*					 public
+ See |CModel::hasErrors|
+
+
+*CActiveRecord::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CActiveRecord::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CActiveRecord::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CActiveRecord::hasRelated*					 public
@@ -784,6 +943,14 @@ successfully.
     [attributes] (array) list of attribute values for the active records.
 
 
+*CActiveRecord::isAttributeRequired*				 public
+ See |CModel::isAttributeRequired|
+
+
+*CActiveRecord::isAttributeSafe*				 public
+ See |CModel::isAttributeSafe|
+
+
 *CActiveRecord::model*						 public
 >
  model($className='CActiveRecord')
@@ -815,6 +982,22 @@ successfully.
     [offset] (mixed) the offset to check on
 
 
+*CActiveRecord::offsetGet*					 public
+ See |CModel::offsetGet|
+
+
+*CActiveRecord::offsetSet*					 public
+ See |CModel::offsetSet|
+
+
+*CActiveRecord::offsetUnset*					 public
+ See |CModel::offsetUnset|
+
+
+*CActiveRecord::onAfterConstruct*				 public
+ See |CModel::onAfterConstruct|
+
+
 *CActiveRecord::onAfterDelete*					 public
 >
  onAfterDelete($event)
@@ -843,6 +1026,10 @@ successfully.
 
  This event is raised after the record is saved.
     [event] (CEvent) the event parameter
+
+
+*CActiveRecord::onAfterValidate*				 public
+ See |CModel::onAfterValidate|
 
 
 *CActiveRecord::onBeforeDelete* 				 public
@@ -881,6 +1068,14 @@ successfully.
  |CModelEvent::isValid| to be false, the normal |CActiveRecord::save| process
  will be stopped.
     [event] (CModelEvent) the event parameter
+
+
+*CActiveRecord::onBeforeValidate*				 public
+ See |CModel::onBeforeValidate|
+
+
+*CActiveRecord::onUnsafeAttribute*				 public
+ See |CModel::onUnsafeAttribute|
 
 
 *CActiveRecord::populateRecord* 				 public
@@ -940,6 +1135,10 @@ names.
  result. This method is mainly internally used by other AR query methods.
     [criteria] (CDbCriteria) the query criteria
     [all] (boolean) whether to return all data
+
+
+*CActiveRecord::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CActiveRecord::refresh*					 public
@@ -1072,6 +1271,10 @@ data will be populated to this active record.
  Resets all scopes and criterias applied including default scope.
 
 
+*CActiveRecord::rules*						 public
+ See |CModel::rules|
+
+
 *CActiveRecord::save*						 public
 >
  save($runValidation=true, $attributes=NULL)
@@ -1189,6 +1392,10 @@ successfully
     [value] (mixed) the attribute value.
 
 
+*CActiveRecord::setAttributes*					 public
+ See |CModel::setAttributes|
+
+
 *CActiveRecord::setDbCriteria*					 public
 >
  setDbCriteria($criteria)
@@ -1233,6 +1440,10 @@ successfully
     name=>column value).
 
 
+*CActiveRecord::setScenario*					 public
+ See |CModel::setScenario|
+
+
 *CActiveRecord::setTableAlias*					 public
 >
  setTableAlias($alias)
@@ -1264,6 +1475,10 @@ successfully
  Sets |CDbCriteria::together| property to be true. This is only used in
  relational AR query. Please refer to |CDbCriteria::together| for more
  details.
+
+
+*CActiveRecord::unsetAttributes*				 public
+ See |CModel::unsetAttributes|
 
 
 *CActiveRecord::update* 					 public
@@ -1323,6 +1538,10 @@ successfully
     value)
     [condition] (mixed) query condition or criteria.
     [params] (array) parameters to be bound to an SQL statement.
+
+
+*CActiveRecord::validate*					 public
+ See |CModel::validate|
 
 
 *CActiveRecord::with*						 public

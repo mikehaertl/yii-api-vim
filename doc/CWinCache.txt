@@ -14,6 +14,30 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CWinCache::__call*						 public
+ See |CComponent::__call|
+
+
+*CWinCache::__get*						 public
+ See |CComponent::__get|
+
+
+*CWinCache::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CWinCache::__set*						 public
+ See |CComponent::__set|
+
+
+*CWinCache::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CWinCache::add*						 public
+ See |CCache::add|
+
+
 *CWinCache::addValue*						 protected
 >
  addValue($key, $value, $expire)
@@ -29,6 +53,34 @@ METHOD DETAILS
     expire. 0 means never expire.
 
 
+*CWinCache::asa*						 public
+ See |CComponent::asa|
+
+
+*CWinCache::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CWinCache::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CWinCache::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CWinCache::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CWinCache::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CWinCache::delete*						 public
+ See |CCache::delete|
+
+
 *CWinCache::deleteValue*					 protected
 >
  deleteValue($key)
@@ -40,6 +92,42 @@ METHOD DETAILS
     [key] (string) the key of the value to be deleted
 
 
+*CWinCache::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CWinCache::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CWinCache::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CWinCache::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CWinCache::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CWinCache::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CWinCache::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CWinCache::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
+
+
+*CWinCache::flush*						 public
+ See |CCache::flush|
+
+
 *CWinCache::flushValues*					 protected
 >
  flushValues()
@@ -48,6 +136,22 @@ METHOD DETAILS
 
  Deletes all values from cache. This is the implementation of the method
  declared in the parent class.
+
+
+*CWinCache::generateUniqueKey*					 protected
+ See |CCache::generateUniqueKey|
+
+
+*CWinCache::get*						 public
+ See |CCache::get|
+
+
+*CWinCache::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CWinCache::getIsInitialized*					 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CWinCache::getValue*						 protected
@@ -72,6 +176,18 @@ expired.
     [keys] (array) a list of keys identifying the cached values
 
 
+*CWinCache::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CWinCache::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CWinCache::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CWinCache::init*						 public
 >
  init()
@@ -81,6 +197,34 @@ expired.
  Initializes this application component. This method is required by the
  |IApplicationComponent| interface. It checks the availability of WinCache
  extension and WinCache user cache.
+
+
+*CWinCache::mget*						 public
+ See |CCache::mget|
+
+
+*CWinCache::offsetExists*					 public
+ See |CCache::offsetExists|
+
+
+*CWinCache::offsetGet*						 public
+ See |CCache::offsetGet|
+
+
+*CWinCache::offsetSet*						 public
+ See |CCache::offsetSet|
+
+
+*CWinCache::offsetUnset*					 public
+ See |CCache::offsetUnset|
+
+
+*CWinCache::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
+
+
+*CWinCache::set*						 public
+ See |CCache::set|
 
 
 *CWinCache::setValue*						 protected

@@ -43,6 +43,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CGettextMoFile::__call*					 public
+ See |CComponent::__call|
+
+
 *CGettextMoFile::__construct*					 public
 >
  __construct($useBigEndian=false)
@@ -54,6 +58,94 @@ METHOD DETAILS
     writing an integer.
 
 
+*CGettextMoFile::__get* 					 public
+ See |CComponent::__get|
+
+
+*CGettextMoFile::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CGettextMoFile::__set* 					 public
+ See |CComponent::__set|
+
+
+*CGettextMoFile::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CGettextMoFile::asa*						 public
+ See |CComponent::asa|
+
+
+*CGettextMoFile::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CGettextMoFile::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CGettextMoFile::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CGettextMoFile::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CGettextMoFile::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CGettextMoFile::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CGettextMoFile::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CGettextMoFile::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CGettextMoFile::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CGettextMoFile::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CGettextMoFile::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CGettextMoFile::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CGettextMoFile::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CGettextMoFile::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CGettextMoFile::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CGettextMoFile::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CGettextMoFile::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CGettextMoFile::load*						 public
 >
  load($file, $context)
@@ -63,6 +155,10 @@ METHOD DETAILS
  Loads messages from an MO file.
     [file] (string) file path
     [context] (string) message context
+
+
+*CGettextMoFile::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CGettextMoFile::readByte*					 protected

@@ -115,6 +115,9 @@ PROPERTY DETAILS
 <baseUrl>				*CUrlManager::baseUrl*
  (string) Returns the base URL of the application.
 
+<behaviors>				*CUrlManager::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <cacheID>				*CUrlManager::cacheID*
  (string) the ID of the cache application component that is used to cache the
  parsed URL rules. Defaults to 'cache' which refers to the primary cache
@@ -129,6 +132,9 @@ PROPERTY DETAILS
  (|CWebApplication::controllerMap|) and action mapping
  (|CController::actions|). Also, the directory names for organizing
  controllers should be in lower case.
+
+<isInitialized> 			*CUrlManager::isInitialized*
+ See |CApplicationComponent::isInitialized|
 
 <matchValue>				*CUrlManager::matchValue*
  (boolean) whether the GET parameter values should match the corresponding
@@ -175,6 +181,26 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CUrlManager::__call*						 public
+ See |CComponent::__call|
+
+
+*CUrlManager::__get*						 public
+ See |CComponent::__get|
+
+
+*CUrlManager::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CUrlManager::__set*						 public
+ See |CComponent::__set|
+
+
+*CUrlManager::__unset*						 public
+ See |CComponent::__unset|
+
+
 *CUrlManager::addRules* 					 public
 >
  addRules($rules, $append=true)
@@ -186,6 +212,30 @@ METHOD DETAILS
     [rules] (array) new URL rules (pattern=>route).
     [append] (boolean) whether the new URL rules should be appended to the
     existing ones. If false, they will be inserted at the beginning.
+
+
+*CUrlManager::asa*						 public
+ See |CComponent::asa|
+
+
+*CUrlManager::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CUrlManager::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CUrlManager::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CUrlManager::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CUrlManager::canSetProperty*					 public
+ See |CComponent::canSetProperty|
 
 
 *CUrlManager::createPathInfo*					 public
@@ -241,6 +291,38 @@ METHOD DETAILS
     [pattern] (string) the pattern part of the rule
 
 
+*CUrlManager::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CUrlManager::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CUrlManager::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CUrlManager::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CUrlManager::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CUrlManager::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CUrlManager::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CUrlManager::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CUrlManager::getBaseUrl*					 public
 >
  getBaseUrl()
@@ -253,6 +335,14 @@ off.
  Returns the base URL of the application.
 
 
+*CUrlManager::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
+*CUrlManager::getIsInitialized* 				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
 *CUrlManager::getUrlFormat*					 public
 >
  getUrlFormat()
@@ -262,6 +352,18 @@ off.
 these two formats.
 
  Returns the URL format.
+
+
+*CUrlManager::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CUrlManager::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CUrlManager::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CUrlManager::init*						 public
@@ -301,6 +403,10 @@ format.
 (void)
 
  Processes the URL rules.
+
+
+*CUrlManager::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CUrlManager::removeUrlSuffix*					 public

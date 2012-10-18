@@ -9,11 +9,23 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CLinkPager::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CLinkPager::controller*
+ See |CWidget::controller|
+
 <cssFile>				*CLinkPager::cssFile*
  (mixed) the CSS file used for the widget. Defaults to null, meaning using the
  default CSS file included together with the widget. If false, no CSS file
  will be used. Otherwise, the specified CSS file will be included when using
  this widget.
+
+<currentPage>				*CLinkPager::currentPage*
+ See |CBasePager::currentPage|
+
+<firstPageCssClass>			*CLinkPager::firstPageCssClass*
+ (string) the CSS class for the first page button. Defaults to 'first'.
 
 <firstPageLabel>			*CLinkPager::firstPageLabel*
  (string) the text label for the first page button. Defaults to '&lt;&lt;
@@ -25,8 +37,23 @@ PROPERTY DETAILS
 <header>				*CLinkPager::header*
  (string) the text shown before page buttons. Defaults to 'Go to page: '.
 
+<hiddenPageCssClass>			*CLinkPager::hiddenPageCssClass*
+ (string) the CSS class for the hidden page buttons. Defaults to 'hidden'.
+
 <htmlOptions>				*CLinkPager::htmlOptions*
  (array) HTML attributes for the pager container tag.
+
+<id>					*CLinkPager::id*
+ See |CWidget::id|
+
+<internalPageCssClass>			*CLinkPager::internalPageCssClass*
+ (string) the CSS class for the internal page buttons. Defaults to 'page'.
+
+<itemCount>				*CLinkPager::itemCount*
+ See |CBasePager::itemCount|
+
+<lastPageCssClass>			*CLinkPager::lastPageCssClass*
+ (string) the CSS class for the last page button. Defaults to 'last'.
 
 <lastPageLabel> 			*CLinkPager::lastPageLabel*
  (string) the text label for the last page button. Defaults to 'Last
@@ -36,20 +63,115 @@ PROPERTY DETAILS
  (integer) maximum number of page buttons that can be displayed. Defaults to
  10.
 
+<nextPageCssClass>			*CLinkPager::nextPageCssClass*
+ (string) the CSS class for the next page button. Defaults to 'next'.
+
 <nextPageLabel> 			*CLinkPager::nextPageLabel*
  (string) the text label for the next page button. Defaults to 'Next &gt;'.
 
+<owner> 				*CLinkPager::owner*
+ See |CWidget::owner|
+
+<pageCount>				*CLinkPager::pageCount*
+ See |CBasePager::pageCount|
+
 <pageRange>				*CLinkPager::pageRange*
  (array) the begin and end pages that need to be displayed.
+
+<pageSize>				*CLinkPager::pageSize*
+ See |CBasePager::pageSize|
+
+<pages> 				*CLinkPager::pages*
+ See |CBasePager::pages|
 
 <prevPageLabel> 			*CLinkPager::prevPageLabel*
  (string) the text label for the previous page button. Defaults to '&lt;
  Previous'.
 
+<previousPageCssClass>			*CLinkPager::previousPageCssClass*
+ (string) the CSS class for the previous page button. Defaults to 'previous'.
+
+<selectedPageCssClass>			*CLinkPager::selectedPageCssClass*
+ (string) the CSS class for the selected page buttons. Defaults to 'selected'.
+
+<skin>					*CLinkPager::skin*
+ See |CWidget::skin|
+
+<viewPath>				*CLinkPager::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CLinkPager::__call*						 public
+ See |CComponent::__call|
+
+
+*CLinkPager::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CLinkPager::__get*						 public
+ See |CComponent::__get|
+
+
+*CLinkPager::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CLinkPager::__set*						 public
+ See |CComponent::__set|
+
+
+*CLinkPager::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CLinkPager::actions*						 public
+ See |CWidget::actions|
+
+
+*CLinkPager::asa*						 public
+ See |CComponent::asa|
+
+
+*CLinkPager::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CLinkPager::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CLinkPager::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CLinkPager::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CLinkPager::beginClip* 					 public
+ See |CBaseController::beginClip|
+
+
+*CLinkPager::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CLinkPager::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CLinkPager::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CLinkPager::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
 
 *CLinkPager::createPageButton*					 protected
 >
@@ -61,8 +183,7 @@ METHOD DETAILS
  buttons.
     [label] (string) the text label for the button
     [page] (integer) the page number
-    [class] (string) the CSS class for the page button. This could be 'page',
-    'first', 'last', 'next' or 'previous'.
+    [class] (string) the CSS class for the page button.
     [hidden] (boolean) whether this page button is visible
     [selected] (boolean) whether this page button is selected
 
@@ -76,12 +197,128 @@ METHOD DETAILS
  Creates the page buttons.
 
 
+*CLinkPager::createPageUrl*					 protected
+ See |CBasePager::createPageUrl|
+
+
+*CLinkPager::createPages*					 protected
+ See |CBasePager::createPages|
+
+
+*CLinkPager::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CLinkPager::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CLinkPager::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CLinkPager::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CLinkPager::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CLinkPager::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CLinkPager::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CLinkPager::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CLinkPager::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CLinkPager::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CLinkPager::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CLinkPager::endWidget* 					 public
+ See |CBaseController::endWidget|
+
+
+*CLinkPager::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CLinkPager::getController*					 public
+ See |CWidget::getController|
+
+
+*CLinkPager::getCurrentPage*					 public
+ See |CBasePager::getCurrentPage|
+
+
+*CLinkPager::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CLinkPager::getId*						 public
+ See |CWidget::getId|
+
+
+*CLinkPager::getItemCount*					 public
+ See |CBasePager::getItemCount|
+
+
+*CLinkPager::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CLinkPager::getPageCount*					 public
+ See |CBasePager::getPageCount|
+
+
 *CLinkPager::getPageRange*					 protected
 >
  getPageRange()
 <
 (array) the begin and end pages that need to be displayed.
 
+
+
+*CLinkPager::getPageSize*					 public
+ See |CBasePager::getPageSize|
+
+
+*CLinkPager::getPages*						 public
+ See |CBasePager::getPages|
+
+
+*CLinkPager::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CLinkPager::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CLinkPager::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CLinkPager::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CLinkPager::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CLinkPager::init*						 public
@@ -91,6 +328,10 @@ METHOD DETAILS
 (void)
 
  Initializes the pager by setting some default property values.
+
+
+*CLinkPager::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CLinkPager::registerClientScript*				 public
@@ -112,6 +353,18 @@ METHOD DETAILS
     [url] (string) the CSS URL. If null, a default CSS URL will be used.
 
 
+*CLinkPager::render*						 public
+ See |CWidget::render|
+
+
+*CLinkPager::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CLinkPager::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
 *CLinkPager::run*						 public
 >
  run()
@@ -120,6 +373,30 @@ METHOD DETAILS
 
  Executes the widget. This overrides the parent implementation by displaying
  the generated page buttons.
+
+
+*CLinkPager::setCurrentPage*					 public
+ See |CBasePager::setCurrentPage|
+
+
+*CLinkPager::setId*						 public
+ See |CWidget::setId|
+
+
+*CLinkPager::setItemCount*					 public
+ See |CBasePager::setItemCount|
+
+
+*CLinkPager::setPageSize*					 public
+ See |CBasePager::setPageSize|
+
+
+*CLinkPager::setPages*						 public
+ See |CBasePager::setPages|
+
+
+*CLinkPager::widget*						 public
+ See |CBaseController::widget|
 
 
 

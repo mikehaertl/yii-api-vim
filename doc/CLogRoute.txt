@@ -35,8 +35,8 @@ PROPERTY DETAILS
  |Yii::createComponent| to create a log filter object. As a result, this can
  be either a string representing the filter class name or an array
  representing the filter configuration. In general, the log filter class
- should be |CLogFilter| or a child class of it. Defaults to null, meaning no
- filter will be used.
+ should implement |ILogFilter| interface. Defaults to null, meaning no filter
+ will be used.
 
 <levels>				*CLogRoute::levels*
  (string) list of levels separated by comma or space. Defaults to empty,
@@ -50,6 +50,50 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CLogRoute::__call*						 public
+ See |CComponent::__call|
+
+
+*CLogRoute::__get*						 public
+ See |CComponent::__get|
+
+
+*CLogRoute::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CLogRoute::__set*						 public
+ See |CComponent::__set|
+
+
+*CLogRoute::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CLogRoute::asa*						 public
+ See |CComponent::asa|
+
+
+*CLogRoute::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CLogRoute::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CLogRoute::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CLogRoute::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CLogRoute::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CLogRoute::collectLogs*					 public
 >
  collectLogs($logger, $processLogs=false)
@@ -60,6 +104,38 @@ METHOD DETAILS
     [logger] (CLogger) logger instance
     [processLogs] (boolean) whether to process the logs after they are
     collected from the logger
+
+
+*CLogRoute::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CLogRoute::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CLogRoute::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CLogRoute::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CLogRoute::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CLogRoute::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CLogRoute::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CLogRoute::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
 
 
 *CLogRoute::formatLogMessage*					 protected
@@ -73,6 +149,22 @@ METHOD DETAILS
     [level] (integer) message level
     [category] (string) message category
     [time] (integer) timestamp
+
+
+*CLogRoute::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CLogRoute::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CLogRoute::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CLogRoute::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CLogRoute::init*						 public
@@ -93,10 +185,14 @@ METHOD DETAILS
 
  Processes log messages and sends them to specific destination. Derived child
  classes must implement this method.
-    [logs] (array) list of messages.  Each array elements represents one
-    message with the following structure: array(   [0] => message (string)  
-    [1] => level (string)   [2] => category (string)   [3] => timestamp
-    (float, obtained by microtime(true));
+    [logs] (array) list of messages. Each array element represents one message
+    with the following structure: array(   [0] => message (string)   [1] =>
+    level (string)   [2] => category (string)   [3] => timestamp (float,
+    obtained by microtime(true));
+
+
+*CLogRoute::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
 
 
 

@@ -25,6 +25,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CActiveFinder::__call* 					 public
+ See |CComponent::__call|
+
+
 *CActiveFinder::__construct*					 public
 >
  __construct($model, $with)
@@ -38,6 +42,46 @@ METHOD DETAILS
     [with] (mixed) the relation names to be actively looked for
 
 
+*CActiveFinder::__get*						 public
+ See |CComponent::__get|
+
+
+*CActiveFinder::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CActiveFinder::__set*						 public
+ See |CComponent::__set|
+
+
+*CActiveFinder::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CActiveFinder::asa*						 public
+ See |CComponent::asa|
+
+
+*CActiveFinder::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CActiveFinder::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CActiveFinder::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CActiveFinder::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CActiveFinder::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
 *CActiveFinder::count*						 public
 >
  count($criteria)
@@ -46,6 +90,38 @@ METHOD DETAILS
 
  This method is internally called.
     [criteria] (CDbCriteria) the query criteria
+
+
+*CActiveFinder::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CActiveFinder::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CActiveFinder::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CActiveFinder::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CActiveFinder::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CActiveFinder::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CActiveFinder::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CActiveFinder::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CActiveFinder::findAllBySql*					 public
@@ -70,6 +146,22 @@ METHOD DETAILS
     [params] (array) parameters to be bound to the SQL statement
 
 
+*CActiveFinder::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CActiveFinder::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CActiveFinder::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CActiveFinder::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CActiveFinder::lazyFind*					 public
 >
  lazyFind($baseRecord)
@@ -92,6 +184,10 @@ METHOD DETAILS
  relational query based on the given DB criteria.
     [criteria] (CDbCriteria) the DB criteria
     [all] (boolean) whether to bring back all records
+
+
+*CActiveFinder::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

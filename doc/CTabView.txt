@@ -27,17 +27,19 @@
    'view' is specified.For example, the |CTabView::tabs| property can be
  configured as follows,
 >
- array(
-     'tab1'=>array(
-           'title'=>'tab 1 title',
-           'view'=>'view1',
-           'data'=>array('model'=>$model),
+ $this->widget('CTabView', array(
+     'tabs'=>array(
+         'tab1'=>array(
+             'title'=>'tab 1 title',
+             'view'=>'view1',
+             'data'=>array('model'=>$model),
+         ),
+         'tab2'=>array(
+             'title'=>'tab 2 title',
+             'url'=>'http://www.yiiframework.com/',
+         ),
      ),
-     'tab2'=>array(
-           'title'=>'tab 2 title',
-           'url'=>'http://www.yiiframework.com/',
-     ),
- )
+ ))?>
 <
  By default, the first tab will be activated. To activate a different tab when
  the page is initially loaded, set |CTabView::activeTab| to be the ID of the
@@ -47,9 +49,15 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CTabView::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <activeTab>				*CTabView::activeTab*
  (string) the ID of the tab that should be activated when the page is
  initially loaded. If not set, the first tab will be activated.
+
+<controller>				*CTabView::controller*
+ See |CWidget::controller|
 
 <cssFile>				*CTabView::cssFile*
  (mixed) the CSS file used for the widget. Defaults to null, meaning using the
@@ -59,6 +67,15 @@ PROPERTY DETAILS
 
 <htmlOptions>				*CTabView::htmlOptions*
  (array) additional HTML options to be rendered in the container tag.
+
+<id>					*CTabView::id*
+ See |CWidget::id|
+
+<owner> 				*CTabView::owner*
+ See |CWidget::owner|
+
+<skin>					*CTabView::skin*
+ See |CWidget::skin|
 
 <tabs>					*CTabView::tabs*
  (array) tab definitions. The array keys are the IDs, and the array values are
@@ -74,6 +91,8 @@ PROPERTY DETAILS
    clicking on this tab.
    {data} array (name=>value), this will be passed to the view when
    'view' is specified. This option is available since version 1.1.1.
+   {visible} whether this tab is visible. Defaults to true. this
+   option is available since version 1.1.11.
 >
  array(
      'tab1'=>array(
@@ -91,10 +110,177 @@ PROPERTY DETAILS
  (array) the data that will be passed to the partial view rendered by each
  tab.
 
+<viewPath>				*CTabView::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CTabView::__call*						 public
+ See |CComponent::__call|
+
+
+*CTabView::__construct* 					 public
+ See |CWidget::__construct|
+
+
+*CTabView::__get*						 public
+ See |CComponent::__get|
+
+
+*CTabView::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CTabView::__set*						 public
+ See |CComponent::__set|
+
+
+*CTabView::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CTabView::actions*						 public
+ See |CWidget::actions|
+
+
+*CTabView::asa* 						 public
+ See |CComponent::asa|
+
+
+*CTabView::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CTabView::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CTabView::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CTabView::beginCache*						 public
+ See |CBaseController::beginCache|
+
+
+*CTabView::beginClip*						 public
+ See |CBaseController::beginClip|
+
+
+*CTabView::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CTabView::beginWidget* 					 public
+ See |CBaseController::beginWidget|
+
+
+*CTabView::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CTabView::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CTabView::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CTabView::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CTabView::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CTabView::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CTabView::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CTabView::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CTabView::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CTabView::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CTabView::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CTabView::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CTabView::endContent*						 public
+ See |CBaseController::endContent|
+
+
+*CTabView::endWidget*						 public
+ See |CBaseController::endWidget|
+
+
+*CTabView::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
+*CTabView::getController*					 public
+ See |CWidget::getController|
+
+
+*CTabView::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CTabView::getId*						 public
+ See |CWidget::getId|
+
+
+*CTabView::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CTabView::getViewFile* 					 public
+ See |CWidget::getViewFile|
+
+
+*CTabView::getViewPath* 					 public
+ See |CWidget::getViewPath|
+
+
+*CTabView::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CTabView::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CTabView::hasProperty* 					 public
+ See |CComponent::hasProperty|
+
+
+*CTabView::init*						 public
+ See |CWidget::init|
+
+
+*CTabView::raiseEvent*						 public
+ See |CComponent::raiseEvent|
+
 
 *CTabView::registerClientScript*				 public
 >
@@ -115,6 +301,10 @@ METHOD DETAILS
     [url] (string) the CSS URL. If null, a default CSS URL will be used.
 
 
+*CTabView::render*						 public
+ See |CWidget::render|
+
+
 *CTabView::renderBody*						 protected
 >
  renderBody()
@@ -122,6 +312,10 @@ METHOD DETAILS
 (void)
 
  Renders the body part.
+
+
+*CTabView::renderFile*						 public
+ See |CBaseController::renderFile|
 
 
 *CTabView::renderHeader*					 protected
@@ -133,6 +327,10 @@ METHOD DETAILS
  Renders the header part.
 
 
+*CTabView::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
 *CTabView::run* 						 public
 >
  run()
@@ -140,6 +338,14 @@ METHOD DETAILS
 (void)
 
  Runs the widget.
+
+
+*CTabView::setId*						 public
+ See |CWidget::setId|
+
+
+*CTabView::widget*						 public
+ See |CBaseController::widget|
 
 
 

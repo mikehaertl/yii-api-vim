@@ -45,6 +45,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CListView::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <afterAjaxUpdate>			*CListView::afterAjaxUpdate*
  (string) a javascript function that will be invoked after a successful AJAX
  response is received. The function signature is 'function(id, data)' where
@@ -79,10 +82,39 @@ PROPERTY DETAILS
  occurs. The function signature is 'function(id)' where 'id' refers to the ID
  of the list view.
 
+<controller>				*CListView::controller*
+ See |CWidget::controller|
+
 <cssFile>				*CListView::cssFile*
  (string) the URL of the CSS file used by this list view. Defaults to null,
  meaning using the integrated CSS file. If this is set false, you are
  responsible to explicitly include the necessary CSS file in your page.
+
+<dataProvider>				*CListView::dataProvider*
+ See |CBaseListView::dataProvider|
+
+<emptyText>				*CListView::emptyText*
+ See |CBaseListView::emptyText|
+
+<enableHistory> 			*CListView::enableHistory*
+ (boolean) whether to leverage the DOM history object.  Set this property to
+ true to persist state of list across page revisits.  Note, there are two
+ limitations for this feature: - this feature is only compatible with browsers
+ that support HTML5. - expect unexpected functionality (e.g. multiple ajax
+ calls) if there is more than one grid/list on a single page with
+ enableHistory turned on.
+
+<enablePagination>			*CListView::enablePagination*
+ See |CBaseListView::enablePagination|
+
+<enableSorting> 			*CListView::enableSorting*
+ See |CBaseListView::enableSorting|
+
+<htmlOptions>				*CListView::htmlOptions*
+ See |CBaseListView::htmlOptions|
+
+<id>					*CListView::id*
+ See |CWidget::id|
 
 <itemView>				*CListView::itemView*
  (string) the view used for rendering each data item. This property value will
@@ -98,6 +130,9 @@ PROPERTY DETAILS
    currently being rendered.
    '$widget': refers to this list view widget instance.
 
+<itemsCssClass> 			*CListView::itemsCssClass*
+ See |CBaseListView::itemsCssClass|
+
 <itemsTagName>				*CListView::itemsTagName*
  (string) the HTML tag name for the container of all data item display.
  Defaults to 'div'.
@@ -107,8 +142,20 @@ PROPERTY DETAILS
  element when the widget is updating its content via AJAX. Defaults to
  'list-view-loading'.
 
+<owner> 				*CListView::owner*
+ See |CWidget::owner|
+
+<pager> 				*CListView::pager*
+ See |CBaseListView::pager|
+
+<pagerCssClass> 			*CListView::pagerCssClass*
+ See |CBaseListView::pagerCssClass|
+
 <separator>				*CListView::separator*
  (string) the HTML code to be displayed between any two consecutive items.
+
+<skin>					*CListView::skin*
+ See |CWidget::skin|
 
 <sortableAttributes>			*CListView::sortableAttributes*
  (array) list of sortable attribute names. In order for an attribute to be
@@ -123,6 +170,15 @@ PROPERTY DETAILS
 
 <sorterHeader>				*CListView::sorterHeader*
  (string) the text shown before sort links. Defaults to 'Sort by: '.
+
+<summaryCssClass>			*CListView::summaryCssClass*
+ See |CBaseListView::summaryCssClass|
+
+<summaryText>				*CListView::summaryText*
+ See |CBaseListView::summaryText|
+
+<tagName>				*CListView::tagName*
+ See |CBaseListView::tagName|
 
 <template>				*CListView::template*
  (string) the template to be used to control the layout of various components
@@ -140,10 +196,169 @@ PROPERTY DETAILS
  each data item. This array will be extracted into local PHP variables that
  can be accessed in the |CListView::itemView|.
 
+<viewPath>				*CListView::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CListView::__call*						 public
+ See |CComponent::__call|
+
+
+*CListView::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CListView::__get*						 public
+ See |CComponent::__get|
+
+
+*CListView::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CListView::__set*						 public
+ See |CComponent::__set|
+
+
+*CListView::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CListView::actions*						 public
+ See |CWidget::actions|
+
+
+*CListView::asa*						 public
+ See |CComponent::asa|
+
+
+*CListView::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CListView::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CListView::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
+
+
+*CListView::beginCache* 					 public
+ See |CBaseController::beginCache|
+
+
+*CListView::beginClip*						 public
+ See |CBaseController::beginClip|
+
+
+*CListView::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CListView::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CListView::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CListView::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CListView::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CListView::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CListView::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CListView::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*CListView::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CListView::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CListView::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CListView::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CListView::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CListView::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CListView::endContent* 					 public
+ See |CBaseController::endContent|
+
+
+*CListView::endWidget*						 public
+ See |CBaseController::endWidget|
+
+
+*CListView::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
+
+
+*CListView::getController*					 public
+ See |CWidget::getController|
+
+
+*CListView::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CListView::getId*						 public
+ See |CWidget::getId|
+
+
+*CListView::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CListView::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CListView::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CListView::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CListView::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CListView::hasProperty*					 public
+ See |CComponent::hasProperty|
+
 
 *CListView::init*						 public
 >
@@ -155,6 +370,10 @@ METHOD DETAILS
  values and instantiate columns objects.
 
 
+*CListView::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
+
+
 *CListView::registerClientScript*				 public
 >
  registerClientScript()
@@ -162,6 +381,26 @@ METHOD DETAILS
 (void)
 
  Registers necessary client scripts.
+
+
+*CListView::render*						 public
+ See |CWidget::render|
+
+
+*CListView::renderContent*					 public
+ See |CBaseListView::renderContent|
+
+
+*CListView::renderEmptyText*					 public
+ See |CBaseListView::renderEmptyText|
+
+
+*CListView::renderFile* 					 public
+ See |CBaseController::renderFile|
+
+
+*CListView::renderInternal*					 public
+ See |CBaseController::renderInternal|
 
 
 *CListView::renderItems*					 public
@@ -173,6 +412,18 @@ METHOD DETAILS
  Renders the data item list.
 
 
+*CListView::renderKeys* 					 public
+ See |CBaseListView::renderKeys|
+
+
+*CListView::renderPager*					 public
+ See |CBaseListView::renderPager|
+
+
+*CListView::renderSection*					 protected
+ See |CBaseListView::renderSection|
+
+
 *CListView::renderSorter*					 public
 >
  renderSorter()
@@ -180,6 +431,22 @@ METHOD DETAILS
 (void)
 
  Renders the sorter.
+
+
+*CListView::renderSummary*					 public
+ See |CBaseListView::renderSummary|
+
+
+*CListView::run*						 public
+ See |CBaseListView::run|
+
+
+*CListView::setId*						 public
+ See |CWidget::setId|
+
+
+*CListView::widget*						 public
+ See |CBaseController::widget|
 
 
 

@@ -29,6 +29,10 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CConfiguration::__call*					 public
+ See |CComponent::__call|
+
+
 *CConfiguration::__construct*					 public
 >
  __construct($data=NULL)
@@ -40,6 +44,26 @@ METHOD DETAILS
     returning the configuration as an array); If array, it is config data.
 
 
+*CConfiguration::__get* 					 public
+ See |CComponent::__get|
+
+
+*CConfiguration::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CConfiguration::__set* 					 public
+ See |CComponent::__set|
+
+
+*CConfiguration::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CConfiguration::add*						 public
+ See |CMap::add|
+
+
 *CConfiguration::applyTo*					 public
 >
  applyTo($object)
@@ -49,6 +73,114 @@ METHOD DETAILS
  Applies the configuration to an object. Each (key,value) pair in the
  configuration data is applied to the object like: $object->$key=$value.
     [object] (object) object to be applied with this configuration
+
+
+*CConfiguration::asa*						 public
+ See |CComponent::asa|
+
+
+*CConfiguration::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CConfiguration::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CConfiguration::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CConfiguration::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CConfiguration::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CConfiguration::clear* 					 public
+ See |CMap::clear|
+
+
+*CConfiguration::contains*					 public
+ See |CMap::contains|
+
+
+*CConfiguration::copyFrom*					 public
+ See |CMap::copyFrom|
+
+
+*CConfiguration::count* 					 public
+ See |CMap::count|
+
+
+*CConfiguration::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CConfiguration::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CConfiguration::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CConfiguration::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CConfiguration::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CConfiguration::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CConfiguration::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CConfiguration::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CConfiguration::getCount*					 public
+ See |CMap::getCount|
+
+
+*CConfiguration::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CConfiguration::getIterator*					 public
+ See |CMap::getIterator|
+
+
+*CConfiguration::getKeys*					 public
+ See |CMap::getKeys|
+
+
+*CConfiguration::getReadOnly*					 public
+ See |CMap::getReadOnly|
+
+
+*CConfiguration::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CConfiguration::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CConfiguration::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CConfiguration::itemAt*					 public
+ See |CMap::itemAt|
 
 
 *CConfiguration::loadFromFile*					 public
@@ -73,6 +205,38 @@ METHOD DETAILS
     aware of what is the current path)
 
 
+*CConfiguration::mergeArray*					 public
+ See |CMap::mergeArray|
+
+
+*CConfiguration::mergeWith*					 public
+ See |CMap::mergeWith|
+
+
+*CConfiguration::offsetExists*					 public
+ See |CMap::offsetExists|
+
+
+*CConfiguration::offsetGet*					 public
+ See |CMap::offsetGet|
+
+
+*CConfiguration::offsetSet*					 public
+ See |CMap::offsetSet|
+
+
+*CConfiguration::offsetUnset*					 public
+ See |CMap::offsetUnset|
+
+
+*CConfiguration::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CConfiguration::remove*					 public
+ See |CMap::remove|
+
+
 *CConfiguration::saveAsString*					 public
 >
  saveAsString()
@@ -81,6 +245,14 @@ METHOD DETAILS
 
  Saves the configuration into a string. The string is a valid PHP expression
  representing the configuration data as an array.
+
+
+*CConfiguration::setReadOnly*					 protected
+ See |CMap::setReadOnly|
+
+
+*CConfiguration::toArray*					 public
+ See |CMap::toArray|
 
 
 

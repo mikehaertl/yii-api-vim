@@ -19,6 +19,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<cssClassExpression>			*CDataColumn::cssClassExpression*
+ See |CGridColumn::cssClassExpression|
+
 <filter>				*CDataColumn::filter*
  (mixed) the HTML code representing a filter input (eg a text field, a
  dropdown list) that is used for this data column. This property is effective
@@ -27,6 +30,33 @@ PROPERTY DETAILS
  dropdown list will be generated that uses this property value as the list
  options. If you don't want a filter for this data column, set this value to
  false.
+
+<filterHtmlOptions>			*CDataColumn::filterHtmlOptions*
+ See |CGridColumn::filterHtmlOptions|
+
+<footer>				*CDataColumn::footer*
+ See |CGridColumn::footer|
+
+<footerHtmlOptions>			*CDataColumn::footerHtmlOptions*
+ See |CGridColumn::footerHtmlOptions|
+
+<grid>					*CDataColumn::grid*
+ See |CGridColumn::grid|
+
+<hasFooter>				*CDataColumn::hasFooter*
+ See |CGridColumn::hasFooter|
+
+<header>				*CDataColumn::header*
+ See |CGridColumn::header|
+
+<headerHtmlOptions>			*CDataColumn::headerHtmlOptions*
+ See |CGridColumn::headerHtmlOptions|
+
+<htmlOptions>				*CDataColumn::htmlOptions*
+ See |CGridColumn::htmlOptions|
+
+<id>					*CDataColumn::id*
+ See |CGridColumn::id|
 
 <name>					*CDataColumn::name*
  (string) the attribute name of the data model. Used for column sorting,
@@ -54,10 +84,113 @@ PROPERTY DETAILS
  expression, the variable '$row' the row number (zero-based); '$data' the data
  model for the row; and '$this' the column object.
 
+<visible>				*CDataColumn::visible*
+ See |CGridColumn::visible|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CDataColumn::__call*						 public
+ See |CComponent::__call|
+
+
+*CDataColumn::__construct*					 public
+ See |CGridColumn::__construct|
+
+
+*CDataColumn::__get*						 public
+ See |CComponent::__get|
+
+
+*CDataColumn::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CDataColumn::__set*						 public
+ See |CComponent::__set|
+
+
+*CDataColumn::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CDataColumn::asa*						 public
+ See |CComponent::asa|
+
+
+*CDataColumn::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CDataColumn::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CDataColumn::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDataColumn::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CDataColumn::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CDataColumn::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CDataColumn::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CDataColumn::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDataColumn::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CDataColumn::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDataColumn::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CDataColumn::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CDataColumn::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CDataColumn::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDataColumn::getHasFooter*					 public
+ See |CGridColumn::getHasFooter|
+
+
+*CDataColumn::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CDataColumn::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CDataColumn::hasProperty*					 public
+ See |CComponent::hasProperty|
+
 
 *CDataColumn::init*						 public
 >
@@ -66,6 +199,14 @@ METHOD DETAILS
 (void)
 
  Initializes the column.
+
+
+*CDataColumn::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CDataColumn::renderDataCell*					 public
+ See |CGridColumn::renderDataCell|
 
 
 *CDataColumn::renderDataCellContent*				 protected
@@ -80,6 +221,10 @@ METHOD DETAILS
     [data] (mixed) the data associated with the row
 
 
+*CDataColumn::renderFilterCell* 				 public
+ See |CGridColumn::renderFilterCell|
+
+
 *CDataColumn::renderFilterCellContent*				 protected
 >
  renderFilterCellContent()
@@ -91,6 +236,18 @@ METHOD DETAILS
  array, it is assumed to be a list of options, and a dropdown selector will be
  rendered. Otherwise if |CDataColumn::filter| is not false, a text field is
  rendered.
+
+
+*CDataColumn::renderFooterCell* 				 public
+ See |CGridColumn::renderFooterCell|
+
+
+*CDataColumn::renderFooterCellContent*				 protected
+ See |CGridColumn::renderFooterCellContent|
+
+
+*CDataColumn::renderHeaderCell* 				 public
+ See |CGridColumn::renderHeaderCell|
 
 
 *CDataColumn::renderHeaderCellContent*				 protected

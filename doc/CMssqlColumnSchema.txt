@@ -9,6 +9,82 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CMssqlColumnSchema::__call*					 public
+ See |CComponent::__call|
+
+
+*CMssqlColumnSchema::__get*					 public
+ See |CComponent::__get|
+
+
+*CMssqlColumnSchema::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CMssqlColumnSchema::__set*					 public
+ See |CComponent::__set|
+
+
+*CMssqlColumnSchema::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CMssqlColumnSchema::asa*					 public
+ See |CComponent::asa|
+
+
+*CMssqlColumnSchema::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CMssqlColumnSchema::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CMssqlColumnSchema::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CMssqlColumnSchema::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CMssqlColumnSchema::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CMssqlColumnSchema::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CMssqlColumnSchema::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CMssqlColumnSchema::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CMssqlColumnSchema::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CMssqlColumnSchema::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CMssqlColumnSchema::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CMssqlColumnSchema::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CMssqlColumnSchema::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
 *CMssqlColumnSchema::extractDefault*				 protected
 >
  extractDefault($defaultValue)
@@ -39,6 +115,38 @@ METHOD DETAILS
 
  Extracts the PHP type from DB type.
     [dbType] (string) DB type
+
+
+*CMssqlColumnSchema::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CMssqlColumnSchema::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CMssqlColumnSchema::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CMssqlColumnSchema::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CMssqlColumnSchema::init*					 public
+>
+ init($dbType, $defaultValue)
+<
+(void)
+
+ Initializes the column with its DB type and default value. This sets up the
+ column's PHP type, size, precision, scale as well as default value.
+    [dbType] (string) the column's DB type
+    [defaultValue] (mixed) the default value
+
+
+*CMssqlColumnSchema::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 *CMssqlColumnSchema::typecast*					 public

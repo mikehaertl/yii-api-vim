@@ -12,6 +12,39 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<action>				*CExtController::action*
+ See |CController::action|
+
+<actionParams>				*CExtController::actionParams*
+ See |CController::actionParams|
+
+<cachingStack>				*CExtController::cachingStack*
+ See |CController::cachingStack|
+
+<clips> 				*CExtController::clips*
+ See |CController::clips|
+
+<defaultAction> 			*CExtController::defaultAction*
+ See |CController::defaultAction|
+
+<id>					*CExtController::id*
+ See |CController::id|
+
+<layout>				*CExtController::layout*
+ See |CController::layout|
+
+<module>				*CExtController::module*
+ See |CController::module|
+
+<pageTitle>				*CExtController::pageTitle*
+ See |CController::pageTitle|
+
+<route> 				*CExtController::route*
+ See |CController::route|
+
+<uniqueId>				*CExtController::uniqueId*
+ See |CController::uniqueId|
+
 <viewPath>				*CExtController::viewPath*
  (string) Returns the directory containing view files for this controller.
  This method overrides the parent implementation by specifying the view path
@@ -22,6 +55,242 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CExtController::__call*					 public
+ See |CComponent::__call|
+
+
+*CExtController::__construct*					 public
+ See |CController::__construct|
+
+
+*CExtController::__get* 					 public
+ See |CComponent::__get|
+
+
+*CExtController::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CExtController::__set* 					 public
+ See |CComponent::__set|
+
+
+*CExtController::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CExtController::accessRules*					 public
+ See |CController::accessRules|
+
+
+*CExtController::actions*					 public
+ See |CController::actions|
+
+
+*CExtController::afterAction*					 protected
+ See |CController::afterAction|
+
+
+*CExtController::afterRender*					 protected
+ See |CController::afterRender|
+
+
+*CExtController::asa*						 public
+ See |CComponent::asa|
+
+
+*CExtController::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CExtController::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CExtController::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CExtController::beforeAction*					 protected
+ See |CController::beforeAction|
+
+
+*CExtController::beforeRender*					 protected
+ See |CController::beforeRender|
+
+
+*CExtController::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CExtController::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CExtController::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CExtController::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CExtController::behaviors*					 public
+ See |CController::behaviors|
+
+
+*CExtController::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CExtController::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CExtController::clearPageStates*				 public
+ See |CController::clearPageStates|
+
+
+*CExtController::createAbsoluteUrl*				 public
+ See |CController::createAbsoluteUrl|
+
+
+*CExtController::createAction*					 public
+ See |CController::createAction|
+
+
+*CExtController::createActionFromMap*				 protected
+ See |CController::createActionFromMap|
+
+
+*CExtController::createUrl*					 public
+ See |CController::createUrl|
+
+
+*CExtController::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CExtController::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CExtController::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CExtController::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CExtController::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CExtController::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CExtController::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CExtController::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CExtController::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CExtController::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CExtController::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CExtController::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CExtController::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CExtController::filterAccessControl*				 public
+ See |CController::filterAccessControl|
+
+
+*CExtController::filterAjaxOnly*				 public
+ See |CController::filterAjaxOnly|
+
+
+*CExtController::filterPostOnly*				 public
+ See |CController::filterPostOnly|
+
+
+*CExtController::filters*					 public
+ See |CController::filters|
+
+
+*CExtController::forward*					 public
+ See |CController::forward|
+
+
+*CExtController::getAction*					 public
+ See |CController::getAction|
+
+
+*CExtController::getActionParams*				 public
+ See |CController::getActionParams|
+
+
+*CExtController::getCachingStack*				 public
+ See |CController::getCachingStack|
+
+
+*CExtController::getClips*					 public
+ See |CController::getClips|
+
+
+*CExtController::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CExtController::getId* 					 public
+ See |CController::getId|
+
+
+*CExtController::getLayoutFile* 				 public
+ See |CController::getLayoutFile|
+
+
+*CExtController::getModule*					 public
+ See |CController::getModule|
+
+
+*CExtController::getPageState*					 public
+ See |CController::getPageState|
+
+
+*CExtController::getPageTitle*					 public
+ See |CController::getPageTitle|
+
+
+*CExtController::getRoute*					 public
+ See |CController::getRoute|
+
+
+*CExtController::getUniqueId*					 public
+ See |CController::getUniqueId|
+
+
+*CExtController::getViewFile*					 public
+ See |CController::getViewFile|
+
 
 *CExtController::getViewPath*					 public
 >
@@ -35,6 +304,130 @@ METHOD DETAILS
  file.
 
 
+*CExtController::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CExtController::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CExtController::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CExtController::init*						 public
+ See |CController::init|
+
+
+*CExtController::invalidActionParams*				 public
+ See |CController::invalidActionParams|
+
+
+*CExtController::isCachingStackEmpty*				 public
+ See |CController::isCachingStackEmpty|
+
+
+*CExtController::loadPageStates*				 protected
+ See |CController::loadPageStates|
+
+
+*CExtController::missingAction* 				 public
+ See |CController::missingAction|
+
+
+*CExtController::processDynamicOutput*				 public
+ See |CController::processDynamicOutput|
+
+
+*CExtController::processOutput* 				 public
+ See |CController::processOutput|
+
+
+*CExtController::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CExtController::recordCachingAction*				 public
+ See |CController::recordCachingAction|
+
+
+*CExtController::redirect*					 public
+ See |CController::redirect|
+
+
+*CExtController::refresh*					 public
+ See |CController::refresh|
+
+
+*CExtController::render*					 public
+ See |CController::render|
+
+
+*CExtController::renderClip*					 public
+ See |CController::renderClip|
+
+
+*CExtController::renderDynamic* 				 public
+ See |CController::renderDynamic|
+
+
+*CExtController::renderDynamicInternal* 			 public
+ See |CController::renderDynamicInternal|
+
+
+*CExtController::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CExtController::renderInternal*				 public
+ See |CBaseController::renderInternal|
+
+
+*CExtController::renderPartial* 				 public
+ See |CController::renderPartial|
+
+
+*CExtController::renderText*					 public
+ See |CController::renderText|
+
+
+*CExtController::replaceDynamicOutput*				 protected
+ See |CController::replaceDynamicOutput|
+
+
+*CExtController::resolveViewFile*				 public
+ See |CController::resolveViewFile|
+
+
+*CExtController::run*						 public
+ See |CController::run|
+
+
+*CExtController::runAction*					 public
+ See |CController::runAction|
+
+
+*CExtController::runActionWithFilters*				 public
+ See |CController::runActionWithFilters|
+
+
+*CExtController::savePageStates*				 protected
+ See |CController::savePageStates|
+
+
+*CExtController::setAction*					 public
+ See |CController::setAction|
+
+
+*CExtController::setPageState*					 public
+ See |CController::setPageState|
+
+
+*CExtController::setPageTitle*					 public
+ See |CController::setPageTitle|
+
+
 *CExtController::setViewPath*					 public
 >
  setViewPath($value)
@@ -43,6 +436,10 @@ METHOD DETAILS
 
     [value] (string) the directory containing the view files for this
     controller.
+
+
+*CExtController::widget*					 public
+ See |CBaseController::widget|
 
 
 

@@ -11,11 +11,33 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<categories>				*CWebLogRoute::categories*
+ See |CLogRoute::categories|
+
+<enabled>				*CWebLogRoute::enabled*
+ See |CLogRoute::enabled|
+
+<filter>				*CWebLogRoute::filter*
+ See |CLogRoute::filter|
+
 <ignoreAjaxInFireBug>			*CWebLogRoute::ignoreAjaxInFireBug*
  (boolean) whether the log should be ignored in FireBug for ajax calls.
  Defaults to true. This option should be used carefully, because an ajax call
  returns all output as a result data. For example if the ajax call expects a
  json type result any output from the logger will cause ajax call to fail.
+
+<ignoreFlashInFireBug>			*CWebLogRoute::ignoreFlashInFireBug*
+ (boolean) whether the log should be ignored in FireBug for Flash/Flex calls.
+ Defaults to true. This option should be used carefully, because an
+ Flash/Flex call returns all output as a result data. For example if the
+ Flash/Flex call expects an XML type result any output from the logger will
+ cause Flash/Flex call to fail.
+
+<levels>				*CWebLogRoute::levels*
+ See |CLogRoute::levels|
+
+<logs>					*CWebLogRoute::logs*
+ See |CLogRoute::logs|
 
 <showInFireBug> 			*CWebLogRoute::showInFireBug*
  (boolean) whether the log should be displayed in FireBug instead of browser
@@ -26,6 +48,110 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CWebLogRoute::__call*						 public
+ See |CComponent::__call|
+
+
+*CWebLogRoute::__get*						 public
+ See |CComponent::__get|
+
+
+*CWebLogRoute::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CWebLogRoute::__set*						 public
+ See |CComponent::__set|
+
+
+*CWebLogRoute::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CWebLogRoute::asa*						 public
+ See |CComponent::asa|
+
+
+*CWebLogRoute::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CWebLogRoute::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CWebLogRoute::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CWebLogRoute::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CWebLogRoute::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CWebLogRoute::collectLogs*					 public
+ See |CLogRoute::collectLogs|
+
+
+*CWebLogRoute::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CWebLogRoute::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CWebLogRoute::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CWebLogRoute::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CWebLogRoute::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CWebLogRoute::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CWebLogRoute::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CWebLogRoute::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CWebLogRoute::formatLogMessage*				 protected
+ See |CLogRoute::formatLogMessage|
+
+
+*CWebLogRoute::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CWebLogRoute::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CWebLogRoute::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CWebLogRoute::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CWebLogRoute::init*						 public
+ See |CLogRoute::init|
+
+
 *CWebLogRoute::processLogs*					 public
 >
  processLogs($logs)
@@ -34,6 +160,10 @@ METHOD DETAILS
 
  Displays the log messages.
     [logs] (array) list of log messages
+
+
+*CWebLogRoute::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CWebLogRoute::render*						 protected

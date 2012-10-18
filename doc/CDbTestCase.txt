@@ -26,12 +26,30 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<backupGlobals> 			*CDbTestCase::backupGlobals*
+ See |PHPUnit_Framework_TestCase::backupGlobals|
+
+<backupGlobalsBlacklist>		*CDbTestCase::backupGlobalsBlacklist*
+ See |PHPUnit_Framework_TestCase::backupGlobalsBlacklist|
+
+<backupStaticAttributes>		*CDbTestCase::backupStaticAttributes*
+ See |PHPUnit_Framework_TestCase::backupStaticAttributes|
+
+<backupStaticAttributesBlacklist>	*CDbTestCase::backupStaticAttributesBlacklist*
+ See |PHPUnit_Framework_TestCase::backupStaticAttributesBlacklist|
+
 <fixtures>				*CDbTestCase::fixtures*
  (array) a list of fixtures that should be loaded before each test method
  executes. The array keys are fixture names, and the array values are either
  AR class names or table names. If table names, they must begin with a colon
  character (e.g. 'Post' means an AR class, while ':post' means a table name).
  Defaults to false, meaning fixtures will not be used at all.
+
+<preserveGlobalState>			*CDbTestCase::preserveGlobalState*
+ See |PHPUnit_Framework_TestCase::preserveGlobalState|
+
+<runTestInSeparateProcess>		*CDbTestCase::runTestInSeparateProcess*
+ See |PHPUnit_Framework_TestCase::runTestInSeparateProcess|
 
 
 
@@ -50,6 +68,10 @@ METHOD DETAILS
     [params] (string) method parameters
 
 
+*CDbTestCase::__construct*					 public
+ See |PHPUnit_Framework_TestCase::__construct|
+
+
 *CDbTestCase::__get*						 public
 >
  __get($name)
@@ -59,6 +81,454 @@ METHOD DETAILS
  PHP magic method. This method is overridden so that named fixture data can be
  accessed like a normal property.
     [name] (string) the property name
+
+
+*CDbTestCase::addToAssertionCount*				 public
+ See |PHPUnit_Framework_TestCase::addToAssertionCount|
+
+
+*CDbTestCase::any*						 public
+ See |PHPUnit_Framework_TestCase::any|
+
+
+*CDbTestCase::anything* 					 public
+ See |PHPUnit_Framework_Assert::anything|
+
+
+*CDbTestCase::arrayHasKey*					 public
+ See |PHPUnit_Framework_Assert::arrayHasKey|
+
+
+*CDbTestCase::assertArrayHasKey*				 public
+ See |PHPUnit_Framework_Assert::assertArrayHasKey|
+
+
+*CDbTestCase::assertArrayNotHasKey*				 public
+ See |PHPUnit_Framework_Assert::assertArrayNotHasKey|
+
+
+*CDbTestCase::assertAttributeContains*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeContains|
+
+
+*CDbTestCase::assertAttributeContainsOnly*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeContainsOnly|
+
+
+*CDbTestCase::assertAttributeCount*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeCount|
+
+
+*CDbTestCase::assertAttributeEmpty*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeEmpty|
+
+
+*CDbTestCase::assertAttributeEquals*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeEquals|
+
+
+*CDbTestCase::assertAttributeGreaterThan*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeGreaterThan|
+
+
+*CDbTestCase::assertAttributeGreaterThanOrEqual*		 public
+ See |PHPUnit_Framework_Assert::assertAttributeGreaterThanOrEqual|
+
+
+*CDbTestCase::assertAttributeInstanceOf*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeInstanceOf|
+
+
+*CDbTestCase::assertAttributeInternalType*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeInternalType|
+
+
+*CDbTestCase::assertAttributeLessThan*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeLessThan|
+
+
+*CDbTestCase::assertAttributeLessThanOrEqual*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeLessThanOrEqual|
+
+
+*CDbTestCase::assertAttributeNotContains*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotContains|
+
+
+*CDbTestCase::assertAttributeNotContainsOnly*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotContainsOnly|
+
+
+*CDbTestCase::assertAttributeNotCount*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotCount|
+
+
+*CDbTestCase::assertAttributeNotEmpty*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotEmpty|
+
+
+*CDbTestCase::assertAttributeNotEquals* 			 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotEquals|
+
+
+*CDbTestCase::assertAttributeNotInstanceOf*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotInstanceOf|
+
+
+*CDbTestCase::assertAttributeNotInternalType*			 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotInternalType|
+
+
+*CDbTestCase::assertAttributeNotSame*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeNotSame|
+
+
+*CDbTestCase::assertAttributeSame*				 public
+ See |PHPUnit_Framework_Assert::assertAttributeSame|
+
+
+*CDbTestCase::assertClassHasAttribute*				 public
+ See |PHPUnit_Framework_Assert::assertClassHasAttribute|
+
+
+*CDbTestCase::assertClassHasStaticAttribute*			 public
+ See |PHPUnit_Framework_Assert::assertClassHasStaticAttribute|
+
+
+*CDbTestCase::assertClassNotHasAttribute*			 public
+ See |PHPUnit_Framework_Assert::assertClassNotHasAttribute|
+
+
+*CDbTestCase::assertClassNotHasStaticAttribute* 		 public
+ See |PHPUnit_Framework_Assert::assertClassNotHasStaticAttribute|
+
+
+*CDbTestCase::assertContains*					 public
+ See |PHPUnit_Framework_Assert::assertContains|
+
+
+*CDbTestCase::assertContainsOnly*				 public
+ See |PHPUnit_Framework_Assert::assertContainsOnly|
+
+
+*CDbTestCase::assertCount*					 public
+ See |PHPUnit_Framework_Assert::assertCount|
+
+
+*CDbTestCase::assertEmpty*					 public
+ See |PHPUnit_Framework_Assert::assertEmpty|
+
+
+*CDbTestCase::assertEqualXMLStructure*				 public
+ See |PHPUnit_Framework_Assert::assertEqualXMLStructure|
+
+
+*CDbTestCase::assertEquals*					 public
+ See |PHPUnit_Framework_Assert::assertEquals|
+
+
+*CDbTestCase::assertFalse*					 public
+ See |PHPUnit_Framework_Assert::assertFalse|
+
+
+*CDbTestCase::assertFileEquals* 				 public
+ See |PHPUnit_Framework_Assert::assertFileEquals|
+
+
+*CDbTestCase::assertFileExists* 				 public
+ See |PHPUnit_Framework_Assert::assertFileExists|
+
+
+*CDbTestCase::assertFileNotEquals*				 public
+ See |PHPUnit_Framework_Assert::assertFileNotEquals|
+
+
+*CDbTestCase::assertFileNotExists*				 public
+ See |PHPUnit_Framework_Assert::assertFileNotExists|
+
+
+*CDbTestCase::assertGreaterThan*				 public
+ See |PHPUnit_Framework_Assert::assertGreaterThan|
+
+
+*CDbTestCase::assertGreaterThanOrEqual* 			 public
+ See |PHPUnit_Framework_Assert::assertGreaterThanOrEqual|
+
+
+*CDbTestCase::assertInstanceOf* 				 public
+ See |PHPUnit_Framework_Assert::assertInstanceOf|
+
+
+*CDbTestCase::assertInternalType*				 public
+ See |PHPUnit_Framework_Assert::assertInternalType|
+
+
+*CDbTestCase::assertLessThan*					 public
+ See |PHPUnit_Framework_Assert::assertLessThan|
+
+
+*CDbTestCase::assertLessThanOrEqual*				 public
+ See |PHPUnit_Framework_Assert::assertLessThanOrEqual|
+
+
+*CDbTestCase::assertNotContains*				 public
+ See |PHPUnit_Framework_Assert::assertNotContains|
+
+
+*CDbTestCase::assertNotContainsOnly*				 public
+ See |PHPUnit_Framework_Assert::assertNotContainsOnly|
+
+
+*CDbTestCase::assertNotCount*					 public
+ See |PHPUnit_Framework_Assert::assertNotCount|
+
+
+*CDbTestCase::assertNotEmpty*					 public
+ See |PHPUnit_Framework_Assert::assertNotEmpty|
+
+
+*CDbTestCase::assertNotEquals*					 public
+ See |PHPUnit_Framework_Assert::assertNotEquals|
+
+
+*CDbTestCase::assertNotInstanceOf*				 public
+ See |PHPUnit_Framework_Assert::assertNotInstanceOf|
+
+
+*CDbTestCase::assertNotInternalType*				 public
+ See |PHPUnit_Framework_Assert::assertNotInternalType|
+
+
+*CDbTestCase::assertNotNull*					 public
+ See |PHPUnit_Framework_Assert::assertNotNull|
+
+
+*CDbTestCase::assertNotRegExp*					 public
+ See |PHPUnit_Framework_Assert::assertNotRegExp|
+
+
+*CDbTestCase::assertNotSame*					 public
+ See |PHPUnit_Framework_Assert::assertNotSame|
+
+
+*CDbTestCase::assertNotSameSize*				 public
+ See |PHPUnit_Framework_Assert::assertNotSameSize|
+
+
+*CDbTestCase::assertNotTag*					 public
+ See |PHPUnit_Framework_Assert::assertNotTag|
+
+
+*CDbTestCase::assertNull*					 public
+ See |PHPUnit_Framework_Assert::assertNull|
+
+
+*CDbTestCase::assertObjectHasAttribute* 			 public
+ See |PHPUnit_Framework_Assert::assertObjectHasAttribute|
+
+
+*CDbTestCase::assertObjectNotHasAttribute*			 public
+ See |PHPUnit_Framework_Assert::assertObjectNotHasAttribute|
+
+
+*CDbTestCase::assertPostConditions*				 protected
+ See |PHPUnit_Framework_TestCase::assertPostConditions|
+
+
+*CDbTestCase::assertPreConditions*				 protected
+ See |PHPUnit_Framework_TestCase::assertPreConditions|
+
+
+*CDbTestCase::assertRegExp*					 public
+ See |PHPUnit_Framework_Assert::assertRegExp|
+
+
+*CDbTestCase::assertSame*					 public
+ See |PHPUnit_Framework_Assert::assertSame|
+
+
+*CDbTestCase::assertSameSize*					 public
+ See |PHPUnit_Framework_Assert::assertSameSize|
+
+
+*CDbTestCase::assertSelectCount*				 public
+ See |PHPUnit_Framework_Assert::assertSelectCount|
+
+
+*CDbTestCase::assertSelectEquals*				 public
+ See |PHPUnit_Framework_Assert::assertSelectEquals|
+
+
+*CDbTestCase::assertSelectRegExp*				 public
+ See |PHPUnit_Framework_Assert::assertSelectRegExp|
+
+
+*CDbTestCase::assertStringEndsNotWith*				 public
+ See |PHPUnit_Framework_Assert::assertStringEndsNotWith|
+
+
+*CDbTestCase::assertStringEndsWith*				 public
+ See |PHPUnit_Framework_Assert::assertStringEndsWith|
+
+
+*CDbTestCase::assertStringEqualsFile*				 public
+ See |PHPUnit_Framework_Assert::assertStringEqualsFile|
+
+
+*CDbTestCase::assertStringMatchesFormat*			 public
+ See |PHPUnit_Framework_Assert::assertStringMatchesFormat|
+
+
+*CDbTestCase::assertStringMatchesFormatFile*			 public
+ See |PHPUnit_Framework_Assert::assertStringMatchesFormatFile|
+
+
+*CDbTestCase::assertStringNotEqualsFile*			 public
+ See |PHPUnit_Framework_Assert::assertStringNotEqualsFile|
+
+
+*CDbTestCase::assertStringNotMatchesFormat*			 public
+ See |PHPUnit_Framework_Assert::assertStringNotMatchesFormat|
+
+
+*CDbTestCase::assertStringNotMatchesFormatFile* 		 public
+ See |PHPUnit_Framework_Assert::assertStringNotMatchesFormatFile|
+
+
+*CDbTestCase::assertStringStartsNotWith*			 public
+ See |PHPUnit_Framework_Assert::assertStringStartsNotWith|
+
+
+*CDbTestCase::assertStringStartsWith*				 public
+ See |PHPUnit_Framework_Assert::assertStringStartsWith|
+
+
+*CDbTestCase::assertTag*					 public
+ See |PHPUnit_Framework_Assert::assertTag|
+
+
+*CDbTestCase::assertThat*					 public
+ See |PHPUnit_Framework_Assert::assertThat|
+
+
+*CDbTestCase::assertTrue*					 public
+ See |PHPUnit_Framework_Assert::assertTrue|
+
+
+*CDbTestCase::assertXmlFileEqualsXmlFile*			 public
+ See |PHPUnit_Framework_Assert::assertXmlFileEqualsXmlFile|
+
+
+*CDbTestCase::assertXmlFileNotEqualsXmlFile*			 public
+ See |PHPUnit_Framework_Assert::assertXmlFileNotEqualsXmlFile|
+
+
+*CDbTestCase::assertXmlStringEqualsXmlFile*			 public
+ See |PHPUnit_Framework_Assert::assertXmlStringEqualsXmlFile|
+
+
+*CDbTestCase::assertXmlStringEqualsXmlString*			 public
+ See |PHPUnit_Framework_Assert::assertXmlStringEqualsXmlString|
+
+
+*CDbTestCase::assertXmlStringNotEqualsXmlFile*			 public
+ See |PHPUnit_Framework_Assert::assertXmlStringNotEqualsXmlFile|
+
+
+*CDbTestCase::assertXmlStringNotEqualsXmlString*		 public
+ See |PHPUnit_Framework_Assert::assertXmlStringNotEqualsXmlString|
+
+
+*CDbTestCase::at*						 public
+ See |PHPUnit_Framework_TestCase::at|
+
+
+*CDbTestCase::atLeastOnce*					 public
+ See |PHPUnit_Framework_TestCase::atLeastOnce|
+
+
+*CDbTestCase::attribute*					 public
+ See |PHPUnit_Framework_Assert::attribute|
+
+
+*CDbTestCase::attributeEqualTo* 				 public
+ See |PHPUnit_Framework_Assert::attributeEqualTo|
+
+
+*CDbTestCase::checkRequirements*				 protected
+ See |PHPUnit_Framework_TestCase::checkRequirements|
+
+
+*CDbTestCase::classHasAttribute*				 public
+ See |PHPUnit_Framework_Assert::classHasAttribute|
+
+
+*CDbTestCase::classHasStaticAttribute*				 public
+ See |PHPUnit_Framework_Assert::classHasStaticAttribute|
+
+
+*CDbTestCase::contains* 					 public
+ See |PHPUnit_Framework_Assert::contains|
+
+
+*CDbTestCase::containsOnly*					 public
+ See |PHPUnit_Framework_Assert::containsOnly|
+
+
+*CDbTestCase::count*						 public
+ See |PHPUnit_Framework_TestCase::count|
+
+
+*CDbTestCase::createResult*					 protected
+ See |PHPUnit_Framework_TestCase::createResult|
+
+
+*CDbTestCase::dataToString*					 protected
+ See |PHPUnit_Framework_TestCase::dataToString|
+
+
+*CDbTestCase::equalTo*						 public
+ See |PHPUnit_Framework_Assert::equalTo|
+
+
+*CDbTestCase::exactly*						 public
+ See |PHPUnit_Framework_TestCase::exactly|
+
+
+*CDbTestCase::expectOutputRegex*				 public
+ See |PHPUnit_Framework_TestCase::expectOutputRegex|
+
+
+*CDbTestCase::expectOutputString*				 public
+ See |PHPUnit_Framework_TestCase::expectOutputString|
+
+
+*CDbTestCase::fail*						 public
+ See |PHPUnit_Framework_Assert::fail|
+
+
+*CDbTestCase::fileExists*					 public
+ See |PHPUnit_Framework_Assert::fileExists|
+
+
+*CDbTestCase::getActualOutput*					 public
+ See |PHPUnit_Framework_TestCase::getActualOutput|
+
+
+*CDbTestCase::getAnnotations*					 public
+ See |PHPUnit_Framework_TestCase::getAnnotations|
+
+
+*CDbTestCase::getCount* 					 public
+ See |PHPUnit_Framework_Assert::getCount|
+
+
+*CDbTestCase::getDataSetAsString*				 protected
+ See |PHPUnit_Framework_TestCase::getDataSetAsString|
+
+
+*CDbTestCase::getExpectedException*				 public
+ See |PHPUnit_Framework_TestCase::getExpectedException|
 
 
 *CDbTestCase::getFixtureData*					 public
@@ -92,6 +562,278 @@ record cannot be found.
     [alias] (string) the alias of the fixture data row
 
 
+*CDbTestCase::getMock*						 public
+ See |PHPUnit_Framework_TestCase::getMock|
+
+
+*CDbTestCase::getMockBuilder*					 public
+ See |PHPUnit_Framework_TestCase::getMockBuilder|
+
+
+*CDbTestCase::getMockClass*					 protected
+ See |PHPUnit_Framework_TestCase::getMockClass|
+
+
+*CDbTestCase::getMockForAbstractClass*				 public
+ See |PHPUnit_Framework_TestCase::getMockForAbstractClass|
+
+
+*CDbTestCase::getMockFromWsdl*					 protected
+ See |PHPUnit_Framework_TestCase::getMockFromWsdl|
+
+
+*CDbTestCase::getName*						 public
+ See |PHPUnit_Framework_TestCase::getName|
+
+
+*CDbTestCase::getNumAssertions* 				 public
+ See |PHPUnit_Framework_TestCase::getNumAssertions|
+
+
+*CDbTestCase::getObjectForTrait*				 protected
+ See |PHPUnit_Framework_TestCase::getObjectForTrait|
+
+
+*CDbTestCase::getResult*					 public
+ See |PHPUnit_Framework_TestCase::getResult|
+
+
+*CDbTestCase::getSize*						 public
+ See |PHPUnit_Framework_TestCase::getSize|
+
+
+*CDbTestCase::getStatus*					 public
+ See |PHPUnit_Framework_TestCase::getStatus|
+
+
+*CDbTestCase::getStatusMessage* 				 public
+ See |PHPUnit_Framework_TestCase::getStatusMessage|
+
+
+*CDbTestCase::getTestResultObject*				 public
+ See |PHPUnit_Framework_TestCase::getTestResultObject|
+
+
+*CDbTestCase::greaterThan*					 public
+ See |PHPUnit_Framework_Assert::greaterThan|
+
+
+*CDbTestCase::greaterThanOrEqual*				 public
+ See |PHPUnit_Framework_Assert::greaterThanOrEqual|
+
+
+*CDbTestCase::handleDependencies*				 protected
+ See |PHPUnit_Framework_TestCase::handleDependencies|
+
+
+*CDbTestCase::hasFailed*					 public
+ See |PHPUnit_Framework_TestCase::hasFailed|
+
+
+*CDbTestCase::hasOutput*					 public
+ See |PHPUnit_Framework_TestCase::hasOutput|
+
+
+*CDbTestCase::hasPerformedExpectationsOnOutput* 		 public
+ See |PHPUnit_Framework_TestCase::hasPerformedExpectationsOnOutput|
+
+
+*CDbTestCase::identicalTo*					 public
+ See |PHPUnit_Framework_Assert::identicalTo|
+
+
+*CDbTestCase::iniSet*						 protected
+ See |PHPUnit_Framework_TestCase::iniSet|
+
+
+*CDbTestCase::isEmpty*						 public
+ See |PHPUnit_Framework_Assert::isEmpty|
+
+
+*CDbTestCase::isFalse*						 public
+ See |PHPUnit_Framework_Assert::isFalse|
+
+
+*CDbTestCase::isInstanceOf*					 public
+ See |PHPUnit_Framework_Assert::isInstanceOf|
+
+
+*CDbTestCase::isNull*						 public
+ See |PHPUnit_Framework_Assert::isNull|
+
+
+*CDbTestCase::isTrue*						 public
+ See |PHPUnit_Framework_Assert::isTrue|
+
+
+*CDbTestCase::isType*						 public
+ See |PHPUnit_Framework_Assert::isType|
+
+
+*CDbTestCase::lessThan* 					 public
+ See |PHPUnit_Framework_Assert::lessThan|
+
+
+*CDbTestCase::lessThanOrEqual*					 public
+ See |PHPUnit_Framework_Assert::lessThanOrEqual|
+
+
+*CDbTestCase::logicalAnd*					 public
+ See |PHPUnit_Framework_Assert::logicalAnd|
+
+
+*CDbTestCase::logicalNot*					 public
+ See |PHPUnit_Framework_Assert::logicalNot|
+
+
+*CDbTestCase::logicalOr*					 public
+ See |PHPUnit_Framework_Assert::logicalOr|
+
+
+*CDbTestCase::logicalXor*					 public
+ See |PHPUnit_Framework_Assert::logicalXor|
+
+
+*CDbTestCase::markTestIncomplete*				 public
+ See |PHPUnit_Framework_Assert::markTestIncomplete|
+
+
+*CDbTestCase::markTestSkipped*					 public
+ See |PHPUnit_Framework_Assert::markTestSkipped|
+
+
+*CDbTestCase::matches*						 public
+ See |PHPUnit_Framework_Assert::matches|
+
+
+*CDbTestCase::matchesRegularExpression* 			 public
+ See |PHPUnit_Framework_Assert::matchesRegularExpression|
+
+
+*CDbTestCase::never*						 public
+ See |PHPUnit_Framework_TestCase::never|
+
+
+*CDbTestCase::objectHasAttribute*				 public
+ See |PHPUnit_Framework_Assert::objectHasAttribute|
+
+
+*CDbTestCase::onConsecutiveCalls*				 public
+ See |PHPUnit_Framework_TestCase::onConsecutiveCalls|
+
+
+*CDbTestCase::onNotSuccessfulTest*				 protected
+ See |PHPUnit_Framework_TestCase::onNotSuccessfulTest|
+
+
+*CDbTestCase::once*						 public
+ See |PHPUnit_Framework_TestCase::once|
+
+
+*CDbTestCase::prepareTemplate*					 protected
+ See |PHPUnit_Framework_TestCase::prepareTemplate|
+
+
+*CDbTestCase::readAttribute*					 public
+ See |PHPUnit_Framework_Assert::readAttribute|
+
+
+*CDbTestCase::resetCount*					 public
+ See |PHPUnit_Framework_Assert::resetCount|
+
+
+*CDbTestCase::returnArgument*					 public
+ See |PHPUnit_Framework_TestCase::returnArgument|
+
+
+*CDbTestCase::returnCallback*					 public
+ See |PHPUnit_Framework_TestCase::returnCallback|
+
+
+*CDbTestCase::returnSelf*					 public
+ See |PHPUnit_Framework_TestCase::returnSelf|
+
+
+*CDbTestCase::returnValue*					 public
+ See |PHPUnit_Framework_TestCase::returnValue|
+
+
+*CDbTestCase::returnValueMap*					 public
+ See |PHPUnit_Framework_TestCase::returnValueMap|
+
+
+*CDbTestCase::run*						 public
+ See |PHPUnit_Framework_TestCase::run|
+
+
+*CDbTestCase::runBare*						 public
+ See |PHPUnit_Framework_TestCase::runBare|
+
+
+*CDbTestCase::runTest*						 protected
+ See |PHPUnit_Framework_TestCase::runTest|
+
+
+*CDbTestCase::setBackupGlobals* 				 public
+ See |PHPUnit_Framework_TestCase::setBackupGlobals|
+
+
+*CDbTestCase::setBackupStaticAttributes*			 public
+ See |PHPUnit_Framework_TestCase::setBackupStaticAttributes|
+
+
+*CDbTestCase::setDependencies*					 public
+ See |PHPUnit_Framework_TestCase::setDependencies|
+
+
+*CDbTestCase::setDependencyInput*				 public
+ See |PHPUnit_Framework_TestCase::setDependencyInput|
+
+
+*CDbTestCase::setExpectedException*				 public
+ See |PHPUnit_Framework_TestCase::setExpectedException|
+
+
+*CDbTestCase::setExpectedExceptionFromAnnotation*		 protected
+ See |PHPUnit_Framework_TestCase::setExpectedExceptionFromAnnotation|
+
+
+*CDbTestCase::setInIsolation*					 public
+ See |PHPUnit_Framework_TestCase::setInIsolation|
+
+
+*CDbTestCase::setLocale*					 protected
+ See |PHPUnit_Framework_TestCase::setLocale|
+
+
+*CDbTestCase::setName*						 public
+ See |PHPUnit_Framework_TestCase::setName|
+
+
+*CDbTestCase::setOutputCallback*				 public
+ See |PHPUnit_Framework_TestCase::setOutputCallback|
+
+
+*CDbTestCase::setPreserveGlobalState*				 public
+ See |PHPUnit_Framework_TestCase::setPreserveGlobalState|
+
+
+*CDbTestCase::setRequirementsFromAnnotation*			 protected
+ See |PHPUnit_Framework_TestCase::setRequirementsFromAnnotation|
+
+
+*CDbTestCase::setResult*					 public
+ See |PHPUnit_Framework_TestCase::setResult|
+
+
+*CDbTestCase::setRunTestInSeparateProcess*			 public
+ See |PHPUnit_Framework_TestCase::setRunTestInSeparateProcess|
+
+
+*CDbTestCase::setTestResultObject*				 public
+ See |PHPUnit_Framework_TestCase::setTestResultObject|
+
+
 *CDbTestCase::setUp*						 protected
 >
  setUp()
@@ -101,6 +843,58 @@ record cannot be found.
  Sets up the fixture before executing a test method. If you override this
  method, make sure the parent implementation is invoked. Otherwise, the
  database fixtures will not be managed properly.
+
+
+*CDbTestCase::setUpBeforeClass* 				 public
+ See |PHPUnit_Framework_TestCase::setUpBeforeClass|
+
+
+*CDbTestCase::setUseErrorHandler*				 public
+ See |PHPUnit_Framework_TestCase::setUseErrorHandler|
+
+
+*CDbTestCase::setUseErrorHandlerFromAnnotation* 		 protected
+ See |PHPUnit_Framework_TestCase::setUseErrorHandlerFromAnnotation|
+
+
+*CDbTestCase::setUseOutputBuffering*				 public
+ See |PHPUnit_Framework_TestCase::setUseOutputBuffering|
+
+
+*CDbTestCase::setUseOutputBufferingFromAnnotation*		 protected
+ See |PHPUnit_Framework_TestCase::setUseOutputBufferingFromAnnotation|
+
+
+*CDbTestCase::stringContains*					 public
+ See |PHPUnit_Framework_Assert::stringContains|
+
+
+*CDbTestCase::stringEndsWith*					 public
+ See |PHPUnit_Framework_Assert::stringEndsWith|
+
+
+*CDbTestCase::stringStartsWith* 				 public
+ See |PHPUnit_Framework_Assert::stringStartsWith|
+
+
+*CDbTestCase::tearDown* 					 protected
+ See |PHPUnit_Framework_TestCase::tearDown|
+
+
+*CDbTestCase::tearDownAfterClass*				 public
+ See |PHPUnit_Framework_TestCase::tearDownAfterClass|
+
+
+*CDbTestCase::throwException*					 public
+ See |PHPUnit_Framework_TestCase::throwException|
+
+
+*CDbTestCase::toString* 					 public
+ See |PHPUnit_Framework_TestCase::toString|
+
+
+*CDbTestCase::verifyMockObjects*				 protected
+ See |PHPUnit_Framework_TestCase::verifyMockObjects|
 
 
 

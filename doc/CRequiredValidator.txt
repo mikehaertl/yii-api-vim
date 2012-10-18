@@ -17,12 +17,36 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<attributes>				*CRequiredValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CRequiredValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
+<enableClientValidation>		*CRequiredValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CRequiredValidator::except*
+ See |CValidator::except|
+
+<message>				*CRequiredValidator::message*
+ See |CValidator::message|
+
+<on>					*CRequiredValidator::on*
+ See |CValidator::on|
+
 <requiredValue> 			*CRequiredValidator::requiredValue*
  (mixed) the desired value that the attribute must have. If this is null, the
  validator will validate that the specified attribute does not have null or
  empty value. If this is set as a value that is not null, the validator will
  validate that the attribute has a value that is the same as this property
  value. Defaults to null.
+
+<safe>					*CRequiredValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CRequiredValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 <strict>				*CRequiredValidator::strict*
  (boolean) whether the comparison to |CRequiredValidator::requiredValue| is
@@ -36,6 +60,58 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CRequiredValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CRequiredValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CRequiredValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CRequiredValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CRequiredValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CRequiredValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CRequiredValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CRequiredValidator::asa*					 public
+ See |CComponent::asa|
+
+
+*CRequiredValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CRequiredValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CRequiredValidator::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CRequiredValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CRequiredValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CRequiredValidator::clientValidateAttribute*			 public
 >
  clientValidateAttribute($object, $attribute)
@@ -45,6 +121,70 @@ METHOD DETAILS
  Returns the JavaScript needed for performing client-side validation.
     [object] (CModel) the data object being validated
     [attribute] (string) the name of the attribute to be validated.
+
+
+*CRequiredValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CRequiredValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CRequiredValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CRequiredValidator::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CRequiredValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CRequiredValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CRequiredValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CRequiredValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CRequiredValidator::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CRequiredValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CRequiredValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CRequiredValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CRequiredValidator::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CRequiredValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CRequiredValidator::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CRequiredValidator::validate*					 public
+ See |CValidator::validate|
 
 
 *CRequiredValidator::validateAttribute* 			 protected

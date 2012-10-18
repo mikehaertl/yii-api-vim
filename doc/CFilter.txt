@@ -17,6 +17,82 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CFilter::__call*						 public
+ See |CComponent::__call|
+
+
+*CFilter::__get*						 public
+ See |CComponent::__get|
+
+
+*CFilter::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CFilter::__set*						 public
+ See |CComponent::__set|
+
+
+*CFilter::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CFilter::asa*							 public
+ See |CComponent::asa|
+
+
+*CFilter::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CFilter::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CFilter::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CFilter::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CFilter::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CFilter::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CFilter::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CFilter::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CFilter::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CFilter::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CFilter::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CFilter::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CFilter::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
 *CFilter::filter*						 public
 >
  filter($filterChain)
@@ -28,6 +104,22 @@ METHOD DETAILS
  overridden child classes. If a child class needs to override this method,
  make sure it calls '$filterChain->run()' if the action should be executed.
     [filterChain] (CFilterChain) the filter chain that the filter is on.
+
+
+*CFilter::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CFilter::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CFilter::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CFilter::hasProperty*						 public
+ See |CComponent::hasProperty|
 
 
 *CFilter::init* 						 public
@@ -60,6 +152,10 @@ be executed.
 
  Performs the pre-action filtering.
     [filterChain] (CFilterChain) the filter chain that the filter is on.
+
+
+*CFilter::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 

@@ -13,17 +13,47 @@ PROPERTY DETAILS
  (string) the alias for the table that this relation refers to. Defaults to
  null, meaning the alias will be the same as the relation name.
 
+<className>				*CActiveRelation::className*
+ See |CBaseActiveRelation::className|
+
+<condition>				*CActiveRelation::condition*
+ See |CBaseActiveRelation::condition|
+
+<foreignKey>				*CActiveRelation::foreignKey*
+ See |CBaseActiveRelation::foreignKey|
+
+<group> 				*CActiveRelation::group*
+ See |CBaseActiveRelation::group|
+
+<having>				*CActiveRelation::having*
+ See |CBaseActiveRelation::having|
+
+<join>					*CActiveRelation::join*
+ See |CBaseActiveRelation::join|
+
 <joinType>				*CActiveRelation::joinType*
  (string) join type. Defaults to 'LEFT OUTER JOIN'.
+
+<name>					*CActiveRelation::name*
+ See |CBaseActiveRelation::name|
 
 <on>					*CActiveRelation::on*
  (string) ON clause. The condition specified here will be appended to the
  joining condition using AND operator.
 
+<order> 				*CActiveRelation::order*
+ See |CBaseActiveRelation::order|
+
+<params>				*CActiveRelation::params*
+ See |CBaseActiveRelation::params|
+
 <scopes>				*CActiveRelation::scopes*
  (mixed) scopes to apply Can be set to the one of the following:
    Single scope: 'scopes'=>'scopeName'.
    Multiple scopes: 'scopes'=>array('scopeName1','scopeName2').
+
+<select>				*CActiveRelation::select*
+ See |CBaseActiveRelation::select|
 
 <together>				*CActiveRelation::together*
  (boolean) whether this table should be joined with the primary table. When
@@ -44,6 +74,102 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CActiveRelation::__call*					 public
+ See |CComponent::__call|
+
+
+*CActiveRelation::__construct*					 public
+ See |CBaseActiveRelation::__construct|
+
+
+*CActiveRelation::__get*					 public
+ See |CComponent::__get|
+
+
+*CActiveRelation::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CActiveRelation::__set*					 public
+ See |CComponent::__set|
+
+
+*CActiveRelation::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CActiveRelation::asa*						 public
+ See |CComponent::asa|
+
+
+*CActiveRelation::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CActiveRelation::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CActiveRelation::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CActiveRelation::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CActiveRelation::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CActiveRelation::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CActiveRelation::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CActiveRelation::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CActiveRelation::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CActiveRelation::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CActiveRelation::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CActiveRelation::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CActiveRelation::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CActiveRelation::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CActiveRelation::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CActiveRelation::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CActiveRelation::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CActiveRelation::mergeWith*					 public
 >
  mergeWith($criteria, $fromScope=false)
@@ -53,6 +179,10 @@ METHOD DETAILS
  Merges this relation with a criteria specified dynamically.
     [criteria] (array) the dynamically specified criteria
     [fromScope] (boolean) whether the criteria to be merged is from scopes
+
+
+*CActiveRelation::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

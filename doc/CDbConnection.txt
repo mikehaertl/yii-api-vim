@@ -48,7 +48,7 @@
  }
  catch(Exception $e)
  {
-    $transaction->rollBack();
+    $transaction->rollback();
  }
 <
  CDbConnection also provides a set of methods to support setting and querying
@@ -89,6 +89,9 @@ PROPERTY DETAILS
  the component is being initialized. Defaults to true. Note, this property is
  only effective when the CDbConnection object is used as an application
  component.
+
+<behaviors>				*CDbConnection::behaviors*
+ See |CApplicationComponent::behaviors|
 
 <charset>				*CDbConnection::charset*
  (string) the charset used for database connection. The property is only used
@@ -151,6 +154,9 @@ PROPERTY DETAILS
 <initSQLs>				*CDbConnection::initSQLs*
  (array) list of SQL statements that should be executed right after the DB
  connection is established.
+
+<isInitialized> 			*CDbConnection::isInitialized*
+ See |CApplicationComponent::isInitialized|
 
 <lastInsertID>				*CDbConnection::lastInsertID*
  (string) Returns the ID of the last inserted row or sequence value.
@@ -249,6 +255,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDbConnection::__call* 					 public
+ See |CComponent::__call|
+
+
 *CDbConnection::__construct*					 public
 >
  __construct($dsn='', $username='', $password='')
@@ -264,6 +274,18 @@ METHOD DETAILS
     [password] (string) The password for the DSN string.
 
 
+*CDbConnection::__get*						 public
+ See |CComponent::__get|
+
+
+*CDbConnection::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDbConnection::__set*						 public
+ See |CComponent::__set|
+
+
 *CDbConnection::__sleep*					 public
 >
  __sleep()
@@ -271,6 +293,26 @@ METHOD DETAILS
 (array) 
 
  Close the connection when serializing.
+
+
+*CDbConnection::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDbConnection::asa*						 public
+ See |CComponent::asa|
+
+
+*CDbConnection::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CDbConnection::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbConnection::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
 
 
 *CDbConnection::beginTransaction*				 public
@@ -301,6 +343,14 @@ METHOD DETAILS
     [queryCount] (integer) number of SQL queries that need to be cached after
     calling this method. Defaults to 1, meaning that the next SQL query will
     be cached.
+
+
+*CDbConnection::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CDbConnection::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
 
 
 *CDbConnection::close*						 protected
@@ -336,6 +386,38 @@ METHOD DETAILS
 
  Creates the PDO instance. When some functionalities are missing in the pdo
  driver, we may use an adapter class to provides them.
+
+
+*CDbConnection::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CDbConnection::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbConnection::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbConnection::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbConnection::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbConnection::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CDbConnection::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbConnection::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CDbConnection::getActive*					 public
@@ -442,6 +524,14 @@ transaction.
 (string) name of the DB driver
 
  Returns the name of the DB driver
+
+
+*CDbConnection::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDbConnection::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CDbConnection::getLastInsertID*				 public
@@ -552,6 +642,18 @@ the second element the total time spent in SQL execution.
  Returns the timeout settings for the connection.
 
 
+*CDbConnection::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbConnection::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbConnection::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CDbConnection::init*						 public
 >
  init()
@@ -615,6 +717,10 @@ the second element the total time spent in SQL execution.
 
  Quotes a string value for use in a query.
     [str] (string) string to be quoted
+
+
+*CDbConnection::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CDbConnection::setActive*					 public

@@ -16,11 +16,35 @@ PROPERTY DETAILS
  (boolean) whether the attribute value can be null or empty. Defaults to true,
  meaning that if the attribute is empty, it is considered valid.
 
+<attributes>				*CDateValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CDateValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
+<enableClientValidation>		*CDateValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CDateValidator::except*
+ See |CValidator::except|
+
 <format>				*CDateValidator::format*
  (mixed) the format pattern that the date value should follow. This can be
  either a string or an array representing multiple formats. Defaults to
  'MM/dd/yyyy'. Please see |CDateTimeParser| for details about how to specify a
  date format.
+
+<message>				*CDateValidator::message*
+ See |CValidator::message|
+
+<on>					*CDateValidator::on*
+ See |CValidator::on|
+
+<safe>					*CDateValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CDateValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 <timestampAttribute>			*CDateValidator::timestampAttribute*
  (string) the name of the attribute to receive the parsing result. When this
@@ -31,6 +55,126 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CDateValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CDateValidator::__get* 					 public
+ See |CComponent::__get|
+
+
+*CDateValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDateValidator::__set* 					 public
+ See |CComponent::__set|
+
+
+*CDateValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDateValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CDateValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CDateValidator::asa*						 public
+ See |CComponent::asa|
+
+
+*CDateValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CDateValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDateValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDateValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CDateValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CDateValidator::clientValidateAttribute*			 public
+ See |CValidator::clientValidateAttribute|
+
+
+*CDateValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CDateValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CDateValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDateValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDateValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDateValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDateValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CDateValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDateValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CDateValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDateValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDateValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDateValidator::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CDateValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CDateValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CDateValidator::validate*					 public
+ See |CValidator::validate|
+
 
 *CDateValidator::validateAttribute*				 protected
 >

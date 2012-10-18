@@ -31,6 +31,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CTheme::__call*						 public
+ See |CComponent::__call|
+
+
 *CTheme::__construct*						 public
 >
  __construct($name, $basePath, $baseUrl)
@@ -41,6 +45,78 @@ METHOD DETAILS
     [name] (string) name of the theme
     [basePath] (string) base theme path
     [baseUrl] (string) base theme URL
+
+
+*CTheme::__get* 						 public
+ See |CComponent::__get|
+
+
+*CTheme::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CTheme::__set* 						 public
+ See |CComponent::__set|
+
+
+*CTheme::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CTheme::asa*							 public
+ See |CComponent::asa|
+
+
+*CTheme::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CTheme::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CTheme::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CTheme::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CTheme::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CTheme::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CTheme::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CTheme::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CTheme::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CTheme::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CTheme::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CTheme::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CTheme::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
 
 
 *CTheme::getBasePath*						 public
@@ -57,6 +133,10 @@ METHOD DETAILS
 <
 (string) the relative URL to the theme folder (without ending slash)
 
+
+
+*CTheme::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CTheme::getLayoutFile* 					 public
@@ -111,6 +191,22 @@ METHOD DETAILS
 <
 (string) the path for controller views. Defaults to 'ThemeRoot/views'.
 
+
+
+*CTheme::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CTheme::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CTheme::hasProperty*						 public
+ See |CComponent::hasProperty|
+
+
+*CTheme::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 

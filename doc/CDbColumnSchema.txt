@@ -50,6 +50,82 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CDbColumnSchema::__call*					 public
+ See |CComponent::__call|
+
+
+*CDbColumnSchema::__get*					 public
+ See |CComponent::__get|
+
+
+*CDbColumnSchema::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CDbColumnSchema::__set*					 public
+ See |CComponent::__set|
+
+
+*CDbColumnSchema::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CDbColumnSchema::asa*						 public
+ See |CComponent::asa|
+
+
+*CDbColumnSchema::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CDbColumnSchema::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CDbColumnSchema::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDbColumnSchema::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CDbColumnSchema::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CDbColumnSchema::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CDbColumnSchema::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CDbColumnSchema::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDbColumnSchema::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CDbColumnSchema::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDbColumnSchema::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CDbColumnSchema::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CDbColumnSchema::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CDbColumnSchema::extractDefault*				 protected
 >
  extractDefault($defaultValue)
@@ -81,6 +157,22 @@ METHOD DETAILS
     [dbType] (string) DB type
 
 
+*CDbColumnSchema::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDbColumnSchema::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CDbColumnSchema::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CDbColumnSchema::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CDbColumnSchema::init* 					 public
 >
  init($dbType, $defaultValue)
@@ -91,6 +183,10 @@ METHOD DETAILS
  column's PHP type, size, precision, scale as well as default value.
     [dbType] (string) the column's DB type
     [defaultValue] (mixed) the default value
+
+
+*CDbColumnSchema::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CDbColumnSchema::typecast*					 public

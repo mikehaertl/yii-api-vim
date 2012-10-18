@@ -14,6 +14,12 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<behaviors>				*CDummyCache::behaviors*
+ See |CApplicationComponent::behaviors|
+
+<isInitialized> 			*CDummyCache::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
 <keyPrefix>				*CDummyCache::keyPrefix*
  (string) a string prefixed to every cache key so that it is unique. Defaults
  to |CApplication::getId|.
@@ -22,6 +28,26 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CDummyCache::__call*						 public
+ See |CComponent::__call|
+
+
+*CDummyCache::__get*						 public
+ See |CComponent::__get|
+
+
+*CDummyCache::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CDummyCache::__set*						 public
+ See |CComponent::__set|
+
+
+*CDummyCache::__unset*						 public
+ See |CComponent::__unset|
+
 
 *CDummyCache::add*						 public
 >
@@ -39,6 +65,30 @@ METHOD DETAILS
     dependency changes, the item is labeled invalid.
 
 
+*CDummyCache::asa*						 public
+ See |CComponent::asa|
+
+
+*CDummyCache::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CDummyCache::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CDummyCache::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CDummyCache::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CDummyCache::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CDummyCache::delete*						 public
 >
  delete($id)
@@ -47,6 +97,38 @@ METHOD DETAILS
 
  Deletes a value with the specified key from cache
     [id] (string) the key of the value to be deleted
+
+
+*CDummyCache::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CDummyCache::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CDummyCache::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CDummyCache::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CDummyCache::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CDummyCache::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CDummyCache::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CDummyCache::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CDummyCache::flush*						 public
@@ -68,6 +150,26 @@ expired or the dependency has changed.
 
  Retrieves a value from cache with a specified key.
     [id] (string) a key identifying the cached value
+
+
+*CDummyCache::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
+*CDummyCache::getIsInitialized* 				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
+*CDummyCache::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CDummyCache::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CDummyCache::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CDummyCache::init*						 public
@@ -142,6 +244,10 @@ expired.
  Deletes the value with the specified key from cache This method is required
  by the interface ArrayAccess.
     [id] (string) the key of the value to be deleted
+
+
+*CDummyCache::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CDummyCache::set*						 public

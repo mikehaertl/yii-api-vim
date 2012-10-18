@@ -9,9 +9,21 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<code>					*CDbException::code*
+ See |Exception::code|
+
 <errorInfo>				*CDbException::errorInfo*
  (mixed) the error info provided by a PDO exception. This is the same as
  returned by 'PDO::errorInfo'.
+
+<file>					*CDbException::file*
+ See |Exception::file|
+
+<line>					*CDbException::line*
+ See |Exception::line|
+
+<message>				*CDbException::message*
+ See |Exception::message|
 
 
 
@@ -28,6 +40,38 @@ METHOD DETAILS
     [message] (string) PDO error message
     [code] (integer) PDO error code
     [errorInfo] (mixed) PDO error info
+
+
+*CDbException::__toString*					 public
+ See |Exception::__toString|
+
+
+*CDbException::getCode* 					 public
+ See |Exception::getCode|
+
+
+*CDbException::getFile* 					 public
+ See |Exception::getFile|
+
+
+*CDbException::getLine* 					 public
+ See |Exception::getLine|
+
+
+*CDbException::getMessage*					 public
+ See |Exception::getMessage|
+
+
+*CDbException::getPrevious*					 public
+ See |Exception::getPrevious|
+
+
+*CDbException::getTrace*					 public
+ See |Exception::getTrace|
+
+
+*CDbException::getTraceAsString*				 public
+ See |Exception::getTraceAsString|
 
 
 

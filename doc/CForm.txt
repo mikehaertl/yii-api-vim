@@ -119,6 +119,9 @@ PROPERTY DETAILS
  (CBaseController) the owner of this form. This refers to either a controller
  or a widget by which the form is created and rendered.
 
+<parent>				*CForm::parent*
+ See |CFormElement::parent|
+
 <root>					*CForm::root*
  (CForm) the top-level form object
 
@@ -133,10 +136,17 @@ PROPERTY DETAILS
 <uniqueId>				*CForm::uniqueId*
  (string) Returns a unique ID that identifies this form in the current page.
 
+<visible>				*CForm::visible*
+ See |CFormElement::visible|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CForm::__call* 						 public
+ See |CComponent::__call|
+
 
 *CForm::__construct*						 public
 >
@@ -158,6 +168,26 @@ METHOD DETAILS
     means this form is a sub-form.
 
 
+*CForm::__get*							 public
+ See |CFormElement::__get|
+
+
+*CForm::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CForm::__set*							 public
+ See |CFormElement::__set|
+
+
+*CForm::__toString*						 public
+ See |CFormElement::__toString|
+
+
+*CForm::__unset*						 public
+ See |CComponent::__unset|
+
+
 *CForm::addedElement*						 public
 >
  addedElement($name, $element, $forButtons)
@@ -172,6 +202,30 @@ METHOD DETAILS
     the |CForm::elements| collection.
 
 
+*CForm::asa*							 public
+ See |CComponent::asa|
+
+
+*CForm::attachBehavior* 					 public
+ See |CComponent::attachBehavior|
+
+
+*CForm::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CForm::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CForm::canGetProperty* 					 public
+ See |CComponent::canGetProperty|
+
+
+*CForm::canSetProperty* 					 public
+ See |CComponent::canSetProperty|
+
+
 *CForm::clicked*						 public
 >
  clicked($name)
@@ -180,6 +234,42 @@ METHOD DETAILS
 
  Returns a value indicating whether the specified button is clicked.
     [name] (string) the button name
+
+
+*CForm::configure*						 public
+ See |CFormElement::configure|
+
+
+*CForm::detachBehavior* 					 public
+ See |CComponent::detachBehavior|
+
+
+*CForm::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CForm::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CForm::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CForm::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CForm::enableBehavior* 					 public
+ See |CComponent::enableBehavior|
+
+
+*CForm::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CForm::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
 
 
 *CForm::evaluateVisible*					 protected
@@ -225,6 +315,10 @@ will return the active form widget as specified by |CForm::activeForm|.
  For more details, see |CMap|.
 
 
+*CForm::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
 *CForm::getModel*						 public
 >
  getModel($checkParent=true)
@@ -255,6 +349,10 @@ or a widget by which the form is created and rendered.
 
 
 
+*CForm::getParent*						 public
+ See |CFormElement::getParent|
+
+
 *CForm::getRoot*						 public
 >
  getRoot()
@@ -270,6 +368,22 @@ or a widget by which the form is created and rendered.
 (string) the unique ID identifying this form
 
  Returns a unique ID that identifies this form in the current page.
+
+
+*CForm::getVisible*						 public
+ See |CFormElement::getVisible|
+
+
+*CForm::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CForm::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CForm::hasProperty*						 public
+ See |CComponent::hasProperty|
 
 
 *CForm::init*							 protected
@@ -337,6 +451,10 @@ or a widget by which the form is created and rendered.
  Unsets the element at the specified offset. This method is required by the
  interface ArrayAccess.
     [offset] (mixed) the offset to unset element
+
+
+*CForm::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 *CForm::removedElement* 					 public
@@ -454,7 +572,7 @@ or a widget by which the form is created and rendered.
  a |CFormStringElement| object (when 'type' is 'string'), a |CFormElement|
  object (when 'type' is a string ending with 'Form'), or a |CFormInputElement|
  object in all other cases.
-    [elements] (array) the button configurations
+    [elements] (array) the elements configurations
 
 
 *CForm::setModel*						 public
@@ -464,6 +582,10 @@ or a widget by which the form is created and rendered.
 (void)
 
     [model] (CModel) the model to be associated with this form
+
+
+*CForm::setVisible*						 public
+ See |CFormElement::setVisible|
 
 
 *CForm::submitted*						 public

@@ -11,6 +11,12 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CBaseListView::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CBaseListView::controller*
+ See |CWidget::controller|
+
 <dataProvider>				*CBaseListView::dataProvider*
  (IDataProvider) the data provider for the view.
 
@@ -34,6 +40,9 @@ PROPERTY DETAILS
 <htmlOptions>				*CBaseListView::htmlOptions*
  (array) the HTML options for the view container tag.
 
+<id>					*CBaseListView::id*
+ See |CWidget::id|
+
 <itemsCssClass> 			*CBaseListView::itemsCssClass*
  (string) the CSS class name for the container of all data item display.
  Defaults to 'items'.
@@ -43,12 +52,21 @@ PROPERTY DETAILS
  element when the widget is updating its content via AJAX. Defaults to
  'loading'.
 
+<owner> 				*CBaseListView::owner*
+ See |CWidget::owner|
+
 <pager> 				*CBaseListView::pager*
- (array) the configuration for the pager. Defaults to
- 'array('class'=>'CLinkPager')'.
+ (array|string) the configuration for the pager. Defaults to
+ 'array('class'=>'CLinkPager')'. String value will be treated as the class
+ name of the pager (''ClassName'' value is similar to the
+ 'array('class'=>'ClassName')' value). See |CBasePager| and |CLinkPager| for
+ more details about pager configuration array values.
 
 <pagerCssClass> 			*CBaseListView::pagerCssClass*
  (string) the CSS class name for the pager container. Defaults to 'pager'.
+
+<skin>					*CBaseListView::skin*
+ See |CWidget::skin|
 
 <summaryCssClass>			*CBaseListView::summaryCssClass*
  (string) the CSS class name for the summary text container. Defaults to
@@ -73,10 +91,169 @@ PROPERTY DETAILS
  the view. These tokens are recognized: {summary}, {items} and {pager}. They
  will be replaced with the summary text, the items, and the pager.
 
+<viewPath>				*CBaseListView::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CBaseListView::__call* 					 public
+ See |CComponent::__call|
+
+
+*CBaseListView::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CBaseListView::__get*						 public
+ See |CComponent::__get|
+
+
+*CBaseListView::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CBaseListView::__set*						 public
+ See |CComponent::__set|
+
+
+*CBaseListView::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CBaseListView::actions*					 public
+ See |CWidget::actions|
+
+
+*CBaseListView::asa*						 public
+ See |CComponent::asa|
+
+
+*CBaseListView::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CBaseListView::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CBaseListView::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CBaseListView::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CBaseListView::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CBaseListView::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CBaseListView::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CBaseListView::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CBaseListView::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CBaseListView::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CBaseListView::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CBaseListView::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CBaseListView::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CBaseListView::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CBaseListView::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CBaseListView::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CBaseListView::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CBaseListView::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CBaseListView::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CBaseListView::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CBaseListView::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CBaseListView::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CBaseListView::getController*					 public
+ See |CWidget::getController|
+
+
+*CBaseListView::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CBaseListView::getId*						 public
+ See |CWidget::getId|
+
+
+*CBaseListView::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CBaseListView::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CBaseListView::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CBaseListView::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CBaseListView::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CBaseListView::hasProperty*					 public
+ See |CComponent::hasProperty|
+
 
 *CBaseListView::init*						 public
 >
@@ -88,6 +265,10 @@ METHOD DETAILS
  and instantiate columns objects.
 
 
+*CBaseListView::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
 *CBaseListView::registerClientScript*				 public
 >
  registerClientScript()
@@ -97,6 +278,10 @@ METHOD DETAILS
  Registers necessary client scripts. This method is invoked by
  |CBaseListView::run|. Child classes may override this method to register
  customized client scripts.
+
+
+*CBaseListView::render* 					 public
+ See |CWidget::render|
 
 
 *CBaseListView::renderContent*					 public
@@ -118,6 +303,14 @@ METHOD DETAILS
 (void)
 
  Renders the empty message when there is no data.
+
+
+*CBaseListView::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CBaseListView::renderInternal* 				 public
+ See |CBaseController::renderInternal|
 
 
 *CBaseListView::renderItems*					 public
@@ -180,6 +373,14 @@ METHOD DETAILS
 
  Renders the view. This is the main entry of the whole view rendering. Child
  classes should mainly override |CBaseListView::renderContent| method.
+
+
+*CBaseListView::setId*						 public
+ See |CWidget::setId|
+
+
+*CBaseListView::widget* 					 public
+ See |CBaseController::widget|
 
 
 

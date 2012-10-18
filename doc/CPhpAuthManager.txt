@@ -25,10 +25,51 @@ PROPERTY DETAILS
 <authItems>				*CPhpAuthManager::authItems*
  (array) Returns the authorization items of the specific type and user.
 
+<behaviors>				*CPhpAuthManager::behaviors*
+ See |CApplicationComponent::behaviors|
+
+<defaultRoles>				*CPhpAuthManager::defaultRoles*
+ See |CAuthManager::defaultRoles|
+
+<isInitialized> 			*CPhpAuthManager::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
+<operations>				*CPhpAuthManager::operations*
+ See |CAuthManager::operations|
+
+<roles> 				*CPhpAuthManager::roles*
+ See |CAuthManager::roles|
+
+<showErrors>				*CPhpAuthManager::showErrors*
+ See |CAuthManager::showErrors|
+
+<tasks> 				*CPhpAuthManager::tasks*
+ See |CAuthManager::tasks|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CPhpAuthManager::__call*					 public
+ See |CComponent::__call|
+
+
+*CPhpAuthManager::__get*					 public
+ See |CComponent::__get|
+
+
+*CPhpAuthManager::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CPhpAuthManager::__set*					 public
+ See |CComponent::__set|
+
+
+*CPhpAuthManager::__unset*					 public
+ See |CComponent::__unset|
+
 
 *CPhpAuthManager::addItemChild* 				 public
 >
@@ -39,6 +80,10 @@ METHOD DETAILS
  Adds an item as a child of another item.
     [itemName] (string) the parent item name
     [childName] (string) the child item name
+
+
+*CPhpAuthManager::asa*						 public
+ See |CComponent::asa|
 
 
 *CPhpAuthManager::assign*					 public
@@ -56,6 +101,26 @@ METHOD DETAILS
     [data] (mixed) additional data associated with this assignment
 
 
+*CPhpAuthManager::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CPhpAuthManager::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CPhpAuthManager::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CPhpAuthManager::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CPhpAuthManager::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CPhpAuthManager::checkAccess*					 public
 >
  checkAccess($itemName, $userId, $params=array())
@@ -68,7 +133,13 @@ METHOD DETAILS
     string representing the unique identifier of a user. See
     |IWebUser::getId|.
     [params] (array) name-value pairs that would be passed to biz rules
-    associated with the tasks and roles assigned to the user.
+    associated with the tasks and roles assigned to the user. Since version
+    1.1.11 a param with name 'userId' is added to this array, which holds the
+    value of '$userId'.
+
+
+*CPhpAuthManager::checkItemChildType*				 protected
+ See |CAuthManager::checkItemChildType|
 
 
 *CPhpAuthManager::clearAll*					 public
@@ -108,6 +179,30 @@ METHOD DETAILS
     [data] (mixed) additional data associated with the item.
 
 
+*CPhpAuthManager::createOperation*				 public
+ See |CAuthManager::createOperation|
+
+
+*CPhpAuthManager::createRole*					 public
+ See |CAuthManager::createRole|
+
+
+*CPhpAuthManager::createTask*					 public
+ See |CAuthManager::createTask|
+
+
+*CPhpAuthManager::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CPhpAuthManager::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CPhpAuthManager::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
 *CPhpAuthManager::detectLoop*					 protected
 >
  detectLoop($itemName, $childName)
@@ -118,6 +213,30 @@ METHOD DETAILS
     [itemName] (string) parent item name
     [childName] (string) the name of the child item that is to be added to the
     hierarchy
+
+
+*CPhpAuthManager::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CPhpAuthManager::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CPhpAuthManager::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CPhpAuthManager::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CPhpAuthManager::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CPhpAuthManager::executeBizRule*				 public
+ See |CAuthManager::executeBizRule|
 
 
 *CPhpAuthManager::getAuthAssignment*				 public
@@ -166,6 +285,14 @@ returned if there is no item assigned to the user.
     items even if they are not assigned to a user.
 
 
+*CPhpAuthManager::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CPhpAuthManager::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
 *CPhpAuthManager::getItemChildren*				 public
 >
  getItemChildren($names)
@@ -177,6 +304,26 @@ returned if there is no item assigned to the user.
     array. The latter represents a list of item names.
 
 
+*CPhpAuthManager::getOperations*				 public
+ See |CAuthManager::getOperations|
+
+
+*CPhpAuthManager::getRoles*					 public
+ See |CAuthManager::getRoles|
+
+
+*CPhpAuthManager::getTasks*					 public
+ See |CAuthManager::getTasks|
+
+
+*CPhpAuthManager::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CPhpAuthManager::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
 *CPhpAuthManager::hasItemChild* 				 public
 >
  hasItemChild($itemName, $childName)
@@ -186,6 +333,10 @@ returned if there is no item assigned to the user.
  Returns a value indicating whether a child exists within a parent.
     [itemName] (string) the parent item name
     [childName] (string) the child item name
+
+
+*CPhpAuthManager::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CPhpAuthManager::init* 					 public
@@ -226,6 +377,10 @@ returned if there is no item assigned to the user.
 
  Loads the authorization data from a PHP script file.
     [file] (string) the file path.
+
+
+*CPhpAuthManager::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CPhpAuthManager::removeAuthItem*				 public

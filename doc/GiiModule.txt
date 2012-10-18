@@ -59,11 +59,38 @@ PROPERTY DETAILS
 <assetsUrl>				*GiiModule::assetsUrl*
  (string) the base URL that contains all published asset files of gii.
 
+<basePath>				*GiiModule::basePath*
+ See |CModule::basePath|
+
+<behaviors>				*GiiModule::behaviors*
+ See |CModule::behaviors|
+
+<components>				*GiiModule::components*
+ See |CModule::components|
+
+<controllerMap> 			*GiiModule::controllerMap*
+ See |CWebModule::controllerMap|
+
+<controllerNamespace>			*GiiModule::controllerNamespace*
+ See |CWebModule::controllerNamespace|
+
+<controllerPath>			*GiiModule::controllerPath*
+ See |CWebModule::controllerPath|
+
+<defaultController>			*GiiModule::defaultController*
+ See |CWebModule::defaultController|
+
+<description>				*GiiModule::description*
+ See |CWebModule::description|
+
 <generatorPaths>			*GiiModule::generatorPaths*
  (array) a list of path aliases that refer to the directories containing code
  generators. The directory referred by a single path alias may contain
  multiple code generators, each stored under a sub-directory whose name is the
  generator name. Defaults to array('application.gii').
+
+<id>					*GiiModule::id*
+ See |CModule::id|
 
 <ipFilters>				*GiiModule::ipFilters*
  (array) the IP filters that specify which IP addresses are allowed to access
@@ -73,6 +100,21 @@ PROPERTY DETAILS
  may set this property to be false (DO NOT DO THIS UNLESS YOU KNOW THE
  CONSEQUENCE!!!) The default value is array('127.0.0.1', '::1'), which means
  GiiModule can only be accessed on the localhost.
+
+<layout>				*GiiModule::layout*
+ See |CWebModule::layout|
+
+<layoutPath>				*GiiModule::layoutPath*
+ See |CWebModule::layoutPath|
+
+<modulePath>				*GiiModule::modulePath*
+ See |CModule::modulePath|
+
+<modules>				*GiiModule::modules*
+ See |CModule::modules|
+
+<name>					*GiiModule::name*
+ See |CWebModule::name|
 
 <newDirMode>				*GiiModule::newDirMode*
  (integer) the permission to be set for newly generated directories. This
@@ -84,15 +126,58 @@ PROPERTY DETAILS
  will be used by PHP chmod function. Defaults to 0666, meaning the file is
  read-writable by all users.
 
+<params>				*GiiModule::params*
+ See |CModule::params|
+
+<parentModule>				*GiiModule::parentModule*
+ See |CModule::parentModule|
+
 <password>				*GiiModule::password*
  (string) the password that can be used to access GiiModule. If this property
  is set false, then GiiModule can be accessed without password (DO NOT DO THIS
  UNLESS YOU KNOW THE CONSEQUENCE!!!)
 
+<preload>				*GiiModule::preload*
+ See |CModule::preload|
+
+<version>				*GiiModule::version*
+ See |CWebModule::version|
+
+<viewPath>				*GiiModule::viewPath*
+ See |CWebModule::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*GiiModule::__call*						 public
+ See |CComponent::__call|
+
+
+*GiiModule::__construct*					 public
+ See |CModule::__construct|
+
+
+*GiiModule::__get*						 public
+ See |CModule::__get|
+
+
+*GiiModule::__isset*						 public
+ See |CModule::__isset|
+
+
+*GiiModule::__set*						 public
+ See |CComponent::__set|
+
+
+*GiiModule::__unset*						 public
+ See |CComponent::__unset|
+
+
+*GiiModule::afterControllerAction*				 public
+ See |CWebModule::afterControllerAction|
+
 
 *GiiModule::allowIp*						 protected
 >
@@ -102,6 +187,22 @@ METHOD DETAILS
 
  Checks to see if the user IP is allowed by |GiiModule::ipFilters|.
     [ip] (string) the user IP
+
+
+*GiiModule::asa*						 public
+ See |CComponent::asa|
+
+
+*GiiModule::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*GiiModule::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*GiiModule::attachEventHandler* 				 public
+ See |CComponent::attachEventHandler|
 
 
 *GiiModule::beforeControllerAction*				 public
@@ -115,6 +216,50 @@ METHOD DETAILS
  "default/login" and "default/error".
     [controller] (CController) the controller to be accessed.
     [action] (CAction) the action to be accessed.
+
+
+*GiiModule::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*GiiModule::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*GiiModule::configure*						 public
+ See |CModule::configure|
+
+
+*GiiModule::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*GiiModule::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*GiiModule::detachEventHandler* 				 public
+ See |CComponent::detachEventHandler|
+
+
+*GiiModule::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*GiiModule::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*GiiModule::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*GiiModule::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*GiiModule::evaluateExpression* 				 public
+ See |CComponent::evaluateExpression|
 
 
 *GiiModule::findGenerators*					 protected
@@ -134,6 +279,90 @@ METHOD DETAILS
 
 
 
+*GiiModule::getBasePath*					 public
+ See |CModule::getBasePath|
+
+
+*GiiModule::getComponent*					 public
+ See |CModule::getComponent|
+
+
+*GiiModule::getComponents*					 public
+ See |CModule::getComponents|
+
+
+*GiiModule::getControllerPath*					 public
+ See |CWebModule::getControllerPath|
+
+
+*GiiModule::getDescription*					 public
+ See |CWebModule::getDescription|
+
+
+*GiiModule::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*GiiModule::getId*						 public
+ See |CModule::getId|
+
+
+*GiiModule::getLayoutPath*					 public
+ See |CWebModule::getLayoutPath|
+
+
+*GiiModule::getModule*						 public
+ See |CModule::getModule|
+
+
+*GiiModule::getModulePath*					 public
+ See |CModule::getModulePath|
+
+
+*GiiModule::getModules* 					 public
+ See |CModule::getModules|
+
+
+*GiiModule::getName*						 public
+ See |CWebModule::getName|
+
+
+*GiiModule::getParams*						 public
+ See |CModule::getParams|
+
+
+*GiiModule::getParentModule*					 public
+ See |CModule::getParentModule|
+
+
+*GiiModule::getVersion* 					 public
+ See |CWebModule::getVersion|
+
+
+*GiiModule::getViewPath*					 public
+ See |CWebModule::getViewPath|
+
+
+*GiiModule::hasComponent*					 public
+ See |CModule::hasComponent|
+
+
+*GiiModule::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*GiiModule::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*GiiModule::hasModule*						 public
+ See |CModule::hasModule|
+
+
+*GiiModule::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *GiiModule::init*						 public
 >
  init()
@@ -141,6 +370,22 @@ METHOD DETAILS
 (void)
 
  Initializes the gii module.
+
+
+*GiiModule::preinit*						 protected
+ See |CModule::preinit|
+
+
+*GiiModule::preloadComponents*					 protected
+ See |CModule::preloadComponents|
+
+
+*GiiModule::raiseEvent* 					 public
+ See |CComponent::raiseEvent|
+
+
+*GiiModule::setAliases* 					 public
+ See |CModule::setAliases|
 
 
 *GiiModule::setAssetsUrl*					 public
@@ -151,6 +396,50 @@ METHOD DETAILS
 
     [value] (string) the base URL that contains all published asset files of
     gii.
+
+
+*GiiModule::setBasePath*					 public
+ See |CModule::setBasePath|
+
+
+*GiiModule::setComponent*					 public
+ See |CModule::setComponent|
+
+
+*GiiModule::setComponents*					 public
+ See |CModule::setComponents|
+
+
+*GiiModule::setControllerPath*					 public
+ See |CWebModule::setControllerPath|
+
+
+*GiiModule::setId*						 public
+ See |CModule::setId|
+
+
+*GiiModule::setImport*						 public
+ See |CModule::setImport|
+
+
+*GiiModule::setLayoutPath*					 public
+ See |CWebModule::setLayoutPath|
+
+
+*GiiModule::setModulePath*					 public
+ See |CModule::setModulePath|
+
+
+*GiiModule::setModules* 					 public
+ See |CModule::setModules|
+
+
+*GiiModule::setParams*						 public
+ See |CModule::setParams|
+
+
+*GiiModule::setViewPath*					 public
+ See |CWebModule::setViewPath|
 
 
 

@@ -12,9 +12,12 @@ PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
 <criteria>				*CModelEvent::criteria*
- (CDbCrireria) the query criteria that is passed as a parameter to a find
+ (CDbCriteria) the query criteria that is passed as a parameter to a find
  method of |CActiveRecord|. Note that this property is only used by
  |CActiveRecord::onBeforeFind| event. This property could be null.
+
+<handled>				*CModelEvent::handled*
+ See |CEvent::handled|
 
 <isValid>				*CModelEvent::isValid*
  (boolean) whether the model is in valid status and should continue its normal
@@ -24,6 +27,12 @@ PROPERTY DETAILS
  method will quit after handling this event. If true, the normal execution
  cycles will continue, including performing the real validations and calling
  |CModel::afterValidate|.
+
+<params>				*CModelEvent::params*
+ See |CEvent::params|
+
+<sender>				*CModelEvent::sender*
+ See |CEvent::sender|
 
 
 

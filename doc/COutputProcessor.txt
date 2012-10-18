@@ -18,6 +18,170 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*COutputProcessor::__call*					 public
+ See |CComponent::__call|
+
+
+*COutputProcessor::__construct* 				 public
+ See |CFilterWidget::__construct|
+
+
+*COutputProcessor::__get*					 public
+ See |CComponent::__get|
+
+
+*COutputProcessor::__isset*					 public
+ See |CComponent::__isset|
+
+
+*COutputProcessor::__set*					 public
+ See |CComponent::__set|
+
+
+*COutputProcessor::__unset*					 public
+ See |CComponent::__unset|
+
+
+*COutputProcessor::actions*					 public
+ See |CWidget::actions|
+
+
+*COutputProcessor::asa* 					 public
+ See |CComponent::asa|
+
+
+*COutputProcessor::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*COutputProcessor::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*COutputProcessor::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*COutputProcessor::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*COutputProcessor::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*COutputProcessor::beginContent*				 public
+ See |CBaseController::beginContent|
+
+
+*COutputProcessor::beginWidget* 				 public
+ See |CBaseController::beginWidget|
+
+
+*COutputProcessor::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*COutputProcessor::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*COutputProcessor::createWidget*				 public
+ See |CBaseController::createWidget|
+
+
+*COutputProcessor::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*COutputProcessor::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*COutputProcessor::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*COutputProcessor::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*COutputProcessor::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*COutputProcessor::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*COutputProcessor::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*COutputProcessor::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*COutputProcessor::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*COutputProcessor::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*COutputProcessor::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*COutputProcessor::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*COutputProcessor::filter*					 public
+ See |CFilterWidget::filter|
+
+
+*COutputProcessor::getController*				 public
+ See |CWidget::getController|
+
+
+*COutputProcessor::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*COutputProcessor::getId*					 public
+ See |CWidget::getId|
+
+
+*COutputProcessor::getIsFilter* 				 public
+ See |CFilterWidget::getIsFilter|
+
+
+*COutputProcessor::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*COutputProcessor::getViewFile* 				 public
+ See |CWidget::getViewFile|
+
+
+*COutputProcessor::getViewPath* 				 public
+ See |CWidget::getViewPath|
+
+
+*COutputProcessor::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*COutputProcessor::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*COutputProcessor::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
 *COutputProcessor::init*					 public
 >
  init()
@@ -51,6 +215,22 @@ METHOD DETAILS
     [output] (string) the captured output to be processed
 
 
+*COutputProcessor::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*COutputProcessor::render*					 public
+ See |CWidget::render|
+
+
+*COutputProcessor::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*COutputProcessor::renderInternal*				 public
+ See |CBaseController::renderInternal|
+
+
 *COutputProcessor::run* 					 public
 >
  run()
@@ -59,6 +239,14 @@ METHOD DETAILS
 
  Executes the widget. This method stops output buffering and processes the
  captured output.
+
+
+*COutputProcessor::setId*					 public
+ See |CWidget::setId|
+
+
+*COutputProcessor::widget*					 public
+ See |CBaseController::widget|
 
 
 

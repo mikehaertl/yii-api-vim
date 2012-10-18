@@ -27,6 +27,18 @@ PROPERTY DETAILS
  (boolean) whether the attribute value can be null or empty. Defaults to true,
  meaning that if the attribute is empty, it is considered valid.
 
+<attributes>				*CNumberValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CNumberValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
+<enableClientValidation>		*CNumberValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CNumberValidator::except*
+ See |CValidator::except|
+
 <integerOnly>				*CNumberValidator::integerOnly*
  (boolean) whether the attribute value can only be an integer. Defaults to
  false.
@@ -38,12 +50,24 @@ PROPERTY DETAILS
  (integer|float) upper limit of the number. Defaults to null, meaning no upper
  limit.
 
+<message>				*CNumberValidator::message*
+ See |CValidator::message|
+
 <min>					*CNumberValidator::min*
  (integer|float) lower limit of the number. Defaults to null, meaning no lower
  limit.
 
 <numberPattern> 			*CNumberValidator::numberPattern*
  (string) the regular expression for matching numbers.
+
+<on>					*CNumberValidator::on*
+ See |CValidator::on|
+
+<safe>					*CNumberValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CNumberValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 <tooBig>				*CNumberValidator::tooBig*
  (string) user-defined error message used when the value is too big.
@@ -56,6 +80,58 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CNumberValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CNumberValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CNumberValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CNumberValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CNumberValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CNumberValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CNumberValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CNumberValidator::asa* 					 public
+ See |CComponent::asa|
+
+
+*CNumberValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CNumberValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CNumberValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CNumberValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CNumberValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
 *CNumberValidator::clientValidateAttribute*			 public
 >
  clientValidateAttribute($object, $attribute)
@@ -65,6 +141,70 @@ METHOD DETAILS
  Returns the JavaScript needed for performing client-side validation.
     [object] (CModel) the data object being validated
     [attribute] (string) the name of the attribute to be validated.
+
+
+*CNumberValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CNumberValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CNumberValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CNumberValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CNumberValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CNumberValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CNumberValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CNumberValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CNumberValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CNumberValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CNumberValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CNumberValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CNumberValidator::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*CNumberValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CNumberValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CNumberValidator::validate*					 public
+ See |CValidator::validate|
 
 
 *CNumberValidator::validateAttribute*				 protected

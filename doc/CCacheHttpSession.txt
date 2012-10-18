@@ -18,18 +18,103 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<autoStart>				*CCacheHttpSession::autoStart*
+ See |CHttpSession::autoStart|
+
+<behaviors>				*CCacheHttpSession::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <cacheID>				*CCacheHttpSession::cacheID*
  (string) the ID of the cache application component. Defaults to 'cache' (the
  primary cache application component.)
+
+<cookieMode>				*CCacheHttpSession::cookieMode*
+ See |CHttpSession::cookieMode|
+
+<cookieParams>				*CCacheHttpSession::cookieParams*
+ See |CHttpSession::cookieParams|
+
+<count> 				*CCacheHttpSession::count*
+ See |CHttpSession::count|
+
+<gCProbability> 			*CCacheHttpSession::gCProbability*
+ See |CHttpSession::gCProbability|
+
+<isInitialized> 			*CCacheHttpSession::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
+<isStarted>				*CCacheHttpSession::isStarted*
+ See |CHttpSession::isStarted|
+
+<iterator>				*CCacheHttpSession::iterator*
+ See |CHttpSession::iterator|
+
+<keys>					*CCacheHttpSession::keys*
+ See |CHttpSession::keys|
+
+<savePath>				*CCacheHttpSession::savePath*
+ See |CHttpSession::savePath|
+
+<sessionID>				*CCacheHttpSession::sessionID*
+ See |CHttpSession::sessionID|
+
+<sessionName>				*CCacheHttpSession::sessionName*
+ See |CHttpSession::sessionName|
+
+<timeout>				*CCacheHttpSession::timeout*
+ See |CHttpSession::timeout|
 
 <useCustomStorage>			*CCacheHttpSession::useCustomStorage*
  (boolean) Returns a value indicating whether to use custom session storage.
  This method overrides the parent implementation and always returns true.
 
+<useTransparentSessionID>		*CCacheHttpSession::useTransparentSessionID*
+ See |CHttpSession::useTransparentSessionID|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CCacheHttpSession::__call*					 public
+ See |CComponent::__call|
+
+
+*CCacheHttpSession::__get*					 public
+ See |CComponent::__get|
+
+
+*CCacheHttpSession::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CCacheHttpSession::__set*					 public
+ See |CComponent::__set|
+
+
+*CCacheHttpSession::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CCacheHttpSession::add*					 public
+ See |CHttpSession::add|
+
+
+*CCacheHttpSession::asa*					 public
+ See |CComponent::asa|
+
+
+*CCacheHttpSession::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CCacheHttpSession::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CCacheHttpSession::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
 
 *CCacheHttpSession::calculateKey*				 protected
 >
@@ -39,6 +124,38 @@ METHOD DETAILS
 
  Generates a unique key used for storing session data in cache.
     [id] (string) session variable name
+
+
+*CCacheHttpSession::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CCacheHttpSession::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CCacheHttpSession::clear*					 public
+ See |CHttpSession::clear|
+
+
+*CCacheHttpSession::close*					 public
+ See |CHttpSession::close|
+
+
+*CCacheHttpSession::closeSession*				 public
+ See |CHttpSession::closeSession|
+
+
+*CCacheHttpSession::contains*					 public
+ See |CHttpSession::contains|
+
+
+*CCacheHttpSession::count*					 public
+ See |CHttpSession::count|
+
+
+*CCacheHttpSession::destroy*					 public
+ See |CHttpSession::destroy|
 
 
 *CCacheHttpSession::destroySession*				 public
@@ -51,6 +168,98 @@ METHOD DETAILS
     [id] (string) session ID
 
 
+*CCacheHttpSession::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CCacheHttpSession::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CCacheHttpSession::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CCacheHttpSession::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CCacheHttpSession::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CCacheHttpSession::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CCacheHttpSession::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CCacheHttpSession::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
+*CCacheHttpSession::gcSession*					 public
+ See |CHttpSession::gcSession|
+
+
+*CCacheHttpSession::get*					 public
+ See |CHttpSession::get|
+
+
+*CCacheHttpSession::getCookieMode*				 public
+ See |CHttpSession::getCookieMode|
+
+
+*CCacheHttpSession::getCookieParams*				 public
+ See |CHttpSession::getCookieParams|
+
+
+*CCacheHttpSession::getCount*					 public
+ See |CHttpSession::getCount|
+
+
+*CCacheHttpSession::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CCacheHttpSession::getGCProbability*				 public
+ See |CHttpSession::getGCProbability|
+
+
+*CCacheHttpSession::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
+*CCacheHttpSession::getIsStarted*				 public
+ See |CHttpSession::getIsStarted|
+
+
+*CCacheHttpSession::getIterator*				 public
+ See |CHttpSession::getIterator|
+
+
+*CCacheHttpSession::getKeys*					 public
+ See |CHttpSession::getKeys|
+
+
+*CCacheHttpSession::getSavePath*				 public
+ See |CHttpSession::getSavePath|
+
+
+*CCacheHttpSession::getSessionID*				 public
+ See |CHttpSession::getSessionID|
+
+
+*CCacheHttpSession::getSessionName*				 public
+ See |CHttpSession::getSessionName|
+
+
+*CCacheHttpSession::getTimeout* 				 public
+ See |CHttpSession::getTimeout|
+
+
 *CCacheHttpSession::getUseCustomStorage*			 public
 >
  getUseCustomStorage()
@@ -59,6 +268,22 @@ METHOD DETAILS
 
  Returns a value indicating whether to use custom session storage. This method
  overrides the parent implementation and always returns true.
+
+
+*CCacheHttpSession::getUseTransparentSessionID* 		 public
+ See |CHttpSession::getUseTransparentSessionID|
+
+
+*CCacheHttpSession::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CCacheHttpSession::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CCacheHttpSession::hasProperty*				 public
+ See |CComponent::hasProperty|
 
 
 *CCacheHttpSession::init*					 public
@@ -71,6 +296,38 @@ METHOD DETAILS
  implementation by checking if cache is available.
 
 
+*CCacheHttpSession::itemAt*					 public
+ See |CHttpSession::itemAt|
+
+
+*CCacheHttpSession::offsetExists*				 public
+ See |CHttpSession::offsetExists|
+
+
+*CCacheHttpSession::offsetGet*					 public
+ See |CHttpSession::offsetGet|
+
+
+*CCacheHttpSession::offsetSet*					 public
+ See |CHttpSession::offsetSet|
+
+
+*CCacheHttpSession::offsetUnset*				 public
+ See |CHttpSession::offsetUnset|
+
+
+*CCacheHttpSession::open*					 public
+ See |CHttpSession::open|
+
+
+*CCacheHttpSession::openSession*				 public
+ See |CHttpSession::openSession|
+
+
+*CCacheHttpSession::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
+
+
 *CCacheHttpSession::readSession*				 public
 >
  readSession($id)
@@ -79,6 +336,50 @@ METHOD DETAILS
 
  Session read handler. Do not call this method directly.
     [id] (string) session ID
+
+
+*CCacheHttpSession::regenerateID*				 public
+ See |CHttpSession::regenerateID|
+
+
+*CCacheHttpSession::remove*					 public
+ See |CHttpSession::remove|
+
+
+*CCacheHttpSession::setCookieMode*				 public
+ See |CHttpSession::setCookieMode|
+
+
+*CCacheHttpSession::setCookieParams*				 public
+ See |CHttpSession::setCookieParams|
+
+
+*CCacheHttpSession::setGCProbability*				 public
+ See |CHttpSession::setGCProbability|
+
+
+*CCacheHttpSession::setSavePath*				 public
+ See |CHttpSession::setSavePath|
+
+
+*CCacheHttpSession::setSessionID*				 public
+ See |CHttpSession::setSessionID|
+
+
+*CCacheHttpSession::setSessionName*				 public
+ See |CHttpSession::setSessionName|
+
+
+*CCacheHttpSession::setTimeout* 				 public
+ See |CHttpSession::setTimeout|
+
+
+*CCacheHttpSession::setUseTransparentSessionID* 		 public
+ See |CHttpSession::setUseTransparentSessionID|
+
+
+*CCacheHttpSession::toArray*					 public
+ See |CHttpSession::toArray|
 
 
 *CCacheHttpSession::writeSession*				 public

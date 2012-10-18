@@ -9,20 +9,96 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<attributes>				*CInlineValidator::attributes*
+ See |CValidator::attributes|
+
+<builtInValidators>			*CInlineValidator::builtInValidators*
+ See |CValidator::builtInValidators|
+
 <clientValidate>			*CInlineValidator::clientValidate*
  (string) the name of the method that returns the client validation code (See
  |CInlineValidator::clientValidateAttribute|).
 
+<enableClientValidation>		*CInlineValidator::enableClientValidation*
+ See |CValidator::enableClientValidation|
+
+<except>				*CInlineValidator::except*
+ See |CValidator::except|
+
+<message>				*CInlineValidator::message*
+ See |CValidator::message|
+
 <method>				*CInlineValidator::method*
  (string) the name of the validation method defined in the active record class
 
+<on>					*CInlineValidator::on*
+ See |CValidator::on|
+
 <params>				*CInlineValidator::params*
  (array) additional parameters that are passed to the validation method
+
+<safe>					*CInlineValidator::safe*
+ See |CValidator::safe|
+
+<skipOnError>				*CInlineValidator::skipOnError*
+ See |CValidator::skipOnError|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CInlineValidator::__call*					 public
+ See |CComponent::__call|
+
+
+*CInlineValidator::__get*					 public
+ See |CComponent::__get|
+
+
+*CInlineValidator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CInlineValidator::__set*					 public
+ See |CComponent::__set|
+
+
+*CInlineValidator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CInlineValidator::addError*					 protected
+ See |CValidator::addError|
+
+
+*CInlineValidator::applyTo*					 public
+ See |CValidator::applyTo|
+
+
+*CInlineValidator::asa* 					 public
+ See |CComponent::asa|
+
+
+*CInlineValidator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CInlineValidator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CInlineValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CInlineValidator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CInlineValidator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
 
 *CInlineValidator::clientValidateAttribute*			 public
 >
@@ -53,6 +129,70 @@ METHOD DETAILS
 <
     [object] (CModel) the data object being validated
     [attribute] (string) the name of the attribute to be validated.
+
+
+*CInlineValidator::createValidator*				 public
+ See |CValidator::createValidator|
+
+
+*CInlineValidator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CInlineValidator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CInlineValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CInlineValidator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CInlineValidator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CInlineValidator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CInlineValidator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CInlineValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CInlineValidator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CInlineValidator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CInlineValidator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CInlineValidator::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*CInlineValidator::isEmpty*					 protected
+ See |CValidator::isEmpty|
+
+
+*CInlineValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CInlineValidator::validate*					 public
+ See |CValidator::validate|
 
 
 *CInlineValidator::validateAttribute*				 protected

@@ -36,6 +36,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CMenu::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <activateItems> 			*CMenu::activateItems*
  (boolean) whether to automatically activate items according to whether their
  route setting matches the currently requested route. Defaults to true.
@@ -48,6 +51,9 @@ PROPERTY DETAILS
 <activeCssClass>			*CMenu::activeCssClass*
  (string) the CSS class to be appended to the active menu item. Defaults to
  'active'. If empty, the CSS class of menu items will not be changed.
+
+<controller>				*CMenu::controller*
+ See |CWidget::controller|
 
 <encodeLabel>				*CMenu::encodeLabel*
  (boolean) whether the labels for menu items should be HTML-encoded. Defaults
@@ -65,6 +71,9 @@ PROPERTY DETAILS
 
 <htmlOptions>				*CMenu::htmlOptions*
  (array) HTML attributes for the menu's root container tag
+
+<id>					*CMenu::id*
+ See |CWidget::id|
 
 <itemCssClass>				*CMenu::itemCssClass*
  (string) the CSS class that will be assigned to every item. Defaults to null,
@@ -126,13 +135,178 @@ PROPERTY DETAILS
  useful when implementing menu items using the sliding window technique.
  Defaults to null, meaning no wrapper tag will be generated.
 
+<owner> 				*CMenu::owner*
+ See |CWidget::owner|
+
+<skin>					*CMenu::skin*
+ See |CWidget::skin|
+
 <submenuHtmlOptions>			*CMenu::submenuHtmlOptions*
  (array) HTML attributes for the submenu's container tag.
+
+<viewPath>				*CMenu::viewPath*
+ See |CWidget::viewPath|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CMenu::__call* 						 public
+ See |CComponent::__call|
+
+
+*CMenu::__construct*						 public
+ See |CWidget::__construct|
+
+
+*CMenu::__get*							 public
+ See |CComponent::__get|
+
+
+*CMenu::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CMenu::__set*							 public
+ See |CComponent::__set|
+
+
+*CMenu::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CMenu::actions*						 public
+ See |CWidget::actions|
+
+
+*CMenu::asa*							 public
+ See |CComponent::asa|
+
+
+*CMenu::attachBehavior* 					 public
+ See |CComponent::attachBehavior|
+
+
+*CMenu::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CMenu::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CMenu::beginCache*						 public
+ See |CBaseController::beginCache|
+
+
+*CMenu::beginClip*						 public
+ See |CBaseController::beginClip|
+
+
+*CMenu::beginContent*						 public
+ See |CBaseController::beginContent|
+
+
+*CMenu::beginWidget*						 public
+ See |CBaseController::beginWidget|
+
+
+*CMenu::canGetProperty* 					 public
+ See |CComponent::canGetProperty|
+
+
+*CMenu::canSetProperty* 					 public
+ See |CComponent::canSetProperty|
+
+
+*CMenu::createWidget*						 public
+ See |CBaseController::createWidget|
+
+
+*CMenu::detachBehavior* 					 public
+ See |CComponent::detachBehavior|
+
+
+*CMenu::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CMenu::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CMenu::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CMenu::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CMenu::enableBehavior* 					 public
+ See |CComponent::enableBehavior|
+
+
+*CMenu::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CMenu::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CMenu::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CMenu::endContent*						 public
+ See |CBaseController::endContent|
+
+
+*CMenu::endWidget*						 public
+ See |CBaseController::endWidget|
+
+
+*CMenu::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
+*CMenu::getController*						 public
+ See |CWidget::getController|
+
+
+*CMenu::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CMenu::getId*							 public
+ See |CWidget::getId|
+
+
+*CMenu::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CMenu::getViewFile*						 public
+ See |CWidget::getViewFile|
+
+
+*CMenu::getViewPath*						 public
+ See |CWidget::getViewPath|
+
+
+*CMenu::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CMenu::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CMenu::hasProperty*						 public
+ See |CComponent::hasProperty|
+
 
 *CMenu::init*							 public
 >
@@ -170,6 +344,22 @@ METHOD DETAILS
     [items] (array) the items to be normalized.
     [route] (string) the route of the current request.
     [active] (boolean) whether there is an active child menu item.
+
+
+*CMenu::raiseEvent*						 public
+ See |CComponent::raiseEvent|
+
+
+*CMenu::render* 						 public
+ See |CWidget::render|
+
+
+*CMenu::renderFile*						 public
+ See |CBaseController::renderFile|
+
+
+*CMenu::renderInternal* 					 public
+ See |CBaseController::renderInternal|
 
 
 *CMenu::renderMenu*						 protected
@@ -213,6 +403,14 @@ METHOD DETAILS
 (void)
 
  Calls |CMenu::renderMenu| to render the menu.
+
+
+*CMenu::setId*							 public
+ See |CWidget::setId|
+
+
+*CMenu::widget* 						 public
+ See |CBaseController::widget|
 
 
 

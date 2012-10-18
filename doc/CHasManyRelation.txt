@@ -8,26 +8,170 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<alias> 				*CHasManyRelation::alias*
+ See |CActiveRelation::alias|
+
+<className>				*CHasManyRelation::className*
+ See |CBaseActiveRelation::className|
+
+<condition>				*CHasManyRelation::condition*
+ See |CBaseActiveRelation::condition|
+
+<foreignKey>				*CHasManyRelation::foreignKey*
+ See |CBaseActiveRelation::foreignKey|
+
+<group> 				*CHasManyRelation::group*
+ See |CBaseActiveRelation::group|
+
+<having>				*CHasManyRelation::having*
+ See |CBaseActiveRelation::having|
+
 <index> 				*CHasManyRelation::index*
  (string) the name of the column that should be used as the key for storing
  related objects. Defaults to null, meaning using zero-based integer IDs.
+
+<join>					*CHasManyRelation::join*
+ See |CBaseActiveRelation::join|
+
+<joinType>				*CHasManyRelation::joinType*
+ See |CActiveRelation::joinType|
 
 <limit> 				*CHasManyRelation::limit*
  (integer) limit of the rows to be selected. It is effective only for lazy
  loading this related object. Defaults to -1, meaning no limit.
 
+<name>					*CHasManyRelation::name*
+ See |CBaseActiveRelation::name|
+
 <offset>				*CHasManyRelation::offset*
  (integer) offset of the rows to be selected. It is effective only for lazy
  loading this related object. Defaults to -1, meaning no offset.
+
+<on>					*CHasManyRelation::on*
+ See |CActiveRelation::on|
+
+<order> 				*CHasManyRelation::order*
+ See |CBaseActiveRelation::order|
+
+<params>				*CHasManyRelation::params*
+ See |CBaseActiveRelation::params|
+
+<scopes>				*CHasManyRelation::scopes*
+ See |CActiveRelation::scopes|
+
+<select>				*CHasManyRelation::select*
+ See |CBaseActiveRelation::select|
 
 <through>				*CHasManyRelation::through*
  (string) the name of the relation that should be used as the bridge to this
  relation. Defaults to null, meaning don't use any bridge.
 
+<together>				*CHasManyRelation::together*
+ See |CActiveRelation::together|
+
+<with>					*CHasManyRelation::with*
+ See |CActiveRelation::with|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CHasManyRelation::__call*					 public
+ See |CComponent::__call|
+
+
+*CHasManyRelation::__construct* 				 public
+ See |CBaseActiveRelation::__construct|
+
+
+*CHasManyRelation::__get*					 public
+ See |CComponent::__get|
+
+
+*CHasManyRelation::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CHasManyRelation::__set*					 public
+ See |CComponent::__set|
+
+
+*CHasManyRelation::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CHasManyRelation::asa* 					 public
+ See |CComponent::asa|
+
+
+*CHasManyRelation::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CHasManyRelation::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CHasManyRelation::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CHasManyRelation::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CHasManyRelation::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CHasManyRelation::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CHasManyRelation::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CHasManyRelation::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CHasManyRelation::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CHasManyRelation::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CHasManyRelation::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CHasManyRelation::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CHasManyRelation::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CHasManyRelation::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CHasManyRelation::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CHasManyRelation::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CHasManyRelation::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
 
 *CHasManyRelation::mergeWith*					 public
 >
@@ -38,6 +182,10 @@ METHOD DETAILS
  Merges this relation with a criteria specified dynamically.
     [criteria] (array) the dynamically specified criteria
     [fromScope] (boolean) whether the criteria to be merged is from scopes
+
+
+*CHasManyRelation::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

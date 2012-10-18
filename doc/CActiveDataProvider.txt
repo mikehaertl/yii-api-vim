@@ -32,10 +32,22 @@ PROPERTY DETAILS
 <criteria>				*CActiveDataProvider::criteria*
  (CDbCriteria) Returns the query criteria.
 
+<data>					*CActiveDataProvider::data*
+ See |CDataProvider::data|
+
+<id>					*CActiveDataProvider::id*
+ See |CDataProvider::id|
+
+<itemCount>				*CActiveDataProvider::itemCount*
+ See |CDataProvider::itemCount|
+
 <keyAttribute>				*CActiveDataProvider::keyAttribute*
  (string) the name of key attribute for |CActiveDataProvider::modelClass|. If
  not set, it means the primary key of the corresponding database table will be
  used.
+
+<keys>					*CActiveDataProvider::keys*
+ See |CDataProvider::keys|
 
 <model> 				*CActiveDataProvider::model*
  (CActiveRecord) the AR finder instance (eg 'Post::model()'). This property
@@ -47,13 +59,23 @@ PROPERTY DETAILS
  |CActiveDataProvider::getData| method will return a list of objects of this
  class.
 
+<pagination>				*CActiveDataProvider::pagination*
+ See |CDataProvider::pagination|
+
 <sort>					*CActiveDataProvider::sort*
  (CSort) Returns the sorting object.
+
+<totalItemCount>			*CActiveDataProvider::totalItemCount*
+ See |CDataProvider::totalItemCount|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CActiveDataProvider::__call*					 public
+ See |CComponent::__call|
+
 
 *CActiveDataProvider::__construct*				 public
 >
@@ -68,6 +90,38 @@ METHOD DETAILS
     property values of this class.
 
 
+*CActiveDataProvider::__get*					 public
+ See |CComponent::__get|
+
+
+*CActiveDataProvider::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CActiveDataProvider::__set*					 public
+ See |CComponent::__set|
+
+
+*CActiveDataProvider::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CActiveDataProvider::asa*					 public
+ See |CComponent::asa|
+
+
+*CActiveDataProvider::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CActiveDataProvider::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CActiveDataProvider::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
 *CActiveDataProvider::calculateTotalItemCount*			 protected
 >
  calculateTotalItemCount()
@@ -75,6 +129,46 @@ METHOD DETAILS
 (integer) the total number of data items.
 
  Calculates the total number of data items.
+
+
+*CActiveDataProvider::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CActiveDataProvider::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CActiveDataProvider::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CActiveDataProvider::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CActiveDataProvider::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CActiveDataProvider::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CActiveDataProvider::disableBehaviors* 			 public
+ See |CComponent::disableBehaviors|
+
+
+*CActiveDataProvider::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CActiveDataProvider::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CActiveDataProvider::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
 
 
 *CActiveDataProvider::fetchData*				 protected
@@ -104,6 +198,30 @@ METHOD DETAILS
  Returns the query criteria.
 
 
+*CActiveDataProvider::getData*					 public
+ See |CDataProvider::getData|
+
+
+*CActiveDataProvider::getEventHandlers* 			 public
+ See |CComponent::getEventHandlers|
+
+
+*CActiveDataProvider::getId*					 public
+ See |CDataProvider::getId|
+
+
+*CActiveDataProvider::getItemCount*				 public
+ See |CDataProvider::getItemCount|
+
+
+*CActiveDataProvider::getKeys*					 public
+ See |CDataProvider::getKeys|
+
+
+*CActiveDataProvider::getPagination*				 public
+ See |CDataProvider::getPagination|
+
+
 *CActiveDataProvider::getSort*					 public
 >
  getSort()
@@ -112,6 +230,26 @@ METHOD DETAILS
 disabled.
 
  Returns the sorting object.
+
+
+*CActiveDataProvider::getTotalItemCount*			 public
+ See |CDataProvider::getTotalItemCount|
+
+
+*CActiveDataProvider::hasEvent* 				 public
+ See |CComponent::hasEvent|
+
+
+*CActiveDataProvider::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CActiveDataProvider::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CActiveDataProvider::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 *CActiveDataProvider::setCriteria*				 public
@@ -123,6 +261,30 @@ disabled.
  Sets the query criteria.
     [value] (mixed) the query criteria. This can be either a CDbCriteria
     object or an array representing the query criteria.
+
+
+*CActiveDataProvider::setData*					 public
+ See |CDataProvider::setData|
+
+
+*CActiveDataProvider::setId*					 public
+ See |CDataProvider::setId|
+
+
+*CActiveDataProvider::setKeys*					 public
+ See |CDataProvider::setKeys|
+
+
+*CActiveDataProvider::setPagination*				 public
+ See |CDataProvider::setPagination|
+
+
+*CActiveDataProvider::setSort*					 public
+ See |CDataProvider::setSort|
+
+
+*CActiveDataProvider::setTotalItemCount*			 public
+ See |CDataProvider::setTotalItemCount|
 
 
 

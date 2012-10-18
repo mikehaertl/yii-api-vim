@@ -28,10 +28,29 @@ PROPERTY DETAILS
  (string) the base url that the published asset files can be accessed. Note,
  the ending slashes are stripped off. Defaults to '/AppBaseUrl/assets'.
 
+<behaviors>				*CAssetManager::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <excludeFiles>				*CAssetManager::excludeFiles*
  (array) list of directories and files which should be excluded from the
- publishing process. Defaults to exclude '.svn' files only. This option has no
- effect if |CAssetManager::linkAssets| is enabled.
+ publishing process. Defaults to exclude '.svn' and '.gitignore' files only.
+ This option has no effect if |CAssetManager::linkAssets| is enabled.
+
+<forceCopy>				*CAssetManager::forceCopy*
+ (boolean) whether we should copy the asset files and directories even if they
+ already published before. This property is used only during development
+ stage. The main use case of this property is when you need to force the
+ original assets always copied by changing only one value without searching
+ needed |CAssetManager::publish| method calls across the application codebase.
+ Also it is useful in operating systems which does not fully support symbolic
+ links (therefore it is not possible to use $linkAssets) or we don't want to
+ use them. This property sets the default value of the $forceCopy parameter in
+ |CAssetManager::publish| method. Default value of this property is false
+ meaning that the assets will be published only in case they don't exist in
+ webroot assets directory.
+
+<isInitialized> 			*CAssetManager::isInitialized*
+ See |CApplicationComponent::isInitialized|
 
 <linkAssets>				*CAssetManager::linkAssets*
  (boolean) whether to use symbolic link to publish asset files. Defaults to
@@ -66,6 +85,82 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CAssetManager::__call* 					 public
+ See |CComponent::__call|
+
+
+*CAssetManager::__get*						 public
+ See |CComponent::__get|
+
+
+*CAssetManager::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CAssetManager::__set*						 public
+ See |CComponent::__set|
+
+
+*CAssetManager::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CAssetManager::asa*						 public
+ See |CComponent::asa|
+
+
+*CAssetManager::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CAssetManager::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CAssetManager::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CAssetManager::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CAssetManager::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CAssetManager::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CAssetManager::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CAssetManager::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CAssetManager::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CAssetManager::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CAssetManager::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CAssetManager::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CAssetManager::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CAssetManager::getBasePath*					 public
 >
  getBasePath()
@@ -82,6 +177,14 @@ METHOD DETAILS
 (string) the base url that the published asset files can be accessed. Note,
 the ending slashes are stripped off. Defaults to '/AppBaseUrl/assets'.
 
+
+
+*CAssetManager::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CAssetManager::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
 
 
 *CAssetManager::getPublishedPath*				 public
@@ -118,6 +221,18 @@ directory does not exist.
     true if the path being published is shared among different extensions.
 
 
+*CAssetManager::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CAssetManager::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CAssetManager::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CAssetManager::hash*						 protected
 >
  hash($path)
@@ -129,9 +244,13 @@ directory does not exist.
     [path] (string) string to be hashed.
 
 
+*CAssetManager::init*						 public
+ See |CApplicationComponent::init|
+
+
 *CAssetManager::publish*					 public
 >
- publish($path, $hashByName=false, $level=-1, $forceCopy=false)
+ publish($path, $hashByName=false, $level=-1, $forceCopy=NULL)
 <
 (string) an absolute URL to the published asset
 
@@ -163,8 +282,14 @@ directory does not exist.
     even if it is already published before. This parameter is set true mainly
     during development stage when the original assets are being constantly
     changed. The consequence is that the performance is degraded, which is not
-    a concern during development, however. This parameter has been available
-    since version 1.1.2.
+    a concern during development, however. Default value of this parameter is
+    null meaning that it's value is controlled by $forceCopy class property.
+    This parameter has been available since version 1.1.2. Default value has
+    been changed since 1.1.11.
+
+
+*CAssetManager::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CAssetManager::setBasePath*					 public

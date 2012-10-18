@@ -54,6 +54,10 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CNumberFormatter::__call*					 public
+ See |CComponent::__call|
+
+
 *CNumberFormatter::__construct* 				 public
 >
  __construct($locale)
@@ -62,6 +66,78 @@ METHOD DETAILS
 
  Constructor.
     [locale] (mixed) locale ID (string) or CLocale instance
+
+
+*CNumberFormatter::__get*					 public
+ See |CComponent::__get|
+
+
+*CNumberFormatter::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CNumberFormatter::__set*					 public
+ See |CComponent::__set|
+
+
+*CNumberFormatter::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CNumberFormatter::asa* 					 public
+ See |CComponent::asa|
+
+
+*CNumberFormatter::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CNumberFormatter::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CNumberFormatter::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CNumberFormatter::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CNumberFormatter::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CNumberFormatter::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CNumberFormatter::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CNumberFormatter::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CNumberFormatter::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CNumberFormatter::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CNumberFormatter::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CNumberFormatter::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CNumberFormatter::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CNumberFormatter::format*					 public
@@ -151,6 +227,22 @@ METHOD DETAILS
     [value] (mixed) the number to be formatted
 
 
+*CNumberFormatter::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CNumberFormatter::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CNumberFormatter::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CNumberFormatter::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
 *CNumberFormatter::parseFormat* 				 protected
 >
  parseFormat($pattern)
@@ -159,6 +251,10 @@ METHOD DETAILS
 
  Parses a given string pattern.
     [pattern] (string) the pattern to be parsed
+
+
+*CNumberFormatter::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

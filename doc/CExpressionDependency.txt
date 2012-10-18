@@ -14,17 +14,28 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<dependentData> 			*CExpressionDependency::dependentData*
+ See |CCacheDependency::dependentData|
+
 <expression>				*CExpressionDependency::expression*
  (string) the PHP expression whose result is used to determine the dependency.
- The expression can also be a valid PHP callback, including class method name
- (array(ClassName/Object, MethodName)), or anonymous function (PHP 5.3.0+).
- The function/method will be passed with a parameter which is the dependency
- object itself.
+ The expression can also be a valid serializable PHP callback. The callback
+ will be passed with a parameter which is the dependency object itself.
+
+<hasChanged>				*CExpressionDependency::hasChanged*
+ See |CCacheDependency::hasChanged|
+
+<reuseDependentData>			*CExpressionDependency::reuseDependentData*
+ See |CCacheDependency::reuseDependentData|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CExpressionDependency::__call* 				 public
+ See |CComponent::__call|
+
 
 *CExpressionDependency::__construct*				 public
 >
@@ -37,6 +48,82 @@ METHOD DETAILS
     the dependency.
 
 
+*CExpressionDependency::__get*					 public
+ See |CComponent::__get|
+
+
+*CExpressionDependency::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CExpressionDependency::__set*					 public
+ See |CComponent::__set|
+
+
+*CExpressionDependency::__unset*				 public
+ See |CComponent::__unset|
+
+
+*CExpressionDependency::asa*					 public
+ See |CComponent::asa|
+
+
+*CExpressionDependency::attachBehavior* 			 public
+ See |CComponent::attachBehavior|
+
+
+*CExpressionDependency::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CExpressionDependency::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CExpressionDependency::canGetProperty* 			 public
+ See |CComponent::canGetProperty|
+
+
+*CExpressionDependency::canSetProperty* 			 public
+ See |CComponent::canSetProperty|
+
+
+*CExpressionDependency::detachBehavior* 			 public
+ See |CComponent::detachBehavior|
+
+
+*CExpressionDependency::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CExpressionDependency::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CExpressionDependency::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CExpressionDependency::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CExpressionDependency::enableBehavior* 			 public
+ See |CComponent::enableBehavior|
+
+
+*CExpressionDependency::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CExpressionDependency::evaluateDependency*			 public
+ See |CCacheDependency::evaluateDependency|
+
+
+*CExpressionDependency::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
 *CExpressionDependency::generateDependentData*			 protected
 >
  generateDependentData()
@@ -45,6 +132,34 @@ METHOD DETAILS
 
  Generates the data needed to determine if dependency has been changed. This
  method returns the result of the PHP expression.
+
+
+*CExpressionDependency::getDependentData*			 public
+ See |CCacheDependency::getDependentData|
+
+
+*CExpressionDependency::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CExpressionDependency::getHasChanged*				 public
+ See |CCacheDependency::getHasChanged|
+
+
+*CExpressionDependency::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CExpressionDependency::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CExpressionDependency::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CExpressionDependency::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 

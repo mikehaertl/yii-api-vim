@@ -28,6 +28,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CAction::__call*						 public
+ See |CComponent::__call|
+
+
 *CAction::__construct*						 public
 >
  __construct($controller, $id)
@@ -39,6 +43,78 @@ METHOD DETAILS
     [id] (string) id of the action.
 
 
+*CAction::__get*						 public
+ See |CComponent::__get|
+
+
+*CAction::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CAction::__set*						 public
+ See |CComponent::__set|
+
+
+*CAction::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CAction::asa*							 public
+ See |CComponent::asa|
+
+
+*CAction::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CAction::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CAction::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CAction::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CAction::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CAction::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CAction::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CAction::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CAction::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CAction::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CAction::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CAction::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CAction::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
 *CAction::getController*					 public
 >
  getController()
@@ -47,12 +123,32 @@ METHOD DETAILS
 
 
 
+*CAction::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
 *CAction::getId*						 public
 >
  getId()
 <
 (string) id of this action
 
+
+
+*CAction::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CAction::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CAction::hasProperty*						 public
+ See |CComponent::hasProperty|
+
+
+*CAction::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 *CAction::runWithParams*					 public

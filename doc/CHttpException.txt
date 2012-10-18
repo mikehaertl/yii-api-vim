@@ -12,6 +12,18 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<code>					*CHttpException::code*
+ See |Exception::code|
+
+<file>					*CHttpException::file*
+ See |Exception::file|
+
+<line>					*CHttpException::line*
+ See |Exception::line|
+
+<message>				*CHttpException::message*
+ See |Exception::message|
+
 <statusCode>				*CHttpException::statusCode*
  (integer) HTTP status code, such as 403, 404, 500, etc.
 
@@ -30,6 +42,38 @@ METHOD DETAILS
     [status] (integer) HTTP status code, such as 404, 500, etc.
     [message] (string) error message
     [code] (integer) error code
+
+
+*CHttpException::__toString*					 public
+ See |Exception::__toString|
+
+
+*CHttpException::getCode*					 public
+ See |Exception::getCode|
+
+
+*CHttpException::getFile*					 public
+ See |Exception::getFile|
+
+
+*CHttpException::getLine*					 public
+ See |Exception::getLine|
+
+
+*CHttpException::getMessage*					 public
+ See |Exception::getMessage|
+
+
+*CHttpException::getPrevious*					 public
+ See |Exception::getPrevious|
+
+
+*CHttpException::getTrace*					 public
+ See |Exception::getTrace|
+
+
+*CHttpException::getTraceAsString*				 public
+ See |Exception::getTraceAsString|
 
 
 

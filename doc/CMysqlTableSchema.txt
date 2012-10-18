@@ -8,9 +8,30 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<columnNames>				*CMysqlTableSchema::columnNames*
+ See |CDbTableSchema::columnNames|
+
+<columns>				*CMysqlTableSchema::columns*
+ See |CDbTableSchema::columns|
+
+<foreignKeys>				*CMysqlTableSchema::foreignKeys*
+ See |CDbTableSchema::foreignKeys|
+
+<name>					*CMysqlTableSchema::name*
+ See |CDbTableSchema::name|
+
+<primaryKey>				*CMysqlTableSchema::primaryKey*
+ See |CDbTableSchema::primaryKey|
+
+<rawName>				*CMysqlTableSchema::rawName*
+ See |CDbTableSchema::rawName|
+
 <schemaName>				*CMysqlTableSchema::schemaName*
  (string) name of the schema (database) that this table belongs to. Defaults
  to null, meaning no schema (or the current database).
+
+<sequenceName>				*CMysqlTableSchema::sequenceName*
+ See |CDbTableSchema::sequenceName|
 
 
 

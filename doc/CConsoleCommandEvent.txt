@@ -1,0 +1,154 @@
+
+*CConsoleCommandEvent*   >> |CEvent| >> |CComponent|
+======================
+
+ CConsoleCommandEvent class.
+
+ CConsoleCommandEvent represents the event parameters needed by events raised
+ by a console command.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<action>				*CConsoleCommandEvent::action*
+ (string) the action name
+
+<exitCode>				*CConsoleCommandEvent::exitCode*
+ (integer) exit code of application. This property is available in
+ |CConsoleCommand::onAfterAction| event and will be set to the exit code
+ returned by the console command action. You can set it to change application
+ exit code.
+
+<handled>				*CConsoleCommandEvent::handled*
+ See |CEvent::handled|
+
+<params>				*CConsoleCommandEvent::params*
+ See |CEvent::params|
+
+<sender>				*CConsoleCommandEvent::sender*
+ See |CEvent::sender|
+
+<stopCommand>				*CConsoleCommandEvent::stopCommand*
+ (boolean) whether the action should be executed. If this property is set true
+ by the event handler, the console command action will quit after handling
+ this event. If false, which is the default, the normal execution cycles will
+ continue, including performing the action and calling
+ |CConsoleCommand::afterAction|.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CConsoleCommandEvent::__call*					 public
+ See |CComponent::__call|
+
+
+*CConsoleCommandEvent::__construct*				 public
+>
+ __construct($sender=NULL, $params='', $action='', $exitCode=0)
+<
+(void)
+
+ Constructor.
+    [sender] (mixed) sender of the event
+    [params] (string) the parameters to be passed to the action method.
+    [action] (string) the action name
+    [exitCode] (integer) the application exit code
+
+
+*CConsoleCommandEvent::__get*					 public
+ See |CComponent::__get|
+
+
+*CConsoleCommandEvent::__isset* 				 public
+ See |CComponent::__isset|
+
+
+*CConsoleCommandEvent::__set*					 public
+ See |CComponent::__set|
+
+
+*CConsoleCommandEvent::__unset* 				 public
+ See |CComponent::__unset|
+
+
+*CConsoleCommandEvent::asa*					 public
+ See |CComponent::asa|
+
+
+*CConsoleCommandEvent::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CConsoleCommandEvent::attachBehaviors* 			 public
+ See |CComponent::attachBehaviors|
+
+
+*CConsoleCommandEvent::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CConsoleCommandEvent::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CConsoleCommandEvent::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CConsoleCommandEvent::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CConsoleCommandEvent::detachBehaviors* 			 public
+ See |CComponent::detachBehaviors|
+
+
+*CConsoleCommandEvent::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CConsoleCommandEvent::disableBehavior* 			 public
+ See |CComponent::disableBehavior|
+
+
+*CConsoleCommandEvent::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CConsoleCommandEvent::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CConsoleCommandEvent::enableBehaviors* 			 public
+ See |CComponent::enableBehaviors|
+
+
+*CConsoleCommandEvent::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CConsoleCommandEvent::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CConsoleCommandEvent::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CConsoleCommandEvent::hasEventHandler* 			 public
+ See |CComponent::hasEventHandler|
+
+
+*CConsoleCommandEvent::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CConsoleCommandEvent::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

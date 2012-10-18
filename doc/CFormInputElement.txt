@@ -21,8 +21,17 @@
    {checkboxlist} a list of check boxes generated using
    |CHtml::activeCheckBoxList|
    {radiolist} a list of radio buttons generated using
-   |CHtml::activeRadioButtonList|The |CFormInputElement::type| property can
- also be a class name or a path alias to the class. In this case, the input is
+   |CHtml::activeRadioButtonList|
+   {url} an HTML5 url input generated using |CHtml::activeUrlField|
+   {email} an HTML5 email input generated using
+   |CHtml::activeEmailField|
+   {number} an HTML5 number input generated using
+   |CHtml::activeNumberField|
+   {range} an HTML5 range input generated using
+   |CHtml::activeRangeField|
+   {date} an HTML5 date input generated using
+   |CHtml::activeDateField|The |CFormInputElement::type| property can also be
+ a class name or a path alias to the class. In this case, the input is
  generated using a widget of the specified class. Note, the widget must have a
  property called "model" which expects a model object, and a property called
  "attribute" which expects the name of a model attribute.
@@ -36,6 +45,9 @@
 
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
+
+<attributes>				*CFormInputElement::attributes*
+ See |CFormElement::attributes|
 
 <coreTypes>				*CFormInputElement::coreTypes*
  (array) Core input types (alias=>CHtml method name)
@@ -76,6 +88,9 @@ PROPERTY DETAILS
 <name>					*CFormInputElement::name*
  (string) name of this input
 
+<parent>				*CFormInputElement::parent*
+ See |CFormElement::parent|
+
 <required>				*CFormInputElement::required*
  (boolean) Gets the value indicating whether this input is required. If this
  property is not set explicitly, it will be determined by calling
@@ -89,10 +104,101 @@ PROPERTY DETAILS
  radiolist). If a widget class, it must extend from |CInputWidget| or (@link
  CJuiInputWidget).
 
+<visible>				*CFormInputElement::visible*
+ See |CFormElement::visible|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CFormInputElement::__call*					 public
+ See |CComponent::__call|
+
+
+*CFormInputElement::__construct*				 public
+ See |CFormElement::__construct|
+
+
+*CFormInputElement::__get*					 public
+ See |CFormElement::__get|
+
+
+*CFormInputElement::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CFormInputElement::__set*					 public
+ See |CFormElement::__set|
+
+
+*CFormInputElement::__toString* 				 public
+ See |CFormElement::__toString|
+
+
+*CFormInputElement::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CFormInputElement::asa*					 public
+ See |CComponent::asa|
+
+
+*CFormInputElement::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CFormInputElement::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CFormInputElement::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
+*CFormInputElement::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CFormInputElement::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CFormInputElement::configure*					 public
+ See |CFormElement::configure|
+
+
+*CFormInputElement::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CFormInputElement::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CFormInputElement::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CFormInputElement::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CFormInputElement::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CFormInputElement::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CFormInputElement::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CFormInputElement::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
 
 *CFormInputElement::evaluateVisible*				 protected
 >
@@ -104,6 +210,10 @@ METHOD DETAILS
  attribute associated with this input is safe for the current model scenario.
 
 
+*CFormInputElement::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
 *CFormInputElement::getLabel*					 public
 >
  getLabel()
@@ -111,6 +221,10 @@ METHOD DETAILS
 (string) the label for this input. If the label is not manually set, this
 method will call |CModel::getAttributeLabel| to determine the label.
 
+
+
+*CFormInputElement::getParent*					 public
+ See |CFormElement::getParent|
 
 
 *CFormInputElement::getRequired*				 public
@@ -123,6 +237,26 @@ method will call |CModel::getAttributeLabel| to determine the label.
  not set explicitly, it will be determined by calling
  |CModel::isAttributeRequired| for the associated model and attribute of this
  input.
+
+
+*CFormInputElement::getVisible* 				 public
+ See |CFormElement::getVisible|
+
+
+*CFormInputElement::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CFormInputElement::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CFormInputElement::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CFormInputElement::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
 
 
 *CFormInputElement::render*					 public
@@ -195,6 +329,10 @@ field, hint, and error.
 (void)
 
     [value] (boolean) whether this input is required.
+
+
+*CFormInputElement::setVisible* 				 public
+ See |CFormElement::setVisible|
 
 
 

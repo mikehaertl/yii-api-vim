@@ -8,9 +8,57 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<alias> 				*CHasOneRelation::alias*
+ See |CActiveRelation::alias|
+
+<className>				*CHasOneRelation::className*
+ See |CBaseActiveRelation::className|
+
+<condition>				*CHasOneRelation::condition*
+ See |CBaseActiveRelation::condition|
+
+<foreignKey>				*CHasOneRelation::foreignKey*
+ See |CBaseActiveRelation::foreignKey|
+
+<group> 				*CHasOneRelation::group*
+ See |CBaseActiveRelation::group|
+
+<having>				*CHasOneRelation::having*
+ See |CBaseActiveRelation::having|
+
+<join>					*CHasOneRelation::join*
+ See |CBaseActiveRelation::join|
+
+<joinType>				*CHasOneRelation::joinType*
+ See |CActiveRelation::joinType|
+
+<name>					*CHasOneRelation::name*
+ See |CBaseActiveRelation::name|
+
+<on>					*CHasOneRelation::on*
+ See |CActiveRelation::on|
+
+<order> 				*CHasOneRelation::order*
+ See |CBaseActiveRelation::order|
+
+<params>				*CHasOneRelation::params*
+ See |CBaseActiveRelation::params|
+
+<scopes>				*CHasOneRelation::scopes*
+ See |CActiveRelation::scopes|
+
+<select>				*CHasOneRelation::select*
+ See |CBaseActiveRelation::select|
+
 <through>				*CHasOneRelation::through*
  (string) the name of the relation that should be used as the bridge to this
  relation. Defaults to null, meaning don't use any bridge.
+
+<together>				*CHasOneRelation::together*
+ See |CActiveRelation::together|
+
+<with>					*CHasOneRelation::with*
+ See |CActiveRelation::with|
 
 
 

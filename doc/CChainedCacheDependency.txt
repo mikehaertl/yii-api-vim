@@ -27,6 +27,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CChainedCacheDependency::__call*				 public
+ See |CComponent::__call|
+
+
 *CChainedCacheDependency::__construct*				 public
 >
  __construct($dependencies=array())
@@ -35,6 +39,74 @@ METHOD DETAILS
 
  Constructor.
     [dependencies] (array) the dependencies to be added to this chain.
+
+
+*CChainedCacheDependency::__get*				 public
+ See |CComponent::__get|
+
+
+*CChainedCacheDependency::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CChainedCacheDependency::__set*				 public
+ See |CComponent::__set|
+
+
+*CChainedCacheDependency::__unset*				 public
+ See |CComponent::__unset|
+
+
+*CChainedCacheDependency::asa*					 public
+ See |CComponent::asa|
+
+
+*CChainedCacheDependency::attachBehavior*			 public
+ See |CComponent::attachBehavior|
+
+
+*CChainedCacheDependency::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CChainedCacheDependency::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CChainedCacheDependency::canGetProperty*			 public
+ See |CComponent::canGetProperty|
+
+
+*CChainedCacheDependency::canSetProperty*			 public
+ See |CComponent::canSetProperty|
+
+
+*CChainedCacheDependency::detachBehavior*			 public
+ See |CComponent::detachBehavior|
+
+
+*CChainedCacheDependency::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CChainedCacheDependency::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CChainedCacheDependency::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CChainedCacheDependency::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CChainedCacheDependency::enableBehavior*			 public
+ See |CComponent::enableBehavior|
+
+
+*CChainedCacheDependency::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
 
 
 *CChainedCacheDependency::evaluateDependency*			 public
@@ -47,12 +119,20 @@ METHOD DETAILS
  dependency.
 
 
+*CChainedCacheDependency::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
 *CChainedCacheDependency::getDependencies*			 public
 >
  getDependencies()
 <
 (CTypedList) list of dependency objects
 
+
+
+*CChainedCacheDependency::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
 
 
 *CChainedCacheDependency::getHasChanged*			 public
@@ -63,6 +143,22 @@ METHOD DETAILS
 
  Performs the actual dependency checking. This method returns true if any of
  the dependency objects reports a dependency change.
+
+
+*CChainedCacheDependency::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CChainedCacheDependency::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CChainedCacheDependency::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CChainedCacheDependency::raiseEvent*				 public
+ See |CComponent::raiseEvent|
 
 
 *CChainedCacheDependency::setDependencies*			 public

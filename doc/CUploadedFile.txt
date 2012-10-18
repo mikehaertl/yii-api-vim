@@ -48,6 +48,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CUploadedFile::__call* 					 public
+ See |CComponent::__call|
+
+
 *CUploadedFile::__construct*					 public
 >
  __construct($name, $tempName, $type, $size, $error)
@@ -63,6 +67,18 @@ METHOD DETAILS
     [error] (integer) the error code
 
 
+*CUploadedFile::__get*						 public
+ See |CComponent::__get|
+
+
+*CUploadedFile::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CUploadedFile::__set*						 public
+ See |CComponent::__set|
+
+
 *CUploadedFile::__toString*					 public
 >
  __toString()
@@ -71,6 +87,34 @@ METHOD DETAILS
 
  String output. This is PHP magic method that returns string representation of
  an object. The implementation here returns the uploaded file's name.
+
+
+*CUploadedFile::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CUploadedFile::asa*						 public
+ See |CComponent::asa|
+
+
+*CUploadedFile::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CUploadedFile::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CUploadedFile::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CUploadedFile::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CUploadedFile::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
 
 
 *CUploadedFile::collectFilesRecursive*				 protected
@@ -89,6 +133,38 @@ METHOD DETAILS
     [errors] (mixed) uploading issues provided by PHP
 
 
+*CUploadedFile::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CUploadedFile::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CUploadedFile::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CUploadedFile::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CUploadedFile::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CUploadedFile::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CUploadedFile::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CUploadedFile::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *CUploadedFile::getError*					 public
 >
  getError()
@@ -96,6 +172,10 @@ METHOD DETAILS
 (integer) the error code
 
  Returns an error code describing the status of this file uploading.
+
+
+*CUploadedFile::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CUploadedFile::getExtensionName*				 public
@@ -211,6 +291,18 @@ type.
 
 
 
+*CUploadedFile::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CUploadedFile::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CUploadedFile::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CUploadedFile::prefetchFiles*					 protected
 >
  prefetchFiles()
@@ -219,6 +311,10 @@ type.
 
  Initially processes $_FILES superglobal for easier use. Only for internal
  usage.
+
+
+*CUploadedFile::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CUploadedFile::reset*						 public

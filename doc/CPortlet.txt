@@ -23,9 +23,15 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CPortlet::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <contentCssClass>			*CPortlet::contentCssClass*
  (string) the CSS class for the content container tag. Defaults to
  'portlet-content'.
+
+<controller>				*CPortlet::controller*
+ See |CWidget::controller|
 
 <decorationCssClass>			*CPortlet::decorationCssClass*
  (string) the CSS class for the decoration container tag. Defaults to
@@ -37,6 +43,15 @@ PROPERTY DETAILS
 
 <htmlOptions>				*CPortlet::htmlOptions*
  (array) the HTML attributes for the portlet container tag.
+
+<id>					*CPortlet::id*
+ See |CWidget::id|
+
+<owner> 				*CPortlet::owner*
+ See |CWidget::owner|
+
+<skin>					*CPortlet::skin*
+ See |CWidget::skin|
 
 <tagName>				*CPortlet::tagName*
  (string) the tag name for the portlet container tag. Defaults to 'div'.
@@ -50,10 +65,169 @@ PROPERTY DETAILS
  (string) the CSS class for the portlet title tag. Defaults to
  'portlet-title'.
 
+<viewPath>				*CPortlet::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CPortlet::__call*						 public
+ See |CComponent::__call|
+
+
+*CPortlet::__construct* 					 public
+ See |CWidget::__construct|
+
+
+*CPortlet::__get*						 public
+ See |CComponent::__get|
+
+
+*CPortlet::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CPortlet::__set*						 public
+ See |CComponent::__set|
+
+
+*CPortlet::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CPortlet::actions*						 public
+ See |CWidget::actions|
+
+
+*CPortlet::asa* 						 public
+ See |CComponent::asa|
+
+
+*CPortlet::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CPortlet::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CPortlet::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CPortlet::beginCache*						 public
+ See |CBaseController::beginCache|
+
+
+*CPortlet::beginClip*						 public
+ See |CBaseController::beginClip|
+
+
+*CPortlet::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CPortlet::beginWidget* 					 public
+ See |CBaseController::beginWidget|
+
+
+*CPortlet::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CPortlet::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CPortlet::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CPortlet::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CPortlet::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CPortlet::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CPortlet::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CPortlet::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CPortlet::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CPortlet::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CPortlet::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CPortlet::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CPortlet::endContent*						 public
+ See |CBaseController::endContent|
+
+
+*CPortlet::endWidget*						 public
+ See |CBaseController::endWidget|
+
+
+*CPortlet::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
+*CPortlet::getController*					 public
+ See |CWidget::getController|
+
+
+*CPortlet::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CPortlet::getId*						 public
+ See |CWidget::getId|
+
+
+*CPortlet::getOwner*						 public
+ See |CWidget::getOwner|
+
+
+*CPortlet::getViewFile* 					 public
+ See |CWidget::getViewFile|
+
+
+*CPortlet::getViewPath* 					 public
+ See |CWidget::getViewPath|
+
+
+*CPortlet::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CPortlet::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CPortlet::hasProperty* 					 public
+ See |CComponent::hasProperty|
+
 
 *CPortlet::init*						 public
 >
@@ -63,6 +237,14 @@ METHOD DETAILS
 
  Initializes the widget. This renders the open tags needed by the portlet. It
  also renders the decoration, if any.
+
+
+*CPortlet::raiseEvent*						 public
+ See |CComponent::raiseEvent|
+
+
+*CPortlet::render*						 public
+ See |CWidget::render|
 
 
 *CPortlet::renderContent*					 protected
@@ -85,6 +267,14 @@ METHOD DETAILS
  render the title if it is set.
 
 
+*CPortlet::renderFile*						 public
+ See |CBaseController::renderFile|
+
+
+*CPortlet::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
 *CPortlet::run* 						 public
 >
  run()
@@ -92,6 +282,14 @@ METHOD DETAILS
 (void)
 
  Renders the content of the portlet.
+
+
+*CPortlet::setId*						 public
+ See |CWidget::setId|
+
+
+*CPortlet::widget*						 public
+ See |CBaseController::widget|
 
 
 

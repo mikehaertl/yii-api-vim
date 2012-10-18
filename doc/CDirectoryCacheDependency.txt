@@ -24,10 +24,16 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<dependentData> 			*CDirectoryCacheDependency::dependentData*
+ See |CCacheDependency::dependentData|
+
 <directory>				*CDirectoryCacheDependency::directory*
  (string) the directory whose change is used to determine if the dependency
  has been changed. If any of the files under the directory is changed, the
  dependency is considered as changed.
+
+<hasChanged>				*CDirectoryCacheDependency::hasChanged*
+ See |CCacheDependency::hasChanged|
 
 <namePattern>				*CDirectoryCacheDependency::namePattern*
  (string) the regular expression matching valid file/directory names. Only the
@@ -39,10 +45,17 @@ PROPERTY DETAILS
  value is less than 0, it means unlimited depth. If the value is 0, it means
  checking the files directly under the specified directory.
 
+<reuseDependentData>			*CDirectoryCacheDependency::reuseDependentData*
+ See |CCacheDependency::reuseDependentData|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CDirectoryCacheDependency::__call*				 public
+ See |CComponent::__call|
+
 
 *CDirectoryCacheDependency::__construct*			 public
 >
@@ -52,6 +65,82 @@ METHOD DETAILS
 
  Constructor.
     [directory] (string) the directory to be checked
+
+
+*CDirectoryCacheDependency::__get*				 public
+ See |CComponent::__get|
+
+
+*CDirectoryCacheDependency::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CDirectoryCacheDependency::__set*				 public
+ See |CComponent::__set|
+
+
+*CDirectoryCacheDependency::__unset*				 public
+ See |CComponent::__unset|
+
+
+*CDirectoryCacheDependency::asa*				 public
+ See |CComponent::asa|
+
+
+*CDirectoryCacheDependency::attachBehavior*			 public
+ See |CComponent::attachBehavior|
+
+
+*CDirectoryCacheDependency::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CDirectoryCacheDependency::attachEventHandler* 		 public
+ See |CComponent::attachEventHandler|
+
+
+*CDirectoryCacheDependency::canGetProperty*			 public
+ See |CComponent::canGetProperty|
+
+
+*CDirectoryCacheDependency::canSetProperty*			 public
+ See |CComponent::canSetProperty|
+
+
+*CDirectoryCacheDependency::detachBehavior*			 public
+ See |CComponent::detachBehavior|
+
+
+*CDirectoryCacheDependency::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CDirectoryCacheDependency::detachEventHandler* 		 public
+ See |CComponent::detachEventHandler|
+
+
+*CDirectoryCacheDependency::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CDirectoryCacheDependency::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CDirectoryCacheDependency::enableBehavior*			 public
+ See |CComponent::enableBehavior|
+
+
+*CDirectoryCacheDependency::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CDirectoryCacheDependency::evaluateDependency* 		 public
+ See |CCacheDependency::evaluateDependency|
+
+
+*CDirectoryCacheDependency::evaluateExpression* 		 public
+ See |CComponent::evaluateExpression|
 
 
 *CDirectoryCacheDependency::generateDependentData*		 protected
@@ -75,6 +164,34 @@ METHOD DETAILS
  |CDirectoryCacheDependency::recursiveLevel| is not 0.
     [directory] (string) the directory name
     [level] (integer) level of the recursion
+
+
+*CDirectoryCacheDependency::getDependentData*			 public
+ See |CCacheDependency::getDependentData|
+
+
+*CDirectoryCacheDependency::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CDirectoryCacheDependency::getHasChanged*			 public
+ See |CCacheDependency::getHasChanged|
+
+
+*CDirectoryCacheDependency::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CDirectoryCacheDependency::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CDirectoryCacheDependency::hasProperty*			 public
+ See |CComponent::hasProperty|
+
+
+*CDirectoryCacheDependency::raiseEvent* 			 public
+ See |CComponent::raiseEvent|
 
 
 *CDirectoryCacheDependency::validateDirectory*			 protected

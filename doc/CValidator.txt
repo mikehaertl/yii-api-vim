@@ -54,6 +54,10 @@ PROPERTY DETAILS
  refer to |CActiveForm::enableClientValidation| for more details about
  client-side validation.
 
+<except>				*CValidator::except*
+ (array) list of scenarios that the validator should not be applied to. Each
+ array value refers to a scenario name with the same name as its array key.
+
 <message>				*CValidator::message*
  (string) the user-defined error message. Different validators may define
  various placeholders in the message that are to be replaced with actual
@@ -76,6 +80,26 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CValidator::__call*						 public
+ See |CComponent::__call|
+
+
+*CValidator::__get*						 public
+ See |CComponent::__get|
+
+
+*CValidator::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CValidator::__set*						 public
+ See |CComponent::__set|
+
+
+*CValidator::__unset*						 public
+ See |CComponent::__unset|
+
 
 *CValidator::addError*						 protected
 >
@@ -103,6 +127,30 @@ METHOD DETAILS
    the validator's "on" property is empty
    the validator's "on" property contains the specified scenario
     [scenario] (string) scenario name
+
+
+*CValidator::asa*						 public
+ See |CComponent::asa|
+
+
+*CValidator::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CValidator::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CValidator::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CValidator::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CValidator::canSetProperty*					 public
+ See |CComponent::canSetProperty|
 
 
 *CValidator::clientValidateAttribute*				 public
@@ -138,6 +186,54 @@ support client-side validation.
     [params] (array) initial values to be applied to the validator properties
 
 
+*CValidator::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CValidator::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CValidator::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CValidator::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CValidator::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CValidator::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CValidator::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CValidator::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CValidator::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CValidator::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CValidator::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CValidator::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CValidator::isEmpty*						 protected
 >
  isEmpty($value, $trim=false)
@@ -151,6 +247,10 @@ support client-side validation.
     [value] (mixed) the value to be checked
     [trim] (boolean) whether to perform trimming before checking if the string
     is empty. Defaults to false.
+
+
+*CValidator::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CValidator::validate*						 public

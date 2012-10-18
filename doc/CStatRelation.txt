@@ -8,9 +8,36 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<className>				*CStatRelation::className*
+ See |CBaseActiveRelation::className|
+
+<condition>				*CStatRelation::condition*
+ See |CBaseActiveRelation::condition|
+
 <defaultValue>				*CStatRelation::defaultValue*
  (mixed) the default value to be assigned to those records that do not receive
  a statistical query result. Defaults to 0.
+
+<foreignKey>				*CStatRelation::foreignKey*
+ See |CBaseActiveRelation::foreignKey|
+
+<group> 				*CStatRelation::group*
+ See |CBaseActiveRelation::group|
+
+<having>				*CStatRelation::having*
+ See |CBaseActiveRelation::having|
+
+<join>					*CStatRelation::join*
+ See |CBaseActiveRelation::join|
+
+<name>					*CStatRelation::name*
+ See |CBaseActiveRelation::name|
+
+<order> 				*CStatRelation::order*
+ See |CBaseActiveRelation::order|
+
+<params>				*CStatRelation::params*
+ See |CBaseActiveRelation::params|
 
 <select>				*CStatRelation::select*
  (string) the statistical expression. Defaults to 'COUNT(*)', meaning the
@@ -21,6 +48,102 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CStatRelation::__call* 					 public
+ See |CComponent::__call|
+
+
+*CStatRelation::__construct*					 public
+ See |CBaseActiveRelation::__construct|
+
+
+*CStatRelation::__get*						 public
+ See |CComponent::__get|
+
+
+*CStatRelation::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CStatRelation::__set*						 public
+ See |CComponent::__set|
+
+
+*CStatRelation::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CStatRelation::asa*						 public
+ See |CComponent::asa|
+
+
+*CStatRelation::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CStatRelation::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CStatRelation::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CStatRelation::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CStatRelation::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CStatRelation::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CStatRelation::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CStatRelation::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CStatRelation::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CStatRelation::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CStatRelation::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CStatRelation::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CStatRelation::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CStatRelation::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CStatRelation::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CStatRelation::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CStatRelation::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CStatRelation::mergeWith*					 public
 >
  mergeWith($criteria, $fromScope=false)
@@ -30,6 +153,10 @@ METHOD DETAILS
  Merges this relation with a criteria specified dynamically.
     [criteria] (array) the dynamically specified criteria
     [fromScope] (boolean) whether the criteria to be merged is from scopes
+
+
+*CStatRelation::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

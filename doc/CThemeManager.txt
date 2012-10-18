@@ -30,6 +30,12 @@ PROPERTY DETAILS
 <baseUrl>				*CThemeManager::baseUrl*
  (string) the base URL for all themes. Defaults to "/WebRoot/themes".
 
+<behaviors>				*CThemeManager::behaviors*
+ See |CApplicationComponent::behaviors|
+
+<isInitialized> 			*CThemeManager::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
 <themeClass>				*CThemeManager::themeClass*
  (string) the name of the theme class for representing a theme. Defaults to
  |CTheme|. This can also be a class name in dot syntax.
@@ -41,6 +47,82 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CThemeManager::__call* 					 public
+ See |CComponent::__call|
+
+
+*CThemeManager::__get*						 public
+ See |CComponent::__get|
+
+
+*CThemeManager::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CThemeManager::__set*						 public
+ See |CComponent::__set|
+
+
+*CThemeManager::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CThemeManager::asa*						 public
+ See |CComponent::asa|
+
+
+*CThemeManager::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CThemeManager::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CThemeManager::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CThemeManager::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CThemeManager::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CThemeManager::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CThemeManager::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CThemeManager::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CThemeManager::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CThemeManager::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CThemeManager::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CThemeManager::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CThemeManager::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
 
 *CThemeManager::getBasePath*					 public
 >
@@ -58,6 +140,14 @@ METHOD DETAILS
 
 
 
+*CThemeManager::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CThemeManager::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
 *CThemeManager::getTheme*					 public
 >
  getTheme($name)
@@ -73,6 +163,26 @@ METHOD DETAILS
 <
 (array) list of available theme names
 
+
+
+*CThemeManager::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CThemeManager::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CThemeManager::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CThemeManager::init*						 public
+ See |CApplicationComponent::init|
+
+
+*CThemeManager::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CThemeManager::setBasePath*					 public

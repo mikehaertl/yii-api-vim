@@ -23,6 +23,9 @@ PROPERTY DETAILS
  the variable '$row' the row number (zero-based); '$data' the data model for
  the row; and '$this' the column object.
 
+<filterHtmlOptions>			*CGridColumn::filterHtmlOptions*
+ (array) the HTML options for the filter cell tag.
+
 <footer>				*CGridColumn::footer*
  (string) the footer cell text. Note that it will not be HTML-encoded.
 
@@ -47,7 +50,7 @@ PROPERTY DETAILS
 
 <id>					*CGridColumn::id*
  (string) the ID of this column. This value should be unique among all grid
- view columns. If this is set, it will be assigned one automatically.
+ view columns. If this is not set, it will be assigned one automatically.
 
 <visible>				*CGridColumn::visible*
  (boolean) whether this column is visible. Defaults to true.
@@ -56,6 +59,10 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CGridColumn::__call*						 public
+ See |CComponent::__call|
+
 
 *CGridColumn::__construct*					 public
 >
@@ -67,6 +74,82 @@ METHOD DETAILS
     [grid] (CGridView) the grid view that owns this column.
 
 
+*CGridColumn::__get*						 public
+ See |CComponent::__get|
+
+
+*CGridColumn::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CGridColumn::__set*						 public
+ See |CComponent::__set|
+
+
+*CGridColumn::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CGridColumn::asa*						 public
+ See |CComponent::asa|
+
+
+*CGridColumn::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CGridColumn::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CGridColumn::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CGridColumn::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CGridColumn::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CGridColumn::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CGridColumn::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CGridColumn::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CGridColumn::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CGridColumn::disableBehaviors* 				 public
+ See |CComponent::disableBehaviors|
+
+
+*CGridColumn::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CGridColumn::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CGridColumn::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CGridColumn::getEventHandlers* 				 public
+ See |CComponent::getEventHandlers|
+
+
 *CGridColumn::getHasFooter*					 public
 >
  getHasFooter()
@@ -74,6 +157,18 @@ METHOD DETAILS
 (boolean) whether this column has a footer cell. This is determined based on
 whether |CGridColumn::footer| is set.
 
+
+
+*CGridColumn::hasEvent* 					 public
+ See |CComponent::hasEvent|
+
+
+*CGridColumn::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CGridColumn::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CGridColumn::init*						 public
@@ -85,6 +180,10 @@ whether |CGridColumn::footer| is set.
  Initializes the column. This method is invoked by the grid view when it
  initializes itself before rendering. You may override this method to prepare
  the column for rendering.
+
+
+*CGridColumn::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CGridColumn::renderDataCell*					 public

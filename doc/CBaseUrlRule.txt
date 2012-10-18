@@ -20,6 +20,50 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CBaseUrlRule::__call*						 public
+ See |CComponent::__call|
+
+
+*CBaseUrlRule::__get*						 public
+ See |CComponent::__get|
+
+
+*CBaseUrlRule::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CBaseUrlRule::__set*						 public
+ See |CComponent::__set|
+
+
+*CBaseUrlRule::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CBaseUrlRule::asa*						 public
+ See |CComponent::asa|
+
+
+*CBaseUrlRule::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CBaseUrlRule::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CBaseUrlRule::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CBaseUrlRule::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CBaseUrlRule::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CBaseUrlRule::createUrl*					 public
 >
  createUrl($manager, $route, $params, $ampersand)
@@ -32,6 +76,54 @@ METHOD DETAILS
     [params] (array) list of parameters (name=>value) associated with the
     route
     [ampersand] (string) the token separating name-value pairs in the URL.
+
+
+*CBaseUrlRule::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CBaseUrlRule::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CBaseUrlRule::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CBaseUrlRule::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CBaseUrlRule::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CBaseUrlRule::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CBaseUrlRule::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CBaseUrlRule::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CBaseUrlRule::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CBaseUrlRule::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CBaseUrlRule::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CBaseUrlRule::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CBaseUrlRule::parseUrl*					 public
@@ -47,6 +139,10 @@ this rule does not apply.
     [pathInfo] (string) path info part of the URL (URL suffix is already
     removed based on |CUrlManager::urlSuffix|)
     [rawPathInfo] (string) path info that contains the potential URL suffix
+
+
+*CBaseUrlRule::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 

@@ -20,9 +20,30 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CContentDecorator::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CContentDecorator::controller*
+ See |CWidget::controller|
+
 <data>					*CContentDecorator::data*
  (array) the variables (name=>value) to be extracted and made available in the
  decorative view.
+
+<id>					*CContentDecorator::id*
+ See |CWidget::id|
+
+<isFilter>				*CContentDecorator::isFilter*
+ See |CFilterWidget::isFilter|
+
+<owner> 				*CContentDecorator::owner*
+ See |CWidget::owner|
+
+<skin>					*CContentDecorator::skin*
+ See |CWidget::skin|
+
+<stopAction>				*CContentDecorator::stopAction*
+ See |CFilterWidget::stopAction|
 
 <view>					*CContentDecorator::view*
  (mixed) the name of the view that will be used to decorate the captured
@@ -32,10 +53,85 @@ PROPERTY DETAILS
  |CWebApplication::layout|; If the controller belongs to a module, the default
  layout refers to the module's |CWebModule::layout|.
 
+<viewPath>				*CContentDecorator::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CContentDecorator::__call*					 public
+ See |CComponent::__call|
+
+
+*CContentDecorator::__construct*				 public
+ See |CFilterWidget::__construct|
+
+
+*CContentDecorator::__get*					 public
+ See |CComponent::__get|
+
+
+*CContentDecorator::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CContentDecorator::__set*					 public
+ See |CComponent::__set|
+
+
+*CContentDecorator::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CContentDecorator::actions*					 public
+ See |CWidget::actions|
+
+
+*CContentDecorator::asa*					 public
+ See |CComponent::asa|
+
+
+*CContentDecorator::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CContentDecorator::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CContentDecorator::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
+*CContentDecorator::beginCache* 				 public
+ See |CBaseController::beginCache|
+
+
+*CContentDecorator::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*CContentDecorator::beginContent*				 public
+ See |CBaseController::beginContent|
+
+
+*CContentDecorator::beginWidget*				 public
+ See |CBaseController::beginWidget|
+
+
+*CContentDecorator::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CContentDecorator::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CContentDecorator::createWidget*				 public
+ See |CBaseController::createWidget|
+
 
 *CContentDecorator::decorate*					 protected
 >
@@ -49,6 +145,106 @@ METHOD DETAILS
     [content] (string) the content to be decorated
 
 
+*CContentDecorator::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CContentDecorator::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CContentDecorator::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CContentDecorator::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CContentDecorator::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CContentDecorator::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CContentDecorator::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CContentDecorator::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*CContentDecorator::endClip*					 public
+ See |CBaseController::endClip|
+
+
+*CContentDecorator::endContent* 				 public
+ See |CBaseController::endContent|
+
+
+*CContentDecorator::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*CContentDecorator::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
+*CContentDecorator::filter*					 public
+ See |CFilterWidget::filter|
+
+
+*CContentDecorator::getController*				 public
+ See |CWidget::getController|
+
+
+*CContentDecorator::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CContentDecorator::getId*					 public
+ See |CWidget::getId|
+
+
+*CContentDecorator::getIsFilter*				 public
+ See |CFilterWidget::getIsFilter|
+
+
+*CContentDecorator::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*CContentDecorator::getViewFile*				 public
+ See |CWidget::getViewFile|
+
+
+*CContentDecorator::getViewPath*				 public
+ See |CWidget::getViewPath|
+
+
+*CContentDecorator::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CContentDecorator::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CContentDecorator::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CContentDecorator::init*					 public
+ See |COutputProcessor::init|
+
+
+*CContentDecorator::onProcessOutput*				 public
+ See |COutputProcessor::onProcessOutput|
+
+
 *CContentDecorator::processOutput*				 public
 >
  processOutput($output)
@@ -58,6 +254,34 @@ METHOD DETAILS
  Processes the captured output. This method decorates the output with the
  specified |CContentDecorator::view|.
     [output] (string) the captured output to be processed
+
+
+*CContentDecorator::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
+
+
+*CContentDecorator::render*					 public
+ See |CWidget::render|
+
+
+*CContentDecorator::renderFile* 				 public
+ See |CBaseController::renderFile|
+
+
+*CContentDecorator::renderInternal*				 public
+ See |CBaseController::renderInternal|
+
+
+*CContentDecorator::run*					 public
+ See |COutputProcessor::run|
+
+
+*CContentDecorator::setId*					 public
+ See |CWidget::setId|
+
+
+*CContentDecorator::widget*					 public
+ See |CBaseController::widget|
 
 
 

@@ -38,6 +38,12 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<behaviors>				*CLogRouter::behaviors*
+ See |CApplicationComponent::behaviors|
+
+<isInitialized> 			*CLogRouter::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
 <routes>				*CLogRouter::routes*
  (array) the currently initialized routes
 
@@ -45,6 +51,50 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CLogRouter::__call*						 public
+ See |CComponent::__call|
+
+
+*CLogRouter::__get*						 public
+ See |CComponent::__get|
+
+
+*CLogRouter::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CLogRouter::__set*						 public
+ See |CComponent::__set|
+
+
+*CLogRouter::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CLogRouter::asa*						 public
+ See |CComponent::asa|
+
+
+*CLogRouter::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CLogRouter::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CLogRouter::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CLogRouter::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CLogRouter::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
 
 *CLogRouter::collectLogs*					 public
 >
@@ -57,12 +107,64 @@ METHOD DETAILS
     [event] (CEvent) event parameter
 
 
+*CLogRouter::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CLogRouter::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CLogRouter::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CLogRouter::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CLogRouter::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CLogRouter::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CLogRouter::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CLogRouter::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CLogRouter::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CLogRouter::getIsInitialized*					 public
+ See |CApplicationComponent::getIsInitialized|
+
+
 *CLogRouter::getRoutes* 					 public
 >
  getRoutes()
 <
 (array) the currently initialized routes
 
+
+
+*CLogRouter::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CLogRouter::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CLogRouter::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *CLogRouter::init*						 public
@@ -84,6 +186,10 @@ METHOD DETAILS
  Collects and processes log messages from a logger. This method is an event
  handler to the |CApplication::onEndRequest| event.
     [event] (CEvent) event parameter
+
+
+*CLogRouter::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CLogRouter::setRoutes* 					 public

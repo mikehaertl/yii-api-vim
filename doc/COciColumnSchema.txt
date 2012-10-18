@@ -9,6 +9,82 @@
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*COciColumnSchema::__call*					 public
+ See |CComponent::__call|
+
+
+*COciColumnSchema::__get*					 public
+ See |CComponent::__get|
+
+
+*COciColumnSchema::__isset*					 public
+ See |CComponent::__isset|
+
+
+*COciColumnSchema::__set*					 public
+ See |CComponent::__set|
+
+
+*COciColumnSchema::__unset*					 public
+ See |CComponent::__unset|
+
+
+*COciColumnSchema::asa* 					 public
+ See |CComponent::asa|
+
+
+*COciColumnSchema::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*COciColumnSchema::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*COciColumnSchema::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*COciColumnSchema::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*COciColumnSchema::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*COciColumnSchema::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*COciColumnSchema::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*COciColumnSchema::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*COciColumnSchema::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*COciColumnSchema::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*COciColumnSchema::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*COciColumnSchema::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*COciColumnSchema::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
 *COciColumnSchema::extractDefault*				 protected
 >
  extractDefault($defaultValue)
@@ -18,6 +94,10 @@ METHOD DETAILS
  Extracts the default value for the column. The value is typecasted to correct
  PHP type.
     [defaultValue] (mixed) the default value obtained from metadata
+
+
+*COciColumnSchema::extractLimit*				 protected
+ See |CDbColumnSchema::extractLimit|
 
 
 *COciColumnSchema::extractOraType*				 protected
@@ -38,6 +118,34 @@ METHOD DETAILS
 
  Extracts the PHP type from DB type.
     [dbType] (string) DB type
+
+
+*COciColumnSchema::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*COciColumnSchema::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*COciColumnSchema::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*COciColumnSchema::hasProperty* 				 public
+ See |CComponent::hasProperty|
+
+
+*COciColumnSchema::init*					 public
+ See |CDbColumnSchema::init|
+
+
+*COciColumnSchema::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*COciColumnSchema::typecast*					 public
+ See |CDbColumnSchema::typecast|
 
 
 

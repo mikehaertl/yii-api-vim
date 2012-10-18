@@ -15,10 +15,16 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<behaviors>				*CMessageSource::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <forceTranslation>			*CMessageSource::forceTranslation*
  (boolean) whether to force message translation when the source and target
  languages are the same. Defaults to false, meaning translation is only
  performed when source and target languages are different.
+
+<isInitialized> 			*CMessageSource::isInitialized*
+ See |CApplicationComponent::isInitialized|
 
 <language>				*CMessageSource::language*
  (string) the language that the source messages are written in. Defaults to
@@ -29,6 +35,90 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CMessageSource::__call*					 public
+ See |CComponent::__call|
+
+
+*CMessageSource::__get* 					 public
+ See |CComponent::__get|
+
+
+*CMessageSource::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CMessageSource::__set* 					 public
+ See |CComponent::__set|
+
+
+*CMessageSource::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CMessageSource::asa*						 public
+ See |CComponent::asa|
+
+
+*CMessageSource::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CMessageSource::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CMessageSource::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CMessageSource::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CMessageSource::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CMessageSource::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CMessageSource::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CMessageSource::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CMessageSource::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CMessageSource::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CMessageSource::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CMessageSource::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CMessageSource::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CMessageSource::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CMessageSource::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
 *CMessageSource::getLanguage*					 public
 >
  getLanguage()
@@ -36,6 +126,22 @@ METHOD DETAILS
 (string) the language that the source messages are written in. Defaults to
 |CApplication::language|.
 
+
+
+*CMessageSource::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CMessageSource::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CMessageSource::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CMessageSource::init*						 public
+ See |CApplicationComponent::init|
 
 
 *CMessageSource::loadMessages*					 protected
@@ -59,6 +165,10 @@ METHOD DETAILS
  do some default handling. The |CMissingTranslationEvent::message| property
  will be returned by |CMessageSource::translateMessage|.
     [event] (CMissingTranslationEvent) the event parameter
+
+
+*CMessageSource::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CMessageSource::setLanguage*					 public

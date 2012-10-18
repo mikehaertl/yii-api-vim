@@ -10,11 +10,23 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*CBasePager::actionPrefix*
+ See |CWidget::actionPrefix|
+
+<controller>				*CBasePager::controller*
+ See |CWidget::controller|
+
 <currentPage>				*CBasePager::currentPage*
  (integer) the zero-based index of the current page. Defaults to 0.
 
+<id>					*CBasePager::id*
+ See |CWidget::id|
+
 <itemCount>				*CBasePager::itemCount*
  (integer) total number of items.
+
+<owner> 				*CBasePager::owner*
+ See |CWidget::owner|
 
 <pageCount>				*CBasePager::pageCount*
  (integer) number of pages
@@ -25,10 +37,84 @@ PROPERTY DETAILS
 <pages> 				*CBasePager::pages*
  (CPagination) Returns the pagination information used by this pager.
 
+<skin>					*CBasePager::skin*
+ See |CWidget::skin|
+
+<viewPath>				*CBasePager::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CBasePager::__call*						 public
+ See |CComponent::__call|
+
+
+*CBasePager::__construct*					 public
+ See |CWidget::__construct|
+
+
+*CBasePager::__get*						 public
+ See |CComponent::__get|
+
+
+*CBasePager::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CBasePager::__set*						 public
+ See |CComponent::__set|
+
+
+*CBasePager::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CBasePager::actions*						 public
+ See |CWidget::actions|
+
+
+*CBasePager::asa*						 public
+ See |CComponent::asa|
+
+
+*CBasePager::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CBasePager::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CBasePager::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CBasePager::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*CBasePager::beginClip* 					 public
+ See |CBaseController::beginClip|
+
+
+*CBasePager::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*CBasePager::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*CBasePager::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CBasePager::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
 
 *CBasePager::createPageUrl*					 protected
 >
@@ -50,6 +136,62 @@ METHOD DETAILS
  the pagination is not set before.
 
 
+*CBasePager::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*CBasePager::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CBasePager::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CBasePager::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CBasePager::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CBasePager::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CBasePager::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CBasePager::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CBasePager::endCache*						 public
+ See |CBaseController::endCache|
+
+
+*CBasePager::endClip*						 public
+ See |CBaseController::endClip|
+
+
+*CBasePager::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*CBasePager::endWidget* 					 public
+ See |CBaseController::endWidget|
+
+
+*CBasePager::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CBasePager::getController*					 public
+ See |CWidget::getController|
+
+
 *CBasePager::getCurrentPage*					 public
 >
  getCurrentPage($recalculate=true)
@@ -60,12 +202,24 @@ METHOD DETAILS
     the page size and item count.
 
 
+*CBasePager::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
+
+
+*CBasePager::getId*						 public
+ See |CWidget::getId|
+
+
 *CBasePager::getItemCount*					 public
 >
  getItemCount()
 <
 (integer) total number of items.
 
+
+
+*CBasePager::getOwner*						 public
+ See |CWidget::getOwner|
 
 
 *CBasePager::getPageCount*					 public
@@ -93,6 +247,50 @@ METHOD DETAILS
  Returns the pagination information used by this pager.
 
 
+*CBasePager::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*CBasePager::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*CBasePager::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CBasePager::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CBasePager::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CBasePager::init*						 public
+ See |CWidget::init|
+
+
+*CBasePager::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CBasePager::render*						 public
+ See |CWidget::render|
+
+
+*CBasePager::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*CBasePager::renderInternal*					 public
+ See |CBaseController::renderInternal|
+
+
+*CBasePager::run*						 public
+ See |CWidget::run|
+
+
 *CBasePager::setCurrentPage*					 public
 >
  setCurrentPage($value)
@@ -100,6 +298,10 @@ METHOD DETAILS
 (void)
 
     [value] (integer) the zero-based index of the current page.
+
+
+*CBasePager::setId*						 public
+ See |CWidget::setId|
 
 
 *CBasePager::setItemCount*					 public
@@ -128,6 +330,10 @@ METHOD DETAILS
 
  Sets the pagination information used by this pager.
     [pages] (CPagination) the pagination information
+
+
+*CBasePager::widget*						 public
+ See |CBaseController::widget|
 
 
 

@@ -26,6 +26,9 @@ PROPERTY DETAILS
  |CHttpRequest::getScriptUrl| except that it does not have the script file
  name, and the ending slashes are stripped off.
 
+<behaviors>				*CHttpRequest::behaviors*
+ See |CApplicationComponent::behaviors|
+
 <browser>				*CHttpRequest::browser*
  (array) Returns information about the capabilities of user browser.
 
@@ -73,11 +76,25 @@ PROPERTY DETAILS
 <isDeleteRequest>			*CHttpRequest::isDeleteRequest*
  (boolean) Returns whether this is a DELETE request.
 
+<isDeleteViaPostRequest>		*CHttpRequest::isDeleteViaPostRequest*
+ (boolean) Returns whether this is a DELETE request which was tunneled through
+ POST.
+
+<isFlashRequest>			*CHttpRequest::isFlashRequest*
+ (boolean) Returns whether this is an Adobe Flash or Adobe Flex request.
+
+<isInitialized> 			*CHttpRequest::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
 <isPostRequest> 			*CHttpRequest::isPostRequest*
  (boolean) Returns whether this is a POST request.
 
 <isPutRequest>				*CHttpRequest::isPutRequest*
  (boolean) Returns whether this is a PUT request.
+
+<isPutViaPostRequest>			*CHttpRequest::isPutViaPostRequest*
+ (boolean) Returns whether this is a PUT request which was tunneled through
+ POST.
 
 <isSecureConnection>			*CHttpRequest::isSecureConnection*
  (boolean) Return if the request is sent via secure channel (https).
@@ -102,6 +119,9 @@ PROPERTY DETAILS
 
 <requestType>				*CHttpRequest::requestType*
  (string) Returns the request type, such as GET, POST, HEAD, PUT, DELETE.
+ Request type can be manually set in POST requests with a parameter named
+ _method. Useful for RESTful request from older browsers which do not support
+ PUT or DELETE natively (available since version 1.1.11).
 
 <requestUri>				*CHttpRequest::requestUri*
  (string) Returns the request URI portion for the currently requested URL.
@@ -151,6 +171,50 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CHttpRequest::__call*						 public
+ See |CComponent::__call|
+
+
+*CHttpRequest::__get*						 public
+ See |CComponent::__get|
+
+
+*CHttpRequest::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CHttpRequest::__set*						 public
+ See |CComponent::__set|
+
+
+*CHttpRequest::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CHttpRequest::asa*						 public
+ See |CComponent::asa|
+
+
+*CHttpRequest::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CHttpRequest::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CHttpRequest::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CHttpRequest::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CHttpRequest::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CHttpRequest::createCsrfCookie*				 protected
 >
  createCsrfCookie()
@@ -173,6 +237,38 @@ METHOD DETAILS
  path part of the request URI. You may override this method to change the way
  the path info is being decoded.
     [pathInfo] (string) encoded path info
+
+
+*CHttpRequest::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CHttpRequest::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CHttpRequest::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CHttpRequest::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CHttpRequest::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CHttpRequest::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CHttpRequest::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CHttpRequest::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CHttpRequest::getAcceptTypes*					 public
@@ -238,10 +334,16 @@ METHOD DETAILS
 
  Returns the named DELETE parameter value. If the DELETE parameter does not
  exist or if the current request is not a DELETE request, the second parameter
- to this method will be returned.
+ to this method will be returned. If the DELETE request was tunneled through
+ POST via _method parameter, the POST parameter will be returned instead
+ (available since version 1.1.11).
     [name] (string) the DELETE parameter name
     [defaultValue] (mixed) the default parameter value if the DELETE parameter
     does not exist.
+
+
+*CHttpRequest::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
 
 
 *CHttpRequest::getHostInfo*					 public
@@ -277,6 +379,28 @@ URL (e.g. http://www.yiiframework.com)
  Returns whether this is a DELETE request.
 
 
+*CHttpRequest::getIsDeleteViaPostRequest*			 protected
+>
+ getIsDeleteViaPostRequest()
+<
+(boolean) whether this is a DELETE request tunneled through POST.
+
+ Returns whether this is a DELETE request which was tunneled through POST.
+
+
+*CHttpRequest::getIsFlashRequest*				 public
+>
+ getIsFlashRequest()
+<
+(boolean) whether this is an Adobe Flash or Adobe Flex request.
+
+ Returns whether this is an Adobe Flash or Adobe Flex request.
+
+
+*CHttpRequest::getIsInitialized*				 public
+ See |CApplicationComponent::getIsInitialized|
+
+
 *CHttpRequest::getIsPostRequest*				 public
 >
  getIsPostRequest()
@@ -293,6 +417,15 @@ URL (e.g. http://www.yiiframework.com)
 (boolean) whether this is a PUT request.
 
  Returns whether this is a PUT request.
+
+
+*CHttpRequest::getIsPutViaPostRequest*				 protected
+>
+ getIsPutViaPostRequest()
+<
+(boolean) whether this is a PUT request tunneled through POST.
+
+ Returns whether this is a PUT request which was tunneled through POST.
 
 
 *CHttpRequest::getIsSecureConnection*				 public
@@ -376,7 +509,9 @@ configuration (in most cases it is not decoded).
 
  Returns the named PUT parameter value. If the PUT parameter does not exist or
  if the current request is not a PUT request, the second parameter to this
- method will be returned.
+ method will be returned. If the PUT request was tunneled through POST via
+ _method parameter, the POST parameter will be returned instead (available
+ since version 1.1.11).
     [name] (string) the PUT parameter name
     [defaultValue] (mixed) the default parameter value if the PUT parameter
     does not exist.
@@ -410,7 +545,10 @@ configuration (in most cases it is not decoded).
 <
 (string) request type, such as GET, POST, HEAD, PUT, DELETE.
 
- Returns the request type, such as GET, POST, HEAD, PUT, DELETE.
+ Returns the request type, such as GET, POST, HEAD, PUT, DELETE. Request type
+ can be manually set in POST requests with a parameter named _method. Useful
+ for RESTful request from older browsers which do not support PUT or DELETE
+ natively (available since version 1.1.11).
 
 
 *CHttpRequest::getRequestUri*					 public
@@ -528,6 +666,18 @@ configuration (in most cases it is not decoded).
  Returns the user IP address.
 
 
+*CHttpRequest::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CHttpRequest::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CHttpRequest::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CHttpRequest::init*						 public
 >
  init()
@@ -547,6 +697,10 @@ configuration (in most cases it is not decoded).
  Normalizes the request data. This method strips off slashes in request data
  if get_magic_quotes_gpc() returns true. It also performs CSRF validation if
  |CHttpRequest::enableCsrfValidation| is true.
+
+
+*CHttpRequest::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CHttpRequest::redirect*					 public

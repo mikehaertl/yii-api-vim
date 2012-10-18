@@ -12,10 +12,46 @@ PROPERTY DETAILS
 <columnTypes>				*CPgsqlSchema::columnTypes*
  (array) the abstract column types mapped to physical column types.
 
+<commandBuilder>			*CPgsqlSchema::commandBuilder*
+ See |CDbSchema::commandBuilder|
+
+<dbConnection>				*CPgsqlSchema::dbConnection*
+ See |CDbSchema::dbConnection|
+
+<tableNames>				*CPgsqlSchema::tableNames*
+ See |CDbSchema::tableNames|
+
+<tables>				*CPgsqlSchema::tables*
+ See |CDbSchema::tables|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CPgsqlSchema::__call*						 public
+ See |CComponent::__call|
+
+
+*CPgsqlSchema::__construct*					 public
+ See |CDbSchema::__construct|
+
+
+*CPgsqlSchema::__get*						 public
+ See |CComponent::__get|
+
+
+*CPgsqlSchema::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CPgsqlSchema::__set*						 public
+ See |CComponent::__set|
+
+
+*CPgsqlSchema::__unset* 					 public
+ See |CComponent::__unset|
+
 
 *CPgsqlSchema::addColumn*					 public
 >
@@ -33,6 +69,10 @@ METHOD DETAILS
     one. Anything that is not recognized as abstract type will be kept in the
     generated SQL. For example, 'string' will be turned into 'varchar(255)',
     while 'string not null' will become 'varchar(255) not null'.
+
+
+*CPgsqlSchema::addForeignKey*					 public
+ See |CDbSchema::addForeignKey|
 
 
 *CPgsqlSchema::alterColumn*					 public
@@ -54,6 +94,30 @@ METHOD DETAILS
     null'.
 
 
+*CPgsqlSchema::asa*						 public
+ See |CComponent::asa|
+
+
+*CPgsqlSchema::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CPgsqlSchema::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CPgsqlSchema::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CPgsqlSchema::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CPgsqlSchema::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
 *CPgsqlSchema::checkIntegrity*					 public
 >
  checkIntegrity($check=true, $schema='')
@@ -66,6 +130,10 @@ METHOD DETAILS
     meaning the current or default schema.
 
 
+*CPgsqlSchema::compareTableNames*				 public
+ See |CDbSchema::compareTableNames|
+
+
 *CPgsqlSchema::createColumn*					 protected
 >
  createColumn($column)
@@ -74,6 +142,46 @@ METHOD DETAILS
 
  Creates a table column.
     [column] (array) column metadata
+
+
+*CPgsqlSchema::createCommandBuilder*				 protected
+ See |CDbSchema::createCommandBuilder|
+
+
+*CPgsqlSchema::createIndex*					 public
+ See |CDbSchema::createIndex|
+
+
+*CPgsqlSchema::createTable*					 public
+ See |CDbSchema::createTable|
+
+
+*CPgsqlSchema::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CPgsqlSchema::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CPgsqlSchema::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CPgsqlSchema::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CPgsqlSchema::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CPgsqlSchema::dropColumn*					 public
+ See |CDbSchema::dropColumn|
+
+
+*CPgsqlSchema::dropForeignKey*					 public
+ See |CDbSchema::dropForeignKey|
 
 
 *CPgsqlSchema::dropIndex*					 public
@@ -87,6 +195,22 @@ METHOD DETAILS
     properly quoted by the method.
     [table] (string) the table whose index is to be dropped. The name will be
     properly quoted by the method.
+
+
+*CPgsqlSchema::dropTable*					 public
+ See |CDbSchema::dropTable|
+
+
+*CPgsqlSchema::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CPgsqlSchema::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CPgsqlSchema::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CPgsqlSchema::findColumns*					 protected
@@ -143,6 +267,46 @@ METHOD DETAILS
     names will be prefixed with the schema name.
 
 
+*CPgsqlSchema::getColumnType*					 public
+ See |CDbSchema::getColumnType|
+
+
+*CPgsqlSchema::getCommandBuilder*				 public
+ See |CDbSchema::getCommandBuilder|
+
+
+*CPgsqlSchema::getDbConnection* 				 public
+ See |CDbSchema::getDbConnection|
+
+
+*CPgsqlSchema::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CPgsqlSchema::getTable*					 public
+ See |CDbSchema::getTable|
+
+
+*CPgsqlSchema::getTableNames*					 public
+ See |CDbSchema::getTableNames|
+
+
+*CPgsqlSchema::getTables*					 public
+ See |CDbSchema::getTables|
+
+
+*CPgsqlSchema::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CPgsqlSchema::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CPgsqlSchema::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
 *CPgsqlSchema::loadTable*					 protected
 >
  loadTable($name)
@@ -151,6 +315,14 @@ METHOD DETAILS
 
  Loads the metadata for the specified table.
     [name] (string) table name
+
+
+*CPgsqlSchema::quoteColumnName* 				 public
+ See |CDbSchema::quoteColumnName|
+
+
+*CPgsqlSchema::quoteSimpleColumnName*				 public
+ See |CDbSchema::quoteSimpleColumnName|
 
 
 *CPgsqlSchema::quoteSimpleTableName*				 public
@@ -162,6 +334,22 @@ METHOD DETAILS
  Quotes a table name for use in a query. A simple table name does not schema
  prefix.
     [name] (string) table name
+
+
+*CPgsqlSchema::quoteTableName*					 public
+ See |CDbSchema::quoteTableName|
+
+
+*CPgsqlSchema::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CPgsqlSchema::refresh* 					 public
+ See |CDbSchema::refresh|
+
+
+*CPgsqlSchema::renameColumn*					 public
+ See |CDbSchema::renameColumn|
 
 
 *CPgsqlSchema::renameTable*					 public
@@ -202,6 +390,10 @@ METHOD DETAILS
  Generates various kinds of table names.
     [table] (CPgsqlTableSchema) the table instance
     [name] (string) the unquoted table name
+
+
+*CPgsqlSchema::truncateTable*					 public
+ See |CDbSchema::truncateTable|
 
 
 

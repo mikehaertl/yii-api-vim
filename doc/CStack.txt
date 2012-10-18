@@ -30,6 +30,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CStack::__call*						 public
+ See |CComponent::__call|
+
+
 *CStack::__construct*						 public
 >
  __construct($data=NULL)
@@ -39,6 +43,46 @@ METHOD DETAILS
  Constructor. Initializes the stack with an array or an iterable object.
     [data] (array) the initial data. Default is null, meaning no
     initialization.
+
+
+*CStack::__get* 						 public
+ See |CComponent::__get|
+
+
+*CStack::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CStack::__set* 						 public
+ See |CComponent::__set|
+
+
+*CStack::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CStack::asa*							 public
+ See |CComponent::asa|
+
+
+*CStack::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CStack::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CStack::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CStack::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CStack::canSetProperty*					 public
+ See |CComponent::canSetProperty|
 
 
 *CStack::clear* 						 public
@@ -81,6 +125,38 @@ METHOD DETAILS
  Countable interface.
 
 
+*CStack::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CStack::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CStack::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CStack::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CStack::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CStack::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CStack::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
+*CStack::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
 *CStack::getCount*						 public
 >
  getCount()
@@ -88,6 +164,10 @@ METHOD DETAILS
 (integer) the number of items in the stack
 
  Returns the number of items in the stack.
+
+
+*CStack::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CStack::getIterator*						 public
@@ -98,6 +178,18 @@ METHOD DETAILS
 
  Returns an iterator for traversing the items in the stack. This method is
  required by the interface IteratorAggregate.
+
+
+*CStack::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CStack::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CStack::hasProperty*						 public
+ See |CComponent::hasProperty|
 
 
 *CStack::peek*							 public
@@ -127,6 +219,10 @@ METHOD DETAILS
 
  Pushes an item into the stack.
     [item] (mixed) the item to be pushed into the stack
+
+
+*CStack::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 *CStack::toArray*						 public

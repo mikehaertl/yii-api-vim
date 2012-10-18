@@ -58,6 +58,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<actionPrefix>				*COutputCache::actionPrefix*
+ See |CWidget::actionPrefix|
+
 <baseCacheKey>				*COutputCache::baseCacheKey*
  (string) Caclulates the base cache key. The calculated key will be further
  variated in |COutputCache::getCacheKey|. Derived classes may override this
@@ -75,6 +78,9 @@ PROPERTY DETAILS
  |COutputCache::getBaseCacheKey| and other factors, including
  |COutputCache::varyByRoute|, |COutputCache::varyByParam| and
  |COutputCache::varyBySession|.
+
+<controller>				*COutputCache::controller*
+ See |CWidget::controller|
 
 <dependency>				*COutputCache::dependency*
  (mixed) the dependency that the cached content depends on. This can be either
@@ -99,12 +105,27 @@ PROPERTY DETAILS
  Note, if cache dependency changes or cache space is limited, the data may be
  purged out of cache earlier.
 
+<id>					*COutputCache::id*
+ See |CWidget::id|
+
 <isContentCached>			*COutputCache::isContentCached*
  (boolean) whether the content can be found from cache
+
+<isFilter>				*COutputCache::isFilter*
+ See |CFilterWidget::isFilter|
+
+<owner> 				*COutputCache::owner*
+ See |CWidget::owner|
 
 <requestTypes>				*COutputCache::requestTypes*
  (array) list of request types (e.g. GET, POST) for which the cache should be
  enabled only. Defaults to null, meaning all request types.
+
+<skin>					*COutputCache::skin*
+ See |CWidget::skin|
+
+<stopAction>				*COutputCache::stopAction*
+ See |CFilterWidget::stopAction|
 
 <varyByExpression>			*COutputCache::varyByExpression*
  (string) a PHP expression whose result is used in the cache key calculation.
@@ -132,10 +153,81 @@ PROPERTY DETAILS
  (boolean) whether the content being cached should be differentiated according
  to user sessions. Defaults to false.
 
+<viewPath>				*COutputCache::viewPath*
+ See |CWidget::viewPath|
+
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*COutputCache::__call*						 public
+ See |CComponent::__call|
+
+
+*COutputCache::__construct*					 public
+ See |CFilterWidget::__construct|
+
+
+*COutputCache::__get*						 public
+ See |CComponent::__get|
+
+
+*COutputCache::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*COutputCache::__set*						 public
+ See |CComponent::__set|
+
+
+*COutputCache::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*COutputCache::actions* 					 public
+ See |CWidget::actions|
+
+
+*COutputCache::asa*						 public
+ See |CComponent::asa|
+
+
+*COutputCache::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*COutputCache::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*COutputCache::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*COutputCache::beginCache*					 public
+ See |CBaseController::beginCache|
+
+
+*COutputCache::beginClip*					 public
+ See |CBaseController::beginClip|
+
+
+*COutputCache::beginContent*					 public
+ See |CBaseController::beginContent|
+
+
+*COutputCache::beginWidget*					 public
+ See |CBaseController::beginWidget|
+
+
+*COutputCache::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*COutputCache::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
 
 *COutputCache::checkContentCache*				 protected
 >
@@ -144,6 +236,58 @@ METHOD DETAILS
 (boolean) whether the content is found in cache.
 
  Looks for content in cache.
+
+
+*COutputCache::createWidget*					 public
+ See |CBaseController::createWidget|
+
+
+*COutputCache::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*COutputCache::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*COutputCache::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*COutputCache::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*COutputCache::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*COutputCache::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*COutputCache::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*COutputCache::endCache*					 public
+ See |CBaseController::endCache|
+
+
+*COutputCache::endClip* 					 public
+ See |CBaseController::endClip|
+
+
+*COutputCache::endContent*					 public
+ See |CBaseController::endContent|
+
+
+*COutputCache::endWidget*					 public
+ See |CBaseController::endWidget|
+
+
+*COutputCache::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *COutputCache::filter*						 public
@@ -189,12 +333,52 @@ Defaults to false.
  |COutputCache::varyBySession|.
 
 
+*COutputCache::getController*					 public
+ See |CWidget::getController|
+
+
+*COutputCache::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*COutputCache::getId*						 public
+ See |CWidget::getId|
+
+
 *COutputCache::getIsContentCached*				 public
 >
  getIsContentCached()
 <
 (boolean) whether the content can be found from cache
 
+
+
+*COutputCache::getIsFilter*					 public
+ See |CFilterWidget::getIsFilter|
+
+
+*COutputCache::getOwner*					 public
+ See |CWidget::getOwner|
+
+
+*COutputCache::getViewFile*					 public
+ See |CWidget::getViewFile|
+
+
+*COutputCache::getViewPath*					 public
+ See |CWidget::getViewPath|
+
+
+*COutputCache::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*COutputCache::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*COutputCache::hasProperty*					 public
+ See |CComponent::hasProperty|
 
 
 *COutputCache::init*						 public
@@ -206,6 +390,10 @@ Defaults to false.
  Marks the start of content to be cached. Content displayed after this method
  call and before |COutputCache::endCache| will be captured and saved in cache.
  This method does nothing if valid content is already found in cache.
+
+
+*COutputCache::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *COutputCache::recordAction*					 public
@@ -221,6 +409,18 @@ Defaults to false.
     controller itself.
     [method] (string) the method name
     [params] (array) parameters passed to the method
+
+
+*COutputCache::render*						 public
+ See |CWidget::render|
+
+
+*COutputCache::renderFile*					 public
+ See |CBaseController::renderFile|
+
+
+*COutputCache::renderInternal*					 public
+ See |CBaseController::renderInternal|
 
 
 *COutputCache::replayActions*					 protected
@@ -241,6 +441,14 @@ Defaults to false.
  Marks the end of content to be cached. Content displayed before this method
  call and after |COutputCache::init| will be captured and saved in cache. This
  method does nothing if valid content is already found in cache.
+
+
+*COutputCache::setId*						 public
+ See |CWidget::setId|
+
+
+*COutputCache::widget*						 public
+ See |CBaseController::widget|
 
 
 

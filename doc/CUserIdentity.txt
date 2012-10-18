@@ -16,10 +16,19 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<errorCode>				*CUserIdentity::errorCode*
+ See |CBaseUserIdentity::errorCode|
+
+<errorMessage>				*CUserIdentity::errorMessage*
+ See |CBaseUserIdentity::errorMessage|
+
 <id>					*CUserIdentity::id*
  (string) Returns the unique identifier for the identity. The default
  implementation simply returns |CUserIdentity::username|. This method is
  required by |IUserIdentity|.
+
+<isAuthenticated>			*CUserIdentity::isAuthenticated*
+ See |CBaseUserIdentity::isAuthenticated|
 
 <name>					*CUserIdentity::name*
  (string) Returns the display name for the identity. The default
@@ -29,6 +38,9 @@ PROPERTY DETAILS
 <password>				*CUserIdentity::password*
  (string) password
 
+<persistentStates>			*CUserIdentity::persistentStates*
+ See |CBaseUserIdentity::persistentStates|
+
 <username>				*CUserIdentity::username*
  (string) username
 
@@ -36,6 +48,10 @@ PROPERTY DETAILS
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CUserIdentity::__call* 					 public
+ See |CComponent::__call|
+
 
 *CUserIdentity::__construct*					 public
 >
@@ -46,6 +62,38 @@ METHOD DETAILS
  Constructor.
     [username] (string) username
     [password] (string) password
+
+
+*CUserIdentity::__get*						 public
+ See |CComponent::__get|
+
+
+*CUserIdentity::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CUserIdentity::__set*						 public
+ See |CComponent::__set|
+
+
+*CUserIdentity::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CUserIdentity::asa*						 public
+ See |CComponent::asa|
+
+
+*CUserIdentity::attachBehavior* 				 public
+ See |CComponent::attachBehavior|
+
+
+*CUserIdentity::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CUserIdentity::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
 
 
 *CUserIdentity::authenticate*					 public
@@ -59,6 +107,54 @@ METHOD DETAILS
  exception will be thrown. This method is required by |IUserIdentity|.
 
 
+*CUserIdentity::canGetProperty* 				 public
+ See |CComponent::canGetProperty|
+
+
+*CUserIdentity::canSetProperty* 				 public
+ See |CComponent::canSetProperty|
+
+
+*CUserIdentity::clearState*					 public
+ See |CBaseUserIdentity::clearState|
+
+
+*CUserIdentity::detachBehavior* 				 public
+ See |CComponent::detachBehavior|
+
+
+*CUserIdentity::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CUserIdentity::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CUserIdentity::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CUserIdentity::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CUserIdentity::enableBehavior* 				 public
+ See |CComponent::enableBehavior|
+
+
+*CUserIdentity::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CUserIdentity::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CUserIdentity::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
 *CUserIdentity::getId*						 public
 >
  getId()
@@ -70,6 +166,10 @@ METHOD DETAILS
  |IUserIdentity|.
 
 
+*CUserIdentity::getIsAuthenticated*				 public
+ See |CBaseUserIdentity::getIsAuthenticated|
+
+
 *CUserIdentity::getName*					 public
 >
  getName()
@@ -79,6 +179,38 @@ METHOD DETAILS
  Returns the display name for the identity. The default implementation simply
  returns |CUserIdentity::username|. This method is required by
  |IUserIdentity|.
+
+
+*CUserIdentity::getPersistentStates*				 public
+ See |CBaseUserIdentity::getPersistentStates|
+
+
+*CUserIdentity::getState*					 public
+ See |CBaseUserIdentity::getState|
+
+
+*CUserIdentity::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CUserIdentity::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CUserIdentity::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CUserIdentity::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CUserIdentity::setPersistentStates*				 public
+ See |CBaseUserIdentity::setPersistentStates|
+
+
+*CUserIdentity::setState*					 public
+ See |CBaseUserIdentity::setState|
 
 
 

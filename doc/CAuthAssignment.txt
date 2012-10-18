@@ -28,6 +28,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CAuthAssignment::__call*					 public
+ See |CComponent::__call|
+
+
 *CAuthAssignment::__construct*					 public
 >
  __construct($auth, $itemName, $userId, $bizRule='', $data=NULL)
@@ -40,6 +44,78 @@ METHOD DETAILS
     [userId] (mixed) user ID (see |IWebUser::getId|)
     [bizRule] (string) the business rule associated with this assignment
     [data] (mixed) additional data for this assignment
+
+
+*CAuthAssignment::__get*					 public
+ See |CComponent::__get|
+
+
+*CAuthAssignment::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CAuthAssignment::__set*					 public
+ See |CComponent::__set|
+
+
+*CAuthAssignment::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CAuthAssignment::asa*						 public
+ See |CComponent::asa|
+
+
+*CAuthAssignment::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CAuthAssignment::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CAuthAssignment::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CAuthAssignment::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CAuthAssignment::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CAuthAssignment::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CAuthAssignment::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CAuthAssignment::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CAuthAssignment::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CAuthAssignment::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CAuthAssignment::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CAuthAssignment::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CAuthAssignment::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
 
 
 *CAuthAssignment::getBizRule*					 public
@@ -58,6 +134,10 @@ METHOD DETAILS
 
 
 
+*CAuthAssignment::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
 *CAuthAssignment::getItemName*					 public
 >
  getItemName()
@@ -72,6 +152,22 @@ METHOD DETAILS
 <
 (mixed) user ID (see |IWebUser::getId|)
 
+
+
+*CAuthAssignment::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CAuthAssignment::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CAuthAssignment::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CAuthAssignment::raiseEvent*					 public
+ See |CComponent::raiseEvent|
 
 
 *CAuthAssignment::setBizRule*					 public

@@ -16,14 +16,27 @@ PROPERTY DETAILS
 <controller>				*CFilterChain::controller*
  (CController) the controller who executes the action.
 
+<count> 				*CFilterChain::count*
+ See |CList::count|
+
 <filterIndex>				*CFilterChain::filterIndex*
  (integer) the index of the filter that is to be executed when calling
  |CFilterChain::run|.
+
+<iterator>				*CFilterChain::iterator*
+ See |CList::iterator|
+
+<readOnly>				*CFilterChain::readOnly*
+ See |CList::readOnly|
 
 
 
 METHOD DETAILS
 ------------------------------------------------------------------------------
+
+*CFilterChain::__call*						 public
+ See |CComponent::__call|
+
 
 *CFilterChain::__construct*					 public
 >
@@ -36,6 +49,66 @@ METHOD DETAILS
     [action] (CAction) the action being filtered by this chain.
 
 
+*CFilterChain::__get*						 public
+ See |CComponent::__get|
+
+
+*CFilterChain::__isset* 					 public
+ See |CComponent::__isset|
+
+
+*CFilterChain::__set*						 public
+ See |CComponent::__set|
+
+
+*CFilterChain::__unset* 					 public
+ See |CComponent::__unset|
+
+
+*CFilterChain::add*						 public
+ See |CList::add|
+
+
+*CFilterChain::asa*						 public
+ See |CComponent::asa|
+
+
+*CFilterChain::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CFilterChain::attachBehaviors* 				 public
+ See |CComponent::attachBehaviors|
+
+
+*CFilterChain::attachEventHandler*				 public
+ See |CComponent::attachEventHandler|
+
+
+*CFilterChain::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CFilterChain::canSetProperty*					 public
+ See |CComponent::canSetProperty|
+
+
+*CFilterChain::clear*						 public
+ See |CList::clear|
+
+
+*CFilterChain::contains*					 public
+ See |CList::contains|
+
+
+*CFilterChain::copyFrom*					 public
+ See |CList::copyFrom|
+
+
+*CFilterChain::count*						 public
+ See |CList::count|
+
+
 *CFilterChain::create*						 public
 >
  create($controller, $action, $filters)
@@ -46,6 +119,70 @@ METHOD DETAILS
     [controller] (CController) the controller who executes the action.
     [action] (CAction) the action being filtered by this chain.
     [filters] (array) list of filters to be applied to the action.
+
+
+*CFilterChain::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CFilterChain::detachBehaviors* 				 public
+ See |CComponent::detachBehaviors|
+
+
+*CFilterChain::detachEventHandler*				 public
+ See |CComponent::detachEventHandler|
+
+
+*CFilterChain::disableBehavior* 				 public
+ See |CComponent::disableBehavior|
+
+
+*CFilterChain::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CFilterChain::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CFilterChain::enableBehaviors* 				 public
+ See |CComponent::enableBehaviors|
+
+
+*CFilterChain::evaluateExpression*				 public
+ See |CComponent::evaluateExpression|
+
+
+*CFilterChain::getCount*					 public
+ See |CList::getCount|
+
+
+*CFilterChain::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CFilterChain::getIterator*					 public
+ See |CList::getIterator|
+
+
+*CFilterChain::getReadOnly*					 public
+ See |CList::getReadOnly|
+
+
+*CFilterChain::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CFilterChain::hasEventHandler* 				 public
+ See |CComponent::hasEventHandler|
+
+
+*CFilterChain::hasProperty*					 public
+ See |CComponent::hasProperty|
+
+
+*CFilterChain::indexOf* 					 public
+ See |CList::indexOf|
 
 
 *CFilterChain::insertAt*					 public
@@ -61,6 +198,42 @@ METHOD DETAILS
     [item] (mixed) new item
 
 
+*CFilterChain::itemAt*						 public
+ See |CList::itemAt|
+
+
+*CFilterChain::mergeWith*					 public
+ See |CList::mergeWith|
+
+
+*CFilterChain::offsetExists*					 public
+ See |CList::offsetExists|
+
+
+*CFilterChain::offsetGet*					 public
+ See |CList::offsetGet|
+
+
+*CFilterChain::offsetSet*					 public
+ See |CList::offsetSet|
+
+
+*CFilterChain::offsetUnset*					 public
+ See |CList::offsetUnset|
+
+
+*CFilterChain::raiseEvent*					 public
+ See |CComponent::raiseEvent|
+
+
+*CFilterChain::remove*						 public
+ See |CList::remove|
+
+
+*CFilterChain::removeAt*					 public
+ See |CList::removeAt|
+
+
 *CFilterChain::run*						 public
 >
  run()
@@ -71,6 +244,14 @@ METHOD DETAILS
  is called, |CFilterChain::filterIndex| will be automatically incremented by
  one. This method is usually invoked in filters so that the filtering process
  can continue and the action can be executed.
+
+
+*CFilterChain::setReadOnly*					 protected
+ See |CList::setReadOnly|
+
+
+*CFilterChain::toArray* 					 public
+ See |CList::toArray|
 
 
 

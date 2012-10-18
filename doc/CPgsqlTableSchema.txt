@@ -8,8 +8,29 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<columnNames>				*CPgsqlTableSchema::columnNames*
+ See |CDbTableSchema::columnNames|
+
+<columns>				*CPgsqlTableSchema::columns*
+ See |CDbTableSchema::columns|
+
+<foreignKeys>				*CPgsqlTableSchema::foreignKeys*
+ See |CDbTableSchema::foreignKeys|
+
+<name>					*CPgsqlTableSchema::name*
+ See |CDbTableSchema::name|
+
+<primaryKey>				*CPgsqlTableSchema::primaryKey*
+ See |CDbTableSchema::primaryKey|
+
+<rawName>				*CPgsqlTableSchema::rawName*
+ See |CDbTableSchema::rawName|
+
 <schemaName>				*CPgsqlTableSchema::schemaName*
  (string) name of the schema that this table belongs to.
+
+<sequenceName>				*CPgsqlTableSchema::sequenceName*
+ See |CDbTableSchema::sequenceName|
 
 
 

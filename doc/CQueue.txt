@@ -31,6 +31,10 @@ PROPERTY DETAILS
 METHOD DETAILS
 ------------------------------------------------------------------------------
 
+*CQueue::__call*						 public
+ See |CComponent::__call|
+
+
 *CQueue::__construct*						 public
 >
  __construct($data=NULL)
@@ -40,6 +44,46 @@ METHOD DETAILS
  Constructor. Initializes the queue with an array or an iterable object.
     [data] (array) the intial data. Default is null, meaning no
     initialization.
+
+
+*CQueue::__get* 						 public
+ See |CComponent::__get|
+
+
+*CQueue::__isset*						 public
+ See |CComponent::__isset|
+
+
+*CQueue::__set* 						 public
+ See |CComponent::__set|
+
+
+*CQueue::__unset*						 public
+ See |CComponent::__unset|
+
+
+*CQueue::asa*							 public
+ See |CComponent::asa|
+
+
+*CQueue::attachBehavior*					 public
+ See |CComponent::attachBehavior|
+
+
+*CQueue::attachBehaviors*					 public
+ See |CComponent::attachBehaviors|
+
+
+*CQueue::attachEventHandler*					 public
+ See |CComponent::attachEventHandler|
+
+
+*CQueue::canGetProperty*					 public
+ See |CComponent::canGetProperty|
+
+
+*CQueue::canSetProperty*					 public
+ See |CComponent::canSetProperty|
 
 
 *CQueue::clear* 						 public
@@ -91,6 +135,34 @@ METHOD DETAILS
  Removes and returns the object at the beginning of the queue.
 
 
+*CQueue::detachBehavior*					 public
+ See |CComponent::detachBehavior|
+
+
+*CQueue::detachBehaviors*					 public
+ See |CComponent::detachBehaviors|
+
+
+*CQueue::detachEventHandler*					 public
+ See |CComponent::detachEventHandler|
+
+
+*CQueue::disableBehavior*					 public
+ See |CComponent::disableBehavior|
+
+
+*CQueue::disableBehaviors*					 public
+ See |CComponent::disableBehaviors|
+
+
+*CQueue::enableBehavior*					 public
+ See |CComponent::enableBehavior|
+
+
+*CQueue::enableBehaviors*					 public
+ See |CComponent::enableBehaviors|
+
+
 *CQueue::enqueue*						 public
 >
  enqueue($item)
@@ -101,6 +173,10 @@ METHOD DETAILS
     [item] (mixed) the item to be appended into the queue
 
 
+*CQueue::evaluateExpression*					 public
+ See |CComponent::evaluateExpression|
+
+
 *CQueue::getCount*						 public
 >
  getCount()
@@ -108,6 +184,10 @@ METHOD DETAILS
 (integer) the number of items in the queue
 
  Returns the number of items in the queue.
+
+
+*CQueue::getEventHandlers*					 public
+ See |CComponent::getEventHandlers|
 
 
 *CQueue::getIterator*						 public
@@ -120,6 +200,18 @@ METHOD DETAILS
  required by the interface IteratorAggregate.
 
 
+*CQueue::hasEvent*						 public
+ See |CComponent::hasEvent|
+
+
+*CQueue::hasEventHandler*					 public
+ See |CComponent::hasEventHandler|
+
+
+*CQueue::hasProperty*						 public
+ See |CComponent::hasProperty|
+
+
 *CQueue::peek*							 public
 >
  peek()
@@ -127,6 +219,10 @@ METHOD DETAILS
 (mixed) item at the top of the queue
 
  Returns the item at the top of the queue.
+
+
+*CQueue::raiseEvent*						 public
+ See |CComponent::raiseEvent|
 
 
 *CQueue::toArray*						 public
