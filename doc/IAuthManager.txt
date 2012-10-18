@@ -95,8 +95,8 @@ METHOD DETAILS
 >
  executeBizRule($bizRule, $params, $data)
 <
-(whether) the execution returns a true value. If the business rule is empty,
-it will also return true.
+(boolean) whether the execution returns a true value. If the business rule is
+empty, it will also return true.
 
  Executes a business rule. A business rule is a piece of PHP code that will be
  executed when |IAuthManager::checkAccess| is called.

@@ -7,7 +7,9 @@
  PHP SOAP extension is required.
 
  CWebService makes use of |CWsdlGenerator| and can generate the WSDL
- on-the-fly without requiring you to write complex WSDL.
+ on-the-fly without requiring you to write complex WSDL. However WSDL
+ generator could be customized through |CWebService::generatorConfig|
+ property.
 
  To generate the WSDL based on doc comment blocks in the service provider
  class, call |CWebService::generateWsdl| or |CWebService::renderWsdl|. To
@@ -33,6 +35,15 @@ PROPERTY DETAILS
 
 <encoding>				*CWebService::encoding*
  (string) encoding of the Web service. Defaults to 'UTF-8'.
+
+<generatorConfig>			*CWebService::generatorConfig*
+ (string|array) WSDL generator configuration. This property may be useful in
+ purpose of enhancing features of the standard |CWsdlGenerator| class by
+ extending it. For example, some developers may need support of the
+ 'xsd:xsd:base64Binary' elements. Another use case is to change initial values
+ at instantiation of the default |CWsdlGenerator|. The value of this property
+ will be passed to |Yii::createComponent| to create the generator object.
+ Default value is 'CWsdlGenerator'.
 
 <methodName>				*CWebService::methodName*
  (string) the currently requested method name. Empty if no method is being

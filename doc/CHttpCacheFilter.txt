@@ -10,7 +10,8 @@ PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
 <cacheControl>				*CHttpCacheFilter::cacheControl*
- (string) Http cache control headers
+ (string) Http cache control headers. Set this to an empty string in order to
+ keep this header from being sent entirely.
 
 <etagSeed>				*CHttpCacheFilter::etagSeed*
  (mixed) Seed for the ETag. Can be anything that passes through 'serialize()'.
@@ -34,8 +35,9 @@ PROPERTY DETAILS
 
 <lastModifiedValue>			*CHttpCacheFilter::lastModifiedValue*
  (integer|boolean) Gets the last modified value from either
- |CHttpCacheFilter::lastModifiedExpression| or {@lastModified} and converts it
- into a unix timestamp if necessary
+ |CHttpCacheFilter::lastModifiedExpression| or
+ |CHttpCacheFilter::lastModified| and converts it into a unix timestamp if
+ necessary
 
 
 
@@ -93,7 +95,7 @@ METHOD DETAILS
 (boolean) true if the supplied etag matches $etag
 
  Check if the etag supplied by the client matches our generated one
-    [etag] (string) 
+    [etag] (string) the supplied etag
 
 
 *CHttpCacheFilter::checkLastModified*				 protected
@@ -104,7 +106,7 @@ METHOD DETAILS
 to $lastModified
 
  Checks if the last modified date supplied by the client is still up to date
-    [lastModified] (integer) 
+    [lastModified] (integer) the last modified date
 
 
 *CHttpCacheFilter::detachBehavior*				 public
@@ -176,8 +178,9 @@ etagSeed nor etagSeedExpression have been set
 lastModifiedExpression have been set
 
  Gets the last modified value from either
- |CHttpCacheFilter::lastModifiedExpression| or {@lastModified} and converts it
- into a unix timestamp if necessary
+ |CHttpCacheFilter::lastModifiedExpression| or
+ |CHttpCacheFilter::lastModified| and converts it into a unix timestamp if
+ necessary
 
 
 *CHttpCacheFilter::hasEvent*					 public
@@ -204,9 +207,11 @@ lastModifiedExpression have been set
 >
  preFilter($filterChain)
 <
-(void)
+(boolean) whether the filtering process should continue and the action should
+be executed.
 
-    [filterChain] () 
+ Performs the pre-action filtering.
+    [filterChain] (CFilterChain) the filter chain that the filter is on.
 
 
 *CHttpCacheFilter::raiseEvent*					 public
@@ -220,6 +225,15 @@ lastModifiedExpression have been set
 (void)
 
  Sends the 304 HTTP status code to the client
+
+
+*CHttpCacheFilter::sendCacheControlHeader*			 protected
+>
+ sendCacheControlHeader()
+<
+(void)
+
+ Sends the cache control header to the client
 
 
 

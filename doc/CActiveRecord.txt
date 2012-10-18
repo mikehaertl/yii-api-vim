@@ -1051,7 +1051,7 @@ successfully.
 (void)
 
  This event is raised before an AR finder performs a find call. In this event,
- the |CModelEvent::criteria| property contains the query criteria passed as
+ the CModelEvent::criteria property contains the query criteria passed as
  parameters to those find methods. If you want to access the query criteria
  specified in scopes, please use |CActiveRecord::getDbCriteria|. You can
  modify either criteria to customize them based on needs.
@@ -1187,7 +1187,7 @@ data will be populated to this active record.
  Each kind of related objects is defined in this method as an array with the
  following elements:
 >
- 'varName'=>array('relationType', 'className', 'foreign_key', ...additional
+ 'varName'=>array('relationType', 'className', 'foreignKey', ...additional
  options)
 <
  where 'varName' refers to the name of the variable/property that the related
@@ -1195,7 +1195,7 @@ data will be populated to this active record.
  relation, which can be one of the following four constants: self::BELONGS_TO,
  self::HAS_ONE, self::HAS_MANY and self::MANY_MANY; 'className' refers to the
  name of the active record class that the related object(s) is of; and
- 'foreign_key' states the foreign key that relates the two kinds of active
+ 'foreignKey' states the foreign key that relates the two kinds of active
  record. Note, for composite foreign keys, they can be either listed together,
  separated by commas or specified as an array in format of
  array('key1','key2'). In case you need to specify custom PK->FK association
@@ -1264,11 +1264,13 @@ data will be populated to this active record.
 
 *CActiveRecord::resetScope*					 public
 >
- resetScope()
+ resetScope($resetDefault=true)
 <
 (CActiveRecord) 
 
- Resets all scopes and criterias applied including default scope.
+ Resets all scopes and criterias applied.
+    [resetDefault] (boolean) including default scope. This parameter available
+    since 1.1.12
 
 
 *CActiveRecord::rules*						 public

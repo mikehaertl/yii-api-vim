@@ -187,11 +187,11 @@ METHOD DETAILS
 >
  confirm($message, $default=false)
 <
-(bool) if user confirmed
+(boolean) whether user confirmed
 
  Asks user to confirm by typing y or n.
     [message] (string) to echo out before waiting for user input
-    [default] (bool) this value is returned if no selection is made. This
+    [default] (boolean) this value is returned if no selection is made. This
     parameter has been available since version 1.1.11.
 
 

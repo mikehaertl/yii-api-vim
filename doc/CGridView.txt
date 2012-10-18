@@ -168,10 +168,11 @@ PROPERTY DETAILS
 <enableHistory> 			*CGridView::enableHistory*
  (boolean) whether to leverage the DOM history object.  Set this property to
  true to persist state of grid across page revisits.  Note, there are two
- limitations for this feature: - this feature is only compatible with browsers
- that support HTML5. - expect unexpected functionality (e.g. multiple ajax
- calls) if there is more than one grid/list on a single page with
- enableHistory turned on.
+ limitations for this feature:
+   this feature is only compatible with browsers that support HTML5.
+   expect unexpected functionality (e.g. multiple ajax calls) if
+   there is more than one grid/list on a single page with
+   enableHistory turned on.
 
 <enablePagination>			*CGridView::enablePagination*
  See |CBaseListView::enablePagination|

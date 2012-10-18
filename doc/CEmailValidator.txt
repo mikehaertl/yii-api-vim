@@ -201,8 +201,8 @@ METHOD DETAILS
 
  Determines if one MX record has higher priority as another (i.e. 'pri' is
  lower). Used by |CEmailValidator::checkMxPorts|.
-    [a] (mixed) 
-    [b] (mixed) 
+    [a] (mixed) first item for comparison
+    [b] (mixed) second item for comparison
 
 
 *CEmailValidator::raiseEvent*					 public

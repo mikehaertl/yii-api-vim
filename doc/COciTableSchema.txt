@@ -2,7 +2,7 @@
 *COciTableSchema*   >> |CDbTableSchema| >> |CComponent|
 =================
 
- COciTableSchema represents the metadata for a Oracle table.
+ COciTableSchema represents the metadata for an Oracle table.
 
 
 PROPERTY DETAILS

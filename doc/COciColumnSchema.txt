@@ -2,7 +2,7 @@
 *COciColumnSchema*   >> |CDbColumnSchema| >> |CComponent|
 ==================
 
- COciColumnSchema class describes the column meta data of a Oracle table.
+ COciColumnSchema class describes the column meta data of an Oracle table.
 
 
 

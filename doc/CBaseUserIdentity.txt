@@ -27,7 +27,7 @@ PROPERTY DETAILS
  (mixed) Returns a value that uniquely represents the identity.
 
 <isAuthenticated>			*CBaseUserIdentity::isAuthenticated*
- (whether) Returns a value indicating whether the identity is authenticated.
+ (boolean) Returns a value indicating whether the identity is authenticated.
  This method is required by |IUserIdentity|.
 
 <name>					*CBaseUserIdentity::name*
@@ -150,7 +150,7 @@ value). The default implementation simply returns |CBaseUserIdentity::name|.
 >
  getIsAuthenticated()
 <
-(whether) the authentication is successful.
+(boolean) whether the authentication is successful.
 
  Returns a value indicating whether the identity is authenticated. This method
  is required by |IUserIdentity|.

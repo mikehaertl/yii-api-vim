@@ -11,12 +11,7 @@
 >
  $cookies[$name]=new CHttpCookie($name,$value); // sends a cookie
  $value=$cookies[$name]->value; // reads a cookie value
- unset($cookies[$name]); // removes a cookie
-<
- Additionally (since Yii 1.1.11) a cookie can be added as an object, without
- setting the cookie name twice:
->
- $cookies->add(new CHttpCookie($name, $value)); // sends a cookie
+ unset($cookies[$name]);  // removes a cookie
 <
 
 
@@ -78,23 +73,15 @@ METHOD DETAILS
 
 *CCookieCollection::add*					 public
 >
- add($name, $cookie=NULL)
+ add($name, $cookie)
 <
 (void)
 
  Adds a cookie with the specified name. This overrides the parent
  implementation by performing additional operations for each newly added
- CHttpCookie object. This method provides the following two options to add a
- cookie:
->
- // Array access style - note that cookie name should be used twice here
- Yii::app()->request->cookies['name']=new CHttpCookie('name',$value);
- // Object style - note that cookie name is used only once here
- Yii::app()->request->cookies->add(new CHttpCookie('name', $value));
-<
-    [name] (mixed) Cookie name or an instance of |CHttpCookie|.
-    [cookie] (CHttpCookie) An instance of HttpCookie, only used if the first
-    parameter is not an instance of |CHttpCookie|. Defaults to null.
+ CHttpCookie object.
+    [name] (mixed) Cookie name.
+    [cookie] (CHttpCookie) Cookie object.
 
 
 *CCookieCollection::addCookie*					 protected

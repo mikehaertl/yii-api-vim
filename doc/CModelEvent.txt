@@ -11,11 +11,6 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
-<criteria>				*CModelEvent::criteria*
- (CDbCriteria) the query criteria that is passed as a parameter to a find
- method of |CActiveRecord|. Note that this property is only used by
- |CActiveRecord::onBeforeFind| event. This property could be null.
-
 <handled>				*CModelEvent::handled*
  See |CEvent::handled|
 

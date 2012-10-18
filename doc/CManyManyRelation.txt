@@ -5,5 +5,199 @@
  CManyManyRelation represents the parameters specifying a MANY_MANY relation.
 
 
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<alias> 				*CManyManyRelation::alias*
+ See |CActiveRelation::alias|
+
+<className>				*CManyManyRelation::className*
+ See |CBaseActiveRelation::className|
+
+<condition>				*CManyManyRelation::condition*
+ See |CBaseActiveRelation::condition|
+
+<foreignKey>				*CManyManyRelation::foreignKey*
+ See |CBaseActiveRelation::foreignKey|
+
+<group> 				*CManyManyRelation::group*
+ See |CBaseActiveRelation::group|
+
+<having>				*CManyManyRelation::having*
+ See |CBaseActiveRelation::having|
+
+<index> 				*CManyManyRelation::index*
+ See |CHasManyRelation::index|
+
+<join>					*CManyManyRelation::join*
+ See |CBaseActiveRelation::join|
+
+<joinType>				*CManyManyRelation::joinType*
+ See |CActiveRelation::joinType|
+
+<junctionForeignKeys>			*CManyManyRelation::junctionForeignKeys*
+ (array) list of junction table foreign keys.
+
+<junctionTableName>			*CManyManyRelation::junctionTableName*
+ (string) junction table name.
+
+<limit> 				*CManyManyRelation::limit*
+ See |CHasManyRelation::limit|
+
+<name>					*CManyManyRelation::name*
+ See |CBaseActiveRelation::name|
+
+<offset>				*CManyManyRelation::offset*
+ See |CHasManyRelation::offset|
+
+<on>					*CManyManyRelation::on*
+ See |CActiveRelation::on|
+
+<order> 				*CManyManyRelation::order*
+ See |CBaseActiveRelation::order|
+
+<params>				*CManyManyRelation::params*
+ See |CBaseActiveRelation::params|
+
+<scopes>				*CManyManyRelation::scopes*
+ See |CActiveRelation::scopes|
+
+<select>				*CManyManyRelation::select*
+ See |CBaseActiveRelation::select|
+
+<through>				*CManyManyRelation::through*
+ See |CHasManyRelation::through|
+
+<together>				*CManyManyRelation::together*
+ See |CActiveRelation::together|
+
+<with>					*CManyManyRelation::with*
+ See |CActiveRelation::with|
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CManyManyRelation::__call*					 public
+ See |CComponent::__call|
+
+
+*CManyManyRelation::__construct*				 public
+ See |CBaseActiveRelation::__construct|
+
+
+*CManyManyRelation::__get*					 public
+ See |CComponent::__get|
+
+
+*CManyManyRelation::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CManyManyRelation::__set*					 public
+ See |CComponent::__set|
+
+
+*CManyManyRelation::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CManyManyRelation::asa*					 public
+ See |CComponent::asa|
+
+
+*CManyManyRelation::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CManyManyRelation::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CManyManyRelation::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
+*CManyManyRelation::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CManyManyRelation::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CManyManyRelation::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CManyManyRelation::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CManyManyRelation::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CManyManyRelation::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CManyManyRelation::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CManyManyRelation::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CManyManyRelation::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CManyManyRelation::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
+*CManyManyRelation::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CManyManyRelation::getJunctionForeignKeys*			 public
+>
+ getJunctionForeignKeys()
+<
+(array) list of junction table foreign keys.
+
+
+
+*CManyManyRelation::getJunctionTableName*			 public
+>
+ getJunctionTableName()
+<
+(string) junction table name.
+
+
+
+*CManyManyRelation::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CManyManyRelation::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CManyManyRelation::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CManyManyRelation::mergeWith*					 public
+ See |CHasManyRelation::mergeWith|
+
+
+*CManyManyRelation::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
+
+
 
  vim:tw=78:ts=8:ft=help:norl:

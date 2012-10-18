@@ -67,8 +67,8 @@ METHOD DETAILS
 <
 (void)
 
-    [value] () 
-    [offset] () 
+    [value] (string) the date string to be parsed
+    [offset] (integer) starting offset
 
 
 *CDateTimeParser::parseInteger* 				 protected
@@ -77,10 +77,10 @@ METHOD DETAILS
 <
 (void)
 
-    [value] () 
-    [offset] () 
-    [minLength] () 
-    [maxLength] () 
+    [value] (string) the date string to be parsed
+    [offset] (integer) starting offset
+    [minLength] (integer) minimum length
+    [maxLength] (integer) maximum length
 
 
 *CDateTimeParser::parseShortMonth*				 protected

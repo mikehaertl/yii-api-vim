@@ -435,7 +435,7 @@ METHOD DETAILS
 <
 (string) the generated input field
 
- Renders an number field for a model attribute. This method is a wrapper of
+ Renders a date field for a model attribute. This method is a wrapper of
  |CHtml::activeDateField|. Please check |CHtml::activeDateField| for detailed
  information about the parameters for this method.
     [model] (CModel) the data model
@@ -708,7 +708,7 @@ METHOD DETAILS
 <
 (string) the generated input field
 
- Renders an number field for a model attribute. This method is a wrapper of
+ Renders a number field for a model attribute. This method is a wrapper of
  |CHtml::activeNumberField|. Please check |CHtml::activeNumberField| for
  detailed information about the parameters for this method.
     [model] (CModel) the data model
@@ -770,7 +770,7 @@ METHOD DETAILS
 <
 (string) the generated input field
 
- Renders an number field for a model attribute. This method is a wrapper of
+ Generates a range field for a model attribute. This method is a wrapper of
  |CHtml::activeRangeField|. Please check |CHtml::activeRangeField| for
  detailed information about the parameters for this method.
     [model] (CModel) the data model

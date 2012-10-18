@@ -99,7 +99,7 @@ PROPERTY DETAILS
 
 <type>					*CFormInputElement::type*
  (string) the type of this input. This can be a widget class name, a path
- alias of a widget class name, or a input type alias (text, hidden, password,
+ alias of a widget class name, or an input type alias (text, hidden, password,
  textarea, file, radio, checkbox, listbox, dropdownlist, checkboxlist, or
  radiolist). If a widget class, it must extend from |CInputWidget| or (@link
  CJuiInputWidget).

@@ -10,24 +10,21 @@
  view:
 >
  $this->widget('zii.widgets.jui.CJuiButton', array(
- 		'name'=>'submit',
- 		'caption'=>'Save',
- 		'options'=>array(
-         'onclick'=>new CJavaScriptExpression('function(){alert("Yes");}'),
-     ),
+     'name'=>'submit',
+     'caption'=>'Save',
+     'options'=>array(
+     'onclick'=>new CJavaScriptExpression('function(){alert("Yes");}'),
  ));
 <
  To use this widget as a button, you may insert the following code in a view:
 >
- $this->widget('zii.widgets.jui.CJuiButton',
- 	array(
- 		'name'=>'button',
- 			'caption'=>'Save',
- 		'value'=>'asd',
- 		'onclick'=>new CJavaScriptExpression('function(){alert("Save button
+ $this->widget('zii.widgets.jui.CJuiButton', array(
+     'name'=>'button',
+     'caption'=>'Save',
+     'value'=>'asd',
+     'onclick'=>new CJavaScriptExpression('function(){alert("Save button
  clicked"); this.blur(); return false;}'),
- 		)
- );
+ ));
 <
  By configuring the |CJuiButton::options| property, you may specify the
  options that need to be passed to the JUI button plugin. Please refer to the

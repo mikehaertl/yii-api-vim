@@ -55,7 +55,7 @@ METHOD DETAILS
     [name] (string) authorization item name
     [type] (integer) authorization item type. This can be 0 (operation), 1
     (task) or 2 (role).
-    [description] (description) the description
+    [description] (string) the description
     [bizRule] (string) the business rule associated with this item
     [data] (mixed) additional data for this item
 

@@ -72,13 +72,14 @@ METHOD DETAILS
  <b>Regular expressions are used to alter the SQL query. The resulting SQL
  query may be malformed for complex queries.</b> The following restrictions
  apply
-
- <ul>   <li> In particular, <b>commas</b> should <b>NOT</b> be used as part of
- the ordering expression or identifier. Commas must only be used for
- separating the ordering clauses.  </li>  <li> In the ORDER BY clause, the
- column name should NOT be be qualified with a table name or view name. Alias
- the column names or use column index. </li> <li> No clauses should follow the
- ORDER BY clause, e.g. no COMPUTE or FOR clauses. </li>
+   In particular, <b>commas</b> should <b>NOT</b> be used as part of
+   the ordering expression or identifier. Commas must only be used
+   for separating the ordering clauses.
+   In the ORDER BY clause, the column name should NOT be be qualified
+   with a table name or view name. Alias the column names or use
+   column index.
+   No clauses should follow the ORDER BY clause, e.g. no COMPUTE or
+   FOR clauses.
     [sql] (string) SQL query string.
     [limit] (integer) maximum number of rows, -1 to ignore limit.
     [offset] (integer) row offset, -1 to ignore offset.
@@ -120,7 +121,7 @@ METHOD DETAILS
 >
  checkCriteria($table, $criteria)
 <
-(CDbCrireria) the modified criteria
+(CDbCriteria) the modified criteria
 
  Checks if the criteria has an order by clause when using offset/limit.
  Override parent implementation to check if an orderby clause if specified
@@ -342,7 +343,7 @@ METHOD DETAILS
 >
  rewriteLimitOffsetSql($sql, $limit, $offset)
 <
-(sql) modified sql query applied with limit and offset.
+(string) modified sql query applied with limit and offset.
 
  Rewrite sql to apply $limit > and $offset > 0 for MSSQL database. See
  http://troels.arvin.dk/db/rdbms/#select-limit-offset
