@@ -34,13 +34,14 @@ autocmd BufNewFile,Bufread *.php set keywordprg="help"
 ## Create custom version
 
 The package also contains the Yii command that was used to create the help files.
-This command requires a SVN copy of Yii. To use it follow these steps:
+This command requires a copy of Yii somewhere. If you extracted this package to
+`/tmp/yii-api-vim` you can create the helpfiles in `/tmp/yii-api-vim/doc` like this:
 
 ```sh
-svn co http://yii.googlecode.com/svn/trunk /tmp/yii-svn
-cd /tmp/yii-svn/build
+git clone https://github.com/yiisoft/yii.git /tmp/yii-repo
+cd /tmp/yii-repo/build
 
-export YII_CONSOLE_COMMANDS=/path/to/yii-api-vim/yii_commands/
+export YII_CONSOLE_COMMANDS=/tmp/yii-api-vim/yii_commands/
 ./build vimapi /tmp/yii-api-vim/doc
 ```
 
