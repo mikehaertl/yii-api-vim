@@ -20,8 +20,14 @@ PROPERTY DETAILS
 <categories>				*CProfileLogRoute::categories*
  See |CLogRoute::categories|
 
+<collapsedInFireBug>			*CProfileLogRoute::collapsedInFireBug*
+ See |CWebLogRoute::collapsedInFireBug|
+
 <enabled>				*CProfileLogRoute::enabled*
  See |CLogRoute::enabled|
+
+<except>				*CProfileLogRoute::except*
+ See |CLogRoute::except|
 
 <filter>				*CProfileLogRoute::filter*
  See |CLogRoute::filter|

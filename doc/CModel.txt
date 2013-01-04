@@ -33,7 +33,8 @@ PROPERTY DETAILS
  massively assigned.
 
  A validation rule will be performed when calling |CModel::validate| if its
- 'on' option is not set or contains the current scenario value.
+ 'except' value does not contain current scenario value while 'on' option is
+ not set or contains the current scenario value.
 
  And an attribute can be massively assigned if it is associated with a
  validation rule for the current scenario. Note that an exception is the
@@ -360,7 +361,8 @@ returned if no error.
  massively assigned.
 
  A validation rule will be performed when calling |CModel::validate| if its
- 'on' option is not set or contains the current scenario value.
+ 'except' value does not contain current scenario value while 'on' option is
+ not set or contains the current scenario value.
 
  And an attribute can be massively assigned if it is associated with a
  validation rule for the current scenario. Note that an exception is the
@@ -564,8 +566,13 @@ returned if no error.
    class extending |CValidator|.
    {on} this specifies the scenarios when the validation rule should
    be performed.   Separate different scenarios with commas. If this
-   option is not set, the rule   will be applied in any scenario.
-   Please see |CModel::scenario| for more details about this option.
+   option is not set, the rule   will be applied in any scenario that
+   is not listed in "except". Please see |CModel::scenario| for more
+   details about this option.
+   {except} this specifies the scenarios when the validation rule
+   should not be performed.   Separate different scenarios with
+   commas. Please see |CModel::scenario| for more details about this
+   option.
    additional parameters are used to initialize the corresponding
    validator properties.   Please refer to individal validator class
    API for possible properties.The following are some examples:

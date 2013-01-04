@@ -73,6 +73,11 @@ PROPERTY DETAILS
 <skipOnError>				*CTypeValidator::skipOnError*
  See |CValidator::skipOnError|
 
+<strict>				*CTypeValidator::strict*
+ (boolean) whether the actual PHP type of attribute value should be checked.
+ Defaults to false, meaning that correctly formatted strings are accepted for
+ integer and float validators.
+
 <timeFormat>				*CTypeValidator::timeFormat*
  (string) the format pattern that the time value should follow. Defaults to
  'hh:mm'. Please see |CDateTimeParser| for details about how to specify a time
@@ -219,6 +224,19 @@ METHOD DETAILS
  message is added to the object.
     [object] (CModel) the object being validated
     [attribute] (string) the attribute being validated
+
+
+*CTypeValidator::validateValue* 				 public
+>
+ validateValue($value)
+<
+(boolean) whether the value is valid
+
+ Validates a static value. Note that this method does not respect
+ |CTypeValidator::allowEmpty| property. This method is provided so that you
+ can call it directly without going through the model validation rule
+ mechanism.
+    [value] (mixed) the value to be validated
 
 
 

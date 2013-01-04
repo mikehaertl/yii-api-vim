@@ -38,6 +38,11 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<caseSensitiveSort>			*CArrayDataProvider::caseSensitiveSort*
+ (boolean) controls how sorting works. True value means that case will be
+ taken into account. False value will lead to the case insensitive sort.
+ Default value is true.
+
 <data>					*CArrayDataProvider::data*
  See |CDataProvider::data|
 

@@ -3,7 +3,7 @@
 =================
 
  IStatePersister is the interface that must be implemented by state persister
- calsses.
+ classes.
 
  This interface must be implemented by all state persister classes (such as
  |CStatePersister|.

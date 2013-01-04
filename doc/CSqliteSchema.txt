@@ -81,6 +81,23 @@ table.
     RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL
 
 
+*CSqliteSchema::addPrimaryKey*					 public
+>
+ addPrimaryKey($name, $table, $columns)
+<
+(string) the SQL statement for adding a primary key constraint to an existing
+table.
+
+ Builds a SQL statement for adding a primary key constraint to an existing
+ table. Because SQLite does not support adding a primary key on an existing
+ table this method will throw an exception
+    [name] (string) the name of the primary key constraint.
+    [table] (string) the table that the primary key constraint will be added
+    to.
+    [columns] (string) the name of the column to that the constraint will be
+    added on.
+
+
 *CSqliteSchema::alterColumn*					 public
 >
  alterColumn($table, $column, $type)
@@ -231,6 +248,21 @@ table.
     properly quoted by the method.
 
 
+*CSqliteSchema::dropPrimaryKey* 				 public
+>
+ dropPrimaryKey($name, $table)
+<
+(string) the SQL statement for removing a primary key constraint from an
+existing table.
+
+ Builds a SQL statement for removing a primary key constraint to an existing
+ table. Because SQLite does not support dropping a primary key from an
+ existing table this method will throw an exception
+    [name] (string) the name of the primary key constraint to be removed.
+    [table] (string) the table that the primary key constraint will be removed
+    from.
+
+
 *CSqliteSchema::dropTable*					 public
  See |CDbSchema::dropTable|
 
@@ -370,7 +402,16 @@ exist.
 
 
 *CSqliteSchema::renameTable*					 public
- See |CDbSchema::renameTable|
+>
+ renameTable($table, $newName)
+<
+(string) the SQL statement for renaming a DB table.
+
+ Builds a SQL statement for renaming a DB table.
+    [table] (string) the table to be renamed. The name will be properly quoted
+    by the method.
+    [newName] (string) the new table name. The name will be properly quoted by
+    the method.
 
 
 *CSqliteSchema::resetSequence*					 public

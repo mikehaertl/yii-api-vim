@@ -98,6 +98,20 @@ METHOD DETAILS
     RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL
 
 
+*CDbMigration::addPrimaryKey*					 public
+>
+ addPrimaryKey($name, $table, $columns)
+<
+(void)
+
+ Builds and executes a SQL statement for creating a primary key, supports
+ composite primary keys.
+    [name] (string) name of the primary key constraint to add
+    [table] (string) name of the table to add primary key to
+    [columns] (string) name of the column to utilise as primary key. If there
+    are multiple columns, separate them with commas.
+
+
 *CDbMigration::alterColumn*					 public
 >
  alterColumn($table, $column, $type)
@@ -262,6 +276,18 @@ METHOD DETAILS
     properly quoted by the method.
     [table] (string) the table whose index is to be dropped. The name will be
     properly quoted by the method.
+
+
+*CDbMigration::dropPrimaryKey*					 public
+>
+ dropPrimaryKey($name, $table)
+<
+(void)
+
+ Builds and executes a SQL statement for removing a primary key, supports
+ composite primary keys.
+    [name] (string) name of the constraint to remove
+    [table] (string) name of the table to remove primary key from
 
 
 *CDbMigration::dropTable*					 public

@@ -46,10 +46,10 @@ METHOD DETAILS
 (boolean) whether the operations can be performed by the user.
 
  Performs access check for the specified user.
-    [itemName] (string) the name of the operation that need access check
-    [userId] (mixed) the user ID. This should can be either an integer and a
-    string representing the unique identifier of a user. See
-    |IWebUser::getId|.
+    [itemName] (string) the name of the operation that we are checking access
+    to
+    [userId] (mixed) the user ID. This should be either an integer or a string
+    representing the unique identifier of a user. See |IWebUser::getId|.
     [params] (array) name-value pairs that would be passed to biz rules
     associated with the tasks and roles assigned to the user.
 

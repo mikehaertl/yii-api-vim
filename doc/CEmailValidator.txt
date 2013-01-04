@@ -58,6 +58,11 @@ PROPERTY DETAILS
 <skipOnError>				*CEmailValidator::skipOnError*
  See |CValidator::skipOnError|
 
+<validateIDN>				*CEmailValidator::validateIDN*
+ (boolean) whether validation process should care about IDN (internationalized
+ domain names). Default value is false which means that validation of emails
+ containing IDN will always fail.
+
 
 
 METHOD DETAILS

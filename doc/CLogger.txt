@@ -176,7 +176,7 @@ METHOD DETAILS
 
 *CLogger::getLogs*						 public
 >
- getLogs($levels='', $categories='')
+ getLogs($levels='', $categories='Array', $except=array())
 <
 (array) list of messages. Each array element represents one message with the
 following structure: array(   [0] => message (string)   [1] => level (string) 
@@ -198,6 +198,7 @@ microtime(true));
  satisfying both filter conditions will be returned.
     [levels] (string) level filter
     [categories] (string) category filter
+    [except] () 
 
 
 *CLogger::getMemoryUsage*					 public

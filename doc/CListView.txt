@@ -62,6 +62,30 @@ PROPERTY DETAILS
  and pagination should trigger the update of multiple containers' content in
  AJAX fashion, these container IDs may be listed here (separated with comma).
 
+<ajaxUpdateError>			*CListView::ajaxUpdateError*
+ (string) a javascript function that will be invoked if an AJAX update error
+ occurs.
+
+ The function signature is 'function(xhr, textStatus, errorThrown,
+ errorMessage)'
+   'xhr' is the XMLHttpRequest object.
+   'textStatus' is a string describing the type of error that
+   occurred. Possible values (besides null) are "timeout", "error",
+   "notmodified" and "parsererror"
+   'errorThrown' is an optional exception object, if one occurred.
+   'errorMessage' is the CGridView default error message derived from
+   xhr and errorThrown. Usefull if you just want to display this
+   error differently. CGridView by default displays this error with
+   an javascript.alert()Note: This handler is not called for JSONP requests,
+ because they do not use an XMLHttpRequest.
+
+ Example (add in a call to CGridView):
+>
+  ...
+  'ajaxUpdateError'=>'function(xhr,ts,et,err){ $("#myerrordiv").text(err); }',
+  ...
+<
+
 <ajaxUrl>				*CListView::ajaxUrl*
  (mixed) the URL for the AJAX requests should be sent to.
  |CHtml::normalizeUrl| will be called on this property. If not set, the

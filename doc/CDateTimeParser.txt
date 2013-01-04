@@ -13,8 +13,9 @@
  dd      | Day of month 01 to 31, zero leading
  M       | Month digit 1 to 12, no padding
  MM      | Month digit 01 to 12, zero leading
- MMM     | Short textual representation of month, three letters (since version
- 1.1.11)
+ MMM     | Abbreviation representation of month (available since 1.1.11;
+ locale aware since 1.1.13)
+ MMMM    | Full name representation (available since 1.1.13; locale aware)
  yy      | 2 year digit, e.g., 96, 05
  yyyy    | 4 year digit, e.g., 2005
  h       | Hour in 0 to 23, no padding
@@ -36,6 +37,9 @@
 >
  $timestamp=CDateTimeParser::parse('21/10/2008','dd/MM/yyyy');
 <
+ Locale specific patterns such as MMM and MMMM uses |CLocale| for retrieving
+ needed information.
+
  To format a timestamp to a date string, please use |CDateFormatter|.
 
 
@@ -65,7 +69,7 @@ METHOD DETAILS
 >
  parseAmPm($value, $offset)
 <
-(void)
+(string) parsed day period value
 
     [value] (string) the date string to be parsed
     [offset] (integer) starting offset
@@ -75,7 +79,7 @@ METHOD DETAILS
 >
  parseInteger($value, $offset, $minLength, $maxLength)
 <
-(void)
+(string) parsed integer value
 
     [value] (string) the date string to be parsed
     [offset] (integer) starting offset
@@ -83,14 +87,17 @@ METHOD DETAILS
     [maxLength] (integer) maximum length
 
 
-*CDateTimeParser::parseShortMonth*				 protected
+*CDateTimeParser::parseMonth*					 protected
 >
- parseShortMonth($value, $offset)
+ parseMonth($value, $offset, $width, $monthName)
 <
-(void)
+(string) parsed month name.
 
-    [value] (string) the date string to be parsed
-    [offset] (integer) starting offset
+    [value] (string) the date string to be parsed.
+    [offset] (integer) starting offset.
+    [width] (string) month name width. It can be 'wide', 'abbreviated' or
+    'narrow'.
+    [monthName] (string) extracted month name. Passed by reference.
 
 
 

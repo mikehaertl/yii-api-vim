@@ -15,8 +15,15 @@ PROPERTY DETAILS
 <beforeRequiredLabel>			*CHtml::beforeRequiredLabel*
  (string) the HTML code to be prepended to the required label.
 
+<closeSingleTags>			*CHtml::closeSingleTags*
+ (boolean) whether to close single tags. Defaults to true. Can be set to false
+ for HTML5.
+
 <count> 				*CHtml::count*
  (integer) the counter for generating automatic input field names.
+
+<errorContainerTag>			*CHtml::errorContainerTag*
+ (string) the tag name for the error container tag. Defaults to 'div'.
 
 <errorCss>				*CHtml::errorCss*
  (string) the CSS class for highlighting error inputs. Form inputs will be
@@ -45,6 +52,10 @@ PROPERTY DETAILS
 
  For more information about attaching jQuery event handler see
  'http://api.jquery.com/on/'
+
+<renderSpecialAttributesValue>		*CHtml::renderSpecialAttributesValue*
+ (boolean) whether to render special attributes value. Defaults to true. Can
+ be set to false for HTML5.
 
 <requiredCss>				*CHtml::requiredCss*
  (string) the CSS class for required labels. Defaults to 'required'.
@@ -172,6 +183,12 @@ METHOD DETAILS
             'value2'=>array('label'=>'value 2'),
         );
 <
+    Since 1.1.13, a special option named 'unselectValue' is available. It can
+    be used to set the value that will be returned when no option is selected
+    in multiple mode. When set, a hidden field is rendered so that if no
+    option is selected in multiple mode, we can still obtain the posted
+    unselect value. If 'unselectValue' is not set or set to NULL, the hidden
+    field will not be rendered.
 
 
 *CHtml::activeEmailField*					 public
@@ -666,6 +683,9 @@ METHOD DETAILS
       {container} string, specifies the checkboxes enclosing tag.
       Defaults to 'span'. If the value is an empty string, no enclosing
       tag will be generated
+      {baseID} string, specifies the base ID prefix to be used for
+      checkboxes in the list. This option is available since version
+      1.1.13.
 
 
 *CHtml::clientChange*						 protected
@@ -678,16 +698,22 @@ METHOD DETAILS
     [event] (string) event name (without 'on')
     [htmlOptions] (array) HTML attributes which may contain the following
     special attributes specifying the client change behaviors:
-      {submit} string, specifies the URL that the button should submit
-      to. If empty, the current requested URL will be used.
+      {submit} string, specifies the URL to submit to. If the current
+      element has a parent form, that form will be submitted, and if
+      'submit' is non-empty its value will replace the form's URL. If
+      there is no parent form the data listed in 'params' will be
+      submitted instead (via POST method), to the URL in 'submit' or the
+      currently requested URL if 'submit' is empty. Please note that if
+      the 'csrf' setting is true, the CSRF token will be included in the
+      params too.
       {params} array, name-value pairs that should be submitted together
       with the form. This is only used when 'submit' option is
       specified.
-      {csrf} boolean, whether a CSRF token should be submitted when
-      |CHttpRequest::enableCsrfValidation| is true. Defaults to false.
-      You may want to set this to be true if there is no enclosing form
-      around this element. This option is meaningful only when 'submit'
-      option is set.
+      {csrf} boolean, whether a CSRF token should be automatically
+      included in 'params' when |CHttpRequest::enableCsrfValidation| is
+      true. Defaults to false. You may want to set this to be true if
+      there is no enclosing form around this element. This option is
+      meaningful only when 'submit' option is set.
       {return} boolean, the return value of the javascript. Defaults to
       false, meaning that the execution of javascript would not cause
       the default behavior of the event.
@@ -781,6 +807,12 @@ METHOD DETAILS
             'value2'=>array('label'=>'value 2'),
         );
 <
+    Since 1.1.13, a special option named 'unselectValue' is available. It can
+    be used to set the value that will be returned when no option is selected
+    in multiple mode. When set, a hidden field is rendered so that if no
+    option is selected in multiple mode, we can still obtain the posted
+    unselect value. If 'unselectValue' is not set or set to NULL, the hidden
+    field will not be rendered.
 
 
 *CHtml::encode* 						 public
@@ -826,7 +858,7 @@ METHOD DETAILS
     [model] (CModel) the data model
     [attribute] (string) the attribute name
     [htmlOptions] (array) additional HTML attributes to be rendered in the
-    container div tag.
+    container tag.
 
 
 *CHtml::errorSummary*						 public
@@ -1079,13 +1111,23 @@ METHOD DETAILS
  (such as |CHtml::activeDropDownList|). Note, this method does not HTML-encode
  the generated data. You may call |CHtml::encodeArray| to encode it if needed.
  Please refer to the |CHtml::value| method on how to specify value field, text
- field and group field.
+ field and group field. You can also pass anonymous functions as second, third
+ and fourth arguments which calculates text field value (PHP 5.3+ only) since
+ 1.1.13. Your anonymous function should receive one argument, which is the
+ model, the current &lt;option&gt; tag is generated from.
+>
+ CHtml::listData($posts,'id',function($post) {
+ 	return CHtml::encode($post->title);
+ });
+<
     [models] (array) a list of model objects. This parameter can also be an
     array of associative arrays (e.g. results of |CDbCommand::queryAll|).
-    [valueField] (string) the attribute name for list option values
-    [textField] (string) the attribute name for list option texts
-    [groupField] (string) the attribute name for list option group names. If
-    empty, no group will be generated.
+    [valueField] (mixed) the attribute name or anonymous function (PHP 5.3+)
+    for list option values
+    [textField] (mixed) the attribute name or anonymous function (PHP 5.3+)
+    for list option texts
+    [groupField] (mixed) the attribute name or anonymous function (PHP 5.3+)
+    for list option group names. If empty, no group will be generated.
 
 
 *CHtml::listOptions*						 public
@@ -1271,6 +1313,9 @@ METHOD DETAILS
       {container} string, specifies the radio buttons enclosing tag.
       Defaults to 'span'. If the value is an empty string, no enclosing
       tag will be generated
+      {baseID} string, specifies the base ID prefix to be used for radio
+      buttons in the list. This option is available since version
+      1.1.13.
 
 
 *CHtml::refresh*						 public
@@ -1455,7 +1500,7 @@ METHOD DETAILS
 >
  value($model, $attribute, $defaultValue=NULL)
 <
-(mixed) the attribute value
+(mixed) the attribute value.
 
  Evaluates the value of the specified attribute for the given model. The
  attribute name can be given in a dot syntax. For example, if the attribute is
@@ -1466,11 +1511,24 @@ METHOD DETAILS
  If the latter, the attribute is treated as a key of the array. For the
  example of "author.firstName", if would mean the array value
  "$model['author']['firstName']".
+
+ Anonymous function could also be used for attribute calculation since 1.1.13
+ ($attribute parameter; PHP 5.3+ only) as follows:
+>
+ $taskClosedSecondsAgo=CHtml::value($closedTask,function($model) {
+ 	return time()-$model->closed_at;
+ });
+<
+ Your anonymous function should receive one argument, which is the model, the
+ current value is calculated from. This feature could be used together with
+ the |CHtml::listData|. Please refer to its documentation for more details.
     [model] (mixed) the model. This can be either an object or an array.
-    [attribute] (string) the attribute name (use dot to concatenate multiple
-    attributes)
+    [attribute] (mixed) the attribute name (use dot to concatenate multiple
+    attributes) or anonymous function (PHP 5.3+). Remember that functions
+    created by "create_function" are not supported by this method. Also note
+    that numeric value is meaningless when first parameter is object typed.
     [defaultValue] (mixed) the default value to return when the attribute does
-    not exist
+    not exist.
 
 
 

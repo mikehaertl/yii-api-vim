@@ -247,7 +247,7 @@ available file was found for the given attribute.
 adequate upload was found. Please note that this array will contain all files
 from all subarrays regardless how deeply nested they are.
 
- Returns an array of instances for the specified array name.
+ Returns an array of instances starting with specified array name.
 
  If multiple files were uploaded and saved as 'Files[0]', 'Files[1]',
  'Files[n]'..., you can have them all by passing 'Files' as array name.

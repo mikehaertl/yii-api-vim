@@ -10,7 +10,7 @@ PROPERTY DETAILS
 
 <bootstrapUrl>				*CGoogleApi::bootstrapUrl*
  (string) Protocol relative url to the Google API loader which allows easy
- access  to most of the Google AJAX APIs
+ access to most of the Google AJAX APIs
 
 
 

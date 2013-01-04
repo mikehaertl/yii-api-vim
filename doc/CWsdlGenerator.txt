@@ -50,7 +50,7 @@
 >
  class Foo {
      / **
-       * @var string name of foo
+       * @var string name of foo {nillable = 1, minOccurs=0, maxOccurs = 2}
        * @soap
        * /
      public $name;
@@ -65,19 +65,37 @@
  'Member' is not a primitive type, CWsdlGenerator will look further to find
  the definition of 'Member'.
 
+ Optionally, extra attributes (nillable, minOccurs, maxOccurs) can be defined
+ for each  property by enclosing definitions into curly brackets and separated
+ by comma like so:
+
+ {[attribute1 = value1], [attribute2 = value2], ...}
+
+ where the attribute can be one of following:  nillable = [0|1|true|false] 
+ minOccurs = n; where n>=0  maxOccurs = n; where n>=0
+
 
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<messages>				*CWsdlGenerator::messages*
+ ()
+
 <namespace>				*CWsdlGenerator::namespace*
  (string) the namespace to be used in the generated WSDL. If not set, it
  defaults to the name of the class that WSDL is generated upon.
+
+<operations>				*CWsdlGenerator::operations*
+ ()
 
 <serviceName>				*CWsdlGenerator::serviceName*
  (string) the name of the generated WSDL. If not set, it defaults to
  "urn:{$className}wsdl".
 
 <typeMap>				*CWsdlGenerator::typeMap*
+ ()
+
+<types> 				*CWsdlGenerator::types*
  ()
 
 
@@ -105,6 +123,57 @@ METHOD DETAILS
  See |CComponent::__unset|
 
 
+*CWsdlGenerator::addBindings*					 protected
+>
+ addBindings($dom)
+<
+(void)
+
+    [dom] (DOMDocument) Represents an entire HTML or XML document; serves as
+    the root of the document tree
+
+
+*CWsdlGenerator::addMessages*					 protected
+>
+ addMessages($dom)
+<
+(void)
+
+    [dom] (DOMDocument) Represents an entire HTML or XML document; serves as
+    the root of the document tree
+
+
+*CWsdlGenerator::addPortTypes*					 protected
+>
+ addPortTypes($dom)
+<
+(void)
+
+    [dom] (DOMDocument) Represents an entire HTML or XML document; serves as
+    the root of the document tree
+
+
+*CWsdlGenerator::addService*					 protected
+>
+ addService($dom, $serviceUrl)
+<
+(void)
+
+    [dom] (DOMDocument) Represents an entire HTML or XML document; serves as
+    the root of the document tree
+    [serviceUrl] (string) Web service URL
+
+
+*CWsdlGenerator::addTypes*					 protected
+>
+ addTypes($dom)
+<
+(void)
+
+    [dom] (DOMDocument) Represents an entire HTML or XML document; serves as
+    the root of the document tree
+
+
 *CWsdlGenerator::asa*						 public
  See |CComponent::asa|
 
@@ -121,12 +190,45 @@ METHOD DETAILS
  See |CComponent::attachEventHandler|
 
 
+*CWsdlGenerator::buildDOM*					 protected
+>
+ buildDOM($serviceUrl, $encoding)
+<
+(void)
+
+    [serviceUrl] (string) Web service URL
+    [encoding] (string) encoding of the WSDL. Defaults to 'UTF-8'.
+
+
 *CWsdlGenerator::canGetProperty*				 public
  See |CComponent::canGetProperty|
 
 
 *CWsdlGenerator::canSetProperty*				 public
  See |CComponent::canSetProperty|
+
+
+*CWsdlGenerator::createOperationElement*			 protected
+>
+ createOperationElement($dom, $name)
+<
+(void)
+
+    [dom] (DOMDocument) Represents an entire HTML or XML document; serves as
+    the root of the document tree
+    [name] (string) method name
+
+
+*CWsdlGenerator::createPortElement*				 protected
+>
+ createPortElement($dom, $name, $doc)
+<
+(void)
+
+    [dom] (DOMDocument) Represents an entire HTML or XML document; serves as
+    the root of the document tree
+    [name] (string) method name
+    [doc] (string) doc
 
 
 *CWsdlGenerator::detachBehavior*				 public
@@ -187,6 +289,24 @@ METHOD DETAILS
 
 *CWsdlGenerator::hasProperty*					 public
  See |CComponent::hasProperty|
+
+
+*CWsdlGenerator::processMethod* 				 protected
+>
+ processMethod($method)
+<
+(void)
+
+    [method] (ReflectionMethod) method
+
+
+*CWsdlGenerator::processType*					 protected
+>
+ processType($type)
+<
+(void)
+
+    [type] (string) PHP variable type
 
 
 *CWsdlGenerator::raiseEvent*					 public

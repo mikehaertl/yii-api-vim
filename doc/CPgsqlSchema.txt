@@ -75,6 +75,10 @@ METHOD DETAILS
  See |CDbSchema::addForeignKey|
 
 
+*CPgsqlSchema::addPrimaryKey*					 public
+ See |CDbSchema::addPrimaryKey|
+
+
 *CPgsqlSchema::alterColumn*					 public
 >
  alterColumn($table, $column, $type)
@@ -195,6 +199,10 @@ METHOD DETAILS
     properly quoted by the method.
     [table] (string) the table whose index is to be dropped. The name will be
     properly quoted by the method.
+
+
+*CPgsqlSchema::dropPrimaryKey*					 public
+ See |CDbSchema::dropPrimaryKey|
 
 
 *CPgsqlSchema::dropTable*					 public

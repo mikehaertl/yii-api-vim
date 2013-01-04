@@ -67,6 +67,11 @@ PROPERTY DETAILS
 <htmlPurifier>				*CFormatter::htmlPurifier*
  (CHtmlPurifier) the HTML purifier instance
 
+<htmlPurifierOptions>			*CFormatter::htmlPurifierOptions*
+ (array) the options to be passed to CHtmlPurifier instance used in this
+ class. CHtmlPurifier is used in |CFormatter::formatHtml| method, so this
+ property could be useful to customize HTML filtering behavior.
+
 <isInitialized> 			*CFormatter::isInitialized*
  See |CApplicationComponent::isInitialized|
 
@@ -74,14 +79,16 @@ PROPERTY DETAILS
  (array) the format used to format a number with PHP number_format() function.
  Three elements may be specified: "decimals", "decimalSeparator" and
  "thousandSeparator". They correspond to the number of digits after the
- decimal point, the character displayed as the decimal point, and the
- thousands separator character.
+ decimal point, the character displayed as the decimal point and the thousands
+ separator character.
 
 <sizeFormat>				*CFormatter::sizeFormat*
- (array) the format used to format size (bytes). Two elements may be
- specified: "base" and "decimals". They correspond to the base at which
- KiloByte is calculated (1000 or 1024) bytes per KiloByte and the number of
- digits after decimal point.
+ (array) the format used to format size (bytes). Three elements may be
+ specified: "base", "decimals" and "decimalSeparator". They correspond to the
+ base at which a kilobyte is calculated (1000 or 1024 bytes per kilobyte,
+ defaults to 1024), the number of digits after the decimal point (defaults to
+ 2) and the character displayed as the decimal point. "decimalSeparator" is
+ available since version 1.1.13
 
 <timeFormat>				*CFormatter::timeFormat*
  (string) the format string to be used to format a time using PHP date()
@@ -289,7 +296,7 @@ METHOD DETAILS
 
  Formats the value in bytes as a size in human readable form.
     [value] (integer) value in bytes to be formatted
-    [verbose] (boolean) if full names should be used (e.g. Bytes, KiloBytes,
+    [verbose] (boolean) if full names should be used (e.g. bytes, kilobytes,
     ...). Defaults to false meaning that short names will be used (e.g. B, KB,
     ...).
 

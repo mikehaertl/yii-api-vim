@@ -1,0 +1,234 @@
+
+*CDataProviderIterator*   >> |CComponent|
+=======================
+
+ CDataProviderIterator allows iteration over large data sets without holding
+ the entire set in memory.
+
+ CDataProviderIterator iterates over the results of a data provider, starting
+ at the first page of results and ending at the last page. It is usually only
+ suited for use with |CActiveDataProvider|.
+
+ For example, the following code will iterate over all registered users
+ (active record class User) without running out of memory, even if there are
+ millions of users in the database.
+>
+ $dataProvider = new CActiveDataProvider("User");
+ $iterator = new CDataProviderIterator($dataProvider);
+ foreach($iterator as $user) {
+  echo $user->name."\n";
+ }
+<
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<dataProvider>				*CDataProviderIterator::dataProvider*
+ (CDataProvider) Returns the data provider to iterate over
+
+<totalItemCount>			*CDataProviderIterator::totalItemCount*
+ (integer) Gets the total number of items to iterate over
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CDataProviderIterator::__call* 				 public
+ See |CComponent::__call|
+
+
+*CDataProviderIterator::__construct*				 public
+>
+ __construct($dataProvider, $pageSize=)
+<
+(void)
+
+ Constructor.
+    [dataProvider] (CDataProvider) the data provider to iterate over
+    [pageSize] (integer) pageSize to use for iteration. This is the number of
+    objects loaded into memory at the same time.
+
+
+*CDataProviderIterator::__get*					 public
+ See |CComponent::__get|
+
+
+*CDataProviderIterator::__isset*				 public
+ See |CComponent::__isset|
+
+
+*CDataProviderIterator::__set*					 public
+ See |CComponent::__set|
+
+
+*CDataProviderIterator::__unset*				 public
+ See |CComponent::__unset|
+
+
+*CDataProviderIterator::asa*					 public
+ See |CComponent::asa|
+
+
+*CDataProviderIterator::attachBehavior* 			 public
+ See |CComponent::attachBehavior|
+
+
+*CDataProviderIterator::attachBehaviors*			 public
+ See |CComponent::attachBehaviors|
+
+
+*CDataProviderIterator::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CDataProviderIterator::canGetProperty* 			 public
+ See |CComponent::canGetProperty|
+
+
+*CDataProviderIterator::canSetProperty* 			 public
+ See |CComponent::canSetProperty|
+
+
+*CDataProviderIterator::count*					 public
+>
+ count()
+<
+(integer) the total number of items
+
+ Gets the total number of items in the dataProvider. This method is required
+ by the Countable interface.
+
+
+*CDataProviderIterator::current*				 public
+>
+ current()
+<
+(mixed) the current item in the list
+
+ Gets the current item in the list. This method is required by the Iterator
+ interface.
+
+
+*CDataProviderIterator::detachBehavior* 			 public
+ See |CComponent::detachBehavior|
+
+
+*CDataProviderIterator::detachBehaviors*			 public
+ See |CComponent::detachBehaviors|
+
+
+*CDataProviderIterator::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CDataProviderIterator::disableBehavior*			 public
+ See |CComponent::disableBehavior|
+
+
+*CDataProviderIterator::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CDataProviderIterator::enableBehavior* 			 public
+ See |CComponent::enableBehavior|
+
+
+*CDataProviderIterator::enableBehaviors*			 public
+ See |CComponent::enableBehaviors|
+
+
+*CDataProviderIterator::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CDataProviderIterator::getDataProvider*			 public
+>
+ getDataProvider()
+<
+(CDataProvider) the data provider to iterate over
+
+ Returns the data provider to iterate over
+
+
+*CDataProviderIterator::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CDataProviderIterator::getTotalItemCount*			 public
+>
+ getTotalItemCount()
+<
+(integer) the total number of items to iterate over
+
+ Gets the total number of items to iterate over
+
+
+*CDataProviderIterator::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CDataProviderIterator::hasEventHandler*			 public
+ See |CComponent::hasEventHandler|
+
+
+*CDataProviderIterator::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CDataProviderIterator::key*					 public
+>
+ key()
+<
+(integer) the key of the current item
+
+ Gets the key of the current item. This method is required by the Iterator
+ interface.
+
+
+*CDataProviderIterator::loadPage*				 protected
+>
+ loadPage()
+<
+(array) the items from the next page of results
+
+ Loads a page of items
+
+
+*CDataProviderIterator::next*					 public
+>
+ next()
+<
+(void)
+
+ Moves the pointer to the next item in the list. This method is required by
+ the Iterator interface.
+
+
+*CDataProviderIterator::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CDataProviderIterator::rewind* 				 public
+>
+ rewind()
+<
+(void)
+
+ Rewinds the iterator to the start of the list. This method is required by the
+ Iterator interface.
+
+
+*CDataProviderIterator::valid*					 public
+>
+ valid()
+<
+(boolean) true if this index is valid
+
+ Checks if the current position is valid or not. This method is required by
+ the Iterator interface.
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

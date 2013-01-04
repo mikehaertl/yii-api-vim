@@ -61,6 +61,10 @@ METHOD DETAILS
  See |CDbSchema::addForeignKey|
 
 
+*CMssqlSchema::addPrimaryKey*					 public
+ See |CDbSchema::addPrimaryKey|
+
+
 *CMssqlSchema::alterColumn*					 public
 >
  alterColumn($table, $column, $type)
@@ -186,6 +190,10 @@ METHOD DETAILS
 
 *CMssqlSchema::dropIndex*					 public
  See |CDbSchema::dropIndex|
+
+
+*CMssqlSchema::dropPrimaryKey*					 public
+ See |CDbSchema::dropPrimaryKey|
 
 
 *CMssqlSchema::dropTable*					 public

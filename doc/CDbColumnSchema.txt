@@ -14,6 +14,12 @@ PROPERTY DETAILS
 <autoIncrement> 			*CDbColumnSchema::autoIncrement*
  (boolean) whether this column is auto-incremental
 
+<comment>				*CDbColumnSchema::comment*
+ (string) comment of this column. Default value is empty string which means
+ that no comment has been set for the column. Null value means that RDBMS does
+ not support column comments at all (SQLite) or comment retrieval for the
+ active RDBMS is not yet supported by the framework.
+
 <dbType>				*CDbColumnSchema::dbType*
  (string) the DB type of this column.
 

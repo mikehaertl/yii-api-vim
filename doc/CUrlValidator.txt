@@ -51,6 +51,11 @@ PROPERTY DETAILS
  (array) list of URI schemes which should be considered valid. By default,
  http and https are considered to be valid schemes.
 
+<validateIDN>				*CUrlValidator::validateIDN*
+ (boolean) whether validation process should care about IDN (internationalized
+ domain names). Default value is false which means that validation of URLs
+ containing IDN will always fail.
+
 
 
 METHOD DETAILS

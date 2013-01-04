@@ -70,7 +70,8 @@ PROPERTY DETAILS
  See |CDataProvider::sort|
 
 <sql>					*CSqlDataProvider::sql*
- (string) the SQL statement to be used for fetching data rows.
+ (string|CDbCommand) the SQL statement to be used for fetching data rows.
+ Since version 1.1.13 this can also be an instance of |CDbCommand|.
 
 <totalItemCount>			*CSqlDataProvider::totalItemCount*
  See |CDataProvider::totalItemCount|
@@ -91,7 +92,8 @@ METHOD DETAILS
 (void)
 
  Constructor.
-    [sql] (string) the SQL statement to be used for fetching data rows.
+    [sql] (string|CDbCommand) the SQL statement to be used for fetching data
+    rows. Since version 1.1.13 this can also be an instance of |CDbCommand|.
     [config] (array) configuration (name=>value) to be applied as the initial
     property values of this class.
 

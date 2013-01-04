@@ -99,6 +99,22 @@ table.
     RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL
 
 
+*CDbSchema::addPrimaryKey*					 public
+>
+ addPrimaryKey($name, $table, $columns)
+<
+(string) the SQL statement for adding a primary key constraint to an existing
+table.
+
+ Builds a SQL statement for adding a primary key constraint to an existing
+ table.
+    [name] (string) the name of the primary key constraint.
+    [table] (string) the table that the primary key constraint will be added
+    to.
+    [columns] (string) the name of the column to that the constraint will be
+    added on.
+
+
 *CDbSchema::alterColumn*					 public
 >
  alterColumn($table, $column, $type)
@@ -273,6 +289,20 @@ table.
     properly quoted by the method.
     [table] (string) the table whose index is to be dropped. The name will be
     properly quoted by the method.
+
+
+*CDbSchema::dropPrimaryKey*					 public
+>
+ dropPrimaryKey($name, $table)
+<
+(string) the SQL statement for removing a primary key constraint from an
+existing table.
+
+ Builds a SQL statement for removing a primary key constraint to an existing
+ table.
+    [name] (string) the name of the primary key constraint to be removed.
+    [table] (string) the table that the primary key constraint will be removed
+    from.
 
 
 *CDbSchema::dropTable*						 public

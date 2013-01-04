@@ -25,8 +25,17 @@
    dynamically loaded when needed.
    |CApplication::getCoreMessages|: provides the message source for
    translating   Yii framework messages. This application component
-   is dynamically loaded when needed.CApplication will undergo the following
- lifecycles when processing a user request:
+   is dynamically loaded when needed.
+   |CApplication::getUrlManager|: provides URL construction as well
+   as parsing functionality.   This application component is
+   dynamically loaded when needed.
+   |CApplication::getRequest|: represents the current HTTP request by
+   encapsulating   the $_SERVER variable and managing cookies sent
+   from and sent to the user.   This application component is
+   dynamically loaded when needed.
+   {format} provides a set of commonly used data formatting methods. 
+    This application component is dynamically loaded when needed.CApplication
+ will undergo the following lifecycles when processing a user request:
 
    1. load application configuration;
    2. set up class autoloader and error handling;

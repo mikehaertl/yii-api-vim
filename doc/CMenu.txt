@@ -135,6 +135,10 @@ PROPERTY DETAILS
  useful when implementing menu items using the sliding window technique.
  Defaults to null, meaning no wrapper tag will be generated.
 
+<linkLabelWrapperHtmlOptions>		*CMenu::linkLabelWrapperHtmlOptions*
+ (array) HTML attributes for the links' wrap element specified in
+ |CMenu::linkLabelWrapper|.
+
 <owner> 				*CMenu::owner*
  See |CWidget::owner|
 

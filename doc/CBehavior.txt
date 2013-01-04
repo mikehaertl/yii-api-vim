@@ -51,8 +51,9 @@ METHOD DETAILS
 
  Attaches the behavior object to the component. The default implementation
  will set the |CBehavior::owner| property and attach event handlers as
- declared in |CBehavior::events|. Make sure you call the parent implementation
- if you override this method.
+ declared in |CBehavior::events|. This method will also set
+ |CBehavior::enabled| to true. Make sure you've declared handler as public and
+ call the parent implementation if you override this method.
     [owner] (CComponent) the component that this behavior is to be attached
     to.
 
@@ -85,8 +86,9 @@ METHOD DETAILS
 
  Detaches the behavior object from the component. The default implementation
  will unset the |CBehavior::owner| property and detach event handlers declared
- in |CBehavior::events|. Make sure you call the parent implementation if you
- override this method.
+ in |CBehavior::events|. This method will also set |CBehavior::enabled| to
+ false. Make sure you call the parent implementation if you override this
+ method.
     [owner] (CComponent) the component that this behavior is to be detached
     from.
 
@@ -135,7 +137,7 @@ values).
  behavior class. The handlers will be attached to the corresponding events
  when the behavior is attached to the |CBehavior::owner| component; and they
  will be detached from the events when the behavior is detached from the
- component.
+ component. Make sure you've declared handler method as public.
 
 
 *CBehavior::getEnabled* 					 public

@@ -64,6 +64,10 @@ METHOD DETAILS
  See |CDbSchema::addForeignKey|
 
 
+*CMysqlSchema::addPrimaryKey*					 public
+ See |CDbSchema::addPrimaryKey|
+
+
 *CMysqlSchema::alterColumn*					 public
  See |CDbSchema::alterColumn|
 
@@ -127,7 +131,13 @@ METHOD DETAILS
 
 
 *CMysqlSchema::createCommandBuilder*				 protected
- See |CDbSchema::createCommandBuilder|
+>
+ createCommandBuilder()
+<
+(CDbCommandBuilder) command builder instance
+
+ Creates a command builder for the database. This method overrides parent
+ implementation in order to create a MySQL specific command builder
 
 
 *CMysqlSchema::createIndex*					 public
@@ -177,6 +187,20 @@ METHOD DETAILS
 
 *CMysqlSchema::dropIndex*					 public
  See |CDbSchema::dropIndex|
+
+
+*CMysqlSchema::dropPrimaryKey*					 public
+>
+ dropPrimaryKey($name, $table)
+<
+(string) the SQL statement for removing a primary key constraint from an
+existing table.
+
+ Builds a SQL statement for removing a primary key constraint to an existing
+ table.
+    [name] (string) the name of the primary key constraint to be removed.
+    [table] (string) the table that the primary key constraint will be removed
+    from.
 
 
 *CMysqlSchema::dropTable*					 public

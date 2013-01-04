@@ -186,6 +186,21 @@ METHOD DETAILS
     RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL
 
 
+*CDbCommand::addPrimaryKey*					 public
+>
+ addPrimaryKey($name, $table, $columns)
+<
+(integer) number of rows affected by the execution.
+
+ Builds a SQL statement for creating a primary key constraint.
+    [name] (string) the name of the primary key constraint to be created. The
+    name will be properly quoted by the method.
+    [table] (string) the table who will be inheriting the primary key. The
+    name will be properly quoted by the method.
+    [columns] (string) the column/s where the primary key will be effected.
+    The name will be properly quoted by the method.
+
+
 *CDbCommand::alterColumn*					 public
 >
  alterColumn($table, $column, $type)
@@ -202,6 +217,24 @@ METHOD DETAILS
     Anything that is not recognized as abstract type will be kept in the
     generated SQL. For example, 'string' will be turned into 'varchar(255)',
     while 'string not null' will become 'varchar(255) not null'.
+
+
+*CDbCommand::andWhere*						 public
+>
+ andWhere($conditions, $params=array())
+<
+(CDbCommand) the command object itself.
+
+ Appends given condition to the existing WHERE part of the query with 'AND'
+ operator.
+
+ This method works almost the same way as |CDbCommand::where| except the fact
+ that it appends condition with 'AND' operator, but not replaces it with the
+ new one. For more information on parameters of this method refer to the
+ |CDbCommand::where| documentation.
+    [conditions] (mixed) the conditions that should be appended to the WHERE
+    part.
+    [params] (array) the parameters (name=>value) to be bound to the query.
 
 
 *CDbCommand::asa*						 public
@@ -327,7 +360,7 @@ METHOD DETAILS
 
  Builds and executes a SQL statement for creating a new DB table.
 
- The columns in the new  table should be specified as name-definition pairs
+ The columns in the new table should be specified as name-definition pairs
  (e.g. 'name'=>'string'), where name stands for a column name which will be
  properly quoted by the method, and definition stands for the column type
  which can contain an abstract DB type. The getColumnType method will be
@@ -429,6 +462,19 @@ METHOD DETAILS
     properly quoted by the method.
 
 
+*CDbCommand::dropPrimaryKey*					 public
+>
+ dropPrimaryKey($name, $table)
+<
+(integer) number of rows affected by the execution.
+
+ Builds a SQL statement for dropping a primary key constraint.
+    [name] (string) the name of the primary key constraint to be dropped. The
+    name will be properly quoted by the method.
+    [table] (string) the table that owns the primary key. The name will be
+    properly quoted by the method.
+
+
 *CDbCommand::dropTable* 					 public
 >
  dropTable($table)
@@ -465,9 +511,10 @@ METHOD DETAILS
     |CDbCommand::bindValue|. If you have multiple input parameters, passing
     them in this way can improve the performance. Note that if you pass
     parameters in this way, you cannot bind parameters or values using
-    |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
-    binding methods and  the input parameters this way can improve the
-    performance.
+    |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa. Please
+    also note that all values are treated as strings in this case, if you need
+    them to be handled as their real data types, you have to use
+    |CDbCommand::bindParam| or |CDbCommand::bindValue| instead.
 
 
 *CDbCommand::from*						 public
@@ -738,6 +785,24 @@ string or an array representing multiple union parts.
     [offset] (integer) the offset
 
 
+*CDbCommand::orWhere*						 public
+>
+ orWhere($conditions, $params=array())
+<
+(CDbCommand) the command object itself.
+
+ Appends given condition to the existing WHERE part of the query with 'OR'
+ operator.
+
+ This method works almost the same way as |CDbCommand::where| except the fact
+ that it appends condition with 'OR' operator, but not replaces it with the
+ new one. For more information on parameters of this method refer to the
+ |CDbCommand::where| documentation.
+    [conditions] (mixed) the conditions that should be appended to the WHERE
+    part.
+    [params] (array) the parameters (name=>value) to be bound to the query.
+
+
 *CDbCommand::order*						 public
 >
  order($columns)
@@ -750,6 +815,11 @@ string or an array representing multiple union parts.
     an array (e.g. array('id ASC', 'name DESC')). The method will
     automatically quote the column names unless a column contains some
     parenthesis (which means the column contains a DB expression).
+
+    For example, to get "ORDER BY 1" you should use
+>
+    $criteria->order('(1)');
+<
 
 
 *CDbCommand::prepare*						 public
@@ -776,9 +846,10 @@ string or an array representing multiple union parts.
     |CDbCommand::bindValue|. If you have multiple input parameters, passing
     them in this way can improve the performance. Note that if you pass
     parameters in this way, you cannot bind parameters or values using
-    |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
-    binding methods and  the input parameters this way can improve the
-    performance.
+    |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa. Please
+    also note that all values are treated as strings in this case, if you need
+    them to be handled as their real data types, you have to use
+    |CDbCommand::bindParam| or |CDbCommand::bindValue| instead.
 
 
 *CDbCommand::queryAll*						 public
@@ -798,9 +869,10 @@ nothing.
     |CDbCommand::bindValue|. If you have multiple input parameters, passing
     them in this way can improve the performance. Note that if you pass
     parameters in this way, you cannot bind parameters or values using
-    |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
-    binding methods and  the input parameters this way can improve the
-    performance.
+    |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa. Please
+    also note that all values are treated as strings in this case, if you need
+    them to be handled as their real data types, you have to use
+    |CDbCommand::bindParam| or |CDbCommand::bindValue| instead.
 
 
 *CDbCommand::queryColumn*					 public
@@ -818,9 +890,10 @@ nothing.
     |CDbCommand::bindValue|. If you have multiple input parameters, passing
     them in this way can improve the performance. Note that if you pass
     parameters in this way, you cannot bind parameters or values using
-    |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
-    binding methods and  the input parameters this way can improve the
-    performance.
+    |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa. Please
+    also note that all values are treated as strings in this case, if you need
+    them to be handled as their real data types, you have to use
+    |CDbCommand::bindParam| or |CDbCommand::bindValue| instead.
 
 
 *CDbCommand::queryRow*						 public
@@ -841,9 +914,10 @@ result.
     |CDbCommand::bindValue|. If you have multiple input parameters, passing
     them in this way can improve the performance. Note that if you pass
     parameters in this way, you cannot bind parameters or values using
-    |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
-    binding methods and  the input parameters this way can improve the
-    performance.
+    |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa. Please
+    also note that all values are treated as strings in this case, if you need
+    them to be handled as their real data types, you have to use
+    |CDbCommand::bindParam| or |CDbCommand::bindValue| instead.
 
 
 *CDbCommand::queryScalar*					 public
@@ -862,9 +936,10 @@ False is returned if there is no value.
     |CDbCommand::bindValue|. If you have multiple input parameters, passing
     them in this way can improve the performance. Note that if you pass
     parameters in this way, you cannot bind parameters or values using
-    |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa.
-    binding methods and  the input parameters this way can improve the
-    performance.
+    |CDbCommand::bindParam| or |CDbCommand::bindValue|, and vice versa. Please
+    also note that all values are treated as strings in this case, if you need
+    them to be handled as their real data types, you have to use
+    |CDbCommand::bindParam| or |CDbCommand::bindValue| instead.
 
 
 *CDbCommand::raiseEvent*					 public
@@ -1136,7 +1211,9 @@ False is returned if there is no value.
     [columns] (array) the column data (name=>value) to be updated.
     [conditions] (mixed) the conditions that will be put in the WHERE part.
     Please refer to |CDbCommand::where| on how to specify conditions.
-    [params] (array) the parameters to be bound to the query.
+    [params] (array) the parameters to be bound to the query. Do not use
+    column names as parameter names here. They are reserved for '$columns'
+    parameter.
 
 
 *CDbCommand::where*						 public

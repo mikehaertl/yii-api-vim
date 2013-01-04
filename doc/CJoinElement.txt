@@ -69,16 +69,6 @@ METHOD DETAILS
  Calls |CActiveRecord::afterFind| of all the records.
 
 
-*CJoinElement::beforeFind*					 public
->
- beforeFind($isChild=true)
-<
-(void)
-
- Calls |CActiveRecord::beforeFind|.
-    [isChild] (boolean) whether is called for a child
-
-
 *CJoinElement::buildQuery*					 public
 >
  buildQuery($query)

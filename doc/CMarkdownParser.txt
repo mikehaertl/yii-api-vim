@@ -445,7 +445,7 @@ METHOD DETAILS
 
  Generates the config for the highlighter.
 
- NOTE: This method is deprecated due to a mistake in the method name.  Use
+ NOTE: This method is deprecated due to a mistake in the method name. Use
  |CMarkdownParser::getHighlightConfig| instead of this.
     [options] (string) user-entered options
 

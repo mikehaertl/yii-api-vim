@@ -468,8 +468,9 @@ rule specification.
 <
 (void)
 
- The filter method for 'ajaxOnly' filter. This filter reports an error if the
- applied action is receiving a non-AJAX request.
+ The filter method for 'ajaxOnly' filter. This filter throws an exception
+ (CHttpException with code 400) if the applied action is receiving a non-AJAX
+ request.
     [filterChain] (CFilterChain) the filter chain that the filter is on.
 
 
@@ -479,8 +480,9 @@ rule specification.
 <
 (void)
 
- The filter method for 'postOnly' filter. This filter reports an error if the
- applied action is receiving a non-POST request.
+ The filter method for 'postOnly' filter. This filter throws an exception
+ (CHttpException with code 400) if the applied action is receiving a non-POST
+ request.
     [filterChain] (CFilterChain) the filter chain that the filter is on.
 
 

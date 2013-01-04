@@ -23,7 +23,9 @@
  placeholder, recognized by all validators (see |CValidator|),
  CCompareValidator allows for the following placeholders to be specified:
    {compareValue}: replaced with the constant value being compared
-   with |CCompareValidator::compareValue|.
+   with (|CCompareValidator::compareValue|).
+   {compareAttribute}: replaced with the label of the attribute
+   beeing compared with (|CCompareValidator::compareAttribute|).
 
 
 PROPERTY DETAILS

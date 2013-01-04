@@ -18,7 +18,7 @@ PROPERTY DETAILS
 
 <etagSeedExpression>			*CHttpCacheFilter::etagSeedExpression*
  (string|callback) Expression for the ETag seed. If set, this takes precedence
- over etag.
+ over |CHttpCacheFilter::etagSeed|.
 
 <etagValue>				*CHttpCacheFilter::etagValue*
  (string|boolean) Gets the ETag out of either
@@ -26,8 +26,7 @@ PROPERTY DETAILS
 
 <lastModified>				*CHttpCacheFilter::lastModified*
  (string|integer) Timestamp for the last modification date. Must be either a
- string parsable by  'strtotime()' or an integer representing a unix
- timestamp.
+ string parsable by 'strtotime()' or an integer representing a unix timestamp.
 
 <lastModifiedExpression>		*CHttpCacheFilter::lastModifiedExpression*
  (string|callback) Expression for the last modification date. If set, this

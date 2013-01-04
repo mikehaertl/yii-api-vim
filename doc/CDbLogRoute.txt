@@ -32,6 +32,9 @@ PROPERTY DETAILS
 <enabled>				*CDbLogRoute::enabled*
  See |CLogRoute::enabled|
 
+<except>				*CDbLogRoute::except*
+ See |CLogRoute::except|
+
 <filter>				*CDbLogRoute::filter*
  See |CLogRoute::filter|
 

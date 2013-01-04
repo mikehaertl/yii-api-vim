@@ -412,7 +412,7 @@ available since version 1.1.5).
 
 *CClientScript::registerMetaTag*				 public
 >
- registerMetaTag($content, $name='', $httpEquiv='', $options=array())
+ registerMetaTag($content, $name='', $httpEquiv='', $options=array(), $id='')
 <
 (CClientScript) the CClientScript object itself (to support method chaining,
 available since version 1.1.5).
@@ -420,8 +420,8 @@ available since version 1.1.5).
  Registers a meta tag that will be inserted in the head section (right before
  the title element) of the resulting page.
 
- <b>Note:</b> Meta tags with same attributes will be rendered more then once
- if called with different values.
+ <b>Note:</b> Each call of this method will cause a rendering of new meta tag,
+ even if their attributes are equal.
 
  <b>Example:</b>
 >
@@ -437,6 +437,7 @@ available since version 1.1.5).
     attribute will not be generated
     [options] (array) other options in name-value pairs (e.g. 'scheme',
     'lang')
+    [id] (string) Optional id of the meta tag to avoid duplicates
 
 
 *CClientScript::registerPackage*				 public

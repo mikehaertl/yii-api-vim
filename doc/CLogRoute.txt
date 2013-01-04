@@ -23,11 +23,16 @@ PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
 <categories>				*CLogRoute::categories*
- (string) list of categories separated by comma or space. Defaults to empty,
- meaning all categories.
+ (mixed) array of categories, or string list separated by comma or space. 
+ Defaults to empty array, meaning all categories.
 
 <enabled>				*CLogRoute::enabled*
  (boolean) whether to enable this log route. Defaults to true.
+
+<except>				*CLogRoute::except*
+ (mixed) array of categories, or string list separated by comma or space, to
+ EXCLUDE from logs. Defaults to empty array, meaning no categories are
+ excluded. This will exclude any categories after $categories has been ran.
 
 <filter>				*CLogRoute::filter*
  (mixed) the additional filter (eg |CLogFilter|) that can be applied to the
@@ -35,8 +40,9 @@ PROPERTY DETAILS
  |Yii::createComponent| to create a log filter object. As a result, this can
  be either a string representing the filter class name or an array
  representing the filter configuration. In general, the log filter class
- should implement |ILogFilter| interface. Defaults to null, meaning no filter
- will be used.
+ should implement |ILogFilter| interface. If you want to apply multiple
+ filters you can use |CChainedLogFilter| to do so. Defaults to null, meaning
+ no filter will be used.
 
 <levels>				*CLogRoute::levels*
  (string) list of levels separated by comma or space. Defaults to empty,

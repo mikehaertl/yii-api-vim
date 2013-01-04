@@ -67,9 +67,8 @@ PROPERTY DETAILS
  (integer) Returns the number of items in the session.
 
 <gCProbability> 			*CHttpSession::gCProbability*
- (integer) the probability (percentage) that the gc (garbage collection)
- process is started on every session initialization, defaults to 1 meaning 1%
- chance.
+ (float) the probability (percentage) that the gc (garbage collection) process
+ is started on every session initialization, defaults to 1 meaning 1% chance.
 
 <isInitialized> 			*CHttpSession::isInitialized*
  See |CApplicationComponent::isInitialized|
@@ -335,9 +334,8 @@ does not exist.
 >
  getGCProbability()
 <
-(integer) the probability (percentage) that the gc (garbage collection)
-process is started on every session initialization, defaults to 1 meaning 1%
-chance.
+(float) the probability (percentage) that the gc (garbage collection) process
+is started on every session initialization, defaults to 1 meaning 1% chance.
 
 
 
@@ -591,7 +589,7 @@ false.
 <
 (void)
 
-    [value] (integer) the probability (percentage) that the gc (garbage
+    [value] (float) the probability (percentage) that the gc (garbage
     collection) process is started on every session initialization.
 
 

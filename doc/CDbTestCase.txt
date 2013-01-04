@@ -211,6 +211,10 @@ METHOD DETAILS
  See |PHPUnit_Framework_Assert::assertContainsOnly|
 
 
+*CDbTestCase::assertContainsOnlyInstancesOf*			 public
+ See |PHPUnit_Framework_Assert::assertContainsOnlyInstancesOf|
+
+
 *CDbTestCase::assertCount*					 public
  See |PHPUnit_Framework_Assert::assertCount|
 
@@ -261,6 +265,30 @@ METHOD DETAILS
 
 *CDbTestCase::assertInternalType*				 public
  See |PHPUnit_Framework_Assert::assertInternalType|
+
+
+*CDbTestCase::assertJsonFileEqualsJsonFile*			 public
+ See |PHPUnit_Framework_Assert::assertJsonFileEqualsJsonFile|
+
+
+*CDbTestCase::assertJsonFileNotEqualsJsonFile*			 public
+ See |PHPUnit_Framework_Assert::assertJsonFileNotEqualsJsonFile|
+
+
+*CDbTestCase::assertJsonStringEqualsJsonFile*			 public
+ See |PHPUnit_Framework_Assert::assertJsonStringEqualsJsonFile|
+
+
+*CDbTestCase::assertJsonStringEqualsJsonString* 		 public
+ See |PHPUnit_Framework_Assert::assertJsonStringEqualsJsonString|
+
+
+*CDbTestCase::assertJsonStringNotEqualsJsonFile*		 public
+ See |PHPUnit_Framework_Assert::assertJsonStringNotEqualsJsonFile|
+
+
+*CDbTestCase::assertJsonStringNotEqualsJsonString*		 public
+ See |PHPUnit_Framework_Assert::assertJsonStringNotEqualsJsonString|
 
 
 *CDbTestCase::assertLessThan*					 public
@@ -455,6 +483,10 @@ METHOD DETAILS
  See |PHPUnit_Framework_Assert::attributeEqualTo|
 
 
+*CDbTestCase::callback* 					 public
+ See |PHPUnit_Framework_Assert::callback|
+
+
 *CDbTestCase::checkRequirements*				 protected
  See |PHPUnit_Framework_TestCase::checkRequirements|
 
@@ -473,6 +505,10 @@ METHOD DETAILS
 
 *CDbTestCase::containsOnly*					 public
  See |PHPUnit_Framework_Assert::containsOnly|
+
+
+*CDbTestCase::containsOnlyInstancesOf*				 public
+ See |PHPUnit_Framework_Assert::containsOnlyInstancesOf|
 
 
 *CDbTestCase::count*						 public

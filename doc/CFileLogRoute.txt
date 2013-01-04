@@ -22,6 +22,9 @@ PROPERTY DETAILS
 <enabled>				*CFileLogRoute::enabled*
  See |CLogRoute::enabled|
 
+<except>				*CFileLogRoute::except*
+ See |CLogRoute::except|
+
 <filter>				*CFileLogRoute::filter*
  See |CLogRoute::filter|
 

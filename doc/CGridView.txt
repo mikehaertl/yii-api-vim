@@ -203,6 +203,20 @@ PROPERTY DETAILS
    {footer} the filters will be displayed below each column's footer
    cell.
 
+<filterSelector>			*CGridView::filterSelector*
+ (string) the jQuery selector of filter input fields. The token '{filter}' is
+ recognized and it will be replaced with the grid filters selector. Defaults
+ to '{filter}'.
+
+ Note: if this value is empty an exception will be thrown.
+
+ Example (adding a custom selector to the default one):
+>
+  ...
+  'filterSelector'=>'{filter}, #myfilter',
+  ...
+<
+
 <formatter>				*CGridView::formatter*
  (CFormatter) the formatter instance. Defaults to the 'format' application
  component.
@@ -256,20 +270,27 @@ PROPERTY DETAILS
  the variable '$row' stands for the row number (zero-based), '$data' is the
  data model associated with the row, and '$this' is the grid object.
 
+<rowHtmlOptionsExpression>		*CGridView::rowHtmlOptionsExpression*
+ (string) a PHP expression that is evaluated for every table body row and
+ whose result is used as additional HTML attributes for the row. In this
+ expression, the variable '$row' stands for the row number (zero-based),
+ '$data' is the data model associated with the row, and '$this' is the grid
+ object.
+
 <selectableRows>			*CGridView::selectableRows*
  (integer) the number of table body rows that can be selected. If 0, it means
  rows cannot be selected. If 1, only one row can be selected. If 2 or any
  other number, it means multiple rows can be selected. A selected row will
  have a CSS class named 'selected'. You may also call the JavaScript function
- '$.fn.yiiGridView.getSelection(containerID)' to retrieve the key values of
- the selected rows.
+ '$(gridID).yiiGridView('getSelection')' to retrieve the key values of the
+ currently selected rows (gridID is the DOM selector of the grid).
 
 <selectionChanged>			*CGridView::selectionChanged*
  (string) a javascript function that will be invoked after the row selection
  is changed. The function signature is 'function(id)' where 'id' refers to the
  ID of the grid view. In this function, you may use
- '$.fn.yiiGridView.getSelection(id)' to get the key values of the currently
- selected rows.
+ '$(gridID).yiiGridView('getSelection')' to get the key values of the
+ currently selected rows (gridID is the DOM selector of the grid).
 
 <showTableOnEmpty>			*CGridView::showTableOnEmpty*
  (boolean) whether to display the table even when there is no data. Defaults

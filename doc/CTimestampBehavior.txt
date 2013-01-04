@@ -2,9 +2,9 @@
 *CTimestampBehavior*   >> |CActiveRecordBehavior| >> |CModelBehavior| >> |CBehavior| >> |CComponent|
 ====================
 
- CTimestampBehavior will automatically fill date and time related atributes.
+ CTimestampBehavior will automatically fill date and time related attributes.
 
- CTimestampBehavior will automatically fill date and time related atributes
+ CTimestampBehavior will automatically fill date and time related attributes
  when the active record is created and/or upadated. You may specify an active
  record model to use this behavior like so:
 >
@@ -38,7 +38,7 @@ PROPERTY DETAILS
 
 <createAttribute>			*CTimestampBehavior::createAttribute*
  (mixed) The name of the attribute to store the creation time.  Set to null to
- not use a timstamp for the creation attribute.  Defaults to 'create_time'
+ not use a timestamp for the creation attribute.  Defaults to 'create_time'
 
 <enabled>				*CTimestampBehavior::enabled*
  See |CBehavior::enabled|
@@ -64,7 +64,7 @@ PROPERTY DETAILS
 
 <updateAttribute>			*CTimestampBehavior::updateAttribute*
  (mixed) The name of the attribute to store the modification time.  Set to
- null to not use a timstamp for the update attribute.  Defaults to
+ null to not use a timestamp for the update attribute.  Defaults to
  'update_time'
 
 
@@ -92,23 +92,23 @@ METHOD DETAILS
  See |CComponent::__unset|
 
 
-*CTimestampBehavior::afterConstruct*				 public
+*CTimestampBehavior::afterConstruct*				 protected
  See |CModelBehavior::afterConstruct|
 
 
-*CTimestampBehavior::afterDelete*				 public
+*CTimestampBehavior::afterDelete*				 protected
  See |CActiveRecordBehavior::afterDelete|
 
 
-*CTimestampBehavior::afterFind* 				 public
+*CTimestampBehavior::afterFind* 				 protected
  See |CActiveRecordBehavior::afterFind|
 
 
-*CTimestampBehavior::afterSave* 				 public
+*CTimestampBehavior::afterSave* 				 protected
  See |CActiveRecordBehavior::afterSave|
 
 
-*CTimestampBehavior::afterValidate*				 public
+*CTimestampBehavior::afterValidate*				 protected
  See |CModelBehavior::afterValidate|
 
 
@@ -132,11 +132,11 @@ METHOD DETAILS
  See |CComponent::attachEventHandler|
 
 
-*CTimestampBehavior::beforeDelete*				 public
+*CTimestampBehavior::beforeDelete*				 protected
  See |CActiveRecordBehavior::beforeDelete|
 
 
-*CTimestampBehavior::beforeFind*				 public
+*CTimestampBehavior::beforeFind*				 protected
  See |CActiveRecordBehavior::beforeFind|
 
 
@@ -151,7 +151,7 @@ METHOD DETAILS
     [event] (CModelEvent) event parameter
 
 
-*CTimestampBehavior::beforeValidate*				 public
+*CTimestampBehavior::beforeValidate*				 protected
  See |CModelBehavior::beforeValidate|
 
 

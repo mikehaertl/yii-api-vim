@@ -1,0 +1,92 @@
+
+*CMssqlSqlsrvPdoAdapter*   >> |PDO|
+========================
+
+ This is an extension of default PDO class for MSSQL SQLSRV driver only. It
+ provides workaround of the improperly implemented functionalities of PDO
+ SQLSRV driver.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CMssqlSqlsrvPdoAdapter::__construct*				 public
+ See |PDO::__construct|
+
+
+*CMssqlSqlsrvPdoAdapter::__sleep*				 public
+ See |PDO::__sleep|
+
+
+*CMssqlSqlsrvPdoAdapter::__wakeup*				 public
+ See |PDO::__wakeup|
+
+
+*CMssqlSqlsrvPdoAdapter::beginTransaction*			 public
+ See |PDO::beginTransaction|
+
+
+*CMssqlSqlsrvPdoAdapter::commit*				 public
+ See |PDO::commit|
+
+
+*CMssqlSqlsrvPdoAdapter::errorCode*				 public
+ See |PDO::errorCode|
+
+
+*CMssqlSqlsrvPdoAdapter::errorInfo*				 public
+ See |PDO::errorInfo|
+
+
+*CMssqlSqlsrvPdoAdapter::exec*					 public
+ See |PDO::exec|
+
+
+*CMssqlSqlsrvPdoAdapter::getAttribute*				 public
+ See |PDO::getAttribute|
+
+
+*CMssqlSqlsrvPdoAdapter::getAvailableDrivers*			 public
+ See |PDO::getAvailableDrivers|
+
+
+*CMssqlSqlsrvPdoAdapter::inTransaction* 			 public
+ See |PDO::inTransaction|
+
+
+*CMssqlSqlsrvPdoAdapter::lastInsertId*				 public
+>
+ lastInsertId($sequence=NULL)
+<
+(integer) last inserted ID value.
+
+ Returns last inserted ID value. SQLSRV driver supports PDO::lastInsertId()
+ with one peculiarity: when $sequence's value is null or empty string it
+ returns empty string. But when parameter is not specified at all it's working
+ as expected and returns actual last inserted ID (like other PDO drivers).
+    [sequence] (string|null) the sequence name. Defaults to null.
+
+
+*CMssqlSqlsrvPdoAdapter::prepare*				 public
+ See |PDO::prepare|
+
+
+*CMssqlSqlsrvPdoAdapter::query* 				 public
+ See |PDO::query|
+
+
+*CMssqlSqlsrvPdoAdapter::quote* 				 public
+ See |PDO::quote|
+
+
+*CMssqlSqlsrvPdoAdapter::rollBack*				 public
+ See |PDO::rollBack|
+
+
+*CMssqlSqlsrvPdoAdapter::setAttribute*				 public
+ See |PDO::setAttribute|
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

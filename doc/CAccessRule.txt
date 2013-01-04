@@ -171,9 +171,9 @@ METHOD DETAILS
 >
  isControllerMatched($controller)
 <
-(boolean) whether the rule applies to the action
+(boolean) whether the rule applies to the controller
 
-    [controller] (CAction) the action
+    [controller] (CController) the controller
 
 
 *CAccessRule::isExpressionMatched*				 protected

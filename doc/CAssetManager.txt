@@ -49,6 +49,12 @@ PROPERTY DETAILS
  meaning that the assets will be published only in case they don't exist in
  webroot assets directory.
 
+ Note that this property cannot be true when $linkAssets property has true
+ value too. Otherwise an exception would be thrown. Using both properties at
+ the same time is illogical because both of them are solving similar tasks but
+ in a different ways. Please refer to the $linkAssets documentation for more
+ details.
+
 <isInitialized> 			*CAssetManager::isInitialized*
  See |CApplicationComponent::isInitialized|
 
@@ -69,6 +75,11 @@ PROPERTY DETAILS
 >
  Options FollowSymLinks
 <
+ Note that this property cannot be true when $forceCopy property has true
+ value too. Otherwise an exception would be thrown. Using both properties at
+ the same time is illogical because both of them are solving similar tasks but
+ in a different ways. Please refer to the $forceCopy documentation for more
+ details.
 
 <newDirMode>				*CAssetManager::newDirMode*
  (integer) the permission to be set for newly generated asset directories.
@@ -159,6 +170,18 @@ METHOD DETAILS
 
 *CAssetManager::evaluateExpression*				 public
  See |CComponent::evaluateExpression|
+
+
+*CAssetManager::generatePath*					 protected
+>
+ generatePath($file, $hashByName=false)
+<
+(string) path segments without basePath.
+
+ Generates path segments relative to basePath.
+    [file] (string) for which public path will be created.
+    [hashByName] (bool) whether the published directory should be named as the
+    hashed basename.
 
 
 *CAssetManager::getBasePath*					 public
@@ -286,7 +309,12 @@ directory does not exist.
     concern during development, however. Default value of this parameter is
     null meaning that it's value is controlled by $forceCopy class property.
     This parameter has been available since version 1.1.2. Default value has
-    been changed since 1.1.11.
+    been changed since 1.1.11. Note that this parameter cannot be true when
+    $linkAssets property has true value too. Otherwise an exception would be
+    thrown. Using this parameter with $linkAssets property at the same time is
+    illogical because both of them are solving similar tasks but in a
+    different ways. Please refer to the $linkAssets documentation for more
+    details.
 
 
 *CAssetManager::raiseEvent*					 public

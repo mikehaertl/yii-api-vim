@@ -111,11 +111,18 @@ PROPERTY DETAILS
 
 <preferredLanguage>			*CHttpRequest::preferredLanguage*
  (string) Returns the user preferred language. The returned language ID will
- be canonicalized using |CLocale::getCanonicalID|. This method returns false
- if the user does not have language preference.
+ be canonicalized using |CLocale::getCanonicalID|.
+
+<preferredLanguages>			*CHttpRequest::preferredLanguages*
+ (array) Returns an array of user accepted languages in order of preference.
+ The returned language IDs will NOT be canonicalized using
+ |CLocale::getCanonicalID|.
 
 <queryString>				*CHttpRequest::queryString*
  (string) Returns part of the request URL that is after the question mark.
+
+<rawBody>				*CHttpRequest::rawBody*
+ (string) Returns the raw HTTP request body.
 
 <requestType>				*CHttpRequest::requestType*
  (string) Returns the request type, such as GET, POST, HEAD, PUT, DELETE.
@@ -130,7 +137,7 @@ PROPERTY DETAILS
  of this method referenced Zend_Controller_Request_Http in Zend Framework.
 
 <restParams>				*CHttpRequest::restParams*
- (array) Returns the PUT or DELETE request parameters.
+ (array) Returns request parameters. Typically PUT or DELETE.
 
 <scriptFile>				*CHttpRequest::scriptFile*
  (string) Returns entry script file path.
@@ -494,11 +501,22 @@ configuration (in most cases it is not decoded).
 >
  getPreferredLanguage()
 <
-(string) the user preferred language.
+(string) the user preferred language or false if the user does not have any.
 
  Returns the user preferred language. The returned language ID will be
- canonicalized using |CLocale::getCanonicalID|. This method returns false if
- the user does not have language preference.
+ canonicalized using |CLocale::getCanonicalID|.
+
+
+*CHttpRequest::getPreferredLanguages*				 public
+>
+ getPreferredLanguages()
+<
+(array) the user accepted languages in the order of preference. See
+'http://tools.ietf.org/html/rfc2616#section-14.4'
+
+ Returns an array of user accepted languages in order of preference. The
+ returned language IDs will NOT be canonicalized using
+ |CLocale::getCanonicalID|.
 
 
 *CHttpRequest::getPut*						 public
@@ -539,6 +557,15 @@ configuration (in most cases it is not decoded).
  Returns part of the request URL that is after the question mark.
 
 
+*CHttpRequest::getRawBody*					 public
+>
+ getRawBody()
+<
+(string) the request body
+
+ Returns the raw HTTP request body.
+
+
 *CHttpRequest::getRequestType*					 public
 >
  getRequestType()
@@ -563,13 +590,13 @@ configuration (in most cases it is not decoded).
  method referenced Zend_Controller_Request_Http in Zend Framework.
 
 
-*CHttpRequest::getRestParams*					 protected
+*CHttpRequest::getRestParams*					 public
 >
  getRestParams()
 <
 (array) the request parameters
 
- Returns the PUT or DELETE request parameters.
+ Returns request parameters. Typically PUT or DELETE.
 
 
 *CHttpRequest::getScriptFile*					 public
@@ -710,8 +737,8 @@ configuration (in most cases it is not decoded).
 (void)
 
  Redirects the browser to the specified URL.
-    [url] (string) URL to be redirected to. If the URL is a relative one, the
-    base URL of the application will be inserted at the beginning.
+    [url] (string) URL to be redirected to. Note that when URL is not absolute
+    (not starting with "/") it will be relative to current request URL.
     [terminate] (boolean) whether to terminate the current application
     [statusCode] (integer) the HTTP status code. Defaults to 302. See
     'http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html' for details about
@@ -851,6 +878,12 @@ configuration (in most cases it is not decoded).
  <b>Side effects</b>: If this option is disabled by the web server, when this
  method is called a download configuration dialog will open but the downloaded
  file will have 0 bytes.
+
+ <b>Known issues</b>: There is a Bug with Internet Explorer 6, 7 and 8 when
+ X-SENDFILE is used over an SSL connection, it will show an error message like
+ this: "Internet Explorer was not able to open this Internet site. The
+ requested site is either unavailable or cannot be found.". You can work
+ around this problem by removing the 'Pragma'-header.
 
  <b>Example</b>:
 >

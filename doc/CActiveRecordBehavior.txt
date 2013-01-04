@@ -31,44 +31,47 @@ METHOD DETAILS
  See |CComponent::__unset|
 
 
-*CActiveRecordBehavior::afterConstruct* 			 public
+*CActiveRecordBehavior::afterConstruct* 			 protected
  See |CModelBehavior::afterConstruct|
 
 
-*CActiveRecordBehavior::afterDelete*				 public
+*CActiveRecordBehavior::afterDelete*				 protected
 >
  afterDelete($event)
 <
 (void)
 
- Responds to |CActiveRecord::onAfterDelete| event. Overrides this method if
- you want to handle the corresponding event of the |CBehavior::owner|.
+ Responds to |CActiveRecord::onAfterDelete| event. Override this method and
+ make it public if you want to handle the corresponding event of the
+ |CBehavior::owner|.
     [event] (CEvent) event parameter
 
 
-*CActiveRecordBehavior::afterFind*				 public
+*CActiveRecordBehavior::afterFind*				 protected
 >
  afterFind($event)
 <
 (void)
 
- Responds to |CActiveRecord::onAfterFind| event. Overrides this method if you
- want to handle the corresponding event of the |CBehavior::owner|.
+ Responds to |CActiveRecord::onAfterFind| event. Override this method and make
+ it public if you want to handle the corresponding event of the
+ |CBehavior::owner|.
     [event] (CEvent) event parameter
 
 
-*CActiveRecordBehavior::afterSave*				 public
+*CActiveRecordBehavior::afterSave*				 protected
 >
  afterSave($event)
 <
 (void)
 
- Responds to |CActiveRecord::onAfterSave| event. Overrides this method if you
- want to handle the corresponding event of the |CBehavior::owner|.
+ Responds to |CActiveRecord::onAfterSave| event. Override this method and make
+ it public if you want to handle the corresponding event of the
+ |CBehavior::owner|.
     [event] (CModelEvent) event parameter
 
 
-*CActiveRecordBehavior::afterValidate*				 public
+*CActiveRecordBehavior::afterValidate*				 protected
  See |CModelBehavior::afterValidate|
 
 
@@ -92,42 +95,45 @@ METHOD DETAILS
  See |CComponent::attachEventHandler|
 
 
-*CActiveRecordBehavior::beforeDelete*				 public
+*CActiveRecordBehavior::beforeDelete*				 protected
 >
  beforeDelete($event)
 <
 (void)
 
- Responds to |CActiveRecord::onBeforeDelete| event. Overrides this method if
- you want to handle the corresponding event of the |CBehavior::owner|. You may
- set |CModelEvent::isValid| to be false to quit the deletion process.
+ Responds to |CActiveRecord::onBeforeDelete| event. Override this method and
+ make it public if you want to handle the corresponding event of the
+ |CBehavior::owner|. You may set |CModelEvent::isValid| to be false to quit
+ the deletion process.
     [event] (CEvent) event parameter
 
 
-*CActiveRecordBehavior::beforeFind*				 public
+*CActiveRecordBehavior::beforeFind*				 protected
 >
  beforeFind($event)
 <
 (void)
 
- Responds to |CActiveRecord::onBeforeFind| event. Overrides this method if you
- want to handle the corresponding event of the |CBehavior::owner|.
+ Responds to |CActiveRecord::onBeforeFind| event. Override this method and
+ make it public if you want to handle the corresponding event of the
+ |CBehavior::owner|.
     [event] (CEvent) event parameter
 
 
-*CActiveRecordBehavior::beforeSave*				 public
+*CActiveRecordBehavior::beforeSave*				 protected
 >
  beforeSave($event)
 <
 (void)
 
- Responds to |CActiveRecord::onBeforeSave| event. Overrides this method if you
- want to handle the corresponding event of the |CBehavior::owner|. You may set
- |CModelEvent::isValid| to be false to quit the saving process.
+ Responds to |CActiveRecord::onBeforeSave| event. Override this method and
+ make it public if you want to handle the corresponding event of the
+ |CBehavior::owner|. You may set |CModelEvent::isValid| to be false to quit
+ the saving process.
     [event] (CModelEvent) event parameter
 
 
-*CActiveRecordBehavior::beforeValidate* 			 public
+*CActiveRecordBehavior::beforeValidate* 			 protected
  See |CModelBehavior::beforeValidate|
 
 

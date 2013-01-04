@@ -27,10 +27,10 @@
    |CCache::setValue|
    |CCache::addValue|
    |CCache::deleteValue|
+   |CCache::getValues| (optional)
    |CCache::flushValues| (optional)
-   serializeValue (optional)
-   unserializeValue (optional)CCache also implements ArrayAccess so that it
- can be used like an array.
+   |CCache::serializer| (optional)CCache also implements ArrayAccess so that
+ it can be used like an array.
 
 
 PROPERTY DETAILS

@@ -224,12 +224,14 @@ METHOD DETAILS
 
 *CActiveDataProvider::getSort*					 public
 >
- getSort()
+ getSort($className='CSort')
 <
 (CSort) the sorting object. If this is false, it means the sorting is
 disabled.
 
  Returns the sorting object.
+    [className] (string) the sorting object class name. Parameter is available
+    since version 1.1.13.
 
 
 *CActiveDataProvider::getTotalItemCount*			 public

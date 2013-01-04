@@ -1,0 +1,133 @@
+
+*CChainedLogFilter*   >> |CComponent|
+===================
+
+ CChainedLogFilter allows you to attach multiple log filters to a log route
+ (See CLogRoute::$filter for details).
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<filters>				*CChainedLogFilter::filters*
+ (array) list of filters to apply to the logs. The value of each array element
+ will be passed to |Yii::createComponent| to create a log filter object. As a
+ result, this can be either a string representing the filter class name or an
+ array representing the filter configuration. In general, the log filter
+ classes should implement |ILogFilter| interface. Filters will be applied in
+ the order they are defined.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CChainedLogFilter::__call*					 public
+ See |CComponent::__call|
+
+
+*CChainedLogFilter::__get*					 public
+ See |CComponent::__get|
+
+
+*CChainedLogFilter::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CChainedLogFilter::__set*					 public
+ See |CComponent::__set|
+
+
+*CChainedLogFilter::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CChainedLogFilter::asa*					 public
+ See |CComponent::asa|
+
+
+*CChainedLogFilter::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CChainedLogFilter::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CChainedLogFilter::attachEventHandler* 			 public
+ See |CComponent::attachEventHandler|
+
+
+*CChainedLogFilter::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CChainedLogFilter::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CChainedLogFilter::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CChainedLogFilter::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CChainedLogFilter::detachEventHandler* 			 public
+ See |CComponent::detachEventHandler|
+
+
+*CChainedLogFilter::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CChainedLogFilter::disableBehaviors*				 public
+ See |CComponent::disableBehaviors|
+
+
+*CChainedLogFilter::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CChainedLogFilter::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CChainedLogFilter::evaluateExpression* 			 public
+ See |CComponent::evaluateExpression|
+
+
+*CChainedLogFilter::filter*					 public
+>
+ filter($logs)
+<
+(void)
+
+ Filters the given log messages by applying all filters configured by
+ |CChainedLogFilter::filters|.
+    [logs] (array) the log messages
+
+
+*CChainedLogFilter::getEventHandlers*				 public
+ See |CComponent::getEventHandlers|
+
+
+*CChainedLogFilter::hasEvent*					 public
+ See |CComponent::hasEvent|
+
+
+*CChainedLogFilter::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CChainedLogFilter::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CChainedLogFilter::raiseEvent* 				 public
+ See |CComponent::raiseEvent|
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

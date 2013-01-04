@@ -456,7 +456,7 @@ does not exist.
 <
 (string) the weekday name
 
-    [day] (integer) weekday (0-6, 0 means Sunday)
+    [day] (integer) weekday (0-7, 0 and 7 means Sunday)
     [width] (string) weekday name width.  It can be 'wide', 'abbreviated' or
     'narrow'.
     [standAlone] (boolean) whether the week day name should be returned in

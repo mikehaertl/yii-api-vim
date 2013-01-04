@@ -210,7 +210,7 @@ returns empty string.
 <
 (void)
 
- Sets an array of presistent states.
+ Sets an array of persistent states.
     [states] (array) the identity states that should be persisted.
 
 

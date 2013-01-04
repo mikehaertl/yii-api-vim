@@ -360,7 +360,7 @@ loaded and disabled.)
 
 *CModule::setComponent* 					 public
 >
- setComponent($id, $component)
+ setComponent($id, $component, $merge=true)
 <
 (void)
 
@@ -368,9 +368,14 @@ loaded and disabled.)
  initialized by calling its |CApplicationComponent::init| method if it has not
  done so.
     [id] (string) component ID
-    [component] (IApplicationComponent) the component to be added to the
-    module. If this parameter is null, it will unload the component from the
-    module.
+    [component] (array|IApplicationComponent) application component (either
+    configuration array or instance). If this parameter is null, component
+    will be unloaded from the module.
+    [merge] (boolean) whether to merge the new component configuration with
+    the existing one. Defaults to true, meaning the previously registered
+    component configuration with the same ID will be merged with the new
+    configuration. If set to false, the existing configuration will be
+    replaced completely. This parameter is available since 1.1.13.
 
 
 *CModule::setComponents*					 public

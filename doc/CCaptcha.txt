@@ -152,11 +152,15 @@ METHOD DETAILS
 
 *CCaptcha::checkRequirements*					 public
 >
- checkRequirements()
+ checkRequirements($extension='')
 <
-(boolean) true if GD with FreeType support is loaded, otherwise false
+(boolean) true if ImageMagick extension with PNG support or GD with FreeType
+support is loaded, otherwise false
 
- Checks if GD with FreeType support is loaded.
+ Checks if specified graphic extension support is loaded.
+    [extension] (string) extension name to be checked. Possible values are
+    'gd', 'imagick' and null. Default value is null meaning that both
+    extensions will be checked. This parameter is available since 1.1.13.
 
 
 *CCaptcha::createWidget*					 public

@@ -35,6 +35,13 @@ PROPERTY DETAILS
 <cssClassExpression>			*CCheckBoxColumn::cssClassExpression*
  See |CGridColumn::cssClassExpression|
 
+<disabled>				*CCheckBoxColumn::disabled*
+ (string) a PHP expression that will be evaluated for every data cell and
+ whose result will determine if checkbox for each data cell is disabled. In
+ this expression, the variable '$row' the row number (zero-based); '$data' the
+ data model for the row; and '$this' the column object. Note that expression
+ result will overwrite value set with 'checkBoxHtmlOptions['disabled']'.
+
 <filterHtmlOptions>			*CCheckBoxColumn::filterHtmlOptions*
  See |CGridColumn::filterHtmlOptions|
 
@@ -60,7 +67,7 @@ PROPERTY DETAILS
  (string) the template to be used to control the layout of the header cell.
  The token "{item}" is recognized and it will be replaced with a "check all"
  checkbox. By default if in multiple checking mode, the header cell will
- display an additional checkbox,  clicking on which will check or uncheck all
+ display an additional checkbox, clicking on which will check or uncheck all
  of the checkboxes in the data cells. See |CCheckBoxColumn::selectableRows|
  for more details.
 
@@ -83,10 +90,10 @@ PROPERTY DETAILS
    2 or more - multiple checkboxes can be checked. Checking a
    checkbox has nothing to do with selecting the row
    null - |CGridView::selectableRows| is used to control how many
-   checkboxes can be checked. Cheking a checkbox will also select the
-   row.You may also call the JavaScript function
- '$.fn.yiiGridView.getChecked(containerID,columnID)' to retrieve the key
- values of the checked rows.
+   checkboxes can be checked. Checking a checkbox will also select
+   the row.You may also call the JavaScript function
+ '$(gridID).yiiGridView.('getChecked', columnID)' to retrieve the key values
+ of the checked rows.
 
 <value> 				*CCheckBoxColumn::value*
  (string) a PHP expression that will be evaluated for every data cell and

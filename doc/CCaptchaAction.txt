@@ -31,6 +31,11 @@ PROPERTY DETAILS
  (integer) the background color. For example, 0x55FF00. Defaults to 0xFFFFFF,
  meaning white color.
 
+<backend>				*CCaptchaAction::backend*
+ (string) the graphic extension that will be used to draw CAPTCHA image.
+ Possible values are 'gd', 'imagick' and null. Null value means that fallback
+ mode will be used: ImageMagick is preferred over GD. Default value is null.
+
 <controller>				*CCaptchaAction::controller*
  See |CAction::controller|
 
@@ -241,9 +246,30 @@ METHOD DETAILS
 >
  renderImage($code)
 <
-(string) image content
+(void)
 
- Renders the CAPTCHA image based on the code.
+ Renders the CAPTCHA image based on the code using library specified in the
+ $backend property.
+    [code] (string) the verification code
+
+
+*CCaptchaAction::renderImageGD* 				 protected
+>
+ renderImageGD($code)
+<
+(void)
+
+ Renders the CAPTCHA image based on the code using GD library.
+    [code] (string) the verification code
+
+
+*CCaptchaAction::renderImageImagick*				 protected
+>
+ renderImageImagick($code)
+<
+(void)
+
+ Renders the CAPTCHA image based on the code using ImageMagick library.
     [code] (string) the verification code
 
 

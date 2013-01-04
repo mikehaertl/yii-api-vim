@@ -18,8 +18,8 @@ PROPERTY DETAILS
 <enableIncludePath>			*YiiBase::enableIncludePath*
  (boolean) whether to rely on PHP include path to autoload class files.
  Defaults to true. You may set this to be false if your hosting environment
- doesn't allow changing PHP include path, or if you want to append additional
- autoloaders to the default Yii autoloader.
+ doesn't allow changing the PHP include path, or if you want to append
+ additional autoloaders to the default Yii autoloader.
 
 
 
@@ -33,8 +33,8 @@ METHOD DETAILS
 (CApplication) the application singleton, null if the singleton has not been
 created yet.
 
- Returns the application singleton, null if the singleton has not been created
- yet.
+ Returns the application singleton or null if the singleton has not been
+ created yet.
 
 
 *YiiBase::autoload*						 public
@@ -54,9 +54,9 @@ created yet.
 <
 (void)
 
- Marks the begin of a code block for profiling. This has to be matched with a
- call to |YiiBase::endProfile| with the same token. The begin- and end- calls
- must also be properly nested, e.g.,
+ Marks the beginning of a code block for profiling. This has to be matched
+ with a call to |YiiBase::endProfile| with the same token. The begin- and end-
+ calls must also be properly nested, e.g.,
 >
  Yii::beginProfile('block1');
  Yii::beginProfile('block2');
@@ -97,8 +97,8 @@ created yet.
  The specified configuration can be either a string or an array. If the
  former, the string is treated as the object type which can be either the
  class name or |YiiBase::getPathOfAlias|. If the latter, the 'class' element
- is treated as the object type, and the rest name-value pairs in the array are
- used to initialize the corresponding object properties.
+ is treated as the object type, and the rest of the name-value pairs in the
+ array are used to initialize the corresponding object properties.
 
  Any additional parameters passed to this method will be passed to the
  constructor of the object being created.
@@ -214,9 +214,9 @@ created yet.
  'application.components.GoogleMap'. The difference is that the former class
  is using qualified name, while the latter unqualified.
 
- Note, importing a class in namespace format requires that the namespace is
- corresponding to a valid path alias if we replace the backslash characters
- with dot characters. For example, the namespace 'application\components' must
+ Note, importing a class in namespace format requires that the namespace
+ corresponds to a valid path alias once backslash characters are replaced with
+ dot characters. For example, the namespace 'application\components' must
  correspond to a valid path alias 'application.components'.
     [alias] (string) path alias to be imported
     [forceInclude] (boolean) whether to include the class file immediately. If

@@ -54,7 +54,7 @@ METHOD DETAILS
  Constructor.
     [name] (string) name of this cookie
     [value] (string) value of this cookie
-    [options] (array) the configuration array consisting of name-value pairs 
+    [options] (array) the configuration array consisting of name-value pairs
     that are used to configure this cookie
 
 
@@ -118,7 +118,7 @@ string will be returned.
 
  This method can be used to configure the CookieObject with an array Note: you
  cannot use this method to set the name and/or the value of the cookie
-    [options] (array) the configuration array consisting of name-value pairs 
+    [options] (array) the configuration array consisting of name-value pairs
     that are used to configure this cookie
 
 

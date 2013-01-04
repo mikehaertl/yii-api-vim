@@ -409,7 +409,7 @@ METHOD DETAILS
 
 *CDbCriteria::mergeWith*					 public
 >
- mergeWith($criteria, $useAnd=true)
+ mergeWith($criteria, $operator='AND')
 <
 (void)
 
@@ -419,8 +419,9 @@ METHOD DETAILS
  precedence in case two options cannot be merged (e.g. LIMIT, OFFSET).
     [criteria] (mixed) the criteria to be merged with. Either an array or
     CDbCriteria.
-    [useAnd] (boolean) whether to use 'AND' to merge condition and having
-    options. If false, 'OR' will be used instead. Defaults to 'AND'.
+    [operator] (string|boolean) the operator used to concatenate where and
+    having conditions. Defaults to 'AND'. For backwards compatibility a
+    boolean value can be passed: - 'false' for 'OR' - 'true' for 'AND'
 
 
 *CDbCriteria::raiseEvent*					 public
