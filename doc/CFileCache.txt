@@ -33,6 +33,14 @@ PROPERTY DETAILS
  system is not over burdened. The value of this property should not exceed 16
  (less than 3 is recommended).
 
+<embedExpiry>				*CFileCache::embedExpiry*
+ (boolean) whether cache entry expiration time should be embedded into a
+ physical file. Defaults to false meaning that the file modification time will
+ be used to store expire value. True value means that first ten bytes of the
+ file would be reserved and used to store expiration time. On some systems PHP
+ is not allowed to change file modification time to be in future even with 777
+ permissions, so this property could be useful in this case.
+
 <gCProbability> 			*CFileCache::gCProbability*
  (integer) the probability (parts per million) that garbage collection (GC)
  should be performed when storing a piece of data in the cache. Defaults to
@@ -233,8 +241,8 @@ should be performed when storing a piece of data in the cache. Defaults to
 >
  getValue($key)
 <
-(string) the value stored in cache, false if the value is not in the cache or
-expired.
+(string|boolean) the value stored in cache, false if the value is not in the
+cache or expired.
 
  Retrieves a value from cache with a specified key. This is the implementation
  of the method declared in the parent class.

@@ -84,7 +84,8 @@ PROPERTY DETAILS
  (array) the list of session variable names
 
 <savePath>				*CHttpSession::savePath*
- (string) the current session save path, defaults to '/tmp'.
+ (string) the current session save path, defaults to
+ 'http://php.net/session.save_path'.
 
 <sessionID>				*CHttpSession::sessionID*
  (string) the current session ID
@@ -373,7 +374,8 @@ is started on every session initialization, defaults to 1 meaning 1% chance.
 >
  getSavePath()
 <
-(string) the current session save path, defaults to '/tmp'.
+(string) the current session save path, defaults to
+'http://php.net/session.save_path'.
 
 
 
@@ -580,7 +582,7 @@ false.
  Sets the session cookie parameters. The effect of this method only lasts for
  the duration of the script. Call this method before the session starts.
     [value] (array) cookie parameters, valid keys include: lifetime, path,
-    domain, secure.
+    domain, secure, httponly. Note that httponly is all lowercase.
 
 
 *CHttpSession::setGCProbability*				 public

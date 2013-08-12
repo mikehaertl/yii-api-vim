@@ -95,6 +95,18 @@ METHOD DETAILS
  See |CComponent::attachEventHandler|
 
 
+*CActiveRecordBehavior::beforeCount*				 protected
+>
+ beforeCount($event)
+<
+(void)
+
+ Responds to |CActiveRecord::onBeforeCount| event. Override this method and
+ make it public if you want to handle the corresponding event of the
+ |CBehavior::owner|.
+    [event] (CEvent) event parameter
+
+
 *CActiveRecordBehavior::beforeDelete*				 protected
 >
  beforeDelete($event)

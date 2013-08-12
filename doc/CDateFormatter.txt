@@ -119,7 +119,7 @@ available since Yii 1.1.11)
 
  Formats a date according to a customized pattern.
     [pattern] (string) the pattern (See
-    'http://www.unicode.org/reports/tr35/#Date_Format_Patterns')
+    'http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns')
     [time] (mixed) UNIX timestamp or a string in strtotime format
 
 

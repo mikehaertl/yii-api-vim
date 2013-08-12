@@ -120,9 +120,11 @@ METHOD DETAILS
  validation code and can look like:
 >
  <?php
-   public function clientValidate123($attribute)
+   public function clientValidate123($attribute,$params)
    {
-      $js = "if(value != '123') { messages.push('Value should be 123'); }";
+      if(!isset($params['message']))
+         $params['message']='Value should be 123';
+      $js = "if(value != '123') { messages.push($params['message']); }";
       return $js;
    }
  ?>

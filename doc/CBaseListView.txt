@@ -20,6 +20,10 @@ PROPERTY DETAILS
 <dataProvider>				*CBaseListView::dataProvider*
  (IDataProvider) the data provider for the view.
 
+<emptyTagName>				*CBaseListView::emptyTagName*
+ (string) the HTML tag name for the container of the
+ |CBaseListView::emptyText| property.
+
 <emptyText>				*CBaseListView::emptyText*
  (string) the message to be displayed when |CBaseListView::dataProvider| does
  not have any data.

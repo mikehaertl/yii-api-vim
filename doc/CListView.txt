@@ -54,6 +54,13 @@ PROPERTY DETAILS
  'id' refers to the ID of the list view 'data' the received ajax response
  data.
 
+<ajaxType>				*CListView::ajaxType*
+ (string) the type ('GET' or 'POST') of the AJAX requests. If not set, 'GET'
+ will be used. You can set this to 'POST' if you are filtering by many fields
+ at once and have a problem with GET query string length. Note that in POST
+ mode direct links and |CListView::enableHistory| feature may not work
+ correctly!
+
 <ajaxUpdate>				*CListView::ajaxUpdate*
  (mixed) the ID of the container whose content may be updated with an AJAX
  response. Defaults to null, meaning the container for this list view
@@ -116,6 +123,9 @@ PROPERTY DETAILS
 
 <dataProvider>				*CListView::dataProvider*
  See |CBaseListView::dataProvider|
+
+<emptyTagName>				*CListView::emptyTagName*
+ See |CBaseListView::emptyTagName|
 
 <emptyText>				*CListView::emptyText*
  See |CBaseListView::emptyText|

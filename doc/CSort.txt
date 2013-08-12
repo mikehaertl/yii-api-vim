@@ -334,6 +334,16 @@ order.
  See |CComponent::getEventHandlers|
 
 
+*CSort::getModel*						 protected
+>
+ getModel($className)
+<
+(CActiveRecord) active record model instance.
+
+ Given active record class name returns new model instance.
+    [className] (string) active record class name.
+
+
 *CSort::getOrderBy*						 public
 >
  getOrderBy($criteria=NULL)

@@ -75,6 +75,13 @@ PROPERTY DETAILS
  'id' refers to the ID of the grid view, 'data' the received ajax response
  data.
 
+<ajaxType>				*CGridView::ajaxType*
+ (string) the type ('GET' or 'POST') of the AJAX requests. If not set, 'GET'
+ will be used. You can set this to 'POST' if you are filtering by many fields
+ at once and have a problem with GET query string length. Note that in POST
+ mode direct links and |CGridView::enableHistory| feature may not work
+ correctly!
+
 <ajaxUpdate>				*CGridView::ajaxUpdate*
  (mixed) the ID of the container whose content may be updated with an AJAX
  response. Defaults to null, meaning the container for this grid view
@@ -161,6 +168,9 @@ PROPERTY DETAILS
 
 <dataProvider>				*CGridView::dataProvider*
  See |CBaseListView::dataProvider|
+
+<emptyTagName>				*CGridView::emptyTagName*
+ See |CBaseListView::emptyTagName|
 
 <emptyText>				*CGridView::emptyText*
  See |CBaseListView::emptyText|
@@ -267,15 +277,27 @@ PROPERTY DETAILS
 <rowCssClassExpression> 		*CGridView::rowCssClassExpression*
  (string) a PHP expression that is evaluated for every table body row and
  whose result is used as the CSS class name for the row. In this expression,
- the variable '$row' stands for the row number (zero-based), '$data' is the
- data model associated with the row, and '$this' is the grid object.
+ you can use the following variables:
+   '$row' the row number (zero-based)
+   '$data' the data model for the row
+   '$this' the grid view objectThe PHP expression will be evaluated using
+ |CGridView::evaluateExpression|.
+
+ A PHP expression can be any PHP code that has a value. To learn more about
+ what an expression is, please refer to the 'php manual'.
 
 <rowHtmlOptionsExpression>		*CGridView::rowHtmlOptionsExpression*
  (string) a PHP expression that is evaluated for every table body row and
- whose result is used as additional HTML attributes for the row. In this
- expression, the variable '$row' stands for the row number (zero-based),
- '$data' is the data model associated with the row, and '$this' is the grid
- object.
+ whose result is used as additional HTML attributes for the row. The
+ expression should return an array whose key value pairs correspond to html
+ attribute and value. In this expression, you can use the following variables:
+   '$row' the row number (zero-based)
+   '$data' the data model for the row
+   '$this' the grid view objectThe PHP expression will be evaluated using
+ |CGridView::evaluateExpression|.
+
+ A PHP expression can be any PHP code that has a value. To learn more about
+ what an expression is, please refer to the 'php manual'.
 
 <selectableRows>			*CGridView::selectableRows*
  (integer) the number of table body rows that can be selected. If 0, it means

@@ -45,12 +45,14 @@ PROPERTY DETAILS
  See |CFilterWidget::isFilter|
 
 <options>				*CHtmlPurifier::options*
- (mixed) the options to be passed to HTML Purifier instance. This can be a
- HTMLPurifier_Config object,  an array of directives (Namespace.Directive =>
- Value) or the filename of an ini file.
+ (mixed) Get the options for the HTML Purifier instance.
 
 <owner> 				*CHtmlPurifier::owner*
  See |CWidget::owner|
+
+<purifier>				*CHtmlPurifier::purifier*
+ (HTMLPurifier) Get the HTML Purifier instance or create a new one if it
+ doesn't exist.
 
 <skin>					*CHtmlPurifier::skin*
  See |CWidget::skin|
@@ -134,6 +136,15 @@ METHOD DETAILS
  See |CComponent::canSetProperty|
 
 
+*CHtmlPurifier::createNewHtmlPurifierInstance*			 protected
+>
+ createNewHtmlPurifierInstance()
+<
+(HTMLPurifier) 
+
+ Create a new HTML Purifier instance.
+
+
 *CHtmlPurifier::createWidget*					 public
  See |CBaseController::createWidget|
 
@@ -206,8 +217,26 @@ METHOD DETAILS
  See |CFilterWidget::getIsFilter|
 
 
+*CHtmlPurifier::getOptions*					 public
+>
+ getOptions()
+<
+(mixed) the HTML Purifier instance options
+
+ Get the options for the HTML Purifier instance.
+
+
 *CHtmlPurifier::getOwner*					 public
  See |CWidget::getOwner|
+
+
+*CHtmlPurifier::getPurifier*					 protected
+>
+ getPurifier()
+<
+(HTMLPurifier) 
+
+ Get the HTML Purifier instance or create a new one if it doesn't exist.
 
 
 *CHtmlPurifier::getViewFile*					 public
@@ -253,10 +282,10 @@ METHOD DETAILS
 >
  purify($content)
 <
-(string) the purified content
+(mixed) the purified content
 
  Purifies the HTML content by removing malicious code.
-    [content] (string) the content to be purified.
+    [content] (mixed) the content to be purified.
 
 
 *CHtmlPurifier::raiseEvent*					 public
@@ -281,6 +310,17 @@ METHOD DETAILS
 
 *CHtmlPurifier::setId*						 public
  See |CWidget::setId|
+
+
+*CHtmlPurifier::setOptions*					 public
+>
+ setOptions($options)
+<
+(CHtmlPurifier) 
+
+ Set the options for HTML Purifier and create a new HTML Purifier instance
+ based on these options.
+    [options] (mixed) the options for HTML Purifier
 
 
 *CHtmlPurifier::widget* 					 public

@@ -236,10 +236,6 @@ METHOD DETAILS
  See |PHPUnit_Framework_Assert::assertContainsOnly|
 
 
-*CWebTestCase::assertContainsOnlyInstancesOf*			 public
- See |PHPUnit_Framework_Assert::assertContainsOnlyInstancesOf|
-
-
 *CWebTestCase::assertCount*					 public
  See |PHPUnit_Framework_Assert::assertCount|
 
@@ -322,30 +318,6 @@ METHOD DETAILS
 
 *CWebTestCase::assertIsSelected*				 public
  See |PHPUnit_Extensions_SeleniumTestCase::assertIsSelected|
-
-
-*CWebTestCase::assertJsonFileEqualsJsonFile*			 public
- See |PHPUnit_Framework_Assert::assertJsonFileEqualsJsonFile|
-
-
-*CWebTestCase::assertJsonFileNotEqualsJsonFile* 		 public
- See |PHPUnit_Framework_Assert::assertJsonFileNotEqualsJsonFile|
-
-
-*CWebTestCase::assertJsonStringEqualsJsonFile*			 public
- See |PHPUnit_Framework_Assert::assertJsonStringEqualsJsonFile|
-
-
-*CWebTestCase::assertJsonStringEqualsJsonString*		 public
- See |PHPUnit_Framework_Assert::assertJsonStringEqualsJsonString|
-
-
-*CWebTestCase::assertJsonStringNotEqualsJsonFile*		 public
- See |PHPUnit_Framework_Assert::assertJsonStringNotEqualsJsonFile|
-
-
-*CWebTestCase::assertJsonStringNotEqualsJsonString*		 public
- See |PHPUnit_Framework_Assert::assertJsonStringNotEqualsJsonString|
 
 
 *CWebTestCase::assertLessThan*					 public
@@ -556,10 +528,6 @@ METHOD DETAILS
  See |PHPUnit_Framework_Assert::attributeEqualTo|
 
 
-*CWebTestCase::callback*					 public
- See |PHPUnit_Framework_Assert::callback|
-
-
 *CWebTestCase::checkRequirements*				 protected
  See |PHPUnit_Framework_TestCase::checkRequirements|
 
@@ -578,10 +546,6 @@ METHOD DETAILS
 
 *CWebTestCase::containsOnly*					 public
  See |PHPUnit_Framework_Assert::containsOnly|
-
-
-*CWebTestCase::containsOnlyInstancesOf* 			 public
- See |PHPUnit_Framework_Assert::containsOnlyInstancesOf|
 
 
 *CWebTestCase::count*						 public
@@ -616,12 +580,20 @@ METHOD DETAILS
  See |PHPUnit_Framework_TestCase::expectOutputString|
 
 
+*CWebTestCase::explodeDirectories*				 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::explodeDirectories|
+
+
 *CWebTestCase::fail*						 public
  See |PHPUnit_Framework_Assert::fail|
 
 
 *CWebTestCase::fileExists*					 public
  See |PHPUnit_Framework_Assert::fileExists|
+
+
+*CWebTestCase::findDirectorySeparator*				 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::findDirectorySeparator|
 
 
 *CWebTestCase::getActualOutput* 				 public
@@ -721,6 +693,10 @@ record cannot be found.
 
 *CWebTestCase::getScreenshotPath*				 protected
  See |PHPUnit_Extensions_SeleniumTestCase::getScreenshotPath|
+
+
+*CWebTestCase::getSeleneseFiles*				 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::getSeleneseFiles|
 
 
 *CWebTestCase::getSize* 					 public
@@ -825,6 +801,10 @@ record cannot be found.
 
 *CWebTestCase::markTestSkipped* 				 public
  See |PHPUnit_Framework_Assert::markTestSkipped|
+
+
+*CWebTestCase::matchLocalAndRemotePaths*			 protected
+ See |PHPUnit_Extensions_SeleniumTestCase::matchLocalAndRemotePaths|
 
 
 *CWebTestCase::matches* 					 public

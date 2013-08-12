@@ -57,7 +57,7 @@ PROPERTY DETAILS
  See |CJuiWidget::themeUrl|
 
 <value> 				*CJuiInputWidget::value*
- (string) the input value
+ (string) the input value.
 
 <viewPath>				*CJuiInputWidget::viewPath*
  See |CWidget::viewPath|
@@ -261,10 +261,17 @@ METHOD DETAILS
 
 *CJuiInputWidget::resolveNameID*				 protected
 >
- resolveNameID()
+ resolveNameID($nameProperty='name', $attributeProperty='attribute')
 <
-(array) the name and the ID of the input.
+(array) name and ID of the input: array('name','id').
 
+ Resolves name and ID of the input. Source property of the name and/or source
+ property of the attribute could be customized by specifying first and/or
+ second parameter accordingly.
+    [nameProperty] (string) class property name which holds element name to be
+    used. This parameter is available since 1.1.14.
+    [attributeProperty] (string) class property name which holds model
+    attribute name to be used. This parameter is available since 1.1.14.
 
 
 *CJuiInputWidget::resolvePackagePath*				 protected

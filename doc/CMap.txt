@@ -48,7 +48,7 @@ METHOD DETAILS
 (void)
 
  Constructor. Initializes the list with an array or an iterable object.
-    [data] (array) the intial data. Default is null, meaning no
+    [data] (array) the initial data. Default is null, meaning no
     initialization.
     [readOnly] (boolean) whether the list is read-only
 
@@ -252,8 +252,8 @@ METHOD DETAILS
  integer-keyed elements, the elements from the latter array will be appended
  to the former array.
     [a] (array) array to be merged to
-    [b] (array) array to be merged from. You can specifiy additional arrays
-    via third argument, fourth argument etc.
+    [b] (array) array to be merged from. You can specify additional arrays via
+    third argument, fourth argument etc.
 
 
 *CMap::mergeWith*						 public
@@ -268,8 +268,8 @@ METHOD DETAILS
  as those in the source. If the merge is recursive, the following algorithm is
  performed:
    the map data is saved as $a, and the source data is saved as $b;
-   if $a and $b both have an array indxed at the same string key, the
-   arrays will be merged using this algorithm;
+   if $a and $b both have an array indexed at the same string key,
+   the arrays will be merged using this algorithm;
    any integer-indexed elements in $b will be appended to $a and
    reindexed accordingly;
    any string-indexed elements in $b will overwrite elements in $a

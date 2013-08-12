@@ -22,7 +22,8 @@
 <
  By configuring the |CJuiSelectable::options| property, you may specify the
  options that need to be passed to the JUI Selectable plugin. Please refer to
- the 'JUI Selectable' documentation for possible options (name-value pairs).
+ the 'JUI Selectable API' documentation for possible options (name-value
+ pairs) and 'JUI Selectable page' for general description and demo.
 
 
 PROPERTY DETAILS

@@ -20,7 +20,8 @@
 <
  By configuring the |CJuiResizable::options| property, you may specify the
  options that need to be passed to the JUI Resizable plugin. Please refer to
- the 'JUI Resizable' documentation for possible options (name-value pairs).
+ the 'JUI Resizable API' documentation for possible options (name-value pairs)
+ and 'JUI Resizable page' for general description and demo.
 
 
 PROPERTY DETAILS

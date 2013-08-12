@@ -11,6 +11,10 @@ PROPERTY DETAILS
 <dbConnection>				*CDbCommandBuilder::dbConnection*
  (CDbConnection) database connection.
 
+<integerPrimaryKeyDefaultValue> 	*CDbCommandBuilder::integerPrimaryKeyDefaultValue*
+ (string) Returns default value of the integer/serial primary key. Default
+ value means that the next autoincrement/sequence value would be used.
+
 <schema>				*CDbCommandBuilder::schema*
  (CDbSchema) the schema for this command builder.
 
@@ -153,6 +157,23 @@ METHOD DETAILS
  See |CComponent::canSetProperty|
 
 
+*CDbCommandBuilder::composeMultipleInsertCommand*		 protected
+>
+ composeMultipleInsertCommand($table, $data, $templates=array())
+<
+(CDbCommand) multiple insert command
+
+ Creates a multiple INSERT command. This method compose the SQL expression via
+ given part templates, providing ability to adjust command for different SQL
+ syntax.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [data] (array) list data to be inserted, each value should be an array in
+    format (column name=>column value). If a key is not a valid column name,
+    the corresponding value will be ignored.
+    [templates] (array) templates for the SQL parts.
+
+
 *CDbCommandBuilder::createColumnCriteria*			 public
 >
  createColumnCriteria($table, $columns, $condition='', $params=array(), $prefix='')
@@ -270,6 +291,22 @@ METHOD DETAILS
     (string).
     [data] (array) data to be inserted (column name=>column value). If a key
     is not a valid column name, the corresponding value will be ignored.
+
+
+*CDbCommandBuilder::createMultipleInsertCommand*		 public
+>
+ createMultipleInsertCommand($table, $data)
+<
+(CDbCommand) multiple insert command
+
+ Creates a multiple INSERT command. This method could be used to achieve
+ better performance during insertion of the large amount of data into the
+ database tables.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [data] (array) list data to be inserted, each value should be an array in
+    format (column name=>column value). If a key is not a valid column name,
+    the corresponding value will be ignored.
 
 
 *CDbCommandBuilder::createPkCondition*				 public
@@ -424,6 +461,16 @@ returned if either the column array or the keywords are empty.
 
 *CDbCommandBuilder::getEventHandlers*				 public
  See |CComponent::getEventHandlers|
+
+
+*CDbCommandBuilder::getIntegerPrimaryKeyDefaultValue*		 protected
+>
+ getIntegerPrimaryKeyDefaultValue()
+<
+(string) default value of the integer/serial primary key.
+
+ Returns default value of the integer/serial primary key. Default value means
+ that the next autoincrement/sequence value would be used.
 
 
 *CDbCommandBuilder::getLastInsertID*				 public

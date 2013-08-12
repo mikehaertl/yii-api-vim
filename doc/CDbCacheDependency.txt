@@ -191,5 +191,9 @@ METHOD DETAILS
  See |CComponent::raiseEvent|
 
 
+*CDbCacheDependency::resetReusableData* 			 public
+ See |CCacheDependency::resetReusableData|
+
+
 
  vim:tw=78:ts=8:ft=help:norl:

@@ -174,7 +174,9 @@ behavior
     [name] (string) the behavior's name. It should uniquely identify this
     behavior.
     [behavior] (mixed) the behavior configuration. This is passed as the first
-    parameter to |YiiBase::createComponent| to create the behavior object.
+    parameter to |YiiBase::createComponent| to create the behavior object. You
+    can also pass an already created behavior instance (the new behavior will
+    replace an already created behavior with the same name, if it exists).
 
 
 *CComponent::attachBehaviors*					 public
@@ -350,6 +352,9 @@ behavior
  PHP variables that can be directly accessed in the expression. See 'PHP
  extract' for more details. In the expression, the component object can be
  accessed using $this.
+
+ A PHP expression can be any PHP code that has a value. To learn more about
+ what an expression is, please refer to the 'php manual'.
     [_expression_] (mixed) a PHP expression or PHP callback to be evaluated.
     [_data_] (array) additional parameters to be passed to the above
     expression/callback.

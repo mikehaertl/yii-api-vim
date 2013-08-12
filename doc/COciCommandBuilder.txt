@@ -12,6 +12,9 @@ PROPERTY DETAILS
 <dbConnection>				*COciCommandBuilder::dbConnection*
  See |CDbCommandBuilder::dbConnection|
 
+<integerPrimaryKeyDefaultValue> 	*COciCommandBuilder::integerPrimaryKeyDefaultValue*
+ See |CDbCommandBuilder::integerPrimaryKeyDefaultValue|
+
 <returnID>				*COciCommandBuilder::returnID*
  (integer) the last insertion ID
 
@@ -108,6 +111,10 @@ METHOD DETAILS
  See |CComponent::canSetProperty|
 
 
+*COciCommandBuilder::composeMultipleInsertCommand*		 protected
+ See |CDbCommandBuilder::composeMultipleInsertCommand|
+
+
 *COciCommandBuilder::createColumnCriteria*			 public
  See |CDbCommandBuilder::createColumnCriteria|
 
@@ -147,6 +154,22 @@ METHOD DETAILS
     (string).
     [data] (array) data to be inserted (column name=>column value). If a key
     is not a valid column name, the corresponding value will be ignored.
+
+
+*COciCommandBuilder::createMultipleInsertCommand*		 public
+>
+ createMultipleInsertCommand($table, $data)
+<
+(CDbCommand) multiple insert command
+
+ Creates a multiple INSERT command. This method could be used to achieve
+ better performance during insertion of the large amount of data into the
+ database tables.
+    [table] (mixed) the table schema (|CDbTableSchema|) or the table name
+    (string).
+    [data] (array) list data to be inserted, each value should be an array in
+    format (column name=>column value). If a key is not a valid column name,
+    the corresponding value will be ignored.
 
 
 *COciCommandBuilder::createPkCondition* 			 public
@@ -215,6 +238,10 @@ METHOD DETAILS
 
 *COciCommandBuilder::getEventHandlers*				 public
  See |CComponent::getEventHandlers|
+
+
+*COciCommandBuilder::getIntegerPrimaryKeyDefaultValue*		 protected
+ See |CDbCommandBuilder::getIntegerPrimaryKeyDefaultValue|
 
 
 *COciCommandBuilder::getLastInsertID*				 public

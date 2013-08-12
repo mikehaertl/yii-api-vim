@@ -168,6 +168,16 @@ METHOD DETAILS
  See |CComponent::getEventHandlers|
 
 
+*CExistValidator::getModel*					 protected
+>
+ getModel($className)
+<
+(CActiveRecord) active record model instance.
+
+ Given active record class name returns new model instance.
+    [className] (string) active record class name.
+
+
 *CExistValidator::hasEvent*					 public
  See |CComponent::hasEvent|
 

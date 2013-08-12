@@ -19,8 +19,14 @@ PROPERTY DETAILS
 
 <expression>				*CExpressionDependency::expression*
  (string) the PHP expression whose result is used to determine the dependency.
- The expression can also be a valid serializable PHP callback. The callback
- will be passed with a parameter which is the dependency object itself.
+ The expression can also be a valid serializable PHP callback. It will be
+ passed with a parameter which is the dependency object itself.
+
+ The PHP expression will be evaluated using
+ |CExpressionDependency::evaluateExpression|.
+
+ A PHP expression can be any PHP code that has a value. To learn more about
+ what an expression is, please refer to the 'php manual'.
 
 <hasChanged>				*CExpressionDependency::hasChanged*
  See |CCacheDependency::hasChanged|
@@ -160,6 +166,10 @@ METHOD DETAILS
 
 *CExpressionDependency::raiseEvent*				 public
  See |CComponent::raiseEvent|
+
+
+*CExpressionDependency::resetReusableData*			 public
+ See |CCacheDependency::resetReusableData|
 
 
 

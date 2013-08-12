@@ -229,8 +229,8 @@ is uploaded for the specified name.
 >
  getInstances($model, $attribute)
 <
-(array) array of CUploadedFile objects. Empty array is returned if no
-available file was found for the given attribute.
+(CUploadedFile[]) array of CUploadedFile objects. Empty array is returned if
+no available file was found for the given attribute.
 
  Returns all uploaded files for the given model attribute.
     [model] (CModel) the model instance
@@ -243,9 +243,9 @@ available file was found for the given attribute.
 >
  getInstancesByName($name)
 <
-(array) the array of CUploadedFile objects. Empty array is returned if no
-adequate upload was found. Please note that this array will contain all files
-from all subarrays regardless how deeply nested they are.
+(CUploadedFile[]) the array of CUploadedFile objects. Empty array is returned
+if no adequate upload was found. Please note that this array will contain all
+files from all subarrays regardless how deeply nested they are.
 
  Returns an array of instances starting with specified array name.
 
@@ -333,7 +333,9 @@ type.
 <
 (boolean) true whether the file is saved successfully
 
- Saves the uploaded file.
+ Saves the uploaded file. Note: this method uses php's move_uploaded_file()
+ method. As such, if the target file ($file)  already exists it is
+ overwritten.
     [file] (string) the file path used to save the uploaded file
     [deleteTempFile] (boolean) whether to delete the temporary file after
     saving. If true, you will not be able to save the uploaded file again in

@@ -2,7 +2,7 @@
 *CStackIterator*  
 ================
 
- CStackIterator implements an interator for |CStack|.
+ CStackIterator implements an iterator for |CStack|.
 
  It allows CStack to return a new iterator for traversing the items in the
  stack.

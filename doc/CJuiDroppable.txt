@@ -20,7 +20,8 @@
 <
  By configuring the |CJuiDroppable::options| property, you may specify the
  options that need to be passed to the JUI Droppable plugin. Please refer to
- the 'JUI Droppable' documentation for possible options (name-value pairs).
+ the 'JUI Droppable API' documentation for possible options (name-value
+ pairs) and 'JUI Droppable page' for general description and demo.
 
 
 PROPERTY DETAILS

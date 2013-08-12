@@ -39,7 +39,7 @@
              'url'=>'http://www.yiiframework.com/',
          ),
      ),
- ))?>
+ ));
 <
  By default, the first tab will be activated. To activate a different tab when
  the page is initially loaded, set |CTabView::activeTab| to be the ID of the

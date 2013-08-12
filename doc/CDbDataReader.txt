@@ -119,7 +119,7 @@ METHOD DETAILS
 (void)
 
  Closes the reader. This frees up the resources allocated for executing this
- SQL statement. Read attemps after this method call are unpredictable.
+ SQL statement. Read attempts after this method call are unpredictable.
 
 
 *CDbDataReader::count*						 public

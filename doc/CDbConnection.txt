@@ -193,8 +193,8 @@ PROPERTY DETAILS
  or fetched from query cache), this property will be reduced by 1 until 0.
 
 <queryCachingDependency>		*CDbConnection::queryCachingDependency*
- (CCacheDependency) the dependency that will be used when saving query results
- into cache.
+ (CCacheDependency|ICacheDependency) the dependency that will be used when
+ saving query results into cache.
 
 <queryCachingDuration>			*CDbConnection::queryCachingDuration*
  (integer) number of seconds that query results can remain valid in cache. Use
@@ -338,8 +338,8 @@ METHOD DETAILS
  cache directly without actually executing the SQL statement.
     [duration] (integer) the number of seconds that query results may remain
     valid in cache. If this is 0, the caching will be disabled.
-    [dependency] (CCacheDependency) the dependency that will be used when
-    saving the query results into cache.
+    [dependency] (CCacheDependency|ICacheDependency) the dependency that will
+    be used when saving the query results into cache.
     [queryCount] (integer) number of SQL queries that need to be cached after
     calling this method. Defaults to 1, meaning that the next SQL query will
     be cached.
@@ -385,7 +385,7 @@ METHOD DETAILS
 (PDO) the pdo instance
 
  Creates the PDO instance. When some functionalities are missing in the pdo
- driver, we may use an adapter class to provides them.
+ driver, we may use an adapter class to provide them.
 
 
 *CDbConnection::detachBehavior* 				 public

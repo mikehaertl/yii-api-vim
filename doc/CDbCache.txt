@@ -254,8 +254,8 @@ should be performed when storing a piece of data in the cache. Defaults to
 >
  getValue($key)
 <
-(string) the value stored in cache, false if the value is not in the cache or
-expired.
+(string|boolean) the value stored in cache, false if the value is not in the
+cache or expired.
 
  Retrieves a value from cache with a specified key. This is the implementation
  of the method declared in the parent class.

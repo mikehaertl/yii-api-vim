@@ -22,7 +22,8 @@
 <
  By configuring the |CJuiSlider::options| property, you may specify the
  options that need to be passed to the JUI slider plugin. Please refer to the
- 'JUI slider' documentation for possible options (name-value pairs).
+ 'JUI Slider API' documentation for possible options (name-value pairs) and
+ 'JUI Slider page' for general description and demo.
 
 
 PROPERTY DETAILS

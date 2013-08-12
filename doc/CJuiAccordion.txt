@@ -23,7 +23,8 @@
 <
  By configuring the |CJuiAccordion::options| property, you may specify the
  options that need to be passed to the JUI accordion plugin. Please refer to
- the 'JUI Accordion' documentation for possible options (name-value pairs).
+ the 'JUI Accordion API' documentation for possible options (name-value pairs)
+ and 'JUI Accordion page' for general description and demo.
 
 
 PROPERTY DETAILS

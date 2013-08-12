@@ -21,7 +21,8 @@
 <
  By configuring the |CJuiDatePicker::options| property, you may specify the
  options that need to be passed to the JUI datepicker plugin. Please refer to
- the 'JUI datepicker' documentation for possible options (name-value pairs).
+ the 'JUI DatePicker API' documentation for possible options (name-value
+ pairs) and 'JUI DatePicker page' for general description and demo.
 
 
 PROPERTY DETAILS

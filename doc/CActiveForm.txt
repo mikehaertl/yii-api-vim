@@ -197,9 +197,9 @@ PROPERTY DETAILS
    function is NOT true, the validation will be cancelled.
 
    Note that because this option refers to a js function, you should
-   wrap the value with CJavaScriptExpressoin to prevent it from being
-   encoded as a string. This option has been available since version
-   1.1.3.
+   wrap the value with |CJavaScriptExpression| to prevent it from
+   being encoded as a string. This option has been available since
+   version 1.1.3.
    {afterValidate} function, the function that will be invoked after
    performing ajax-based validation triggered by form submission
    action (available only when validateOnSubmit is set true). The
@@ -211,9 +211,9 @@ PROPERTY DETAILS
    NOT true, the normal form submission will be cancelled.
 
    Note that because this option refers to a js function, you should
-   wrap the value with CJavaScriptExpressoin to prevent it from being
-   encoded as a string. This option has been available since version
-   1.1.3.
+   wrap the value with |CJavaScriptExpression| to prevent it from
+   being encoded as a string. This option has been available since
+   version 1.1.3.
    {beforeValidateAttribute} function, the function that will be
    invoked before performing ajax-based validation triggered by a
    single attribute input change. The expected function signature
@@ -224,9 +224,9 @@ PROPERTY DETAILS
    is NOT true, the validation will be cancelled.
 
    Note that because this option refers to a js function, you should
-   wrap the value with CJavaScriptExpressoin to prevent it from being
-   encoded as a string. This option has been available since version
-   1.1.3.
+   wrap the value with |CJavaScriptExpression| to prevent it from
+   being encoded as a string. This option has been available since
+   version 1.1.3.
    {afterValidateAttribute} function, the function that will be
    invoked after performing ajax-based validation triggered by a
    single attribute input change. The expected function signature
@@ -238,12 +238,12 @@ PROPERTY DETAILS
    indicating whether there is any validation error.
 
    Note that because this option refers to a js function, you should
-   wrap the value with CJavaScriptExpressoin to prevent it from being
-   encoded as a string. This option has been available since version
-   1.1.3.Some of the above options may be overridden in individual calls of
- |CActiveForm::error|. They include: validationDelay, validateOnChange,
- validateOnType, hideErrorMessage, inputContainer, errorCssClass,
- successCssClass, validatingCssClass, beforeValidateAttribute,
+   wrap the value with |CJavaScriptExpression| to prevent it from
+   being encoded as a string. This option has been available since
+   version 1.1.3.Some of the above options may be overridden in individual
+ calls of |CActiveForm::error|. They include: validationDelay,
+ validateOnChange, validateOnType, hideErrorMessage, inputContainer,
+ errorCssClass, successCssClass, validatingCssClass, beforeValidateAttribute,
  afterValidateAttribute.
 
 <controller>				*CActiveForm::controller*
@@ -274,9 +274,10 @@ PROPERTY DETAILS
  |CValidator::clientValidateAttribute|).
 
 <errorMessageCssClass>			*CActiveForm::errorMessageCssClass*
- (string) the CSS class name for error messages. Defaults to 'errorMessage'.
- Individual |CActiveForm::error| call may override this value by specifying
- the 'class' HTML option.
+ (string) the CSS class name for error messages.  Since 1.1.14 this defaults
+ to 'errorMessage' defined in CHtml::$errorMessageCss. Individual
+ |CActiveForm::error| call may override this value by specifying the 'class'
+ HTML option.
 
 <focus> 				*CActiveForm::focus*
  (mixed) form element to get initial input focus on page load.
@@ -545,7 +546,19 @@ METHOD DETAILS
     Note that these options are only used when
     |CActiveForm::enableAjaxValidation| or
     |CActiveForm::enableClientValidation| is set true.
+      inputIDWhen an CActiveForm input field uses a custom ID, for ajax/client
+    validation to work properly  inputID should be set to the same ID
 
+    Example:
+>
+    <div class="form-element">
+       <?php echo $form->labelEx($model,'attribute'); ?>
+       <?php echo $form->textField($model,'attribute',
+    array('id'=>'custom-id')); ?>
+       <?php echo
+    $form->error($model,'attribute',array('inputID'=>'custom-id')); ?>
+    </div>
+<
     When client-side validation is enabled, an option named "clientValidation"
     is also recognized. This option should take a piece of JavaScript code to
     perform client-side validation. In the code, the variables are predefined:
@@ -553,7 +566,8 @@ METHOD DETAILS
       {messages} an array that may be appended with new error messages
       for the attribute.
       {attribute} a data structure keeping all client-side options for
-      the attribute
+      the attributeThis should NOT be a function but just the code, Yii will
+    enclose the code you provide inside the actual JS function.
     [enableAjaxValidation] (boolean) whether to enable AJAX validation for the
     specified attribute. Note that in order to enable AJAX validation, both
     |CActiveForm::enableAjaxValidation| and this parameter must be true.
@@ -800,8 +814,36 @@ METHOD DETAILS
  form close tag.
 
 
+*CActiveForm::searchField*					 public
+>
+ searchField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Renders a search field for a model attribute. This method is a wrapper of
+ |CHtml::activeSearchField|. Please check |CHtml::activeSearchField| for
+ detailed information about the parameters for this method.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes.
+
+
 *CActiveForm::setId*						 public
  See |CWidget::setId|
+
+
+*CActiveForm::telField* 					 public
+>
+ telField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Renders a time field for a model attribute. This method is a wrapper of
+ |CHtml::activeTimeField|. Please check |CHtml::activeTimeField| for detailed
+ information about the parameters for this method.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes.
 
 
 *CActiveForm::textArea* 					 public
@@ -826,6 +868,20 @@ METHOD DETAILS
 
  Renders a text field for a model attribute. This method is a wrapper of
  |CHtml::activeTextField|. Please check |CHtml::activeTextField| for detailed
+ information about the parameters for this method.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes.
+
+
+*CActiveForm::timeField*					 public
+>
+ timeField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Renders a time field for a model attribute. This method is a wrapper of
+ |CHtml::activeTimeField|. Please check |CHtml::activeTimeField| for detailed
  information about the parameters for this method.
     [model] (CModel) the data model
     [attribute] (string) the attribute

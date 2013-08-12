@@ -47,6 +47,10 @@ PROPERTY DETAILS
 <charset>				*CConsoleApplication::charset*
  See |CApplication::charset|
 
+<command>				*CConsoleApplication::command*
+ (CConsoleCommand|null) Returns the currently running command. This is
+ shortcut method for |CConsoleCommandRunner::getCommand|.
+
 <commandMap>				*CConsoleApplication::commandMap*
  (array) mapping from command name to command configurations. Each command
  configuration can be either a string or an array. If the former, the string
@@ -307,6 +311,16 @@ METHOD DETAILS
  See |CApplication::getCache|
 
 
+*CConsoleApplication::getCommand*				 public
+>
+ getCommand()
+<
+(CConsoleCommand|null) the currently active command.
+
+ Returns the currently running command. This is shortcut method for
+ |CConsoleCommandRunner::getCommand|.
+
+
 *CConsoleApplication::getCommandPath*				 public
 >
  getCommandPath()
@@ -539,6 +553,16 @@ METHOD DETAILS
 
 *CConsoleApplication::setBasePath*				 public
  See |CApplication::setBasePath|
+
+
+*CConsoleApplication::setCommand*				 public
+>
+ setCommand($value)
+<
+(void)
+
+ This is shortcut method for |CConsoleCommandRunner::setCommand|.
+    [value] (CConsoleCommand) the currently active command.
 
 
 *CConsoleApplication::setCommandPath*				 public

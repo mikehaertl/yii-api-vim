@@ -16,7 +16,7 @@
  If an SQL statement returns results (such as a SELECT SQL), the results can
  be accessed via the returned |CDbDataReader|.
 
- CDbCommand supports SQL statment preparation and parameter binding. Call
+ CDbCommand supports SQL statement preparation and parameter binding. Call
  |CDbCommand::bindParam| to bind a PHP variable to a parameter in SQL. Call
  |CDbCommand::bindValue| to bind a value to an SQL parameter. When binding a
  parameter, the SQL statement is automatically prepared. You may also call
@@ -356,7 +356,8 @@ METHOD DETAILS
 >
  createTable($table, $columns, $options='')
 <
-(integer) number of rows affected by the execution.
+(integer) 0 is always returned. See
+'http://php.net/manual/en/pdostatement.rowcount.php' for more information.
 
  Builds and executes a SQL statement for creating a new DB table.
 
@@ -479,7 +480,8 @@ METHOD DETAILS
 >
  dropTable($table)
 <
-(integer) number of rows affected by the execution.
+(integer) 0 is always returned. See
+'http://php.net/manual/en/pdostatement.rowcount.php' for more information.
 
  Builds and executes a SQL statement for dropping a DB table.
     [table] (string) the table to be dropped. The name will be properly quoted
@@ -965,7 +967,8 @@ False is returned if there is no value.
 >
  renameTable($table, $newName)
 <
-(integer) number of rows affected by the execution.
+(integer) 0 is always returned. See
+'http://php.net/manual/en/pdostatement.rowcount.php' for more information.
 
  Builds and executes a SQL statement for renaming a DB table.
     [table] (string) the table to be renamed. The name will be properly quoted

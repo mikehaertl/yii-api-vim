@@ -17,7 +17,7 @@ PROPERTY DETAILS
  (boolean) whether this is an 'allow' rule or 'deny' rule.
 
 <controllers>				*CAccessRule::controllers*
- (array) list of controler IDs that this rule applies to. The comparison is
+ (array) list of controller IDs that this rule applies to. The comparison is
  case-insensitive.
 
 <deniedCallback>			*CAccessRule::deniedCallback*
@@ -39,6 +39,11 @@ PROPERTY DETAILS
 <
  where $user is the current application user object and $rule is this access
  rule.
+
+ The PHP expression will be evaluated using |CAccessRule::evaluateExpression|.
+
+ A PHP expression can be any PHP code that has a value. To learn more about
+ what an expression is, please refer to the 'php manual'.
 
 <ips>					*CAccessRule::ips*
  (array) IP patterns.

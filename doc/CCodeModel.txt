@@ -226,7 +226,8 @@ METHOD DETAILS
 >
  confirmed($file)
 <
-(void)
+(bool) whether the confirmation is found in |CCodeModel::answers| with
+appropriate operation
 
     [file] (CCodeFile) whether the code file should be saved
 

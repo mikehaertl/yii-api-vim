@@ -10,7 +10,10 @@
  performed, which renames the current log file by suffixing the file name with
  '.1'. All existing log files are moved backwards one place, i.e., '.2' to
  '.3', '.1' to '.2'. The property |CFileLogRoute::setMaxLogFiles| specifies
- how many files to be kept.
+ how many files to be kept. If the property |CFileLogRoute::rotateByCopy| is
+ true, the primary log file will be rotated by a copy and truncated (to be
+ more compatible with log tailers) otherwise it will be rotated by being
+ renamed.
 
 
 PROPERTY DETAILS
@@ -45,6 +48,10 @@ PROPERTY DETAILS
 
 <maxLogFiles>				*CFileLogRoute::maxLogFiles*
  (integer) number of files used for rotation. Defaults to 5.
+
+<rotateByCopy>				*CFileLogRoute::rotateByCopy*
+ (boolean) Whether to rotate primary log by copy and truncate which is more
+ compatible with log tailers. Defaults to false.
 
 
 

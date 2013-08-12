@@ -18,6 +18,10 @@
          'order'=>'create_time DESC',
          'with'=>array('author'),
      ),
+     'countCriteria'=>array(
+         'condition'=>'status=1',
+         // 'order' and 'with' clauses have no meaning for the count query
+     ),
      'pagination'=>array(
          'pageSize'=>20,
      ),
@@ -28,6 +32,9 @@
 
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
+
+<countCriteria> 			*CActiveDataProvider::countCriteria*
+ (CDbCriteria) Returns the count query criteria.
 
 <criteria>				*CActiveDataProvider::criteria*
  (CDbCriteria) Returns the query criteria.
@@ -189,6 +196,15 @@ METHOD DETAILS
  Fetches the data item keys from the persistent data storage.
 
 
+*CActiveDataProvider::getCountCriteria* 			 public
+>
+ getCountCriteria()
+<
+(CDbCriteria) the count query criteria.
+
+ Returns the count query criteria.
+
+
 *CActiveDataProvider::getCriteria*				 public
 >
  getCriteria()
@@ -216,6 +232,16 @@ METHOD DETAILS
 
 *CActiveDataProvider::getKeys*					 public
  See |CDataProvider::getKeys|
+
+
+*CActiveDataProvider::getModel* 				 protected
+>
+ getModel($className)
+<
+(CActiveRecord) active record model instance.
+
+ Given active record class name returns new model instance.
+    [className] (string) active record class name.
 
 
 *CActiveDataProvider::getPagination*				 public
@@ -254,6 +280,17 @@ disabled.
  See |CComponent::raiseEvent|
 
 
+*CActiveDataProvider::setCountCriteria* 			 public
+>
+ setCountCriteria($value)
+<
+(void)
+
+ Sets the count query criteria.
+    [value] (CDbCriteria|array) the count query criteria. This can be either a
+    CDbCriteria object or an array representing the query criteria.
+
+
 *CActiveDataProvider::setCriteria*				 public
 >
  setCriteria($value)
@@ -261,8 +298,8 @@ disabled.
 (void)
 
  Sets the query criteria.
-    [value] (mixed) the query criteria. This can be either a CDbCriteria
-    object or an array representing the query criteria.
+    [value] (CDbCriteria|array) the query criteria. This can be either a
+    CDbCriteria object or an array representing the query criteria.
 
 
 *CActiveDataProvider::setData*					 public

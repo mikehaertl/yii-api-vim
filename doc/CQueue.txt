@@ -42,7 +42,7 @@ METHOD DETAILS
 (void)
 
  Constructor. Initializes the queue with an array or an iterable object.
-    [data] (array) the intial data. Default is null, meaning no
+    [data] (array) the initial data. Default is null, meaning no
     initialization.
 
 

@@ -130,6 +130,10 @@ METHOD DETAILS
     [criteria] (CDbCriteria) criteria
 
 
+*CMssqlCommandBuilder::composeMultipleInsertCommand*		 protected
+ See |CDbCommandBuilder::composeMultipleInsertCommand|
+
+
 *CMssqlCommandBuilder::createColumnCriteria*			 public
  See |CDbCommandBuilder::createColumnCriteria|
 
@@ -195,6 +199,10 @@ METHOD DETAILS
 
 *CMssqlCommandBuilder::createInsertCommand*			 public
  See |CDbCommandBuilder::createInsertCommand|
+
+
+*CMssqlCommandBuilder::createMultipleInsertCommand*		 public
+ See |CDbCommandBuilder::createMultipleInsertCommand|
 
 
 *CMssqlCommandBuilder::createPkCondition*			 public
@@ -294,6 +302,10 @@ METHOD DETAILS
 
 *CMssqlCommandBuilder::getEventHandlers*			 public
  See |CComponent::getEventHandlers|
+
+
+*CMssqlCommandBuilder::getIntegerPrimaryKeyDefaultValue*	 protected
+ See |CDbCommandBuilder::getIntegerPrimaryKeyDefaultValue|
 
 
 *CMssqlCommandBuilder::getLastInsertID* 			 public

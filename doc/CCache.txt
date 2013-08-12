@@ -257,8 +257,8 @@ expired or the dependency has changed.
 >
  getValue($key)
 <
-(string) the value stored in cache, false if the value is not in the cache or
-expired.
+(string|boolean) the value stored in cache, false if the value is not in the
+cache or expired.
 
  Retrieves a value from cache with a specified key. This method should be
  implemented by child classes to retrieve the data from specific cache

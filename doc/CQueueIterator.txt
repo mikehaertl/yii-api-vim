@@ -2,7 +2,7 @@
 *CQueueIterator*  
 ================
 
- CQueueIterator implements an interator for |CQueue|.
+ CQueueIterator implements an iterator for |CQueue|.
 
  It allows CQueue to return a new iterator for traversing the items in the
  queue.

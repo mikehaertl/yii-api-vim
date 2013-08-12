@@ -22,8 +22,8 @@
 <
  By configuring the |CJuiAutoComplete::options| property, you may specify the
  options that need to be passed to the JUI autocomplete plugin. Please refer
- to the 'JUI autocomplete' documentation for possible options (name-value
- pairs).
+ to the 'JUI AutoComplete API' documentation for possible options (name-value
+ pairs) and 'JUI AutoComplete page' for general description and demo.
 
  By configuring the |CJuiAutoComplete::source| property, you may specify where
  to search the autocomplete options for each item. If source is an array, the

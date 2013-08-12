@@ -99,7 +99,7 @@ PROPERTY DETAILS
       'class'=>'path.to.PostController',
       'pageTitle'=>'something new',
    ),
-   'user'=>'path.to.UserController',,
+   'user'=>'path.to.UserController',
  )
 <
  Note, when processing an incoming request, the controller map will first be

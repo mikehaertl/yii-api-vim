@@ -20,6 +20,12 @@ PROPERTY DETAILS
  (string) Generates the context information to be logged. The default
  implementation will dump user information, system variables, etc.
 
+<dumper>				*CLogFilter::dumper*
+ (callable) or function which will be used to dump context information.
+ Defaults to `var_export`. If you're experiencing issues with circular
+ references problem change it to `print_r`. Any kind of callable (static
+ methods, user defined functions, lambdas, etc.) could also be used.
+
 <logUser>				*CLogFilter::logUser*
  (boolean) whether to log the current user name and ID. Defaults to true.
 

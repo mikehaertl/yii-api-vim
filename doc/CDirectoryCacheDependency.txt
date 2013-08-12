@@ -194,6 +194,10 @@ METHOD DETAILS
  See |CComponent::raiseEvent|
 
 
+*CDirectoryCacheDependency::resetReusableData*			 public
+ See |CCacheDependency::resetReusableData|
+
+
 *CDirectoryCacheDependency::validateDirectory*			 protected
 >
  validateDirectory($directory)

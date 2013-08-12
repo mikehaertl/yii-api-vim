@@ -47,8 +47,9 @@ PROPERTY DETAILS
  verification code will be randomly generated.
 
 <fontFile>				*CCaptchaAction::fontFile*
- (string) the TrueType font file. Defaults to Duality.ttf which is provided
- with the Yii release.
+ (string) the TrueType font file. Defaults to SpicyRice.ttf which is provided
+ with the Yii release. Note that non-free Duality.ttf has been changed to
+ open/free SpicyRice.ttf since 1.1.14.
 
 <foreColor>				*CCaptchaAction::foreColor*
  (integer) the font color. For example, 0x55FF00. Defaults to 0x2040A0 (blue

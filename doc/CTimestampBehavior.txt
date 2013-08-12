@@ -5,7 +5,7 @@
  CTimestampBehavior will automatically fill date and time related attributes.
 
  CTimestampBehavior will automatically fill date and time related attributes
- when the active record is created and/or upadated. You may specify an active
+ when the active record is created and/or updated. You may specify an active
  record model to use this behavior like so:
 >
  public function behaviors(){
@@ -60,7 +60,10 @@ PROPERTY DETAILS
  CDbExpression('NOW()')). Defaults to null, meaning that we will attempt to
  figure out the appropriate timestamp automatically. If we fail at finding the
  appropriate timestamp, then it will fall back to using the current UNIX
- timestamp
+ timestamp.
+
+ A PHP expression can be any PHP code that has a value. To learn more about
+ what an expression is, please refer to the 'php manual'.
 
 <updateAttribute>			*CTimestampBehavior::updateAttribute*
  (mixed) The name of the attribute to store the modification time.  Set to
@@ -130,6 +133,10 @@ METHOD DETAILS
 
 *CTimestampBehavior::attachEventHandler*			 public
  See |CComponent::attachEventHandler|
+
+
+*CTimestampBehavior::beforeCount*				 protected
+ See |CActiveRecordBehavior::beforeCount|
 
 
 *CTimestampBehavior::beforeDelete*				 protected
@@ -221,7 +228,7 @@ METHOD DETAILS
 <
 (mixed) timestamp (eg unix timestamp or a mysql function)
 
- Gets the approprate timestamp depending on the column type $attribute is
+ Gets the appropriate timestamp depending on the column type $attribute is
     [attribute] (string) $attribute
 
 
@@ -231,7 +238,7 @@ METHOD DETAILS
 <
 (mixed) timestamp (eg unix timestamp or a mysql function)
 
- Returns the approprate timestamp depending on $columnType
+ Returns the appropriate timestamp depending on $columnType
     [columnType] (string) $columnType
 
 

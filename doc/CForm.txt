@@ -54,6 +54,10 @@
  specification are rendered as HTML element attributes when the input field is
  rendered. The |CForm::buttons| property is configured similarly.
 
+ If you're going to use AJAX and/or client form validation with the enabled
+ error summary you have to set $showErrors property to true. Please refer to
+ it's documentation for more details.
+
  For more details about configuring form elements, please refer to
  |CFormInputElement| and |CFormButtonElement|.
 
@@ -127,6 +131,20 @@ PROPERTY DETAILS
 
 <showErrorSummary>			*CForm::showErrorSummary*
  (boolean) whether to show error summary. Defaults to false.
+
+<showErrors>				*CForm::showErrors*
+ (boolean|null) whether error elements of the form attributes should be
+ rendered. There are three possible valid values: null, true and false.
+
+ Defaults to null meaning that $showErrorSummary will be used as value. This
+ is done mainly to keep backward compatibility with existing applications. If
+ you want to use error summary with AJAX and/or client validation you have to
+ set this property to true (recall that |CActiveForm::error| should be called
+ for each attribute that is going to be AJAX and/or client validated).
+
+ False value means that the error elements of the form attributes shall not be
+ displayed. True value means that the error elements of the form attributes
+ will be rendered.
 
 <title> 				*CForm::title*
  (string) the title for this form. By default, if this is set, a fieldset may

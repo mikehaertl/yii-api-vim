@@ -53,7 +53,8 @@ METHOD DETAILS
 (string) the altered SQL statement
 
  Alters the SQL to apply JOIN clause. This method handles the mysql specific
- syntax where JOIN has to come before SET in UPDATE statement
+ syntax where JOIN has to come before SET in UPDATE statement and for DELETE
+ where JOIN has to be after FROM part.
     [sql] (string) the SQL statement to be altered
     [join] (string) the JOIN clause (starting with join type, such as INNER
     JOIN)
@@ -95,6 +96,10 @@ METHOD DETAILS
  See |CComponent::canSetProperty|
 
 
+*CMysqlCommandBuilder::composeMultipleInsertCommand*		 protected
+ See |CDbCommandBuilder::composeMultipleInsertCommand|
+
+
 *CMysqlCommandBuilder::createColumnCriteria*			 public
  See |CDbCommandBuilder::createColumnCriteria|
 
@@ -125,6 +130,10 @@ METHOD DETAILS
 
 *CMysqlCommandBuilder::createInsertCommand*			 public
  See |CDbCommandBuilder::createInsertCommand|
+
+
+*CMysqlCommandBuilder::createMultipleInsertCommand*		 public
+ See |CDbCommandBuilder::createMultipleInsertCommand|
 
 
 *CMysqlCommandBuilder::createPkCondition*			 public
@@ -193,6 +202,10 @@ METHOD DETAILS
 
 *CMysqlCommandBuilder::getEventHandlers*			 public
  See |CComponent::getEventHandlers|
+
+
+*CMysqlCommandBuilder::getIntegerPrimaryKeyDefaultValue*	 protected
+ See |CDbCommandBuilder::getIntegerPrimaryKeyDefaultValue|
 
 
 *CMysqlCommandBuilder::getLastInsertID* 			 public

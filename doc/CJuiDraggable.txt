@@ -20,7 +20,8 @@
 <
  By configuring the |CJuiDraggable::options| property, you may specify the
  options that need to be passed to the JUI Draggable plugin. Please refer to
- the 'JUI Draggable' documentation for possible options (name-value pairs).
+ the 'JUI Draggable API' documentation for possible options (name-value
+ pairs) and 'JUI Draggable page' for general description and demo.
 
 
 PROPERTY DETAILS

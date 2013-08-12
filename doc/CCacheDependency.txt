@@ -165,5 +165,14 @@ is available after |CCacheDependency::evaluateDependency| is called.
  See |CComponent::raiseEvent|
 
 
+*CCacheDependency::resetReusableData*				 public
+>
+ resetReusableData()
+<
+(void)
+
+ Resets cached data for reusable dependencies.
+
+
 
  vim:tw=78:ts=8:ft=help:norl:

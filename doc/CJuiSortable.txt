@@ -22,7 +22,8 @@
 <
  By configuring the |CJuiSortable::options| property, you may specify the
  options that need to be passed to the JUI Sortable plugin. Please refer to
- the 'JUI Sortable' documentation for possible options (name-value pairs).
+ the 'JUI Sortable API' documentation for possible options (name-value pairs)
+ and 'JUI Sortable page' for general description and demo.
 
  If you are using JavaScript expressions anywhere in the code, please wrap it
  with |CJavaScriptExpression| and Yii will use it as code.

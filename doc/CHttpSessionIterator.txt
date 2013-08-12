@@ -2,7 +2,7 @@
 *CHttpSessionIterator*  
 ======================
 
- CHttpSessionIterator implements an interator for |CHttpSession|.
+ CHttpSessionIterator implements an iterator for |CHttpSession|.
 
  It allows CHttpSession to return a new iterator for traversing the session
  variables.

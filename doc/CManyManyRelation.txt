@@ -66,7 +66,7 @@ PROPERTY DETAILS
  See |CBaseActiveRelation::select|
 
 <through>				*CManyManyRelation::through*
- See |CHasManyRelation::through|
+ See |CActiveRelation::through|
 
 <together>				*CManyManyRelation::together*
  See |CActiveRelation::together|

@@ -21,7 +21,7 @@
  following action method will allow us to run a command with 'yiic sitemap
  --type=News':
 >
- class SitemapCommand {
+ class SitemapCommand extends CConsoleCommand {
      public function actionIndex($type) {
          ....
      }

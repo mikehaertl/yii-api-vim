@@ -8,6 +8,9 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<command>				*CConsoleCommandRunner::command*
+ (CConsoleCommand|null) Returns the currently running command.
+
 <commands>				*CConsoleCommandRunner::commands*
  (array) list of all available commands (command name=>command configuration).
  Each command configuration can be either a string or an array. If the former,
@@ -141,6 +144,15 @@ METHOD DETAILS
     [path] (string) the directory containing the command class files.
 
 
+*CConsoleCommandRunner::getCommand*				 public
+>
+ getCommand()
+<
+(CConsoleCommand|null) the currently active command.
+
+ Returns the currently running command.
+
+
 *CConsoleCommandRunner::getEventHandlers*			 public
  See |CComponent::getEventHandlers|
 
@@ -181,6 +193,15 @@ version 1.1.11)
  Executes the requested command.
     [args] (array) list of user supplied parameters (including the entry
     script name and the command name).
+
+
+*CConsoleCommandRunner::setCommand*				 public
+>
+ setCommand($value)
+<
+(void)
+
+    [value] (CConsoleCommand) the currently active command.
 
 
 

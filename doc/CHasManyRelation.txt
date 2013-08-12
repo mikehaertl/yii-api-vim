@@ -63,8 +63,7 @@ PROPERTY DETAILS
  See |CBaseActiveRelation::select|
 
 <through>				*CHasManyRelation::through*
- (string) the name of the relation that should be used as the bridge to this
- relation. Defaults to null, meaning don't use any bridge.
+ See |CActiveRelation::through|
 
 <together>				*CHasManyRelation::together*
  See |CActiveRelation::together|

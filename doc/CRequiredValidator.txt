@@ -55,6 +55,12 @@ PROPERTY DETAILS
  value needs to be matched. This property is only used when
  |CRequiredValidator::requiredValue| is not null.
 
+<trim>					*CRequiredValidator::trim*
+ (boolean) whether the value should be trimmed with php trim() function when
+ comparing strings. When set to false, the attribute value is not considered
+ empty when it contains spaces. Defaults to true, meaning the value will be
+ trimmed.
+
 
 
 METHOD DETAILS

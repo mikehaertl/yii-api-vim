@@ -23,7 +23,7 @@ PROPERTY DETAILS
  on how to specify the value of this property.
 
 <isInitialized> 			*CApplicationComponent::isInitialized*
- (boolean) Checks if this application component bas been initialized.
+ (boolean) Checks if this application component has been initialized.
 
 
 
@@ -117,7 +117,7 @@ METHOD DETAILS
 (boolean) whether this application component has been initialized (ie,
 |CApplicationComponent::init| is invoked).
 
- Checks if this application component bas been initialized.
+ Checks if this application component has been initialized.
 
 
 *CApplicationComponent::hasEvent*				 public

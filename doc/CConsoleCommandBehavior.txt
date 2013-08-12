@@ -36,8 +36,9 @@ METHOD DETAILS
 <
 (void)
 
- Responds to |CConsoleCommand::onAfterAction| event. Overrides this method if
- you want to handle the corresponding event of the |CBehavior::owner|.
+ Responds to |CConsoleCommand::onAfterAction| event. Override this method and
+ make it public if you want to handle the corresponding event of the
+ |CBehavior::owner|.
     [event] (CConsoleCommandEvent) event parameter
 
 
@@ -67,8 +68,9 @@ METHOD DETAILS
 <
 (void)
 
- Responds to |CConsoleCommand::onBeforeAction| event. Overrides this method
- if you want to handle the corresponding event of the |CBehavior::owner|.
+ Responds to |CConsoleCommand::onBeforeAction| event. Override this method
+ and make it public if you want to handle the corresponding event of the
+ |CBehavior::owner|.
     [event] (CConsoleCommandEvent) event parameter
 
 

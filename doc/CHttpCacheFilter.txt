@@ -20,6 +20,12 @@ PROPERTY DETAILS
  (string|callback) Expression for the ETag seed. If set, this takes precedence
  over |CHttpCacheFilter::etagSeed|.
 
+ The PHP expression will be evaluated using
+ |CHttpCacheFilter::evaluateExpression|.
+
+ A PHP expression can be any PHP code that has a value. To learn more about
+ what an expression is, please refer to the 'php manual'.
+
 <etagValue>				*CHttpCacheFilter::etagValue*
  (string|boolean) Gets the ETag out of either
  |CHttpCacheFilter::etagSeedExpression| or |CHttpCacheFilter::etagSeed|
@@ -29,8 +35,14 @@ PROPERTY DETAILS
  string parsable by 'strtotime()' or an integer representing a unix timestamp.
 
 <lastModifiedExpression>		*CHttpCacheFilter::lastModifiedExpression*
- (string|callback) Expression for the last modification date. If set, this
+ (string|callback) PHP Expression for the last modification date. If set, this
  takes precedence over |CHttpCacheFilter::lastModified|.
+
+ The PHP expression will be evaluated using
+ |CHttpCacheFilter::evaluateExpression|.
+
+ A PHP expression can be any PHP code that has a value. To learn more about
+ what an expression is, please refer to the 'php manual'.
 
 <lastModifiedValue>			*CHttpCacheFilter::lastModifiedValue*
  (integer|boolean) Gets the last modified value from either

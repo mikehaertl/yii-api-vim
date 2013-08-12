@@ -55,6 +55,10 @@ PROPERTY DETAILS
 <select>				*CActiveRelation::select*
  See |CBaseActiveRelation::select|
 
+<through>				*CActiveRelation::through*
+ (string) the name of the relation that should be used as the bridge to this
+ relation. Defaults to null, meaning don't use any bridge.
+
 <together>				*CActiveRelation::together*
  (boolean) whether this table should be joined with the primary table. When
  setting this property to be false, the table associated with this relation

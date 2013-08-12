@@ -116,16 +116,21 @@ METHOD DETAILS
  See |CComponent::canSetProperty|
 
 
-*CSecurityManager::computeHMAC* 				 protected
+*CSecurityManager::computeHMAC* 				 public
 >
- computeHMAC($data, $key='')
+ computeHMAC($data, $key=NULL, $hashAlgorithm=NULL)
 <
-(string) the HMAC for the data
+(string) the HMAC for the data.
 
  Computes the HMAC for the data with |CSecurityManager::getValidationKey|.
-    [data] (string) data to be generated HMAC
-    [key] (string) the private key to be used for generating HMAC. Defaults to
-    null, meaning using |CSecurityManager::validationKey|.
+ This method has been made public since 1.1.14.
+    [data] (string) data to be generated HMAC.
+    [key] (string|null) the private key to be used for generating HMAC.
+    Defaults to null, meaning using |CSecurityManager::validationKey| value.
+    [hashAlgorithm] (string|null) the name of the hashing algorithm to be
+    used. See 'hash-algos' for the list of possible hash algorithms. Note that
+    if you are using PHP 5.1.1 or below, you can only use 'sha1' or 'md5'.
+    Defaults to null, meaning using |CSecurityManager::hashAlgorithm| value.
 
 
 *CSecurityManager::decrypt*					 public
@@ -184,12 +189,67 @@ METHOD DETAILS
  See |CComponent::evaluateExpression|
 
 
+*CSecurityManager::generatePseudoRandomBlock*			 public
+>
+ generatePseudoRandomBlock()
+<
+(string) of 64 pseudo random bytes.
+
+ Generate a pseudo random block of data using several sources. On some systems
+ this may be a bit better than PHP's mt_rand built-in function, which is not
+ really random.
+
+
+*CSecurityManager::generateRandomBytes* 			 public
+>
+ generateRandomBytes($length, $cryptographicallyStrong=true)
+<
+(boolean|string) generated random binary string or false on failure.
+
+ Generates a string of random bytes.
+    [length] (integer) number of random bytes to be generated.
+    [cryptographicallyStrong] (boolean) whether to fail if a cryptographically
+    strong result cannot be generated. The method attempts to read from a
+    cryptographically strong pseudorandom number generator (CS-PRNG), see
+    Wikipedia. However, in some runtime environments, PHP has no access to a
+    CS-PRNG, in which case the method returns false if
+    $cryptographicallyStrong is true. When $cryptographicallyStrong is false,
+    the method always returns a pseudorandom result but may fall back to using
+    |CSecurityManager::generatePseudoRandomBlock|. This method does not
+    guarantee that entropy, from sources external to the CS-PRNG, was mixed
+    into the CS-PRNG state between each successive call. The caller can
+    therefore expect non-blocking behavior, unlike, for example, reading from
+    /dev/random on Linux, see 'Gutterman et al 2006'.
+
+
 *CSecurityManager::generateRandomKey*				 protected
 >
  generateRandomKey()
 <
-(string) a randomly generated private key
+(string) a randomly generated private key.
 
+
+
+*CSecurityManager::generateRandomString*			 public
+>
+ generateRandomString($length, $cryptographicallyStrong=true)
+<
+(string|boolean) random string or false in case it cannot be generated.
+
+ Generate a random ASCII string. Generates only [0-9a-zA-z_~] characters which
+ are all transparent in raw URL encoding.
+    [length] (integer) length of the generated string in characters.
+    [cryptographicallyStrong] (boolean) set this to require cryptographically
+    strong randomness.
+
+
+*CSecurityManager::generateSessionRandomBlock*			 public
+>
+ generateSessionRandomBlock()
+<
+(boolean|string) 20-byte random binary string or false on error.
+
+ Get random bytes from the system entropy source via PHP session manager.
 
 
 *CSecurityManager::getEncryptionKey*				 public
@@ -213,7 +273,7 @@ explicitly set, a random one is generated and returned.
 >
  getValidation()
 <
-(string) 
+(string) -
 
  This method has been deprecated since version 1.1.3. Please use
  |CSecurityManager::hashAlgorithm| instead.

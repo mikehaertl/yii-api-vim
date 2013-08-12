@@ -21,7 +21,8 @@
    {text} the attribute value will be HTML-encoded when rendering.
    {ntext} the |CFormatter::formatNtext| method will be called to
    format the attribute value as a HTML-encoded plain text with
-   newlines converted as the HTML &lt;br /&gt; tags.
+   newlines converted as the HTML &lt;br /&gt; or &lt;p&gt;&lt;/p&gt;
+   tags.
    {html} the attribute value will be purified and then returned.
    {date} the |CFormatter::formatDate| method will be called to
    format the attribute value as a date.
@@ -40,9 +41,14 @@
    value is the image URL.
    {url} the |CFormatter::formatUrl| method will be called to format
    the attribute value as a hyperlink where the attribute value is
-   the URL.By default, |CApplication| registers |CFormatter| as an application
- component whose ID is 'format'. Therefore, one may call
- 'Yii::app()->format->boolean(1)'.
+   the URL.
+   {size} the |CFormatter::formatSize| method will be called to
+   format the attribute value, interpreted as a number of bytes, as a
+   size in human readable form.By default, |CApplication| registers
+ |CFormatter| as an application component whose ID is 'format'. Therefore, one
+ may call 'Yii::app()->format->boolean(1)'. You might want to replace this
+ component with |CLocalizedFormatter| to enable formatting based on the
+ current locale settings.
 
 
 PROPERTY DETAILS
@@ -258,13 +264,19 @@ METHOD DETAILS
 
 *CFormatter::formatNtext*					 public
 >
- formatNtext($value)
+ formatNtext($value, $paragraphs=false, $removeEmptyParagraphs=true)
 <
 (string) the formatted result
 
  Formats the value as a HTML-encoded plain text and converts newlines with
- HTML br tags.
+ HTML &lt;br /&gt; or &lt;p&gt;&lt;/p&gt; tags.
     [value] (mixed) the value to be formatted
+    [paragraphs] (boolean) whether newlines should be converted to HTML
+    &lt;p&gt;&lt;/p&gt; tags, false by default meaning that HTML &lt;br /&gt;
+    tags will be used
+    [removeEmptyParagraphs] (boolean) whether empty paragraphs should be
+    removed, defaults to true; makes sense only when $paragraphs parameter is
+    true
 
 
 *CFormatter::formatNumber*					 public
@@ -361,6 +373,16 @@ METHOD DETAILS
 
 *CFormatter::init*						 public
  See |CApplicationComponent::init|
+
+
+*CFormatter::normalizeDateValue*				 protected
+>
+ normalizeDateValue($time)
+<
+(int) the normalized result as a UNIX timestamp
+
+ Normalizes an expression as a timestamp.
+    [time] (mixed) the time expression to be normalized
 
 
 *CFormatter::raiseEvent*					 public

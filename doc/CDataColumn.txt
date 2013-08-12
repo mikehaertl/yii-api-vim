@@ -3,7 +3,7 @@
 =============
 
  CDataColumn represents a grid view column that is associated with a data
- attribute or expression.
+ attribute or PHP expression.
 
  Either |CDataColumn::name| or |CDataColumn::value| should be specified. The
  former specifies a data attribute name, while the latter a PHP expression
@@ -79,10 +79,15 @@ PROPERTY DETAILS
  HTML-encoded.
 
 <value> 				*CDataColumn::value*
- (string) a PHP expression that will be evaluated for every data cell and
- whose result will be rendered as the content of the data cells. In this
- expression, the variable '$row' the row number (zero-based); '$data' the data
- model for the row; and '$this' the column object.
+ (string) a PHP expression that will be evaluated for every data cell using
+ |CDataColumn::evaluateExpression| and whose result will be rendered as the
+ content of the data cell. In this expression, you can use the following
+ variables:
+   '$row' the row number (zero-based).
+   '$data' the data model for the row.
+   '$this' the column object.A PHP expression can be any PHP code that has a
+ value. To learn more about what an expression is, please refer to the 'php
+ manual'.
 
 <visible>				*CDataColumn::visible*
  See |CGridColumn::visible|

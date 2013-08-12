@@ -169,6 +169,16 @@ METHOD DETAILS
  See |CComponent::getEventHandlers|
 
 
+*CUniqueValidator::getModel*					 protected
+>
+ getModel($className)
+<
+(CActiveRecord) active record model instance.
+
+ Given active record class name returns new model instance.
+    [className] (string) active record class name.
+
+
 *CUniqueValidator::hasEvent*					 public
  See |CComponent::hasEvent|
 

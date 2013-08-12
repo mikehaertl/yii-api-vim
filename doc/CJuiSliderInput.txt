@@ -44,7 +44,8 @@
 
  By configuring the |CJuiSliderInput::options| property, you may specify the
  options that need to be passed to the JUI slider plugin. Please refer to the
- 'JUI slider' documentation for possible options (name-value pairs).
+ 'JUI Slider API' documentation for possible options (name-value pairs) and
+ 'JUI Slider page' for general description and demo.
 
 
 PROPERTY DETAILS
@@ -65,7 +66,7 @@ PROPERTY DETAILS
 <event> 				*CJuiSliderInput::event*
  (string) the name of the event where the input will be attached to the
  slider. It can be 'slide', 'stop' or 'change'. If you want to use 'slide'
- event change $event property to 'change'
+ event change $event property to 'change'.
 
 <htmlOptions>				*CJuiSliderInput::htmlOptions*
  See |CJuiWidget::htmlOptions|
@@ -74,7 +75,19 @@ PROPERTY DETAILS
  See |CWidget::id|
 
 <maxAttribute>				*CJuiSliderInput::maxAttribute*
- (string) name of attribute for max value if slider is used in range mode
+ (string) name of attribute for max value if slider is used in range mode.
+
+<maxIdSuffix>				*CJuiSliderInput::maxIdSuffix*
+ (string) the suffix to be appended to the ID of the max value input element
+ when slider used in range mode.
+
+<maxName>				*CJuiSliderInput::maxName*
+ (string) the input name to be used for max value attribute when using slider
+ in range mode. This must be set in case |CJuiSliderInput::model| isn't used.
+
+<maxValue>				*CJuiSliderInput::maxValue*
+ (integer) determines the max value of the slider, if there's two handles
+ (range mode). Ignored if there's only one handle.
 
 <model> 				*CJuiSliderInput::model*
  See |CJuiInputWidget::model|

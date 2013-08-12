@@ -325,8 +325,16 @@ METHOD DETAILS
  Runs the widget.
 
 
+*CCodeForm::searchField*					 public
+ See |CActiveForm::searchField|
+
+
 *CCodeForm::setId*						 public
  See |CWidget::setId|
+
+
+*CCodeForm::telField*						 public
+ See |CActiveForm::telField|
 
 
 *CCodeForm::textArea*						 public
@@ -335,6 +343,10 @@ METHOD DETAILS
 
 *CCodeForm::textField*						 public
  See |CActiveForm::textField|
+
+
+*CCodeForm::timeField*						 public
+ See |CActiveForm::timeField|
 
 
 *CCodeForm::urlField*						 public

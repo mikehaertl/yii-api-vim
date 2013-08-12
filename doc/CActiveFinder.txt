@@ -150,6 +150,16 @@ METHOD DETAILS
  See |CComponent::getEventHandlers|
 
 
+*CActiveFinder::getModel*					 public
+>
+ getModel($className)
+<
+(CActiveRecord) active record model instance
+
+ Given active record class name returns new model instance.
+    [className] (string) active record class name
+
+
 *CActiveFinder::hasEvent*					 public
  See |CComponent::hasEvent|
 

@@ -51,7 +51,10 @@
    content   should be varied with the user session.
    |COutputCache::varyByExpression|: this specifies whether the
    cached content   should be varied with the result of the specified
-   PHP expression.For more advanced variation, override
+   PHP expression.
+   |COutputCache::varyByLanguage|: this specifies whether the cached
+   content   should by varied with the user's language. Available
+   since 1.1.14.For more advanced variation, override
  |COutputCache::getBaseCacheKey| method.
 
 
@@ -76,8 +79,8 @@ PROPERTY DETAILS
 <cacheKey>				*COutputCache::cacheKey*
  (string) Calculates the cache key. The key is calculated based on
  |COutputCache::getBaseCacheKey| and other factors, including
- |COutputCache::varyByRoute|, |COutputCache::varyByParam| and
- |COutputCache::varyBySession|.
+ |COutputCache::varyByRoute|, |COutputCache::varyByParam|,
+ |COutputCache::varyBySession| and |COutputCache::varyByLanguage|.
 
 <controller>				*COutputCache::controller*
  See |CWidget::controller|
@@ -138,6 +141,17 @@ PROPERTY DETAILS
  function foo($cache) { ... }
 <
  where $cache refers to the output cache component.
+
+ The PHP expression will be evaluated using
+ |COutputCache::evaluateExpression|.
+
+ A PHP expression can be any PHP code that has a value. To learn more about
+ what an expression is, please refer to the 'php manual'.
+
+<varyByLanguage>			*COutputCache::varyByLanguage*
+ (boolean) whether the content being cached should be differentiated according
+ to user's language. A language is retrieved via Yii::app()->language.
+ Defaults to false.
 
 <varyByParam>				*COutputCache::varyByParam*
  (array) list of GET parameters that should participate in cache key
@@ -329,8 +343,8 @@ Defaults to false.
 
  Calculates the cache key. The key is calculated based on
  |COutputCache::getBaseCacheKey| and other factors, including
- |COutputCache::varyByRoute|, |COutputCache::varyByParam| and
- |COutputCache::varyBySession|.
+ |COutputCache::varyByRoute|, |COutputCache::varyByParam|,
+ |COutputCache::varyBySession| and |COutputCache::varyByLanguage|.
 
 
 *COutputCache::getController*					 public

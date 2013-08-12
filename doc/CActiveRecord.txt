@@ -100,7 +100,9 @@ METHOD DETAILS
 
  Constructor.
     [scenario] (string) scenario name. See |CModel::scenario| for more details
-    about this parameter.
+    about this parameter. Note: in order to setup initial model parameters use
+    |CActiveRecord::init| or |CActiveRecord::afterConstruct|. Do NOT override
+    the constructor unless it is absolutely necessary!
 
 
 *CActiveRecord::__get*						 public
@@ -278,6 +280,19 @@ METHOD DETAILS
  column names of the table associated with this AR class.
 
 
+*CActiveRecord::beforeCount*					 protected
+>
+ beforeCount()
+<
+(void)
+
+ This method is invoked before an AR finder executes a count call. The count
+ calls include |CActiveRecord::count| and |CActiveRecord::countByAttributes|
+ The default implementation raises the |CActiveRecord::onBeforeCount| event.
+ If you override this method, make sure you call the parent implementation so
+ that the event is raised properly.
+
+
 *CActiveRecord::beforeDelete*					 protected
 >
  beforeDelete()
@@ -349,8 +364,8 @@ METHOD DETAILS
  |CActiveRecord::dbConnection| instance.
     [duration] (integer) the number of seconds that query results may remain
     valid in cache. If this is 0, the caching will be disabled.
-    [dependency] (CCacheDependency) the dependency that will be used when
-    saving the query results into cache.
+    [dependency] (CCacheDependency|ICacheDependency) the dependency that will
+    be used when saving the query results into cache.
     [queryCount] (integer) number of SQL queries that need to be cached after
     calling this method. Defaults to 1, meaning that the next SQL query will
     be cached.
@@ -557,8 +572,8 @@ table.
 >
  findAll($condition='', $params=array())
 <
-(array) list of active records satisfying the specified condition. An empty
-array is returned if none is found.
+(CActiveRecord[]) list of active records satisfying the specified condition.
+An empty array is returned if none is found.
 
  Finds all active records satisfying the specified condition. See
  |CActiveRecord::find| for detailed explanation about $condition and $params.
@@ -570,7 +585,8 @@ array is returned if none is found.
 >
  findAllByAttributes($attributes, $condition='', $params=array())
 <
-(array) the records found. An empty array is returned if none is found.
+(CActiveRecord[]) the records found. An empty array is returned if none is
+found.
 
  Finds all active records that have the specified attribute values. See
  |CActiveRecord::find| for detailed explanation about $condition and $params.
@@ -585,7 +601,8 @@ array is returned if none is found.
 >
  findAllByPk($pk, $condition='', $params=array())
 <
-(array) the records found. An empty array is returned if none is found.
+(CActiveRecord[]) the records found. An empty array is returned if none is
+found.
 
  Finds all active records with the specified primary keys. See
  |CActiveRecord::find| for detailed explanation about $condition and $params.
@@ -600,7 +617,8 @@ array is returned if none is found.
 >
  findAllBySql($sql, $params=array())
 <
-(array) the records found. An empty array is returned if none is found.
+(CActiveRecord[]) the records found. An empty array is returned if none is
+found.
 
  Finds all active records using the specified SQL statement.
     [sql] (string) the SQL statement
@@ -650,6 +668,16 @@ array is returned if none is found.
 
 *CActiveRecord::generateAttributeLabel* 			 public
  See |CModel::generateAttributeLabel|
+
+
+*CActiveRecord::getActiveFinder*				 public
+>
+ getActiveFinder($with)
+<
+(CActiveFinder) active finder for the operation
+
+ Given 'with' options returns a new active finder instance.
+    [with] (mixed) the relation names to be actively looked for
 
 
 *CActiveRecord::getActiveRelation*				 public
@@ -814,10 +842,19 @@ will be returned.
  array.
     [name] (string) the relation name (see |CActiveRecord::relations|)
     [refresh] (boolean) whether to reload the related objects from database.
-    Defaults to false.
+    Defaults to false. If the current record is not a new record and it does
+    not have the related objects loaded they will be retrieved from the
+    database even if this is set to false. If the current record is a new
+    record and this value is false, the related objects will not be retrieved
+    from the database.
     [params] (mixed) array or CDbCriteria object with additional parameters
     that customize the query conditions as specified in the relation
-    declaration.
+    declaration. If this is supplied the related record(s) will be retrieved
+    from the database regardless of the value or $refresh. The related
+    record(s) retrieved when this is supplied will only be returned by this
+    method and will not be loaded into the current record's relation. The
+    value of the relation prior to running this method will still be available
+    for the current record if this is supplied.
 
 
 *CActiveRecord::getSafeAttributeNames*				 public
@@ -1034,6 +1071,22 @@ successfully.
  See |CModel::onAfterValidate|
 
 
+*CActiveRecord::onBeforeCount*					 public
+>
+ onBeforeCount($event)
+<
+(void)
+
+ This event is raised before an AR finder performs a count call. If you want
+ to access or modify the query criteria used for the count call, you can use
+ |CActiveRecord::getDbCriteria| to customize it based on your needs. When
+ modifying criteria in beforeCount you have to make sure you are using the
+ right table alias which is different on normal count and relational call. You
+ can use |CActiveRecord::getTableAlias| to get the alias used for the upcoming
+ count call.
+    [event] (CModelEvent) the event parameter
+
+
 *CActiveRecord::onBeforeDelete* 				 public
 >
  onBeforeDelete($event)
@@ -1104,7 +1157,7 @@ the same as the model class. Null is returned if the input data is false.
 >
  populateRecords($data, $callAfterFind=true, $index='')
 <
-(array) list of active records.
+(CActiveRecord[]) list of active records.
 
  Creates a list of active records based on the input data. This method is
  internally used by the find methods.

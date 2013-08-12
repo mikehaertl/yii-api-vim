@@ -25,12 +25,14 @@ PROPERTY DETAILS
 <checkMX>				*CEmailValidator::checkMX*
  (boolean) whether to check the MX record for the email address. Defaults to
  false. To enable it, you need to make sure the PHP function 'checkdnsrr'
- exists in your PHP installation.
+ exists in your PHP installation. Please note that this check may fail due to
+ temporary problems even if email is deliverable.
 
 <checkPort>				*CEmailValidator::checkPort*
  (boolean) whether to check port 25 for the email address. Defaults to false.
  To enable it, ensure that the PHP functions 'dns_get_record' and 'fsockopen'
- are available in your PHP installation.
+ are available in your PHP installation. Please note that this check may fail
+ due to temporary problems even if email is deliverable.
 
 <enableClientValidation>		*CEmailValidator::enableClientValidation*
  See |CValidator::enableClientValidation|

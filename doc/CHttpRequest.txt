@@ -109,6 +109,16 @@ PROPERTY DETAILS
  the port specified by the server if the current request is insecure. You may
  explicitly specify it by setting the |CHttpRequest::setPort| property.
 
+<preferredAcceptType>			*CHttpRequest::preferredAcceptType*
+ (array) Returns the user preferred accept MIME type. The MIME type is
+ returned as an array map (see |CHttpRequest::parseAcceptHeader|).
+
+<preferredAcceptTypes>			*CHttpRequest::preferredAcceptTypes*
+ (array) Returns an array of user accepted MIME types in order of preference.
+ Each array entry consists of a map with the type, subType, baseType and
+ params, an array map of key-value parameters. See
+ |CHttpRequest::parseAcceptHeader| for a description of the array map.
+
 <preferredLanguage>			*CHttpRequest::preferredLanguage*
  (string) Returns the user preferred language. The returned language ID will
  be canonicalized using |CLocale::getCanonicalID|.
@@ -220,6 +230,19 @@ METHOD DETAILS
 
 *CHttpRequest::canSetProperty*					 public
  See |CComponent::canSetProperty|
+
+
+*CHttpRequest::compareAcceptTypes*				 public
+>
+ compareAcceptTypes($a, $b)
+<
+(integer) -1, 0 or 1 if $a has respectively greater preference, equal
+preference or less preference than $b (higher preference comes first).
+
+ Compare function for determining the preference of accepted MIME type array
+ maps See |CHttpRequest::parseAcceptHeader| for the format of $a and $b
+    [a] (array) user accepted MIME type as an array map
+    [b] (array) user accepted MIME type as an array map
 
 
 *CHttpRequest::createCsrfCookie*				 protected
@@ -497,6 +520,30 @@ configuration (in most cases it is not decoded).
     does not exist.
 
 
+*CHttpRequest::getPreferredAcceptType*				 public
+>
+ getPreferredAcceptType()
+<
+(array) the user preferred accept MIME type or false if the user does not have
+any.
+
+ Returns the user preferred accept MIME type. The MIME type is returned as an
+ array map (see |CHttpRequest::parseAcceptHeader|).
+
+
+*CHttpRequest::getPreferredAcceptTypes* 			 public
+>
+ getPreferredAcceptTypes()
+<
+(array) the user accepted MIME types, as array maps, in the order of
+preference.
+
+ Returns an array of user accepted MIME types in order of preference. Each
+ array entry consists of a map with the type, subType, baseType and params, an
+ array map of key-value parameters. See |CHttpRequest::parseAcceptHeader| for
+ a description of the array map.
+
+
 *CHttpRequest::getPreferredLanguage*				 public
 >
  getPreferredLanguage()
@@ -724,6 +771,39 @@ configuration (in most cases it is not decoded).
  Normalizes the request data. This method strips off slashes in request data
  if get_magic_quotes_gpc() returns true. It also performs CSRF validation if
  |CHttpRequest::enableCsrfValidation| is true.
+
+
+*CHttpRequest::parseAcceptHeader*				 public
+>
+ parseAcceptHeader($header)
+<
+(array) the user accepted MIME types.
+
+ Parses an HTTP Accept header, returning an array map with all parts of each
+ entry. Each array entry consists of a map with the type, subType, baseType
+ and params, an array map of key-value parameters, obligatorily including a
+ `q` value (i.e. preference ranking) as a double. For example, an Accept
+ header value of ''application/xhtml+xml;q=0.9;level=1'' would give an array
+ entry of
+>
+ array(
+        'type' => 'application',
+        'subType' => 'xhtml',
+        'baseType' => 'xml',
+        'params' => array(
+            'q' => 0.9,
+            'level' => '1',
+        ),
+ )
+<
+ <b>Please note:</b> To avoid great complexity, there are no steps taken to
+ ensure that quoted strings are treated properly. If the header text includes
+ quoted strings containing space or the , or ; characters then the results may
+ not be correct!
+
+ See also 'http://tools.ietf.org/html/rfc2616#section-14.1' for details on
+ Accept header.
+    [header] (string) the accept header value to parse
 
 
 *CHttpRequest::raiseEvent*					 public

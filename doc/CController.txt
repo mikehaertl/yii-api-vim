@@ -226,7 +226,7 @@ rule specification.
 <
 (void)
 
- This method is invoked after the specified is rendered by calling
+ This method is invoked after the specified view is rendered by calling
  |CController::render|. Note that this method is invoked BEFORE
  |CController::processOutput|. You may override this method to do some
  postprocessing for the view rendering.

@@ -41,6 +41,10 @@
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
+<absoluteAuthTimeout>			*CWebUser::absoluteAuthTimeout*
+ (integer) timeout in seconds after which user is logged out regardless of
+ activity.
+
 <allowAutoLogin>			*CWebUser::allowAutoLogin*
  (boolean) whether to enable cookie-based login. Defaults to false.
 
@@ -688,8 +692,8 @@ data.
 (void)
 
  Updates the authentication status according to |CWebUser::authTimeout|. If
- the user has been inactive for |CWebUser::authTimeout| seconds, he will be
- automatically logged out.
+ the user has been inactive for |CWebUser::authTimeout| seconds, or {link
+ absoluteAuthTimeout} has passed, he will be automatically logged out.
 
 
 *CWebUser::updateFlash* 					 protected

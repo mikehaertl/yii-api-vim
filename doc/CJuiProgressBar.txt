@@ -21,7 +21,8 @@
 <
  By configuring the |CJuiProgressBar::options| property, you may specify the
  options that need to be passed to the JUI progressbar plugin. Please refer to
- the 'JUI Progressbar' documentation for possible options (name-value pairs).
+ the 'JUI ProgressBar' documentation for possible options (name-value pairs)
+ and 'JUI ProgressBar page' for general description and demo.
 
 
 PROPERTY DETAILS

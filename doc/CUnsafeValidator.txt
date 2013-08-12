@@ -165,8 +165,8 @@ METHOD DETAILS
 <
 (void)
 
- Validates the attribute of the object. If there is any error, the error
- message is added to the object.
+ Validates the attribute of the object. This validator does not do any
+ validation as it is meant to only mark attributes as unsafe.
     [object] (CModel) the object being validated
     [attribute] (string) the attribute being validated
 

@@ -1,0 +1,246 @@
+
+*CPgsqlCommandBuilder*   >> |CDbCommandBuilder| >> |CComponent|
+======================
+
+ CPgsqlCommandBuilder provides basic methods to create query commands for
+ tables.
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<dbConnection>				*CPgsqlCommandBuilder::dbConnection*
+ See |CDbCommandBuilder::dbConnection|
+
+<integerPrimaryKeyDefaultValue> 	*CPgsqlCommandBuilder::integerPrimaryKeyDefaultValue*
+ (string) Returns default value of the integer/serial primary key. Default
+ value means that the next autoincrement/sequence value would be used.
+
+<schema>				*CPgsqlCommandBuilder::schema*
+ See |CDbCommandBuilder::schema|
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CPgsqlCommandBuilder::__call*					 public
+ See |CComponent::__call|
+
+
+*CPgsqlCommandBuilder::__construct*				 public
+ See |CDbCommandBuilder::__construct|
+
+
+*CPgsqlCommandBuilder::__get*					 public
+ See |CComponent::__get|
+
+
+*CPgsqlCommandBuilder::__isset* 				 public
+ See |CComponent::__isset|
+
+
+*CPgsqlCommandBuilder::__set*					 public
+ See |CComponent::__set|
+
+
+*CPgsqlCommandBuilder::__unset* 				 public
+ See |CComponent::__unset|
+
+
+*CPgsqlCommandBuilder::applyCondition*				 public
+ See |CDbCommandBuilder::applyCondition|
+
+
+*CPgsqlCommandBuilder::applyGroup*				 public
+ See |CDbCommandBuilder::applyGroup|
+
+
+*CPgsqlCommandBuilder::applyHaving*				 public
+ See |CDbCommandBuilder::applyHaving|
+
+
+*CPgsqlCommandBuilder::applyJoin*				 public
+ See |CDbCommandBuilder::applyJoin|
+
+
+*CPgsqlCommandBuilder::applyLimit*				 public
+ See |CDbCommandBuilder::applyLimit|
+
+
+*CPgsqlCommandBuilder::applyOrder*				 public
+ See |CDbCommandBuilder::applyOrder|
+
+
+*CPgsqlCommandBuilder::asa*					 public
+ See |CComponent::asa|
+
+
+*CPgsqlCommandBuilder::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CPgsqlCommandBuilder::attachBehaviors* 			 public
+ See |CComponent::attachBehaviors|
+
+
+*CPgsqlCommandBuilder::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CPgsqlCommandBuilder::bindValues*				 public
+ See |CDbCommandBuilder::bindValues|
+
+
+*CPgsqlCommandBuilder::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CPgsqlCommandBuilder::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CPgsqlCommandBuilder::composeMultipleInsertCommand*		 protected
+ See |CDbCommandBuilder::composeMultipleInsertCommand|
+
+
+*CPgsqlCommandBuilder::createColumnCriteria*			 public
+ See |CDbCommandBuilder::createColumnCriteria|
+
+
+*CPgsqlCommandBuilder::createCompositeInCondition*		 protected
+ See |CDbCommandBuilder::createCompositeInCondition|
+
+
+*CPgsqlCommandBuilder::createCountCommand*			 public
+ See |CDbCommandBuilder::createCountCommand|
+
+
+*CPgsqlCommandBuilder::createCriteria*				 public
+ See |CDbCommandBuilder::createCriteria|
+
+
+*CPgsqlCommandBuilder::createDeleteCommand*			 public
+ See |CDbCommandBuilder::createDeleteCommand|
+
+
+*CPgsqlCommandBuilder::createFindCommand*			 public
+ See |CDbCommandBuilder::createFindCommand|
+
+
+*CPgsqlCommandBuilder::createInCondition*			 public
+ See |CDbCommandBuilder::createInCondition|
+
+
+*CPgsqlCommandBuilder::createInsertCommand*			 public
+ See |CDbCommandBuilder::createInsertCommand|
+
+
+*CPgsqlCommandBuilder::createMultipleInsertCommand*		 public
+ See |CDbCommandBuilder::createMultipleInsertCommand|
+
+
+*CPgsqlCommandBuilder::createPkCondition*			 public
+ See |CDbCommandBuilder::createPkCondition|
+
+
+*CPgsqlCommandBuilder::createPkCriteria*			 public
+ See |CDbCommandBuilder::createPkCriteria|
+
+
+*CPgsqlCommandBuilder::createSearchCondition*			 public
+ See |CDbCommandBuilder::createSearchCondition|
+
+
+*CPgsqlCommandBuilder::createSqlCommand*			 public
+ See |CDbCommandBuilder::createSqlCommand|
+
+
+*CPgsqlCommandBuilder::createUpdateCommand*			 public
+ See |CDbCommandBuilder::createUpdateCommand|
+
+
+*CPgsqlCommandBuilder::createUpdateCounterCommand*		 public
+ See |CDbCommandBuilder::createUpdateCounterCommand|
+
+
+*CPgsqlCommandBuilder::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CPgsqlCommandBuilder::detachBehaviors* 			 public
+ See |CComponent::detachBehaviors|
+
+
+*CPgsqlCommandBuilder::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CPgsqlCommandBuilder::disableBehavior* 			 public
+ See |CComponent::disableBehavior|
+
+
+*CPgsqlCommandBuilder::disableBehaviors*			 public
+ See |CComponent::disableBehaviors|
+
+
+*CPgsqlCommandBuilder::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CPgsqlCommandBuilder::enableBehaviors* 			 public
+ See |CComponent::enableBehaviors|
+
+
+*CPgsqlCommandBuilder::ensureTable*				 protected
+ See |CDbCommandBuilder::ensureTable|
+
+
+*CPgsqlCommandBuilder::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CPgsqlCommandBuilder::getDbConnection* 			 public
+ See |CDbCommandBuilder::getDbConnection|
+
+
+*CPgsqlCommandBuilder::getEventHandlers*			 public
+ See |CComponent::getEventHandlers|
+
+
+*CPgsqlCommandBuilder::getIntegerPrimaryKeyDefaultValue*	 protected
+>
+ getIntegerPrimaryKeyDefaultValue()
+<
+(string) default value of the integer/serial primary key.
+
+ Returns default value of the integer/serial primary key. Default value means
+ that the next autoincrement/sequence value would be used.
+
+
+*CPgsqlCommandBuilder::getLastInsertID* 			 public
+ See |CDbCommandBuilder::getLastInsertID|
+
+
+*CPgsqlCommandBuilder::getSchema*				 public
+ See |CDbCommandBuilder::getSchema|
+
+
+*CPgsqlCommandBuilder::hasEvent*				 public
+ See |CComponent::hasEvent|
+
+
+*CPgsqlCommandBuilder::hasEventHandler* 			 public
+ See |CComponent::hasEventHandler|
+
+
+*CPgsqlCommandBuilder::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CPgsqlCommandBuilder::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

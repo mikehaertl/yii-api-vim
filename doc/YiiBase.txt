@@ -262,7 +262,10 @@ Powered-by-Yii information
     [callback] (callback) a valid PHP callback (function name or
     array($className,$methodName)).
     [append] (boolean) whether to append the new autoloader after the default
-    Yii autoloader.
+    Yii autoloader. Be careful using this option as it will disable
+    |YiiBase::enableIncludePath| when set to true. After this the Yii
+    autoloader can not rely on loading classes via simple include anymore and
+    you have to |YiiBase::import| all classes explicitly.
 
 
 *YiiBase::setApplication*					 public

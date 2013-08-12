@@ -28,7 +28,8 @@
 <
  By configuring the |CJuiDialog::options| property, you may specify the
  options that need to be passed to the JUI dialog plugin. Please refer to the
- 'JUI Dialog' documentation for possible options (name-value pairs).
+ 'JUI Dialog API' documentation for possible options (name-value pairs) and
+ 'JUI Dialog page' for general description and demo.
 
 
 PROPERTY DETAILS

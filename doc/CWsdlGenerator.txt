@@ -50,7 +50,7 @@
 >
  class Foo {
      / **
-       * @var string name of foo {nillable = 1, minOccurs=0, maxOccurs = 2}
+       * @var string name of foo {nillable=1, minOccurs=0, maxOccurs=2}
        * @soap
        * /
      public $name;
@@ -66,27 +66,102 @@
  the definition of 'Member'.
 
  Optionally, extra attributes (nillable, minOccurs, maxOccurs) can be defined
- for each  property by enclosing definitions into curly brackets and separated
+ for each property by enclosing definitions into curly brackets and separated
  by comma like so:
 
- {[attribute1 = value1], [attribute2 = value2], ...}
+ {[attribute1 = value1][, attribute2 = value2], ...}
 
- where the attribute can be one of following:  nillable = [0|1|true|false] 
- minOccurs = n; where n>=0  maxOccurs = n; where n>=0
+ where the attribute can be one of following:
+   nillable = [0|1|true|false]
+   minOccurs = n; where n>=0
+   maxOccurs = n; where [n>=0|unbounded]Additionally, each complex data type
+ can have assigned a soap indicator flag declaring special usage for such a
+ data type. A soap indicator must be declared in the doc comment block with
+ the '@soap-indicator' tag. Following soap indicators are currently supported:
+   all - (default) allows any sorting order of child nodes
+   sequence - all child nodes in WSDL XML file will be expected in
+   predefined order
+   choice - supplied can be either of the child elementsThe Group indicators
+ can be also injected via custom soap definitions as XML node into WSDL
+ structure.
+
+ In the following example, class Foo will create a XML node
+ <xsd:Foo><xsd:sequence> ... </xsd:sequence></xsd:Foo> with children
+ attributes expected in pre-defined order.
+>
+ / *
+   * @soap-indicator sequence
+   * /
+ class Foo {
+     ...
+ }
+<
+ For more on soap indicators, see See
+ 'http://www.w3schools.com/schema/schema_complex_indicators.asp'.
+
+ Since the variability of WSDL definitions is virtually unlimited, a special
+ doc comment tag '@soap-wsdl' can be used in order to inject any custom XML
+ string into generated WSDL file. If such a block of the code is found in
+ class's comment block, then it will be used instead of parsing and generating
+ standard attributes within the class. This gives virtually unlimited
+ flexibility in defining data structures of any complexity. Following is an
+ example of defining custom piece of WSDL XML node:
+>
+ / *
+   * @soap-wsdl <xsd:sequence>
+   * @soap-wsdl 	<xsd:element minOccurs="1" maxOccurs="1" nillable="false"
+ name="name" type="xsd:string"/>
+   * @soap-wsdl 	<xsd:choice minOccurs="1" maxOccurs="1" nillable="false">
+   * @soap-wsdl 		<xsd:element minOccurs="1" maxOccurs="1" nillable="false"
+ name="age" type="xsd:integer"/>
+   * @soap-wsdl 		<xsd:element minOccurs="1" maxOccurs="1" nillable="false"
+ name="date_of_birth" type="xsd:date"/>
+   * @soap-wsdl 	</xsd:choice>
+   * @soap-wsdl </xsd:sequence>
+   * /
+ class User {
+     / **
+       * @var string User name {minOccurs=1, maxOccurs=1}
+       * @soap
+       * /
+     public $name;
+     / **
+       * @var integer User age {nillable=0, minOccurs=1, maxOccurs=1}
+       * @example 35
+       * @soap
+       * /
+     public $age;
+     / **
+       * @var date User's birthday {nillable=0, minOccurs=1, maxOccurs=1}
+       * @example 1980-05-27
+       * @soap
+       * /
+     public $date_of_birth;
+ }
+<
+ In the example above, WSDL generator would inject under XML node <xsd:User>
+ the code block defined by @soap-wsdl lines.
+
+ By inserting into SOAP URL link the parameter "?makedoc", WSDL generator will
+ output human-friendly overview of all complex data types rather than XML WSDL
+ file. Each complex type is described in a separate HTML table and recognizes
+ also the '@example' PHPDoc tag. See |CWsdlGenerator::buildHtmlDocs|.
 
 
 PROPERTY DETAILS
 ------------------------------------------------------------------------------
 
 <messages>				*CWsdlGenerator::messages*
- ()
+ (array) Map of request and response types for all operations.
 
 <namespace>				*CWsdlGenerator::namespace*
  (string) the namespace to be used in the generated WSDL. If not set, it
  defaults to the name of the class that WSDL is generated upon.
 
 <operations>				*CWsdlGenerator::operations*
- ()
+ (array) List of recognized SOAP operations that will become remotely
+ available. All methods with declared @soap parameter will be included here in
+ the format operation1 => description1, operation2 => description2, ..
 
 <serviceName>				*CWsdlGenerator::serviceName*
  (string) the name of the generated WSDL. If not set, it defaults to
@@ -96,7 +171,12 @@ PROPERTY DETAILS
  ()
 
 <types> 				*CWsdlGenerator::types*
- ()
+ (array) List of complex types used by operations. If an SOAP operation
+ defines complex input or output type, all objects are included here
+ containing all sub-parameters. For instance, if an SOAP operation
+ "createUser" requires complex input object "User", then the object "User"
+ will be included here with declared subparameters such as "firstname",
+ "lastname", etc..
 
 
 
@@ -200,6 +280,29 @@ METHOD DETAILS
     [encoding] (string) encoding of the WSDL. Defaults to 'UTF-8'.
 
 
+*CWsdlGenerator::buildHtmlDocs* 				 public
+>
+ buildHtmlDocs($return=false)
+<
+(void)
+
+ Generate human friendly HTML documentation for complex data types. This
+ method can be invoked either by inserting URL parameter "&makedoc" into URL
+ link, e.g. "http://www.mydomain.com/soap/create?makedoc", or simply by
+ calling from another script with argument $return=true.
+
+ Each complex data type is described in a separate HTML table containing
+ following columns: <ul> <li># - attribute ID</li> <li>Attribute - attribute
+ name, e.g. firstname</li> <li>Type - attribute type, e.g. integer, date,
+ tns:SoapPovCalculationResultArray</li> <li>Nill - true|false - whether the
+ attribute is nillable</li> <li>Min - minimum number of occurrences</li>
+ <li>Max - maximum number of occurrences</li> <li>Description - Detailed
+ description of the attribute.</li> <li>Example - Attribute example value if
+ provided via PHPDoc property @example.</li> <ul>
+    [return] (bool) If true, generated HTML output will be returned rather
+    than directly sent to output buffer
+
+
 *CWsdlGenerator::canGetProperty*				 public
  See |CComponent::canGetProperty|
 
@@ -279,6 +382,16 @@ METHOD DETAILS
  See |CComponent::getEventHandlers|
 
 
+*CWsdlGenerator::getWsdlElementAttributes*			 protected
+>
+ getWsdlElementAttributes($comment)
+<
+(void)
+
+ Parse attributes nillable, minOccurs, maxOccurs
+    [comment] (string) Extracted PHPDoc comment
+
+
 *CWsdlGenerator::hasEvent*					 public
  See |CComponent::hasEvent|
 
@@ -289,6 +402,18 @@ METHOD DETAILS
 
 *CWsdlGenerator::hasProperty*					 public
  See |CComponent::hasProperty|
+
+
+*CWsdlGenerator::injectDom*					 protected
+>
+ injectDom($dom, $target, $source)
+<
+(void)
+
+ Import custom XML source node into WSDL document under specified target node
+    [dom] (DOMDocument) XML WSDL document being generated
+    [target] (DOMElement) XML node, to which will be appended $source node
+    [source] (DOMNode) Source XML node to be imported
 
 
 *CWsdlGenerator::processMethod* 				 protected

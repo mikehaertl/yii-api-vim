@@ -1,0 +1,291 @@
+
+*CLocalizedFormatter*   >> |CFormatter| >> |CApplicationComponent| >> |CComponent|
+=====================
+
+ CLocalizedFormatter provides a set of commonly used data formatting methods
+ based on the current locale settings.
+
+ It provides the same functionality as |CFormatter|, but overrides all the
+ settings for |CLocalizedFormatter::booleanFormat|,
+ |CLocalizedFormatter::datetimeFormat| and |CLocalizedFormatter::numberFormat|
+ with the values for the current locale. Because of this you are not able to
+ configure these properties for CLocalizedFormatter directly. Date and time
+ format can be adjsuted by setting |CLocalizedFormatter::dateFormat| and
+ |CLocalizedFormatter::timeFormat|.
+
+ It uses |CApplication::locale| by default but you can set a custom locale by
+ using |CLocalizedFormatter::setLocale|-method.
+
+ For a list of recognizable format types, and details on how to call the
+ formatter methods, see |CFormatter| documentation.
+
+ To replace the application component 'format', which is registered by
+ |CApplication| by default, you can put this in your application 'components'
+ config: ' 'format' => array(     'class' => 'CLocalizedFormatter', ), '
+
+
+PROPERTY DETAILS
+------------------------------------------------------------------------------
+
+<behaviors>				*CLocalizedFormatter::behaviors*
+ See |CApplicationComponent::behaviors|
+
+<booleanFormat> 			*CLocalizedFormatter::booleanFormat*
+ See |CFormatter::booleanFormat|
+
+<dateFormat>				*CLocalizedFormatter::dateFormat*
+ (string) the width of the date pattern. It can be 'full', 'long', 'medium'
+ and 'short'. Defaults to 'medium'.
+
+<datetimeFormat>			*CLocalizedFormatter::datetimeFormat*
+ See |CFormatter::datetimeFormat|
+
+<htmlPurifier>				*CLocalizedFormatter::htmlPurifier*
+ See |CFormatter::htmlPurifier|
+
+<htmlPurifierOptions>			*CLocalizedFormatter::htmlPurifierOptions*
+ See |CFormatter::htmlPurifierOptions|
+
+<isInitialized> 			*CLocalizedFormatter::isInitialized*
+ See |CApplicationComponent::isInitialized|
+
+<locale>				*CLocalizedFormatter::locale*
+ (CLocale) $locale the locale currently used for formatting values
+
+<numberFormat>				*CLocalizedFormatter::numberFormat*
+ See |CFormatter::numberFormat|
+
+<sizeFormat>				*CLocalizedFormatter::sizeFormat*
+ See |CFormatter::sizeFormat|
+
+<timeFormat>				*CLocalizedFormatter::timeFormat*
+ (string) the width of the time pattern. It can be 'full', 'long', 'medium'
+ and 'short'. Defaults to 'medium'.
+
+
+
+METHOD DETAILS
+------------------------------------------------------------------------------
+
+*CLocalizedFormatter::__call*					 public
+ See |CFormatter::__call|
+
+
+*CLocalizedFormatter::__get*					 public
+ See |CComponent::__get|
+
+
+*CLocalizedFormatter::__isset*					 public
+ See |CComponent::__isset|
+
+
+*CLocalizedFormatter::__set*					 public
+ See |CComponent::__set|
+
+
+*CLocalizedFormatter::__unset*					 public
+ See |CComponent::__unset|
+
+
+*CLocalizedFormatter::asa*					 public
+ See |CComponent::asa|
+
+
+*CLocalizedFormatter::attachBehavior*				 public
+ See |CComponent::attachBehavior|
+
+
+*CLocalizedFormatter::attachBehaviors*				 public
+ See |CComponent::attachBehaviors|
+
+
+*CLocalizedFormatter::attachEventHandler*			 public
+ See |CComponent::attachEventHandler|
+
+
+*CLocalizedFormatter::canGetProperty*				 public
+ See |CComponent::canGetProperty|
+
+
+*CLocalizedFormatter::canSetProperty*				 public
+ See |CComponent::canSetProperty|
+
+
+*CLocalizedFormatter::detachBehavior*				 public
+ See |CComponent::detachBehavior|
+
+
+*CLocalizedFormatter::detachBehaviors*				 public
+ See |CComponent::detachBehaviors|
+
+
+*CLocalizedFormatter::detachEventHandler*			 public
+ See |CComponent::detachEventHandler|
+
+
+*CLocalizedFormatter::disableBehavior*				 public
+ See |CComponent::disableBehavior|
+
+
+*CLocalizedFormatter::disableBehaviors* 			 public
+ See |CComponent::disableBehaviors|
+
+
+*CLocalizedFormatter::enableBehavior*				 public
+ See |CComponent::enableBehavior|
+
+
+*CLocalizedFormatter::enableBehaviors*				 public
+ See |CComponent::enableBehaviors|
+
+
+*CLocalizedFormatter::evaluateExpression*			 public
+ See |CComponent::evaluateExpression|
+
+
+*CLocalizedFormatter::format*					 public
+ See |CFormatter::format|
+
+
+*CLocalizedFormatter::formatBoolean*				 public
+>
+ formatBoolean($value)
+<
+(string) the formatted result
+
+ Formats the value as a boolean.
+    [value] (mixed) the value to be formatted
+
+
+*CLocalizedFormatter::formatDate*				 public
+>
+ formatDate($value)
+<
+(string) the formatted result
+
+ Formats the value as a date using the |CLocalizedFormatter::locale|s date
+ formatter.
+    [value] (mixed) the value to be formatted
+
+
+*CLocalizedFormatter::formatDatetime*				 public
+>
+ formatDatetime($value)
+<
+(string) the formatted result
+
+ Formats the value as a date and time using the |CLocalizedFormatter::locale|s
+ date formatter.
+    [value] (mixed) the value to be formatted
+
+
+*CLocalizedFormatter::formatEmail*				 public
+ See |CFormatter::formatEmail|
+
+
+*CLocalizedFormatter::formatHtml*				 public
+ See |CFormatter::formatHtml|
+
+
+*CLocalizedFormatter::formatImage*				 public
+ See |CFormatter::formatImage|
+
+
+*CLocalizedFormatter::formatNtext*				 public
+ See |CFormatter::formatNtext|
+
+
+*CLocalizedFormatter::formatNumber*				 public
+>
+ formatNumber($value)
+<
+(string) the formatted result
+
+ Formats the value as a number using the |CLocalizedFormatter::locale|s number
+ formatter.
+    [value] (mixed) the value to be formatted
+
+
+*CLocalizedFormatter::formatRaw*				 public
+ See |CFormatter::formatRaw|
+
+
+*CLocalizedFormatter::formatSize*				 public
+ See |CFormatter::formatSize|
+
+
+*CLocalizedFormatter::formatText*				 public
+ See |CFormatter::formatText|
+
+
+*CLocalizedFormatter::formatTime*				 public
+>
+ formatTime($value)
+<
+(string) the formatted result
+
+ Formats the value as a time using the |CLocalizedFormatter::locale|s date
+ formatter.
+    [value] (mixed) the value to be formatted
+
+
+*CLocalizedFormatter::formatUrl*				 public
+ See |CFormatter::formatUrl|
+
+
+*CLocalizedFormatter::getEventHandlers* 			 public
+ See |CComponent::getEventHandlers|
+
+
+*CLocalizedFormatter::getHtmlPurifier*				 public
+ See |CFormatter::getHtmlPurifier|
+
+
+*CLocalizedFormatter::getIsInitialized* 			 public
+ See |CApplicationComponent::getIsInitialized|
+
+
+*CLocalizedFormatter::getLocale*				 public
+>
+ getLocale()
+<
+(CLocale) $locale the locale currently used for formatting values
+
+
+
+*CLocalizedFormatter::hasEvent* 				 public
+ See |CComponent::hasEvent|
+
+
+*CLocalizedFormatter::hasEventHandler*				 public
+ See |CComponent::hasEventHandler|
+
+
+*CLocalizedFormatter::hasProperty*				 public
+ See |CComponent::hasProperty|
+
+
+*CLocalizedFormatter::init*					 public
+ See |CApplicationComponent::init|
+
+
+*CLocalizedFormatter::normalizeDateValue*			 protected
+ See |CFormatter::normalizeDateValue|
+
+
+*CLocalizedFormatter::raiseEvent*				 public
+ See |CComponent::raiseEvent|
+
+
+*CLocalizedFormatter::setLocale*				 public
+>
+ setLocale($locale)
+<
+(void)
+
+ Set the locale to use for formatting values.
+    [locale] (CLocale|string) an instance of CLocale or a locale ID
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:

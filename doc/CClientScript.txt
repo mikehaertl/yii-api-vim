@@ -454,7 +454,7 @@ available since version 1.1.5).
 
 *CClientScript::registerScript* 				 public
 >
- registerScript($id, $script, $position=)
+ registerScript($id, $script, $position=, $htmlOptions=array())
 <
 (CClientScript) the CClientScript object itself (to support method chaining,
 available since version 1.1.5).
@@ -474,11 +474,14 @@ available since version 1.1.5).
       window.onload() function.
       {CClientScript}:POS_READY : the script is inserted in the jQuery's
       ready function.
+    [htmlOptions] (array) additional HTML attributes Note: HTML attributes are
+    not allowed for script positions "CClientScript::POS_LOAD" and
+    "CClientScript::POS_READY".
 
 
 *CClientScript::registerScriptFile*				 public
 >
- registerScriptFile($url, $position=)
+ registerScriptFile($url, $position=, $htmlOptions=array())
 <
 (CClientScript) the CClientScript object itself (to support method chaining,
 available since version 1.1.5).
@@ -493,6 +496,7 @@ available since version 1.1.5).
       beginning of the body section.
       {CClientScript}:POS_END : the script is inserted at the end of the
       body section.
+    [htmlOptions] (array) additional HTML attributes
 
 
 *CClientScript::remapScripts*					 protected
@@ -555,6 +559,17 @@ available since version 1.1.5).
 
  Inserts the scripts in the head section.
     [output] (string) the output to be inserted with scripts.
+
+
+*CClientScript::renderScriptBatch*				 protected
+>
+ renderScriptBatch($scripts)
+<
+(string) HTML output
+
+ Composes script HTML block from the given script values, attempting to group
+ scripts at single 'script' tag if possible.
+    [scripts] (array) script values to process.
 
 
 *CClientScript::reset*						 public

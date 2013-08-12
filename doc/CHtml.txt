@@ -103,7 +103,7 @@ METHOD DETAILS
     [data] (array) value-label pairs used to generate the check box list.
     Note, the values will be automatically HTML-encoded, while the labels will
     not.
-    [htmlOptions] (array) addtional HTML options. The options will be applied
+    [htmlOptions] (array) additional HTML options. The options will be applied
     to each checkbox input. The following special options are recognized:
       {template} string, specifies how each checkbox is rendered.
       Defaults to "{input} {label}", where "{input}" will be replaced by
@@ -179,7 +179,7 @@ METHOD DETAILS
       pairs. For example,
 >
         array(
-            'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+            'value1'=>array('disabled'=>true,'label'=>'value 1'),
             'value2'=>array('label'=>'value 2'),
         );
 <
@@ -338,7 +338,7 @@ METHOD DETAILS
       pairs. For example,
 >
         array(
-            'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+            'value1'=>array('disabled'=>true,'label'=>'value 1'),
             'value2'=>array('label'=>'value 2'),
         );
 <
@@ -422,7 +422,7 @@ METHOD DETAILS
     [data] (array) value-label pairs used to generate the radio button list.
     Note, the values will be automatically HTML-encoded, while the labels will
     not.
-    [htmlOptions] (array) addtional HTML options. The options will be applied
+    [htmlOptions] (array) additional HTML options. The options will be applied
     to each radio button input. The following special options are recognized:
       {template} string, specifies how each radio button is rendered.
       Defaults to "{input} {label}", where "{input}" will be replaced by
@@ -456,6 +456,38 @@ METHOD DETAILS
     |CHtml::clientChange| and |CHtml::tag| for more details.)
 
 
+*CHtml::activeSearchField*					 public
+>
+ activeSearchField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a search field input for a model attribute. If the attribute has
+ input error, the input field's CSS class will be appended with
+ |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::activeTelField* 					 public
+>
+ activeTelField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a telephone field input for a model attribute. If the attribute has
+ input error, the input field's CSS class will be appended with
+ |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
 *CHtml::activeTextArea* 					 public
 >
  activeTextArea($model, $attribute, $htmlOptions=array())
@@ -478,6 +510,22 @@ METHOD DETAILS
 (string) the generated input field
 
  Generates a text field input for a model attribute. If the attribute has
+ input error, the input field's CSS class will be appended with
+ |CHtml::errorCss|.
+    [model] (CModel) the data model
+    [attribute] (string) the attribute
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::activeTimeField*					 public
+>
+ activeTimeField($model, $attribute, $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a time field input for a model attribute. If the attribute has
  input error, the input field's CSS class will be appended with
  |CHtml::errorCss|.
     [model] (CModel) the data model
@@ -519,9 +567,9 @@ METHOD DETAILS
 (string) the generated JavaScript
 
  Generates the JavaScript that initiates an AJAX request.
-    [options] (array) AJAX options. The valid options are specified in the
-    jQuery ajax documentation. The following special options are added for
-    convenience:
+    [options] (array) AJAX options. The valid options are used in the form of
+    jQuery.ajax([settings]) as specified in the jQuery AJAX documentation. The
+    following special options are added for convenience:
       {update} string, specifies the selector whose HTML content should
       be replaced   by the AJAX request result.
       {replace} string, specifies the selector whose target should be
@@ -662,12 +710,15 @@ METHOD DETAILS
     [data] (array) value-label pairs used to generate the check box list.
     Note, the values will be automatically HTML-encoded, while the labels will
     not.
-    [htmlOptions] (array) addtional HTML options. The options will be applied
+    [htmlOptions] (array) additional HTML options. The options will be applied
     to each checkbox input. The following special options are recognized:
       {template} string, specifies how each checkbox is rendered.
       Defaults to "{input} {label}", where "{input}" will be replaced by
       the generated check box input tag while "{label}" be replaced by
-      the corresponding check box label.
+      the corresponding check box label, {beginLabel} will be replaced
+      by &lt;label&gt; with labelOptions, {labelTitle} will be replaced
+      by the corresponding check box label title and {endLabel} will be
+      replaced by &lt;/label&gt;
       {separator} string, specifies the string that separates the
       generated check boxes.
       {checkAll} string, specifies the label for the "check all"
@@ -758,6 +809,20 @@ METHOD DETAILS
     [media] (string) the media that this CSS should apply to.
 
 
+*CHtml::dateField*						 public
+>
+ dateField($name, $value='', $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a date field input.
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
 *CHtml::decode* 						 public
 >
  decode($text)
@@ -803,7 +868,7 @@ METHOD DETAILS
       pairs. For example,
 >
         array(
-            'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+            'value1'=>array('disabled'=>true,'label'=>'value 1'),
             'value2'=>array('label'=>'value 2'),
         );
 <
@@ -813,6 +878,20 @@ METHOD DETAILS
     option is selected in multiple mode, we can still obtain the posted
     unselect value. If 'unselectValue' is not set or set to NULL, the hidden
     field will not be rendered.
+
+
+*CHtml::emailField*						 public
+>
+ emailField($name, $value='', $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates an email field input.
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
 
 
 *CHtml::encode* 						 public
@@ -1092,7 +1171,7 @@ METHOD DETAILS
       pairs. For example,
 >
         array(
-            'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+            'value1'=>array('disabled'=>true,'label'=>'value 1'),
             'value2'=>array('label'=>'value 2'),
         );
 <
@@ -1158,7 +1237,7 @@ METHOD DETAILS
       pairs. For example,
 >
         array(
-            'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+            'value1'=>array('disabled'=>true,'label'=>'value 1'),
             'value2'=>array('label'=>'value 2'),
         );
 <
@@ -1203,6 +1282,16 @@ METHOD DETAILS
     'lang')
 
 
+*CHtml::modelName*						 public
+>
+ modelName($model)
+<
+(string) the generated HTML name value
+
+ Generates HTML name for given model.
+    [model] (CModel|string) the data model or the model class name
+
+
 *CHtml::normalizeUrl*						 public
 >
  normalizeUrl($url)
@@ -1224,6 +1313,20 @@ METHOD DETAILS
  parameters for the URL. For example, 'array('post/list', 'page'=>3)' may be
  used to generate the URL '/index.php?r=post/list&page=3'.
     [url] (mixed) the parameter to be used to generate a valid URL
+
+
+*CHtml::numberField*						 public
+>
+ numberField($name, $value='', $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a number field input.
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
 
 
 *CHtml::openTag*						 public
@@ -1299,12 +1402,15 @@ METHOD DETAILS
     [data] (array) value-label pairs used to generate the radio button list.
     Note, the values will be automatically HTML-encoded, while the labels will
     not.
-    [htmlOptions] (array) addtional HTML options. The options will be applied
+    [htmlOptions] (array) additional HTML options. The options will be applied
     to each radio button input. The following special options are recognized:
       {template} string, specifies how each radio button is rendered.
       Defaults to "{input} {label}", where "{input}" will be replaced by
       the generated radio button input tag while "{label}" will be
-      replaced by the corresponding radio button label.
+      replaced by the corresponding radio button label, {beginLabel}
+      will be replaced by &lt;label&gt; with labelOptions, {labelTitle}
+      will be replaced by the corresponding radio button label title and
+      {endLabel} will be replaced by &lt;/label&gt;
       {separator} string, specifies the string that separates the
       generated radio buttons. Defaults to new line (
       ).
@@ -1316,6 +1422,25 @@ METHOD DETAILS
       {baseID} string, specifies the base ID prefix to be used for radio
       buttons in the list. This option is available since version
       1.1.13.
+      {empty} string, specifies the text corresponding to empty
+      selection. Its value is empty. The 'empty' option can also be an
+      array of value-label pairs. Each pair will be used to render a
+      radio button at the beginning. Note, the text label will NOT be
+      HTML-encoded. This option is available since version 1.1.14.
+
+
+*CHtml::rangeField*						 public
+>
+ rangeField($name, $value='', $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a range field input.
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
 
 
 *CHtml::refresh*						 public
@@ -1402,22 +1527,37 @@ METHOD DETAILS
 
 *CHtml::script* 						 public
 >
- script($text)
+ script($text, $htmlOptions=array())
 <
 (string) the enclosed JavaScript
 
  Encloses the given JavaScript within a script tag.
     [text] (string) the JavaScript to be enclosed
+    [htmlOptions] (array) additional HTML attributes (see |CHtml::tag|)
 
 
 *CHtml::scriptFile*						 public
 >
- scriptFile($url)
+ scriptFile($url, $htmlOptions=array())
 <
 (string) the JavaScript file tag
 
  Includes a JavaScript file.
     [url] (string) URL for the JavaScript file
+    [htmlOptions] (array) additional HTML attributes (see |CHtml::tag|)
+
+
+*CHtml::setModelNameConverter*					 public
+>
+ setModelNameConverter($converter)
+<
+(void)
+
+ Set generator used in the |CHtml::modelName| method. You can use the `null`
+ value to restore default generator.
+    [converter] (callback|null) the new generator, the model or class name
+    will be passed to the this callback and result must be a valid value for
+    HTML name attribute.
 
 
 *CHtml::statefulForm*						 public
@@ -1468,6 +1608,20 @@ METHOD DETAILS
     [closeTag] (boolean) whether to generate the close tag.
 
 
+*CHtml::telField*						 public
+>
+ telField($name, $value='', $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a telephone field input.
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
 *CHtml::textArea*						 public
 >
  textArea($name, $value='', $htmlOptions=array())
@@ -1489,6 +1643,34 @@ METHOD DETAILS
 (string) the generated input field
 
  Generates a text field input.
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::timeField*						 public
+>
+ timeField($name, $value='', $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a time field input.
+    [name] (string) the input name
+    [value] (string) the input value
+    [htmlOptions] (array) additional HTML attributes. Besides normal HTML
+    attributes, a few special attributes are also recognized (see
+    |CHtml::clientChange| and |CHtml::tag| for more details.)
+
+
+*CHtml::urlField*						 public
+>
+ urlField($name, $value='', $htmlOptions=array())
+<
+(string) the generated input field
+
+ Generates a URL field input.
     [name] (string) the input name
     [value] (string) the input value
     [htmlOptions] (array) additional HTML attributes. Besides normal HTML
